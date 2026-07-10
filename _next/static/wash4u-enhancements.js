@@ -69,14 +69,14 @@
     custom.className = 'w4u-404';
     custom.innerHTML =
       '<div class="w4u-404-card">' +
-      '<img src="/images/mascot-wash4you.png" alt="" width="110" height="110" style="margin:0 auto 12px;display:block;" />' +
+      '<img src="/Wash4u/images/mascot-wash4you.png" alt="" width="110" height="110" style="margin:0 auto 12px;display:block;" />' +
       '<div class="w4u-404-code">404</div>' +
       '<div class="w4u-404-tag">Claim not found</div>' +
       '<h1>This page didn’t survive the wash.</h1>' +
       '<p>The link is broken or the page has moved. Head back home, or find the service you were looking for.</p>' +
       '<div class="w4u-404-actions">' +
-      '<a class="w4u-404-primary" href="/">Go to Homepage</a>' +
-      '<a class="w4u-404-secondary" href="/services/">Browse Services</a>' +
+      '<a class="w4u-404-primary" href="/Wash4u/">Go to Homepage</a>' +
+      '<a class="w4u-404-secondary" href="/Wash4u/services/">Browse Services</a>' +
       '</div>' +
       '</div>';
     main.insertAdjacentElement('afterend', custom);
