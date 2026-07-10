@@ -7,6 +7,45 @@
 (function () {
   'use strict';
 
+  // Next's hydrated router also does its own background work under the
+  // hood — link prefetching and RSC-payload fetches — using the same
+  // root-deployment assumption baked into the JS bundle, independent of
+  // the click-time fix below. Those requests 404 (wrong path) but don't
+  // break the current page, since it already has what it needs from its
+  // own initial load. Patch fetch/XHR to correct the path anyway, so the
+  // browser console isn't full of red noise and any future dependence
+  // on these background requests degrades gracefully instead of 404ing.
+  function fixPath(url) {
+    try {
+      const u = new URL(url, window.location.href);
+      if (u.origin !== window.location.origin) return url;
+      if (u.pathname.startsWith('/Wash4u/')) return url;
+      u.pathname = '/Wash4u' + u.pathname;
+      return u.href;
+    } catch (e) {
+      return url;
+    }
+  }
+
+  function initSubpathFetchFix() {
+    const origFetch = window.fetch;
+    window.fetch = function (input, init) {
+      if (typeof input === 'string') {
+        return origFetch.call(this, fixPath(input), init);
+      }
+      if (input instanceof Request) {
+        return origFetch.call(this, new Request(fixPath(input.url), input), init);
+      }
+      return origFetch.call(this, input, init);
+    };
+
+    const origOpen = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (method, url, ...rest) {
+      return origOpen.call(this, method, fixPath(url), ...rest);
+    };
+  }
+  initSubpathFetchFix();
+
   function onReady(fn) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', fn);
