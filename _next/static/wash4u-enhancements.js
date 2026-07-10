@@ -69,14 +69,14 @@
     custom.className = 'w4u-404';
     custom.innerHTML =
       '<div class="w4u-404-card">' +
-      '<img src="/images/mascot-wash4you.png" alt="" width="110" height="110" style="margin:0 auto 12px;display:block;" />' +
+      '<img src="/Wash4u/images/mascot-wash4you.png" alt="" width="110" height="110" style="margin:0 auto 12px;display:block;" />' +
       '<div class="w4u-404-code">404</div>' +
       '<div class="w4u-404-tag">Claim not found</div>' +
       '<h1>This page didn’t survive the wash.</h1>' +
       '<p>The link is broken or the page has moved. Head back home, or find the service you were looking for.</p>' +
       '<div class="w4u-404-actions">' +
-      '<a class="w4u-404-primary" href="/">Go to Homepage</a>' +
-      '<a class="w4u-404-secondary" href="/services/">Browse Services</a>' +
+      '<a class="w4u-404-primary" href="/Wash4u/">Go to Homepage</a>' +
+      '<a class="w4u-404-secondary" href="/Wash4u/services/">Browse Services</a>' +
       '</div>' +
       '</div>';
     main.insertAdjacentElement('afterend', custom);
@@ -149,6 +149,49 @@
       }
     });
   }
+
+  // This static export is served under a GitHub Pages project subpath
+  // (/Wash4u/), but the compiled Next.js app was built assuming it would
+  // live at a domain root: its hydrated client router intercepts every
+  // <a> click and navigates using that assumption, stripping /Wash4u/
+  // off every link regardless of what the href attribute actually says.
+  // There's no basePath fix available without the original build source.
+  // Instead, catch the click in the capture phase — which always runs
+  // before React's bubble-phase delegated listener — and force a real
+  // browser navigation using the correct href, bypassing the router
+  // entirely. Only touches same-origin, plain-click, non-hash links.
+  function initSubpathNavFix() {
+    document.addEventListener(
+      'click',
+      function (e) {
+        if (e.defaultPrevented || e.button !== 0) return;
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+        const link = e.target.closest('a[href]');
+        if (!link) return;
+        if (link.target && link.target !== '_self') return;
+
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+        if (/^[a-z]+:/i.test(href)) return; // mailto:, tel:, https:, etc.
+
+        let url;
+        try {
+          url = new URL(href, window.location.href);
+        } catch (err) {
+          return;
+        }
+        if (url.origin !== window.location.origin) return;
+        if (url.pathname === window.location.pathname && url.hash) return; // same-page anchor
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        window.location.href = url.href;
+      },
+      { capture: true }
+    );
+  }
+  initSubpathNavFix();
 
   onReady(function () {
     initHeaderScroll();
