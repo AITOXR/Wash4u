@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <a href="{{ root_path }}locate-us/">Locate Us</a>
+      <span class="breadcrumb__sep">/</span>
+      <span aria-current="page">{{ area.name }}</span>
+    </nav>
+    <h1 class="page-hero__title">{{ area.title }}</h1>
+    <p class="page-hero__subtitle">{{ area.description }}</p>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container location-detail">
+    <div class="reveal">
+      <span class="section-header__eyebrow">Service Highlights</span>
+      <h2 class="section-header__title">Laundry care in {{ area.name }}</h2>
+      <ul class="why-list mt-4">
+        {% for highlight in area.highlights %}
+        <li class="why-list__item">
+          <span class="why-list__icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          {{ highlight }}
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="mt-5">
+        <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Schedule Pickup</a>
+      </div>
+    </div>
+    <div class="location-detail__map reveal reveal-delay-2">
+      <iframe src="https://www.google.com/maps?q={{ area.name | urlencode }}+Gurugram+Haryana+India&output=embed" loading="lazy" title="Map of {{ area.name }}, Gurugram"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-banner reveal text-center">
+      <h2 class="cta-banner__title">Book your pickup in {{ area.name }}</h2>
+      <p class="cta-banner__subtitle">Free doorstep pickup and delivery across {{ area.name }}.</p>
+      <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book Now</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

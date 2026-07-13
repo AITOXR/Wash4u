@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "title": "Wash4You Pricing – Laundry & Dry-Clean Rates in Delhi",
+    "description": "Discover transparent and affordable laundry and dry-cleaning rates at Wash4You. Quality wash care with free pickup and doorstep delivery across Delhi NCR.",
+    "canonical": "https://wash4you.in/pricing/",
+    "og_title": "Wash4You Pricing – Laundry & Dry-Clean Rates in Delhi",
+    "og_description": "Discover transparent and affordable laundry and dry-cleaning rates at Wash4You. Quality wash care with free pickup and doorstep delivery across Delhi NCR."
+  },
+  "hero": {
+    "headline": "Simple, transparent pricing.",
+    "subheadline": "Premium care at affordable rates. GST extra on all prices shown."
+  },
+  "note": "* GST Extra — all prices shown are exclusive of GST.",
+  "categories": [
+    {
+      "title": "Clothing Items",
+      "items": [
+        { "name": "Pant/Trouser", "price": "₹99" },
+        { "name": "Jeans", "price": "₹99" },
+        { "name": "Shirt", "price": "₹99" },
+        { "name": "T-Shirt", "price": "₹99" },
+        { "name": "Coat", "price": "₹249" },
+        { "name": "Men Suit 2 Pcs", "price": "₹349" },
+        { "name": "Men Suit 3 Pcs", "price": "₹429" },
+        { "name": "Sherwani", "price": "₹449" },
+        { "name": "Kurta", "price": "₹119" },
+        { "name": "Kurta Fancy", "price": "₹249" },
+        { "name": "Kurta Heavy", "price": "₹299" },
+        { "name": "Salwar", "price": "₹109" },
+        { "name": "Saree (Starting from)", "price": "₹199" },
+        { "name": "Lehenga (Starting from)", "price": "₹399" },
+        { "name": "Dress (Starting from)", "price": "₹199" },
+        { "name": "Shawl (Starting from)", "price": "₹199" },
+        { "name": "Sweater", "price": "₹149" },
+        { "name": "Jacket", "price": "₹249" },
+        { "name": "Leather Jacket", "price": "₹599" }
+      ]
+    },
+    {
+      "title": "Home Textiles",
+      "items": [
+        { "name": "Carpet (Per Sq Feet)", "price": "₹39" },
+        { "name": "Curtain (Per Panel)", "price": "₹149" },
+        { "name": "Single Blanket (1 Ply)", "price": "₹299" },
+        { "name": "Double Blanket (1 Ply)", "price": "₹399" },
+        { "name": "Single Bed Sheet", "price": "₹119" },
+        { "name": "Double Bed Sheet", "price": "₹199" }
+      ]
+    },
+    {
+      "title": "Footwear Cleaning",
+      "items": [
+        { "name": "Sports Shoes", "price": "₹299" },
+        { "name": "Sneakers", "price": "₹349" },
+        { "name": "Leather Shoes", "price": "₹499" },
+        { "name": "Suede Leather Shoes", "price": "₹549" }
+      ]
+    },
+    {
+      "title": "Laundry Services",
+      "items": [
+        { "name": "Wash and Fold", "price": "₹79" },
+        { "name": "Wash and Steam Iron", "price": "₹109" },
+        { "name": "Premium Laundry", "price": "₹149" }
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Need It Washed? We'll Handle the Rest.",
+    "subtitle": "Drop it off or let us pick it up. Either way, it's done.",
+    "button": "Schedule My Pickup"
+  }
+}

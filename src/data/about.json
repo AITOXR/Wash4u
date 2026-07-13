@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "About Wash4You – Trusted Laundry & Dry-Clean Experts",
+    "description": "Learn about Wash4You, your trusted laundry and dry-clean partner in Delhi NCR. We offer reliable, eco-friendly services with free pickup and delivery.",
+    "canonical": "https://wash4you.in/about-us/",
+    "og_title": "About Wash4You – Trusted Laundry & Dry-Clean Experts",
+    "og_description": "Learn about Wash4You, your trusted laundry and dry-clean partner in Delhi NCR. We offer reliable, eco-friendly services with free pickup and delivery."
+  },
+  "hero": {
+    "headline": "About Wash4You",
+    "subheadline": "Your trusted laundry and dry-clean partner in Delhi NCR."
+  },
+  "story": {
+    "title": "Our Story",
+    "content": "What began by serving a few clients has grown through word-of-mouth, consistent service, and a clear promise: your laundry is our responsibility, so you can reclaim your time and energy. We've invested in better technology at every process — washing, dry-cleaning, ironing, and scheduling — more sustainable practices, experts with more than 25 years of experience in European market best practices, and a continuously growing team committed to excellence. Wash4You is a unit of Vaaruni Ventures LLP.",
+    "image": "/src/assets/images/about-story.jpg"
+  },
+  "mission": {
+    "title": "Mission",
+    "content": "We aim to elevate daily life with efficient, eco-friendly, and high-quality laundry services. Through innovation, people-first approaches, and seamless experiences, we make laundry not just easier, but a joyfully seamless part of life."
+  },
+  "vision": {
+    "title": "Vision",
+    "content": "To become the most dependable, convenient laundry partner in every community we serve, delivering sustainable solutions while raising the standard of garment care everywhere."
+  },
+  "promise": {
+    "title": "Our Promise",
+    "items": [
+      { "title": "On-time delivery & pick-ups", "description": "We respect your schedule." },
+      { "title": "Eco-friendly practices", "description": "Better cleaning agents and methods, water conservation." },
+      { "title": "Top-quality cleaning", "description": "We treat your clothes as if they were our own." },
+      { "title": "Consistent reliability", "description": "Rain or shine, busy or slow, we maintain the same level of service." }
+    ]
+  },
+  "why_choose": {
+    "title": "Why Choose Us",
+    "items": [
+      "Reliable & Punctual",
+      "Eco-Conscious & Sustainable",
+      "Experienced Cleaning Experts",
+      "Technology-Enabled Convenience",
+      "Satisfaction Guarantee"
+    ]
+  }
+}

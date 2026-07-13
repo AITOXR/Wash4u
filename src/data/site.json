@@ -1,0 +1,69 @@
+{
+  "brand": {
+    "name": "Wash4You",
+    "tagline": "Premium Laundry & Dry-Clean Service in Delhi NCR",
+    "description": "Experience premium laundry & dry-clean service by Vanzoo using advanced Italian hydrocarbon technology—gentle on fabrics, and powerful on tough everyday stains.",
+    "legal_name": "M/S VAARUNI VENTURES LLP",
+    "copyright": "Copyright © 2025 Wash4You. All Rights Reserved."
+  },
+  "urls": {
+    "base": "https://wash4you.in",
+    "booking": "https://app.wash4you.in/website/W10795?brand=WASH4U",
+    "schedule": "https://app.wash4you.in/website/W10571",
+    "whatsapp": "https://wa.me/6367600500",
+    "phone": "tel:+916367600500",
+    "email": "mailto:care@wash4you.in"
+  },
+  "contact": {
+    "phone": "+91 63 67 600 500",
+    "phone_raw": "+916367600500",
+    "email": "care@wash4you.in",
+    "area": "Gurugram | NCR",
+    "address": "Gurugram, Haryana, India"
+  },
+  "locations": [
+    {
+      "name": "Wash4you Vyapar Kendra",
+      "address": "Shop No. 180 GF Shushant Vyapar Kendra, Gurugram, Haryana 122022",
+      "map_url": "https://maps.google.com/?q=Shop+No.+180+GF+Shushant+Vyapar+Kendra+Gurugram+Haryana+122022"
+    },
+    {
+      "name": "Wash4you Arcadia",
+      "address": "AG-75 Ground Floor Block-A Unitech Arcadia Sector 49 Gurugram Haryana 122018",
+      "map_url": "https://maps.google.com/?q=AG-75+Ground+Floor+Block-A+Unitech+Arcadia+Sector+49+Gurugram+Haryana+122018"
+    }
+  ],
+  "social": {
+    "facebook": "https://www.facebook.com/profile.php?id=61581209511675#",
+    "instagram": "https://www.instagram.com/wash4you._?igsh=b3Jvb2w1c2tmcWly",
+    "linkedin": "https://www.linkedin.com/company/wash4you-eco-friendly-laundry-and-dryclean/",
+    "youtube": "https://www.youtube.com/channel/UCji5ILTjdrl-DOXf8loAX8Q"
+  },
+  "nav": {
+    "main": [
+      { "label": "Services", "url": "services/" },
+      { "label": "Pricing", "url": "pricing/" },
+      { "label": "About Us", "url": "about-us/" },
+      { "label": "Contact", "url": "contact-us/" },
+      { "label": "Blog", "url": "blog/" }
+    ],
+    "cta": { "label": "Book Now", "url": "https://app.wash4you.in/website/W10795?brand=WASH4U" }
+  },
+  "footer": {
+    "explore": [
+      { "label": "Home", "url": "/" },
+      { "label": "Services", "url": "services/" },
+      { "label": "Pricing", "url": "pricing/" },
+      { "label": "About Us", "url": "about-us/" },
+      { "label": "Contact Us", "url": "contact-us/" },
+      { "label": "Locate Us", "url": "locate-us/" }
+    ],
+    "support": [
+      { "label": "Terms and Conditions", "url": "terms-and-conditions/" },
+      { "label": "Curtain Cleaning Policy", "url": "curtain-cleaning-policy/" },
+      { "label": "Free Pickup and Delivery Policy", "url": "free-pickup-delivery-policy/" },
+      { "label": "Privacy and Security Policy", "url": "privacy-and-security-policy/" },
+      { "label": "Refund and Delivery Policy", "url": "refund-and-delivery-policy/" }
+    ]
+  }
+}

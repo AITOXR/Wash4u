@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import "_icons.html" as icons %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-hero__title">{{ services.hero.headline }}</h1>
+    <p class="page-hero__subtitle">{{ services.hero.subheadline }}</p>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div class="service-grid stagger-children">
+      {% for service in services.services %}
+      <article class="service-card">
+        <div class="service-card__icon">
+          {{ icons.service_icon(service.slug, 30) }}
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">{{ service.name }}</h3>
+          <p class="service-card__text">{{ service.short_description }}</p>
+          <a href="{{ root_path }}services/{{ service.slug }}/" class="service-card__link">
+            Learn more
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-banner reveal text-center">
+      <h2 class="cta-banner__title">Ready to get started?</h2>
+      <p class="cta-banner__subtitle">Book your free pickup today and experience premium laundry care.</p>
+      <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Schedule My Pickup</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

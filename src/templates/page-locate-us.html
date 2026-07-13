@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-hero__title">{{ locations.hero.headline }}</h1>
+    <p class="page-hero__subtitle">{{ locations.hero.subheadline }}</p>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-header__eyebrow">Our Locations</span>
+      <h2 class="section-header__title">Visit us in Gurugram</h2>
+    </div>
+    <div class="locations-grid stagger-children">
+      {% for location in locations.locations %}
+      <div class="location-card">
+        <h3 class="location-card__title">{{ location.name }}</h3>
+        <p class="location-card__address">{{ location.address }}</p>
+        <a href="{{ location.map_url }}" class="btn btn-secondary btn-sm" target="_blank" rel="noopener">View on Map</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-header__eyebrow">Service Areas</span>
+      <h2 class="section-header__title">Laundry & dry cleaning across Gurugram</h2>
+    </div>
+    <div class="service-areas-grid stagger-children">
+      {% for area in locations.service_areas %}
+      <article class="service-area-card">
+        <h3 class="service-area-card__title">{{ area.name }}</h3>
+        <p class="service-area-card__text">{{ area.description }}</p>
+        <a href="{{ root_path }}{{ area.slug }}/" class="service-area-card__link">Learn more →</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

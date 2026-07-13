@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "Steam Ironing Starting at Only ₹39 - Wash4You",
+    "description": "Planet-safe cleaning using biodegradable, non-toxic solvents, ideal for delicate skin and sustainable living.",
+    "canonical": "https://wash4you.in/steam-iron/",
+    "og_title": "Steam Ironing Starting at Only ₹39 - Wash4You",
+    "og_description": "Planet-safe cleaning using biodegradable, non-toxic solvents, ideal for delicate skin and sustainable living."
+  },
+  "hero": {
+    "headline": "Steam Ironing Starting at Only ₹39/-",
+    "subheadline": "Get Flat 25% OFF on first Order. Expert fabric handling, delicate detail protection, and best garment care.",
+    "badge": "Starting at ₹39/-",
+    "cta": "Request an Enquiry"
+  },
+  "benefits": [
+    "Expert Fabric Handling",
+    "Delicate Detail Protection",
+    "Best Garment Care"
+  ],
+  "note": "* GST Extra — all prices shown are exclusive of GST.",
+  "items": [
+    { "name": "Pant/Trouser", "price": "₹39" },
+    { "name": "Jeans", "price": "₹39" },
+    { "name": "Shirt", "price": "₹39" },
+    { "name": "T-Shirt", "price": "₹29" },
+    { "name": "Coat", "price": "₹79" },
+    { "name": "Sherwani", "price": "Starting from ₹149" },
+    { "name": "Kurta", "price": "Starting from ₹39" },
+    { "name": "Salwar", "price": "Starting From ₹29" },
+    { "name": "Shawl", "price": "Starting from ₹39" },
+    { "name": "Sweater Full Sleeves Plain", "price": "₹39" },
+    { "name": "Leather Jacket", "price": "₹149" },
+    { "name": "Dress", "price": "(Starting from) ₹49" },
+    { "name": "Saree", "price": "(Starting from) ₹39" },
+    { "name": "Lehenga", "price": "(Starting from) ₹99" },
+    { "name": "Jacket Full Sleeves", "price": "₹79" },
+    { "name": "Single Bed Sheet", "price": "₹29" },
+    { "name": "Carpet", "price": "₹39" },
+    { "name": "Curtain", "price": "(Starting from) ₹39" },
+    { "name": "Double Bed Sheet", "price": "₹49" }
+  ],
+  "cta": {
+    "title": "Curious About the Cost?",
+    "subtitle": "View Our Laundry Pricing Instantly.",
+    "buttons": [
+      { "label": "Dryclean Pricing", "url": "/pricing/" },
+      { "label": "Steam Iron Pricing", "url": "/steam-iron/" }
+    ]
+  }
+}

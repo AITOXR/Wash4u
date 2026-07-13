@@ -1,0 +1,59 @@
+/* Animations and scroll effects */
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+
+/* Stagger children */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.stagger-children.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-children.is-visible > *:nth-child(2) { transition-delay: 100ms; }
+.stagger-children.is-visible > *:nth-child(3) { transition-delay: 200ms; }
+.stagger-children.is-visible > *:nth-child(4) { transition-delay: 300ms; }
+.stagger-children.is-visible > *:nth-child(5) { transition-delay: 400ms; }
+.stagger-children.is-visible > *:nth-child(6) { transition-delay: 500ms; }
+.stagger-children.is-visible > *:nth-child(7) { transition-delay: 600ms; }
+.stagger-children.is-visible > *:nth-child(8) { transition-delay: 700ms; }
+.stagger-children.is-visible > *:nth-child(9) { transition-delay: 800ms; }
+.stagger-children.is-visible > *:nth-child(10) { transition-delay: 900ms; }
+.stagger-children.is-visible > *:nth-child(11) { transition-delay: 1000ms; }
+.stagger-children.is-visible > *:nth-child(12) { transition-delay: 1100ms; }
+
+.stagger-children.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .stagger-children > * {
+    opacity: 1;
+    transform: none;
+  }
+}

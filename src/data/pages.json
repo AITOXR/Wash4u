@@ -1,0 +1,48 @@
+{
+  "contact": {
+    "meta": {
+      "title": "Contact Wash4You – Laundry & Dry-Clean Service in Delhi NCR",
+      "description": "Get in touch with Wash4You for laundry, dry cleaning, and ironing services in Delhi NCR. Call, WhatsApp, or fill out our enquiry form.",
+      "canonical": "https://wash4you.in/contact-us/",
+      "og_title": "Contact Wash4You – Laundry & Dry-Clean Service in Delhi NCR",
+      "og_description": "Get in touch with Wash4You for laundry, dry cleaning, and ironing services in Delhi NCR. Call, WhatsApp, or fill out our enquiry form."
+    },
+    "hero": {
+      "headline": "Get in touch.",
+      "subheadline": "Have a question or need a pickup? We're here to help."
+    },
+    "form": {
+      "title": "Send us a message",
+      "action": "mailto:care@wash4you.in?subject=Website Enquiry",
+      "method": "GET",
+      "fields": [
+        { "name": "name", "label": "Full Name", "type": "text", "required": true },
+        { "name": "email", "label": "Email Address", "type": "email", "required": true },
+        { "name": "phone", "label": "Phone Number", "type": "tel", "required": true },
+        { "name": "city", "label": "City", "type": "text", "required": false },
+        { "name": "service", "label": "Service Type", "type": "select", "required": false, "options": ["Eco-Friendly Laundry", "Steam Ironing", "Premium Dry Cleaning", "Shoe Cleaning", "Bag Cleaning", "Leather Cleaning", "Carpet Cleaning", "Accessories Cleaning", "Toy Cleaning", "Curtains Cleaning", "Blanket/Quilt Cleaning", "Linen Cleaning"] },
+        { "name": "message", "label": "Message/Details", "type": "textarea", "required": false }
+      ],
+      "submit": "Submit Enquiry"
+    },
+    "info": {
+      "title": "Contact Information",
+      "items": [
+        { "label": "Phone", "value": "+91 63 67 600 500", "url": "tel:+916367600500" },
+        { "label": "Email", "value": "care@wash4you.in", "url": "mailto:care@wash4you.in" },
+        { "label": "Service Area", "value": "Gurugram | NCR" },
+        { "label": "WhatsApp", "value": "Chat on WhatsApp", "url": "https://wa.me/6367600500" }
+      ]
+    }
+  },
+  "not_found": {
+    "meta": {
+      "title": "Page Not Found - Wash4You",
+      "description": "Sorry, the page you are looking for does not exist. Explore Wash4You's laundry and dry-cleaning services."
+    },
+    "title": "Oops! Page not found.",
+    "subtitle": "The page you're looking for doesn't exist or has been moved.",
+    "cta": "Go to Homepage",
+    "secondary_cta": "View Services"
+  }
+}

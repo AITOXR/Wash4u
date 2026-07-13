@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-hero__title">{{ pricing.hero.headline }}</h1>
+    <p class="page-hero__subtitle">{{ pricing.hero.subheadline }}</p>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <p class="pricing-note">{{ pricing.note }}</p>
+    <div class="pricing-grid stagger-children">
+      {% for category in pricing.categories %}
+      <div class="pricing-card">
+        <div class="pricing-card__header">
+          <h3 class="pricing-card__title">{{ category.title }}</h3>
+        </div>
+        <ul class="pricing-card__list">
+          {% for item in category['items'] %}
+          <li class="pricing-card__item">
+            <span>{{ item.name }}</span>
+            <span class="pricing-card__price">{{ item.price }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="pricing-cta reveal">
+      <h2 class="pricing-cta__title">{{ pricing.cta.title }}</h2>
+      <p class="pricing-cta__subtitle">{{ pricing.cta.subtitle }}</p>
+      <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">{{ pricing.cta.button }}</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

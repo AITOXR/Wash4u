@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="service-detail__hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <span aria-current="page">Steam Iron</span>
+    </nav>
+    <span class="steam-hero__badge">{{ steam.hero.badge }}</span>
+    <h1 class="service-detail__title">{{ steam.hero.headline }}</h1>
+    <p class="service-detail__lead">{{ steam.hero.subheadline }}</p>
+    <div class="steam-benefits">
+      {% for benefit in steam.benefits %}
+      <span class="steam-benefit">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        {{ benefit }}
+      </span>
+      {% endfor %}
+    </div>
+    <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">{{ steam.hero.cta }}</a>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-header__eyebrow">Pricing</span>
+      <h2 class="section-header__title">Steam Iron Rates</h2>
+      <p class="pricing-note">{{ steam.note }}</p>
+    </div>
+    <div class="pricing-grid stagger-children">
+      <div class="pricing-card">
+        <div class="pricing-card__header">
+          <h3 class="pricing-card__title">Steam Iron Items</h3>
+        </div>
+        <ul class="pricing-card__list">
+          {% for item in steam['items'] %}
+          <li class="pricing-card__item">
+            <span>{{ item.name }}</span>
+            <span class="pricing-card__price">{{ item.price }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="pricing-cta reveal">
+      <h2 class="pricing-cta__title">{{ steam.cta.title }}</h2>
+      <p class="pricing-cta__subtitle">{{ steam.cta.subtitle }}</p>
+      {% for button in steam.cta.buttons %}
+      <a href="{{ root_path }}{{ button.url }}" class="btn {% if loop.first %}btn-primary{% else %}btn-secondary{% endif %} btn-lg {% if not loop.last %}mr-2{% endif %}">{{ button.label }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "title": "Wash4You – Laundry & Dry-Clean Service in Delhi NCR",
+    "description": "Experience premium laundry & dry-clean service by Vanzoo using advanced Italian hydrocarbon technology—gentle on fabrics, and powerful on tough everyday stains.",
+    "canonical": "https://wash4you.in/",
+    "og_title": "Wash4You – Laundry & Dry-Clean Service in Delhi NCR",
+    "og_description": "Experience premium laundry & dry-clean service by Vanzoo using advanced Italian hydrocarbon technology—gentle on fabrics, and powerful on tough everyday stains."
+  },
+  "hero": {
+    "headline": "We'll take the laundry. You take the time.",
+    "subheadline": "Premium laundry, dry cleaning & ironing in Gurugram & Delhi NCR. Free pickup and delivery.",
+    "cta_primary": "Schedule a Pickup",
+    "cta_secondary": "View Pricing",
+    "image": "/src/assets/images/hero-banner.jpg",
+    "rating": "4.8",
+    "reviews": "2,000+"
+  },
+  "usps": [
+    {
+      "title": "Fast 24-Hour Turnaround",
+      "description": "Get your clothes back clean, crisp, and ready to wear within a day."
+    },
+    {
+      "title": "Earth-Safe Cleansers",
+      "description": "Biodegradable, non-toxic formulas that are gentle on skin and the planet."
+    },
+    {
+      "title": "Free Pickup & Delivery",
+      "description": "Doorstep service across Gurugram and Delhi NCR at no extra charge."
+    },
+    {
+      "title": "100% Satisfaction",
+      "description": "Expert care with quality checks at every step, backed by our guarantee."
+    }
+  ],
+  "service_tabs": [
+    {
+      "id": "laundry",
+      "eyebrow": "Laundry & Wash-Fold",
+      "title": "Laundry, washed and folded.",
+      "intro": "Everyday laundry cleaned with earth-safe cleansers, folded to perfection, and delivered back in 24 hours.",
+      "image": "about-story.jpg",
+      "image_alt": "Freshly washed and folded knitwear",
+      "cta": "Schedule a Laundry pickup",
+      "link": "services/eco-friendly-laundry/",
+      "steps": [
+        {
+          "label": "Schedule",
+          "title": "Book a pickup",
+          "text": "Choose a time that suits you on WhatsApp or our booking app. Our team arrives at your doorstep — pickup is always free."
+        },
+        {
+          "label": "Clean",
+          "title": "We clean with care",
+          "text": "Your clothes are digitally tagged, sorted by fabric and colour, washed with biodegradable formulas, and neatly folded."
+        },
+        {
+          "label": "Deliver",
+          "title": "Delivered in 24 hours",
+          "text": "Fresh laundry returned to your door the very next day, ready to wear or put away."
+        }
+      ]
+    },
+    {
+      "id": "dryclean",
+      "eyebrow": "Dry Cleaning",
+      "title": "Expert care for fine garments.",
+      "intro": "Suits, sarees, lehengas and delicates cleaned with Italian hydrocarbon technology — gentle on fabric, tough on stains.",
+      "image": "eco-hp.jpg",
+      "image_alt": "Vanzoo hydrocarbon dry cleaning system",
+      "cta": "Schedule a Dry Cleaning pickup",
+      "link": "services/premium-dry-cleaning/",
+      "steps": [
+        {
+          "label": "Schedule",
+          "title": "Book a pickup",
+          "text": "Schedule online or on WhatsApp and hand over your garments at the door."
+        },
+        {
+          "label": "Clean",
+          "title": "Inspected & treated",
+          "text": "Every piece is inspected, stains pre-treated, cleaned at low temperature, then pressed and finished by hand."
+        },
+        {
+          "label": "Deliver",
+          "title": "Back in your wardrobe",
+          "text": "Returned crisp on hangers, with quality checks at every step and our satisfaction guarantee."
+        }
+      ]
+    }
+  ],
+  "how_it_works": {
+    "title": "How It Works",
+    "subtitle": "From pickup to delivery in 7 simple steps.",
+    "steps": [
+      {
+        "stage": "Stage 1",
+        "title": "Pickup Scheduling",
+        "description": "Using your mobile app or website, book a pickup at a time and location that suits you best."
+      },
+      {
+        "stage": "Stage 2",
+        "title": "Garment Collection",
+        "description": "Our logistics team arrives promptly to collect your garments, securely packaged and digitally tagged."
+      },
+      {
+        "stage": "Stage 3",
+        "title": "Inspection & Sorting",
+        "description": "Every item is inspected for fabric type, care labels, and stains, then sorted for specialized care."
+      },
+      {
+        "stage": "Stage 4",
+        "title": "Stain Pre-Treatment",
+        "description": "Visible stains are pre-treated with precision techniques that respect your clothing's fibers."
+      },
+      {
+        "stage": "Stage 5",
+        "title": "Sustainable Cleaning",
+        "description": "Garments are cleaned using skin-safe, biodegradable formulas and techniques optimized for each fabric."
+      },
+      {
+        "stage": "Stage 6",
+        "title": "Finishing & Detailing",
+        "description": "Carefully dried, pressed, or folded with attention to loose threads and buttons."
+      },
+      {
+        "stage": "Stage 7",
+        "title": "Final Check & Delivery",
+        "description": "After a final quality inspection, your clothes are returned spotless, crisp, and ready to go."
+      }
+    ]
+  },
+  "services_featured": {
+    "title": "What We Offer",
+    "subtitle": "A complete range of garment and home care services.",
+    "cta": "Explore All Services"
+  },
+  "mission": {
+    "title": "Our Mission & Vision",
+    "mission": "To deliver unmatched laundry & dry clean convenience and superior quality, reducing time, effort, and environmental impact for our customers, by combining green practices with seamless service execution.",
+    "vision": "To be the go-to laundry & dry clean partner you trust, expanding across communities, known for hassle-free, eco-driven clean that redefines what clean service means.",
+    "image": "/src/assets/images/eco-hero.jpg"
+  },
+  "cta_banner": {
+    "title": "Ready to Enjoy Fresh Laundry Without the Hassle?",
+    "subtitle": "Schedule your free pickup today and get back your time.",
+    "cta": "Schedule My Pickup"
+  },
+  "faqs": [
+    {
+      "question": "What services does Wash4you provide?",
+      "answer": "Wash4you offers premium dry cleaning, laundry, ironing, carpet, curtain, shoe, bag, leather, and toy care with free pickup and delivery."
+    },
+    {
+      "question": "What cleaning technology does Wash4you use?",
+      "answer": "We use European hydrocarbon dry cleaning technology that is eco-friendly, fabric-safe, and ensures gentle yet effective cleaning."
+    },
+    {
+      "question": "Is hydrocarbon dry cleaning gentle on clothes?",
+      "answer": "Yes, it is a low-temperature, solvent-based method that preserves the texture, shape, and color of delicate garments."
+    },
+    {
+      "question": "How is Wash4you different from others?",
+      "answer": "We provide eco-friendly cleaning, expert fabric care, and convenient pickup and delivery for a seamless garment care experience."
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "Wash4You has completely changed how I manage laundry. The pickup is always on time and clothes come back perfectly folded.",
+      "author": "Priya S.",
+      "location": "Gurugram"
+    },
+    {
+      "quote": "Their dry cleaning is excellent. My suits and sarees have never looked better, and the free delivery is a huge plus.",
+      "author": "Rahul M.",
+      "location": "Delhi NCR"
+    },
+    {
+      "quote": "Eco-friendly cleaning that actually works. I feel good using Wash4You for my family's clothes.",
+      "author": "Anita K.",
+      "location": "Sector 29, Gurugram"
+    }
+  ],
+  "guarantee": {
+    "title": "The Wash4You Guarantee.",
+    "text": "If you're not happy with the quality of our service, we'll make it right. Your satisfaction is our priority."
+  }
+}

@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  /* Wash4You brand — Rinse-derived, client-approved */
+  --color-teal: #1d6076;
+  --color-turquoise: #00a3ad;
+  --color-orange: #e47e1a;
+  --color-orange-dark: #cf7012;
+  --color-ink: #1e1f21;
+  --color-ink2: #453536;
+  --color-ink3: #7d746c;
+  --color-cloud: #f7f8fa;
+  --color-mist: #eef6f7;
+  --color-hairline: #e5e5e5;
+  --color-gold: #f2b33d;
+
+  --font-display: "Bebas Neue", "Arial Narrow", sans-serif;
+  --font-sans: "Figtree", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink2);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-mist);
+  color: var(--color-ink);
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

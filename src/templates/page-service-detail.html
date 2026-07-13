@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% import "_icons.html" as icons %}
+
+{% block content %}
+<section class="service-detail__hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <a href="{{ root_path }}services/">Services</a>
+      <span class="breadcrumb__sep">/</span>
+      <span aria-current="page">{{ service.name }}</span>
+    </nav>
+    <h1 class="service-detail__title">{{ service.name }}</h1>
+    <p class="service-detail__lead">{{ service.description }}</p>
+    <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg mt-3" target="_blank" rel="noopener">Book This Service</a>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container service-detail__body">
+    <div class="reveal">
+      <span class="section-header__eyebrow">What's Included</span>
+      <h2 class="section-header__title">Why choose {{ service.name }}?</h2>
+      <div class="service-detail__features mt-4">
+        {% for feature in service.features %}
+        <div class="service-detail__feature">
+          <div class="service-detail__feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h4 class="text-h4">{{ feature }}</h4>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="service-detail__media reveal reveal-delay-2">
+      {{ icons.service_icon(service.slug, 120) }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-banner reveal text-center">
+      <h2 class="cta-banner__title">Schedule your free pickup</h2>
+      <p class="cta-banner__subtitle">Experience the Wash4You difference with convenient doorstep service.</p>
+      <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book Now</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

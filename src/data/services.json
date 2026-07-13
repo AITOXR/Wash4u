@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "title": "Our Services – Wash4You",
+    "description": "Explore Wash4You's premium laundry, dry cleaning, and home care services in Delhi NCR. Free pickup and delivery.",
+    "canonical": "https://wash4you.in/services/",
+    "og_title": "Our Services – Wash4You",
+    "og_description": "Explore Wash4You's premium laundry, dry cleaning, and home care services in Delhi NCR. Free pickup and delivery."
+  },
+  "hero": {
+    "headline": "Services designed for your life.",
+    "subheadline": "From everyday laundry to specialty care, we handle it all with free pickup and delivery."
+  },
+  "services": [
+    {
+      "slug": "eco-friendly-laundry",
+      "name": "Eco-Friendly Laundry",
+      "short_description": "Planet-safe cleaning using biodegradable, non-toxic solvents, ideal for delicate skin and sustainable living.",
+      "description": "Our eco-friendly laundry service uses biodegradable, non-toxic solvents that are gentle on fabrics and safe for sensitive skin. Every load is sorted by color and fabric type, then washed with optimized techniques to deliver fresh, clean clothes while minimizing environmental impact.",
+      "icon": "droplet",
+      "image": "/src/assets/images/mascot-wash4you.png",
+      "features": [
+        "Biodegradable detergents",
+        "Gentle on sensitive skin",
+        "Color and fabric sorting",
+        "Eco-friendly washing processes"
+      ]
+    },
+    {
+      "slug": "steam-ironing",
+      "name": "Steam Ironing",
+      "short_description": "Sharp, crease-free results using steam press technology for a crisp, polished finish on every item.",
+      "description": "Get professionally pressed clothes with our steam ironing service. Using advanced steam press technology, we remove wrinkles and give every garment a crisp, polished finish — perfect for office wear, ethnic wear, and everyday essentials.",
+      "icon": "shirt",
+      "image": "/src/assets/images/mascot-wash4you.png",
+      "features": [
+        "Steam press technology",
+        "Crease-free finish",
+        "Safe for all fabric types",
+        "Quick turnaround"
+      ]
+    },
+    {
+      "slug": "premium-dry-cleaning",
+      "name": "Premium Dry Cleaning",
+      "short_description": "Precision cleaning for suits, dresses, silks, and delicates, handled by experts using gentle, garment-safe methods.",
+      "description": "Our premium dry cleaning service uses Italian hydrocarbon technology to clean delicate garments safely. From suits and dresses to silk sarees and lehengas, every piece is inspected, pre-treated, and finished with expert care.",
+      "icon": "sparkles",
+      "image": "/src/assets/images/mascot-wash4you.png",
+      "features": [
+        "Italian hydrocarbon technology",
+        "Delicate fabric expertise",
+        "Stain inspection & pre-treatment",
+        "Pressed and finished to perfection"
+      ]
+    },
+    {
+      "slug": "shoe-cleaning",
+      "name": "Shoe Cleaning",
+      "short_description": "From sneakers to suede, we deep-clean, deodorize, and restore your footwear to like-new condition.",
+      "description": "Give your footwear a fresh start with our professional shoe cleaning service. We clean sports shoes, sneakers, leather shoes, and suede, removing dirt, stains, and odors while preserving material quality.",
+      "icon": "footprints",
+      "image": "/src/assets/images/mascot-wash4you.png",
+      "features": [
+        "Sneaker and sports shoe cleaning",
+        "Leather and suede care",
+        "Deodorizing treatment",
+        "Stain removal and restoration"
+      ]
+    },
+    {
+      "slug": "bag-cleaning",
+      "name": "Bag Cleaning",
+      "short_description": "Handbags, totes, and backpacks deep-cleaned, reshaped, and stain-treated with material-safe products.",
+      "description": "Our bag cleaning service restores handbags, totes, backpacks, and more. We use material-safe products to deep-clean, remove stains, and reshape your bags so they look their best.",
+      "icon": "bag",
+      "image": "/src/assets/images/mascot-wash4you.png",
+      "features": [
+        "Handbag and backpack cleaning",
+        "Material-safe treatments",
+        "Stain removal",
+        "Reshaping and finishing"
+      ]
+    },
+    {
+      "slug": "leather-cleaning",
+      "name": "Leather Cleaning",
+      "short_description": "Specialized leather care using pH-balanced solutions that clean and condition without drying or cracking.",
+      "description": "Protect your leather investments with our specialized leather cleaning service. We use pH-balanced solutions that clean, condition, and preserve leather jackets, bags, and accessories without drying or cracking.",
+      "icon": "jacket",
+      "image": "/src/assets/images/mascot-wash4you.png",
+      "features": [
+        "pH-balanced leather solutions",
+        "Cleaning and conditioning",
+        "Prevents drying and cracking",
+        "Ideal for jackets and accessories"
+      ]
+    },
+    {
+      "slug": "carpet-cleaning",
+      "name": "Carpet Cleaning",
+      "short_description": "Advanced extraction techniques to clean, refresh, and revive your carpets, residential or commercial.",
+      "description": "Refresh your home or office with our carpet cleaning service. Using advanced extraction techniques, we remove dirt, dust, stains, and odors to revive carpets and extend their life.",
+      "icon": "square",
+      "image": "/src/assets/images/mascot-wash4you.png",
+      "features": [
+        "Deep extraction cleaning",
+        "Stain and odor removal",
+        "Residential and commercial",
+        "Fast drying process"
+      ]
+    },
+    {
+      "slug": "accessories-cleaning",
+      "name": "Accessories Cleaning",
+      "short_description": "Neckties, scarves, hats — gently cleaned and reshaped to keep form and color intact.",
+      "description": "Keep your accessories looking sharp with our gentle cleaning service for neckties, scarves, hats, and more. Each item is carefully cleaned and reshaped to maintain its form and color.",
+      "icon": "scarf",
+      "image": "/src/assets/images/mascot-wash4you.png",
+      "features": [
+        "Ties, scarves, and hats",
+        "Gentle fabric care",
+        "Color preservation",
+        "Reshaping and finishing"
+      ]
+    },
+    {
+      "slug": "toy-cleaning",
+      "name": "Toy Cleaning",
+      "short_description": "Hygienic, safe cleaning for plush and fabric-based toys, perfect for families with kids.",
+      "description": "Our toy cleaning service ensures your child's favorite plush and fabric toys are hygienically cleaned using safe, non-toxic methods — perfect for keeping playtime healthy and worry-free.",
+      "icon": "heart",
+      "image": "/src/assets/images/mascot-wash4you.png",
+      "features": [
+        "Safe for children",
+        "Non-toxic cleaning",
+        "Plush and fabric toys",
+        "Hygienic results"
+      ]
+    },
+    {
+      "slug": "curtains-cleaning",
+      "name": "Curtains Cleaning",
+      "short_description": "Professional curtain care that removes dust, stains, and odors, without compromising fabric quality or color.",
+      "description": "Our curtain cleaning service includes free removal and reinstallation. We remove dust, stains, and odors while protecting fabric quality and color, leaving your curtains fresh and beautiful.",
+      "icon": "curtains",
+      "image": "/src/assets/images/mascot-wash4you.png",
+      "features": [
+        "Free removal and reinstallation",
+        "Dust, stain, and odor removal",
+        "Fabric-safe cleaning",
+        "Color protection"
+      ]
+    },
+    {
+      "slug": "blanket-quilt-cleaning",
+      "name": "Blanket/Quilt Cleaning",
+      "short_description": "Deep cleaning for blankets and quilts to restore softness, freshness, and comfort.",
+      "description": "Refresh your blankets and quilts with our specialized cleaning service. We remove dust, allergens, and odors while preserving softness and fluffiness for a comfortable night's sleep.",
+      "icon": "bed",
+      "image": "/src/assets/images/mascot-wash4you.png",
+      "features": [
+        "Single and double blanket care",
+        "Quilt cleaning",
+        "Allergen and odor removal",
+        "Softness preservation"
+      ]
+    },
+    {
+      "slug": "linen-cleaning",
+      "name": "Linen Cleaning",
+      "short_description": "Expert linen care for bed sheets, table linens, and more — crisp, clean, and hotel-fresh.",
+      "description": "Our linen cleaning service keeps bed sheets, table linens, and household fabrics crisp, clean, and fresh. We use techniques that preserve fabric quality and deliver a hotel-like finish.",
+      "icon": "sheet",
+      "image": "/src/assets/images/mascot-wash4you.png",
+      "features": [
+        "Bed sheets and table linens",
+        "Hotel-fresh finish",
+        "Fabric quality preservation",
+        "Crisp pressing available"
+      ]
+    }
+  ]
+}

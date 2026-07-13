@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+{% import "_icons.html" as icons %}
+
+{% block content %}
+<section class="hero">
+  <div class="container hero__grid">
+    <div>
+      <h1 class="hero__title">
+        <span class="hero__title-line">We'll take the laundry.</span>
+        <span class="hero__title-line">You take the time.</span>
+      </h1>
+      <p class="hero__subtitle">{{ home.hero.subheadline }}</p>
+      <div class="hero__actions">
+        <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">{{ home.hero.cta_primary }}</a>
+        <a href="{{ root_path }}pricing/" class="btn btn-secondary btn-lg">{{ home.hero.cta_secondary }}</a>
+      </div>
+      <div class="hero__rating">
+        <div class="rating-widget">
+          <span class="rating-widget__stars" aria-hidden="true">
+            {% for i in range(5) %}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            {% endfor %}
+          </span>
+          <span class="rating-widget__text">{{ home.hero.rating }} rating · {{ home.hero.reviews }} happy customers · Free pickup & delivery</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__media">
+      <img src="{{ root_path }}images/hero-banner.jpg" alt="Freshly cleaned and folded laundry from Wash4You" width="2560" height="1083" fetchpriority="high">
+      <div class="hero__badge">
+        <span class="hero__badge-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+        </span>
+        <span>
+          <span class="hero__badge-title">Eco-friendly cleaning</span><br>
+          <span class="hero__badge-sub">Italian hydrocarbon technology</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-row" aria-label="Neighbourhoods we serve">
+  <div class="container">
+    <span class="trust-row__label">Serving Gurugram's top neighbourhoods</span>
+    <div class="trust-row__items">
+      <a href="{{ root_path }}laundry-service-cyber-city/">Cyber City</a>
+      <a href="{{ root_path }}laundry-service-dlf-phase-3/">DLF Phase 3</a>
+      <a href="{{ root_path }}laundry-service-golf-course-road/">Golf Course Road</a>
+      <a href="{{ root_path }}laundry-service-sushant-lok/">Sushant Lok</a>
+      <a href="{{ root_path }}laundry-service-palam-vihar/">Palam Vihar</a>
+      <a href="{{ root_path }}laundry-service-sohna-road/">Sohna Road</a>
+    </div>
+  </div>
+</section>
+
+{% for tab_section in home.service_tabs %}
+<section class="section {% if loop.index is even %}section-light{% endif %}">
+  <div class="container svc-split {% if loop.index is even %}svc-split--flip{% endif %}">
+    <div class="reveal">
+      <span class="section-header__eyebrow">{{ tab_section.eyebrow }}</span>
+      <h2 class="svc-split__title">{{ tab_section.title }}</h2>
+      <p class="svc-split__intro">{{ tab_section.intro }}</p>
+      <div class="svc-tabs" role="tablist" aria-label="{{ tab_section.eyebrow }} process">
+        {% for step in tab_section.steps %}
+        <button class="svc-tabs__btn" role="tab" id="tab-{{ tab_section.id }}-{{ loop.index }}" aria-controls="panel-{{ tab_section.id }}-{{ loop.index }}" aria-selected="{% if loop.first %}true{% else %}false{% endif %}">
+          {{ loop.index }}. {{ step.label }}
+        </button>
+        {% endfor %}
+      </div>
+      {% for step in tab_section.steps %}
+      <div class="svc-panel {% if loop.first %}is-active{% endif %}" role="tabpanel" id="panel-{{ tab_section.id }}-{{ loop.index }}" aria-labelledby="tab-{{ tab_section.id }}-{{ loop.index }}">
+        <h3 class="svc-panel__title">{{ step.title }}</h3>
+        <p class="svc-panel__text">{{ step.text }}</p>
+      </div>
+      {% endfor %}
+      <a href="{{ site.urls.schedule }}" class="btn btn-primary" target="_blank" rel="noopener">{{ tab_section.cta }}</a>
+    </div>
+    <div class="svc-split__media reveal reveal-delay-2">
+      <img src="{{ root_path }}images/{{ tab_section.image }}" alt="{{ tab_section.image_alt }}" width="1600" height="1280" loading="lazy">
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<section class="section services-showcase">
+  <div class="container services-showcase__grid">
+    <div class="services-showcase__sticky reveal">
+      <span class="section-header__eyebrow">Services</span>
+      <h2 class="section-header__title">{{ home.services_featured.title }}</h2>
+      <p class="section-header__subtitle">{{ home.services_featured.subtitle }}</p>
+      <a href="{{ root_path }}services/" class="btn btn-primary mt-4">{{ home.services_featured.cta }}</a>
+    </div>
+    <div class="services-showcase__list stagger-children">
+      {% for service in services.services[:6] %}
+      <article class="service-showcase-card">
+        <div class="service-showcase-card__icon">
+          {{ icons.service_icon(service.slug, 26) }}
+        </div>
+        <div class="service-showcase-card__body">
+          <h3 class="service-showcase-card__title">{{ service.name }}</h3>
+          <p class="service-showcase-card__text">{{ service.short_description }}</p>
+          <a href="{{ root_path }}services/{{ service.slug }}/" class="service-card__link">
+            Learn more
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container how-it-works__grid">
+    <div class="how-it-works__sticky reveal">
+      <span class="section-header__eyebrow">Simple & seamless</span>
+      <h2 class="section-header__title">{{ home.how_it_works.title }}</h2>
+      <p class="section-header__subtitle">{{ home.how_it_works.subtitle }}</p>
+      <a href="{{ site.urls.schedule }}" class="btn btn-primary mt-4" target="_blank" rel="noopener">Schedule a pickup</a>
+    </div>
+    <div class="icon-list stagger-children">
+      {% for step in home.how_it_works.steps %}
+      <div class="icon-list__item">
+        <div class="icon-list__icon">
+          <span>{{ loop.index }}</span>
+        </div>
+        <div class="icon-list__content">
+          <h4>{{ step.title }}</h4>
+          <p>{{ step.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-header__eyebrow">Why Wash4You</span>
+      <h2 class="section-header__title">Why you'll love Wash4You</h2>
+    </div>
+    <div class="usp-grid stagger-children">
+      {% for usp in home.usps %}
+      <div class="usp-card">
+        <div class="usp-card__icon">
+          {% if loop.index == 1 %}
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          {% elif loop.index == 2 %}
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+          {% elif loop.index == 3 %}
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          {% else %}
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+          {% endif %}
+        </div>
+        <h3 class="usp-card__title">{{ usp.title }}</h3>
+        <p class="usp-card__text">{{ usp.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-header__eyebrow">Happy customers</span>
+      <h2 class="section-header__title">Hear from customers like you</h2>
+    </div>
+    <div class="testimonial-carousel stagger-children">
+      {% for testimonial in home.testimonials %}
+      <div class="testimonial-card">
+        <div class="rating-widget__stars" aria-hidden="true">
+          {% for i in range(5) %}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          {% endfor %}
+        </div>
+        <p class="testimonial-card__quote">“{{ testimonial.quote }}”</p>
+        <p class="testimonial-card__author">{{ testimonial.author }}</p>
+        <p class="testimonial-card__location">{{ testimonial.location }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section guarantee-band">
+  <div class="container reveal">
+    <div class="guarantee-band__stars" aria-hidden="true">
+      {% for i in range(5) %}
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      {% endfor %}
+    </div>
+    <h2 class="guarantee-band__title">{{ home.guarantee.title }}</h2>
+    <p class="guarantee-band__text">{{ home.guarantee.text }}</p>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-header__eyebrow">Questions</span>
+      <h2 class="section-header__title">Frequently asked questions</h2>
+    </div>
+    <div class="faq-list stagger-children">
+      {% for faq in home.faqs %}
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          {{ faq.question }}
+          <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p>{{ faq.answer }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2 class="cta-banner__title">{{ home.cta_banner.title }}</h2>
+      <p class="cta-banner__subtitle">{{ home.cta_banner.subtitle }}</p>
+      <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">{{ home.cta_banner.cta }}</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

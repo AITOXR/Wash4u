@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-hero__title">{{ about.hero.headline }}</h1>
+    <p class="page-hero__subtitle">{{ about.hero.subheadline }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container about-story__grid">
+    <div class="reveal">
+      <span class="section-header__eyebrow">Who We Are</span>
+      <h2 class="section-header__title">{{ about.story.title }}</h2>
+      <p class="text-body mt-4">{{ about.story.content }}</p>
+    </div>
+    <div class="split-section__image reveal reveal-delay-2">
+      <img src="{{ root_path }}images/about-story.jpg" alt="Wash4You dry clean service" width="740" height="588">
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container split-section split-section--top">
+    <div class="reveal">
+      <span class="section-header__eyebrow">Our purpose</span>
+      <h2 class="section-header__title">{{ about.mission.title }}</h2>
+      <p class="text-body mt-4">{{ about.mission.content }}</p>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <span class="section-header__eyebrow">Where we're headed</span>
+      <h2 class="section-header__title">{{ about.vision.title }}</h2>
+      <p class="text-body mt-4">{{ about.vision.content }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-header__eyebrow">Our Promise</span>
+      <h2 class="section-header__title">What you can always expect</h2>
+    </div>
+    <div class="promise-grid stagger-children">
+      {% for item in about.promise['items'] %}
+      <div class="promise-card">
+        <h3 class="promise-card__title">{{ item.title }}</h3>
+        <p class="promise-card__text">{{ item.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-pearl">
+  <div class="container split-section">
+    <div class="reveal">
+      <span class="section-header__eyebrow">Why Us</span>
+      <h2 class="section-header__title">{{ about.why_choose.title }}</h2>
+      <ul class="why-list mt-4">
+        {% for item in about.why_choose['items'] %}
+        <li class="why-list__item">
+          <span class="why-list__icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          {{ item }}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="split-section__image reveal reveal-delay-2">
+      <img src="{{ root_path }}images/about-main.jpg" alt="Wash4You team and service" width="2560" height="2560">
+    </div>
+  </div>
+</section>
+{% endblock %}

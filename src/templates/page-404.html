@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-404">
+  <div class="container">
+    <div class="reveal">
+      <p class="page-404__code">404</p>
+      <h1 class="page-404__title">{{ pages.not_found.title }}</h1>
+      <p class="page-404__subtitle">{{ pages.not_found.subtitle }}</p>
+      <div class="hero__actions" style="justify-content: center;">
+        <a href="{% if root_path %}{{ root_path }}{% else %}/{% endif %}" class="btn btn-primary btn-lg">{{ pages.not_found.cta }}</a>
+        <a href="{{ root_path }}services/" class="btn btn-secondary btn-lg">{{ pages.not_found.secondary_cta }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
