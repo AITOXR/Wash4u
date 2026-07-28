@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% from "_icons.html" import ui, care_tag, service_icon %}
+{% from "_components.html" import faq_list %}
+
+{# The service x locality long-tail page. Deliberately lean: its whole job is
+   to answer one specific query well and then hand the visitor to the two
+   fuller pages it sits between. Padding it out would only dilute it. #}
+
+{% block schema %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.urls.base }}/" },
+          { "@type": "ListItem", "position": 2, "name": {{ locality_name | tojson }}, "item": "{{ site.urls.base }}/{{ locality_url }}/" },
+          { "@type": "ListItem", "position": 3, "name": {{ service.name | tojson }} }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "{{ meta.canonical }}#service",
+        "name": {{ (service.name ~ ' in ' ~ locality_name ~ ', Gurugram') | tojson }},
+        "serviceType": {{ service.name | tojson }},
+        "description": {{ entry.meta_description | tojson }},
+        "url": "{{ meta.canonical }}",
+        "provider": { "@id": "{{ site.urls.base }}/#business" },
+        "areaServed": { "@type": "Place", "name": "{{ locality_name }}, Gurugram" }
+      }{% if entry.faqs %},
+      {
+        "@type": "FAQPage",
+        "@id": "{{ meta.canonical }}#faq",
+        "mainEntity": [
+          {% for f in entry.faqs %}{
+            "@type": "Question",
+            "name": {{ f.q | tojson }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | tojson }} }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ root_path }}{{ locality_url }}/">{{ locality_name }}</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ service.name }}</span>
+    </nav>
+
+    <div class="page-hero__grid">
+      <div>
+        {{ care_tag(service.slug) }}
+        <h1 style="margin-top:var(--s-4)">{{ entry.h1 }}</h1>
+        <p class="lede">{{ entry.lede }}</p>
+        <div class="btn-row">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+          <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp us</a>
+        </div>
+      </div>
+
+      <aside class="store-card reveal">
+        <span class="svc__icon">{{ service_icon(service.slug, 36) }}</span>
+        <strong>{{ service.name }} in {{ locality_name }}</strong>
+        <p>Free doorstep pickup and delivery. Every piece counted with you before it leaves.</p>
+        <a class="btn btn--cta btn--block" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+        <a class="btn btn--ghost btn--block" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <div class="prose reveal">{{ entry.body | markdown | safe }}</div>
+  </div>
+</section>
+
+{% if entry.faqs %}
+<section class="section section--wash">
+  <div class="wrap wrap--narrow">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow eyebrow--center">Questions</p>
+      <h2>{{ service.name }} in {{ locality_name }}</h2>
+    </div>
+    {{ faq_list(entry.faqs, 'mx-faq') }}
+  </div>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Read more</p>
+      <h2>The full picture</h2>
+    </div>
+    <div class="areas stagger-children">
+      <a class="area-link" href="{{ root_path }}services/{{ service.slug }}/">
+        How our {{ service.name | lower }} works {{ ui('arrow-right', 16) }}
+      </a>
+      <a class="area-link" href="{{ root_path }}{{ locality_url }}/">
+        Everything we collect from {{ locality_name }} {{ ui('arrow-right', 16) }}
+      </a>
+      <a class="area-link" href="{{ root_path }}pricing/">
+        Pricing {{ ui('arrow-right', 16) }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Book {{ service.name | lower }} in {{ locality_name }}.</h2>
+      <p>Free pickup and delivery at your door, at a time that suits you.</p>
+      <div class="btn-row">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+        <a class="btn btn--on-navy btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,43 +1,93 @@
 {% extends "base.html" %}
-{% import "_icons.html" as icons %}
+{% from "_icons.html" import ui, care_tag, service_icon %}
+
+{% block schema %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.urls.base }}/" },
+          { "@type": "ListItem", "position": 2, "name": "Services" }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "@id": "{{ meta.canonical }}#services",
+        "itemListElement": [
+          {% for s in services.services %}{
+            "@type": "ListItem",
+            "position": {{ loop.index }},
+            "name": {{ s.name | tojson }},
+            "url": "{{ site.urls.base }}/services/{{ s.slug }}/"
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }
+{% endblock %}
 
 {% block content %}
+
 <section class="page-hero">
-  <div class="container">
-    <h1 class="page-hero__title">{{ services.hero.headline }}</h1>
-    <p class="page-hero__subtitle">{{ services.hero.subheadline }}</p>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>Services</span>
+    </nav>
+    <div class="page-hero__grid">
+      <div>
+        <p class="eyebrow">What we clean</p>
+        <h1{{ cms('services:hero.headline') }}>{{ services.hero.headline or 'Everything we clean' }}</h1>
+        <p class="lede"{{ cms('services:hero.subheadline') }}>{{ services.hero.subheadline or 'Clothes, shoes, bags and the things at home that will not fit in a washing machine. Free doorstep pickup and delivery across Gurugram.' }}</p>
+        <div class="btn-row">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+          <a class="btn btn--ghost btn--lg" href="{{ root_path }}pricing/">See pricing</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section section-light">
-  <div class="container">
-    <div class="service-grid stagger-children">
-      {% for service in services.services %}
-      <article class="service-card">
-        <div class="service-card__icon">
-          {{ icons.service_icon(service.slug, 30) }}
-        </div>
-        <div class="service-card__body">
-          <h3 class="service-card__title">{{ service.name }}</h3>
-          <p class="service-card__text">{{ service.short_description }}</p>
-          <a href="{{ root_path }}services/{{ service.slug }}/" class="service-card__link">
-            Learn more
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
-        </div>
+<section class="section">
+  <div class="wrap">
+    <h2 class="visually-hidden">All services</h2>
+    <div class="svc-grid stagger-children">
+      {% for s in services.services %}
+      <article class="svc">
+        <span class="svc__icon">{{ service_icon(s.slug, 36) }}</span>
+        <h3><a class="svc__link" href="{{ root_path }}services/{{ s.slug }}/"{{ cms('services:services.' ~ loop.index0 ~ '.name') }}>{{ s.name }}</a></h3>
+        <p{{ cms('services:services.' ~ loop.index0 ~ '.short_description') }}>{{ s.short_description }}</p>
+        {{ care_tag(s.slug) }}
       </article>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="cta-banner reveal text-center">
-      <h2 class="cta-banner__title">Ready to get started?</h2>
-      <p class="cta-banner__subtitle">Book your free pickup today and experience premium laundry care.</p>
-      <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Schedule My Pickup</a>
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Where we collect</p>
+      <h2>Free pickup across Gurugram</h2>
+    </div>
+    <div class="areas stagger-children">
+      {% for a in site.footer.areas %}
+      <a class="area-link" href="{{ root_path }}{{ a.url }}">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
+      {% endfor %}
     </div>
   </div>
 </section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Not sure which one you need?</h2>
+      <p>Send us a photo on WhatsApp. We will tell you what the item needs, and what we can and cannot save, before you book.</p>
+      <div class="btn-row">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} Send a photo</a>
+        <a class="btn btn--on-navy btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

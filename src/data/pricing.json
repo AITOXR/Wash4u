@@ -1,67 +1,265 @@
 {
   "meta": {
-    "title": "Wash4You Pricing – Laundry & Dry-Clean Rates in Delhi",
-    "description": "Discover transparent and affordable laundry and dry-cleaning rates at Wash4You. Quality wash care with free pickup and doorstep delivery across Delhi NCR.",
+    "title": "Laundry & Dry-Clean Price List — Gurugram | Wash4You",
+    "description": "Transparent, item-wise laundry and dry-cleaning rates at Wash4You. Add items to your list and book a free pickup across Gurugram & Delhi NCR. GST extra.",
     "canonical": "https://wash4you.in/pricing/",
-    "og_title": "Wash4You Pricing – Laundry & Dry-Clean Rates in Delhi",
-    "og_description": "Discover transparent and affordable laundry and dry-cleaning rates at Wash4You. Quality wash care with free pickup and doorstep delivery across Delhi NCR."
+    "og_title": "Wash4You Price List — Laundry & Dry Cleaning in Gurugram",
+    "og_description": "Item-wise rates with free pickup and doorstep delivery across Gurugram & Delhi NCR."
   },
   "hero": {
     "headline": "Simple, transparent pricing.",
-    "subheadline": "Premium care at affordable rates. GST extra on all prices shown."
+    "subheadline": "Premium care at affordable rates. Add what you need to your list and book a free pickup. GST extra on all prices shown."
   },
-  "note": "* GST Extra — all prices shown are exclusive of GST.",
+  "note": "* GST Extra — all prices shown are exclusive of GST. Items marked ‘from’ depend on fabric, work and condition; send a photo on WhatsApp for an exact quote.",
   "categories": [
     {
       "title": "Clothing Items",
       "items": [
-        { "name": "Pant/Trouser", "price": "₹99" },
-        { "name": "Jeans", "price": "₹99" },
-        { "name": "Shirt", "price": "₹99" },
-        { "name": "T-Shirt", "price": "₹99" },
-        { "name": "Coat", "price": "₹249" },
-        { "name": "Men Suit 2 Pcs", "price": "₹349" },
-        { "name": "Men Suit 3 Pcs", "price": "₹429" },
-        { "name": "Sherwani", "price": "₹449" },
-        { "name": "Kurta", "price": "₹119" },
-        { "name": "Kurta Fancy", "price": "₹249" },
-        { "name": "Kurta Heavy", "price": "₹299" },
-        { "name": "Salwar", "price": "₹109" },
-        { "name": "Saree (Starting from)", "price": "₹199" },
-        { "name": "Lehenga (Starting from)", "price": "₹399" },
-        { "name": "Dress (Starting from)", "price": "₹199" },
-        { "name": "Shawl (Starting from)", "price": "₹199" },
-        { "name": "Sweater", "price": "₹149" },
-        { "name": "Jacket", "price": "₹249" },
-        { "name": "Leather Jacket", "price": "₹599" }
+        {
+          "name": "Pant/Trouser",
+          "price": "₹99",
+          "amount": 99,
+          "slug": "pant-trouser",
+          "img": "images/pricing/pant-trouser.png"
+        },
+        {
+          "name": "Jeans",
+          "price": "₹99",
+          "amount": 99,
+          "slug": "jeans",
+          "img": "images/pricing/jeans.png"
+        },
+        {
+          "name": "Shirt",
+          "price": "₹99",
+          "amount": 99,
+          "slug": "shirt",
+          "img": "images/pricing/shirt.png"
+        },
+        {
+          "name": "T-Shirt",
+          "price": "₹99",
+          "amount": 99,
+          "slug": "t-shirt",
+          "img": "images/pricing/t-shirt.png"
+        },
+        {
+          "name": "Coat",
+          "price": "₹249",
+          "amount": 249,
+          "slug": "coat",
+          "img": "images/pricing/coat.png"
+        },
+        {
+          "name": "Men Suit 2 Pcs",
+          "price": "₹349",
+          "amount": 349,
+          "slug": "men-suit-2pcs",
+          "img": "images/pricing/men-suit-2pcs.png"
+        },
+        {
+          "name": "Men Suit 3 Pcs",
+          "price": "₹429",
+          "amount": 429,
+          "slug": "men-suit-3pcs",
+          "img": "images/pricing/men-suit-3pcs.png"
+        },
+        {
+          "name": "Sherwani",
+          "price": "₹449",
+          "amount": 449,
+          "slug": "sherwani",
+          "img": "images/pricing/sherwani.png"
+        },
+        {
+          "name": "Kurta",
+          "price": "₹119",
+          "amount": 119,
+          "slug": "kurta",
+          "img": "images/pricing/kurta.png"
+        },
+        {
+          "name": "Kurta Fancy",
+          "price": "₹249",
+          "amount": 249,
+          "slug": "kurta-fancy",
+          "img": "images/pricing/kurta-fancy.png"
+        },
+        {
+          "name": "Kurta Heavy",
+          "price": "₹299",
+          "amount": 299,
+          "slug": "kurta-heavy",
+          "img": "images/pricing/kurta-heavy.png"
+        },
+        {
+          "name": "Salwar",
+          "price": "₹109",
+          "amount": 109,
+          "slug": "salwar",
+          "img": "images/pricing/salwar.png"
+        },
+        {
+          "name": "Saree",
+          "price": "₹199",
+          "amount": 199,
+          "from": true,
+          "slug": "saree",
+          "img": "images/pricing/saree.png"
+        },
+        {
+          "name": "Lehenga",
+          "price": "₹399",
+          "amount": 399,
+          "from": true,
+          "slug": "lehenga",
+          "img": "images/pricing/lehenga.png"
+        },
+        {
+          "name": "Dress",
+          "price": "₹199",
+          "amount": 199,
+          "from": true,
+          "slug": "dress",
+          "img": "images/pricing/dress.png"
+        },
+        {
+          "name": "Shawl",
+          "price": "₹199",
+          "amount": 199,
+          "from": true,
+          "slug": "shawl",
+          "img": "images/pricing/shawl.png"
+        },
+        {
+          "name": "Sweater",
+          "price": "₹149",
+          "amount": 149,
+          "slug": "sweater",
+          "img": "images/pricing/sweater.png"
+        },
+        {
+          "name": "Jacket",
+          "price": "₹249",
+          "amount": 249,
+          "slug": "jacket",
+          "img": "images/pricing/jacket.png"
+        },
+        {
+          "name": "Leather Jacket",
+          "price": "₹599",
+          "amount": 599,
+          "slug": "leather-jacket",
+          "img": "images/pricing/leather-jacket.png"
+        }
       ]
     },
     {
       "title": "Home Textiles",
       "items": [
-        { "name": "Carpet (Per Sq Feet)", "price": "₹39" },
-        { "name": "Curtain (Per Panel)", "price": "₹149" },
-        { "name": "Single Blanket (1 Ply)", "price": "₹299" },
-        { "name": "Double Blanket (1 Ply)", "price": "₹399" },
-        { "name": "Single Bed Sheet", "price": "₹119" },
-        { "name": "Double Bed Sheet", "price": "₹199" }
+        {
+          "name": "Carpet",
+          "price": "₹39",
+          "amount": 39,
+          "unit": "per sq ft",
+          "slug": "carpet",
+          "img": "images/pricing/carpet.png"
+        },
+        {
+          "name": "Curtain",
+          "price": "₹149",
+          "amount": 149,
+          "unit": "per panel",
+          "slug": "curtain",
+          "img": "images/pricing/curtain.png"
+        },
+        {
+          "name": "Single Blanket (1 Ply)",
+          "price": "₹299",
+          "amount": 299,
+          "slug": "single-blanket",
+          "img": "images/pricing/single-blanket.png"
+        },
+        {
+          "name": "Double Blanket (1 Ply)",
+          "price": "₹399",
+          "amount": 399,
+          "slug": "double-blanket",
+          "img": "images/pricing/double-blanket.png"
+        },
+        {
+          "name": "Single Bed Sheet",
+          "price": "₹119",
+          "amount": 119,
+          "slug": "single-bed-sheet",
+          "img": "images/pricing/single-bed-sheet.png"
+        },
+        {
+          "name": "Double Bed Sheet",
+          "price": "₹199",
+          "amount": 199,
+          "slug": "double-bed-sheet",
+          "img": "images/pricing/double-bed-sheet.png"
+        }
       ]
     },
     {
       "title": "Footwear Cleaning",
       "items": [
-        { "name": "Sports Shoes", "price": "₹299" },
-        { "name": "Sneakers", "price": "₹349" },
-        { "name": "Leather Shoes", "price": "₹499" },
-        { "name": "Suede Leather Shoes", "price": "₹549" }
+        {
+          "name": "Sports Shoes",
+          "price": "₹299",
+          "amount": 299,
+          "slug": "sports-shoes",
+          "img": "images/pricing/sports-shoes.png"
+        },
+        {
+          "name": "Sneakers",
+          "price": "₹349",
+          "amount": 349,
+          "slug": "sneakers",
+          "img": "images/pricing/sneakers.jpg"
+        },
+        {
+          "name": "Leather Shoes",
+          "price": "₹499",
+          "amount": 499,
+          "slug": "leather-shoes",
+          "img": "images/pricing/leather-shoes.png"
+        },
+        {
+          "name": "Suede Leather Shoes",
+          "price": "₹549",
+          "amount": 549,
+          "slug": "suede-leather-shoes",
+          "img": "images/pricing/suede-leather-shoes.png"
+        }
       ]
     },
     {
       "title": "Laundry Services",
       "items": [
-        { "name": "Wash and Fold", "price": "₹79" },
-        { "name": "Wash and Steam Iron", "price": "₹109" },
-        { "name": "Premium Laundry", "price": "₹149" }
+        {
+          "name": "Wash and Fold",
+          "price": "₹79",
+          "amount": 79,
+          "slug": "wash-and-fold",
+          "img": "images/pricing/wash-and-fold.png"
+        },
+        {
+          "name": "Wash and Steam Iron",
+          "price": "₹109",
+          "amount": 109,
+          "slug": "wash-and-steam-iron",
+          "img": "images/pricing/wash-and-steam-iron.png"
+        },
+        {
+          "name": "Premium Laundry",
+          "price": "₹149",
+          "amount": 149,
+          "slug": "premium-laundry",
+          "img": "images/pricing/premium-laundry.jpg"
+        }
       ]
     }
   ],

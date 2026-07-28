@@ -1,29 +1,164 @@
+{# ============================================================
+   Wash4You icon macros.
+
+   care_symbols() is the site's signature device: the real ISO
+   garment-care symbols, used as the structural notation for each
+   service. They are decorative in the accessibility sense — the
+   adjacent label text carries the meaning — so they are aria-hidden.
+   ============================================================ #}
+
 {% macro service_icon(slug, size=28) %}
 {% if slug == 'eco-friendly-laundry' %}
-<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
 {% elif slug == 'steam-ironing' %}
-<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15H3.6c.9-4.1 4.4-7 8.6-7h3.3c3 0 5.5 2.4 5.5 5.4V15Z"/><path d="M9 8V6a2 2 0 0 1 2-2h8"/><line x1="3" y1="19" x2="21" y2="19"/></svg>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15H3.6c.9-4.1 4.4-7 8.6-7h3.3c3 0 5.5 2.4 5.5 5.4V15Z"/><path d="M9 8V6a2 2 0 0 1 2-2h8"/><line x1="3" y1="19" x2="21" y2="19"/></svg>
 {% elif slug == 'premium-dry-cleaning' %}
-<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5a2 2 0 1 0-2-2"/><path d="M12 6.5 3.5 13a1.6 1.6 0 0 0 1 2.9h15a1.6 1.6 0 0 0 1-2.9L12 6.5Z"/><path d="M7 19.5h10"/></svg>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5a2 2 0 1 0-2-2"/><path d="M12 6.5 3.5 13a1.6 1.6 0 0 0 1 2.9h15a1.6 1.6 0 0 0 1-2.9L12 6.5Z"/><path d="M7 19.5h10"/></svg>
 {% elif slug == 'shoe-cleaning' %}
-<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15V9.5c0-.8.9-1.3 1.6-.9l3 1.9c.6.4 1.4.4 2 0l1.2-.7c.5-.3 1.2-.2 1.6.2l2.1 2c.4.4 1 .7 1.6.8l4.4.9c1 .2 2.5 1 2.5 2.3v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1Z"/><path d="M12 12l-1.5 1.5M15 13.5 13.5 15"/></svg>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 15V9.5c0-.8.9-1.3 1.6-.9l3 1.9c.6.4 1.4.4 2 0l1.2-.7c.5-.3 1.2-.2 1.6.2l2.1 2c.4.4 1 .7 1.6.8l4.4.9c1 .2 2.5 1 2.5 2.3v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1Z"/><path d="M12 12l-1.5 1.5M15 13.5 13.5 15"/></svg>
+{% elif slug == 'sofa-cleaning' %}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2Z"/><path d="M6 11h12"/><path d="M5 20v1M19 20v1"/></svg>
+{% elif slug == 'mattress-cleaning' %}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7" width="19" height="10" rx="2.5"/><path d="M7 11.2v1.6M12 11.2v1.6M17 11.2v1.6"/><path d="M4.5 19v1.5M19.5 19v1.5"/></svg>
+{% elif slug == 'wet-cleaning' %}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.2 6 10a6 6 0 0 1-12 0c0-3.8 6-10 6-10Z"/><path d="M9.2 14.4c.9-.8 1.9-.8 2.8 0s1.9.8 2.8 0"/></svg>
 {% elif slug == 'bag-cleaning' %}
-<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9h12l1.5 10a1.8 1.8 0 0 1-1.8 2H6.3a1.8 1.8 0 0 1-1.8-2L6 9Z"/><path d="M8.5 12V7.5a3.5 3.5 0 0 1 7 0V12"/></svg>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9h12l1.5 10a1.8 1.8 0 0 1-1.8 2H6.3a1.8 1.8 0 0 1-1.8-2L6 9Z"/><path d="M8.5 12V7.5a3.5 3.5 0 0 1 7 0V12"/></svg>
 {% elif slug == 'leather-cleaning' %}
-<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 5 6v14h14V6l-4-2-2.5 1.5L9 4Z"/><path d="M12 5.5V20M5 11h3M16 11h3"/></svg>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 5 6v14h14V6l-4-2-2.5 1.5L9 4Z"/><path d="M12 5.5V20M5 11h3M16 11h3"/></svg>
 {% elif slug == 'carpet-cleaning' %}
-<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5z"/><path d="M5 7h14M5 17h14"/><circle cx="12" cy="12" r="2.2"/></svg>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h14v18H5z"/><path d="M5 7h14M5 17h14"/><circle cx="12" cy="12" r="2.2"/></svg>
 {% elif slug == 'accessories-cleaning' %}
-<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M9.5 7.7 10 3h4l.5 4.7M9.5 16.3 10 21h4l.5-4.7"/></svg>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M9.5 7.7 10 3h4l.5 4.7M9.5 16.3 10 21h4l.5-4.7"/></svg>
 {% elif slug == 'toy-cleaning' %}
-<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.8" cy="5.6" r="1.9"/><circle cx="16.2" cy="5.6" r="1.9"/><circle cx="12" cy="9.6" r="4.1"/><path d="M8.9 12.4 7.2 18.5A1.7 1.7 0 0 0 8.8 20.7h6.4a1.7 1.7 0 0 0 1.6-2.2l-1.7-6.1"/><path d="M10.6 9.4h.01M13.4 9.4h.01"/></svg>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.8" cy="5.6" r="1.9"/><circle cx="16.2" cy="5.6" r="1.9"/><circle cx="12" cy="9.6" r="4.1"/><path d="M8.9 12.4 7.2 18.5A1.7 1.7 0 0 0 8.8 20.7h6.4a1.7 1.7 0 0 0 1.6-2.2l-1.7-6.1"/><path d="M10.6 9.4h.01M13.4 9.4h.01"/></svg>
 {% elif slug == 'curtains-cleaning' %}
-<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18"/><path d="M6 4c0 6-1 12-3 17 4-1 6-3 6-8V4M18 4c0 6 1 12 3 17-4-1-6-3-6-8V4"/><path d="M9 4v5c1.5 1.5 4.5 1.5 6 0V4"/></svg>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18"/><path d="M6 4c0 6-1 12-3 17 4-1 6-3 6-8V4M18 4c0 6 1 12 3 17-4-1-6-3-6-8V4"/><path d="M9 4v5c1.5 1.5 4.5 1.5 6 0V4"/></svg>
 {% elif slug == 'blanket-quilt-cleaning' %}
-<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8c0-1.7 1.3-3 3-3h13v11H7c-1.7 0-3 1.3-3 3V8Z"/><path d="M4 19c0 .6.4 1 1 1h15v-4"/><path d="M9 5v6l2-1.5L13 11V5"/></svg>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8c0-1.7 1.3-3 3-3h13v11H7c-1.7 0-3 1.3-3 3V8Z"/><path d="M4 19c0 .6.4 1 1 1h15v-4"/><path d="M9 5v6l2-1.5L13 11V5"/></svg>
 {% elif slug == 'linen-cleaning' %}
-<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5"/><path d="M3 11a2 2 0 0 1 2 2v1h14v-1a2 2 0 0 1 4 0v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-5a2 2 0 0 1 2-2Z"/></svg>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5"/><path d="M3 11a2 2 0 0 1 2 2v1h14v-1a2 2 0 0 1 4 0v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-5a2 2 0 0 1 2-2Z"/></svg>
 {% else %}
-<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M4.5 9.5c2 1.5 4 1.5 6 0s4-1.5 6 0 3 1.5 3 1.5"/></svg>
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M4.5 9.5c2 1.5 4 1.5 6 0s4-1.5 6 0 3 1.5 3 1.5"/></svg>
 {% endif %}
+{% endmacro %}
+
+
+{# ---- The care symbols themselves. ISO 3758 / GINETEX shapes. ---- #}
+
+{% macro care_symbol(kind) %}
+{%- if kind == 'wash' -%}
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.6 7.6h18.8l-1.7 11a1.9 1.9 0 0 1-1.9 1.6H6.2a1.9 1.9 0 0 1-1.9-1.6Z"/><path d="M6 11.6c1.2-1 2.4-1 3.6 0s2.4 1 3.6 0 2.4-1 3.6 0"/></svg>
+{%- elif kind == 'handwash' -%}
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.6 9.4h18.8l-1.6 9.2a1.9 1.9 0 0 1-1.9 1.6H6.1a1.9 1.9 0 0 1-1.9-1.6Z"/><path d="M8 9.4V5.6a1.1 1.1 0 0 1 2.2 0v3M10.2 9.4V4.6a1.1 1.1 0 0 1 2.2 0v4.8M12.4 9.4V5.2a1.1 1.1 0 0 1 2.2 0v4.2M14.6 9.4V6.4a1.1 1.1 0 0 1 2.2 0v3"/></svg>
+{%- elif kind == 'no-bleach' -%}
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.4 21.4 20H2.6Z"/><path d="M7.6 8.6 15.4 17M15.4 8.6 7.6 17"/></svg>
+{%- elif kind == 'dryclean' -%}
+<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.8"/><path d="M10 8.6h2.6a1.9 1.9 0 0 1 0 3.8H10V8.6Zm0 3.8v3"/></svg>
+{%- elif kind == 'no-dryclean' -%}
+<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.8"/><path d="M5.8 5.8 18.2 18.2M18.2 5.8 5.8 18.2"/></svg>
+{%- elif kind == 'no-tumble' -%}
+<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="1.6"/><circle cx="12" cy="12" r="5.6"/><path d="M3.9 3.9 20.1 20.1M20.1 3.9 3.9 20.1"/></svg>
+{%- elif kind == 'tumble' -%}
+<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="1.6"/><circle cx="12" cy="12" r="5.6"/><circle cx="12" cy="12" r="1"/></svg>
+{%- elif kind == 'iron' -%}
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.2 16.6c1.1-4 4.6-6.8 8.8-6.8h5.2a3.4 3.4 0 0 1 3.3 2.7l.9 4.1Z"/><path d="M1.8 19.6h20.4"/><circle cx="12" cy="13.8" r=".9" fill="currentColor" stroke="none"/></svg>
+{%- elif kind == 'iron-low' -%}
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.2 16.6c1.1-4 4.6-6.8 8.8-6.8h5.2a3.4 3.4 0 0 1 3.3 2.7l.9 4.1Z"/><path d="M1.8 19.6h20.4"/><circle cx="12" cy="13.8" r=".9" fill="currentColor" stroke="none"/></svg>
+{%- elif kind == 'no-wring' -%}
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.4c2.6-2.6 5.2 2.6 9 0s6.4 2.6 9 0v5.2c-2.6 2.6-5.2-2.6-9 0s-6.4-2.6-9 0Z"/><path d="M3.4 4.6 20.6 19.4"/></svg>
+{%- else -%}
+<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.8"/></svg>
+{%- endif -%}
+{% endmacro %}
+
+
+{# The care notation for a given service, plus its plain-language label.
+   The text is what carries meaning; the symbols reinforce it. #}
+{% macro care_tag(slug, on_navy=false) %}
+{%- set map = {
+  'premium-dry-cleaning':  ('Dry clean',    ['dryclean', 'no-bleach', 'iron']),
+  'eco-friendly-laundry':  ('Machine wash', ['wash', 'no-bleach', 'tumble']),
+  'wet-cleaning':          ('Wet clean',    ['handwash', 'no-bleach', 'no-tumble']),
+  'shoe-cleaning':         ('Hand clean',   ['handwash', 'no-tumble']),
+  'sofa-cleaning':         ('In-home',      ['handwash', 'no-tumble']),
+  'mattress-cleaning':     ('In-home',      ['handwash', 'no-tumble']),
+  'carpet-cleaning':       ('Deep clean',   ['handwash', 'no-tumble']),
+  'curtains-cleaning':     ('Take down',    ['wash', 'no-tumble', 'iron']),
+  'steam-ironing':         ('Press only',   ['iron']),
+  'leather-cleaning':      ('Specialist',   ['no-dryclean', 'no-tumble']),
+  'bag-cleaning':          ('Specialist',   ['handwash', 'no-tumble']),
+  'toy-cleaning':          ('Sanitise',     ['wash', 'no-bleach']),
+  'blanket-quilt-cleaning':('Bulk wash',    ['wash', 'tumble']),
+  'linen-cleaning':        ('Hot wash',     ['wash', 'tumble', 'iron']),
+  'accessories-cleaning':  ('Gentle',       ['handwash', 'no-wring']),
+} -%}
+{%- set entry = map.get(slug, ('Care', ['wash'])) -%}
+<span class="tag{% if on_navy %} tag--on-navy{% endif %}">
+  <span class="tag__symbols">{% for s in entry[1] %}{{ care_symbol(s) }}{% endfor %}</span>
+  {{ entry[0] }}
+</span>
+{% endmacro %}
+
+
+{# ---- Interface icons ---- #}
+
+{% macro ui(name, size=20) %}
+{%- if name == 'arrow-right' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+{%- elif name == 'arrow-left' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+{%- elif name == 'phone' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+{%- elif name == 'whatsapp' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.4 3.4 0 0 0 5.8 9c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.6 4 8 8 0 0 0 1.6.6 3.7 3.7 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+{%- elif name == 'star' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7-6.2-3.5L5.8 21l1.4-7L2 9.4l7-.8Z"/></svg>
+{%- elif name == 'check-badge' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 2.4 1.8 3 .1 1 2.8 2.4 1.7-.9 2.9.9 2.9-2.4 1.7-1 2.8-3 .1L12 22l-2.4-1.8-3-.1-1-2.8L3.2 15.6l.9-2.9-.9-2.9 2.4-1.7 1-2.8 3-.1Z"/><path d="m9 12 2 2 4-4"/></svg>
+{%- elif name == 'plus' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+{%- elif name == 'menu' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+{%- elif name == 'close' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+{%- elif name == 'pin' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+{%- elif name == 'mail' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg>
+{%- elif name == 'drag' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7 4 12l5 5M15 7l5 5-5 5"/></svg>
+{%- elif name == 'truck' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6.5h11v10H2z"/><path d="M13 9.5h4l3 3v4h-7z"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>
+{%- elif name == 'leaf' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></svg>
+{%- elif name == 'shield' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 20 5.5v6c0 5-3.4 9-8 10.5C7.4 20.5 4 16.5 4 11.5v-6Z"/><path d="m9 12 2 2 4-4"/></svg>
+{%- elif name == 'clock' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>
+{%- elif name == 'facebook' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V7c0-.8.2-1.2 1.4-1.2H17V3h-2.6C11.6 3 10.7 4.4 10.7 7v1.5H9V12h1.7v9H14v-9h2.4l.3-3.5Z"/></svg>
+{%- elif name == 'instagram' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+{%- elif name == 'linkedin' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3 9h3v12H3zM9 9h2.9v1.7A3.2 3.2 0 0 1 14.8 9C18 9 19 11 19 14.2V21h-3v-6c0-1.6-.6-2.7-2-2.7s-2 1-2 2.6V21H9Z"/></svg>
+{%- elif name == 'youtube' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12s0-3.4-.4-5a2.6 2.6 0 0 0-1.8-1.8C18.1 4.8 12 4.8 12 4.8s-6.1 0-7.8.4A2.6 2.6 0 0 0 2.4 7C2 8.6 2 12 2 12s0 3.4.4 5a2.6 2.6 0 0 0 1.8 1.8c1.7.4 7.8.4 7.8.4s6.1 0 7.8-.4A2.6 2.6 0 0 0 21.6 17c.4-1.6.4-5 .4-5ZM10 15.2V8.8l5.2 3.2Z"/></svg>
+{%- elif name == 'cart' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h2l1.5 10.5a1.5 1.5 0 0 0 1.5 1.3h8a1.5 1.5 0 0 0 1.5-1.2L20 9H6.2"/><circle cx="9.5" cy="20.5" r="1.1"/><circle cx="17" cy="20.5" r="1.1"/></svg>
+{%- elif name == 'chevron-down' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+{%- elif name == 'minus' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+{%- elif name == 'trash' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7m2 0-.7 11a2 2 0 0 1-2 1.9H9.7a2 2 0 0 1-2-1.9L7 7"/></svg>
+{%- elif name == 'download' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"/></svg>
+{%- elif name == 'check' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg>
+{%- elif name == 'sparkle' -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s1.2 5 3 6.8S21 12 21 12s-4.2 1.4-6 3.2S12 21 12 21s-1.2-4-3-5.8S3 12 3 12s4.2-1.4 6-3.2S12 3 12 3Z"/></svg>
+{%- else -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/></svg>
+{%- endif -%}
 {% endmacro %}

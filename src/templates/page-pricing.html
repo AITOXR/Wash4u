@@ -1,43 +1,147 @@
 {% extends "base.html" %}
+{% from "_icons.html" import ui %}
+{% set is_area = area is defined and area %}
+
+{% block schema %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.urls.base }}/" },
+          { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "{{ site.urls.base }}/pricing/" }
+          {% if is_area %},
+          { "@type": "ListItem", "position": 3, "name": "{{ area.label }}" }
+          {% endif %}
+        ]
+      }
+{% endblock %}
 
 {% block content %}
+
 <section class="page-hero">
-  <div class="container">
-    <h1 class="page-hero__title">{{ pricing.hero.headline }}</h1>
-    <p class="page-hero__subtitle">{{ pricing.hero.subheadline }}</p>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      {% if is_area %}
+      <a href="{{ root_path }}pricing/">Pricing</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ area.label }}</span>
+      {% else %}
+      <span>Pricing</span>
+      {% endif %}
+    </nav>
+    <div class="page-hero__grid">
+      <div>
+        <p class="eyebrow">Pricing{% if is_area %} · {{ area.label }}{% endif %}</p>
+        {% if is_area %}
+        <h1>Laundry &amp; dry-clean prices in {{ area.label }}.</h1>
+        <p class="lede">The same transparent, item-wise rates for {{ area.label }}, Gurugram — with free doorstep pickup and delivery. Add what you need to your list and book a pickup.</p>
+        {% else %}
+        <h1{{ cms('pricing:hero.headline') }}>{{ pricing.hero.headline }}</h1>
+        <p class="lede"{{ cms('pricing:hero.subheadline') }}>{{ pricing.hero.subheadline }}</p>
+        {% endif %}
+        <div class="btn-row">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+          <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} Ask about an item</a>
+        </div>
+      </div>
+      <aside class="store-card reveal">
+        <strong>Prices depend on the item</strong>
+        <p>Fabric, lining, embellishment and the state it arrives in all change the handling. Send a photo on WhatsApp and we will quote before you book.</p>
+        <a class="btn btn--ghost btn--block" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} Send a photo</a>
+      </aside>
+    </div>
   </div>
 </section>
 
-<section class="section section-light">
-  <div class="container">
-    <p class="pricing-note">{{ pricing.note }}</p>
-    <div class="pricing-grid stagger-children">
-      {% for category in pricing.categories %}
-      <div class="pricing-card">
-        <div class="pricing-card__header">
-          <h3 class="pricing-card__title">{{ category.title }}</h3>
-        </div>
-        <ul class="pricing-card__list">
-          {% for item in category['items'] %}
-          <li class="pricing-card__item">
-            <span>{{ item.name }}</span>
-            <span class="pricing-card__price">{{ item.price }}</span>
-          </li>
-          {% endfor %}
-        </ul>
+{# Toolbar — download the list, or jump straight to booking. #}
+<section class="section section--tight" id="download">
+  <div class="wrap">
+    <div class="price-toolbar reveal">
+      <div class="price-toolbar__text">
+        <strong>{% if is_area %}{{ area.label }} price list{% else %}Full price list{% endif %}</strong>
+        <span>Tap <em>Add</em> on any item, then book the whole list in one message.</span>
       </div>
+      <div class="price-toolbar__actions">
+        <a class="btn btn--ghost" href="{{ asset_path }}wash4you-price-list.pdf" download>{{ ui('download', 18) }} Download PDF</a>
+        <button class="btn btn--navy" type="button" id="cart-open-inline" data-cart-open>{{ ui('cart', 18) }} View list (<span data-cart-count>0</span>)</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% for cat in pricing.categories %}
+<section class="section{% if loop.index is even %} section--wash{% endif %}">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">{{ loop.index }} of {{ pricing.categories | length }}</p>
+      <h2{{ cms('pricing:categories.' ~ loop.index0 ~ '.title') }}>{{ cat.title }}</h2>
+    </div>
+    <div class="price-grid stagger-children">
+      {% set cat_i0 = loop.index0 %}
+      {% for item in cat['items'] %}
+      <article class="price-card" data-price-item
+               data-slug="{{ item.slug }}"
+               data-name="{{ item.name }}"
+               data-amount="{{ item.amount }}"
+               data-price="{{ item.price }}"
+               data-img="{{ asset_path }}{{ item.img }}"
+               {% if item.from %}data-from="1"{% endif %}>
+        <div class="price-card__media">
+          <img src="{{ asset_path }}{{ item.img }}" alt="{{ item.name }}"
+               width="300" height="300" loading="lazy" decoding="async">
+        </div>
+        <div class="price-card__body">
+          <h3 class="price-card__name"{{ cms('pricing:categories.' ~ cat_i0 ~ '.items.' ~ loop.index0 ~ '.name') }}>{{ item.name }}</h3>
+          <div class="price-card__meta">
+            <span class="price-card__price">{% if item.from %}<em>from</em> {% endif %}{{ item.price }}</span>
+            {% if item.unit %}<span class="price-card__unit">{{ item.unit }}</span>{% endif %}
+          </div>
+          <div class="price-card__control" data-cart-control>
+            <button class="price-card__add" type="button" data-add
+                    aria-label="Add {{ item.name }} to your pickup list">{{ ui('plus', 16) }} Add</button>
+          </div>
+        </div>
+      </article>
       {% endfor %}
     </div>
   </div>
 </section>
+{% endfor %}
 
-<section class="section">
-  <div class="container">
-    <div class="pricing-cta reveal">
-      <h2 class="pricing-cta__title">{{ pricing.cta.title }}</h2>
-      <p class="pricing-cta__subtitle">{{ pricing.cta.subtitle }}</p>
-      <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">{{ pricing.cta.button }}</a>
+<section class="section section--tight">
+  <div class="wrap">
+    <p class="mono mono--note"{{ cms('pricing:note') }}>{{ pricing.note }}</p>
+  </div>
+</section>
+
+{% if is_area %}
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-bottom:var(--s-5)">
+      <p class="eyebrow">More areas</p>
+      <h2 style="font-size:var(--t-xl)">Pricing across Gurugram</h2>
+    </div>
+    <div class="areas stagger-children">
+      {% for a in site.pricing_areas if a.slug != area.slug %}
+      <a class="area-link" href="{{ root_path }}pricing/{{ a.slug }}/">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
+      {% endfor %}
     </div>
   </div>
 </section>
+{% endif %}
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2{{ cms('pricing:cta.title') }}>{{ pricing.cta.title }}</h2>
+      <p{{ cms('pricing:cta.subtitle') }}>{{ pricing.cta.subtitle }}</p>
+      <div class="btn-row">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener"{{ cms('pricing:cta.button') }}>{{ pricing.cta.button }}</a>
+        <a class="btn btn--on-navy btn--lg" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

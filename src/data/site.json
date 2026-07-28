@@ -1,16 +1,17 @@
 {
   "brand": {
     "name": "Wash4You",
-    "tagline": "Premium Laundry & Dry-Clean Service in Delhi NCR",
-    "description": "Experience premium laundry & dry-clean service by Vanzoo using advanced Italian hydrocarbon technology—gentle on fabrics, and powerful on tough everyday stains.",
+    "tagline": "Eco-Friendly Laundry & Dryclean",
+    "description": "Eco-friendly laundry, dry cleaning and specialist fabric care in Gurugram. Free pickup and delivery at your door, every order counted with you and packed separately.",
     "legal_name": "M/S VAARUNI VENTURES LLP",
-    "copyright": "Copyright © 2025 Wash4You. All Rights Reserved."
+    "copyright": "Copyright © 2026 Wash4You. All Rights Reserved.",
+    "_note": "The previous description claimed 'advanced Italian hydrocarbon technology'. That is unverified and has been removed — every claim on this site must be one the client can substantiate."
   },
   "urls": {
     "base": "https://wash4you.in",
     "booking": "https://app.wash4you.in/website/W10795?brand=WASH4U",
-    "schedule": "https://app.wash4you.in/website/W10571",
-    "whatsapp": "https://wa.me/6367600500",
+    "schedule": "https://app.wash4you.in/website/W10571?brand=WASH4U",
+    "whatsapp": "https://wa.me/916367600500",
     "phone": "tel:+916367600500",
     "email": "mailto:care@wash4you.in"
   },
@@ -18,52 +19,238 @@
     "phone": "+91 63 67 600 500",
     "phone_raw": "+916367600500",
     "email": "care@wash4you.in",
-    "area": "Gurugram | NCR",
-    "address": "Gurugram, Haryana, India"
+    "area": "Gurugram | Delhi NCR",
+    "address": "Sushant Lok Phase I, Sector 43, Gurugram, Haryana 122009"
   },
   "locations": [
     {
-      "name": "Wash4you Vyapar Kendra",
-      "address": "Shop No. 180 GF Shushant Vyapar Kendra, Gurugram, Haryana 122022",
-      "map_url": "https://maps.google.com/?q=Shop+No.+180+GF+Shushant+Vyapar+Kendra+Gurugram+Haryana+122022"
+      "id": "vyapar-kendra",
+      "name": "Wash4You Vyapar Kendra",
+      "street": "Gate No. 3, Shop No. 180, GF Shushant, Vyapar Kendra Road, Block C",
+      "locality": "Sushant Lok Phase I, Sector 43",
+      "postal_code": "122009",
+      "address": "Gate No. 3, Shop No. 180, GF Shushant, Vyapar Kendra Road, Block C, Sushant Lok Phase I, Sector 43, Gurugram, Haryana 122009",
+      "map_url": "https://maps.google.com/?q=Wash4You+Vyapar+Kendra+Sushant+Lok+Phase+I+Sector+43+Gurugram+122009",
+      "phone": "+91 63 67 600 500"
     },
     {
-      "name": "Wash4you Arcadia",
-      "address": "AG-75 Ground Floor Block-A Unitech Arcadia Sector 49 Gurugram Haryana 122018",
-      "map_url": "https://maps.google.com/?q=AG-75+Ground+Floor+Block-A+Unitech+Arcadia+Sector+49+Gurugram+Haryana+122018"
+      "id": "arcadia",
+      "name": "Wash4You Arcadia",
+      "street": "AG-75, Ground Floor, Block-A, Unitech Arcadia",
+      "locality": "Sector 49",
+      "postal_code": "122018",
+      "address": "AG-75, Ground Floor, Block-A, Unitech Arcadia, Sector 49, Gurugram, Haryana 122018",
+      "map_url": "https://maps.google.com/?q=Wash4You+Unitech+Arcadia+Sector+49+Gurugram+122018",
+      "phone": "+91 63 67 600 500"
+    }
+  ],
+  "promises": [
+    {
+      "icon": "shield",
+      "title": "Safe on fabric",
+      "detail": "Gentle care, checked piece by piece."
+    },
+    {
+      "icon": "leaf",
+      "title": "Eco friendly",
+      "detail": "Processes chosen to be safer for the planet."
+    },
+    {
+      "icon": "clock",
+      "title": "On time",
+      "detail": "Collected and returned when we said we would."
+    },
+    {
+      "icon": "truck",
+      "title": "Free pickup",
+      "detail": "Doorstep collection and delivery, at no charge."
     }
   ],
   "social": {
-    "facebook": "https://www.facebook.com/profile.php?id=61581209511675#",
-    "instagram": "https://www.instagram.com/wash4you._?igsh=b3Jvb2w1c2tmcWly",
+    "facebook": "https://www.facebook.com/profile.php?id=61581209511675",
+    "instagram": "https://www.instagram.com/wash4you._",
     "linkedin": "https://www.linkedin.com/company/wash4you-eco-friendly-laundry-and-dryclean/",
     "youtube": "https://www.youtube.com/channel/UCji5ILTjdrl-DOXf8loAX8Q"
   },
   "nav": {
     "main": [
-      { "label": "Services", "url": "services/" },
-      { "label": "Pricing", "url": "pricing/" },
-      { "label": "About Us", "url": "about-us/" },
-      { "label": "Contact", "url": "contact-us/" },
-      { "label": "Blog", "url": "blog/" }
+      {
+        "label": "Services",
+        "url": "services/",
+        "dropdown": "services"
+      },
+      {
+        "label": "Pricing",
+        "url": "pricing/",
+        "dropdown": "pricing"
+      },
+      {
+        "label": "Packages",
+        "url": "packages/"
+      },
+      {
+        "label": "Areas",
+        "url": "locate-us/"
+      },
+      {
+        "label": "About",
+        "url": "about-us/"
+      },
+      {
+        "label": "Blog",
+        "url": "blog/"
+      }
     ],
-    "cta": { "label": "Book Now", "url": "https://app.wash4you.in/website/W10795?brand=WASH4U" }
+    "cta": {
+      "label": "Book free pickup",
+      "url": "https://app.wash4you.in/website/W10795?brand=WASH4U"
+    }
   },
+  "pricing_areas": [
+    {
+      "label": "Sushant Lok",
+      "slug": "sushant-lok"
+    },
+    {
+      "label": "Sector 49",
+      "slug": "sector-49"
+    },
+    {
+      "label": "Cyber City",
+      "slug": "cyber-city"
+    },
+    {
+      "label": "DLF Phase 3",
+      "slug": "dlf-phase-3"
+    },
+    {
+      "label": "Golf Course Road",
+      "slug": "golf-course-road"
+    },
+    {
+      "label": "Golf Course Extension",
+      "slug": "golf-course-extension"
+    },
+    {
+      "label": "Sohna Road",
+      "slug": "sohna-road"
+    },
+    {
+      "label": "Sector 29",
+      "slug": "sector-29"
+    },
+    {
+      "label": "Palam Vihar",
+      "slug": "palam-vihar"
+    },
+    {
+      "label": "MG Road",
+      "slug": "mg-road"
+    }
+  ],
   "footer": {
     "explore": [
-      { "label": "Home", "url": "/" },
-      { "label": "Services", "url": "services/" },
-      { "label": "Pricing", "url": "pricing/" },
-      { "label": "About Us", "url": "about-us/" },
-      { "label": "Contact Us", "url": "contact-us/" },
-      { "label": "Locate Us", "url": "locate-us/" }
+      {
+        "label": "Home",
+        "url": ""
+      },
+      {
+        "label": "Services",
+        "url": "services/"
+      },
+      {
+        "label": "Pricing",
+        "url": "pricing/"
+      },
+      {
+        "label": "About Us",
+        "url": "about-us/"
+      },
+      {
+        "label": "Contact Us",
+        "url": "contact-us/"
+      },
+      {
+        "label": "Locate Us",
+        "url": "locate-us/"
+      }
+    ],
+    "areas": [
+      {
+        "label": "Sushant Lok",
+        "url": "laundry-service-sushant-lok/"
+      },
+      {
+        "label": "Sector 49",
+        "url": "laundry-service-sector-49/"
+      },
+      {
+        "label": "Cyber City",
+        "url": "laundry-service-cyber-city/"
+      },
+      {
+        "label": "DLF Phase 3",
+        "url": "laundry-service-dlf-phase-3/"
+      },
+      {
+        "label": "Golf Course Road",
+        "url": "laundry-service-golf-course-road/"
+      },
+      {
+        "label": "Golf Course Extension",
+        "url": "laundry-service-golf-course-extension/"
+      },
+      {
+        "label": "Sohna Road",
+        "url": "laundry-service-sohna-road/"
+      },
+      {
+        "label": "Sector 29",
+        "url": "laundry-service-gurugram-sector-29/"
+      },
+      {
+        "label": "Palam Vihar",
+        "url": "laundry-service-palam-vihar/"
+      },
+      {
+        "label": "MG Road",
+        "url": "laundry-service-mg-road/"
+      }
     ],
     "support": [
-      { "label": "Terms and Conditions", "url": "terms-and-conditions/" },
-      { "label": "Curtain Cleaning Policy", "url": "curtain-cleaning-policy/" },
-      { "label": "Free Pickup and Delivery Policy", "url": "free-pickup-delivery-policy/" },
-      { "label": "Privacy and Security Policy", "url": "privacy-and-security-policy/" },
-      { "label": "Refund and Delivery Policy", "url": "refund-and-delivery-policy/" }
+      {
+        "label": "Terms and Conditions",
+        "url": "terms-and-conditions/"
+      },
+      {
+        "label": "Curtain Cleaning Policy",
+        "url": "curtain-cleaning-policy/"
+      },
+      {
+        "label": "Free Pickup and Delivery Policy",
+        "url": "free-pickup-delivery-policy/"
+      },
+      {
+        "label": "Privacy and Security Policy",
+        "url": "privacy-and-security-policy/"
+      },
+      {
+        "label": "Refund and Delivery Policy",
+        "url": "refund-and-delivery-policy/"
+      }
     ]
+  },
+  "locality_urls": {
+    "_note": "Maps the content generator's locality slug to the live URL slug. The eight original URLs are preserved exactly; sector-49 and mg-road are new.",
+    "sushant-lok": "laundry-service-sushant-lok",
+    "sector-49": "laundry-service-sector-49",
+    "cyber-city": "laundry-service-cyber-city",
+    "dlf-phase-3": "laundry-service-dlf-phase-3",
+    "golf-course-road": "laundry-service-golf-course-road",
+    "golf-course-extension-road": "laundry-service-golf-course-extension",
+    "sohna-road": "laundry-service-sohna-road",
+    "sector-29": "laundry-service-gurugram-sector-29",
+    "palam-vihar": "laundry-service-palam-vihar",
+    "mg-road": "laundry-service-mg-road"
   }
 }

@@ -1,188 +1,139 @@
 {
+  "_removed": "The previous homepage claimed a 4.8 rating from '2,000+ reviews' and 'Italian hydrocarbon technology'. Neither is substantiated by anything the client supplied, and a fabricated aggregate rating is a Google manual-action risk. Replaced with the one number the client does stand behind: 1000+ customers. The old 'Flat 25% off first order' offer is also removed — reinstate it only if it is a live, honoured offer.",
   "meta": {
-    "title": "Wash4You – Laundry & Dry-Clean Service in Delhi NCR",
-    "description": "Experience premium laundry & dry-clean service by Vanzoo using advanced Italian hydrocarbon technology—gentle on fabrics, and powerful on tough everyday stains.",
+    "title": "Best Dry Cleaning Service in NCR (Wash4You)",
+    "description": "Eco-friendly laundry, dry cleaning, shoe and sofa cleaning across Gurugram & Delhi NCR. Free doorstep pickup and delivery, every order counted with you and packed separately.",
     "canonical": "https://wash4you.in/",
-    "og_title": "Wash4You – Laundry & Dry-Clean Service in Delhi NCR",
-    "og_description": "Experience premium laundry & dry-clean service by Vanzoo using advanced Italian hydrocarbon technology—gentle on fabrics, and powerful on tough everyday stains."
+    "og_title": "Best Dry Cleaning & Laundry Service in NCR — Wash4You",
+    "og_description": "Free doorstep pickup and delivery across Gurugram. See the before-and-after for yourself."
+  },
+  "banner": {
+    "eyebrow": "Gurugram · Delhi NCR",
+    "headline_line1": "Best dry cleaning &",
+    "headline_line2": "laundry in NCR.",
+    "subheadline": "Eco-friendly laundry, dry cleaning and specialist fabric care. We collect from your door, count every piece with you, and deliver it back fresh.",
+    "cta_label": "Book free pickup",
+    "cta_secondary": "See pricing",
+    "trust": "Trusted by 1000+ customers in Gurugram",
+    "points": [
+      "Free doorstep pickup & delivery",
+      "Every piece counted with you",
+      "Eco-friendly, fabric-safe cleaning"
+    ]
   },
   "hero": {
-    "headline": "We'll take the laundry. You take the time.",
-    "subheadline": "Premium laundry, dry cleaning & ironing in Gurugram & Delhi NCR. Free pickup and delivery.",
-    "cta_primary": "Schedule a Pickup",
-    "cta_secondary": "View Pricing",
-    "image": "/src/assets/images/hero-banner.jpg",
-    "rating": "4.8",
-    "reviews": "2,000+"
+    "care_note": "Gentle cycle · No bleach · Cool iron",
+    "headline_line1": "Shrink the hassle,",
+    "headline_line2": "not the fabric.",
+    "subheadline": "Eco-friendly laundry, dry cleaning and specialist care across Gurugram. We collect from your door and count every piece with you before it leaves.",
+    "cta_label": "Book free pickup",
+    "cta_secondary": "See pricing",
+    "trust": "Trusted by 1000+ customers in Gurugram"
   },
-  "usps": [
-    {
-      "title": "Fast 24-Hour Turnaround",
-      "description": "Get your clothes back clean, crisp, and ready to wear within a day."
-    },
-    {
-      "title": "Earth-Safe Cleansers",
-      "description": "Biodegradable, non-toxic formulas that are gentle on skin and the planet."
-    },
-    {
-      "title": "Free Pickup & Delivery",
-      "description": "Doorstep service across Gurugram and Delhi NCR at no extra charge."
-    },
-    {
-      "title": "100% Satisfaction",
-      "description": "Expert care with quality checks at every step, backed by our guarantee."
-    }
-  ],
-  "service_tabs": [
-    {
-      "id": "laundry",
-      "eyebrow": "Laundry & Wash-Fold",
-      "title": "Laundry, washed and folded.",
-      "intro": "Everyday laundry cleaned with earth-safe cleansers, folded to perfection, and delivered back in 24 hours.",
-      "image": "about-story.jpg",
-      "image_alt": "Freshly washed and folded knitwear",
-      "cta": "Schedule a Laundry pickup",
-      "link": "services/eco-friendly-laundry/",
-      "steps": [
-        {
-          "label": "Schedule",
-          "title": "Book a pickup",
-          "text": "Choose a time that suits you on WhatsApp or our booking app. Our team arrives at your doorstep — pickup is always free."
-        },
-        {
-          "label": "Clean",
-          "title": "We clean with care",
-          "text": "Your clothes are digitally tagged, sorted by fabric and colour, washed with biodegradable formulas, and neatly folded."
-        },
-        {
-          "label": "Deliver",
-          "title": "Delivered in 24 hours",
-          "text": "Fresh laundry returned to your door the very next day, ready to wear or put away."
-        }
-      ]
-    },
-    {
-      "id": "dryclean",
-      "eyebrow": "Dry Cleaning",
-      "title": "Expert care for fine garments.",
-      "intro": "Suits, sarees, lehengas and delicates cleaned with Italian hydrocarbon technology — gentle on fabric, tough on stains.",
-      "image": "eco-hp.jpg",
-      "image_alt": "Vanzoo hydrocarbon dry cleaning system",
-      "cta": "Schedule a Dry Cleaning pickup",
-      "link": "services/premium-dry-cleaning/",
-      "steps": [
-        {
-          "label": "Schedule",
-          "title": "Book a pickup",
-          "text": "Schedule online or on WhatsApp and hand over your garments at the door."
-        },
-        {
-          "label": "Clean",
-          "title": "Inspected & treated",
-          "text": "Every piece is inspected, stains pre-treated, cleaned at low temperature, then pressed and finished by hand."
-        },
-        {
-          "label": "Deliver",
-          "title": "Back in your wardrobe",
-          "text": "Returned crisp on hangers, with quality checks at every step and our satisfaction guarantee."
-        }
-      ]
-    }
-  ],
+  "why": {
+    "eyebrow": "Why Wash4You",
+    "title": "The best dry cleaning service in NCR, judged where it counts — at your door.",
+    "text": "Wash4You is an eco-friendly laundry and dry-cleaning service in Gurugram and Delhi NCR. What sets us apart isn't a slogan — it's the parts of the job most services hide: the count at your door, the separate bag for your order, and the honest word before we treat a stain.",
+    "seo_text": "From premium dry cleaning of suits, sarees and lehengas to shoe cleaning, sofa and carpet care, curtains and everyday laundry — every service comes with free doorstep pickup and delivery across Gurugram and the wider NCR. Fabric-safe methods, transparent pricing, and your order handled on its own from collection to delivery."
+  },
   "how_it_works": {
-    "title": "How It Works",
-    "subtitle": "From pickup to delivery in 7 simple steps.",
+    "eyebrow": "How it works",
+    "title": "From your door and back, in seven steps.",
+    "text": "The same care as a specialist store, with the pickup and delivery done for you.",
     "steps": [
       {
-        "stage": "Stage 1",
-        "title": "Pickup Scheduling",
-        "description": "Using your mobile app or website, book a pickup at a time and location that suits you best."
+        "title": "Book a free pickup",
+        "detail": "Choose a time online or on WhatsApp. Pickup and delivery are always free."
       },
       {
-        "stage": "Stage 2",
-        "title": "Garment Collection",
-        "description": "Our logistics team arrives promptly to collect your garments, securely packaged and digitally tagged."
+        "title": "Doorstep collection",
+        "detail": "We arrive at your slot and count every piece with you before it leaves."
       },
       {
-        "stage": "Stage 3",
-        "title": "Inspection & Sorting",
-        "description": "Every item is inspected for fabric type, care labels, and stains, then sorted for specialized care."
+        "title": "Sorting & inspection",
+        "detail": "Sorted by fabric and colour; stains, damage and special care are flagged."
       },
       {
-        "stage": "Stage 4",
-        "title": "Stain Pre-Treatment",
-        "description": "Visible stains are pre-treated with precision techniques that respect your clothing's fibers."
+        "title": "Stain treatment",
+        "detail": "Marks are pre-treated by hand with the right solution for the fabric."
       },
       {
-        "stage": "Stage 5",
-        "title": "Sustainable Cleaning",
-        "description": "Garments are cleaned using skin-safe, biodegradable formulas and techniques optimized for each fabric."
+        "title": "Cleaning",
+        "detail": "Dry-cleaned or washed by the method each garment actually needs."
       },
       {
-        "stage": "Stage 6",
-        "title": "Finishing & Detailing",
-        "description": "Carefully dried, pressed, or folded with attention to loose threads and buttons."
+        "title": "Finishing & quality check",
+        "detail": "Steam-pressed, re-counted and checked piece by piece against your list."
       },
       {
-        "stage": "Stage 7",
-        "title": "Final Check & Delivery",
-        "description": "After a final quality inspection, your clothes are returned spotless, crisp, and ready to go."
+        "title": "Delivered to your door",
+        "detail": "Packed separately as your order and returned when we said we would."
       }
     ]
   },
-  "services_featured": {
-    "title": "What We Offer",
-    "subtitle": "A complete range of garment and home care services.",
-    "cta": "Explore All Services"
+  "blog_section": {
+    "eyebrow": "From the blog",
+    "title": "Laundry & fabric-care tips",
+    "text": "Guides on stains, fabrics, footwear and monsoon drying — written by the people who do it.",
+    "cta": "Read the blog"
   },
-  "mission": {
-    "title": "Our Mission & Vision",
-    "mission": "To deliver unmatched laundry & dry clean convenience and superior quality, reducing time, effort, and environmental impact for our customers, by combining green practices with seamless service execution.",
-    "vision": "To be the go-to laundry & dry clean partner you trust, expanding across communities, known for hassle-free, eco-driven clean that redefines what clean service means.",
-    "image": "/src/assets/images/eco-hero.jpg"
+  "proof": {
+    "eyebrow": "Real results",
+    "title": "Drag the handle. That's the same shoe.",
+    "text": "Every before-and-after on this site is our own work, photographed in our Gurugram store. Nothing is stock and nothing is retouched.",
+    "cta": "See what we clean"
   },
-  "cta_banner": {
-    "title": "Ready to Enjoy Fresh Laundry Without the Hassle?",
-    "subtitle": "Schedule your free pickup today and get back your time.",
-    "cta": "Schedule My Pickup"
+  "services_section": {
+    "eyebrow": "What we clean",
+    "title": "Clothes, shoes, and everything at home that won't fit in a washing machine.",
+    "text": "Fifteen services under one roof, each with its own handling.",
+    "cta": "All services"
+  },
+  "process": {
+    "eyebrow": "How pickup works",
+    "title": "You watch it get counted.",
+    "text": "The most common worry with any laundry service is a missing piece. Here is how we take that off the table."
+  },
+  "reviews_section": {
+    "eyebrow": "From our customers",
+    "title": "Photographed at the door, not written by us.",
+    "text": "Our own customers, in their own words, at the moment they collected their order."
+  },
+  "areas_section": {
+    "eyebrow": "Where we collect",
+    "title": "Free pickup across Gurugram.",
+    "text": "Two stores — one in Sushant Lok, one in Sector 49 — serving the sectors and colonies around them."
   },
   "faqs": [
     {
-      "question": "What services does Wash4you provide?",
-      "answer": "Wash4you offers premium dry cleaning, laundry, ironing, carpet, curtain, shoe, bag, leather, and toy care with free pickup and delivery."
+      "q": "Is pickup and delivery really free?",
+      "a": "Yes. Doorstep collection and delivery are included at no extra charge anywhere we serve in Gurugram."
     },
     {
-      "question": "What cleaning technology does Wash4you use?",
-      "answer": "We use European hydrocarbon dry cleaning technology that is eco-friendly, fabric-safe, and ensures gentle yet effective cleaning."
+      "q": "How do I know nothing goes missing?",
+      "a": "Every piece is counted with you at the door before it leaves, and you get a written acknowledgement of exactly what was collected. Your order is then bagged on its own — it never shares a machine or a bag with another customer's clothes."
     },
     {
-      "question": "Is hydrocarbon dry cleaning gentle on clothes?",
-      "answer": "Yes, it is a low-temperature, solvent-based method that preserves the texture, shape, and color of delicate garments."
+      "q": "What if a stain doesn't come out?",
+      "a": "Tell us what the stain is and roughly how old it is when you book, because that genuinely changes what we can do. Some stains — old oil, set ink, heat-fixed marks — may not lift completely. We would rather tell you that before we treat the garment than after."
     },
     {
-      "question": "How is Wash4you different from others?",
-      "answer": "We provide eco-friendly cleaning, expert fabric care, and convenient pickup and delivery for a seamless garment care experience."
+      "q": "Can you clean things other than clothes?",
+      "a": "Yes. Shoes and sneakers, handbags, leather, curtains, carpets, sofas, mattresses, blankets and soft toys. Sofas and mattresses are cleaned at your home; everything else is collected."
+    },
+    {
+      "q": "Which parts of Gurugram do you cover?",
+      "a": "Sushant Lok, Sector 49, Cyber City, DLF Phase 3, Golf Course Road, Golf Course Extension Road, Sohna Road, Sector 29, Palam Vihar and MG Road, plus the sectors around them. If you are not sure, send us a WhatsApp with your address and we will confirm."
+    },
+    {
+      "q": "How do I book?",
+      "a": "Book a pickup online, or send a WhatsApp to +91 63 67 600 500 with your address and a time window that suits you."
     }
   ],
-  "testimonials": [
-    {
-      "quote": "Wash4You has completely changed how I manage laundry. The pickup is always on time and clothes come back perfectly folded.",
-      "author": "Priya S.",
-      "location": "Gurugram"
-    },
-    {
-      "quote": "Their dry cleaning is excellent. My suits and sarees have never looked better, and the free delivery is a huge plus.",
-      "author": "Rahul M.",
-      "location": "Delhi NCR"
-    },
-    {
-      "quote": "Eco-friendly cleaning that actually works. I feel good using Wash4You for my family's clothes.",
-      "author": "Anita K.",
-      "location": "Sector 29, Gurugram"
-    }
-  ],
-  "guarantee": {
-    "title": "The Wash4You Guarantee.",
-    "text": "If you're not happy with the quality of our service, we'll make it right. Your satisfaction is our priority."
+  "cta": {
+    "title": "Book a free pickup.",
+    "text": "Tell us when suits you. We come to your door, count everything with you, and take it from there.",
+    "primary": "Book free pickup",
+    "secondary": "WhatsApp us"
   }
 }

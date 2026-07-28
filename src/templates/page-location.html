@@ -1,52 +1,174 @@
 {% extends "base.html" %}
+{% from "_icons.html" import ui, care_tag, service_icon %}
+{% from "_components.html" import faq_list, review_card %}
+
+{% block schema %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.urls.base }}/" },
+          { "@type": "ListItem", "position": 2, "name": "Areas", "item": "{{ site.urls.base }}/locate-us/" },
+          { "@type": "ListItem", "position": 3, "name": {{ area.name | tojson }} }
+        ]
+      }{% if area.faqs %},
+      {
+        "@type": "FAQPage",
+        "@id": "{{ meta.canonical }}#faq",
+        "mainEntity": [
+          {% for f in area.faqs %}{
+            "@type": "Question",
+            "name": {{ f.q | tojson }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | tojson }} }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }{% endif %}
+{% endblock %}
 
 {% block content %}
+
 <section class="page-hero">
-  <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
       <a href="{{ root_path }}">Home</a>
-      <span class="breadcrumb__sep">/</span>
-      <a href="{{ root_path }}locate-us/">Locate Us</a>
-      <span class="breadcrumb__sep">/</span>
-      <span aria-current="page">{{ area.name }}</span>
+      <span aria-hidden="true">/</span>
+      <a href="{{ root_path }}locate-us/">Areas</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ area.name }}</span>
     </nav>
-    <h1 class="page-hero__title">{{ area.title }}</h1>
-    <p class="page-hero__subtitle">{{ area.description }}</p>
+
+    <div class="page-hero__grid">
+      <div>
+        <p class="eyebrow">{{ ui('pin', 16) }} Gurugram</p>
+        <h1>{{ area.h1 or area.title }}</h1>
+        <p class="lede">{{ area.lede or area.description }}</p>
+        <div class="btn-row">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+          <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp us</a>
+        </div>
+      </div>
+
+      {% if area.local_notes %}
+      <aside class="store-card reveal">
+        <p class="mono">Local notes</p>
+        <ul class="prose" style="margin:0">
+          {% for n in area.local_notes[:3] %}<li>{{ n }}</li>{% endfor %}
+        </ul>
+      </aside>
+      {% endif %}
+    </div>
   </div>
 </section>
 
-<section class="section section-light">
-  <div class="container location-detail">
-    <div class="reveal">
-      <span class="section-header__eyebrow">Service Highlights</span>
-      <h2 class="section-header__title">Laundry care in {{ area.name }}</h2>
-      <ul class="why-list mt-4">
-        {% for highlight in area.highlights %}
-        <li class="why-list__item">
-          <span class="why-list__icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          </span>
-          {{ highlight }}
-        </li>
-        {% endfor %}
-      </ul>
-      <div class="mt-5">
-        <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Schedule Pickup</a>
-      </div>
+{% if area.body %}
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <div class="prose reveal">{{ area.body | markdown | safe }}</div>
+  </div>
+</section>
+{% endif %}
+
+{# The service x locality pages for this area. This block is the internal
+   linking surface that makes the long-tail pages discoverable. #}
+{% if area.matrix %}
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Services here</p>
+      <h2>What we collect from {{ area.name }}</h2>
+      <p>Each of these has its own page explaining how the service works in this part of Gurugram.</p>
     </div>
-    <div class="location-detail__map reveal reveal-delay-2">
-      <iframe src="https://www.google.com/maps?q={{ area.name | urlencode }}+Gurugram+Haryana+India&output=embed" loading="lazy" title="Map of {{ area.name }}, Gurugram"></iframe>
+    <div class="locality-services stagger-children">
+      {% for m in area.matrix %}
+      <a class="area-link" href="{{ root_path }}{{ m.service }}-{{ m.locality }}/">
+        {{ m.service | replace('-', ' ') | title }} {{ ui('arrow-right', 16) }}
+      </a>
+      {% endfor %}
     </div>
   </div>
 </section>
+{% endif %}
 
 <section class="section">
-  <div class="container">
-    <div class="cta-banner reveal text-center">
-      <h2 class="cta-banner__title">Book your pickup in {{ area.name }}</h2>
-      <p class="cta-banner__subtitle">Free doorstep pickup and delivery across {{ area.name }}.</p>
-      <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book Now</a>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Everything we clean</p>
+      <h2>All services, collected from {{ area.name }}</h2>
+    </div>
+    <div class="svc-grid stagger-children">
+      {% for s in services.services[:9] %}
+      <article class="svc">
+        <span class="svc__icon">{{ service_icon(s.slug, 36) }}</span>
+        <h3><a class="svc__link" href="{{ root_path }}services/{{ s.slug }}/">{{ s.name }}</a></h3>
+        <p>{{ s.short_description }}</p>
+        {{ care_tag(s.slug) }}
+      </article>
+      {% endfor %}
+    </div>
+    <div class="text-center" style="margin-top:var(--s-7)">
+      <a class="btn btn--ghost btn--lg" href="{{ root_path }}services/">All services {{ ui('arrow-right', 18) }}</a>
     </div>
   </div>
 </section>
+
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Come to us</p>
+      <h2>Our two Gurugram stores</h2>
+    </div>
+    <div class="store-grid stagger-children">
+      {% for loc in site.locations %}
+      <div class="store-card">
+        <strong>{{ loc.name }}</strong>
+        <address>{{ loc.address }}</address>
+        <div class="btn-row">
+          <a class="btn btn--ghost" href="{{ loc.map_url }}" rel="noopener">{{ ui('pin', 16) }} Directions</a>
+          <a class="btn btn--ghost" href="{{ site.urls.phone }}">{{ ui('phone', 16) }} Call</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% if area.faqs %}
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow eyebrow--center">Questions</p>
+      <h2>{{ area.name }} — what people ask</h2>
+    </div>
+    {{ faq_list(area.faqs, 'loc-faq') }}
+  </div>
+</section>
+{% endif %}
+
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Nearby</p>
+      <h2>Other areas we collect from</h2>
+    </div>
+    <div class="areas stagger-children">
+      {% for a in site.footer.areas if a.url.rstrip('/') != area.slug %}
+      <a class="area-link" href="{{ root_path }}{{ a.url }}">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Free pickup in {{ area.name }}.</h2>
+      <p>Tell us a time that suits you. We come to your door, count everything with you, and take it from there.</p>
+      <div class="btn-row">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+        <a class="btn btn--on-navy btn--lg" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

@@ -1,64 +1,111 @@
 {% extends "base.html" %}
+{% from "_icons.html" import ui %}
+
+{% block schema %},
+      {
+        "@type": "ContactPage",
+        "@id": "{{ meta.canonical }}",
+        "about": { "@id": "{{ site.urls.base }}/#business" }
+      }
+{% endblock %}
 
 {% block content %}
+
 <section class="page-hero">
-  <div class="container">
-    <h1 class="page-hero__title">{{ pages.contact.hero.headline }}</h1>
-    <p class="page-hero__subtitle">{{ pages.contact.hero.subheadline }}</p>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>Contact</span>
+    </nav>
+    <div class="page-hero__grid">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h1{{ cms('pages:contact.hero.headline') }}>{{ pages.contact.hero.headline }}</h1>
+        <p class="lede"{{ cms('pages:contact.hero.subheadline') }}>{{ pages.contact.hero.subheadline }}</p>
+        <div class="btn-row">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp us</a>
+          <a class="btn btn--ghost btn--lg" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section section-light">
-  <div class="container contact-layout">
-    <div class="contact-form reveal">
-      <h2 class="text-h3 mb-4">{{ pages.contact.form.title }}</h2>
-      <form action="{{ pages.contact.form.action }}" method="{{ pages.contact.form.method }}">
-        {% for field in pages.contact.form.fields %}
-        <div class="form-group">
-          <label class="form-label" for="{{ field.name }}">{{ field.label }}{% if field.required %} *{% endif %}</label>
-          {% if field.type == 'select' %}
-          <select class="form-select" id="{{ field.name }}" name="{{ field.name }}" {% if field.required %}required{% endif %}>
-            <option value="">Select a service</option>
-            {% for option in field.options %}
-            <option value="{{ option }}">{{ option }}</option>
-            {% endfor %}
-          </select>
-          {% elif field.type == 'textarea' %}
-          <textarea class="form-textarea" id="{{ field.name }}" name="{{ field.name }}" placeholder="Tell us more about your request..." {% if field.required %}required{% endif %}></textarea>
-          {% else %}
-          <input class="form-input" type="{{ field.type }}" id="{{ field.name }}" name="{{ field.name }}" placeholder="{{ field.label }}" {% if field.required %}required{% endif %}>
-          {% endif %}
+<section class="section">
+  <div class="wrap">
+    <div class="svc-detail">
+      <div class="contact-form">
+        <div class="section-head">
+          <h2{{ cms('pages:contact.form.title') }}>{{ pages.contact.form.title }}</h2>
+          <p>Fill this in and it opens WhatsApp with your details ready to send — the fastest way to reach us.</p>
+        </div>
+
+        {# No form backend on a static host: submitting composes a WhatsApp
+           message instead. main.js handles this. Without JS there is no
+           working fallback: the mailto: action only opens the visitor's mail
+           client with our subject line — it does NOT preserve the enquiry,
+           because mail clients ignore the name/email/phone/message query keys
+           (and a mailto subject in the href overrides any submitted one). #}
+        <form class="form" id="contact-form"
+              action="{{ pages.contact.form.action }}"
+              method="{{ pages.contact.form.method }}"
+              data-whatsapp="{{ site.urls.whatsapp }}">
+          {% for field in pages.contact.form.fields %}
+          <div class="field">
+            <label for="f-{{ field.name }}">{{ field.label }}{% if field.required %} <span aria-hidden="true">*</span><span class="visually-hidden">(required)</span>{% endif %}</label>
+            {% if field.type == 'textarea' %}
+            <textarea id="f-{{ field.name }}" name="{{ field.name }}"{% if field.required %} required{% endif %}></textarea>
+            {% elif field.type == 'select' %}
+            <select id="f-{{ field.name }}" name="{{ field.name }}"{% if field.required %} required{% endif %}>
+              <option value="">Choose a service</option>
+              {% for s in services.services %}<option value="{{ s.name }}">{{ s.name }}</option>{% endfor %}
+            </select>
+            {% else %}
+            <input id="f-{{ field.name }}" name="{{ field.name }}" type="{{ field.type }}"
+                   {% if field.type == 'tel' %}inputmode="tel" autocomplete="tel"{% endif %}
+                   {% if field.type == 'email' %}autocomplete="email"{% endif %}
+                   {% if field.name == 'name' %}autocomplete="name"{% endif %}
+                   {% if field.required %} required{% endif %}>
+            {% endif %}
+          </div>
+          {% endfor %}
+          <button class="btn btn--cta btn--lg" type="submit">{{ ui('whatsapp', 18) }} <span{{ cms('pages:contact.form.submit') }}>{{ pages.contact.form.submit }}</span></button>
+          <p class="field__hint">This opens WhatsApp with your message prefilled. Nothing is sent until you press send there.</p>
+        </form>
+      </div>
+
+      <aside class="svc-aside">
+        <h3{{ cms('pages:contact.info.title') }}>{{ pages.contact.info.title }}</h3>
+        <div class="footer__contact" style="margin-top:0">
+          <a href="{{ site.urls.phone }}" style="color:var(--ink)">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+          <a href="{{ site.urls.email }}" style="color:var(--ink)">{{ ui('mail', 18) }} {{ site.contact.email }}</a>
+        </div>
+        <hr class="seam">
+        {% for loc in site.locations %}
+        <div class="footer__store">
+          <strong style="color:var(--ink)">{{ loc.name }}</strong>
+          <address style="font-size:var(--t-sm);color:var(--ink-3)">{{ loc.address }}</address>
+          <a class="link-arrow" href="{{ loc.map_url }}" rel="noopener">Directions {{ ui('arrow-right', 16) }}</a>
         </div>
         {% endfor %}
-        <button type="submit" class="btn btn-primary btn-lg">{{ pages.contact.form.submit }}</button>
-      </form>
+      </aside>
     </div>
+  </div>
+</section>
 
-    <div class="contact-info reveal reveal-delay-2">
-      {% for item in pages.contact.info['items'] %}
-      <div class="contact-card">
-        <div class="contact-card__icon">
-          {% if loop.index == 1 %}
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          {% elif loop.index == 2 %}
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          {% elif loop.index == 3 %}
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          {% else %}
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          {% endif %}
-        </div>
-        <div>
-          <p class="contact-card__label">{{ item.label }}</p>
-          {% if item.url %}
-          <a href="{{ item.url }}" class="contact-card__value" {% if item.url.startswith('http') %}target="_blank" rel="noopener"{% endif %}>{{ item.value }}</a>
-          {% else %}
-          <p class="contact-card__value">{{ item.value }}</p>
-          {% endif %}
-        </div>
-      </div>
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Where we collect</p>
+      <h2>Areas we serve</h2>
+    </div>
+    <div class="areas stagger-children">
+      {% for a in site.footer.areas %}
+      <a class="area-link" href="{{ root_path }}{{ a.url }}">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
       {% endfor %}
     </div>
   </div>
 </section>
+
 {% endblock %}

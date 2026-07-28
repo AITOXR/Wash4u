@@ -1,0 +1,1799 @@
+{
+ "services": [
+  {
+   "slug": "premium-dry-cleaning",
+   "meta_title": "Dry Cleaning in Gurugram | Suits, Sarees & Woollens",
+   "meta_description": "Suits, sarees, lehengas and woollens dry cleaned in Gurugram. Colour-bleed tested and hand-spotted before cleaning. Free pickup and delivery at your door.",
+   "h1": "Dry cleaning for the clothes you can't afford to get wrong",
+   "lede": "Suits, sarees, lehengas, sherwanis, woollens and embellished designer wear — inspected and tested before anyone decides how to clean them. Free pickup and delivery across Gurugram.",
+   "body": "## Solvent cleans oil. It does not clean sweat.\n\nDry cleaning is a wash in solvent rather than water. Solvent is very good at what water struggles with: body oil, the sebum ring inside a collar, ghee and cooking grease, make-up, car grime. It is close to useless on water-based staining — perspiration, tea, coffee, cold drink, juice, wine, most gravies. Those have to be lifted by hand first, on a spotting board with steam, vacuum and the correct agent for that stain group, before the garment goes anywhere near a machine.\n\nThis is where dry cleaning is actually won or lost. A shop that skips pre-spotting hands back a garment that smells clean with the mark still sitting in it. It is also why we ask what the spill was. Tannin, protein, oil and dye each need a different treatment, and the wrong one can set a stain permanently instead of removing it. One of our customers put it plainly: \"I tried at home and the stain didn't go. Wash4You removed it completely.\" Nothing clever happened there — we just identified the stain before treating it.\n\n## Every piece is inspected before it is processed\n\nFibre first, care label second. Sarees, lehengas and sherwanis very often arrive with no label at all, or with a tailor's label that says nothing useful, so the fabric has to be identified by hand and eye. We then test for colour bleed on an inside seam or hem — non-negotiable for bandhani, leheriya, hand-dyed cotton, and for anything with a dark border sitting against a pale body, like a maroon-bordered cream Kanjeevaram.\n\nEmbellishment decides the method. Zari and dabka can tarnish, plastic sequins can soften in solvent or under a press, and mukaish and stone-work is often glued rather than stitched. Heavily worked pieces are covered, tacked with muslin, or cleaned by hand and spot-treated only — never tumbled. Nazuk kapde, extra care: that means slower work, not a different marketing word. Beads and stones are counted at intake and checked again at packing, and any existing damage is noted on your receipt before the garment leaves your door.\n\n## What we cannot save — and will tell you upfront\n\nChlorine damage is permanent. Splash from a toilet or bathroom cleaner, hair bleach, or benzoyl peroxide acne cream on a collar or pillowcase destroys the dye itself; there is nothing left to clean. Sugar stains from juice or cold drink go in invisible and oxidise into brown caramel over months in storage — once they have browned, they are usually there for good. Heat sets stains, so a mark that has already been ironed over is far harder. Mehendi and permanent marker are dyes and behave like dyes. And a garment already weakened at the underarm by years of antiperspirant and sweat can split during finishing — the damage was there before it reached us, but you deserve to hear it in advance rather than at delivery.\n\n## Before you hand it over\n\nEmpty every pocket, especially of tissues. Remove brooches and detachable buttons. Tell us about spills you can no longer see — a clear one today is a brown one in six months. And tell us honestly if you have already tried something at home, because nail-polish remover, hot water or a supermarket stain remover changes what we can safely do next.",
+   "what_we_clean": [
+    {
+     "item": "Men's suits, blazers and trousers",
+     "detail": "Jacket and trousers are cleaned together as a set even when only one half looks dirty, so the two never drift apart in shade. Finished over a form with steam and vacuum rather than pressed flat, which is what prevents shine on worsted wool and bubbling over fused interlining."
+    },
+    {
+     "item": "Sarees — silk, chiffon, georgette, cotton",
+     "detail": "Colour-fastness tested at an inside hem before anything else, since a dark border against a pale body is the most common bleed risk. Pleats and pallu are set by hand at finishing."
+    },
+    {
+     "item": "Lehengas and bridal wear",
+     "detail": "The base net, the can-can lining and the embroidered panels all react differently, which is what causes puckering when a heavy ghagra is cleaned carelessly. Worked sections are hand-treated and the skirt is re-set rather than flattened."
+    },
+    {
+     "item": "Sherwanis, bandhgalas and kurta sets",
+     "detail": "Structured chest canvas and collar stiffening need controlled heat. Zari buttons and thread-work are protected before cleaning and hand-finished after."
+    },
+    {
+     "item": "Woollens, shawls and pashmina",
+     "detail": "Dry cleaning also clears moth larvae, which is exactly why woollens should go into storage clean — moths feed on food, sweat and body-oil residue, not on the wool itself."
+    },
+    {
+     "item": "Designer and embellished wear",
+     "detail": "Sequins, beadwork, mukaish, stone-work and appliqué. Assessed piece by piece; some items are spot-cleaned by hand only, and we will say so before we accept the order."
+    },
+    {
+     "item": "Dresses, gowns and formal wear",
+     "detail": "Linings, boning and pleating are checked separately from the outer shell. Velvet is steamed from the reverse, never pressed face-down."
+    },
+    {
+     "item": "Winter coats, jackets and overcoats",
+     "detail": "Collar and cuff grime is pre-treated by hand before the main clean, since that soiling is oil-based and concentrated where the fabric meets skin."
+    }
+   ],
+   "process": [
+    {
+     "step": "Counted at your door",
+     "detail": "Every piece is counted and logged with you before it leaves, and you get a written receipt of exactly what was collected. Your order is bagged on its own and never shares a load with anyone else's."
+    },
+    {
+     "step": "Inspection and tagging",
+     "detail": "Fibre identified, care label read where one exists, existing damage recorded, and embellishments counted. Anything we think may not survive cleaning is flagged to you at this stage, not after."
+    },
+    {
+     "step": "Colour-fastness test",
+     "detail": "A discreet test on an inside seam or hem before any treatment. Hand-dyed, bandhani, leheriya and high-contrast bordered fabrics are always tested."
+    },
+    {
+     "step": "Hand pre-spotting",
+     "detail": "Each stain is treated by type — tannin, protein, oil or dye — on the spotting board with steam, air and vacuum, before the garment reaches any machine."
+    },
+    {
+     "step": "The cleaning itself",
+     "detail": "The method is chosen for the garment: a solvent cycle for pieces that can take movement, hand or spot-only cleaning for heavily worked and embellished items."
+    },
+    {
+     "step": "Finishing",
+     "detail": "Steam and form-pressing rather than flat pressing where the garment is structured. Embroidery, zari and pleating are finished by hand."
+    },
+    {
+     "step": "Final check and delivery",
+     "detail": "Re-inspected against the intake notes, embellishments re-counted, then returned on hangers under a breathable cover to your door."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Should I dry clean my lehenga straight after the function, or can it wait?",
+     "a": "Send it as soon as you can. The stains you cannot see are the problem — sweat, perfume, juice and cold drink go in clear and oxidise into brown patches over the months a wedding outfit sits in a cupboard. By the time you notice them at the next wedding, they are often permanent. The same applies to woollens going into storage."
+    },
+    {
+     "q": "My saree has zari and sequins. Is it safe to dry clean?",
+     "a": "It depends on the work, which is why we inspect before quoting a method. Metallic zari can tarnish, plastic sequins can soften in solvent or under heat, and stone-work is frequently glued rather than stitched. Pieces like these are covered or tacked and cleaned by hand and spot-treated, not tumbled. If we do not think an item will come through safely, we will tell you at the counter."
+    },
+    {
+     "q": "Can you remove haldi or turmeric stains?",
+     "a": "Often we can lighten them a great deal, sometimes completely, but turmeric is a genuine natural dye and we will not promise it. It also reacts to alkaline treatment by shifting from yellow towards red, so a home remedy applied first can make our job harder. Bring it in untouched and unironed if possible."
+    },
+    {
+     "q": "Only my suit trousers are dirty. Can I send just those?",
+     "a": "You can, but we would rather you did not. Trousers are worn far more often than the jacket, and cleaning them separately over a few years leaves the two halves at visibly different shades. Send the suit as a set and it stays a suit."
+    },
+    {
+     "q": "What happens if the stain doesn't come out?",
+     "a": "We tell you what it is and why. Some things genuinely cannot be reversed — chlorine bleach damage, caramelised sugar stains, mehendi, and marks that have already been heat-set by ironing. We would rather return an honest answer than repeat an aggressive treatment that thins the fabric or lifts the colour around the mark."
+    },
+    {
+     "q": "I already tried removing the stain at home. Does that matter?",
+     "a": "Yes, very much, so please tell us. Nail-polish remover, hot water, chlorine bleach and supermarket stain removers all change the chemistry of what is left behind, and one of them can rule out the treatment we would otherwise have used. It is not a problem to admit — it just changes our approach."
+    },
+    {
+     "q": "How does pickup and delivery work in Gurugram?",
+     "a": "Pickup and delivery are free across Gurugram. Message or call +91 63 67 600 500 to book a slot; your items are counted with you at the door and you get a signed acknowledgement of exactly what was collected. You can also drop items at our Vyapar Kendra store in Sushant Lok Phase I, Sector 43, or at Unitech Arcadia in Sector 49."
+    },
+    {
+     "q": "Do you handle woollens and pashmina shawls?",
+     "a": "Yes. Dry cleaning is the right method for wool and pashmina, and it has the added benefit of clearing moth larvae. Store them clean and out of polythene afterwards — sealed plastic traps moisture and yellows both wool and silk over time."
+    }
+   ],
+   "keywords": [
+    "dry cleaning in Gurugram",
+    "dry cleaners near me Gurugram",
+    "saree dry cleaning Gurugram",
+    "lehenga dry cleaning Gurugram",
+    "bridal lehenga cleaning Gurugram",
+    "suit dry cleaning Gurugram",
+    "sherwani dry cleaning near me",
+    "woollen dry cleaning Gurugram",
+    "pashmina shawl dry cleaning Gurugram",
+    "designer wear dry cleaning Gurugram",
+    "dry cleaners Sushant Lok Phase 1",
+    "dry cleaning Sector 43 Gurugram",
+    "dry cleaners Sector 49 Gurugram",
+    "dry cleaning pickup and delivery Gurugram",
+    "stain removal service Gurugram",
+    "silk saree cleaning near me",
+    "best dry cleaner in Gurgaon"
+   ]
+  },
+  {
+   "slug": "eco-friendly-laundry",
+   "meta_title": "Eco-Friendly Wash & Fold Laundry in Gurugram | Wash4You",
+   "meta_description": "Everyday wash-and-fold laundry in Gurugram. Every piece counted at your door, your load washed on its own, never mixed with another household's. Free pickup.",
+   "h1": "Everyday laundry, counted at your door and washed on its own.",
+   "lede": "Wash and fold is our volume service: shirts, tees, trousers, kurtas, towels and bedsheets, the roz ke kapde that have piled up by Thursday. Free pickup and delivery anywhere in Gurugram, with your order counted in front of you before it leaves.",
+   "body": "## Sorting is most of the job\n\nAlmost everything that goes wrong in a wash is decided before the machine starts. We sort your order three ways: by colour, by fabric weight, and by how soiled it is. Colour matters most on anything new. Unwashed dark denim, maroon and deep red cotton, and cheap black tees shed loose dye for the first three or four washes, and once that dye has been through heat it is fixed for good. Tell us if a piece has never been washed and it goes in separately. Fabric weight matters because a bath towel tumbling against a fine cotton shirt will abrade the shirt. Soil level matters because kitchen clothes and gym wear need a longer main wash than a shirt worn for four hours in an air-conditioned office.\n\n## Gurugram water, and why whites go grey\n\nMuch of Gurugram runs on hard groundwater. Calcium and magnesium react with detergent and leave a film that builds up wash after wash: whites turn a dull grey, towels stiffen and stop absorbing, dark cottons pick up a chalky cast. Adding more detergent makes it worse, because the undissolved detergent is the residue. We dose to the load and the water and run an extra rinse rather than a bigger scoop. If your whites have already greyed over years of home washing we can lift them noticeably, but we cannot return them to day-one white, and anyone promising that is selling optical brightener, which washes straight back out.\n\n## What we cannot save\n\nUnderarm yellowing on white shirts is aluminium from antiperspirant bonded into the fibre along with body protein. We reduce it; we do not erase it. Bleach marks from toilet cleaner or hair dye splash are missing colour rather than added dirt, and nothing cleans colour back in. A stain that has already been ironed or tumble-dried is usually permanent, because heat sets oil and protein alike. Most common of all: a stain scrubbed hard at home with bar soap and a brush leaves a fuzzy, faded patch where the fibre has broken, and that damage is done before we ever see the garment. So leave the stain alone and tell us what caused it. The treatment for oil is the opposite of the treatment for blood, milk or egg, and hot water on a protein stain sets it permanently.\n\n## Before you hand the bag over\n\nEmpty every pocket. One ballpoint pen can mark a whole load and one tissue will coat it in lint. Close zips and fasten hooks so they do not snag knitwear. Count your own socks, hankies and innerwear, since small items are what people notice missing. Keep out anything embellished: sequins, mirror work, beaded kurtas, silk, wool and suits belong in dry cleaning, not in a wash-and-fold load.\n\n## What comes back\n\nYour order is counted with you at the door, written on a receipt you keep, bagged on its own and washed as its own load. It never shares a drum with another household's clothes. It comes back dried at a controlled temperature, folded and packed. Wash and fold means clean and neatly folded, not pressed. If you want crisp collars and sharp trousers, ask for wash with steam ironing instead. One last thing: don't leave the sealed pack in a damp cupboard through the monsoon. Open it and let the clothes breathe.",
+   "what_we_clean": [
+    {
+     "item": "Shirts, t-shirts and everyday tops",
+     "detail": "Cotton, linen and cotton blends worn for work or at home. Collars and cuffs get a separate pre-treat before the main wash, because that is where body oil and Gurugram dust collect first."
+    },
+    {
+     "item": "Trousers, jeans and shorts",
+     "detail": "Denim is washed inside out and cool to slow fading. New dark jeans go in on their own for the first few washes so the indigo does not travel."
+    },
+    {
+     "item": "Cotton kurtas, salwars and everyday ethnic wear",
+     "detail": "Plain and lightly printed cotton and cotton-blend ethnic wear. Anything with zari, sequins, mirror work or a silk lining is moved to dry cleaning instead, and we will tell you if we spot it at sorting."
+    },
+    {
+     "item": "Towels, bedsheets and pillow covers",
+     "detail": "Washed apart from clothing because towel lint transfers onto everything else. Towels get an extra rinse and no fabric softener, since softener is what leaves them water-repellent and flat."
+    },
+    {
+     "item": "Innerwear, socks and hankies",
+     "detail": "Small items are the ones that go missing, so they are washed in mesh and counted back against the pickup receipt. Count them yourself before handover too."
+    },
+    {
+     "item": "Gym, sports and activewear",
+     "detail": "Synthetic performance fabric holds odour in the fibre rather than on it. It needs a cool wash and a proper rinse; hot water and heavy softener are what make gym clothes smell again the moment you sweat."
+    },
+    {
+     "item": "School uniforms and children's clothes",
+     "detail": "Frequent, gentle washing rather than aggressive chemistry, so name tapes, printed logos and elastic survive the term."
+    }
+   ],
+   "process": [
+    {
+     "step": "Pickup and count at your door",
+     "detail": "Every piece is counted with you before the bag leaves. You keep a written acknowledgement of exactly what was collected. Weighing, where the order is charged by weight, is done dry and in front of you, never after washing."
+    },
+    {
+     "step": "Inspection and stain flagging",
+     "detail": "Each piece is checked for existing damage, loose buttons, open seams, thin patches and stains. If we think a stain will not fully come out, or a garment is too fragile for a wash-and-fold load, we tell you before we start rather than after."
+    },
+    {
+     "step": "Sorting",
+     "detail": "Split by colour, by fabric weight and by soil level. New or unwashed dark colours are isolated. Towels are kept away from clothing to stop lint transfer."
+    },
+    {
+     "step": "Wash",
+     "detail": "Your order runs as its own load and is never combined with another customer's clothes. Detergent is dosed to the load and to Gurugram's hard water, with wash temperature set by fabric rather than by habit, and an extra rinse to clear residue."
+    },
+    {
+     "step": "Controlled drying",
+     "detail": "Dried at a temperature chosen for the fabric, so cotton does not shrink and synthetics do not glaze. This also avoids the dust and sun-fade that balcony drying leaves on darks, and the mildew smell clothes pick up when they never quite dry during the monsoon."
+    },
+    {
+     "step": "Fold, pack and deliver",
+     "detail": "Folded, checked back against the pickup count, packed as your order alone and delivered to your door across Gurugram."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Are my clothes washed together with other people's laundry?",
+     "a": "No. Every order is bagged on its own at pickup and washed as its own load. It is counted with you at the door, acknowledged in writing, kept separate through the wash, and counted again before delivery. This is the question we get asked most, and it is the reason we built the process this way."
+    },
+    {
+     "q": "Will my clothes come back ironed?",
+     "a": "Not with wash and fold. This service returns your clothes clean, dry and neatly folded, which is what most people want for everyday wear, bedding and towels. If you want crease-free shirts and pressed trousers, ask for wash with steam ironing at the time of pickup and we will book it that way."
+    },
+    {
+     "q": "Do you charge by weight or by piece?",
+     "a": "Both are available, and you can choose whichever suits the load. Bulk everyday clothing usually works out by weight; a few specific garments are simpler by piece. Weighing is always done dry, before washing, and in front of you. See our pricing page for current rates, or ask when you book."
+    },
+    {
+     "q": "I already tried removing a stain at home and it did not come out. Can you still do anything?",
+     "a": "Often yes. One customer told us, \"I tried at home and the stain didn't go. Wash4You removed it completely.\" But it depends entirely on what the stain is and what was already done to it. If it has been ironed, tumble-dried or scrubbed with a brush, your odds drop sharply. Point it out at pickup and tell us what caused it, and we will give you an honest read before we start."
+    },
+    {
+     "q": "Will new dark clothes bleed onto the rest of my order?",
+     "a": "Not if we know about them. Tell us at pickup which pieces are new or have never been washed, and those go in on their own. New dark denim, deep reds and maroons, and inexpensive black tees release loose dye for the first several washes. Once that dye has transferred and gone through heat, it is permanent, so this is a five-second conversation worth having at the door."
+    },
+    {
+     "q": "Do you take laundry for a short stay or a few weeks only?",
+     "a": "Yes. We regularly handle laundry for people staying in Gurugram short term, including guests and visitors who have no washing machine to use. One customer visiting from Ahmedabad took our service for a 15-day stay. Call or WhatsApp +91 63 67 600 500 and we will arrange pickup for as long as you need it."
+    },
+    {
+     "q": "Is the detergent safe for children's clothes and sensitive skin?",
+     "a": "We use biodegradable, non-toxic detergents and run an extra rinse cycle, which matters more than most people realise. Detergent residue left in the fabric is a common cause of itching and irritation, particularly with hard water. If someone in the house has eczema or reacts to fragrance, say so when you book and we will keep the order fragrance-free."
+    },
+    {
+     "q": "Where can I drop clothes off instead of a pickup?",
+     "a": "Either of our two Gurugram stores. Vyapar Kendra is at Gate No. 3, Shop No. 180, GF Shushant, Vyapar Kendra Road, Block C, Sushant Lok Phase I, Sector 43. Arcadia is at AG-75, Ground Floor, Block-A, Unitech Arcadia, Sector 49. Pickup and delivery are free across Gurugram if you would rather not travel."
+    }
+   ],
+   "keywords": [
+    "laundry service in Gurugram",
+    "wash and fold Gurugram",
+    "laundry pickup and delivery Gurugram",
+    "eco-friendly laundry Gurugram",
+    "laundry near me Sector 43 Gurugram",
+    "laundry service Sector 49 Gurugram",
+    "laundry service Sushant Lok Phase 1",
+    "per kg laundry service Gurugram",
+    "wash and iron service Gurugram",
+    "monthly laundry service Gurugram",
+    "bachelor laundry service Gurugram",
+    "doorstep laundry service Gurugram",
+    "laundry service near Unitech Arcadia",
+    "best laundry service in Gurgaon with free pickup"
+   ]
+  },
+  {
+   "body": "## A shoe is not one thing\n\nTake a running shoe apart in your head. Knit or mesh upper, suede or synthetic overlays, a foam midsole, a rubber outsole, a printed logo, a fabric-backed insole, and glue holding most of it together. Six materials, six different reactions to water, heat and detergent. A washing machine treats all six identically, which is exactly why shoes come out of one looking worse than they went in. Everything we do at Wash4You is by hand, panel by panel, at the two stores in Sushant Lok Phase I and Unitech Arcadia.\n\nIn Gurugram the soiling is fairly predictable. Fine construction dust that works into mesh and seams; iron-rich reddish soil from the Aravalli side that stains light foam; monsoon mud that dries into the outsole tread; rubber crumb from the turf grounds; and gym and office shoes where the real problem is the insole, not the upper.\n\n## Suede, and why water marks are not dirt\n\nMost \"stained\" suede we see is a tide line, not a stain. Someone spot-cleaned one patch, the wet area dried at a different rate from the dry area, and the boundary set as a permanent-looking ring. The fix is counter-intuitive: instead of attacking the mark, we take the whole panel to an even level of wetness, work it with a brass and rubber brush along the nap, then dry it slowly in shade with the shoe supported so it holds its shape. The nap is re-raised at the end. That is how the Nike SB Dunk in our before/after came back — no bleaching, no re-dyeing, the original suede simply made even again.\n\n## Soles, whitening and an honest limit\n\nWhite midsoles and gum soles yellow for two reasons. One is ordinary UV oxidation of the rubber over years. The other — much more common — is a home wash where alkaline detergent was not fully rinsed out and the shoe was then dried in direct Gurugram sun. The second is largely reversible: neutralise the residue, dry properly in shade. The first is not. Deep oxidation on an old gum sole can be lightened, and we will lighten it, but returning it to factory colour needs peroxide strong enough to degrade the rubber itself. We would rather hand you a slightly honey-toned sole than a crumbling white one.\n\n## What we will tell you we cannot fix\n\nOil and grease that has soaked deep into open suede or nubuck. Dye transfer, where colour from a dark sock, a wet dark panel or a car mat has migrated into pale material — that is a dye, not soil. Old polyurethane midsoles that have hydrolysed and crumble under a thumbnail. Shoes already coated in whitener paste, where the coating hides the damage rather than fixing it. Cracked topcoat on creased white leather: the dirt was filling the cracks, so a properly clean shoe can look more creased than a dirty one. Grass staining on foam improves a lot, as the Hoka Bondi shows, but a faint shadow sometimes stays.\n\nWe inspect and tell you the honest ceiling before we start. Purane sneakers ko nayi jaan — new life for old sneakers — is realistic surprisingly often. Pretending everything is recoverable is not.",
+   "faqs": [
+    {
+     "q": "Will you wash my sneakers in a machine?",
+     "a": "No. Everything is hand-cleaned, panel by panel, with brushes and solutions chosen for each material. A drum wash flexes the glue lines, distorts knit uppers and packs grit into the foam. It is the single most common reason a shoe arrives at our counter already damaged."
+    },
+    {
+     "q": "Can you actually clean suede, or will it be ruined?",
+     "a": "Suede is our most requested material and the one we are most careful with. It is cleaned with a controlled amount of moisture across a whole panel at a time so it dries evenly, then brushed to raise the nap again. What we cannot reverse is oil or grease that has already soaked into the fibres, and we will tell you that at inspection rather than after."
+    },
+    {
+     "q": "My white midsoles have gone yellow. Can you make them white again?",
+     "a": "It depends on the cause. Yellowing from detergent residue and sun-drying after a home wash usually comes back well. Yellowing from years of UV oxidation in the rubber only lightens — full reversal needs chemicals that weaken the sole, and we do not use them. We will show you which one you have."
+    },
+    {
+     "q": "Do you handle the smell as well as the dirt?",
+     "a": "Yes, and the smell almost never lives in the upper. It lives in the insole and the footbed foam, where it is bacterial. Removable insoles are cleaned and dried separately; fixed footbeds get an antibacterial treatment and a proper slow dry. A shoe that is rushed to dry will smell again within a week."
+    },
+    {
+     "q": "What should I check before handing my shoes over?",
+     "a": "Take out custom orthotics or medical insoles and keep them. Tell us about anything you already tried at home, especially bleach, hydrogen peroxide or whitener paste, because it changes what we can safely use. Point out any sole separation or loose stitching so we both note it beforehand. And mention it if the shoe has been painted, re-dyed or customised — those finishes can lift."
+    },
+    {
+     "q": "Do you clean formal leather shoes and boots too, not just sneakers?",
+     "a": "Yes. Leather dress shoes, boots, loafers and sandals are cleaned and conditioned rather than washed, so the leather is not stripped of its oils and left to crack. Football and turf boots, kids' school shoes and canvas shoes are all handled as well."
+    },
+    {
+     "q": "Do I have to come to the store?",
+     "a": "No. Pickup and delivery is free anywhere we serve in Gurugram. Your shoes are counted with you at the door, packed separately from every other customer's order, and you get a written receipt of exactly what was collected. You can also drop them at the Sushant Lok Phase I or Sector 49 store if you prefer."
+    }
+   ],
+   "h1": "Shoe cleaning in Gurugram, done by hand and panel by panel",
+   "keywords": [
+    "shoe cleaning Gurugram",
+    "sneaker cleaning Gurugram",
+    "shoe laundry near me Gurugram",
+    "suede shoe cleaning Gurugram",
+    "sneaker restoration Gurugram",
+    "white sole cleaning service",
+    "leather shoe cleaning Gurugram",
+    "shoe dry cleaning Sector 49 Gurugram",
+    "shoe cleaning Sushant Lok",
+    "running shoe cleaning service Gurugram",
+    "shoe deodorising service",
+    "how to remove water stains from suede shoes",
+    "yellow midsole cleaning sneakers",
+    "shoe cleaning with pickup and delivery Gurugram"
+   ],
+   "lede": "Sneakers, suede, running shoes and leather — cleaned by hand at our Sushant Lok and Sector 49 stores, with free pickup and delivery across Gurugram. We tell you what will come back and what won't before we start.",
+   "meta_description": "Sneaker, suede and leather shoe cleaning in Gurugram. We rebuild the finish panel by panel, deodorise from the insole up, and collect free from your door.",
+   "meta_title": "Shoe Cleaning in Gurugram | Sneaker & Suede Restoration",
+   "process": [
+    {
+     "step": "Inspection with you, not after you leave",
+     "detail": "We look at every shoe for sole separation, hydrolysed foam, cracked topcoat under the dirt, previous home treatments and any re-dye or custom paint. You are told the realistic ceiling for that pair before anything is committed to."
+    },
+    {
+     "step": "Strip and dry-clear",
+     "detail": "Laces and removable insoles come out and are treated separately. Loose grit is brushed off dry and stones are pulled from the tread — wetting a shoe with grit still in it just grinds that grit into the material."
+    },
+    {
+     "step": "Material-matched cleaning",
+     "detail": "Knit and mesh, canvas, smooth leather, suede and nubuck each get their own solution, brush stiffness and moisture level. Suede is worked a whole panel at a time so it dries evenly and no tide line forms."
+    },
+    {
+     "step": "Targeted stain work",
+     "detail": "Grass, mud, ink, kerbside grease and turf rubber are each approached differently. Anything that risks the dye or the finish is tested on a hidden area first — the tongue lining or the inside heel."
+    },
+    {
+     "step": "Midsole and outsole",
+     "detail": "Foam and rubber are cleaned separately from the upper, and detergent is fully neutralised and rinsed out. Leftover alkaline residue is the reason home-washed shoes turn yellow days later."
+    },
+    {
+     "step": "Deodorising from the insole up",
+     "detail": "Odour is bacterial and it sits in the footbed. Insoles are cleaned and dried on their own; fixed footbeds get an antibacterial treatment rather than a masking fragrance."
+    },
+    {
+     "step": "Slow shade drying, shape supported",
+     "detail": "Shoes are dried out of direct sun with the toe box supported so it does not collapse. Sun and heat are what yellow midsoles, shrink glue lines and warp uppers — this is the step people skip at home."
+    },
+    {
+     "step": "Reassemble, final check, separate packing",
+     "detail": "Laces back in, nap re-brushed on suede, leather conditioned where needed. Your order is packed on its own, never mixed with anyone else's, and returned to your door with the receipt you signed at pickup."
+    }
+   ],
+   "slug": "shoe-cleaning",
+   "what_we_clean": [
+    {
+     "item": "Sneakers and streetwear silhouettes",
+     "detail": "Leather, canvas and mixed-panel sneakers, including pairs with contrast panels where dye migration is a real risk. Cleaned by hand so white and coloured sections are never wet at the same time in a way that lets colour run."
+    },
+    {
+     "item": "Suede and nubuck",
+     "detail": "Worked panel by panel with brass and rubber brushes and the nap re-raised at the end. Water tide marks and general greying come back well; oil and grease that has soaked in usually will not."
+    },
+    {
+     "item": "Running and training shoes",
+     "detail": "Knit and engineered mesh uppers with foam midsoles — the Hoka, ASICS, Nike and adidas category. Grass, trail grime and sweat salt are the usual problems, and the foam needs cleaning separately from the upper."
+    },
+    {
+     "item": "White soles and gum soles",
+     "detail": "Midsole and outsole cleaning with the detergent properly neutralised so the sole does not yellow again a week later. Long-term UV oxidation can be lightened but not fully reversed, and we say so upfront."
+    },
+    {
+     "item": "Formal leather shoes, loafers and boots",
+     "detail": "Cleaned and conditioned rather than washed, so the leather keeps its oils. Includes Chelsea boots, brogues, monk straps and leather sandals. Creasing is softened; cracked finish cannot be filled in."
+    },
+    {
+     "item": "Football boots, turf shoes and cricket spikes",
+     "detail": "Studded and turf soles hold packed mud and rubber crumb that has to be cleared before any wet work. Synthetic uppers are cleaned without the heat that lifts the printed and welded panels."
+    },
+    {
+     "item": "Kids' school shoes and canvas",
+     "detail": "The everyday workhorses — school blacks, white PT shoes and canvas slip-ons. Straightforward material, and usually the pairs where deodorising matters more than the cleaning."
+    },
+    {
+     "item": "Insoles, laces and footbeds",
+     "detail": "Always removed and treated separately where they come out. This is where odour actually lives, and cleaning the upper alone is why shoes smell again within days."
+    }
+   ]
+  },
+  {
+   "body": "## Why a sofa goes grey before it ever gets stained\n\nMost sofas we are called to in Gurugram have no obvious stain on them. They have simply gone grey along the arms, the headrest line and the front edge of the seat cushions. That is hair oil, body oil and skin contact oxidising over a couple of years, holding on to the fine dust that gets in through balcony doors and lift lobbies. It builds up so gradually that families stop seeing it, then notice it the day a new cushion cover arrives and looks wrong against the sofa. The three-seater in our before-and-after photos was exactly this: no spill, no accident, just years of contact soil, cleaned in the customer's own living room.\n\n## The process, described honestly\n\nDry soil comes out first. We vacuum the deck, the crevices and the area under the cushions before any liquid touches the fabric. This part is not optional. Water on dry particulate soil turns it into mud at the base of the fibre and pushes it deeper, which is why a wet home cleaning often looks worse a week later.\n\nNext we identify the fabric and test it. A hidden patch, usually the back panel or the underside of a cushion, gets a colour-fastness test before anything else happens. Dark blues, reds and handloom weaves bleed more often than people expect, and a bleeding dye discovered on the back panel is a very different conversation from one discovered on the seat.\n\nThe clean itself is a pre-spray, a dwell time, gentle agitation with a soft brush so the solution travels through the pile instead of sitting on top of it, then hot water extraction with an upholstery tool that pulls the soil and the solution back out in the same pass. The real skill is moisture control. Foam that gets saturated stays damp for days, starts to smell, and lets tannins from the wooden frame or jute backing wick upward as it dries. That shows up as brown rings a full day after everything looked perfect. We use the least water that will do the job, then take repeated dry passes and set airflow across the cushions.\n\n## What we cannot save, and will say before we start\n\nSun-faded panels. The window-side arm on a Gurugram flat takes years of hard light, and once UV has broken the dye there is nothing to clean back. Cleaning the rest can even make that fade more obvious. Deep pet urine that has soaked into the foam: surface treatment helps the smell, but the foam or the cover needs replacing. Denim dye transfer on cream and beige fabric, which is a dye now, not a stain. Turmeric and old oxidised food marks on pale upholstery, where purana daag usually lightens but rarely vanishes. Ballpoint ink on microfibre, where solvent can spread the mark into a halo larger than the original. And rexine or faux leather that has already begun to flake, where cleaning accelerates the peeling. We would rather decline that job than hand it back worse.\n\n## Before we arrive\n\nClear about a metre around the sofa and take off throws and loose covers. Tell us about anything already applied at home, because a supermarket shampoo or a fabric protector leaves residue that changes how we treat the fabric. Check the seams and piping yourself and point out anything loose, since suction on weak stitching will open it. We need a power socket and access to water. Loose covers and cushion covers can go to the workshop instead, with our free doorstep pickup and delivery.",
+   "faqs": [
+    {
+     "q": "Do you clean the sofa at our home, or take it away?",
+     "a": "At your home. Fixed upholstery is shampooed and extracted in place, in your living room, so nothing has to be dismantled or carried down. Loose covers, cushion covers and small removable items are the exception: those can go to the workshop and come back on our free pickup and delivery."
+    },
+    {
+     "q": "How long before we can sit on it again?",
+     "a": "It depends on the fabric, how dense the foam is and how much airflow the room gets, so we will not quote you a fixed number. We will tell you what to expect for your sofa before we start, and we stand cushions on edge and set airflow before we leave. As a rule, the less water a job needs, the sooner you are back on it."
+    },
+    {
+     "q": "Will the colour run or fade?",
+     "a": "We test a hidden area for colour-fastness before anything else happens, usually the back panel or under a cushion. Dark blues, reds and handloom weaves are the usual risks. If a fabric bleeds, we will show you the test swab and switch to a low-moisture method or advise against cleaning altogether rather than take a chance with your sofa."
+    },
+    {
+     "q": "Can you get rid of a pet smell?",
+     "a": "Partly, and it depends how deep it went. Urine sitting on the surface of the fabric responds well. Urine that has soaked through the cover into the foam is a different problem, because the source is inside the cushion where no surface treatment reaches. In that case honest advice is to replace the foam or the cover. We will tell you which situation you are in once we have inspected it."
+    },
+    {
+     "q": "Do you clean leather and rexine sofas the same way?",
+     "a": "No. Leather is never extraction cleaned. It is cleaned and conditioned by hand with pH-balanced products, which is our separate leather care service. Rexine and faux leather can be surface cleaned, but if the coating has started to flake or peel we will tell you that cleaning will speed that up, and we would rather not do it."
+    },
+    {
+     "q": "What do you need from us on the day?",
+     "a": "A power socket near the sofa, access to water, and roughly a metre of clear space around the piece so the tool can reach every panel. Please mention beforehand if any home shampoo, stain spray or fabric protector has been used, and point out torn seams or loose piping before we begin."
+    },
+    {
+     "q": "Is the cleaning safe with small children and pets in the house?",
+     "a": "Our solutions are chosen to be gentle and rinsed back out by the extraction itself, rather than left in the fabric, which is the same eco-friendly approach we use on clothes. The bigger safety point is drying: keep children and pets off the cushions until the fabric is properly dry, because a damp cushion picks up fresh soil immediately."
+    }
+   ],
+   "h1": "Sofa and upholstery cleaning, done inside your home",
+   "keywords": [
+    "sofa cleaning Gurugram",
+    "upholstery cleaning Gurugram",
+    "sofa cleaning at home Gurugram",
+    "sofa shampoo service Gurugram",
+    "fabric sofa cleaning Gurugram",
+    "sofa dry cleaning near me Gurugram",
+    "hot water extraction sofa cleaning Gurugram",
+    "L shape sofa cleaning Gurugram",
+    "sofa cleaning Sector 43 Gurugram",
+    "sofa cleaning Sector 49 Gurugram",
+    "sofa cleaning Sushant Lok Phase 1",
+    "mattress cleaning Gurugram",
+    "recliner cleaning Gurugram",
+    "dining chair upholstery cleaning Gurugram",
+    "pet stain and odour sofa cleaning Gurugram",
+    "sofa stain removal Gurugram",
+    "office chair cleaning Gurugram",
+    "eco friendly sofa cleaning Gurugram"
+   ],
+   "lede": "We shampoo and hot water extract fabric upholstery in your own living room, with the moisture kept low enough that the foam actually dries. Before we start, you get a straight answer on what will come out and what will not.",
+   "meta_description": "In-home sofa shampoo and hot water extraction across Gurugram. We colour-test before we start and tell you honestly what will not come out of the fabric.",
+   "meta_title": "Sofa Cleaning in Gurugram | In-Home Upholstery Care",
+   "process": [
+    {
+     "step": "Inspection and fabric test",
+     "detail": "We check the cleaning code where a label survives, and where it does not we go by weave, backing and feel. Seams, piping and existing tears get pointed out to you before anything begins, because extraction on weak stitching will open it. A hidden patch is tested for colour bleed."
+    },
+    {
+     "step": "Dry soil removal",
+     "detail": "The deck, crevices, skirt and area under the cushions are vacuumed thoroughly before a drop of liquid goes near the fabric. Wetting dry grit turns it into mud in the base of the fibre, which is the single most common reason a DIY clean looks worse a week later."
+    },
+    {
+     "step": "Pre-spray and dwell",
+     "detail": "A cleaning solution is applied evenly and left to work on the oil and soil binding the fibres. Dwell time does most of the lifting. Rushing this stage means compensating with scrubbing, which is what crushes pile and leaves shiny patches on the arms."
+    },
+    {
+     "step": "Gentle agitation",
+     "detail": "A soft upholstery brush moves the solution through the pile rather than leaving it sitting on the surface. Direction matters on velvet and chenille, and we keep it consistent so the nap lies the same way when it dries."
+    },
+    {
+     "step": "Hot water extraction",
+     "detail": "An upholstery tool rinses and vacuums in the same pass, pulling the soil and the solution back out instead of leaving detergent behind. Leftover detergent is a soil magnet, which is why sofas cleaned with a home steam mop get dirty again so quickly."
+    },
+    {
+     "step": "Moisture control and drying",
+     "detail": "Repeated dry passes take out as much water as the machine will lift, cushions are stood on edge and airflow is set across the piece. This is what stops frame and backing tannins wicking to the surface and appearing as brown rings the next day."
+    },
+    {
+     "step": "Walkthrough before we leave",
+     "detail": "We go over the piece with you, flag anything that has lightened rather than gone completely, and tell you how long to stay off it and what to avoid putting back on it while it dries."
+    }
+   ],
+   "slug": "sofa-cleaning",
+   "what_we_clean": [
+    {
+     "item": "Fabric sofas, two-seater to L-shaped sectionals",
+     "detail": "The core job. Seat cushions, backrests, arms, side panels and the deck underneath, cleaned in place. Sectionals are worked section by section so the parts you use every day get the attention, not just the visible front."
+    },
+    {
+     "item": "Sofa-cum-beds and daybeds",
+     "detail": "Cleaned with the mechanism folded and unfolded so the panel that hides inside gets treated too. That hidden fold is usually where trapped dust and odour sit."
+    },
+    {
+     "item": "Recliners and motorised sofas",
+     "detail": "Fabric panels cleaned around the mechanism, with motors, wiring and control pods kept dry and the unit unplugged. We work the chair through its positions first so no soiled panel gets missed in the closed position."
+    },
+    {
+     "item": "Dining chairs, bar stools and bench seating",
+     "detail": "Small seat pads take concentrated food and oil soil in one spot. These are cleaned as a set so the whole dining set matches afterwards rather than one clean chair standing out against seven others."
+    },
+    {
+     "item": "Mattresses and fabric headboards",
+     "detail": "Surface extraction for dust, sweat and body oil, with the sides and the top panel done. We are honest here: this treats the surface. Anything that has soaked deep into a spring or foam core is beyond what surface cleaning reaches."
+    },
+    {
+     "item": "Ottomans, pouffes and footstools",
+     "detail": "Frequently the dirtiest thing in a living room, because feet, bags and dinner plates all land on it. Small enough to clean quickly alongside the main sofa."
+    },
+    {
+     "item": "Home office and study chairs",
+     "detail": "Fabric task chairs pick up back and arm oil fast with daily use. Cleaned with the base and castors kept clear of moisture."
+    },
+    {
+     "item": "Loose covers, cushion covers and throws",
+     "detail": "These come off and go to the workshop rather than being cleaned on the frame, which gives a better result on a washable cover. Collected and returned with our free doorstep pickup and delivery."
+    },
+    {
+     "item": "Leather and rexine seating",
+     "detail": "Handled differently, not by extraction. Leather is cleaned and conditioned by hand with pH-balanced products. Rexine gets a surface clean, and if the coating is already flaking we will tell you cleaning will make the peeling worse."
+    }
+   ]
+  },
+  {
+   "body": "## The dry soil comes out before any water goes in\n\nA rug that has spent two years on a Gurugram floor is holding more dry grit than most people expect — NCR road dust, construction fines from the tower next door, and whatever the balcony door lets in through the winter. That grit sits at the base of the pile, below the level you can see or feel, and it is abrasive. Every footstep grinds it against the wool and shortens the life of the rug.\n\nIt also has to leave before anything wet arrives, because water turns dry soil into mud and drives it into the foundation. So the first stage of a proper rug wash is purely mechanical: the rug is dusted from the reverse, repeatedly, until nothing more falls out. This is the single biggest difference between a rug that is washed and a rug that has been shampooed where it lay. The shampoo-only job looks good for a fortnight and then goes flat.\n\n## Fibre identification decides the method, not the price\n\nWool, silk, cotton, jute and polypropylene all behave differently in water, so we identify the fibre before we commit to a method. The one to be careful about is viscose — sold as art silk, banana silk or faux silk, and very common in rugs bought off a showroom floor. Viscose is regenerated cellulose. It loses a large part of its strength when wet, the pile can dry stiff and yellowed, and once it browns the colour is inside the fibre rather than on it. If your rug is viscose we will tell you the realistic outcome before we take it, not after.\n\n## Dye stability\n\nHand-knotted Persian, Kashmiri and Indian pieces often carry reds and indigos that were never fully fixed. Every colour is tested with a damp white cloth before washing, and unstable dyes are held with an acidic rinse. Bleeding that has already happened in an earlier wash — the pink halo around a red medallion — can sometimes be reduced. It cannot always be removed.\n\n## What cannot be brought back\n\nBleach spots and sun fade are dye loss, not soil. No cleaning process puts colour back into a fibre; that is a re-dyeing job for a weaver. Pile crush in the traffic lane of a machine-made polypropylene rug is heat-set fibre — the colour will lift, the pile height will not. Moth damage: washing kills larvae and removes the keratin they feed on, but bare patches stay bare.\n\nAnd on wool, be realistic about spills that are themselves dyes. Wool is a protein fibre and accepts acid dyes readily, which is exactly what children's fruit drinks, food colouring, Holi colour and some red wines are. They bond the way dye is meant to. We usually improve them substantially. We do not promise to erase them.\n\n## Pet urine is chemistry, not a stain\n\nThe odour lives in the foundation and backing, not in the pile, which is why topical sprays only postpone it. It has to be flushed and rinsed right through. Urine is also alkaline enough to strip dye out of wool permanently — that yellow or orange patch left behind is dye damage, and cleaning will not reverse it.\n\n## Drying is where rugs are actually ruined\n\nWool held damp in Gurugram monsoon humidity develops odour and cellulosic browning within a day. Cotton foundations shrink unevenly when one end dries faster than the other, and the rug comes back wavy and out of square. Controlled, even, fast drying matters more than the wash itself.",
+   "faqs": [
+    {
+     "q": "How do I know whether my rug is real silk or viscose?",
+     "a": "Real silk is a protein fibre and viscose is cellulose, so they behave differently in water — which matters a great deal before washing. Two rough home checks: viscose feels cool and slightly slippery and its pile often looks unnaturally shiny in one direction only, and a viscose rug will usually feel much heavier than a silk rug of the same size. We test a stray fibre from the underside or fringe before we commit to a method, and we will show you what we found. If it turns out to be viscose, we will explain what a realistic result looks like before starting."
+    },
+    {
+     "q": "Can you remove pet urine odour completely?",
+     "a": "Usually yes, if it is flushed and rinsed rather than sprayed. The odour lives in the foundation and backing, so topical treatment only masks it for a few weeks. What we cannot reverse is the dye damage — urine is alkaline enough to pull colour out of wool permanently, and the yellow or orange patch left behind is a re-dyeing job, not a cleaning one. If there are old spots you already know about, point them out at pickup so we can look at them before we quote."
+    },
+    {
+     "q": "Will the colours run?",
+     "a": "That is the exact question we ask before touching the rug. Every colour is tested with a damp white cloth first, and unstable dyes are held with an acidic rinse during washing. Older hand-knotted Persian, Kashmiri and Indian pieces are the ones most likely to have unfixed reds and indigos. If a rug has already bled in a previous wash, we can often reduce the halo, but we will tell you honestly whether it will fully clear."
+    },
+    {
+     "q": "Do you clean fitted wall-to-wall carpet at home, or does it have to come to you?",
+     "a": "Fitted carpet is cleaned in your home — it cannot come off the floor. Loose rugs are collected and washed properly off site, which is the only way to do the dusting and rinsing stages that fitted carpet cannot receive. We handle both, and we take the rug away and bring it back ourselves as part of free pickup and delivery across Gurugram."
+    },
+    {
+     "q": "My carpet looked clean, then a stain reappeared two days later. Why?",
+     "a": "That is wicking, and it means the previous cleaning put in more water than it took out. The stain was never only on the surface — it had soaked down into the backing and the underlay. As the carpet dries, moisture travels upward and carries the residue back to the tips of the pile. The fix is thorough extraction and controlled drying rather than more cleaning solution. If this has happened to your carpet before, tell us, because it changes how we approach it."
+    },
+    {
+     "q": "Can washing get rid of carpet moths?",
+     "a": "Washing kills larvae and eggs and removes the soiling and keratin they feed on, which breaks the cycle. What it cannot do is regrow the pile they have already eaten — bare or thin patches need a weaver, not a cleaner. Check the underside and the areas under furniture, because moth damage almost always starts in the parts of the rug nobody walks on or sees."
+    },
+    {
+     "q": "What should I check before handing my rug over?",
+     "a": "Walk the rug with our team at pickup and look for four things: loose or unravelling fringe, curling or split edges, existing pale patches under furniture, and any earlier repairs. Photograph anything you are unsure about. Every item is counted with you at the door and you get a written receipt of exactly what was collected, so the condition noted at pickup is on record for both sides."
+    }
+   ],
+   "h1": "Carpet and rug cleaning that starts with what your rug is made of",
+   "keywords": [
+    "carpet cleaning Gurugram",
+    "rug cleaning Gurugram",
+    "carpet cleaning service near me Gurugram",
+    "wool rug cleaning Gurugram",
+    "Persian rug cleaning Gurugram",
+    "silk rug cleaning Gurugram",
+    "handmade carpet cleaning Sector 43 Gurugram",
+    "carpet shampooing Sushant Lok",
+    "carpet cleaning Sector 49 Gurugram",
+    "pet urine odour removal carpet Gurugram",
+    "viscose rug cleaning Gurugram",
+    "wall to wall carpet cleaning Gurugram",
+    "carpet dry cleaning with pickup and delivery Gurugram",
+    "dhurrie and flatweave cleaning Gurugram",
+    "shaggy rug cleaning Gurugram",
+    "carpet stain removal Gurugram"
+   ],
+   "lede": "Wool, silk, Persian and machine-made rugs are not the same job, so we do not use one method for all of them. Free pickup and delivery across Gurugram, and an honest answer upfront about what will and will not come out.",
+   "meta_description": "Wool, silk, Persian and machine-made rugs washed by fibre type, not one method for all. Free pickup across Gurugram, and we tell you upfront what won't come out.",
+   "meta_title": "Carpet &amp; Rug Cleaning Gurugram – Wool, Silk &amp; Persian",
+   "process": [
+    {
+     "step": "Inspection and fibre test",
+     "detail": "Before anything else we identify the fibre from the underside or a stray fringe thread — wool, silk, viscose, cotton, jute or synthetic. This decides the entire method. We also note existing damage with you: worn fringe, curling edges, old pet spots, sun fade, prior repairs."
+    },
+    {
+     "step": "Colour bleed test",
+     "detail": "Every colour in the rug is tested with a damp white cloth. Reds and indigos in older hand-knotted pieces are the usual risk. Anything unstable is treated so the dye holds through the wash instead of migrating into the ivory ground."
+    },
+    {
+     "step": "Dry soil removal",
+     "detail": "The rug is dusted from the reverse, repeatedly, until nothing more falls out. Dry grit at the base of the pile must leave before water arrives, otherwise it becomes mud in the foundation. This stage takes longer than people expect and matters more than any other."
+    },
+    {
+     "step": "Spot pre-treatment",
+     "detail": "Individual spots are worked on their own chemistry — protein, tannin, oil and dye-type spills each need a different approach. We do this before the general wash so we are not fighting a wet rug and a stubborn spot at the same time."
+    },
+    {
+     "step": "Washing",
+     "detail": "Method follows fibre. Durable wool and cotton pieces take a full wash and flush; silk, viscose and unstable-dye rugs get a controlled low-moisture treatment instead. Machine-made synthetics take hot water extraction. Fitted wall-to-wall carpet is cleaned in your home."
+    },
+    {
+     "step": "Rinse and pH balance",
+     "detail": "Detergent left behind attracts soil and makes the rug re-dirty faster than before, so the rinse is a real stage, not an afterthought. Wool is finished slightly acidic, which is the condition the fibre and its dyes are happiest in."
+    },
+    {
+     "step": "Controlled drying",
+     "detail": "The rug is dried fast and evenly, with air moving through it. This is where rugs get ruined in Gurugram — wool held damp in monsoon humidity picks up odour and browning within a day, and a cotton foundation that dries unevenly will shrink out of square."
+    },
+    {
+     "step": "Grooming, finishing and return",
+     "detail": "The pile is groomed back into its natural direction, fringes are finished, and the rug gets a final inspection against the notes taken at pickup. It is wrapped, packed on its own away from every other customer's order, and delivered back to your door."
+    }
+   ],
+   "slug": "carpet-cleaning",
+   "what_we_clean": [
+    {
+     "item": "Hand-knotted wool rugs",
+     "detail": "Persian, Kashmiri, Bhadohi and Jaipur pieces. Washed and rinsed properly rather than surface-shampooed, with dye testing first because older reds and indigos are often unfixed."
+    },
+    {
+     "item": "Silk and silk-blend rugs",
+     "detail": "A protein fibre with almost no wet strength and dyes that move easily. These get a controlled low-moisture treatment, never a soak, and are dried flat and fast."
+    },
+    {
+     "item": "Viscose and art-silk rugs",
+     "detail": "Also sold as banana silk or faux silk. We clean them, but we tell you first what viscose realistically does when wet — it is the one fibre where honest expectations matter more than technique."
+    },
+    {
+     "item": "Machine-made polypropylene and nylon rugs",
+     "detail": "Tough, stain-resistant and forgiving of a proper hot water extraction. Colour comes back well. Crushed pile in the walking lane is heat-set damage and will not lift."
+    },
+    {
+     "item": "Cotton dhurries and flatweaves",
+     "detail": "No pile to hide soil, so they show every mark. The risks here are shrinkage and edge distortion, which is a drying problem rather than a washing one."
+    },
+    {
+     "item": "Jute, sisal and natural-fibre rugs",
+     "detail": "These fibres brown and shrink readily with water, so they are treated dry or very low-moisture. Water rings on jute are usually permanent, and we will say so before starting."
+    },
+    {
+     "item": "Shaggy and high-pile rugs",
+     "detail": "Long pile traps an enormous amount of dry soil at the base and hides it completely. Most of the work is dusting; the wash is the easy half."
+    },
+    {
+     "item": "Fitted wall-to-wall carpet",
+     "detail": "Cleaned in your home with pre-spray, agitation, extraction and controlled drying. The failure to avoid is over-wetting, which leaves the underlay damp and brings stains wicking back up two days later."
+    }
+   ]
+  },
+  {
+   "body": "## Dry soil first, water later\n\nThe most important step happens before anything gets wet. A curtain that has hung for a year in Gurugram holds a surprising amount of dry soil: construction dust from the tower next door, road grit, and in kitchen-facing rooms a fine oily film that the dust sticks to. Put that straight into water and the dust turns to mud and drives deeper into the weave instead of lifting out. So every panel is dry-soil cleared first: heaviest at the header, and along the bottom 20 cm, always the dirtiest part of a floor-length curtain.\n\nIf your curtains look faintly striped once they are down, that is not fading. Dust only lands on the outward face of each pleat, so a pleated panel soils in vertical bands. It comes out.\n\n## What actually decides the method\n\nThe care label matters less than what is inside the panel. We check three things at your window: whether the lining is detachable or sewn in, whether there is an interlining (the soft bump layer inside heavy drapes), and what kind of blackout you have. Coated three-pass blackout and a separate blackout lining behave nothing alike in water. Interlined drapes we do not wet clean at all, because the inner layer shifts and bunches inside the panel and there is no getting it flat again.\n\nCotton and linen shrink. Lined cotton shrinks unevenly, because face fabric and lining move at different rates, and you end up with a rippled hem and a drop that is suddenly short of the floor. That is why a lot of curtain work is dry cleaned rather than washed, even when the label says washable.\n\n## What cannot be saved\n\nBetter you know before we take them down.\n\n- **Sun rot.** UV degrades the fibre itself, worst on the leading vertical edge and the top few inches. The cloth looks fine, then tears like wet paper. Nothing reverses it, and cleaning is usually what exposes it, so we pinch-test suspect panels with you standing there.\n- **Perished blackout coating.** Once the rubberised backing has gone tacky or chalky with age and heat, it sheds during cleaning. It cannot be re-coated.\n- **Old mildew spotting** on linings, from monsoon damp or condensation near a split AC. The mould has stained the fibre, and bleaching it out would take the cloth with it.\n- **Heat-set yellowing on polyester sheers.** Optical whiteners work on cotton. They do very little for oxidised polyester.\n\n## Before we arrive\n\nClear the sill and the pelmet, and tell us if any rod or bracket feels loose. Plastic wall plugs in drywall let go easily, and our terms exclude fixtures that were already weak. We would far rather flag it than discover it.\n\nOne thing people regret skipping: poore room ke parde ek saath, clean every panel in a room and not only the marked one. A freshly cleaned panel hanging beside one that was left will not match, and you cannot unsee it.\n\nHooks, rings and hem weights come off, counted and logged with you at the door like any other order, on a written receipt. On rehang we dress the pleats by hand and tie them loosely so the folds set.",
+   "faqs": [
+    {
+     "q": "Do I have to take the curtains down myself?",
+     "a": "No. Removal and reinstallation are included free with curtain cleaning. Our team brings a ladder, takes the panels off the rod, removes the hooks and rings, and puts everything back and dresses the pleats when the curtains return. You do not need to do anything except clear the sill and point us at the windows."
+    },
+    {
+     "q": "How long will my windows be bare?",
+     "a": "Curtain cleaning takes longer than garment work because of the drying and pressing involved, and heavy lined drapes take the longest. We will give you the expected return date at pickup, before anything leaves the house, so you can plan around it. If you have a bedroom you cannot leave uncovered, tell us and we can schedule that room separately from the rest."
+    },
+    {
+     "q": "Will my curtains shrink?",
+     "a": "Cotton, linen and unlined cotton-blend curtains carry a real risk, especially if they have never been cleaned since they were stitched. Lined panels are the trickier case, because the face fabric and the lining shrink at different rates and the hem ripples. Where that risk is present we will normally recommend dry cleaning instead of washing, even if the care label says the fabric is washable, and we will tell you at pickup rather than after."
+    },
+    {
+     "q": "Can you steam-clean the curtains on the rod without taking them down?",
+     "a": "Steaming in place freshens the look and relaxes creases, but it does not remove embedded dust from inside the weave, and it does nothing for the lining, which is usually the dirtier layer. We would rather not sell it as a substitute for a proper clean. If the panels are genuinely only a season old, it can buy you time."
+    },
+    {
+     "q": "One of my rods is loose. Will you fix it?",
+     "a": "We are cleaners, not carpenters, so we will not re-drill or replug a fixture. What we will do is check the rods and brackets before we touch them and tell you if something is unsafe. Our published curtain cleaning policy is explicit that weak or already-damaged rods, brackets and fixtures are not our responsibility, which is exactly why we flag them first rather than pulling and hoping."
+    },
+    {
+     "q": "My curtains looked darker before. Did cleaning fade them?",
+     "a": "Almost always no. Dust settles evenly across a hanging panel and masks fading that has already happened underneath it, so the colour looks deeper than it really is. Take the dust away and you see the true, sun-lightened fabric for the first time. It is one of the most common misunderstandings in this job, which is why we point out visible fading at the window before we take anything down."
+    },
+    {
+     "q": "What happens if something goes wrong with my curtains?",
+     "a": "Be aware that curtains, like carpets and leather, sit outside the compensation cap in our terms and conditions. We would rather say that plainly than bury it. It is the reason we inspect at the window, pinch-test anything that looks sun-weakened, photograph the panels before takedown, and decline work where we think the fabric will not survive the process. Turning a job down is cheaper for everyone than ruining a pair of drapes."
+    }
+   ],
+   "h1": "Curtain cleaning that starts at your rod, not at our counter",
+   "keywords": [
+    "curtain cleaning Gurugram",
+    "curtain dry cleaning Gurgaon",
+    "curtain cleaning service near me Gurugram",
+    "blackout curtain cleaning",
+    "sheer curtain cleaning Gurugram",
+    "heavy drapes dry cleaning Gurgaon",
+    "curtain cleaning with takedown and rehang",
+    "curtain cleaning Sector 43 Gurugram",
+    "curtain cleaning Sector 49 Gurugram",
+    "Roman blind cleaning Gurugram",
+    "lined curtain shrinkage dry cleaning",
+    "curtain cleaning free pickup and delivery Gurugram",
+    "how to clean blackout curtains without damaging the coating",
+    "curtain cleaning Sushant Lok",
+    "eco friendly curtain cleaning Gurugram"
+   ],
+   "lede": "Sheers, blackout panels, heavy lined drapes and Roman blinds. We take them down, clean them by whatever method the fabric and the lining will actually survive, and hang them back the way they came off.",
+   "meta_description": "We take the curtains down, clean sheers, blackout and heavy lined drapes, then rehang them ourselves. Removal and reinstallation are free across Gurugram.",
+   "meta_title": "Curtain Cleaning in Gurugram | Free Takedown & Rehang",
+   "process": [
+    {
+     "step": "Survey at the window",
+     "detail": "Before anything comes down we look at the lining, the header tape, the weights and the state of the rod, and pinch-test any panel that looks sun-weakened. Anything we think will not survive cleaning gets flagged there and then, with you present."
+    },
+    {
+     "step": "Takedown and logging",
+     "detail": "Panels come off the rod, hooks and rings are removed and bagged, and every piece is counted with you at the door. You get a written receipt of exactly what was collected. Your order is packed on its own and never shares a load with another household's."
+    },
+    {
+     "step": "Dry soil removal",
+     "detail": "Dust is lifted out dry before any liquid touches the fabric, working the header and the bottom hem hardest. Wetting a dusty curtain simply turns the soil to mud and pushes it into the weave."
+    },
+    {
+     "step": "Fabric and colour testing",
+     "detail": "Lining and face fabric are tested separately, because they are often different fibres with different tolerances. Printed cottons are checked for dye bleed on a hidden seam allowance before the main clean."
+    },
+    {
+     "step": "Cleaning to suit the construction",
+     "detail": "Washable panels are cleaned gently in water; dry-clean-only fabrics, interlined drapes and coated blackout go the solvent route. Spot work on marks such as water tidemarks and hem soiling is done by hand before the main process, not after."
+    },
+    {
+     "step": "Drying and finishing",
+     "detail": "Panels are dried in a controlled way to hold the drop, then pressed flat with the header tape and the hem given particular attention. Pleats are re-formed rather than left to fall as they will."
+    },
+    {
+     "step": "Rehang and dressing",
+     "detail": "Hooks go back at the same spacing, panels go back on the same rods, and the pleats are dressed by hand into even folds and tied loosely so they set. We do not leave a bundle of curtains at your door for you to sort out."
+    }
+   ],
+   "slug": "curtains-cleaning",
+   "what_we_clean": [
+    {
+     "item": "Sheers, voiles and nets",
+     "detail": "Light polyester voile cleans well and comes back crisp. Older cotton or silk sheers that have hung in direct sun are the single most fragile thing we handle, and we will test before accepting them."
+    },
+    {
+     "item": "Blackout curtains",
+     "detail": "Handled differently depending on whether the blackout is a coated three-pass fabric or a separate lining sewn behind the face cloth. Coated blackout that has started to feel tacky or chalky is already past saving."
+    },
+    {
+     "item": "Heavy lined and interlined drapes",
+     "detail": "Velvets, jacquards and thick cotton drapes with a lining or a bump interlining. These are dry cleaned rather than washed, because water moves the layers against each other and they will not sit flat again."
+    },
+    {
+     "item": "Cotton and linen curtains",
+     "detail": "The ones most likely to shrink, particularly if they have never been cleaned since stitching. We choose the method around the shrinkage risk, not around the label."
+    },
+    {
+     "item": "Roman blinds",
+     "detail": "Dowels and cords are removed and reinserted after cleaning, and the fold spacing is set again on rehang so the blind stacks evenly."
+    },
+    {
+     "item": "Valances, pelmets and tiebacks",
+     "detail": "Cleaned alongside the main panels so they finish at the same shade. Padded or buckram-stiffened pelmets are assessed individually, as the stiffener can collapse."
+    },
+    {
+     "item": "Door curtains and partition drapes",
+     "detail": "The heaviest-handled fabric in most homes, with soiling concentrated at hand height on the leading edge. That edge gets hand attention before the main clean."
+    }
+   ]
+  },
+  {
+   "slug": "steam-ironing",
+   "meta_title": "Steam Ironing in Gurugram | Press-Only Garment Care",
+   "meta_description": "Press-only steam ironing across Gurugram with free pickup and delivery. Clothes are pressed by fibre type, cooled flat, then packed separately.",
+   "h1": "Steam ironing for clothes that are already clean",
+   "lede": "A press-only service: you send clean, dry garments, we press them properly and send them back ready to wear. Free pickup and delivery across Gurugram, from both our Sector 43 and Sector 49 stores.",
+   "body": "## What a press actually does\n\nSteam ironing is not a household iron pushed harder. A press works with three things at once — moisture, heat and pressure. Steam relaxes the fibre so the old crease lets go, the head applies even pressure across the whole panel to set the new shape, and the moisture is drawn back out so the garment leaves the table dry rather than damp.\n\nThe part most people miss is the last one: cloth sets its shape as it cools, not while it is hot. A shirt that goes straight from the press into a bag will arrive with fresh creases no matter how well it was pressed. Everything here is hung or laid flat and allowed to cool before it is packed.\n\n## Heat is decided by the fibre, not by the item\n\nCotton and linen take high heat and direct contact. Polyester, nylon and most viscose blends do not. Put a hot head straight onto polyester and you get glazing — a permanent shine, usually on shoulders, lapels and the seat of trousers, that no amount of re-pressing will lift. Those pieces go through steam and a press cloth instead of bare metal. Silk is worked at low heat and kept away from wet steam, because a single droplet condensing on silk leaves a ring you can see across a room. Wool is steamed and brushed back up rather than crushed flat.\n\n## Nazuk kapde, extra care\n\nDelicate work fails before the fabric does. Plastic sequins melt, hot-fix stones lift off their adhesive, and zari darkens under direct heat. Embellished kurtas, sherwanis and lehengas are pressed from the reverse under a cover cloth, or finished on a form so nothing bears the weight of the press head. Rubber and plastisol prints on T-shirts are turned inside out first — a print that touches a hot plate sticks to it. Saree and skirt pleats are set by hand, not squashed.\n\n## What a press genuinely cannot fix\n\nHeat sets stains. Pressing is the fastest way to make a faint tea, sweat or deodorant mark permanent, so anything with a visible mark should be washed or dry cleaned first — if we spot one at sorting, we will call you before it goes on the table. Bubbling or rippling along a shirt collar or cuff is the interlining adhesive failing; heat makes that worse, not better, and it cannot be pressed out. Shine on the seat of well-worn wool trousers can be softened with steam and a brush but not reversed once the fibres are flattened. Fold lines that have sat under weight in viscose or rayon for months often will not drop fully. And linen will never come back looking like cotton — a soft crease is simply what the fibre does.\n\n## Before you hand it over\n\nEmpty every pocket: pens, coins, blister packs, notes. Make sure nothing has been stored damp, because heat locks that musty smell in. Point out loose or cracked buttons — thin resin buttons can split under pressure, and we would rather work around them than replace them. Tell us if you want formal wear returned on hangers instead of folded. Every piece is counted with you at the door, written on your receipt, and bagged on its own.",
+   "what_we_clean": [
+    {
+     "item": "Shirts and cotton trousers",
+     "detail": "Pressed panel by panel — yoke, sleeves, placket, collar — with the front placket done from the reverse so buttons do not print through onto the face of the shirt."
+    },
+    {
+     "item": "Suits, blazers and formal jackets",
+     "detail": "Steam-finished rather than flattened, so the roll of the lapel and the shape at the shoulder and chest survive. Structured jackets are never given a hard crease down the sleeve."
+    },
+    {
+     "item": "Sarees",
+     "detail": "Pallu and body pressed at a heat set for the base fabric, with zari, gota and mirror work covered and worked from the reverse. Returned folded along its own existing folds, or rolled on request."
+    },
+    {
+     "item": "Kurtas, sherwanis and Indo-western sets",
+     "detail": "Heavy neck and cuff embroidery is pressed around, not over. Sherwanis are finished on a form and hung to cool so the front stays flat rather than bowing."
+    },
+    {
+     "item": "Lehengas and heavy ethnic wear",
+     "detail": "Skirt panels and dupatta handled separately; net and organza get low heat only, since these fabrics shrivel almost instantly if the setting is wrong."
+    },
+    {
+     "item": "Sweaters and knitwear",
+     "detail": "Steamed and eased back into shape by hand. Knit is never pressed flat under weight — that stretches the loops and leaves the garment wider than it went in."
+    },
+    {
+     "item": "Dresses, chiffon and pleated skirts",
+     "detail": "Pleats are re-set individually and pinned before steaming. Georgette and chiffon are steamed off the surface rather than touched with the head."
+    },
+    {
+     "item": "Bed linen, table linen and curtains",
+     "detail": "Pressed on the long table for full-width sheets and panels. Curtains come back on the fold they hang in, with the heading tape flattened so the pleats sit right when rehung."
+    }
+   ],
+   "process": [
+    {
+     "step": "Pickup and count at your door",
+     "detail": "Book on WhatsApp or by phone. Every piece is counted out with you before it leaves, and you get a written receipt of exactly what was collected."
+    },
+    {
+     "step": "Sorting by fibre and heat tolerance",
+     "detail": "Items are grouped by what they can take — cottons and linens together, synthetics and blends separately, silk and embellished work set aside for hand finishing."
+    },
+    {
+     "step": "Pre-press inspection",
+     "detail": "We check for stains, damp storage smell, missing or cracked buttons, open seams and collar delamination. Anything that heat would make worse gets flagged to you first."
+    },
+    {
+     "step": "Pressing",
+     "detail": "Flat garments go on the press with steam and vacuum. Structured, knitted and embellished pieces are finished on a form or by hand with a cover cloth."
+    },
+    {
+     "step": "Cooling and setting",
+     "detail": "Everything cools hung or laid flat before it is touched again. This is where the press actually holds — packing warm undoes the work."
+    },
+    {
+     "step": "Separate packing",
+     "detail": "Your order is bagged on its own, never mixed with another customer's. Formal wear goes back on hangers under a cover if you have asked for it."
+    },
+    {
+     "step": "Doorstep delivery",
+     "detail": "Delivered back free anywhere we cover in Gurugram, counted against the same receipt you signed at pickup."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Do the clothes need to be washed before I send them for steam ironing?",
+     "a": "Yes. This is a press-only service — nothing is washed or dry cleaned in it. Send clean, fully dry garments. If you want washing and pressing together, ask for laundry or dry cleaning instead and the pressing is part of that job."
+    },
+    {
+     "q": "Will steam ironing remove a stain?",
+     "a": "No, and it will usually make it worse. Heat sets most stains permanently, especially tea, coffee, sweat and deodorant residue. If we find a mark during the pre-press check we will contact you rather than press over it, and suggest cleaning it first."
+    },
+    {
+     "q": "Is it safe for a sequinned lehenga or a zari saree?",
+     "a": "Yes, because those are not pressed the way a shirt is. Embellished pieces are worked from the reverse under a cover cloth, or finished on a form, so the press head never rests on sequins, stones or zari. If a piece has loose or already-lifting work, we will point it out before starting."
+    },
+    {
+     "q": "My shirt collar has gone bubbly and uneven. Can pressing fix it?",
+     "a": "Unfortunately not. That is the fused interlining inside the collar separating from the cloth, and applying more heat tends to accelerate it. We can press the rest of the shirt properly, but the collar will not return to flat. Best to be told this honestly than to pay and be disappointed."
+    },
+    {
+     "q": "Can you press curtains and bed sheets, or is it only clothes?",
+     "a": "Both. Full-width sheets and curtain panels are done on the long table, and curtains are folded back the way they hang so the heading pleats sit correctly when you rehang them. Tell us at pickup if you want them on a roll instead of folded."
+    },
+    {
+     "q": "Will my clothes come back on hangers?",
+     "a": "Formal wear — suits, blazers, shirts, sherwanis — can be returned on hangers with a cover if you ask when booking. Everyday items are folded by default because folded packs travel better and stack in a wardrobe without slipping."
+    },
+    {
+     "q": "Do you pick up from my sector, and is pickup charged?",
+     "a": "Pickup and delivery are free across the areas we cover in Gurugram, run from our Sushant Lok Phase I (Sector 43) and Unitech Arcadia (Sector 49) stores. Message the list on WhatsApp at +91 63 67 600 500 and we will confirm what applies to your items before we collect."
+    }
+   ],
+   "keywords": [
+    "steam ironing Gurugram",
+    "steam press service Gurugram",
+    "ironing service near me Gurugram",
+    "press only laundry service Gurugram",
+    "doorstep ironing service Gurugram",
+    "steam iron service Sector 43 Gurugram",
+    "ironing service Sushant Lok Phase 1",
+    "steam ironing Sector 49 Gurugram",
+    "saree pressing service Gurugram",
+    "sherwani and lehenga pressing Gurugram",
+    "suit pressing service Gurugram",
+    "curtain steam pressing Gurugram",
+    "bed sheet ironing service Gurugram",
+    "shirt ironing service Gurugram with pickup",
+    "safe ironing for embroidered clothes Gurugram"
+   ]
+  },
+  {
+   "body": "Your mattress absorbs more than anything else in the house and gets cleaned the least. Every night you lose moisture and skin into its top few centimetres, and that thin layer is the whole problem. It is where dust mites live, because skin is what they eat, and what sets off the morning sneezing is not the mite but the protein in its droppings, which lifts out of the fibres every time you turn over.\n\nIn Gurugram it builds faster than people expect. Monsoon humidity keeps most flats comfortable enough for mites to breed, and the rest of the year the bedroom is shut, air-conditioned and barely ventilated. Airing it in the sun is not an option on the eleventh floor of a Sector 49 tower with a balcony the size of a side table.\n\n## What the job actually involves\n\nWe work in your home. A mattress cannot go downstairs unfolded, and folding damages a spring unit or foam core, so it stays on the bed.\n\nDry work comes first: HEPA vacuuming with an agitating head across the whole surface, into the seams, along the piping and over both faces. That alone lifts skin, hair, grit and much of the mite matter before any liquid touches the fabric. Then targeted treatment. Sweat and body oil show as yellow-brown haloes around the head and hip areas, and those are pre-sprayed, given dwell time and extracted. Urine, from a child or a pet, needs an enzyme that breaks down uric acid crystals, because plain detergent only masks the smell and it returns the first humid week.\n\nEverything is low-moisture, and that restraint is the craft. A soaked mattress can take days to dry from the inside and will grow mould in the foam long before it feels damp to the hand. We use controlled extraction with strong vacuum recovery and airflow, and we do not pack up until the surface is dry. Leave the bed unmade and a fan running.\n\n## What cannot be saved\n\n- **Old sweat yellowing.** The residue, odour and bacteria come out. The tint usually stays, because oxidised body oil has already changed the ticking's colour. Anyone promising a ten-year-old yellowed mattress will come back white is guessing.\n- **Mould inside the foam.** Black speckling under the ticking means it has grown into the material, and no surface process reaches it.\n- **Heat-set blood.** Blood only lifts cold. Once it has been washed hot or pressed over, it is fixed.\n- **A collapsed core.** A permanent body-shaped dip means the core has failed. We can make it hygienic; we cannot make it supportive.\n- **Coir and cotton-filled mattresses.** These hold water badly, so we treat them dry with surface steam only, and we tell you that before starting.\n\n## Before we arrive\n\nStrip the bedding and wash it at 60°C if the label allows, since a cooler wash moves mites around rather than killing them. Clear anything stored under the bed and give us access to one long side. Check for a zip-off cover, which can be laundered separately, and read the care label: a few imported mattresses are marked do not wet clean, and we go fully dry on those. Most of all, tell us what happened on it: a spill, an illness, a pet accident. It decides what we bring.",
+   "faqs": [
+    {
+     "q": "Do you take the mattress away or clean it at home?",
+     "a": "At home, always. A mattress has to be folded to get it into a lift or down a stairwell, and folding is what damages a spring unit or a foam core. Our team comes to you with everything needed and works on the bed where it stands. Only removable items, such as a zip-off cover or a topper, may go back to our Sushant Lok or Sector 49 store for a proper wash."
+    },
+    {
+     "q": "How long before we can sleep on it again?",
+     "a": "We do not leave until the surface is dry to the hand, and we run airflow over it before we pack up. How long the inside takes depends on the mattress: a pocket-spring unit breathes far faster than dense foam, and coir slowest of all. We will tell you on the day what to expect for yours. Keep the bed unmade and a fan on until then, and do not put a plastic sheet over it."
+    },
+    {
+     "q": "Will the yellow sweat stains actually go?",
+     "a": "Honestly, usually not completely. Sweat and body oil oxidise over time and change the colour of the ticking itself, so what you are looking at is dyed fabric, not surface dirt. We remove the residue, the odour and the bacteria, and the marks lighten. If someone tells you an old yellowed mattress will come back white, be careful. We would rather set the expectation before we start than after."
+    },
+    {
+     "q": "Can you deal with bed bugs?",
+     "a": "No, and we will say so plainly. We are cleaners, not a licensed pest control service. Cleaning removes dust, allergens and mite matter, but it will not eradicate a bed bug infestation, and doing a clean first only wastes your money. Get a proper pest treatment done, then call us afterwards to take out the residue and refresh the mattress."
+    },
+    {
+     "q": "Is it safe for a memory foam or latex mattress?",
+     "a": "Yes, with the right method. Memory foam and latex are both sensitive to over-wetting and to harsh alkaline chemistry, so they get lower moisture, a milder solution and a longer drying stage than a spring mattress would. Latex in particular does not tolerate strong cleaners. Tell us the type when you book so we bring the correct chemistry rather than deciding at your door."
+    },
+    {
+     "q": "My child wet the bed months ago and the smell keeps returning in humid weather. Why?",
+     "a": "Because ordinary detergent washes away the odour but leaves the uric acid crystals in the fibres. When humidity rises they reactivate and the smell comes back. That is a classic monsoon complaint in Gurugram. It needs an enzyme treatment with enough dwell time to break the crystals down, followed by extraction. If the urine soaked right through to the core years ago, be realistic: we may reduce it rather than end it."
+    },
+    {
+     "q": "How often is it worth doing?",
+     "a": "For most Gurugram homes, once or twice a year is sensible, and it is worth timing one of those just after the monsoon. Bring it forward if anyone in the house has allergies or asthma, if there is a pet on the bed, or if the mattress has never been cleaned. Between visits, a washable mattress protector and washing bedding at 60°C does more good than anything else."
+    }
+   ],
+   "h1": "Mattress cleaning at home, across Gurugram",
+   "keywords": [
+    "mattress cleaning Gurugram",
+    "mattress cleaning service in Gurgaon",
+    "dust mite treatment mattress Gurugram",
+    "mattress deep cleaning at home Gurgaon",
+    "sweat stain removal from mattress",
+    "mattress cleaning Sector 43 Gurugram",
+    "mattress cleaning Sector 49 Gurugram",
+    "mattress cleaning Sushant Lok",
+    "mattress sanitising service Gurgaon",
+    "memory foam mattress cleaning India",
+    "child urine smell mattress cleaning",
+    "mattress vacuum and shampoo service near me",
+    "anti allergy mattress cleaning Gurugram",
+    "mattress and sofa cleaning Gurgaon",
+    "bed mattress dry cleaning Gurugram"
+   ],
+   "lede": "We clean mattresses in your flat, on the bed, with a low-moisture method built around dust mites and old sweat. Two Gurugram stores, and a team that will tell you upfront what will not come out.",
+   "meta_description": "In-home mattress deep cleaning across Gurugram. HEPA vacuuming, dust-mite and sweat treatment, low-moisture extraction, and we dry it before we leave.",
+   "meta_title": "Mattress Cleaning in Gurugram | Dust Mite Treatment",
+   "process": [
+    {
+     "step": "Inspection with you in the room",
+     "detail": "We check the care label, the ticking, the seams and the underside, and look for anything that changes the plan: a zip-off cover, a do-not-wet-clean marking, damp patches, or black speckling that means mould has already reached the foam. You hear the honest verdict here, not at the end."
+    },
+    {
+     "step": "Dry HEPA vacuuming and agitation",
+     "detail": "An agitating head loosens skin, hair and grit from the top fibres while a HEPA vacuum draws it out. Seams, piping, buttons and both faces are done. This stage removes the bulk of the mite matter and it happens before any liquid is used, because wetting dry soil turns it into mud."
+    },
+    {
+     "step": "Spot identification and pre-treatment",
+     "detail": "Sweat haloes, urine, blood and food spills each need different chemistry, and the wrong one sets the stain permanently. Blood is worked cold. Urine gets an enzyme with proper dwell time. Sweat and body oil are pre-sprayed and left to break down before anything is extracted."
+    },
+    {
+     "step": "Low-moisture extraction and sanitising",
+     "detail": "Controlled application, high vacuum recovery, and a surface pass to lift what has been loosened. On coir, dense cotton or any mattress labelled do not wet clean, we stay dry and use surface steam only rather than force a method the material cannot take."
+    },
+    {
+     "step": "Forced drying and hand check",
+     "detail": "Airflow across the surface until it is dry to the hand, checked at the head, the middle and the sides. Damp seams are the usual cause of that musty smell a week after a bad clean, so they get particular attention."
+    },
+    {
+     "step": "Handover and aftercare",
+     "detail": "We tell you what came out, what did not and why, and how long to leave the bed unmade before you put fresh sheets on. If a protector or rotation would keep it in better condition, we will say so. No upselling."
+    }
+   ],
+   "slug": "mattress-cleaning",
+   "what_we_clean": [
+    {
+     "item": "Pocket-spring and Bonnell mattresses",
+     "detail": "The most forgiving type to work on. Open coil construction breathes, so extraction recovers well and drying is quicker. We pay attention to the quilted top panel and the side piping, where dust collects and vacuum heads usually skip."
+    },
+    {
+     "item": "Memory foam and hybrid mattresses",
+     "detail": "Foam holds water and does not release it, so these get the lowest moisture of anything we handle, a milder solution and a longer drying stage. If a memory foam mattress has been soaked at any point in the past, tell us; the damage may already be inside."
+    },
+    {
+     "item": "Latex mattresses",
+     "detail": "Natural latex reacts badly to strong alkaline cleaners and to prolonged wetness, both of which break the material down over time. We keep to a pH-appropriate solution and surface work only, which is enough for allergen removal and safe for the core."
+    },
+    {
+     "item": "Coir and cotton-filled mattresses",
+     "detail": "Common in Indian homes and the hardest to wet clean sensibly, because dense cotton batting soaks like a sponge and takes far too long to dry. We treat these dry, with HEPA extraction and surface steam, and we are upfront that heavy staining in this type often will not shift."
+    },
+    {
+     "item": "Pillow-tops, euro-tops and mattress toppers",
+     "detail": "The pillow-top layer is where sweat and skin concentrate, so it takes the most work. Separate toppers can come back to the store to be cleaned properly rather than treated on the bed, which usually gives a better result."
+    },
+    {
+     "item": "Cot and children's mattresses",
+     "detail": "Small, and almost always the ones with urine history. These get enzyme treatment for uric acid, a gentle formulation, and thorough drying, since a child's mattress sits low with poor airflow underneath and holds damp longer than you would think."
+    },
+    {
+     "item": "Divan bases, box springs and fabric headboards",
+     "detail": "There is little point cleaning the mattress and leaving the base beneath it loaded with the same dust. Upholstered bases and fabric headboards are vacuumed and treated to match, and they are almost always dirtier than the owner expects."
+    },
+    {
+     "item": "Mattress protectors, bedding and pillows",
+     "detail": "The washable layers do not need in-home treatment. Send them with our pickup service instead and they come back laundered at a temperature that actually kills mites, counted and packed separately from every other customer's order."
+    }
+   ]
+  },
+  {
+   "body": "## What wet cleaning actually is\n\nWet cleaning is professional cleaning in water. That sounds like what your machine at home does, and it isn't. The difference is control. A wet cleaning machine holds water temperature inside a narrow band, rotates the drum slowly with long pauses between reversals, and keeps both the water level and the extraction speed low. Detergents are pH-matched to the fibre: mildly alkaline for cotton and linen, near-neutral or slightly acidic for wool and silk. Wool felts and shrinks when alkalinity, heat and agitation arrive together. Take away any one of the three and the garment survives.\n\nThen there is finishing, which is where most of the actual work sits. Wet-cleaned garments leave the machine damp on purpose, at roughly eighty to ninety per cent dry. Over-drying wool in a tumbler is what shrinks it, not the water. The rest of the moisture comes out on tensioning and steam finishing equipment that pulls the garment back to its cut shape while it dries. Skip that step and even a perfectly washed jacket comes back looking a size smaller.\n\n## When water beats solvent\n\nDry cleaning solvent is excellent on oil: cooking grease, cosmetics, wax, engine marks. It is poor at everything water-soluble. Sweat, deodorant, salt, sugar, soft drinks, milk, tea, blood and urine are all water-based soils, and solvent simply leaves them in the cloth. In Gurugram that matters more than it would in a cooler city. From April to June, most of what is sitting in a shirt collar is pasina and body salts rather than oil, and that load only comes out in water.\n\nWet cleaning also leaves no solvent residue and no solvent smell, which is why we prefer it for baby clothes, bedding, gym wear and anything worn against skin all day.\n\n## What we cannot save\n\nSome damage arrives already done. Chlorine bleach spots on coloured cotton are not stains, they are missing dye, and nothing brings the colour back. Yellowed underarm staining that has been set by an iron over several years has usually degraded the fibre itself, and whitening it further weakens it to the point of opening a hole. Perspiration combined with antiperspirant on silk can strip dye permanently. Dried emulsion paint is permanent. Old sugar stains from juice, cola or white wine are invisible when fresh and caramelise into a brown mark months later, so tell us where you spilled something even if you cannot see anything there today.\n\nSome garments are also not wet cleaning candidates at all. Fused jacket fronts and cheap bonded interlinings can bubble and delaminate in water. Real zari, mukaish and glued-on sequins do not tolerate it. Unfixed dyes on bandhani, hand-block prints and some deep-dyed silks bleed. We test for dye bleed on an inside seam before anything goes in, and if the test fails the item goes to solvent instead, or comes back to you untouched with an explanation.\n\n## Before you hand the item over\n\nEmpty every pocket, pens especially. Point out each stain, say what caused it, and tell us if you already tried something at home. A mark that has had vinegar, bleach or a supermarket spray on it behaves very differently, and we need to know before we treat it. Flag loose buttons, seam splits and moth holes so they get recorded at pickup rather than discovered at delivery.",
+   "faqs": [
+    {
+     "q": "My label says dry clean only. Can you still wet clean it?",
+     "a": "Often, yes, but never automatically. Care labels in India are usually written as the safest possible instruction rather than the only workable one, so a dry clean only tag frequently sits on a garment that water handles better. We decide by fibre, construction and a dye-bleed test on an inside seam, not by the label alone. If the test or the construction says no, we use solvent instead and tell you why."
+    },
+    {
+     "q": "Will my woollens shrink?",
+     "a": "Shrinkage in wool comes from three things acting together: alkaline detergent, heat and mechanical agitation. Wet cleaning removes all three from the equation with fibre-matched pH, controlled temperature and a slow drum. The bigger risk is drying, which is why woollens come out of the machine still damp and are finished on tensioning equipment rather than tumbled dry."
+    },
+    {
+     "q": "How is this different from a normal wash at home?",
+     "a": "Same medium, completely different control. At home you have one or two wash programmes, tap water at whatever hardness Gurugram gives you that day, a general-purpose detergent and a dryer that runs until the clothes are bone dry. Wet cleaning is programmed per garment type, uses conditioned water and fibre-specific chemistry, and treats drying as a shaping step rather than a heat step."
+    },
+    {
+     "q": "Is wet cleaning better than dry cleaning?",
+     "a": "Neither one wins outright, and anyone who says otherwise is selling you something. Solvent is better on oil, grease, wax and cosmetics. Water is better on sweat, salt, deodorant, sugar, food and drink spills, and general body soil. Most wardrobes need both, which is why we grade every item on arrival instead of pushing everything through one process."
+    },
+    {
+     "q": "Does it get rid of the dry cleaner smell?",
+     "a": "Yes, because there is no solvent involved at any stage, so there is nothing left in the fibre to smell. This is the main reason customers move baby clothes, bedding, innerwear and everyday office shirts over to wet cleaning."
+    },
+    {
+     "q": "Can you wet clean a suit?",
+     "a": "It depends entirely on how the jacket is built. A canvassed or half-canvassed jacket, where the chest piece is stitched in, usually wet cleans well and comes back better than it would from solvent if the soiling is body-based. A fully fused jacket, where the interlining is glued, can bubble or separate in water. We check the construction before committing, and a trouser can often be wet cleaned even when its jacket cannot."
+    },
+    {
+     "q": "What about down jackets and puffers?",
+     "a": "Down is one of the clearest cases for water. Solvent strips the natural oils out of the down clusters and the jacket loses loft permanently. Wet cleaning with the right detergent keeps the down alive, though it needs a long, low-heat drying and breaking cycle afterwards to restore the fill."
+    }
+   ],
+   "h1": "Cleaned in water, not solvent.",
+   "keywords": [
+    "wet cleaning Gurugram",
+    "wet cleaning service Gurugram",
+    "eco friendly dry cleaning Gurugram",
+    "water based dry cleaning",
+    "solvent free dry cleaning Gurugram",
+    "wet cleaning vs dry cleaning",
+    "chemical free laundry Gurugram",
+    "wool cleaning without shrinking Gurugram",
+    "dry clean only clothes safe cleaning",
+    "wet cleaning near me Sector 43 Gurugram",
+    "wet cleaning Sector 49 Gurugram",
+    "baby clothes cleaning Gurugram",
+    "sweat and deodorant stain removal Gurugram",
+    "down jacket cleaning Gurugram",
+    "perc free dry cleaning Gurugram"
+   ],
+   "lede": "Wet cleaning is professional cleaning in water, controlled tightly enough to take on wool, silk and most dry clean only labels. It lifts out what solvent leaves behind: sweat, salt, deodorant and everything else your body puts into a garment.",
+   "meta_description": "Solvent-free cleaning in water for wool, silk and daily wear in Gurugram. We dye-test each garment first and finish it on tension to prevent shrinkage.",
+   "meta_title": "Wet Cleaning in Gurugram | Water-Based Dry Cleaning",
+   "process": [
+    {
+     "step": "Counted at your door",
+     "detail": "Every piece is counted and logged with you at pickup, and you get a written receipt of exactly what was collected before anything leaves your building."
+    },
+    {
+     "step": "Inspection and fibre check",
+     "detail": "We identify the fibre, read the construction (canvassed or fused, stitched or glued trims) and photograph any existing damage: seam splits, moth holes, prior colour loss, home stain-removal attempts."
+    },
+    {
+     "step": "Colourfastness test",
+     "detail": "A damp white swab on an inside seam allowance tells us whether the dye will bleed. Bandhani, hand-block prints, deep indigo and rich reds get tested every single time, not just the first time we see them."
+    },
+    {
+     "step": "Stain-specific pre-spotting",
+     "detail": "Each mark is treated by what caused it, not by how it looks. Protein, tannin, sugar, oil and pigment all need different chemistry, and applying the wrong one first can set a stain permanently."
+    },
+    {
+     "step": "Programmed wash",
+     "detail": "Water temperature, drum speed, reversal interval, water level and extraction are all set for that specific fibre and garment weight. Wool and silk run near-neutral pH with minimal mechanical action."
+    },
+    {
+     "step": "Controlled drying",
+     "detail": "Items come out damp on purpose. Nothing that can shrink is dried to completion in a tumbler, because heat plus dryness is what pulls wool and viscose out of shape."
+    },
+    {
+     "step": "Tensioned finishing",
+     "detail": "The last of the moisture leaves on form finishers and steam presses that hold the garment at its cut dimensions while it dries, restoring shoulder line, sleeve shape and hem length."
+    },
+    {
+     "step": "Final check and separate packing",
+     "detail": "Each order is checked, then bagged on its own. Your clothes are never packed or handled together with another customer's order."
+    }
+   ],
+   "slug": "wet-cleaning",
+   "what_we_clean": [
+    {
+     "item": "Wool and cashmere knitwear",
+     "detail": "Jumpers, cardigans and shawls that felt and shrink in a home machine. Fibre-matched pH and near-zero agitation, then dried flat under tension rather than tumbled."
+    },
+    {
+     "item": "Everyday shirts and cotton trousers",
+     "detail": "Collar and cuff soil is sweat, sebum and salt, which is exactly what solvent cannot touch. Wet cleaning is the better process for office wear worn in a Gurugram summer."
+    },
+    {
+     "item": "Silk and viscose that tests safe",
+     "detail": "Plain-dyed silks and viscose blends that pass the dye-bleed test come out softer than they would from solvent. Silk taffeta, dupion and anything with real zari are excluded, since water can flatten the crispness or tarnish the thread."
+    },
+    {
+     "item": "Baby and toddler clothing",
+     "detail": "No solvent means no residue against a child's skin. Milk, food and nappy soiling are all water-soluble and come out properly rather than being masked."
+    },
+    {
+     "item": "Gym and sportswear",
+     "detail": "Odour in synthetics is bacteria feeding on trapped body oils and salts. Solvent removes the oil but leaves the salts; water removes both, which is why the smell comes back after a dry clean and not after a wet clean."
+    },
+    {
+     "item": "Down jackets and puffers",
+     "detail": "Solvent strips the natural oils from down clusters and the jacket never regains its loft. Wet cleaning preserves the fill, followed by a long low-heat cycle to break the clumps back open."
+    },
+    {
+     "item": "Cotton and linen ethnic wear",
+     "detail": "Kurtas, salwars and unlined cotton suits. Hand-block prints, bandhani and unfixed dyes are always swab-tested first, and anything that bleeds is redirected or returned to you unwashed."
+    },
+    {
+     "item": "Table linen and napkins",
+     "detail": "Wine, coffee, gravy and turmeric are food soils, and food soils are water's territory. Turmeric in particular needs careful pH handling, because an alkaline treatment turns it red instead of removing it."
+    },
+    {
+     "item": "Canvassed tailoring",
+     "detail": "Jackets and blazers with a stitched-in chest piece, plus suit trousers, which almost always wet clean well even when the matching jacket is fused and has to go to solvent."
+    }
+   ]
+  },
+  {
+   "body": "## A bag is not a garment\n\nA shirt is one layer of cloth. A bag is a sandwich — outer material, a stiffener of card, foam or buckram, glue holding the two together, and a lining. Put it in a machine and water doesn't just clean, it softens the adhesive: panels bubble, the stiffener collapses, and the bag never sits upright again. Nothing here goes into a drum. Every bag is worked by hand, panel by panel, with as little moisture as the material allows.\n\nWe clean a whole panel rather than dabbing at one mark. Spot-cleaning a leather flap leaves a clean ring on a dirty panel, which looks worse than the stain did. Seam to seam is the only honest way.\n\n## The inside is usually the worse half\n\nFoundation, lipstick, sanitiser, crumbs, a leaked pen, coins that print grey rings into a cream lining. Lining is normally glued to the shell, so it can't be turned out and scrubbed — it is cleaned in place, damp, and dried slowly. The padded back of a laptop backpack is the same problem in foam: it holds water, and a bag that goes home not-quite-dry smells worse than when it arrived. Drying is measured in days, off heat and out of direct sun, stuffed so the bag holds its own shape. A Cyber City commute pushes more grit through one tote in a month than a wardrobe sees in a year: roz wahi dhool, the same dust daily.\n\n## What we can't fix, and would rather say first\n\n- **Worn corners and flaked edge paint.** Cleaning does not put leather back onto an abraded corner or re-lay lost edge coat. That is recolouring, a different job — and we'll say so.\n- **PU or bonded \"leather\" that has begun to peel.** After a few years in NCR humidity the coating breaks down. Cleaning only speeds the flaking, so we show you and hand the bag back.\n- **Ballpoint ink in a pale lining.** Ink is a dye and solvent moves it sideways. We can usually reduce it; a faint ghost normally stays.\n- **Oil in suede or nubuck.** Once oil has sat in the nap it is structural, not surface.\n- **Patina and rain spotting on untreated tan leather** — the pale handles and trim on some designer bags darken with use and don't go back.\n- **Anything already attacked at home** with acetone, nail-polish remover, glass cleaner or baby wipes. The finish is often gone under the mark before we ever see it.\n\nOne more honest point: dirt hides wear. A properly clean bag sometimes shows its thin spots and old scuffs more clearly, because no grime is left to even them out.\n\n## Before you hand it over\n\nEmpty every pocket — cards, earrings, coins, medicine strips, especially pens. Detach charms and any strap you're attached to. Point out cracked coating, loose stitching, a split lining or colour transfer from dark denim, and we note it on your receipt at the door, the same way we count a laundry order with you.\n\nAfter the monsoon, if a bag came out of the cupboard smelling musty, don't store it back in plastic. Use a breathable cotton bag stuffed with clean paper, not newspaper — newsprint transfers onto light leather.",
+   "faqs": [
+    {
+     "q": "Can you just put my backpack in a washing machine? It says machine-washable on the label.",
+     "a": "Some nylon daypacks genuinely survive it, but the foam back panel and shoulder straps hold water for days and that is where the smell comes from. We hand-clean, rinse in a controlled way and then dry the padding through properly. On technical packs, a machine wash with ordinary detergent also strips the water-repellent finish on the outer fabric, which you don't get back."
+    },
+    {
+     "q": "The corners of my handbag are worn down to the base material. Will cleaning fix that?",
+     "a": "No. Cleaning removes soil; it cannot replace leather that has abraded away or edge paint that has flaked off a strap. That work is recolouring and refinishing, a different job with a different result. We'll tell you honestly at intake whether cleaning alone will make a visible difference on your bag."
+    },
+    {
+     "q": "A pen burst inside my bag. Is the lining recoverable?",
+     "a": "Usually only partly. Ballpoint ink is a dye, and the solvents that lift it also carry it sideways into clean fabric, so aggressive work can make the patch bigger. We reduce it as far as the lining safely allows and normally leave a faint ghost. If the lining is pale nylon, expect improvement rather than removal."
+    },
+    {
+     "q": "My bag has been in the cupboard since the monsoon and smells musty, with white specks on the leather.",
+     "a": "Bring it in sooner rather than later. Surface mildew on finished leather generally cleans off well and the smell goes with it. What we can't undo is pitting where the fungus has eaten into the finish. And if it goes back into the same plastic cover in the same cupboard, it will return — store it in breathable cotton with a little air around it."
+    },
+    {
+     "q": "Do you clean designer bags?",
+     "a": "Yes, and we'd rather see those in person first at Sector 43 or Sector 49 so we can look at the construction, the hardware and any untreated tan leather trim before quoting on what's achievable. Vintage pieces and exotic skins are always an in-store assessment, never a blind pickup."
+    },
+    {
+     "q": "I already tried cleaning it at home. Does that change anything?",
+     "a": "It can. Baby wipes, glass cleaner and nail-polish remover strip or darken the surface finish, and the damage often sits under the mark you were trying to remove. Tell us what you used — it changes what we can attempt and stops us making it worse."
+    },
+    {
+     "q": "Can you clean the inside of a trolley case after something leaked in it?",
+     "a": "Usually yes. The interior lining and the compression panels are cleaned and dried out fully, which is the part that matters for smell. We don't dismantle telescopic handles or wheel housings, so grit trapped deep inside those channels stays; scuff marks transferred onto a hard shell by other cases at the airport normally come off, but gouges in the shell are structural."
+    }
+   ],
+   "h1": "Bag cleaning that respects how the bag was built",
+   "keywords": [
+    "bag cleaning gurugram",
+    "handbag cleaning gurgaon",
+    "bag dry cleaning near me gurgaon",
+    "leather handbag cleaning gurugram",
+    "backpack cleaning service gurgaon",
+    "laptop bag cleaning gurugram",
+    "luggage cleaning gurgaon",
+    "trolley bag cleaning near me",
+    "school bag cleaning gurgaon",
+    "designer bag cleaning india",
+    "suede bag cleaning gurugram",
+    "bag cleaning sector 49 gurugram",
+    "bag cleaning sushant lok sector 43",
+    "bag mould removal after monsoon",
+    "gym bag smell removal gurgaon"
+   ],
+   "lede": "Handbags, office totes, backpacks and trolley cases, cleaned by hand at our Sector 43 and Sector 49 stores in Gurugram. Free doorstep pickup and delivery, and an honest answer about what will and won't come out.",
+   "meta_description": "Hand-cleaned handbags, backpacks and luggage in Gurugram. Linings, hardware and stitching worked panel by panel, with free pickup and delivery.",
+   "meta_title": "Bag Cleaning in Gurugram | Handbags, Backpacks, Luggage",
+   "process": [
+    {
+     "step": "Assessment at the door or in store",
+     "detail": "We check the construction before anything else: is the shell leather, coated canvas, PU or nylon; is the lining glued or loose; is the edge paint cracking; is the coating lifting anywhere. Existing damage is pointed out and written on your receipt with you, so nothing is disputed later."
+    },
+    {
+     "step": "Emptied, stripped and masked",
+     "detail": "Pockets emptied and the contents returned to you, detachable straps and charms removed and bagged separately. Metal hardware is masked before any cleaning agent goes near it, because plating on lighter bags is thin and disappears under repeated polishing."
+    },
+    {
+     "step": "Patch test on a hidden panel",
+     "detail": "Every material gets a test on the underside or inside a gusset before the visible panels are touched. Dyed suede, unlined canvas and low-cost PU all behave differently, and this is where we find out that a bag will bleed colour before it does so on the front."
+    },
+    {
+     "step": "Interior worked first",
+     "detail": "Lining, seams and the base — where crumbs, coin grease and cosmetic residue collect — are cleaned in place with controlled moisture. Corners and the seam channels are worked out with a brush rather than flooded, so the glue behind the lining is never softened."
+    },
+    {
+     "step": "Exterior, panel by panel",
+     "detail": "Each panel is cleaned seam to seam rather than spot-treated, so you don't end up with a clean patch on a dull face. Suede and nubuck are worked dry first with brush and abrasion; smooth leather is cleaned wet and then re-conditioned, because cleaning also removes some of the surface oils."
+    },
+    {
+     "step": "Stain work, within limits",
+     "detail": "Ink, dye transfer from dark denim, oil and old water rings are each treated differently, and each is attempted only as far as the material takes it safely. Where a mark will not fully clear, we stop and tell you rather than push the fabric until it thins."
+    },
+    {
+     "step": "Reshaped and dried slowly",
+     "detail": "The bag is stuffed to its own shape and dried away from heat and direct sun over as long as it takes — foam-backed backpacks take the longest. Rushing this is how a bag comes back stiff, misshapen or smelling of damp."
+    },
+    {
+     "step": "Final check and separate packing",
+     "detail": "Hardware unmasked and buffed, straps and charms reattached, then packed on its own. Your order never shares a bag with another customer's, and it comes back to your door on the schedule we agreed."
+    }
+   ],
+   "slug": "bag-cleaning",
+   "what_we_clean": [
+    {
+     "item": "Leather handbags and slings",
+     "detail": "Cleaned panel by panel and re-conditioned afterwards, because cleaning removes surface oils along with the dirt. Untreated tan handles are flagged before we start — they darken with use and won't return to factory pale."
+    },
+    {
+     "item": "Coated canvas and monogram totes",
+     "detail": "The coating cleans up well and takes handling. The two things we check first are the fold lines at the base corners, where a cracked coating cannot be re-laid, and any exposed leather trim, which needs a different treatment from the canvas beside it."
+    },
+    {
+     "item": "Suede and nubuck bags",
+     "detail": "Worked dry with brush and abrasion before any liquid comes near them, to lift the nap without flattening it. Oil that has already soaked into the nap is the one thing suede rarely gives back."
+    },
+    {
+     "item": "Laptop backpacks and office totes",
+     "detail": "The daily Gurugram commuter bag: dust in the outer weave, grit in the base seam, and a foam back panel that has absorbed months of sweat. Most of the job is the interior and the drying, not the outside."
+    },
+    {
+     "item": "School bags and children's backpacks",
+     "detail": "Food spills, ink, and grit packed into the wheel housings and base seams. Cleaned with the same non-toxic products we use on children's toys, and dried right through before they come back."
+    },
+    {
+     "item": "Gym and sports bags",
+     "detail": "Odour lives in the lining and the padding, not on the shell, so surface wiping never fixes it. These are cleaned inside-out and dried fully, which is the only thing that actually clears the smell."
+    },
+    {
+     "item": "Hard-shell and soft-sided luggage",
+     "detail": "Belt scuffs on a hard shell are mostly transferred rubber from other cases and lift off; deep gouges don't. On soft luggage we clean the shell, the interior lining and any spill inside, and remove old airline sticker adhesive where the surface allows."
+    },
+    {
+     "item": "Canvas, jute and fabric totes",
+     "detail": "Straightforward to clean but easy to shrink or distort. Washed at a controlled temperature and dried flat and stuffed so the base stays square and printed panels don't crack."
+    },
+    {
+     "item": "Clutches and occasion bags",
+     "detail": "Beading, sequins, zari and thread work are cleaned by hand around the embellishment rather than through it. Loose beadwork is pointed out to you first, since cleaning can finish off a thread that was already going."
+    },
+    {
+     "item": "Diaper and baby bags",
+     "detail": "Milk, food and wipe residue in every compartment. Cleaned with non-toxic, biodegradable products and dried thoroughly, because a damp insulated pocket is where the smell starts again."
+    }
+   ]
+  },
+  {
+   "body": "## Leather is a skin, not a fabric\n\nEvery hide that becomes a jacket or a bag is packed with fats during tanning. Those fats sit between the fibres and let them slide past each other, which is the whole reason good leather drapes instead of behaving like cardboard. Any cleaning that lifts soil also takes some of that fat with it. So cleaning and reconditioning are one job here, not two: leather cleaned and handed straight back, unfed, will stiffen within a season. It is also why leather never goes through water immersion the way a shirt does.\n\n## The finish decides everything\n\nBefore anything touches your item, we work out what the surface actually is. A drop of water on pigmented leather beads and sits; on aniline it darkens and sinks within seconds. Pigmented leather, which covers most jackets and most branded handbags, carries a thin coloured topcoat and takes a proper surface clean well. Aniline and semi-aniline are dyed through with little or no topcoat, so they absorb whatever touches them and usually have to be worked panel by panel rather than spot by spot, because evening out the whole panel is the only way to avoid leaving a halo around the mark. Suede and nubuck have no topcoat at all and are brushed, blocked and re-napped dry, never shampooed. Guessing wrong at this first step is what ruins leather, and it is usually where a home attempt has already gone wrong before the item reaches us.\n\n## What cannot be saved, and we say so first\n\n- **Ballpoint ink on unfinished leather.** The ink dye has already travelled into the fibre. Anything strong enough to lift it lifts the leather's own colour with it.\n- **Sun fading.** That is lost dye, not dirt, so cleaning does nothing for it. Recolouring is a separate job and it changes how the leather feels in the hand.\n- **Splits in the grain.** Conditioning softens the leather around a crack and makes it much less obvious. The crack itself does not close.\n- **Bonded or PU \"leather\" that has begun peeling.** Nothing puts a delaminated coating back down.\n- **Old oil, ghee and food grease.** Months-old fat has bonded with the leather's own oils. We can usually reduce it to a faint shadow, and you should be sceptical of anyone promising more.\n- **Deep monsoon mould.** Surface growth comes off. Where it has pitted the grain, the pitting stays and sometimes the smell does too.\n\n## Before you hand it over\n\nEmpty every pocket, twice. A forgotten pen inside a jacket sleeve or bag lining is the most common way a good leather piece is lost for good. Tell us what the stain is and, honestly, what you already tried at home, because coconut oil, baby wipes and shoe polish all change what we are able to do next. Detach fur trims, remove keyrings and charms, and point out existing cracks or scuffs while we count the order with you at your door, so we are both looking at the same item from the start.",
+   "faqs": [
+    {
+     "q": "Can a leather jacket go through normal dry cleaning?",
+     "a": "No. A standard dry cleaning cycle is built for woven fabric, and the tumbling and solvent exposure strip the fats out of a hide far faster than they lift the soil. Leather is worked by hand, surface by surface, and then reconditioned. If a leather jacket has a fabric lining, the lining is treated as its own job, because sweat salts around the collar and underarms need a different approach from the outer skin."
+    },
+    {
+     "q": "My light-coloured bag has denim colour rubbed onto one side. Will it come off?",
+     "a": "Often, on smooth pigmented leather, because the indigo has transferred onto the topcoat rather than into the hide. On light suede or nubuck it is much harder, since the dye sits down in the nap with nothing sealing the surface. We will look at the panel and tell you honestly whether we expect a full lift or only a reduction before we start."
+    },
+    {
+     "q": "Will cleaning change the colour of my leather?",
+     "a": "Conditioning usually deepens the tone very slightly, which most people read as the item looking richer. The real risk is patchiness, and that comes from spot-treating an aniline or suede item. We avoid it by working the whole panel rather than just the mark. If your item is already faded in places, cleaning will make that unevenness easier to see, not less, and we will point that out at the door rather than after."
+    },
+    {
+     "q": "My leather jacket has been shut in the wardrobe since last winter and smells damp. Can that be fixed?",
+     "a": "Usually yes. Gurugram's monsoon humidity in a closed wardrobe is the single most common reason leather comes to us in September and October. Surface mould and the musty smell that goes with it can be cleaned off and the leather refed. Where the growth has been sitting long enough to pit the grain, the pitting is permanent and a trace of odour can remain, so bring it in as soon as you notice it rather than waiting for the cold."
+    },
+    {
+     "q": "What happens to zips, buckles and chains?",
+     "a": "Metal is cleaned and masked off so conditioner does not sit on it, and hardware is polished where polishing helps. What we cannot do is put plating back. Once brass or gold-tone plating has worn through on a handle ring or a buckle edge, that is a re-plating job with a metal workshop, not a cleaning one. We will show you where the wear is instead of quietly working around it."
+    },
+    {
+     "q": "How do you dry leather?",
+     "a": "Slowly, at room temperature, away from sunlight, heaters and fans blowing hot air. Bags are stuffed and shaped so the panels do not collapse while they lose moisture, and shoes are treed or packed for the same reason. Fast heat drying is exactly what shrinks a hide and makes it hard, and it is why a jacket dried on a balcony after rain never feels the same again."
+    },
+    {
+     "q": "Do you collect from home?",
+     "a": "Yes. Free pickup and delivery across Gurugram, or drop the item at our Sector 43 store on Vyapar Kendra Road or the Sector 49 store at Unitech Arcadia. Every item is counted with you at the door, your order is packed separately from every other customer's, and you get a written receipt of what was collected. For leather that matters, because a one-off jacket or bag is not something you want going into a shared pile."
+    }
+   ],
+   "h1": "Leather cleaning and reconditioning in Gurugram",
+   "keywords": [
+    "leather cleaning Gurugram",
+    "leather jacket cleaning Gurugram",
+    "leather bag cleaning Gurugram",
+    "suede cleaning Gurugram",
+    "leather shoe cleaning near me",
+    "leather cleaning and conditioning service",
+    "handbag cleaning Sector 49 Gurugram",
+    "leather jacket dry cleaning Sushant Lok",
+    "nubuck cleaning Gurugram",
+    "remove mould from leather jacket Gurugram",
+    "leather restoration service Gurugram",
+    "leather belt and wallet cleaning"
+   ],
+   "lede": "Jackets, bags, shoes, belts and wallets, cleaned according to the finish they actually have and then fed back the oils that cleaning takes out. Leather is nazuk, delicate in a way that punishes guesswork, so we test before we treat.",
+   "meta_description": "Leather jackets, bags, shoes, belts and wallets cleaned and reconditioned in Gurugram. We tell you upfront what will lift and what will not. Free pickup.",
+   "meta_title": "Leather Cleaning in Gurugram | Jackets, Bags & Shoes",
+   "process": [
+    {
+     "step": "Counted and inspected at your door",
+     "detail": "We count every piece with you before it leaves, note the cracks, scuffs and hardware wear that are already there, and give you a written receipt of exactly what was collected."
+    },
+    {
+     "step": "Finish test before anything else",
+     "detail": "A water drop in a hidden spot tells us whether the surface is pigmented, aniline, semi-aniline, suede or nubuck. Everything after this point is decided by that answer, so we never skip it."
+    },
+    {
+     "step": "Hardware masked, lining separated",
+     "detail": "Zips, buckles, chains and clasps are protected so no product sits on the metal. Jacket linings and bag interiors are handled as their own job, because sweat and crumbs need a different treatment from the hide."
+    },
+    {
+     "step": "Clean, matched to the surface",
+     "detail": "Finished leather is cleaned panel by panel by hand. Suede and nubuck are worked dry with brushes and a rubber block, then re-napped. Nothing is soaked, tumbled or put through a machine cycle."
+    },
+    {
+     "step": "Recondition",
+     "detail": "The fats that cleaning removed are replaced so the fibres stay flexible. This is the step that decides whether your jacket still moves properly next winter, which is why we treat it as part of the clean rather than an add-on."
+    },
+    {
+     "step": "Shaped and dried slowly",
+     "detail": "Bags are stuffed, shoes are packed, and everything dries at room temperature away from sun and heat. Fast drying is what shrinks and hardens leather, so this stage is not rushed."
+    },
+    {
+     "step": "Final check and delivery",
+     "detail": "We look over the item against the notes we took at pickup, tell you what lifted and what did not, and deliver it back to your door, packed on its own."
+    }
+   ],
+   "slug": "leather-cleaning",
+   "what_we_clean": [
+    {
+     "item": "Leather jackets and coats",
+     "detail": "Outer hide cleaned by finish type, collar and cuff grime worked separately, and the inner lining treated on its own because that is where sweat salts and deodorant actually sit. Shearling and detachable fur trims are removed and handled apart from the shell."
+    },
+    {
+     "item": "Handbags, totes and slings",
+     "detail": "Handles and the base corners take the most punishment, from hand oils on one end and being set down on floors at the other. Bags are cleaned panel by panel, then stuffed and shaped while they dry so the sides do not sag. Interiors are vacuumed and spot-treated."
+    },
+    {
+     "item": "Leather and suede shoes",
+     "detail": "Uppers, welt line and sole edge cleaned, insoles and linings deodorised, then conditioned and re-napped where the material calls for it. Our before and after work on suede is on the sneaker side too, including the Nike SB Dunk water-staining job in our results."
+    },
+    {
+     "item": "Wallets, belts and small leather goods",
+     "detail": "Small items pick up pocket lint, coin transfer and body oil in ways that are hard to see until the leather is cleaned. Belts crack first at the buckle holes and around the fold, so those areas get extra conditioning attention."
+    },
+    {
+     "item": "Laptop bags, briefcases and luggage",
+     "detail": "Daily-carry items that collect commute dust, strap wear and desk grime. Cleaned, reconditioned, and the interior compartments cleared out and treated, with hardware masked so nothing greasy ends up on the zips."
+    },
+    {
+     "item": "Nubuck and suede pieces of any kind",
+     "detail": "Napped leather has no protective topcoat, so it is never shampooed. It is brushed, blocked, worked on the shiny compacted patches, then re-napped to bring the texture back. Water rings are usually evened across the whole panel rather than spotted."
+    },
+    {
+     "item": "Leather trims on fabric garments",
+     "detail": "Jackets with leather sleeves or panels, and garments with leather piping and patches. The two materials need opposite handling, so they are treated as a combined job rather than run through a single fabric process."
+    }
+   ]
+  },
+  {
+   "slug": "toy-cleaning",
+   "meta_title": "Soft Toy Cleaning & Sanitising in Gurugram | Wash4You",
+   "meta_description": "Plush toys deep-cleaned and dried right through to the stuffing, not just the surface. Free pickup across Gurugram from our Sector 43 and 49 stores.",
+   "h1": "Soft toy cleaning that gets past the fur",
+   "lede": "We clean and sanitise soft toys for families across Gurugram: plush animals, fabric dolls, cot toys, and the giant ones that will never fit in a home machine. Free pickup and delivery from both our stores.",
+   "body": "## The dirt you can see is not the problem\n\nA soft toy is three things stacked together: an outer pile fabric, a stuffing core, and often some hardware buried in the middle. Nearly all the trouble lives in that middle layer. Surface dust brushes off a teddy in seconds. What actually makes a toy smell is dried saliva, spilt milk, sweat and fine Gurugram road dust that has worked its way down into the fibrefill. That is why wiping a toy down or spraying it fresh lasts about two days: the source is untouched, sitting an inch deep. Ground-floor flats around Sushant Lok and Sector 49 see it faster than most, because toys on open shelves are very good dust traps and one damp monsoon is enough to give a well-loved bear that closed-cupboard smell.\n\n## How we choose the method\n\nBefore anything gets wet, we work out what is inside. We feel along the seams for a squeaker, a music box, a battery pouch or wire in the limbs, and we identify the filling. Polyester fibrefill takes a full wet clean comfortably. Foam chips and plastic pellets hold water, gain a lot of weight and can pull the outer fabric permanently out of shape, so those are surface-cleaned, or wet-cleaned with a much longer and gentler dry. Electronics come out through an opened seam and go back in with the seam restitched. If a unit is sealed in and cannot be reached, we clean without immersion and tell you that upfront. We then test colourfastness on a hidden seam, since red felt tongues, printed cheeks and dyed ribbon are the usual bleeders onto cream plush.\n\n## Drying is most of the job\n\nCleaning a soft toy is straightforward. Drying one properly is not. A toy can feel dry on the outside while the core is still wet, and a damp core turns sour within a week and can grow mould at the centre that never comes out. We dry long, at low heat, with movement, so the fill redistributes instead of setting into hard lumps. Lumpy stuffing is the classic result of a hot home machine wash, and once it sets it does not come back. Because these toys get chewed, rinsing matters as much as washing: we run extra rinses so nothing is left sitting in the pile, and we do not use harsh chlorine bleach on anything meant for a child.\n\n## What we cannot save\n\nSun-faded plush cannot be re-dyed. Pile that has matted from years of hugging comes back clean but not fluffy, and brushing helps only so far. Ballpoint ink and permanent marker on plush do not come out. Milk, blood or vomit that has already been hot-washed at home is usually set for good. Glued-on eyes and noses sometimes let go during cleaning, and a glued feature is always more of a risk than a stitched or locked one. Perished foam in older toys, the orange crumbly kind, disintegrates the moment it gets wet. If an item falls into any of these, we say so before we start, not after.\n\n## Before you hand it over\n\nPhotograph the toy from both sides. Take off clothing and accessories and keep them at home. Point out loose seams and old repairs, because a weak seam opens under proper cleaning and we would rather stitch it first. Mention batteries. Above all, tell us if this is the toy that has to be there at bedtime, jiske bina neend nahi aati, so we can flag it as irreplaceable. Many parents send it while the child is away for a few days, or send the second-favourite first to see how it comes back. Every order is counted with you at the door, packed separately from every other customer's order, and acknowledged with a written receipt at pickup.",
+   "what_we_clean": [
+    {
+     "item": "Teddy bears and plush animals",
+     "detail": "The everyday case. Cleaned through to the stuffing, then the pile is brushed back up so it does not come home flat and matted."
+    },
+    {
+     "item": "Giant and oversized soft toys",
+     "detail": "The metre-tall bears that no home machine will take. These need the longest drying of anything we handle, because the core sits so far from the surface."
+    },
+    {
+     "item": "Bean and pellet-filled toys",
+     "detail": "Pellets and foam chips hold water and can stretch the outer fabric out of shape. We either surface-clean these or wet-clean with a much slower dry, and we tell you which before starting."
+    },
+    {
+     "item": "Musical and battery-operated toys",
+     "detail": "Where the unit can be reached, we open a seam, take it out, clean the toy and restitch. Where it is sealed in, the toy is cleaned without immersion."
+    },
+    {
+     "item": "Fabric dolls and rag dolls",
+     "detail": "Printed faces, hair and glued features all need testing first. Doll hair is treated separately from the body fabric."
+    },
+    {
+     "item": "Baby comforters, soothers and security blankets",
+     "detail": "Small, constantly chewed, and usually the item a baby will not settle without. Extra rinses, no bleach, and handled as irreplaceable."
+    },
+    {
+     "item": "Pram, cot and playpen toys",
+     "detail": "Hanging rattles, cot mobiles and pram arches, including the plastic-and-fabric mixed ones that cannot go through a normal wash."
+    },
+    {
+     "item": "Cloth playmats and fabric play tents",
+     "detail": "Large flat items that collect floor dust and food. Cleaned and dried flat so the padding does not bunch up inside."
+    }
+   ],
+   "process": [
+    {
+     "step": "Inspection and honest verdict",
+     "detail": "We look at fading, matting, ink, old stains and existing damage, and tell you what will improve and what will not. If we think a toy will not survive cleaning, we say so and hand it back."
+    },
+    {
+     "step": "Internal check",
+     "detail": "Seams are felt through to identify the filling and to find squeakers, music boxes, battery pouches or wire armature. This decides everything that follows."
+    },
+    {
+     "step": "Colourfastness test",
+     "detail": "A hidden seam is tested before the toy goes anywhere near water. Felt tongues, printed cheeks and dyed ribbon are the usual culprits for bleeding onto light plush."
+    },
+    {
+     "step": "Pre-treatment",
+     "detail": "Stains are worked individually. Food, milk and saliva marks are treated separately from general soiling, and we avoid anything aggressive on a toy a child puts in their mouth."
+    },
+    {
+     "step": "Cleaning",
+     "detail": "Full immersion for fibrefill toys; controlled surface cleaning where the filling or the hardware rules out a wet clean. Extra rinses either way, so no residue is left in the pile."
+    },
+    {
+     "step": "Controlled drying",
+     "detail": "Long and low, with movement, so the stuffing redistributes rather than setting into lumps. We dry to the core, not to the surface, because a damp centre is what causes the sour smell later."
+    },
+    {
+     "step": "Finishing and separate packing",
+     "detail": "Pile brushed back up, shape restored, seams checked and any that opened restitched. The toy is packed on its own and returned to your door."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "My son's teddy has a music box inside. Can it still be cleaned?",
+     "a": "Usually yes. If the unit is reachable, we open a seam, remove it, clean the toy fully and restitch. If it is sealed inside a moulded pocket we cannot reach, we clean the toy without immersion instead. That gets the surface and a fair bit of the smell, but not the whole core, and we will tell you that before you leave it with us rather than after."
+    },
+    {
+     "q": "The toy is about eight years old and the fur has gone flat and rough. Will it look new again?",
+     "a": "No, and anyone who says otherwise is guessing. Matted pile is fibre that has been physically crushed and felted by years of hugging and washing. Cleaning removes the grime, and brushing lifts the pile as far as it will go, but the softness of new plush does not return. What you will get is a genuinely clean, fresh-smelling toy with the same texture."
+    },
+    {
+     "q": "Is the cleaning safe for a baby who chews the toy?",
+     "a": "That is the reason we run extra rinses rather than a single one. The concern with a chewed toy is not the cleaning agent so much as what is left behind in the pile afterwards, so rinsing thoroughly is the point. We also keep harsh chlorine bleach away from children's items entirely, which is why heavily yellowed white plush stays slightly off-white with us."
+    },
+    {
+     "q": "My daughter was sick on her toy a few days ago. Can you get the smell out?",
+     "a": "Usually, if it has not already been hot-washed. Vomit and milk are protein soils and heat sets them permanently, so a hot home machine cycle is what makes them unrecoverable. Send it as it is, tell us what happened and roughly when, and let us treat it. Do not try to sanitise it with hot water first."
+    },
+    {
+     "q": "Do you take giant soft toys?",
+     "a": "Yes, and they are one of the main reasons people call us for this, since nothing that size fits a domestic machine. The thing to know is that a large toy takes considerably longer than a small one, almost entirely because of drying. Rushing a big toy out half-dry is how it develops mould at the centre, so we do not do it."
+    },
+    {
+     "q": "A seam has already come open and stuffing is showing. Should I still send it?",
+     "a": "Send it, and point out the opening when we count the item at your door. We would rather stitch a weak seam closed before cleaning than have it burst mid-process. Small repairs like this are part of handling the toy properly, not an obstacle to it."
+    },
+    {
+     "q": "Where do you collect from, and how does it work?",
+     "a": "Free pickup and delivery across Gurugram, or you can drop items at either store: Vyapar Kendra in Sushant Lok Phase I, Sector 43, or Unitech Arcadia in Sector 49. Call or WhatsApp +91 63 67 600 500. Whatever you send is counted with you at the door and acknowledged with a written receipt."
+    }
+   ],
+   "keywords": [
+    "soft toy cleaning Gurugram",
+    "teddy bear cleaning near me",
+    "toy cleaning service Gurugram",
+    "stuffed toy cleaning Gurugram",
+    "soft toy dry cleaning Sector 43",
+    "soft toy sanitising Gurugram",
+    "baby toy cleaning service Gurugram",
+    "giant teddy bear cleaning Gurugram",
+    "plush toy cleaning Sushant Lok",
+    "kids soft toy cleaning Sector 49",
+    "soft toy cleaning with pickup and delivery",
+    "how to clean a soft toy with a music box inside"
+   ]
+  },
+  {
+   "body": "## The fill decides the method, not the cover\n\nThe outer fabric of a quilt tells you very little. What matters is the fill, and that is the first thing checked when a razai or duvet is opened out flat.\n\nLoose cotton batting, the filling in most hand-stitched razais, behaves badly in water: it swells, shifts and sets into hard ridges as it dries, so the razai comes back thin down the middle and heavy at one end. Those are cleaned with solvent and kept flat throughout. Down and feather duvets are the opposite case, because solvent strips the oil out of down and leaves it brittle, so they are washed gently instead. Polyester and microfibre comforters take water well, provided the quilting stitch is still holding the fill in place.\n\n## Drying is the actual job\n\nWashing a quilt is the easy half. Drying one right through to the core is where it goes wrong at home. A duvet that is ninety-five per cent dry feels dry in your hands, then smells of damp cupboard within a week, and mildew starting in that trapped moisture will spot the shell permanently. So drying is long, low-heat and interrupted: the item comes out partway, the fill is broken up and redistributed by hand, and it goes back in. That is also what brings loft back to a duvet and lifts the nap on a mink or plush blanket.\n\n## What cannot be saved\n\nHonest answers are more useful than optimistic ones.\n\n- Body-oil yellowing on a white duvet shell, oxidised over seasons in storage. It lightens. It rarely disappears.\n- Black mildew spotting where the fungus has eaten into the fibre. That pigment sits inside the damaged fibre, not on top of it.\n- Down that has already been through a hot home wash and clumped. The quills fracture and the loft does not come back.\n- Scorch or melt marks on polyester fill, from an iron or a room heater standing too close.\n- Dye bleed that has already run, usually after a dark razai cover was soaked in a bucket at home.\n\nIf a stain is not going to shift, you will be told while the item is being counted at your door, not afterwards.\n\n## Before you hand it over\n\nTake the cover off and look at the quilt itself, because a folded quilt hides stains beautifully. Run a hand along the seams for splits: agitation turns a small split into a fill explosion, so point it out and it gets stitched shut first. Pull out any safety pins holding a cover in place. And say if something has already been tried at home, bleach or Dettol or a stain spray, because it changes what is chemically possible afterwards.\n\n## Timing and storage\n\nThe sensible time to get razais done is at the end of winter, before they go into storage, not on the first cold night in November when all of Gurugram wants theirs back at once. Sardi se pehle, razai ready. Store them in a cotton bag or an old bedsheet, never a sealed plastic packet, and keep naphthalene balls in a cloth pouch rather than against the fabric, where they leave marks.\n\nBedding is bulky to carry to a shop, so pickup and delivery is free across Gurugram. Every piece is counted with you at the door, packed separately, and acknowledged with a written receipt.",
+   "faqs": [
+    {
+     "q": "Can my razai be washed, or does it have to be dry cleaned?",
+     "a": "It depends entirely on the filling. A hand-stitched razai filled with loose cotton batting should not be put through water — the cotton swells, migrates to one end and dries into hard ridges, and no amount of shaking afterwards redistributes it evenly. Those are solvent-cleaned and handled flat. A polyester-filled comforter or a down duvet is a different item altogether and is washed. We decide after opening it out, not from the label."
+    },
+    {
+     "q": "Will the filling go lumpy or bunch up at one end?",
+     "a": "That is exactly what the method choice and the drying stage are there to prevent. The item is dried in long, low-heat stages and taken out partway so the fill can be broken up and redistributed by hand before it sets. The one case where lumping is not reversible is down that has previously been through a hot home wash — once the quills have fractured and matted, the loft is gone permanently and nothing brings it back."
+    },
+    {
+     "q": "My white duvet has yellow patches. Will they come out?",
+     "a": "Usually they lighten rather than disappear. Yellowing on a duvet shell is body oil that has soaked in and oxidised, often over several winters in storage, and by the time it is visible through the cover it has been there a long time. We will treat it and tell you honestly what improvement is realistic before starting, rather than after."
+    },
+    {
+     "q": "It has been in storage all summer and smells of mothballs and damp. Can that be removed?",
+     "a": "Naphthalene and camphor smell almost always goes, because it responds to cleaning plus proper airing rather than to perfume sprayed over it. Musty storage smell usually goes too. The caution is that if damp storage has already left black mildew spots on the fabric, the smell can leave while the spots stay, because the fungus has stained the fibre from inside."
+    },
+    {
+     "q": "Should I send the cover along with the quilt?",
+     "a": "Yes, send both. They are washed as a set so the colour and finish stay matched, and it also lets us check whether a dark cover has been bleeding dye into the filling, which is common with cheaply dyed razai covers. Take the cover off before we collect so you can spot any stains hidden in the folds, and remove any safety pins."
+    },
+    {
+     "q": "Do you clean electric blankets or weighted blankets?",
+     "a": "Electric blankets and anything with wiring or heating elements sewn inside are not accepted — cleaning risks damaging the element, and a damaged element is a shock and fire risk you would only discover later. For weighted blankets and unusual fills, send us a photo of the care label on WhatsApp first and we will tell you straight away whether it is something we can take."
+    },
+    {
+     "q": "Do you pick up bedding from my part of Gurugram?",
+     "a": "Pickup and delivery is free across Gurugram, which matters most for bedding because razais and duvets are awkward to carry to a shop. Call or WhatsApp +91 63 67 600 500 to book, or drop items at either store: Vyapar Kendra in Sushant Lok Phase I, Sector 43, or Unitech Arcadia in Sector 49."
+    }
+   ],
+   "h1": "Blanket and quilt cleaning that dries all the way through",
+   "keywords": [
+    "blanket cleaning Gurugram",
+    "quilt cleaning Gurugram",
+    "razai dry cleaning Gurugram",
+    "duvet cleaning Gurugram",
+    "comforter dry cleaning Gurugram",
+    "blanket dry cleaning near me Gurugram",
+    "woollen blanket cleaning Gurugram",
+    "razai cleaning Sector 43 Gurugram",
+    "quilt cleaning Sector 49 Gurugram",
+    "duvet cleaning Sushant Lok",
+    "blanket cleaning with pickup and delivery Gurugram",
+    "down duvet washing India",
+    "mink blanket cleaning Gurugram",
+    "how to clean a razai at home",
+    "quilt cleaning service DLF Phase 1"
+   ],
+   "lede": "Razai, duvets, comforters and woollen blankets, cleaned in Gurugram by people who know that drying a quilt properly is the harder half of the job. Free pickup and delivery at your door.",
+   "meta_description": "Razai, duvets, comforters and woollen blankets cleaned and dried right through, so nothing comes back damp or lumpy. Free pickup and delivery in Gurugram.",
+   "meta_title": "Blanket & Quilt Cleaning in Gurugram | Razai, Duvets",
+   "process": [
+    {
+     "step": "Opened out and inspected with you",
+     "detail": "The cover comes off and the quilt is laid flat. We check the fill type, the quilting and seams, whether the fill has already migrated, and any moth holes, old repairs or hidden stains. Everything found is counted and noted with you at the door."
+    },
+    {
+     "step": "Method chosen by fill, and written down",
+     "detail": "Cotton batting goes to solvent, down and feather goes to a gentle wash, polyester and microfibre go to water. This is decided once and recorded on the docket, so it is not left to whoever handles the item next."
+    },
+    {
+     "step": "Colour test and stain identification",
+     "detail": "A hidden corner is tested for colourfastness, because dark razai and duvet covers bleed more often than people expect. Stains are identified by type first: oil-based and water-based marks need opposite treatments, and guessing sets the stain."
+    },
+    {
+     "step": "Repairs and pre-treatment",
+     "detail": "Split seams and small holes are stitched closed before the item moves, since agitation turns a two-inch split into a fill explosion. Spot treatment is worked in by hand around the stitching, not sprayed over the whole piece."
+    },
+    {
+     "step": "Cleaning with room to move",
+     "detail": "The item is loaded so it can actually tumble. A quilt crammed into a drum that is too small simply gets pressed against the wall and comes out no cleaner than it went in, which is the single commonest reason home washing fails on bedding."
+    },
+    {
+     "step": "Dried to the core, not the surface",
+     "detail": "Long, low heat with the item taken out partway so the fill can be broken up and redistributed by hand, then returned. Repeated until the middle is dry, because a duvet that goes home with a damp core will smell within the week."
+    },
+    {
+     "step": "Loft, nap and packing",
+     "detail": "Down and fibre fill are shaken back out to full loft, plush and mink surfaces are brushed so the nap stands up again, and the item is folded and packed to breathe rather than sealed in plastic where it would sweat on the way back to you."
+    }
+   ],
+   "slug": "blanket-quilt-cleaning",
+   "what_we_clean": [
+    {
+     "item": "Hand-stitched cotton razai",
+     "detail": "The traditional loose-cotton razai, handled flat and cleaned with solvent rather than soaked, so the batting cannot swell and set into ridges at one end."
+    },
+    {
+     "item": "Down and feather duvets",
+     "detail": "Washed rather than solvent-cleaned, because solvent strips the natural oil from down. The long, staged drying afterwards is what brings the loft back."
+    },
+    {
+     "item": "Polyester and microfibre comforters",
+     "detail": "The most forgiving of the lot. We check the quilting stitch and baffles first, since a broken stitch line lets the fill shift the moment it hits water."
+    },
+    {
+     "item": "Woollen and Solapur blankets",
+     "detail": "Low agitation and controlled heat throughout. Wool felts and shrinks permanently if either is pushed too far, and a felted blanket cannot be brought back."
+    },
+    {
+     "item": "Mink and plush blankets",
+     "detail": "Cleaned gently to avoid shedding, then the nap is brushed back up so the surface does not come home flattened and patchy."
+    },
+    {
+     "item": "Dohars, baby quilts and cot bedding",
+     "detail": "Extra rinsing so no detergent residue sits against a child's skin, and a close look for the milk and food stains that hide in the folds."
+    },
+    {
+     "item": "Duvet, quilt and razai covers",
+     "detail": "Sent in with the filling and cleaned as a set, so the two come back matched and we can see whether a dark cover has been bleeding dye into the fill."
+    }
+   ]
+  },
+  {
+   "body": "## What linen actually gets dirty with\n\nMost bedsheets are not dirty the way a shirt is dirty. The soil is body oil: sebum, hair oil, night cream, dried sweat, spread thinly across the whole sheet and concentrated in a band along the top hem and on the pillowcases. It stays invisible for months, then one day the pillowcase looks yellow-grey and no amount of detergent shifts it. Oil does not come out with detergent alone at the temperature a domestic machine runs. It needs an alkaline pre-soak and an enzyme stage with real contact time before the wash even begins. That is the step a home wash skips, and it is where we start.\n\nThe second problem is local. Water across most of Gurugram is hard, and calcium binds to both the cotton and the soap, leaving a mineral film in towel loops and inside the weave of sheets. That film is what makes towels stiff, scratchy and slow to absorb. It is not age. An acidic descaling rinse takes it out, while adding more detergent makes it worse. If your towels have gone crunchy despite regular washing, this is almost always the reason.\n\n## What can and cannot be saved\n\nHair oil, sebum yellowing, sweat, tea, coffee and cooking grease on table linen usually come out, often completely. Haldi on white cotton normally reduces to nothing, but on polyester or poly-cotton the turmeric bonds to the fibre and can leave a faint yellow shadow, so we tell you which fabric you have before promising anything.\n\nSome things genuinely cannot be recovered. Benzoyl peroxide from acne creams and face washes, hair colour, and bleach splashes are not stains at all. They have stripped the dye out of the fabric, and nothing puts colour back. Mildew from linen packed away slightly damp through the monsoon can often be lightened, but mildew feeds on cotton, so where it has been sitting a while the fibre is already weak and small holes may open during washing. We point that out before we wash. Rust from a leaking iron or a rusty drying rack needs an acidic reducer and never chlorine, and it does not always clear fully.\n\n## Before you hand it over\n\nCheck hems and corners for small tears, because agitation turns a two-inch split into a six-inch one. Empty duvet covers; socks and phone chargers arrive inside them more often than you would expect. Tell us what you have already tried at home, and whether the piece has been ironed since the stain happened, because heat sets oil and protein into the fibre and changes what is still possible. Mention any new or dark set that has not been washed before, since indigo and maroon prints bleed on the first few washes and we will run those on their own.\n\nOne last thing worth knowing: a double bedsheet in a domestic machine has nowhere to tumble, so most of the load gets almost no mechanical action. That is the quiet reason home-washed sheets stay dull however good the detergent is.",
+   "faqs": [
+    {
+     "q": "My white pillowcases have gone yellow even though I wash them every week. Can that be reversed?",
+     "a": "Usually yes. That yellowing is oxidised body oil and hair oil that a normal wash never lifted, so it built up layer by layer. It responds to an alkaline pre-soak plus enzyme treatment with proper contact time, which is what a domestic cycle cannot give it. The exception is a pillowcase that has been ironed many times over the same soiling, because heat drives oil deeper into the fibre. Those come back much lighter but not always perfectly white, and we will say so when we see them."
+    },
+    {
+     "q": "Will my towels actually come back soft?",
+     "a": "Softer, and more absorbent, but through a different route than you might expect. We do not use fabric softener on towels because it coats the loops and is the main reason towels stop soaking up water. Instead we use an acidic descaling rinse that strips out the hard-water mineral film Gurugram supply leaves behind, which is what makes towels feel like cardboard. Honest limit: a towel whose pile has genuinely worn flat over years will feel clean and absorbent again, but it will not be new."
+    },
+    {
+     "q": "There is a haldi mark on my tablecloth. Is it coming out?",
+     "a": "It depends entirely on the fibre, not on how old the mark is. On white or light cotton, turmeric almost always reduces to nothing. On polyester or a poly-cotton blend it bonds to the fibre and a faint yellow shadow often stays permanently. We check the composition first and tell you which situation you are in before we treat it, so you are not paying in hope."
+    },
+    {
+     "q": "Do my sheets get washed with other people's laundry?",
+     "a": "No. Every order is bagged on its own and stays separate from every other customer's order through the whole process. Your bedsheets, pillowcases and towels are counted with you at the door before they leave, and you get a written receipt of exactly what was collected. When the order comes back, count it again against that receipt."
+    },
+    {
+     "q": "I have a brand new dark bedsheet set. Should I wash it once at home before sending it?",
+     "a": "Please do not. Send it as it is and tell us it is new. Deep indigo, maroon and traditional block prints release loose dye for the first few washes, and a home wash is where that dye usually transfers onto something else in the load. We run new and unwashed dark sets on their own and test for bleed before committing the full cycle."
+    },
+    {
+     "q": "Can you clean the quilt or duvet itself, not just the cover?",
+     "a": "The cover comes under linen cleaning. The filled quilt, duvet, comforter or blanket is handled by our blanket and quilt cleaning service, which uses a different process for bulk and drying. Send both together and we will route them correctly; they will still be counted and returned as one order."
+    },
+    {
+     "q": "How do I book, and do you collect from my area?",
+     "a": "Free pickup and delivery covers Gurugram. Call or WhatsApp +91 63 67 600 500, or email care@wash4you.in, and tell us roughly how many sheets, pillowcases, towels and table pieces you have so the collection is counted quickly at the door. You can also drop things at either store: Sector 43 near Vyapar Kendra in Sushant Lok Phase I, or Unitech Arcadia in Sector 49."
+    }
+   ],
+   "h1": "Linen that comes back genuinely clean, not just fresh-smelling",
+   "keywords": [
+    "linen cleaning Gurugram",
+    "bedsheet cleaning service Gurugram",
+    "bed sheet dry cleaning near me Gurugram",
+    "towel cleaning service Gurugram",
+    "table linen cleaning Gurugram",
+    "double bedsheet washing Gurugram",
+    "duvet cover cleaning Gurugram",
+    "pillow cover cleaning Sector 43 Gurugram",
+    "linen laundry Sushant Lok Phase 1",
+    "bedsheet laundry pickup and delivery Gurugram",
+    "yellow pillowcase stain removal Gurugram",
+    "tablecloth cleaning Sector 49 Gurugram"
+   ],
+   "lede": "Bedsheets, pillowcases, towels and table linen collected from your door in Gurugram, sorted by fabric and colour, and given the pre-treatment that body oil, haldi and hard water actually need. Counted with you before they leave.",
+   "meta_description": "Bedsheets, towels and table linen washed properly: hard-water descaling, oil and haldi pre-treatment, free pickup across Gurugram. Counted at your door.",
+   "meta_title": "Linen & Bedsheet Cleaning Service in Gurugram | Wash4You",
+   "process": [
+    {
+     "step": "Free pickup and count at your door",
+     "detail": "Every sheet, pillowcase, towel and napkin is counted with you before it leaves, and you get a written receipt of exactly what was collected. Nothing goes into a van uncounted."
+    },
+    {
+     "step": "Inspection and sorting",
+     "detail": "Whites, colours, unwashed dark prints and towels are separated. We check hems, corners and fitted-sheet elastic for existing damage, and note any stain you have already treated at home, because that changes how we approach it."
+    },
+    {
+     "step": "Targeted pre-treatment",
+     "detail": "The oil band along the top hem, sebum on pillowcases, and food, wine or grease marks on table linen are treated by stain type with proper dwell time. This happens before the wash, not during it, which is the whole difference."
+    },
+    {
+     "step": "Washed by fabric, on its own",
+     "detail": "Percale, sateen, flax linen and terry towelling need different agitation, temperature and rinse. Your order is washed separately from every other customer's, never combined into a shared load."
+    },
+    {
+     "step": "Descale, not soften",
+     "detail": "Sheets get a conditioning rinse for hand-feel. Towels get an acidic descaling rinse instead of softener, because softener is what kills absorbency and hard water is what makes them stiff in the first place."
+    },
+    {
+     "step": "Controlled drying and pressing",
+     "detail": "Flat linen is pressed while still slightly damp so the weave lies flat and the finish holds in the almirah. Towels are dried without over-baking, which is what turns a soft pile brittle."
+    },
+    {
+     "step": "Folded in sets and delivered back",
+     "detail": "Sheets, matching pillowcases and covers come back folded together as sets rather than as a loose pile, delivered free anywhere we collect in Gurugram."
+    }
+   ],
+   "slug": "linen-cleaning",
+   "what_we_clean": [
+    {
+     "item": "Bedsheets, single and double",
+     "detail": "The most-handled fabric in the house and the one that hides oil best. Washed with room to move, which a domestic drum cannot give a double sheet."
+    },
+    {
+     "item": "Fitted sheets",
+     "detail": "The elastic is the weak point. Hot water and chlorine perish it, so we wash cooler and dry without over-heating the corners, and we flag elastic that has already gone slack."
+    },
+    {
+     "item": "Pillowcases and bolster covers",
+     "detail": "These carry the heaviest oil load of any linen in the home: hair oil, night cream, face products. Pre-treated separately from the sheet they came with."
+    },
+    {
+     "item": "Duvet, quilt and comforter covers",
+     "detail": "Turned inside out and fastened before washing, so the cover does not swallow smaller pieces and come back clean only on one side."
+    },
+    {
+     "item": "Bath, hand and face towels",
+     "detail": "Descaling rinse instead of fabric softener. Terry loops trap hard-water minerals and softener residue, and both have to go for absorbency to return."
+    },
+    {
+     "item": "Kitchen and tea towels",
+     "detail": "Cooking oil, haldi and masala staining, handled apart from bedroom linen so nothing transfers between the two."
+    },
+    {
+     "item": "Table linen: tablecloths, runners and napkins",
+     "detail": "Wine, gravy, candle wax and oil are treated by type. Damask and self-textured cloth is pressed damp so the weave regains body rather than lying limp."
+    },
+    {
+     "item": "Mattress protectors",
+     "detail": "Waterproof-backed protectors cannot take high heat without the backing delaminating, so these are washed and dried on a low, controlled cycle."
+    }
+   ]
+  },
+  {
+   "slug": "accessories-cleaning",
+   "meta_title": "Accessories Cleaning Gurugram – Ties, Caps & Scarves",
+   "meta_description": "Ties, caps, scarves and dupattas cleaned by hand in Gurugram: spot-treated, reshaped and returned rolled, not folded. Free pickup and delivery.",
+   "h1": "Accessories cleaning for ties, caps, scarves and stoles",
+   "lede": "The small things that finish an outfit are the ones an ordinary wash ruins. We clean them one at a time, by hand, with free pickup and delivery anywhere in Gurugram.",
+   "body": "## What actually happens to a tie\n\nA necktie is not one piece of fabric. It is an outer shell, a wool or cotton interlining that gives the knot its body, a tipping fabric at both ends, and a single slip stitch running the length of the back that lets the whole thing stretch and recover every time you tie it. Put that in water and the layers shrink at different rates. The shell ripples, the interlining twists, and nothing brings it back. So ties go through solvent cleaning, spotted by hand first, then finished over a shaped form so the edges stay softly rolled. A tie that comes back with hard, knife-flat edges has been ironed, not finished.\n\n## Caps: check the brim before you hand it over\n\nPress the peak of your cap between finger and thumb. If it feels papery and holds a crease, the stiffener inside is cardboard, and that cap can never be wet washed — the brim buckles and stays buckled. Plastic-stiffened peaks spring back and will take a controlled hand clean. The other thing we look at is the sweatband. That grey-white tide line is two problems in one: salt, which dissolves in water, and sebum, which does not, so a cap needs both an aqueous and a solvent step to shift it. Sweat that has sat through a Gurugram summer oxidises into the cotton and yellows it. We can usually lighten that. We cannot always erase it, and we will tell you which one you are getting before we start.\n\n## Scarves, stoles and dupattas\n\nPashmina, cashmere and fine wool are washed by hand with no agitation and dried flat, because a wet knit stretches under its own weight the moment you hang it. Fringes are combed straight while still damp; left alone they dry into knots that then have to be worked loose dry, which sheds fibre. Block-printed and bandhani dupattas get tested hardest, since a lot of hand-printed dye is unfixed, and one bleed test on a seam allowance is what stands between a beautiful dupatta and a pink haze across the white ground. Real zari is metal wrapped around a thread core: it tarnishes and it hates heat, so anything with zari, gota or sequins is pressed on the reverse, through a cloth, at low temperature.\n\n## What cannot be saved\n\nTurmeric on silk usually leaves a yellow ghost — curcumin is a dye, and it bonds to protein fibre. Perfume or attar sprayed straight onto a silk tie or scarf strips colour where it landed, and that pale patch is permanent. So is the faded line along the fold of a scarf that has hung in one position in a wardrobe for years; that is sunlight, not soil. Ink and paan are judged item by item. And if a tie has thinned at the knot after years of the same four-in-hand, cleaning will make that visible. It did not cause it.\n\n## Before you hand the item over\n\nTell us what the stain is and roughly how old it is — that one sentence changes the chemistry we start with. Tell us if you have already tried something at home, because lemon, vinegar, toothpaste and hairspray all leave residues we have to work around. Take off brooches, tie pins and cap badges. Nazuk kapde, extra care — delicate things, handled slowly, and counted with you at the door before they leave.",
+   "what_we_clean": [
+    {
+     "item": "Silk and printed neckties",
+     "detail": "Solvent-cleaned and finished over a form so the edges stay softly rolled. Bow ties and cravats too."
+    },
+    {
+     "item": "Caps and hats",
+     "detail": "Baseball caps, bucket hats and knitted beanies. Brim stiffener and sweatband checked first, since a cardboard-stiffened peak cannot go anywhere near water."
+    },
+    {
+     "item": "Scarves, stoles and pashminas",
+     "detail": "Washed without agitation, dried flat, fringes combed straight while damp so they do not set into knots."
+    },
+    {
+     "item": "Dupattas with zari, gota or sequins",
+     "detail": "Bleed-tested on a seam allowance, then pressed on the reverse through a cloth at low heat to protect the metal thread."
+    },
+    {
+     "item": "Pocket squares and handkerchiefs",
+     "detail": "Hand-rolled hems kept rounded rather than flattened, which is what lets a pocket square sit up in the pocket."
+    },
+    {
+     "item": "Fabric belts, sashes and kamarbandh",
+     "detail": "Cleaned flat and reshaped. Buckles and hooks are masked so nothing marks the cloth."
+    },
+    {
+     "item": "Bandanas, headbands and safa cloth",
+     "detail": "Long turban cloth is handled full-length and returned folded to length, not creased into a small square."
+    },
+    {
+     "item": "Mufflers, gloves and knitted accessories",
+     "detail": "Wool and acrylic knits only here. Leather belts, gloves and straps go to our leather care instead."
+    }
+   ],
+   "process": [
+    {
+     "step": "Counted with you at the door",
+     "detail": "Small items are the easiest to lose, so every accessory is counted and logged in front of you at pickup and acknowledged on a written receipt."
+    },
+    {
+     "step": "Construction check",
+     "detail": "We look at what the item is actually made of and how it is built: tie interlining, cap brim stiffener, hidden zari, glued trims, loose stitching. Accessories often carry no useful care label, so this is done by hand and eye."
+    },
+    {
+     "step": "Colourfastness test",
+     "detail": "A damp test on a hidden edge or seam allowance before anything else. Hand-block prints, bandhani and deep reds on white grounds are the ones that move."
+    },
+    {
+     "step": "Spotting, one stain at a time",
+     "detail": "Stains are worked individually with the right agent for the stain type, not a general pre-soak. Oil, pigment and dye stains each need a different first move, and makeup on a scarf edge is usually two of them at once."
+    },
+    {
+     "step": "The cleaning method matched to the item",
+     "detail": "Solvent for ties and structured silk, gentle hand washing for knits and cottons. The item decides, not the queue."
+    },
+    {
+     "step": "Drying and reshaping",
+     "detail": "Knits flat, caps shaped so the crown does not collapse, fringes combed out. Nothing hangs while it is heavy with water."
+    },
+    {
+     "step": "Finishing and separate packing",
+     "detail": "Low-heat pressing where the item allows it, then packed on its own. Your order never shares a bag with anyone else's."
+    }
+   ],
+   "faqs": [
+    {
+     "q": "Can you clean my baseball cap without wrecking the shape?",
+     "a": "Usually, but it depends on the peak. Press it between your finger and thumb: if it feels like stiff card and holds a crease, the stiffener is cardboard and water will buckle it permanently, so we will hand-clean only the crown and sweatband and leave the brim dry. If the peak springs back, it is plastic and the whole cap can take a controlled hand clean and be dried on a former so the crown keeps its shape."
+    },
+    {
+     "q": "I spilt something on my silk tie and dabbed it with water. Have I made it worse?",
+     "a": "Possibly, and it is the most common thing customers do. Water on silk moves the sizing outward and dries into a ring, so you can end up with a watermark that is larger than the original stain. Stop there. Do not rub, do not use soap, do not hold it under a tap. Let it dry, bring it in as it is, and tell us what the spill was."
+    },
+    {
+     "q": "Will you clean a heavy dupatta with zari and sequins on it?",
+     "a": "Yes. Zari is real metal wound on a thread core, so it tarnishes with harsh chemistry and distorts with heat. We clean around it, press on the reverse through a cloth at low temperature, and never put a hot iron directly on the work. If sequins are glued rather than stitched, we will point that out before starting, because glue can soften."
+    },
+    {
+     "q": "Can accessories come along with my regular laundry pickup?",
+     "a": "Yes, and it is the easiest way to send them. Just tell the person at the door which items are accessories so they are logged and bagged separately rather than counted in with your shirts. They follow their own process and are packed on their own for return."
+    },
+    {
+     "q": "My scarf has an old stain and I have no idea what it was. Is it still worth sending?",
+     "a": "Send it. Unknown stains are normal on accessories and we will still test and work it. What we will not do is promise a result we cannot see yet. After inspection we will tell you honestly whether we expect full removal, a visible improvement, or very little, and you decide from there."
+    },
+    {
+     "q": "Do you clean leather belts, gloves and watch straps here?",
+     "a": "Those go to our leather care rather than accessories cleaning, because leather needs pH-balanced cleaning and conditioning instead of fabric chemistry. Send them anyway and we will route them correctly. Fabric belts, sashes and knitted gloves stay with accessories."
+    },
+    {
+     "q": "How should I store a tie or scarf between wears?",
+     "a": "Roll a tie loosely and lay it in a drawer rather than hanging it folded over a rail, which sets a crease and stresses the bias. Store silk scarves flat or loosely rolled, and refold them along a different line now and then, since a scarf left in one fold for years fades along that line and no cleaning brings the colour back. We return ties rolled for exactly this reason."
+    }
+   ],
+   "keywords": [
+    "accessories cleaning Gurugram",
+    "tie dry cleaning Gurugram",
+    "cap cleaning service Gurugram",
+    "scarf dry cleaning Gurugram",
+    "pashmina cleaning Gurugram",
+    "dupatta dry cleaning Gurugram",
+    "silk tie stain removal Gurugram",
+    "baseball cap cleaning near me Gurugram",
+    "stole and shawl cleaning Sector 49 Gurugram",
+    "zari dupatta cleaning Gurugram",
+    "hat cleaning Sushant Lok Gurugram",
+    "silk scarf cleaning Sector 43 Gurugram",
+    "how to clean a cap without ruining the brim",
+    "necktie cleaning with free pickup Gurugram"
+   ]
+  }
+ ]
+}

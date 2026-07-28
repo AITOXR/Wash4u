@@ -1,0 +1,43 @@
+{
+  "_source": "Package tiers, prices, balances, validity and benefit % are from the client's official 'Premium Laundry & Dryclean Packages' graphic (WhatsApp 2026-07-22). Prepaid-wallet model: pay the package cost, receive a free-service bonus, spend the combined balance on any service before it expires. All figures are the client's own — do not invent tiers or change numbers.",
+  "meta": {
+    "title": "Laundry & Dry-Clean Packages — Wash4You Gurugram",
+    "description": "Prepaid Wash4You cleaning plans: pay once, get bonus balance and up to 60% more value on dry cleaning, laundry, shoe, leather and home care across Gurugram & Delhi NCR.",
+    "canonical": "https://wash4you.in/packages/",
+    "og_title": "Wash4You Packages — Save More with Smart Cleaning Plans",
+    "og_description": "Prepaid cleaning wallets with bonus balance and up to 60% more value. Free doorstep pickup and delivery across Gurugram & Delhi NCR."
+  },
+  "hero": {
+    "eyebrow": "Packages",
+    "headline": "Save more with smart cleaning plans.",
+    "subheadline": "Load a Wash4You wallet once, get bonus balance on top, and spend it on any service — dry cleaning, laundry, shoes, leather and home care. The bigger the plan, the more you save."
+  },
+  "how": "Every plan is a prepaid balance. You pay the package cost, we add a free-service bonus, and you spend the combined total on any service until it expires. No item is billed differently inside a plan.",
+  "covers": [
+    { "label": "Premium Dry Clean", "icon": "premium-dry-cleaning" },
+    { "label": "Shoe Care", "icon": "shoe-cleaning" },
+    { "label": "Steam Iron", "icon": "steam-ironing" },
+    { "label": "Premium Laundry", "icon": "eco-friendly-laundry" },
+    { "label": "Leather Care", "icon": "leather-cleaning" },
+    { "label": "Toy, Carpet & Household", "icon": "carpet-cleaning" }
+  ],
+  "plans": [
+    { "name": "Diamond",  "cost": "₹2,500",  "free": "₹500",    "balance": "₹3,000",  "validity": "3 months", "benefit": "20%" },
+    { "name": "Platinum", "cost": "₹5,000",  "free": "₹1,500",  "balance": "₹6,500",  "validity": "6 months", "benefit": "30%" },
+    { "name": "Elite",    "cost": "₹10,000", "free": "₹3,500",  "balance": "₹13,500", "validity": "1 year",   "benefit": "35%" },
+    { "name": "Premier",  "cost": "₹20,000", "free": "₹8,000",  "balance": "₹28,000", "validity": "1 year",   "benefit": "40%" },
+    { "name": "Founder",  "cost": "₹30,000", "free": "₹15,000", "balance": "₹45,000", "validity": "Unlimited", "benefit": "50%", "badge": "Best value", "tier": "gold" },
+    { "name": "VIP",      "cost": "₹50,000", "free": "₹30,000", "balance": "₹80,000", "validity": "Unlimited", "benefit": "60%", "badge": "Best value", "tier": "navy" }
+  ],
+  "features": [
+    { "icon": "shield", "title": "Transparent balance", "detail": "Your remaining package balance is always yours to see — no hidden deductions." },
+    { "icon": "check", "title": "Updated every order", "detail": "You get your package balance with every order, so you always know what's left." },
+    { "icon": "sparkle", "title": "Track in the app", "detail": "Follow your wallet balance easily through the Wash4You app." }
+  ],
+  "pdf": null,
+  "cta": {
+    "title": "Pick a plan, or tell us what you send.",
+    "subtitle": "Not sure which plan pays off for you? Send us your usual items and how often you send them — we'll point you to the right one.",
+    "button": "Get a plan on WhatsApp"
+  }
+}

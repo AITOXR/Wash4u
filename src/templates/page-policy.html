@@ -1,20 +1,38 @@
 {% extends "base.html" %}
+{% from "_icons.html" import ui %}
 
 {% block content %}
+
 <section class="page-hero">
-  <div class="container">
-    <h1 class="page-hero__title">{{ policy.title }}</h1>
+  <div class="wrap wrap--narrow">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ policy.title }}</span>
+    </nav>
+    <p class="eyebrow">Policy</p>
+    <h1{{ cms(cms_base ~ '.title') }}>{{ policy.title }}</h1>
   </div>
 </section>
 
-<section class="section section-light">
-  <div class="container">
-    <article class="policy-section reveal">
+<section class="doc">
+  <div class="wrap wrap--narrow">
+    {# Legal copy is never hidden behind a scroll reveal — if the observer
+       never fires, an entire policy page would be invisible. #}
+    <div class="prose policy-section">
       {% for section in policy.sections %}
-      <h3>{{ section.heading }}</h3>
-      <p>{{ section.content }}</p>
+      <h2{{ cms(cms_base ~ '.sections.' ~ loop.index0 ~ '.heading') }}>{{ section.heading }}</h2>
+      <p{{ cms(cms_base ~ '.sections.' ~ loop.index0 ~ '.content') }}>{{ section.content }}</p>
       {% endfor %}
-    </article>
+    </div>
+
+    <hr class="seam" style="margin-block:var(--s-8)">
+
+    <div class="btn-row">
+      <a class="btn btn--ghost" href="{{ root_path }}contact-us/">Questions? Contact us</a>
+      <a class="btn btn--cta" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+    </div>
   </div>
 </section>
+
 {% endblock %}

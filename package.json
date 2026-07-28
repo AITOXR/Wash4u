@@ -1,0 +1,32 @@
+{
+  "name": "wash4u",
+  "version": "1.0.0",
+  "description": "A redesigned static website for **Wash4You** (`https://wash4you.in/`) inspired by the UI/UX of [Rinse.com](https://www.rinse.com/), with all original content preserved.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "npm run build:js && python3 src/build.py",
+    "build:js": "esbuild src/js/main.js --bundle --format=iife --minify --target=es2019 --legal-comments=none --banner:js='/* GENERATED FILE — do not edit. Source: src/js/  •  Rebuild: npm run build:js */' --outfile=src/assets/js/main.js",
+    "build:pdf": "node tools/make-pdf.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AITOXR/Wash4u.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AITOXR/Wash4u/issues"
+  },
+  "homepage": "https://github.com/AITOXR/Wash4u#readme",
+  "dependencies": {
+    "motion": "^12.42.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1",
+    "puppeteer-core": "^25.3.0"
+  }
+}

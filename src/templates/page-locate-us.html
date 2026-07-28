@@ -1,46 +1,105 @@
 {% extends "base.html" %}
+{% from "_icons.html" import ui %}
+
+{% block schema %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.urls.base }}/" },
+          { "@type": "ListItem", "position": 2, "name": "Areas we serve" }
+        ]
+      }{% for loc in site.locations %},
+      {
+        "@type": "DryCleaningOrLaundry",
+        "@id": "{{ site.urls.base }}/locate-us/#{{ loc.id }}",
+        "name": {{ loc.name | tojson }},
+        "telephone": "{{ site.contact.phone_raw }}",
+        "parentOrganization": { "@id": "{{ site.urls.base }}/#organization" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": {{ loc.street | tojson }},
+          "addressLocality": "Gurugram",
+          "addressRegion": "Haryana",
+          "postalCode": "{{ loc.postal_code }}",
+          "addressCountry": "IN"
+        }
+      }{% endfor %}
+{% endblock %}
 
 {% block content %}
+
 <section class="page-hero">
-  <div class="container">
-    <h1 class="page-hero__title">{{ locations.hero.headline }}</h1>
-    <p class="page-hero__subtitle">{{ locations.hero.subheadline }}</p>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>Areas we serve</span>
+    </nav>
+    <div class="page-hero__grid">
+      <div>
+        <p class="eyebrow">{{ ui('pin', 16) }} Gurugram</p>
+        <h1>Two stores. Free pickup across the city.</h1>
+        <p class="lede">Come to either store, or let us collect from your door at no charge. Every order is counted with you before it leaves.</p>
+        <div class="btn-row">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+          <a class="btn btn--ghost btn--lg" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section section-light">
-  <div class="container">
-    <div class="section-header section-header--center reveal">
-      <span class="section-header__eyebrow">Our Locations</span>
-      <h2 class="section-header__title">Visit us in Gurugram</h2>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Come to us</p>
+      <h2>Our stores</h2>
     </div>
-    <div class="locations-grid stagger-children">
-      {% for location in locations.locations %}
-      <div class="location-card">
-        <h3 class="location-card__title">{{ location.name }}</h3>
-        <p class="location-card__address">{{ location.address }}</p>
-        <a href="{{ location.map_url }}" class="btn btn-secondary btn-sm" target="_blank" rel="noopener">View on Map</a>
+    <div class="store-grid stagger-children">
+      {% for loc in site.locations %}
+      <div class="store-card">
+        <strong>{{ loc.name }}</strong>
+        <address>{{ loc.address }}</address>
+        <p class="mono">{{ site.contact.phone }}</p>
+        <div class="btn-row">
+          <a class="btn btn--ghost" href="{{ loc.map_url }}" rel="noopener">{{ ui('pin', 16) }} Directions</a>
+          <a class="btn btn--ghost" href="{{ site.urls.phone }}">{{ ui('phone', 16) }} Call</a>
+        </div>
       </div>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-header section-header--center reveal">
-      <span class="section-header__eyebrow">Service Areas</span>
-      <h2 class="section-header__title">Laundry & dry cleaning across Gurugram</h2>
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Where we collect</p>
+      <h2>Areas we serve</h2>
+      <p>Each area has its own page covering how pickup works there and which services that neighbourhood uses most.</p>
     </div>
-    <div class="service-areas-grid stagger-children">
-      {% for area in locations.service_areas %}
-      <article class="service-area-card">
-        <h3 class="service-area-card__title">{{ area.name }}</h3>
-        <p class="service-area-card__text">{{ area.description }}</p>
-        <a href="{{ root_path }}{{ area.slug }}/" class="service-area-card__link">Learn more →</a>
-      </article>
+    <div class="areas stagger-children">
+      {% for a in site.footer.areas %}
+      <a class="area-link" href="{{ root_path }}{{ a.url }}">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
       {% endfor %}
+    </div>
+    <p style="margin-top:var(--s-6);font-size:var(--t-sm);color:var(--ink-3)">
+      Not listed? Send your address on <a class="link-arrow" href="{{ site.urls.whatsapp }}" rel="noopener">WhatsApp</a> and we will confirm whether we collect there.
+    </p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Book a free pickup.</h2>
+      <p>Tell us when suits you. We come to your door, count everything with you, and take it from there.</p>
+      <div class="btn-row">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+        <a class="btn btn--on-navy btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp us</a>
+      </div>
     </div>
   </div>
 </section>
+
 {% endblock %}

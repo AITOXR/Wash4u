@@ -1,62 +1,80 @@
 {% extends "base.html" %}
+{% from "_icons.html" import ui, care_tag %}
+
+{# Legacy URL kept alive for SEO — it ranks for "steam iron" queries. It now
+   carries the real price list and points at the steam-ironing service page. #}
+
+{% block schema %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.urls.base }}/" },
+          { "@type": "ListItem", "position": 2, "name": "Steam Ironing" }
+        ]
+      }
+{% endblock %}
 
 {% block content %}
-<section class="service-detail__hero">
-  <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="{{ root_path }}">Home</a>
-      <span class="breadcrumb__sep">/</span>
-      <span aria-current="page">Steam Iron</span>
-    </nav>
-    <span class="steam-hero__badge">{{ steam.hero.badge }}</span>
-    <h1 class="service-detail__title">{{ steam.hero.headline }}</h1>
-    <p class="service-detail__lead">{{ steam.hero.subheadline }}</p>
-    <div class="steam-benefits">
-      {% for benefit in steam.benefits %}
-      <span class="steam-benefit">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        {{ benefit }}
-      </span>
-      {% endfor %}
-    </div>
-    <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">{{ steam.hero.cta }}</a>
-  </div>
-</section>
 
-<section class="section section-light">
-  <div class="container">
-    <div class="section-header section-header--center reveal">
-      <span class="section-header__eyebrow">Pricing</span>
-      <h2 class="section-header__title">Steam Iron Rates</h2>
-      <p class="pricing-note">{{ steam.note }}</p>
-    </div>
-    <div class="pricing-grid stagger-children">
-      <div class="pricing-card">
-        <div class="pricing-card__header">
-          <h3 class="pricing-card__title">Steam Iron Items</h3>
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>Steam ironing</span>
+    </nav>
+    <div class="page-hero__grid">
+      <div>
+        {{ care_tag('steam-ironing') }}
+        <h1 style="margin-top:var(--s-4)"{{ cms('steam-iron:hero.headline') }}>{{ steam.hero.headline }}</h1>
+        <p class="lede"{{ cms('steam-iron:hero.subheadline') }}>{{ steam.hero.subheadline }}</p>
+        <div class="btn-row">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+          <a class="btn btn--ghost btn--lg" href="{{ root_path }}services/steam-ironing/">How it works</a>
         </div>
-        <ul class="pricing-card__list">
-          {% for item in steam['items'] %}
-          <li class="pricing-card__item">
-            <span>{{ item.name }}</span>
-            <span class="pricing-card__price">{{ item.price }}</span>
-          </li>
-          {% endfor %}
-        </ul>
       </div>
+      <aside class="store-card reveal">
+        <strong>Press only</strong>
+        <p>For clothes that are already clean and just need finishing. If they need washing first, book laundry instead and pressing is part of it.</p>
+        <a class="btn btn--ghost btn--block" href="{{ root_path }}services/eco-friendly-laundry/">Wash &amp; fold instead</a>
+      </aside>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container">
-    <div class="pricing-cta reveal">
-      <h2 class="pricing-cta__title">{{ steam.cta.title }}</h2>
-      <p class="pricing-cta__subtitle">{{ steam.cta.subtitle }}</p>
-      {% for button in steam.cta.buttons %}
-      <a href="{{ root_path }}{{ button.url }}" class="btn {% if loop.first %}btn-primary{% else %}btn-secondary{% endif %} btn-lg {% if not loop.last %}mr-2{% endif %}">{{ button.label }}</a>
-      {% endfor %}
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Rates</p>
+      <h2>Steam ironing prices</h2>
+    </div>
+    <div class="table-scroll reveal pricing-grid">
+      <table class="price-table">
+        <caption class="visually-hidden">Steam ironing prices per item</caption>
+        <thead><tr><th scope="col">Item</th><th scope="col">Price</th></tr></thead>
+        <tbody>
+          {% for item in steam['items'] %}
+          <tr><td{{ cms('steam-iron:items.' ~ loop.index0 ~ '.name') }}>{{ item.name }}</td><td{{ cms('steam-iron:items.' ~ loop.index0 ~ '.price') }}>{{ item.price }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="mono mono--note" style="margin-top:var(--s-5)"{{ cms('steam-iron:note') }}>{{ steam.note }}</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2{{ cms('steam-iron:cta.title') }}>{{ steam.cta.title }}</h2>
+      <p{{ cms('steam-iron:cta.subtitle') }}>{{ steam.cta.subtitle }}</p>
+      <div class="btn-row">
+        {% for b in steam.cta.buttons %}
+        <a class="btn {% if loop.first %}btn--cta{% else %}btn--on-navy{% endif %} btn--lg" href="{{ b.url if b.url.startswith('http') else root_path ~ b.url }}"{% if b.url.startswith('http') %} rel="noopener"{% endif %}{{ cms('steam-iron:cta.buttons.' ~ loop.index0 ~ '.label') }}>{{ b.label }}</a>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>
+
 {% endblock %}

@@ -1,232 +1,273 @@
 {% extends "base.html" %}
-{% import "_icons.html" as icons %}
+{% from "_icons.html" import ui, care_symbol, care_tag, service_icon %}
+{% from "_components.html" import before_after, before_after_static, faq_list, review_card %}
+
+{% block preload %}
+  {# The mascot is the banner's LCP candidate — fetch it early. #}
+  <link rel="preload" as="image" href="{{ asset_path }}images/mascot-wash4you.png" fetchpriority="high">
+{% endblock %}
+
+{% block schema %},
+      {
+        "@type": "FAQPage",
+        "@id": "{{ site.urls.base }}/#faq",
+        "mainEntity": [
+          {% for f in home.faqs %}{
+            "@type": "Question",
+            "name": {{ f.q | tojson }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | tojson }} }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }
+{% endblock %}
 
 {% block content %}
-<section class="hero">
-  <div class="container hero__grid">
-    <div>
-      <h1 class="hero__title">
-        <span class="hero__title-line">We'll take the laundry.</span>
-        <span class="hero__title-line">You take the time.</span>
+
+{# ============================================================
+   Banner — the happy-face hero. Mascot + headline + booking CTA.
+   ============================================================ #}
+<section class="banner">
+  <div class="wrap banner__grid">
+    <div class="banner__copy">
+      <p class="banner__eyebrow reveal">{{ ui('pin', 14) }} <span{{ cms('home:banner.eyebrow') }}>{{ home.banner.eyebrow }}</span></p>
+      <h1 class="display-xl reveal reveal-delay-1">
+        <span{{ cms('home:banner.headline_line1') }}>{{ home.banner.headline_line1 }}</span><br><span{{ cms('home:banner.headline_line2') }}>{{ home.banner.headline_line2 }}</span>
       </h1>
-      <p class="hero__subtitle">{{ home.hero.subheadline }}</p>
-      <div class="hero__actions">
-        <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">{{ home.hero.cta_primary }}</a>
-        <a href="{{ root_path }}pricing/" class="btn btn-secondary btn-lg">{{ home.hero.cta_secondary }}</a>
-      </div>
-      <div class="hero__rating">
-        <div class="rating-widget">
-          <span class="rating-widget__stars" aria-hidden="true">
-            {% for i in range(5) %}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            {% endfor %}
-          </span>
-          <span class="rating-widget__text">{{ home.hero.rating }} rating · {{ home.hero.reviews }} happy customers · Free pickup & delivery</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero__media">
-      <img src="{{ root_path }}images/hero-banner.jpg" alt="Freshly cleaned and folded laundry from Wash4You" width="2560" height="1083" fetchpriority="high">
-      <div class="hero__badge">
-        <span class="hero__badge-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
-        </span>
-        <span>
-          <span class="hero__badge-title">Eco-friendly cleaning</span><br>
-          <span class="hero__badge-sub">Italian hydrocarbon technology</span>
-        </span>
-      </div>
-    </div>
-  </div>
-</section>
+      <p class="banner__sub reveal reveal-delay-2"{{ cms('home:banner.subheadline') }}>{{ home.banner.subheadline }}</p>
 
-<section class="trust-row" aria-label="Neighbourhoods we serve">
-  <div class="container">
-    <span class="trust-row__label">Serving Gurugram's top neighbourhoods</span>
-    <div class="trust-row__items">
-      <a href="{{ root_path }}laundry-service-cyber-city/">Cyber City</a>
-      <a href="{{ root_path }}laundry-service-dlf-phase-3/">DLF Phase 3</a>
-      <a href="{{ root_path }}laundry-service-golf-course-road/">Golf Course Road</a>
-      <a href="{{ root_path }}laundry-service-sushant-lok/">Sushant Lok</a>
-      <a href="{{ root_path }}laundry-service-palam-vihar/">Palam Vihar</a>
-      <a href="{{ root_path }}laundry-service-sohna-road/">Sohna Road</a>
-    </div>
-  </div>
-</section>
-
-{% for tab_section in home.service_tabs %}
-<section class="section {% if loop.index is even %}section-light{% endif %}">
-  <div class="container svc-split {% if loop.index is even %}svc-split--flip{% endif %}">
-    <div class="reveal">
-      <span class="section-header__eyebrow">{{ tab_section.eyebrow }}</span>
-      <h2 class="svc-split__title">{{ tab_section.title }}</h2>
-      <p class="svc-split__intro">{{ tab_section.intro }}</p>
-      <div class="svc-tabs" role="tablist" aria-label="{{ tab_section.eyebrow }} process">
-        {% for step in tab_section.steps %}
-        <button class="svc-tabs__btn" role="tab" id="tab-{{ tab_section.id }}-{{ loop.index }}" aria-controls="panel-{{ tab_section.id }}-{{ loop.index }}" aria-selected="{% if loop.first %}true{% else %}false{% endif %}">
-          {{ loop.index }}. {{ step.label }}
-        </button>
+      <ul class="banner__points reveal reveal-delay-3">
+        {% for point in home.banner.points %}
+        <li>{{ ui('check', 16) }} <span{{ cms('home:banner.points.' ~ loop.index0) }}>{{ point }}</span></li>
         {% endfor %}
+      </ul>
+
+      <div class="btn-row reveal reveal-delay-3">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener"{{ cms('home:banner.cta_label') }}>{{ home.banner.cta_label }}</a>
+        <a class="btn btn--ghost btn--lg" href="{{ root_path }}pricing/"{{ cms('home:banner.cta_secondary') }}>{{ home.banner.cta_secondary }}</a>
       </div>
-      {% for step in tab_section.steps %}
-      <div class="svc-panel {% if loop.first %}is-active{% endif %}" role="tabpanel" id="panel-{{ tab_section.id }}-{{ loop.index }}" aria-labelledby="tab-{{ tab_section.id }}-{{ loop.index }}">
-        <h3 class="svc-panel__title">{{ step.title }}</h3>
-        <p class="svc-panel__text">{{ step.text }}</p>
+
+      <div class="banner__trust reveal reveal-delay-4">
+        <span class="banner__stars" aria-hidden="true">
+          {% for _ in range(5) %}{{ ui('star', 16) }}{% endfor %}
+        </span>
+        <span{{ cms('home:banner.trust') }}>{{ home.banner.trust }}</span>
+      </div>
+    </div>
+
+    <div class="banner__art reveal reveal-delay-2">
+      <div class="banner__blob" aria-hidden="true"></div>
+      <img class="banner__mascot" src="{{ asset_path }}images/mascot-wash4you.png"
+           alt="Wash4You mascot smiling and holding a freshly cleaned white shirt"
+           width="560" height="560" fetchpriority="high" decoding="async"{{ cms('images/mascot-wash4you.png', 'file') }}>
+    </div>
+  </div>
+</section>
+
+{# ============================================================
+   Why Wash4You — the differentiators, now a real, visible section.
+   ============================================================ #}
+<section class="section section--wash" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('home:why.eyebrow') }}>{{ home.why.eyebrow }}</p>
+      <h2{{ cms('home:why.title') }}>{{ home.why.title }}</h2>
+      <p{{ cms('home:why.text') }}>{{ home.why.text }}</p>
+    </div>
+
+    <div class="promises stagger-children">
+      {% for p in site.promises %}
+      <div class="promise">
+        <span class="promise__icon">{{ ui(p.icon, 32) }}</span>
+        <h3{{ cms('site:promises.' ~ loop.index0 ~ '.title') }}>{{ p.title }}</h3>
+        <p{{ cms('site:promises.' ~ loop.index0 ~ '.detail') }}>{{ p.detail }}</p>
       </div>
       {% endfor %}
-      <a href="{{ site.urls.schedule }}" class="btn btn-primary" target="_blank" rel="noopener">{{ tab_section.cta }}</a>
     </div>
-    <div class="svc-split__media reveal reveal-delay-2">
-      <img src="{{ root_path }}images/{{ tab_section.image }}" alt="{{ tab_section.image_alt }}" width="1600" height="1280" loading="lazy">
+
+    <p class="why__seo reveal"{{ cms('home:why.seo_text') }}>{{ home.why.seo_text }}</p>
+  </div>
+</section>
+
+{# ============================================================
+   Services
+   ============================================================ #}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('home:services_section.eyebrow') }}>{{ home.services_section.eyebrow }}</p>
+      <h2{{ cms('home:services_section.title') }}>{{ home.services_section.title }}</h2>
+      <p{{ cms('home:services_section.text') }}>{{ home.services_section.text }}</p>
+    </div>
+
+    <div class="svc-grid stagger-children">
+      {% for s in services.services[:9] %}
+      <article class="svc">
+        <span class="svc__icon">{{ service_icon(s.slug, 36) }}</span>
+        <h3><a class="svc__link" href="{{ root_path }}services/{{ s.slug }}/"{{ cms('services:services.' ~ loop.index0 ~ '.name') }}>{{ s.name }}</a></h3>
+        <p{{ cms('services:services.' ~ loop.index0 ~ '.short_description') }}>{{ s.short_description }}</p>
+        {{ care_tag(s.slug) }}
+      </article>
+      {% endfor %}
+    </div>
+
+    <div class="text-center" style="margin-top:var(--s-7)">
+      <a class="btn btn--ghost btn--lg" href="{{ root_path }}services/"><span{{ cms('home:services_section.cta') }}>{{ home.services_section.cta }}</span> {{ ui('arrow-right', 18) }}</a>
     </div>
   </div>
 </section>
-{% endfor %}
 
-<section class="section services-showcase">
-  <div class="container services-showcase__grid">
-    <div class="services-showcase__sticky reveal">
-      <span class="section-header__eyebrow">Services</span>
-      <h2 class="section-header__title">{{ home.services_featured.title }}</h2>
-      <p class="section-header__subtitle">{{ home.services_featured.subtitle }}</p>
-      <a href="{{ root_path }}services/" class="btn btn-primary mt-4">{{ home.services_featured.cta }}</a>
+{# ============================================================
+   Proof gallery — the signature before/after slider now leads here.
+   ============================================================ #}
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('home:proof.eyebrow') }}>{{ home.proof.eyebrow }}</p>
+      <h2{{ cms('home:proof.title') }}>{{ home.proof.title }}</h2>
+      <p{{ cms('home:proof.text') }}>{{ home.proof.text }}</p>
     </div>
-    <div class="services-showcase__list stagger-children">
-      {% for service in services.services[:6] %}
-      <article class="service-showcase-card">
-        <div class="service-showcase-card__icon">
-          {{ icons.service_icon(service.slug, 26) }}
-        </div>
-        <div class="service-showcase-card__body">
-          <h3 class="service-showcase-card__title">{{ service.name }}</h3>
-          <p class="service-showcase-card__text">{{ service.short_description }}</p>
-          <a href="{{ root_path }}services/{{ service.slug }}/" class="service-card__link">
-            Learn more
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
-        </div>
+
+    <div class="proof-grid">
+      {% for pair in proof.pairs %}
+      <div class="proof-grid__item reveal">
+        {% if pair.featured %}
+          {{ before_after(pair, asset_path, ui) }}
+        {% else %}
+          {{ before_after_static(pair, asset_path) }}
+        {% endif %}
+        <p class="proof-grid__summary"{{ cms('proof:pairs.' ~ loop.index0 ~ '.summary') }}>{{ pair.summary }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ============================================================
+   How it works — seven steps, door to door.
+   ============================================================ #}
+<section class="section section--navy">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('home:how_it_works.eyebrow') }}>{{ home.how_it_works.eyebrow }}</p>
+      <h2{{ cms('home:how_it_works.title') }}>{{ home.how_it_works.title }}</h2>
+      <p{{ cms('home:how_it_works.text') }}>{{ home.how_it_works.text }}</p>
+    </div>
+
+    <ol class="flow stagger-children">
+      {% for step in home.how_it_works.steps %}
+      <li class="flow__step">
+        <span class="flow__num" aria-hidden="true">{{ '%02d' | format(loop.index) }}</span>
+        <h3{{ cms('home:how_it_works.steps.' ~ loop.index0 ~ '.title') }}>{{ step.title }}</h3>
+        <p{{ cms('home:how_it_works.steps.' ~ loop.index0 ~ '.detail') }}>{{ step.detail }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{# ============================================================
+   Reviews
+   ============================================================ #}
+<section class="section">
+  <div class="wrap">
+    <div class="reviews-head reveal">
+      <div class="section-head" style="margin-bottom:0">
+        <p class="eyebrow"{{ cms('home:reviews_section.eyebrow') }}>{{ home.reviews_section.eyebrow }}</p>
+        <h2{{ cms('home:reviews_section.title') }}>{{ home.reviews_section.title }}</h2>
+        <p{{ cms('home:reviews_section.text') }}>{{ home.reviews_section.text }}</p>
+      </div>
+      <div class="rail-nav">
+        <button type="button" data-rail-prev aria-label="Previous reviews">{{ ui('arrow-left', 18) }}</button>
+        <button type="button" data-rail-next aria-label="Next reviews">{{ ui('arrow-right', 18) }}</button>
+      </div>
+    </div>
+
+    <div class="testimonial-rail-wrap">
+      <div class="review-rail testimonial-rail">
+        {% for r in testimonials['items'] if r.photo %}
+          {{ review_card(r, asset_path) }}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ============================================================
+   Blog — latest posts from the Wash4You blog
+   ============================================================ #}
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="reviews-head reveal">
+      <div class="section-head" style="margin-bottom:0">
+        <p class="eyebrow"{{ cms('home:blog_section.eyebrow') }}>{{ home.blog_section.eyebrow }}</p>
+        <h2{{ cms('home:blog_section.title') }}>{{ home.blog_section.title }}</h2>
+        <p{{ cms('home:blog_section.text') }}>{{ home.blog_section.text }}</p>
+      </div>
+      <a class="btn btn--ghost" href="{{ root_path }}blog/"><span{{ cms('home:blog_section.cta') }}>{{ home.blog_section.cta }}</span> {{ ui('arrow-right', 16) }}</a>
+    </div>
+
+    <div class="blog-grid stagger-children">
+      {% for post in blog.posts[:3] %}
+      <article class="blog-card">
+        <span class="blog-card__date"{{ cms('blog:posts.' ~ loop.index0 ~ '.date') }}>{{ post.date }}</span>
+        <h3><a href="{{ post.url }}" rel="noopener"{{ cms('blog:posts.' ~ loop.index0 ~ '.title') }}>{{ post.title }}</a></h3>
+        <p{{ cms('blog:posts.' ~ loop.index0 ~ '.excerpt') }}>{{ post.excerpt }}</p>
+        <span class="blog-card__more link-arrow">Read more {{ ui('arrow-right', 16) }}</span>
       </article>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="section section-light">
-  <div class="container how-it-works__grid">
-    <div class="how-it-works__sticky reveal">
-      <span class="section-header__eyebrow">Simple & seamless</span>
-      <h2 class="section-header__title">{{ home.how_it_works.title }}</h2>
-      <p class="section-header__subtitle">{{ home.how_it_works.subtitle }}</p>
-      <a href="{{ site.urls.schedule }}" class="btn btn-primary mt-4" target="_blank" rel="noopener">Schedule a pickup</a>
-    </div>
-    <div class="icon-list stagger-children">
-      {% for step in home.how_it_works.steps %}
-      <div class="icon-list__item">
-        <div class="icon-list__icon">
-          <span>{{ loop.index }}</span>
-        </div>
-        <div class="icon-list__content">
-          <h4>{{ step.title }}</h4>
-          <p>{{ step.description }}</p>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
+{# ============================================================
+   Areas — the internal-linking surface for local SEO
+   ============================================================ #}
 <section class="section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-header__eyebrow">Why Wash4You</span>
-      <h2 class="section-header__title">Why you'll love Wash4You</h2>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('home:areas_section.eyebrow') }}>{{ home.areas_section.eyebrow }}</p>
+      <h2{{ cms('home:areas_section.title') }}>{{ home.areas_section.title }}</h2>
+      <p{{ cms('home:areas_section.text') }}>{{ home.areas_section.text }}</p>
     </div>
-    <div class="usp-grid stagger-children">
-      {% for usp in home.usps %}
-      <div class="usp-card">
-        <div class="usp-card__icon">
-          {% if loop.index == 1 %}
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          {% elif loop.index == 2 %}
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
-          {% elif loop.index == 3 %}
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          {% else %}
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-          {% endif %}
-        </div>
-        <h3 class="usp-card__title">{{ usp.title }}</h3>
-        <p class="usp-card__text">{{ usp.description }}</p>
+
+    <div class="areas stagger-children">
+      {% for a in site.footer.areas %}
+      <a class="area-link" href="{{ root_path }}{{ a.url }}">
+        {{ a.label }} {{ ui('arrow-right', 16) }}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ============================================================
+   FAQ
+   ============================================================ #}
+<section class="section section--wash">
+  <div class="wrap wrap--narrow">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow eyebrow--center">Common questions</p>
+      <h2>Before you book</h2>
+    </div>
+    {{ faq_list(home.faqs, 'home-faq') }}
+  </div>
+</section>
+
+{# ============================================================
+   Closing CTA
+   ============================================================ #}
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2{{ cms('home:cta.title') }}>{{ home.cta.title }}</h2>
+      <p{{ cms('home:cta.text') }}>{{ home.cta.text }}</p>
+      <div class="btn-row">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener"{{ cms('home:cta.primary') }}>{{ home.cta.primary }}</a>
+        <a class="btn btn--on-navy btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} <span{{ cms('home:cta.secondary') }}>{{ home.cta.secondary }}</span></a>
       </div>
-      {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="section section-light">
-  <div class="container">
-    <div class="section-header section-header--center reveal">
-      <span class="section-header__eyebrow">Happy customers</span>
-      <h2 class="section-header__title">Hear from customers like you</h2>
-    </div>
-    <div class="testimonial-carousel stagger-children">
-      {% for testimonial in home.testimonials %}
-      <div class="testimonial-card">
-        <div class="rating-widget__stars" aria-hidden="true">
-          {% for i in range(5) %}
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          {% endfor %}
-        </div>
-        <p class="testimonial-card__quote">“{{ testimonial.quote }}”</p>
-        <p class="testimonial-card__author">{{ testimonial.author }}</p>
-        <p class="testimonial-card__location">{{ testimonial.location }}</p>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="section guarantee-band">
-  <div class="container reveal">
-    <div class="guarantee-band__stars" aria-hidden="true">
-      {% for i in range(5) %}
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      {% endfor %}
-    </div>
-    <h2 class="guarantee-band__title">{{ home.guarantee.title }}</h2>
-    <p class="guarantee-band__text">{{ home.guarantee.text }}</p>
-  </div>
-</section>
-
-<section class="section section-light">
-  <div class="container">
-    <div class="section-header section-header--center reveal">
-      <span class="section-header__eyebrow">Questions</span>
-      <h2 class="section-header__title">Frequently asked questions</h2>
-    </div>
-    <div class="faq-list stagger-children">
-      {% for faq in home.faqs %}
-      <div class="faq-item">
-        <button class="faq-item__question" aria-expanded="false">
-          {{ faq.question }}
-          <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </button>
-        <div class="faq-item__answer">
-          <p>{{ faq.answer }}</p>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="cta-banner reveal">
-      <h2 class="cta-banner__title">{{ home.cta_banner.title }}</h2>
-      <p class="cta-banner__subtitle">{{ home.cta_banner.subtitle }}</p>
-      <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">{{ home.cta_banner.cta }}</a>
-    </div>
-  </div>
-</section>
 {% endblock %}

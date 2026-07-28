@@ -1,0 +1,6 @@
+{
+  "_note": "Static login for the local admin. Change these before sharing your screen or committing. This is a LOCAL tool bound to 127.0.0.1 — the login is a convenience gate, not internet-grade security.",
+  "username": "admin",
+  "password": "wash4you",
+  "port": 8765
+}

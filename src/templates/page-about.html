@@ -1,77 +1,113 @@
 {% extends "base.html" %}
+{% from "_icons.html" import ui %}
+{% from "_components.html" import review_card %}
+
+{% block schema %},
+      {
+        "@type": "AboutPage",
+        "@id": "{{ meta.canonical }}",
+        "about": { "@id": "{{ site.urls.base }}/#organization" }
+      }
+{% endblock %}
 
 {% block content %}
+
 <section class="page-hero">
-  <div class="container">
-    <h1 class="page-hero__title">{{ about.hero.headline }}</h1>
-    <p class="page-hero__subtitle">{{ about.hero.subheadline }}</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container about-story__grid">
-    <div class="reveal">
-      <span class="section-header__eyebrow">Who We Are</span>
-      <h2 class="section-header__title">{{ about.story.title }}</h2>
-      <p class="text-body mt-4">{{ about.story.content }}</p>
-    </div>
-    <div class="split-section__image reveal reveal-delay-2">
-      <img src="{{ root_path }}images/about-story.jpg" alt="Wash4You dry clean service" width="740" height="588">
-    </div>
-  </div>
-</section>
-
-<section class="section section-light">
-  <div class="container split-section split-section--top">
-    <div class="reveal">
-      <span class="section-header__eyebrow">Our purpose</span>
-      <h2 class="section-header__title">{{ about.mission.title }}</h2>
-      <p class="text-body mt-4">{{ about.mission.content }}</p>
-    </div>
-    <div class="reveal reveal-delay-2">
-      <span class="section-header__eyebrow">Where we're headed</span>
-      <h2 class="section-header__title">{{ about.vision.title }}</h2>
-      <p class="text-body mt-4">{{ about.vision.content }}</p>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>About</span>
+    </nav>
+    <div class="page-hero__grid">
+      <div>
+        <p class="eyebrow">About us</p>
+        <h1{{ cms('about:hero.headline') }}>{{ about.hero.headline }}</h1>
+        <p class="lede"{{ cms('about:hero.subheadline') }}>{{ about.hero.subheadline }}</p>
+      </div>
+      <div class="reveal">
+        <img src="{{ asset_path }}images/about-story.jpg" alt="Inside the Wash4You store in Gurugram"
+             width="800" height="600" loading="lazy" decoding="async"
+             style="border-radius:var(--r-lg);width:100%;height:auto;box-shadow:var(--shadow-md)"{{ cms('images/about-story.jpg', 'file') }}>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container">
-    <div class="section-header section-header--center reveal">
-      <span class="section-header__eyebrow">Our Promise</span>
-      <h2 class="section-header__title">What you can always expect</h2>
+  <div class="wrap wrap--narrow">
+    <div class="prose reveal">
+      <h2{{ cms('about:story.title') }}>{{ about.story.title }}</h2>
+      <p{{ cms('about:story.content') }}>{{ about.story.content }}</p>
+      <h2{{ cms('about:mission.title') }}>{{ about.mission.title }}</h2>
+      <p{{ cms('about:mission.content') }}>{{ about.mission.content }}</p>
+      <h2{{ cms('about:vision.title') }}>{{ about.vision.title }}</h2>
+      <p{{ cms('about:vision.content') }}>{{ about.vision.content }}</p>
     </div>
-    <div class="promise-grid stagger-children">
-      {% for item in about.promise['items'] %}
-      <div class="promise-card">
-        <h3 class="promise-card__title">{{ item.title }}</h3>
-        <p class="promise-card__text">{{ item.description }}</p>
+  </div>
+</section>
+
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Our promise</p>
+      <h2{{ cms('about:promise.title') }}>{{ about.promise.title }}</h2>
+    </div>
+    <div class="promises stagger-children">
+      {% for p in site.promises %}
+      <div class="promise">
+        <span class="promise__icon">{{ ui(p.icon, 32) }}</span>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.detail }}</p>
       </div>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="section section-pearl">
-  <div class="container split-section">
-    <div class="reveal">
-      <span class="section-header__eyebrow">Why Us</span>
-      <h2 class="section-header__title">{{ about.why_choose.title }}</h2>
-      <ul class="why-list mt-4">
-        {% for item in about.why_choose['items'] %}
-        <li class="why-list__item">
-          <span class="why-list__icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          </span>
-          {{ item }}
-        </li>
-        {% endfor %}
-      </ul>
+<section class="section section--navy">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">How pickup works</p>
+      <h2>You watch it get counted</h2>
+      <p>The most common worry with any laundry service is a missing piece. Here is how we take that off the table.</p>
     </div>
-    <div class="split-section__image reveal reveal-delay-2">
-      <img src="{{ root_path }}images/about-main.jpg" alt="Wash4You team and service" width="2560" height="2560">
+    <div class="steps stagger-children">
+      {% for step in proof.process.steps %}
+      <div class="step">
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.detail }}</p>
+      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">From our customers</p>
+      <h2>Trusted by 1000+ customers in Gurugram</h2>
+    </div>
+    <div class="testimonial-rail-wrap">
+      <div class="review-rail testimonial-rail">
+        {% for r in testimonials['items'] if r.photo %}{{ review_card(r, asset_path) }}{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Try us once.</h2>
+      <p>Free pickup, free delivery, and an honest answer about what we can and cannot save.</p>
+      <div class="btn-row">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+        <a class="btn btn--on-navy btn--lg" href="{{ root_path }}services/">See what we clean</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

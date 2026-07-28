@@ -68,6 +68,39 @@
       ]
     },
     {
+      "slug": "sofa-cleaning",
+      "name": "Sofa & Upholstery Cleaning",
+      "icon": "sofa",
+      "short_description": "Deep shampoo and extraction for fabric sofas and armchairs, done at your home.",
+      "features": [
+        "Cleaned in your home",
+        "Fabric tested before treatment",
+        "Dries in hours, not days"
+      ]
+    },
+    {
+      "slug": "mattress-cleaning",
+      "name": "Mattress Cleaning",
+      "icon": "mattress",
+      "short_description": "Dust-mite and sweat treatment for mattresses, without soaking the core.",
+      "features": [
+        "Cleaned in your home",
+        "Low-moisture method",
+        "Deodorised and sanitised"
+      ]
+    },
+    {
+      "slug": "wet-cleaning",
+      "name": "Wet Cleaning",
+      "icon": "wet",
+      "short_description": "The water-based alternative to solvent dry cleaning, for fabrics that suit it.",
+      "features": [
+        "No harsh solvents",
+        "Gentler on skin",
+        "Better on water-soluble stains"
+      ]
+    },
+    {
       "slug": "bag-cleaning",
       "name": "Bag Cleaning",
       "short_description": "Handbags, totes, and backpacks deep-cleaned, reshaped, and stain-treated with material-safe products.",

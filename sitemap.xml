@@ -1,201 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://wash4you.in/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>weekly</changefreq>
-<priority>1</priority>
-</url>
-<url>
-<loc>https://wash4you.in/about-us/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/blog/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-<url>
-<loc>https://wash4you.in/contact-us/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/locate-us/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/pricing/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/steam-iron/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/services/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
-</url>
-<url>
-<loc>https://wash4you.in/services/eco-friendly-laundry/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/services/steam-ironing/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/services/premium-dry-cleaning/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/services/shoe-cleaning/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/services/bag-cleaning/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/services/leather-cleaning/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/services/carpet-cleaning/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/services/accessories-cleaning/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/services/toy-cleaning/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/services/curtains-cleaning/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/services/blanket-quilt-cleaning/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/services/linen-cleaning/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/laundry-service-cyber-city/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/laundry-service-dlf-phase-3/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/laundry-service-golf-course-extension/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/laundry-service-golf-course-road/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/laundry-service-gurugram-sector-29/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/laundry-service-palam-vihar/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/laundry-service-sohna-road/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/laundry-service-sushant-lok/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://wash4you.in/curtain-cleaning-policy/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>yearly</changefreq>
-<priority>0.3</priority>
-</url>
-<url>
-<loc>https://wash4you.in/free-pickup-delivery-policy/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>yearly</changefreq>
-<priority>0.3</priority>
-</url>
-<url>
-<loc>https://wash4you.in/privacy-and-security-policy/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>yearly</changefreq>
-<priority>0.3</priority>
-</url>
-<url>
-<loc>https://wash4you.in/refund-and-delivery-policy/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>yearly</changefreq>
-<priority>0.3</priority>
-</url>
-<url>
-<loc>https://wash4you.in/terms-and-conditions/</loc>
-<lastmod>2026-07-10</lastmod>
-<changefreq>yearly</changefreq>
-<priority>0.3</priority>
-</url>
+  <url><loc>https://wash4you.in/</loc><priority>1.0</priority></url>
+  <url><loc>https://wash4you.in/about-us/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/services/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/eco-friendly-laundry/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/steam-ironing/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/premium-dry-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/shoe-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/sofa-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/mattress-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/wet-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/bag-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/leather-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/carpet-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/accessories-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/toy-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/curtains-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/blanket-quilt-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/linen-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/pricing/</loc><priority>0.8</priority></url>
+  <url><loc>https://wash4you.in/pricing/sushant-lok/</loc><priority>0.8</priority></url>
+  <url><loc>https://wash4you.in/pricing/sector-49/</loc><priority>0.8</priority></url>
+  <url><loc>https://wash4you.in/pricing/cyber-city/</loc><priority>0.8</priority></url>
+  <url><loc>https://wash4you.in/pricing/dlf-phase-3/</loc><priority>0.8</priority></url>
+  <url><loc>https://wash4you.in/pricing/golf-course-road/</loc><priority>0.8</priority></url>
+  <url><loc>https://wash4you.in/pricing/golf-course-extension/</loc><priority>0.8</priority></url>
+  <url><loc>https://wash4you.in/pricing/sohna-road/</loc><priority>0.8</priority></url>
+  <url><loc>https://wash4you.in/pricing/sector-29/</loc><priority>0.8</priority></url>
+  <url><loc>https://wash4you.in/pricing/palam-vihar/</loc><priority>0.8</priority></url>
+  <url><loc>https://wash4you.in/pricing/mg-road/</loc><priority>0.8</priority></url>
+  <url><loc>https://wash4you.in/packages/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/steam-iron/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/blog/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/contact-us/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/locate-us/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/laundry-service-sushant-lok/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/laundry-service-sector-49/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/laundry-service-cyber-city/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/laundry-service-dlf-phase-3/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/laundry-service-golf-course-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/laundry-service-golf-course-extension/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/laundry-service-sohna-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/laundry-service-gurugram-sector-29/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/laundry-service-palam-vihar/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/laundry-service-mg-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/premium-dry-cleaning-sushant-lok/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/premium-dry-cleaning-sector-49/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/premium-dry-cleaning-cyber-city/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/premium-dry-cleaning-dlf-phase-3/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/premium-dry-cleaning-golf-course-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/premium-dry-cleaning-golf-course-extension-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/premium-dry-cleaning-sohna-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/premium-dry-cleaning-sector-29/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/premium-dry-cleaning-palam-vihar/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/premium-dry-cleaning-mg-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/eco-friendly-laundry-sushant-lok/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/eco-friendly-laundry-sector-49/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/eco-friendly-laundry-cyber-city/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/eco-friendly-laundry-dlf-phase-3/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/eco-friendly-laundry-golf-course-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/eco-friendly-laundry-golf-course-extension-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/eco-friendly-laundry-sohna-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/eco-friendly-laundry-sector-29/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/eco-friendly-laundry-palam-vihar/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/eco-friendly-laundry-mg-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/shoe-cleaning-sushant-lok/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/shoe-cleaning-sector-49/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/shoe-cleaning-cyber-city/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/shoe-cleaning-dlf-phase-3/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/shoe-cleaning-golf-course-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/shoe-cleaning-golf-course-extension-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/shoe-cleaning-sohna-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/shoe-cleaning-sector-29/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/shoe-cleaning-palam-vihar/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/shoe-cleaning-mg-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/sofa-cleaning-sushant-lok/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/sofa-cleaning-sector-49/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/sofa-cleaning-cyber-city/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/sofa-cleaning-dlf-phase-3/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/sofa-cleaning-golf-course-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/sofa-cleaning-golf-course-extension-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/sofa-cleaning-sohna-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/sofa-cleaning-sector-29/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/sofa-cleaning-palam-vihar/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/sofa-cleaning-mg-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/carpet-cleaning-sushant-lok/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/carpet-cleaning-sector-49/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/carpet-cleaning-cyber-city/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/carpet-cleaning-dlf-phase-3/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/carpet-cleaning-golf-course-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/carpet-cleaning-golf-course-extension-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/carpet-cleaning-sohna-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/carpet-cleaning-sector-29/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/carpet-cleaning-palam-vihar/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/carpet-cleaning-mg-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/curtains-cleaning-sushant-lok/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/curtains-cleaning-sector-49/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/curtains-cleaning-cyber-city/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/curtains-cleaning-dlf-phase-3/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/curtains-cleaning-golf-course-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/curtains-cleaning-golf-course-extension-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/curtains-cleaning-sohna-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/curtains-cleaning-sector-29/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/curtains-cleaning-palam-vihar/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/curtains-cleaning-mg-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/steam-ironing-sushant-lok/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/steam-ironing-sector-49/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/steam-ironing-cyber-city/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/steam-ironing-dlf-phase-3/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/steam-ironing-golf-course-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/steam-ironing-golf-course-extension-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/steam-ironing-sohna-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/steam-ironing-sector-29/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/steam-ironing-palam-vihar/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/steam-ironing-mg-road/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/terms-and-conditions/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/privacy-and-security-policy/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/refund-and-delivery-policy/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/curtain-cleaning-policy/</loc><priority>0.7</priority></url>
+  <url><loc>https://wash4you.in/free-pickup-delivery-policy/</loc><priority>0.7</priority></url>
 </urlset>

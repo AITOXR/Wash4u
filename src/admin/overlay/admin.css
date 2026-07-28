@@ -1,0 +1,296 @@
+/* ============================================================================
+   Wash4You editor — overlay styles.
+   Design: "the care label". The tool that tags each piece of site content with
+   its identity, styled like a laundry workroom: a navy counter bar, cool
+   fresh-linen surfaces, laundry-teal for anything editable, soap-yellow as the
+   single attention signal, and IBM Plex Mono as the printed care-label voice.
+   Everything is prefixed w4u- so it can't collide with the site's own styles.
+   ============================================================================ */
+
+:root {
+  --w4u-bar-h: 52px;
+
+  --w4u-ink:      #0C2340;   /* brand navy — the counter */
+  --w4u-ink-2:    #16386A;   /* lifted navy for hovers on dark */
+  --w4u-linen:    #F5F8F6;   /* cool fresh-pressed white — surfaces */
+  --w4u-linen-2:  #FFFFFF;
+  --w4u-steam:    #D5E3DF;   /* pale eucalyptus — hairlines, quiet fills */
+  --w4u-steam-2:  #EAF1EE;
+  --w4u-fresh:    #0FB5A5;   /* laundry teal — editable / clean / active */
+  --w4u-fresh-d:  #0A8b7f;
+  --w4u-fresh-ink:#04302B;
+  --w4u-soap:     #F4B400;   /* soap-yellow — the ONE attention signal */
+  --w4u-soap-ink: #3A2C00;
+  --w4u-slate:    #5E7086;   /* muted label text */
+  --w4u-brick:    #C4442E;   /* destructive only, muted */
+
+  --w4u-thread:   rgba(15,181,165,.55);   /* the stitch/seam colour */
+  --w4u-shadow:   0 18px 50px -22px rgba(12,35,64,.45);
+  --w4u-shadow-sm:0 6px 18px -8px rgba(12,35,64,.4);
+
+  --w4u-sans: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --w4u-disp: "Archivo", "Figtree", system-ui, sans-serif;
+  --w4u-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+/* Drop the site below the fixed counter bar. */
+body { margin-top: var(--w4u-bar-h) !important; }
+.header { top: var(--w4u-bar-h) !important; }
+html { scroll-padding-top: calc(var(--w4u-bar-h) + 72px); }
+
+/* ------------------------------------------------------------------ counter */
+.w4u-bar {
+  position: fixed; inset: 0 0 auto 0; height: var(--w4u-bar-h);
+  z-index: 2147483000;
+  display: flex; align-items: center; gap: 14px; padding: 0 16px;
+  background: var(--w4u-ink);
+  /* a fine soap-thread seam along the bottom — the counter's edge */
+  border-bottom: 2px solid transparent;
+  background-image:
+    linear-gradient(var(--w4u-ink), var(--w4u-ink)),
+    repeating-linear-gradient(90deg, var(--w4u-soap) 0 7px, transparent 7px 15px);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: #fff;
+  font-family: var(--w4u-sans);
+  box-shadow: 0 2px 16px rgba(6,16,38,.34);
+}
+.w4u-bar__mark {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--w4u-disp);
+  font-weight: 800; font-size: 15px; letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.w4u-bar__mark svg { display: block; }
+.w4u-bar__tag {
+  font-family: var(--w4u-mono); font-size: 10px; letter-spacing: .22em;
+  text-transform: uppercase; color: #8FB8CE;
+  padding-left: 11px; margin-left: 2px; position: relative;
+}
+.w4u-bar__tag::before {
+  content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 1px; height: 15px; background: rgba(255,255,255,.22);
+}
+.w4u-bar__spacer { flex: 1; }
+
+/* unsaved indicator — a soap-yellow care tag, only shown when dirty */
+.w4u-bar__hint {
+  font-family: var(--w4u-mono); font-size: 10.5px; letter-spacing: .12em;
+  text-transform: uppercase; color: #7E96AE;
+}
+.w4u-bar__hint.is-dirty {
+  color: var(--w4u-soap-ink); background: var(--w4u-soap);
+  padding: 5px 10px 5px 16px; border-radius: 4px; position: relative;
+  font-weight: 600;
+}
+/* punched hole on the tag */
+.w4u-bar__hint.is-dirty::before {
+  content: ""; position: absolute; left: 6px; top: 50%; transform: translateY(-50%);
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--w4u-ink); box-shadow: inset 0 0 0 1px rgba(0,0,0,.25);
+}
+
+.w4u-btn {
+  appearance: none; font-family: var(--w4u-sans); font-weight: 600; font-size: 13px;
+  color: #fff; background: transparent; border: 1px solid rgba(255,255,255,.24);
+  padding: 8px 14px; border-radius: 9px; cursor: pointer; white-space: nowrap;
+  transition: background .14s, border-color .14s, transform .05s;
+}
+.w4u-btn:hover { background: rgba(255,255,255,.12); }
+.w4u-btn:active { transform: translateY(1px); }
+.w4u-btn:focus-visible { outline: 2px solid var(--w4u-fresh); outline-offset: 2px; }
+
+/* Save = a wash ticket. Teal when idle; soap-yellow when there's work to save. */
+.w4u-btn--primary {
+  background: var(--w4u-fresh); border-color: var(--w4u-fresh); color: #04302B;
+  font-weight: 700;
+}
+.w4u-btn--primary:hover { background: var(--w4u-fresh-d); border-color: var(--w4u-fresh-d); }
+.w4u-btn--primary:disabled { opacity: .45; cursor: default; background: transparent; color: #9FB2C9; border-color: rgba(255,255,255,.18); }
+.w4u-btn--primary.is-dirty {
+  background: var(--w4u-soap); border-color: var(--w4u-soap); color: var(--w4u-soap-ink);
+  box-shadow: 0 0 0 4px rgba(244,180,0,.18);
+}
+.w4u-btn--publish { border-color: rgba(255,255,255,.4); }
+.w4u-btn--publish:hover { background: rgba(255,255,255,.14); }
+
+/* ------------------------------------------------- editable text: the seam */
+[data-cms] {
+  cursor: text; border-radius: 2px;
+  transition: box-shadow .12s, background .12s;
+  text-decoration: underline dashed var(--w4u-thread) 1.5px;
+  text-underline-offset: 4px; text-decoration-skip-ink: none;
+}
+@supports not (text-decoration: underline dashed teal 1px) {
+  [data-cms] { box-shadow: inset 0 -2px 0 var(--w4u-thread); }
+}
+[data-cms]:hover {
+  background: rgba(15,181,165,.07);
+  text-decoration-color: var(--w4u-fresh);
+}
+[data-cms].w4u-active {
+  text-decoration: none;
+  background: var(--w4u-linen-2);
+  box-shadow: 0 0 0 2px var(--w4u-fresh), var(--w4u-shadow-sm) !important;
+  outline: none; border-radius: 5px;
+}
+[data-cms].w4u-dirty {
+  text-decoration-style: solid; text-decoration-color: var(--w4u-soap);
+  text-decoration-thickness: 2px;
+}
+
+/* the care tag that names a field on hover / while editing */
+.w4u-tag {
+  position: absolute; z-index: 2147482500; pointer-events: none;
+  display: none; align-items: center; gap: 7px;
+  background: var(--w4u-ink); color: #EAF3F1;
+  font-family: var(--w4u-mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; font-weight: 500;
+  padding: 5px 10px 5px 15px; border-radius: 5px;
+  box-shadow: var(--w4u-shadow-sm);
+}
+.w4u-tag.is-on { display: inline-flex; }
+.w4u-tag.is-active { background: var(--w4u-fresh); color: #04302B; }
+/* punched hole */
+.w4u-tag::before {
+  content: ""; position: absolute; left: 6px; top: 50%; transform: translateY(-50%);
+  width: 5px; height: 5px; border-radius: 50%;
+  background: currentColor; opacity: .5;
+}
+
+/* ------------------------------------------------------- editable images */
+[data-cms-file], [data-cms-kind="image"] { outline-offset: 3px; transition: outline-color .12s; }
+[data-cms-file]:hover, [data-cms-kind="image"]:hover {
+  outline: 2px dashed var(--w4u-fresh); cursor: pointer;
+}
+.w4u-imgchip {
+  position: absolute; z-index: 2147482000; display: none;
+  align-items: center; gap: 7px;
+  background: var(--w4u-ink); color: #fff; border: 0;
+  font-family: var(--w4u-mono); font-size: 11px; letter-spacing: .08em;
+  text-transform: uppercase; font-weight: 500;
+  padding: 7px 12px 7px 17px; border-radius: 6px; cursor: pointer;
+  box-shadow: var(--w4u-shadow-sm);
+}
+.w4u-imgchip::before {
+  content: ""; position: absolute; left: 7px; top: 50%; transform: translateY(-50%);
+  width: 5px; height: 5px; border-radius: 50%; background: var(--w4u-soap);
+}
+.w4u-imgchip.is-on { display: inline-flex; }
+.w4u-imgchip:hover { background: var(--w4u-ink-2); }
+
+/* --------------------------------------------------------- toast: a receipt */
+.w4u-toast {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  z-index: 2147483600; background: var(--w4u-ink); color: #fff;
+  font-family: var(--w4u-sans); font-size: 13px; font-weight: 500;
+  padding: 12px 18px; border-radius: 10px; box-shadow: var(--w4u-shadow);
+  opacity: 0; transition: opacity .18s, transform .18s; max-width: 82vw;
+  border-left: 3px dashed rgba(255,255,255,.28);
+}
+.w4u-toast.is-on { opacity: 1; transform: translateX(-50%) translateY(0); }
+.w4u-toast--ok  { background: #0C5C4F; border-left-color: var(--w4u-fresh); }
+.w4u-toast--err { background: #8A2318; border-left-color: #F0A594; }
+
+/* ---------------------------------------------------------------- modals */
+.w4u-modal-back {
+  position: fixed; inset: 0; z-index: 2147483200;
+  background: rgba(9,20,42,.58); backdrop-filter: blur(2px);
+  display: none; align-items: flex-start; justify-content: center;
+  padding: 78px 16px 28px; overflow: auto;
+}
+.w4u-modal-back.is-on { display: flex; }
+.w4u-modal {
+  position: relative; background: var(--w4u-linen); color: var(--w4u-ink);
+  width: min(720px, 96vw); border-radius: 16px; overflow: hidden;
+  box-shadow: var(--w4u-shadow); font-family: var(--w4u-sans);
+  font-size: 14px; line-height: 1.5;
+}
+.w4u-modal__head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 22px 16px; background: var(--w4u-linen-2);
+  border-bottom: 1.5px dashed var(--w4u-steam);
+}
+.w4u-modal__head h2 {
+  margin: 0; font-family: var(--w4u-disp); font-weight: 800; font-size: 18px;
+  letter-spacing: -.01em;
+}
+.w4u-modal__x {
+  border: 0; background: transparent; font-size: 24px; line-height: 1;
+  color: var(--w4u-slate); cursor: pointer; padding: 0 4px; border-radius: 6px;
+}
+.w4u-modal__x:hover { color: var(--w4u-ink); background: var(--w4u-steam-2); }
+.w4u-modal__body { padding: 20px 22px; max-height: 62vh; overflow: auto; }
+.w4u-modal__foot {
+  display: flex; gap: 10px; justify-content: flex-end;
+  padding: 15px 22px; border-top: 1.5px dashed var(--w4u-steam);
+  background: var(--w4u-linen-2);
+}
+
+.w4u-field { margin-bottom: 15px; }
+.w4u-field label {
+  display: block; font-family: var(--w4u-mono); font-size: 10.5px;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--w4u-slate);
+  margin-bottom: 6px;
+}
+.w4u-field input, .w4u-field textarea {
+  width: 100%; box-sizing: border-box; padding: 10px 12px;
+  border: 1px solid var(--w4u-steam); border-radius: 9px; font: inherit;
+  background: var(--w4u-linen-2); color: var(--w4u-ink);
+}
+.w4u-field textarea { min-height: 78px; resize: vertical; }
+.w4u-field input:focus, .w4u-field textarea:focus {
+  outline: none; border-color: var(--w4u-fresh);
+  box-shadow: 0 0 0 3px rgba(15,181,165,.16);
+}
+.w4u-check { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; }
+.w4u-check input { margin-top: 2px; accent-color: var(--w4u-fresh); }
+.w4u-warn { color: #9A3B12; font-size: 12.5px; margin-top: 5px; }
+
+.w4u-mbtn {
+  appearance: none; font-family: var(--w4u-sans); font-weight: 600; font-size: 13px;
+  border: 1px solid var(--w4u-steam); background: var(--w4u-linen-2); color: var(--w4u-ink);
+  padding: 10px 16px; border-radius: 9px; cursor: pointer;
+}
+.w4u-mbtn:hover { background: var(--w4u-steam-2); }
+.w4u-mbtn:focus-visible { outline: 2px solid var(--w4u-fresh); outline-offset: 2px; }
+.w4u-mbtn--primary { background: var(--w4u-ink); border-color: var(--w4u-ink); color: #fff; }
+.w4u-mbtn--primary:hover { background: var(--w4u-ink-2); }
+.w4u-mbtn--danger { color: var(--w4u-brick); border-color: #E4BDB6; background: transparent; }
+.w4u-mbtn--danger:hover { background: #FBEEEB; }
+
+/* blog posts as garment tickets */
+.w4u-post {
+  position: relative; border: 1px solid var(--w4u-steam); border-radius: 11px;
+  padding: 13px 15px 13px 18px; margin-bottom: 11px; background: var(--w4u-linen-2);
+}
+.w4u-post::before { /* the ticket's stitched spine */
+  content: ""; position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px;
+  border-radius: 3px;
+  background: repeating-linear-gradient(var(--w4u-fresh) 0 4px, transparent 4px 8px);
+}
+.w4u-post__row { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.w4u-post__title { font-weight: 600; }
+.w4u-post__date {
+  font-family: var(--w4u-mono); font-size: 10.5px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--w4u-slate); margin-top: 3px;
+}
+.w4u-post__actions { display: flex; gap: 8px; flex-shrink: 0; }
+.w4u-post__excerpt { color: #47566F; font-size: 13px; margin-top: 8px; }
+
+/* narrow screens: keep the glyph + the essential tickets, shed the rest */
+@media (max-width: 640px) {
+  .w4u-bar { gap: 8px; padding: 0 10px; }
+  .w4u-bar__mark span, .w4u-bar__tag,
+  .w4u-bar__hint:not(.is-dirty) { display: none; }
+  .w4u-btn { padding: 8px 11px; }
+  .w4u-tag { display: none !important; } /* no hover on touch; the seam is enough */
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .w4u-btn, .w4u-toast, [data-cms], .w4u-imgchip, [data-cms-file], [data-cms-kind="image"] {
+    transition: none !important;
+  }
+}

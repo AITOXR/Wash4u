@@ -1,51 +1,210 @@
 {% extends "base.html" %}
-{% import "_icons.html" as icons %}
+{% from "_icons.html" import ui, care_tag, service_icon %}
+{% from "_components.html" import before_after, before_after_static, faq_list, review_card %}
+
+{% block schema %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.urls.base }}/" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "{{ site.urls.base }}/services/" },
+          { "@type": "ListItem", "position": 3, "name": {{ service.name | tojson }} }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "{{ meta.canonical }}#service",
+        "name": {{ service.name | tojson }},
+        "serviceType": {{ service.name | tojson }},
+        "description": {{ (service.meta_description or service.short_description) | tojson }},
+        "url": "{{ meta.canonical }}",
+        "provider": { "@id": "{{ site.urls.base }}/#business" },
+        "areaServed": [
+          {% for a in site.footer.areas %}{ "@type": "Place", "name": "{{ a.label }}, Gurugram" }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }{% if service.faqs %},
+      {
+        "@type": "FAQPage",
+        "@id": "{{ meta.canonical }}#faq",
+        "mainEntity": [
+          {% for f in service.faqs %}{
+            "@type": "Question",
+            "name": {{ f.q | tojson }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | tojson }} }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }{% endif %}
+{% endblock %}
 
 {% block content %}
-<section class="service-detail__hero">
-  <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="{{ root_path }}">Home</a>
-      <span class="breadcrumb__sep">/</span>
-      <a href="{{ root_path }}services/">Services</a>
-      <span class="breadcrumb__sep">/</span>
-      <span aria-current="page">{{ service.name }}</span>
-    </nav>
-    <h1 class="service-detail__title">{{ service.name }}</h1>
-    <p class="service-detail__lead">{{ service.description }}</p>
-    <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg mt-3" target="_blank" rel="noopener">Book This Service</a>
-  </div>
-</section>
 
-<section class="section section-light">
-  <div class="container service-detail__body">
-    <div class="reveal">
-      <span class="section-header__eyebrow">What's Included</span>
-      <h2 class="section-header__title">Why choose {{ service.name }}?</h2>
-      <div class="service-detail__features mt-4">
-        {% for feature in service.features %}
-        <div class="service-detail__feature">
-          <div class="service-detail__feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          </div>
-          <h4 class="text-h4">{{ feature }}</h4>
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ root_path }}services/">Services</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ service.name }}</span>
+    </nav>
+
+    <div class="page-hero__grid">
+      <div>
+        {{ care_tag(service.slug) }}
+        <h1 style="margin-top:var(--s-4)"{{ cms(cms_base ~ '.name') }}>{{ service.h1 or service.name }}</h1>
+        <p class="lede"{{ cms(cms_base ~ '.short_description') }}>{{ service.lede or service.short_description }}</p>
+        <div class="btn-row">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+          <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} Ask a question</a>
         </div>
-        {% endfor %}
       </div>
-    </div>
-    <div class="service-detail__media reveal reveal-delay-2">
-      {{ icons.service_icon(service.slug, 120) }}
+
+      {% if service_proof %}
+      <div>
+        {% set pair = service_proof[0] %}
+        {% if pair.featured %}{{ before_after(pair, asset_path, ui) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
+      </div>
+      {% endif %}
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container">
-    <div class="cta-banner reveal text-center">
-      <h2 class="cta-banner__title">Schedule your free pickup</h2>
-      <p class="cta-banner__subtitle">Experience the Wash4You difference with convenient doorstep service.</p>
-      <a href="{{ site.urls.schedule }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book Now</a>
+  <div class="wrap">
+    <div class="svc-detail">
+      <div>
+        <div class="prose reveal">
+          {% if service.body %}{{ service.body | markdown | safe }}{% else %}<p{{ cms(cms_base ~ '.description', 'rich') }}>{{ service.description }}</p>{% endif %}
+        </div>
+
+        {% if service.what_we_clean %}
+        <div style="margin-top:var(--s-9)" class="reveal">
+          <p class="eyebrow">What we take</p>
+          <h2>Items we handle</h2>
+          <ul class="checklist stagger-children" style="margin-top:var(--s-6)">
+            {% for w in service.what_we_clean %}
+            <li><strong>{{ w.item }}</strong>{{ w.detail }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% elif service.features %}
+        <div style="margin-top:var(--s-9)" class="reveal">
+          <p class="eyebrow">What you get</p>
+          <h2>Included</h2>
+          <ul class="checklist stagger-children" style="margin-top:var(--s-6)">
+            {% for f in service.features %}<li><strong{{ cms(cms_base ~ '.features.' ~ loop.index0) }}>{{ f }}</strong></li>{% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+
+      <aside class="svc-aside reveal">
+        <span class="svc__icon">{{ service_icon(service.slug, 36) }}</span>
+        <h3>Book {{ service.name | lower }}</h3>
+        <p>Free doorstep pickup and delivery across Gurugram. Every piece counted with you before it leaves.</p>
+        <a class="btn btn--cta btn--block" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+        <a class="btn btn--ghost btn--block" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+        <hr class="seam">
+        <p style="font-size:var(--t-xs)">Not sure if we can save it? Send a photo on WhatsApp and we will tell you honestly before you book.</p>
+      </aside>
     </div>
   </div>
 </section>
+
+{% if service.process %}
+<section class="section section--navy">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2>From your door and back again</h2>
+    </div>
+    <div class="steps stagger-children">
+      {% for p in service.process %}
+      <div class="step">
+        <h3>{{ p.step }}</h3>
+        <p>{{ p.detail }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if service_proof | length > 1 %}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Real results</p>
+      <h2>Our own work, photographed in store</h2>
+    </div>
+    <div class="proof-grid">
+      {% for pair in service_proof[1:] %}
+      <div class="proof-grid__item reveal">
+        {% if pair.featured %}{{ before_after(pair, asset_path, ui) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
+        <p class="proof-grid__summary">{{ pair.summary }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% set svc_reviews = testimonials['items'] | selectattr('service', 'equalto', service.slug) | selectattr('photo') | list %}
+{% if svc_reviews %}
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">From our customers</p>
+      <h2>What people said about this</h2>
+    </div>
+    <div class="testimonial-rail-wrap">
+      <div class="review-rail testimonial-rail">
+        {% for r in svc_reviews %}{{ review_card(r, asset_path) }}{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if service.faqs %}
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow eyebrow--center">Questions</p>
+      <h2>{{ service.name }} — what people ask</h2>
+    </div>
+    {{ faq_list(service.faqs, 'svc-faq') }}
+  </div>
+</section>
+{% endif %}
+
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Where we collect</p>
+      <h2>{{ service.name }} across Gurugram</h2>
+    </div>
+    <div class="areas stagger-children">
+      {% for a in site.footer.areas %}
+      <a class="area-link" href="{{ root_path }}{{ a.url }}">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Book a free pickup.</h2>
+      <p>Tell us when suits you. We come to your door, count everything with you, and take it from there.</p>
+      <div class="btn-row">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+        <a class="btn btn--on-navy btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

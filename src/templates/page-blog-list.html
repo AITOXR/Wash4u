@@ -1,39 +1,52 @@
 {% extends "base.html" %}
+{% from "_icons.html" import ui %}
 
 {% block content %}
+
 <section class="page-hero">
-  <div class="container">
-    <h1 class="page-hero__title">{{ blog.hero.headline }}</h1>
-    <p class="page-hero__subtitle">{{ blog.hero.subheadline }}</p>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>Blog</span>
+    </nav>
+    <div class="page-hero__grid">
+      <div>
+        <p class="eyebrow">Blog</p>
+        <h1{{ cms('blog:hero.headline') }}>{{ blog.hero.headline }}</h1>
+        <p class="lede"{{ cms('blog:hero.subheadline') }}>{{ blog.hero.subheadline }}</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section section-light">
-  <div class="container">
-    <div class="blog-grid stagger-children">
+<section class="section">
+  <div class="wrap">
+    <h2 class="visually-hidden">Latest articles</h2>
+    <div class="svc-grid stagger-children">
       {% for post in blog.posts %}
-      <article class="blog-card">
-        <div class="blog-card__image">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-        </div>
-        <div class="blog-card__body">
-          <span class="blog-card__date">{{ post.date }}</span>
-          <h3 class="blog-card__title">{{ post.title }}</h3>
-          <p class="blog-card__excerpt">{{ post.excerpt }}</p>
-        </div>
+      <article class="svc">
+        <p class="mono"{{ cms('blog:posts.' ~ loop.index0 ~ '.date') }}>{{ post.date }}</p>
+        <h3><a class="svc__link" href="{{ post.url }}"{{ cms('blog:posts.' ~ loop.index0 ~ '.title') }}>{{ post.title }}</a></h3>
+        <p{{ cms('blog:posts.' ~ loop.index0 ~ '.excerpt') }}>{{ post.excerpt }}</p>
+        <span class="link-arrow">Read {{ ui('arrow-right', 16) }}</span>
       </article>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="cta-banner reveal">
-      <h2 class="cta-banner__title">Want fabric-care advice for your wardrobe?</h2>
-      <p class="cta-banner__subtitle">Message us on WhatsApp — our garment-care experts are happy to help.</p>
-      <a href="{{ site.urls.whatsapp }}" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Chat with an expert</a>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Book a free pickup.</h2>
+      <p>Free doorstep collection and delivery across Gurugram.</p>
+      <div class="btn-row">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+        <a class="btn btn--on-navy btn--lg" href="{{ root_path }}services/">See what we clean</a>
+      </div>
     </div>
   </div>
 </section>
+
 {% endblock %}

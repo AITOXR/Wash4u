@@ -1,0 +1,115 @@
+{
+  "_source": "Verbatim quotes and photographs supplied by the client in docs/Wash4you graphic/. Attribution is recorded exactly as the client published it — only 'Pranav Ji' was named. Do NOT invent names for the others; leaving them as 'Verified Customer' is both truthful and consistent with how the client already published these on social. Before go-live, confirm the client holds written consent to use each person's photograph on the website.",
+
+  "aggregate": {
+    "customers": "1000+",
+    "rating": 5,
+    "label": "Trusted by 1000+ customers across Gurugram",
+    "_note": "Do not emit aggregateRating schema until a verifiable public review count/average exists (e.g. Google Business Profile). Fabricated review counts are a manual-action risk."
+  },
+
+  "items": [
+    {
+      "id": "review-pranav",
+      "name": "Pranav Ji",
+      "attribution": "Happy Customer",
+      "verified": true,
+      "rating": 5,
+      "quote": "Very good service, professional cleaning. Highly recommended.",
+      "service": "premium-dry-cleaning",
+      "photo": "images/reviews/review-pranav.webp",
+      "alt": "Pranav Ji, a Wash4You customer in Gurugram"
+    },
+    {
+      "id": "review-07",
+      "name": "Verified Customer",
+      "attribution": "Visiting from Ahmedabad",
+      "verified": true,
+      "rating": 5,
+      "quote": "Maine internet par Wash4You ke baare mein pata kiya aur 15 din ki laundry service li. Service bahut badhiya hai! Main sabko recommend karta hu.",
+      "quote_en": "I looked up Wash4You online and took their laundry service for my 15-day stay. The service is excellent — I recommend them to everyone.",
+      "service": "eco-friendly-laundry",
+      "photo": "images/reviews/review-07.webp",
+      "alt": "A Wash4You customer visiting Gurugram from Ahmedabad"
+    },
+    {
+      "id": "review-08",
+      "name": "Verified Customer",
+      "attribution": "Gurugram",
+      "verified": true,
+      "rating": 5,
+      "quote": "The way you clean clothes and shoes is wonderful.",
+      "service": "shoe-cleaning",
+      "photo": "images/reviews/review-08.webp",
+      "alt": "A Wash4You shoe cleaning customer in Gurugram"
+    },
+    {
+      "id": "review-06",
+      "name": "Verified Customer",
+      "attribution": "Gurugram",
+      "verified": true,
+      "rating": 5,
+      "quote": "Aaj meri delivery thi, main bahut khush hu. Sneakers perfectly clean ho gaye.",
+      "quote_en": "My delivery came today and I'm very happy — the sneakers came back perfectly clean.",
+      "service": "shoe-cleaning",
+      "photo": "images/reviews/review-06.webp",
+      "alt": "A Wash4You customer collecting cleaned sneakers"
+    },
+    {
+      "id": "review-05",
+      "name": "Verified Customer",
+      "attribution": "Gurugram",
+      "verified": true,
+      "rating": 5,
+      "quote": "I tried at home and the stain didn't go. Wash4You removed it completely.",
+      "service": "premium-dry-cleaning",
+      "photo": "images/reviews/review-05.webp",
+      "alt": "A Wash4You stain removal customer in Gurugram"
+    },
+    {
+      "id": "review-01",
+      "name": "Verified Customer",
+      "attribution": "Gurugram",
+      "verified": true,
+      "rating": 5,
+      "quote": "Oh my god, unbelievable — you've done magic!",
+      "service": "premium-dry-cleaning",
+      "photo": "images/reviews/review-01.webp",
+      "alt": "A Wash4You customer reacting to a stain removal result"
+    },
+    {
+      "id": "review-02",
+      "name": "Verified Customer",
+      "attribution": "Gurugram",
+      "verified": true,
+      "rating": 5,
+      "quote": "Great service, on time and super clean!",
+      "service": "eco-friendly-laundry",
+      "photo": "images/reviews/review-02.webp",
+      "alt": "A Wash4You customer with her collected laundry order"
+    },
+    {
+      "id": "review-04",
+      "name": "Verified Customer",
+      "attribution": "Gurugram",
+      "verified": true,
+      "rating": 5,
+      "quote": "Wash4You se mera first service tha — ab main permanent customer hu.",
+      "quote_en": "This was my first time using Wash4You — now I'm a permanent customer.",
+      "service": "eco-friendly-laundry",
+      "photo": "images/reviews/review-04.webp",
+      "alt": "A Wash4You customer with a returned laundry order"
+    },
+    {
+      "id": "review-sofa",
+      "name": "Verified Customer",
+      "attribution": "Gurugram",
+      "verified": true,
+      "rating": 5,
+      "quote": "Very well done. Professional cleaning service — highly recommended.",
+      "service": "sofa-cleaning",
+      "photo": null,
+      "alt": null
+    }
+  ]
+}

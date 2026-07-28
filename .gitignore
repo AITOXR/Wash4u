@@ -1,3 +1,15 @@
 .DS_Store
 .research/
 dist/
+dist-edit/
+node_modules/
+__pycache__/
+*.pyc
+
+# Client-supplied source material (~2.2 GB). Several videos exceed GitHub's
+# 100 MB hard file limit, so committing this would break pushes outright.
+# Keep it locally; extract what the site needs into src/assets/images/.
+docs/
+
+# Local screenshot output from tools/shot.mjs
+shots/

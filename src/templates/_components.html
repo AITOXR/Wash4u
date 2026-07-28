@@ -1,0 +1,114 @@
+{% from "_icons.html" import ui %}
+
+{# ============================================================
+   before_after — the proof mechanic.
+
+   The AFTER image is the base layer. The BEFORE image sits in a
+   clipped overlay whose width is driven by --pos. The control is a
+   real <input type="range">, so keyboard operation and screen-reader
+   announcement come from the platform rather than being reimplemented.
+
+   With JavaScript disabled --pos stays at its CSS default of 50%,
+   which degrades to a clean split view with both alt texts intact.
+   aspect-ratio is set inline from the asset's true dimensions, so the
+   frame reserves its space and contributes no layout shift.
+   ============================================================ #}
+{% macro before_after(pair, asset_path, ui, eager=false) %}
+<figure class="ba" data-ba style="--ba-ratio: {{ pair.width }} / {{ pair.height }}">
+  <div class="ba__frame">
+    <img class="ba__img ba__img--after"
+         src="{{ asset_path }}{{ pair.after }}"
+         alt="{{ pair.alt_after }}"
+         width="{{ pair.width }}" height="{{ pair.height }}"
+         {% if eager %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
+
+    <div class="ba__clip" aria-hidden="true">
+      <img class="ba__img ba__img--before"
+           src="{{ asset_path }}{{ pair.before }}"
+           alt=""
+           width="{{ pair.width }}" height="{{ pair.height }}"
+           {% if not eager %}loading="lazy"{% endif %} decoding="async">
+    </div>
+
+    <span class="ba__label ba__label--before">Before</span>
+    <span class="ba__label ba__label--after">After</span>
+
+    <div class="ba__divider" aria-hidden="true"></div>
+    <div class="ba__knob" aria-hidden="true">{{ ui('drag', 20) }}</div>
+
+    <input class="ba__range" type="range" min="0" max="100" value="50" step="1"
+           aria-label="Reveal the before or after photograph of {{ pair.title }}">
+  </div>
+
+  <figcaption class="ba__caption">
+    <strong>{{ pair.title }}</strong>
+    <span>{{ pair.service | replace('-', ' ') }}</span>
+  </figcaption>
+
+  {# The before image needs a real alt somewhere reachable, since its
+     own alt is empty to avoid announcing the decorative overlay twice. #}
+  <span class="visually-hidden">Before: {{ pair.alt_before }}</span>
+</figure>
+{% endmacro %}
+
+
+{# A static, co-aligned pair — used when the two source photographs
+   were not shot at the same angle and a slider would misrepresent them. #}
+{% macro before_after_static(pair, asset_path) %}
+<figure class="ba">
+  <div class="ba-pair">
+    <figure>
+      <img src="{{ asset_path }}{{ pair.before }}" alt="{{ pair.alt_before }}"
+           width="{{ pair.width }}" height="{{ pair.height }}" loading="lazy" decoding="async">
+      <span class="ba__label ba__label--before">Before</span>
+    </figure>
+    <figure>
+      <img src="{{ asset_path }}{{ pair.after }}" alt="{{ pair.alt_after }}"
+           width="{{ pair.width }}" height="{{ pair.height }}" loading="lazy" decoding="async">
+      <span class="ba__label ba__label--after">After</span>
+    </figure>
+  </div>
+  <figcaption class="ba__caption">
+    <strong>{{ pair.title }}</strong>
+    <span>{{ pair.service | replace('-', ' ') }}</span>
+  </figcaption>
+</figure>
+{% endmacro %}
+
+
+{# FAQ list + the matching FAQPage schema is emitted by the page block. #}
+{% macro faq_list(faqs, id_prefix='faq') %}
+<div class="faq">
+  {% for f in faqs %}
+  <div class="faq-item">
+    <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="{{ id_prefix }}-{{ loop.index }}">
+      {{ f.q }}
+      <span class="faq-item__icon">{{ ui('plus', 24) }}</span>
+    </button>
+    <div class="faq-item__answer" id="{{ id_prefix }}-{{ loop.index }}" role="region">
+      <div>{{ f.a }}</div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+
+{% macro review_card(r, asset_path) %}
+<article class="review">
+  <span class="review__stars" aria-label="{{ r.rating }} out of 5 stars">
+    {% for _ in range(r.rating) %}{{ ui('star', 16) }}{% endfor %}
+  </span>
+  <blockquote>&ldquo;{{ r.quote }}&rdquo;</blockquote>
+  {% if r.quote_en %}<p class="review__translation">{{ r.quote_en }}</p>{% endif %}
+  <div class="review__who">
+    {% if r.photo %}
+    <img src="{{ asset_path }}{{ r.photo }}" alt="{{ r.alt }}" width="44" height="44" loading="lazy" decoding="async">
+    {% endif %}
+    <div>
+      <div class="review__name">{{ r.name }}</div>
+      <div class="review__meta">{{ ui('check-badge', 14) }} {{ r.attribution }}</div>
+    </div>
+  </div>
+</article>
+{% endmacro %}

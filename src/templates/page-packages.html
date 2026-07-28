@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% from "_icons.html" import ui, service_icon %}
+
+{% block schema %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.urls.base }}/" },
+          { "@type": "ListItem", "position": 2, "name": "Packages" }
+        ]
+      }
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>Packages</span>
+    </nav>
+    <div class="page-hero__grid">
+      <div>
+        <p class="eyebrow"{{ cms('packages:hero.eyebrow') }}>{{ packages.hero.eyebrow }}</p>
+        <h1{{ cms('packages:hero.headline') }}>{{ packages.hero.headline }}</h1>
+        <p class="lede"{{ cms('packages:hero.subheadline') }}>{{ packages.hero.subheadline }}</p>
+        <div class="btn-row">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} <span{{ cms('packages:cta.button') }}>{{ packages.cta.button }}</span></a>
+          {% if packages.pdf %}
+          <a class="btn btn--ghost btn--lg" href="{{ root_path }}{{ packages.pdf }}" download>{{ ui('download', 18) }} Download brochure</a>
+          {% else %}
+          <a class="btn btn--ghost btn--lg" href="{{ root_path }}pricing/">See item pricing {{ ui('arrow-right', 18) }}</a>
+          {% endif %}
+        </div>
+      </div>
+      <aside class="store-card reveal">
+        <strong>How the plans work</strong>
+        <p{{ cms('packages:how') }}>{{ packages.how }}</p>
+        <a class="btn btn--ghost btn--block" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} Ask which plan fits</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+{# What every plan can be spent on #}
+<section class="section section--tight section--wash">
+  <div class="wrap">
+    <p class="eyebrow">One balance, every service</p>
+    <div class="plan-covers stagger-children">
+      {% for c in packages.covers %}
+      <div class="plan-cover">
+        <span class="plan-cover__icon">{{ service_icon(c.icon, 26) }}</span>
+        <span{{ cms('packages:covers.' ~ loop.index0 ~ '.label') }}>{{ c.label }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# The plans #}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Choose your plan</p>
+      <h2>Pay once. Get bonus balance on top.</h2>
+      <p>Each plan adds a free-service bonus to what you pay — that bonus is your saving. Spend the combined balance on any service before it expires.</p>
+    </div>
+
+    <div class="plan-grid stagger-children">
+      {% for p in packages.plans %}
+      <article class="plan-card{% if p.tier %} plan-card--{{ p.tier }}{% endif %}">
+        {% if p.badge %}<span class="plan-card__badge"{{ cms('packages:plans.' ~ loop.index0 ~ '.badge') }}>{{ p.badge }}</span>{% endif %}
+        <div class="plan-card__head">
+          <h3 class="plan-card__name"{{ cms('packages:plans.' ~ loop.index0 ~ '.name') }}>{{ p.name }}</h3>
+          <span class="plan-card__benefit" aria-label="{{ p.benefit }} more value">+{{ p.benefit }} value</span>
+        </div>
+        <div class="plan-card__balance">
+          <span class="plan-card__balance-num"{{ cms('packages:plans.' ~ loop.index0 ~ '.balance') }}>{{ p.balance }}</span>
+          <span class="plan-card__balance-label">to spend</span>
+        </div>
+        <dl class="plan-card__rows">
+          <div><dt>You pay</dt><dd{{ cms('packages:plans.' ~ loop.index0 ~ '.cost') }}>{{ p.cost }}</dd></div>
+          <div><dt>Free bonus</dt><dd class="is-free">+<span{{ cms('packages:plans.' ~ loop.index0 ~ '.free') }}>{{ p.free }}</span></dd></div>
+          <div><dt>Valid for</dt><dd{{ cms('packages:plans.' ~ loop.index0 ~ '.validity') }}>{{ p.validity }}</dd></div>
+        </dl>
+        <a class="btn {% if p.tier %}btn--cta{% else %}btn--ghost{% endif %} btn--block"
+           href="{{ site.urls.whatsapp }}" rel="noopener">Choose {{ p.name }}</a>
+      </article>
+      {% endfor %}
+    </div>
+
+    <p class="plan-foot mono mono--note">All balances are prepaid and spendable on any Wash4You service. Prices exclusive of GST. Validity runs from the date the plan is activated.</p>
+  </div>
+</section>
+
+{# Trust / how balance is handled #}
+<section class="section section--tight section--wash">
+  <div class="wrap">
+    <div class="plan-features stagger-children">
+      {% for f in packages.features %}
+      <div class="plan-feature">
+        <span class="plan-feature__icon">{{ ui(f.icon, 22) }}</span>
+        <div>
+          <h3{{ cms('packages:features.' ~ loop.index0 ~ '.title') }}>{{ f.title }}</h3>
+          <p{{ cms('packages:features.' ~ loop.index0 ~ '.detail') }}>{{ f.detail }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2{{ cms('packages:cta.title') }}>{{ packages.cta.title }}</h2>
+      <p{{ cms('packages:cta.subtitle') }}>{{ packages.cta.subtitle }}</p>
+      <div class="btn-row">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} <span{{ cms('packages:cta.button') }}>{{ packages.cta.button }}</span></a>
+        <a class="btn btn--on-navy btn--lg" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} <span{{ cms('site:contact.phone') }}>{{ site.contact.phone }}</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

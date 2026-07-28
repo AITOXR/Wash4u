@@ -1,0 +1,68 @@
+{# Print-only price list. Rendered to wash4you-price-list.pdf by
+   tools/make-pdf.mjs and never linked in the nav. Self-contained styles so
+   the PDF does not depend on the site stylesheets. noindex. #}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Wash4You — Price List</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Figtree:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 14mm 14mm 16mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Figtree', sans-serif; color: #101b2e; font-size: 10.5px; line-height: 1.4; }
+  .head { display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 3px solid #14336b; padding-bottom: 10px; margin-bottom: 14px; }
+  .head img { height: 30px; }
+  .head .meta { text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #677283; letter-spacing: .04em; }
+  h1 { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; margin-bottom: 2px; }
+  .sub { color: #3d4a60; margin-bottom: 14px; font-size: 11px; }
+  .cols { column-count: 2; column-gap: 16px; }
+  .cat { break-inside: avoid; margin-bottom: 14px; }
+  .cat h2 { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: #14336b; border-bottom: 1px solid #dae3f0; padding-bottom: 4px; margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 3px 0; border-bottom: 1px solid #eef2f8; vertical-align: baseline; }
+  td.price { text-align: right; font-family: 'IBM Plex Mono', monospace; font-weight: 500; white-space: nowrap; padding-left: 8px; }
+  td .from { font-size: 8px; color: #677283; text-transform: uppercase; letter-spacing: .05em; }
+  td .unit { color: #677283; font-size: 9px; }
+  .foot { margin-top: 10px; border-top: 1px solid #dae3f0; padding-top: 8px; color: #677283; font-size: 9px; display: flex; justify-content: space-between; gap: 10px; }
+  .foot strong { color: #101b2e; }
+  .note { font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; color: #677283; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+  <div class="head">
+    <img src="{{ asset_path }}images/logo-blue.png" alt="Wash4You">
+    <div class="meta">
+      {{ site.contact.phone }}<br>
+      {{ site.contact.email }}<br>
+      {{ site.contact.area }}
+    </div>
+  </div>
+
+  <h1>Laundry &amp; Dry-Clean Price List</h1>
+  <p class="sub">Free doorstep pickup &amp; delivery across Gurugram &amp; Delhi NCR.</p>
+  <p class="note">{{ pricing.note }}</p>
+
+  <div class="cols">
+    {% for cat in pricing.categories %}
+    <div class="cat">
+      <h2>{{ cat.title }}</h2>
+      <table>
+        {% for item in cat['items'] %}
+        <tr>
+          <td>{{ item.name }}{% if item.unit %} <span class="unit">({{ item.unit }})</span>{% endif %}</td>
+          <td class="price">{% if item.from %}<span class="from">from</span> {% endif %}{{ item.price }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="foot">
+    <span>Prices exclusive of GST. Rates may vary with fabric, work and condition — WhatsApp {{ site.contact.phone }} for an exact quote.</span>
+    <span><strong>wash4you.in</strong></span>
+  </div>
+</body>
+</html>
