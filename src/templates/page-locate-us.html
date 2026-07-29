@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui %}
 
+{% block preload %}
+  <link rel="preload" as="image" href="{{ asset_path }}images/hero-home.jpg">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-areas.css">
+{% endblock %}
+
 {% block schema %},
       {
         "@type": "BreadcrumbList",
@@ -28,23 +33,19 @@
 
 {% block content %}
 
-<section class="page-hero">
-  <div class="wrap">
+<section class="areas-hero" style="--areas-hero-img: url('{{ asset_path }}images/hero-home.jpg')">
+  <div class="wrap areas-hero__inner">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="{{ root_path }}">Home</a>
       <span aria-hidden="true">/</span>
       <span>Areas we serve</span>
     </nav>
-    <div class="page-hero__grid">
-      <div>
-        <p class="eyebrow">{{ ui('pin', 16) }} Gurugram</p>
-        <h1>Two stores. Free pickup across the city.</h1>
-        <p class="lede">Come to either store, or let us collect from your door at no charge. Every order is counted with you before it leaves.</p>
-        <div class="btn-row">
-          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
-          <a class="btn btn--ghost btn--lg" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
-        </div>
-      </div>
+    <p class="eyebrow">{{ ui('pin', 16) }} Gurugram &amp; Delhi NCR</p>
+    <h1 class="areas-hero__title">Laundry Pickup &amp; Delivery Across <span class="kw">Gurugram</span> &amp; <span class="kw">Delhi&nbsp;NCR</span></h1>
+    <p class="lede">Come to either store, or let us collect from your door at no charge across the city. Every order is counted with you before it leaves.</p>
+    <div class="btn-row">
+      <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+      <a class="btn btn--ghost btn--lg" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
     </div>
   </div>
 </section>
@@ -75,15 +76,28 @@
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Where we collect</p>
-      <h2>Areas we serve</h2>
-      <p>Each area has its own page covering how pickup works there and which services that neighbourhood uses most.</p>
+      <h2 class="kw-head">Find your neighbourhood</h2>
+      <p>Our vans cover the whole city. Find your neighbourhood on the map, then open its page for how pickup works there and the services it uses most.</p>
     </div>
+
+    <div class="areas-map">
+      <div class="areas-map__frame">
+        <iframe
+          title="Map of Gurugram and Delhi NCR — the area Wash4You collects and delivers across"
+          src="https://www.google.com/maps?q=Gurugram+Haryana&amp;z=11&amp;output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <h3 class="areas-list-title">Areas we serve in <span class="kw-text">Gurugram</span></h3>
     <div class="areas stagger-children">
       {% for a in site.footer.areas %}
       <a class="area-link" href="{{ root_path }}{{ a.url }}">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
       {% endfor %}
     </div>
-    <p style="margin-top:var(--s-6);font-size:var(--t-sm);color:var(--ink-3)">
+    <p class="areas-note">
       Not listed? Send your address on <a class="link-arrow" href="{{ site.urls.whatsapp }}" rel="noopener">WhatsApp</a> and we will confirm whether we collect there.
     </p>
   </div>

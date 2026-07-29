@@ -1,0 +1,78 @@
+/* ============================================================================
+   redesign-packages.css  —  req 10: package-card feature / inclusion list
+   ----------------------------------------------------------------------------
+   Owns ONLY the per-plan detail list inside each .plan-card, i.e. the
+   `<dl class="plan-card__rows">` (You pay / Free bonus / Valid for) rendered
+   by src/templates/page-packages.html from packages.json plans[].
+
+   Problem: those row labels ship at --t-sm (0.8125rem ~ 13px) — too small.
+   Fix: 16px text, line-height 1.6, more room between rows, and a decorative
+   brand-green check pinned to the FIRST line of each label so it never drifts
+   when a label wraps.
+
+   Loading: this file is not listed in base.html; page-packages.html links it
+   from its {% block preload %}. Because that puts it in <head> BEFORE the core
+   sheets, every selector here is scoped under `.plan-grid` (one extra class)
+   so it outranks the plain `.plan-card__rows …` rules in features.css on
+   specificity — winning regardless of stylesheet source order. All colours,
+   spacing and radii come from the base.css :root tokens; nothing invented.
+   ============================================================================ */
+
+:root {
+  /* Decorative check glyph, used as an alpha mask so its colour is token-driven.
+     `fill:none` + a single stroked path → the check shape is the only opaque
+     region, everything else is transparent (masked out). */
+  --w4u-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+}
+
+/* Roomier gap between the rows than the original --s-2. */
+.plan-grid .plan-card__rows {
+  gap: var(--s-3);
+}
+
+/* Top-align label and value so the check sits on the label's first line
+   (rather than the flex baseline of a check + empty box). */
+.plan-grid .plan-card__rows > div {
+  align-items: flex-start;
+}
+
+/* The label becomes the check + text carrier. align-items:flex-start keeps the
+   check locked to the first line; it does not slide down when the text wraps. */
+.plan-grid .plan-card__rows dt {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Match the value to the label so each row reads as one 16px / 1.6 item. */
+.plan-grid .plan-card__rows dd {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Decorative green check before every label.
+   - box is exactly one line tall (1.6em) with the 1em glyph centred inside,
+     so with the flex-start parent it visually centres on the FIRST line only;
+   - built as a ::before pseudo-element, so it is inherently absent from the
+     accessibility tree (screen readers never announce it) — no aria needed;
+   - colour comes from --brand-green (the logo green, reserved for non-text
+     marks such as check icons) via the mask, not baked into the SVG. */
+.plan-grid .plan-card__rows dt::before {
+  content: "";
+  flex: none;
+  width: 1.15em;
+  height: 1.6em;
+  background-color: var(--brand-green);
+  -webkit-mask: var(--w4u-check) center / 1em 1em no-repeat;
+          mask: var(--w4u-check) center / 1em 1em no-repeat;
+}
+
+/* On the dark navy VIP card the logo green reads muddy, so lift the check to
+   the same bright green the card already uses for its "free bonus" value
+   (.plan-card--navy .plan-card__rows dd.is-free). Still green, just legible on
+   the deep-navy band. */
+.plan-grid .plan-card--navy .plan-card__rows dt::before {
+  background-color: #7ee0a0;
+}

@@ -2,6 +2,13 @@
 {% from "_icons.html" import ui %}
 {% set is_area = area is defined and area %}
 
+{% block preload %}
+  {# The pricing hero photo is this page's LCP candidate — preload it, and
+     load this page's redesign stylesheet. #}
+  <link rel="preload" as="image" href="{{ asset_path }}images/hero-pricing.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-pricing.css">
+{% endblock %}
+
 {% block schema %},
       {
         "@type": "BreadcrumbList",
@@ -16,9 +23,15 @@
 {% endblock %}
 
 {% block content %}
+<div class="pricing-page">
 
-<section class="page-hero">
-  <div class="wrap">
+{# ============================================================
+   Req 5 — Full-bleed image hero. The photo is passed as a CSS custom
+   property so {{ asset_path }} resolves at every URL depth; the overlay
+   and white keyword headline live in redesign-pricing.css.
+   ============================================================ #}
+<section class="pricing-hero" style="--pricing-hero-img: url('{{ asset_path }}images/hero-pricing.jpg')">
+  <div class="wrap pricing-hero__inner">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="{{ root_path }}">Home</a>
       <span aria-hidden="true">/</span>
@@ -30,27 +43,50 @@
       <span>Pricing</span>
       {% endif %}
     </nav>
-    <div class="page-hero__grid">
-      <div>
-        <p class="eyebrow">Pricing{% if is_area %} · {{ area.label }}{% endif %}</p>
-        {% if is_area %}
-        <h1>Laundry &amp; dry-clean prices in {{ area.label }}.</h1>
-        <p class="lede">The same transparent, item-wise rates for {{ area.label }}, Gurugram — with free doorstep pickup and delivery. Add what you need to your list and book a pickup.</p>
-        {% else %}
-        <h1{{ cms('pricing:hero.headline') }}>{{ pricing.hero.headline }}</h1>
-        <p class="lede"{{ cms('pricing:hero.subheadline') }}>{{ pricing.hero.subheadline }}</p>
-        {% endif %}
-        <div class="btn-row">
-          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
-          <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} Ask about an item</a>
+
+    <p class="eyebrow">{{ ui('pin', 16) }} Pricing{% if is_area %} &middot; {{ area.label }}{% endif %}</p>
+
+    {% if is_area %}
+    <h1 class="pricing-hero__title">Laundry &amp; dry-clean <span class="kw">prices</span> in {{ area.label }}, <span class="kw-text">Gurugram</span></h1>
+    <p class="lede pricing-hero__lede">The same transparent, item-wise rates for {{ area.label }}, Gurugram — with free doorstep pickup and delivery. Add what you need to your list and book a pickup.</p>
+    {% else %}
+    <h1 class="pricing-hero__title">Simple, <span class="kw">Transparent</span> Laundry &amp; Dry-Clean <span class="kw">Pricing</span></h1>
+    <p class="lede pricing-hero__lede"{{ cms('pricing:hero.subheadline') }}>{{ pricing.hero.subheadline }}</p>
+    {% endif %}
+
+    <div class="btn-row">
+      <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+      <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} Ask about an item</a>
+    </div>
+  </div>
+</section>
+
+{# ============================================================
+   Req 2b + Req 6 — Location selector (main page only) and the GST notice,
+   above the first row of cards. Prices are identical across areas; only the
+   label/context changes (pricing-location.js).
+   ============================================================ #}
+<section class="section section--tight pricing-intro">
+  <div class="wrap">
+    {% if is_area %}
+    <p class="gst-badge gst-badge--solo">All prices exclusive of <strong>GST (18%)</strong></p>
+    {% else %}
+    <div class="pricing-intro__bar">
+      <div class="pricing-location">
+        <label class="pricing-location__label" for="pricing-location-select">Show prices for</label>
+        <div class="pricing-location__field">
+          <select id="pricing-location-select" class="pricing-location__select" aria-label="Choose a Gurugram area">
+            {% for a in site.pricing_areas %}
+            <option value="{{ a.slug }}">{{ a.label }}</option>
+            {% endfor %}
+          </select>
+          <span class="pricing-location__chevron">{{ ui('chevron-down', 16) }}</span>
         </div>
       </div>
-      <aside class="store-card reveal">
-        <strong>Prices depend on the item</strong>
-        <p>Fabric, lining, embellishment and the state it arrives in all change the handling. Send a photo on WhatsApp and we will quote before you book.</p>
-        <a class="btn btn--ghost btn--block" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} Send a photo</a>
-      </aside>
+      <p class="gst-badge">All prices exclusive of <strong>GST (18%)</strong></p>
     </div>
+    <h2 class="pricing-location__heading">Prices for <span class="kw-text" data-location-name>{{ site.pricing_areas[0].label }}</span>, Gurugram</h2>
+    {% endif %}
   </div>
 </section>
 
@@ -60,7 +96,7 @@
     <div class="price-toolbar reveal">
       <div class="price-toolbar__text">
         <strong>{% if is_area %}{{ area.label }} price list{% else %}Full price list{% endif %}</strong>
-        <span>Tap <em>Add</em> on any item, then book the whole list in one message.</span>
+        <span>Tap <em>Add to Cart</em> on any item, then book the whole list in one message.</span>
       </div>
       <div class="price-toolbar__actions">
         <a class="btn btn--ghost" href="{{ asset_path }}wash4you-price-list.pdf" download>{{ ui('download', 18) }} Download PDF</a>
@@ -96,10 +132,11 @@
           <div class="price-card__meta">
             <span class="price-card__price">{% if item.from %}<em>from</em> {% endif %}{{ item.price }}</span>
             {% if item.unit %}<span class="price-card__unit">{{ item.unit }}</span>{% endif %}
+            <span class="price-card__gst">+&nbsp;GST</span>
           </div>
           <div class="price-card__control" data-cart-control>
             <button class="price-card__add" type="button" data-add
-                    aria-label="Add {{ item.name }} to your pickup list">{{ ui('plus', 16) }} Add</button>
+                    aria-label="Add {{ item.name }} to your pickup list">{{ ui('plus', 16) }} Add to Cart</button>
           </div>
         </div>
       </article>
@@ -144,4 +181,9 @@
   </div>
 </section>
 
+</div>{# /.pricing-page #}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ asset_path }}js/pricing-location.js" defer></script>
 {% endblock %}

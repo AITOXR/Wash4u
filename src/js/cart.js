@@ -15,7 +15,16 @@
 
 const KEY = 'w4u-cart'
 
+// GST is itemised in the summary (req 8): Subtotal / GST (18%) / Total.
+const GST_RATE = 0.18
+
 const rupee = (n) => '₹' + Math.round(n).toLocaleString('en-IN')
+
+// Round to paise. Used for the GST line and the two money lines it sits
+// between, so the three read as one consistent invoice.
+const round2 = (n) => Math.round(n * 100) / 100
+const money2 = (n) =>
+  '₹' + round2(n).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
 function read() {
   try {
@@ -47,6 +56,8 @@ export function initCart(root = document) {
   const body = drawer.querySelector('[data-cart-body]')
   const emptyEl = drawer.querySelector('[data-cart-empty]')
   const footEl = drawer.querySelector('[data-cart-foot]')
+  const subtotalEl = drawer.querySelector('[data-cart-subtotal]')
+  const gstEl = drawer.querySelector('[data-cart-gst]')
   const totalEl = drawer.querySelector('[data-cart-total]')
   const bookBtn = drawer.querySelector('[data-cart-book]')
   const clearBtn = drawer.querySelector('[data-cart-clear]')
@@ -60,7 +71,9 @@ export function initCart(root = document) {
 
   const find = (slug) => items.find((i) => i.slug === slug)
   const count = () => items.reduce((n, i) => n + i.qty, 0)
-  const total = () => items.reduce((n, i) => n + (Number(i.amount) || 0) * i.qty, 0)
+  const subtotal = () => items.reduce((n, i) => n + (Number(i.amount) || 0) * i.qty, 0)
+  const gstAmount = () => round2(subtotal() * GST_RATE)
+  const grandTotal = () => round2(subtotal() + gstAmount())
   const hasFrom = () => items.some((i) => i.from)
 
   /* ---- persistence + full re-render ---- */
@@ -120,7 +133,7 @@ export function initCart(root = document) {
     if (!it || it.qty === 0) {
       control.innerHTML =
         `<button class="price-card__add" type="button" data-add aria-label="Add ${escapeAttr(name)} to your pickup list">` +
-        `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Add</button>`
+        `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Add to Cart</button>`
       return
     }
     control.innerHTML =
@@ -187,7 +200,10 @@ export function initCart(root = document) {
       })
     }
 
-    if (totalEl) totalEl.textContent = rupee(total())
+    // Subtotal / GST (18%) / Total — recomputed live on every quantity change.
+    if (subtotalEl) subtotalEl.textContent = money2(subtotal())
+    if (gstEl) gstEl.textContent = money2(gstAmount())
+    if (totalEl) totalEl.textContent = money2(grandTotal())
     if (bookBtn) bookBtn.href = buildWhatsApp()
   }
 
@@ -198,7 +214,10 @@ export function initCart(root = document) {
       lines.push(`• ${it.name} ×${it.qty} — ${each}`)
     })
     lines.push('')
-    lines.push(`Estimated total: ${rupee(total())} (+GST)${hasFrom() ? ", 'from' items priced after inspection" : ''}.`)
+    lines.push(`Subtotal: ${money2(subtotal())}`)
+    lines.push(`GST (18%): ${money2(gstAmount())}`)
+    lines.push(`Total: ${money2(grandTotal())}`)
+    if (hasFrom()) lines.push("Note: 'from' items are priced after inspection.")
     lines.push('Please confirm a pickup slot. Thank you!')
     return waBase + (waBase.includes('?') ? '&' : '?') + 'text=' + encodeURIComponent(lines.join('\n'))
   }

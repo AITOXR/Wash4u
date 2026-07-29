@@ -33,6 +33,16 @@
   --green-brand:#21b14b;  /* untouched brand green: rules, dots, non-text */
   --green-tint: #e6f6ec;
 
+  /* ---- Spec brand tokens (2026 redesign) ----------------------
+     Sampled exactly from the Wash4You logo. Everything the redesign
+     spec references maps to these. brand-blue (#2060A0) gets 6.4:1
+     with white text — safe for the top strip and hero headings.    */
+  --brand-blue:      #2060A0;  /* the logo blue — top strip, hero/page-title headings, brand accents */
+  --brand-blue-deep: #14336b;  /* deep variant for dark bands (== --navy) */
+  --brand-green:     #21b14b;  /* logo green — keyword highlight pills, check icons, rules (non-text) */
+  --brand-green-cta: #198639;  /* accessible green for button fills under white text (4.66:1) */
+  --text-body:       #3d4a60;  /* dark neutral grey body copy, not pure black (== --ink-2) */
+
   --paper:      #ffffff;
   --wash:       #f4f8fd;  /* faint blue-tinted ground               */
   --wash-2:     #eaf1fa;
@@ -44,11 +54,12 @@
                              non-text graphics.                             */
 
   /* ---- Type ---------------------------------------------------
-     Archivo carries a real width axis; Expanded at 800 echoes the
-     wide, heavy Wash4You wordmark. Figtree is the body face.
-     Plex Mono is the docket/ticket voice — counts, codes, captions. */
-  --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
-  --font-sans:    'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+     Bricolage Grotesque is the display face — a crafted, contemporary
+     grotesque with real character in the headlines. Hanken Grotesk is the
+     warm, highly legible body face. Plex Mono is the docket/ticket voice —
+     counts, codes, captions. */
+  --font-display: 'Bricolage Grotesque', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-sans:    'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono:    'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
   /* Fluid scale — 360px → 1280px viewport */
@@ -83,6 +94,7 @@
   --shadow-md:  0 4px 14px rgba(16, 27, 46, .07), 0 1px 3px rgba(16, 27, 46, .05);
   --shadow-lg:  0 18px 44px rgba(16, 27, 46, .13);
   --shadow-cta: 0 8px 22px rgba(25, 134, 57, .28);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, .08);  /* subtle single-layer card shadow (spec) */
 
   --ease-out: cubic-bezier(.22, 1, .36, 1);
   --ease-in-out: cubic-bezier(.65, 0, .35, 1);
@@ -106,8 +118,9 @@ body {
   background: var(--paper);
   color: var(--ink-2);
   font-family: var(--font-sans);
-  font-size: var(--t-md);
-  line-height: 1.65;
+  /* Body 16 → 17px, line-height 1.6 (spec req 7) */
+  font-size: clamp(1rem, 0.985rem + 0.08vw, 1.0625rem);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -143,26 +156,32 @@ h1, h2, h3, h4, .display {
   line-height: 1.04;
   letter-spacing: -0.022em;
   text-wrap: balance;
-  /* Archivo's width axis — expanded echoes the Wash4You wordmark */
-  font-variation-settings: 'wdth' 108;
+  /* Bricolage's optical-size axis tracks the heading size automatically. */
+  font-optical-sizing: auto;
   font-weight: 800;
 }
 
-h1, .h1 { font-size: var(--t-3xl); }
-h2, .h2 { font-size: var(--t-2xl); }
-h3, .h3 { font-size: var(--t-xl); line-height: 1.14; font-variation-settings: 'wdth' 104; }
-h4, .h4 { font-size: var(--t-lg); line-height: 1.2;  font-variation-settings: 'wdth' 102; font-weight: 700; }
+/* Global type scale (spec req 7) — one scale for the whole site, no
+   per-section overrides. H1 28→48px, H2 24→36px, H3 20→24px. */
+h1, .h1 { font-size: clamp(1.75rem, 1.30rem + 2.0vw, 3rem); }        /* 28 → 48px */
+h2, .h2 { font-size: clamp(1.5rem,  1.24rem + 1.15vw, 2.25rem); }    /* 24 → 36px */
+h3, .h3 { font-size: clamp(1.25rem, 1.16rem + 0.4vw, 1.5rem); line-height: 1.16; }
+h4, .h4 { font-size: var(--t-lg); line-height: 1.2; font-weight: 700; }
 
 .display-xl {
   font-family: var(--font-display);
-  font-size: var(--t-4xl);
+  /* Hero H1 — kept inside the spec's 40–48px desktop ceiling. */
+  font-size: clamp(1.875rem, 1.35rem + 2.3vw, 3rem);   /* 30 → 48px */
   font-weight: 800;
-  font-variation-settings: 'wdth' 112;
+  font-optical-sizing: auto;
   letter-spacing: -0.03em;
-  line-height: 0.98;
+  line-height: 1.02;
   color: var(--ink);
   text-wrap: balance;
 }
+
+/* Small print (spec req 7) */
+.small, small { font-size: 0.875rem; }   /* 14px */
 
 p { text-wrap: pretty; }
 p + p { margin-top: var(--s-4); }
@@ -236,7 +255,7 @@ strong, b { font-weight: 700; color: var(--ink); }
 .section { padding-block: var(--section-y); }
 .section--tight { padding-block: calc(var(--section-y) * .62); }
 .section--wash { background: var(--wash); }
-.section--navy { background: var(--navy-deep); color: rgba(255,255,255,.82); }
+.section--navy { background: var(--navy-deep); color: rgba(255,255,255,.9); }
 .section--navy h1, .section--navy h2, .section--navy h3, .section--navy h4 { color: #fff; }
 .section--navy .eyebrow { color: #8fb4ff; }
 

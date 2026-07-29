@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui, service_icon %}
 
+{% block preload %}
+  {# req 10: packages-only overrides for the per-plan feature/inclusion list. #}
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-packages.css">
+{% endblock %}
+
 {% block schema %},
       {
         "@type": "BreadcrumbList",

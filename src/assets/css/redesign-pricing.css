@@ -1,0 +1,294 @@
+/* ============================================================
+   Wash4You — Pricing (2026 redesign)
+
+   Owns the /pricing/ page and the per-area /pricing/<slug>/ pages.
+   Loaded exclusively on page-pricing.html via its {% block preload %}.
+
+   Load order note: this file is linked in the <head> preload block, i.e.
+   BEFORE the shared stylesheets (features.css / page.css / ui.css). Every
+   rule that has to override one of those is therefore scoped under
+   `.pricing-page` (or uses a compound selector) so it out-specifies the
+   single-class base rule regardless of source order.
+
+   All colour comes from the brand tokens in base.css :root — none invented.
+   ============================================================ */
+
+/* ---- Keyword highlight ------------------------------------------------
+   The gidmgurugram heading pattern, identical to the sibling redesign
+   sheets: the heading body sits in brand-blue (or white on a dark ground)
+   and the 2-3 most important keywords ride a green rounded highlight.
+   Dark ink on the brand green measures ~6.2:1; white on that hue would
+   fail, so the pill text stays dark. */
+.kw {
+  background: var(--brand-green);
+  color: var(--ink);
+  padding: 0.04em 0.34em;
+  border-radius: 0.34em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  white-space: nowrap;
+}
+
+/* A lighter-touch variant: green TEXT, no pill — for secondary headings
+   on a light ground where a second pill would over-crowd. On white,
+   --green (#17883b) measures 4.54:1. */
+.kw-text { color: var(--green); }
+
+/* ============================================================
+   Req 5 — Hero: full-bleed photo, brand-navy overlay, white headline
+   ============================================================ */
+.pricing-hero {
+  position: relative;
+  isolation: isolate;
+  color: #fff;
+  min-height: max(24rem, 56vh);          /* ~56vh, spec asks 50-60vh */
+  display: flex;
+  align-items: center;
+  /* Dark left-weighted gradient over the photo for text contrast (spec:
+     "dark overlay ... or left gradient"). object-fit:cover equivalent via
+     background-size:cover. The image url is passed per-page as a custom
+     property so {{ asset_path }} resolves correctly at every URL depth. */
+  background:
+    linear-gradient(100deg, rgba(9, 22, 50, .86) 0%, rgba(9, 22, 50, .66) 48%, rgba(9, 22, 50, .48) 100%),
+    var(--pricing-hero-img, none) center / cover no-repeat,
+    var(--navy-deep);
+  padding-block: clamp(2.75rem, 2rem + 4vw, 5rem);
+  border-bottom: 3px solid var(--brand-green);
+}
+
+.pricing-hero__inner { max-width: 48rem; }
+
+/* Breadcrumbs + eyebrow flip to light on the dark ground. */
+.pricing-hero .crumbs { color: rgba(255, 255, 255, .72); }
+.pricing-hero .crumbs a { color: #fff; }
+.pricing-hero .crumbs a:hover { text-decoration: underline; }
+.pricing-hero .crumbs span[aria-hidden] { color: rgba(255, 255, 255, .38); }
+
+.pricing-hero .eyebrow { color: #bfe6cb; }
+.pricing-hero .eyebrow::before { background: var(--brand-green); }
+
+.pricing-hero__title {
+  color: #fff;
+  margin-bottom: var(--s-4);
+}
+
+.pricing-hero__lede {
+  color: rgba(255, 255, 255, .9);
+  max-width: 40rem;
+}
+
+/* The GST notice repeated in the hero header (req 6). inline-block so the
+   text between "GST" and "(18%)" keeps its natural word spacing. */
+.pricing-hero__gst {
+  display: inline-block;
+  margin-top: var(--s-5);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, .14);
+  border: 1px solid rgba(255, 255, 255, .28);
+  color: #fff;
+  font-size: var(--t-sm);
+  font-weight: 600;
+}
+.pricing-hero__gst strong { color: #fff; }
+
+.pricing-hero .btn-row { margin-top: var(--s-6); }
+
+/* Ghost buttons assume a light ground; recolour for the photo. */
+.pricing-hero .btn--ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, .28);
+  background: rgba(255, 255, 255, .10);
+}
+.pricing-hero .btn--ghost:hover {
+  border-color: rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, .18);
+}
+
+/* ============================================================
+   Req 2b + Req 6 — Intro bar: location selector + GST notice
+   ============================================================ */
+.pricing-intro__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+
+/* Location selector */
+.pricing-location {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+}
+.pricing-location__label {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.pricing-location__field {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.pricing-location__select {
+  appearance: none;
+  -webkit-appearance: none;
+  min-width: 12.5rem;
+  padding: 0.7rem 2.75rem 0.7rem 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: var(--t-base);
+  cursor: pointer;
+  transition: border-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
+}
+.pricing-location__select:hover { border-color: var(--brand-blue); }
+.pricing-location__select:focus-visible { border-color: var(--brand-blue); }
+.pricing-location__chevron {
+  position: absolute;
+  right: 0.85rem;
+  display: inline-flex;
+  color: var(--brand-blue);
+  pointer-events: none;
+}
+
+/* GST notice (light ground) — clear, visible above the first row of cards. */
+.gst-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.6rem 1rem;
+  border-radius: var(--r-pill);
+  background: var(--green-tint);
+  border: 1px solid var(--brand-green);
+  color: var(--ink-2);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.gst-badge strong { color: var(--green-deep); }
+.gst-badge--solo { margin: 0; }
+
+/* Live "Prices for <Area>, Gurugram" heading (req 2b). */
+.pricing-location__heading {
+  color: var(--brand-blue);
+  font-size: var(--t-xl);
+  margin-top: var(--s-5);
+}
+
+/* ============================================================
+   Req 4 — Grid: 4 desktop -> 3 -> 2 -> 1, even gutters, equal widths
+   1200px+ : 4  |  992-1199 : 3  |  768-991 : 2  |  <768 : 1
+   ============================================================ */
+.pricing-page .price-grid {
+  grid-template-columns: 1fr;
+  gap: var(--s-5);
+}
+@media (min-width: 48rem) {   /* >= 768px */
+  .pricing-page .price-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 62rem) {   /* >= 992px */
+  .pricing-page .price-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 75rem) {   /* >= 1200px */
+  .pricing-page .price-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ============================================================
+   Req 3 — Cards: subtle single-layer shadow, hover lift, equal height,
+   full-width "Add to Cart" pinned to the bottom.
+   ============================================================ */
+.pricing-page .price-card {
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 200ms var(--ease-out),
+    box-shadow 200ms var(--ease-out),
+    border-color 200ms var(--ease-out);
+}
+/* Slight lift on hover — translateY + a marginally stronger (still neutral,
+   single-layer) shadow. No heavy or coloured shadow. */
+.pricing-page .price-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(16, 27, 46, .12);
+  border-color: var(--line);
+}
+
+/* The card is already a flex column (features.css). Group the name + price
+   at the top and push the control (button / qty stepper) to the very bottom
+   so every card in a row ends its button on the same line regardless of how
+   long the item name wraps. */
+.pricing-page .price-card__meta { margin-top: 0; }
+.pricing-page .price-card__control { margin-top: auto; }
+
+/* Req 6 — small "+ GST" label beside every price. */
+.price-card__gst {
+  font-size: var(--t-xs);
+  font-weight: 600;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+/* Req 3 — filled green "Add to Cart" button, full width, consistent height.
+   The data-* hooks and the button element are untouched (cart.js re-renders
+   this same element); only its look and label change. The visible label is
+   completed to "Add to Cart" via ::after so it stays correct in BOTH the
+   server-rendered state and after cart.js re-renders the control to " Add". */
+.pricing-page .price-card__add {
+  width: 100%;
+  min-height: 2.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  border: 0;
+  border-radius: var(--r-md);
+  background: var(--brand-green-cta);
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--t-sm);
+  letter-spacing: .01em;
+  transition: background-color 160ms var(--ease-out), transform 120ms var(--ease-out);
+}
+.pricing-page .price-card__add svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: var(--s-2);
+}
+.pricing-page .price-card__add::after { content: "\00a0to\00a0Cart"; }
+.pricing-page .price-card__add:hover { background: var(--green-deep); color: #fff; }
+.pricing-page .price-card__add:active { transform: translateY(1px); }
+
+/* Added state — the quantity stepper cart.js swaps in. Themed green and
+   shaped to match the Add button (same height + radius) so the control
+   never changes size when an item is added. */
+.pricing-page .price-card__control .qty {
+  width: 100%;
+  min-height: 2.9rem;
+  justify-content: space-between;
+  border-radius: var(--r-md);
+  border-color: var(--brand-green-cta);
+  background: var(--green-tint);
+}
+.pricing-page .price-card__control .qty__btn {
+  height: 2.9rem;
+  color: var(--green-deep);
+}
+.pricing-page .price-card__control .qty__btn:hover { background: rgba(33, 177, 75, .14); }
+.pricing-page .price-card__control .qty__n { color: var(--green-deep); }
+
+/* ---- Small screens ---- */
+@media (max-width: 30rem) {
+  .pricing-intro__bar { flex-direction: column; align-items: stretch; }
+  .pricing-location { justify-content: space-between; }
+  .pricing-location__field { flex: 1; }
+  .pricing-location__select { width: 100%; }
+  .gst-badge { justify-content: center; }
+}

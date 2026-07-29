@@ -406,13 +406,13 @@ LOGIN_PAGE = """<!doctype html><html lang=en><head><meta charset=utf-8>
 <title>Wash4You Editor — Sign in</title>
 <link rel=preconnect href="https://fonts.googleapis.com">
 <link rel=preconnect href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel=stylesheet>
 <style>
 :root{
   --ink:#0C2340; --linen:#F5F8F6; --linen2:#fff; --steam:#D5E3DF;
   --fresh:#0FB5A5; --fresh-d:#0A8b7f; --slate:#5E7086; --brick:#C4442E;
-  --sans:'Figtree',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  --disp:'Archivo','Figtree',system-ui,sans-serif;
+  --sans:'Hanken Grotesk',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --disp:'Bricolage Grotesque','Hanken Grotesk',system-ui,sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
 }
 *{box-sizing:border-box}

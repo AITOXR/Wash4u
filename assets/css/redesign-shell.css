@@ -1,0 +1,175 @@
+/* ============================================================
+   Wash4You — 2026 redesign: SHELL layer
+   Owns the chrome shared by every page: the top utility strip, the
+   white nav (logo + links + Contact), the click-to-open Pricing
+   location dropdown, and the two-CTA + GST cart drawer footer.
+
+   Loaded LAST (after base/layout/ui/page/features/animations), so its
+   rules win at equal specificity without !important. Colours come only
+   from the brand tokens defined in base.css :root — nothing invented.
+
+   Local constant: --wa-green is a WhatsApp-recognisable green darkened
+   to 5.1:1 with white text (the bright #25D366 fails AA), used for the
+   secondary "Chat on WhatsApp" CTA so it reads distinct from the green
+   primary while staying legible.
+   ============================================================ */
+
+:root {
+  --wa-green:       #0c7d59;
+  --wa-green-hover: #0a6a4c;
+}
+
+/* ------------------------------------------------------------
+   req 2a — Top utility strip: brand-blue ground, everything white.
+   ------------------------------------------------------------ */
+.topbar { background: var(--brand-blue); color: #fff; }
+.topbar a { color: rgba(255, 255, 255, .92); }
+.topbar a:hover { color: #fff; }
+/* phone + area icons were brand-green; on the blue strip they read white */
+.topbar__phone svg,
+.topbar__area svg { color: #fff; }
+.topbar__socials a { color: rgba(255, 255, 255, .92); }
+
+/* req 2 — Contact is the prominent nav item: 18px semibold, white,
+   still vertically centred with the socials in the strip. */
+.topbar__link {
+  font-size: 1.125rem;   /* 18px */
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ------------------------------------------------------------
+   req 2 — Nav logo + link sizing on the white header.
+   Fixed height, width auto, object-fit:contain so the wordmark is
+   never stretched. 36px up to the desktop breakpoint, 48px on desktop.
+   ------------------------------------------------------------ */
+.header__logo img {
+  height: 2.25rem;       /* 36px — mobile / tablet */
+  width: auto;
+  object-fit: contain;
+}
+@media (min-width: 62rem) {
+  .header__logo img { height: 3rem; }   /* 48px — desktop */
+}
+
+/* Other main-nav links → 16px (was 15px). Applies to the Pricing toggle
+   button too, which carries .header__link. */
+.header__link { font-size: 1rem; }
+
+/* ------------------------------------------------------------
+   req 2b — Pricing "by area" click-to-open dropdown.
+   Replaces the hover mega for Pricing. Shown only when JS adds .is-open
+   to the wrapper (no :hover / :focus-within trigger). The inner content
+   reuses the .mega__lead / .mega__label / .mega__areas / .mega__area
+   styles from features.css; this layer owns the panel shell + toggle.
+   ------------------------------------------------------------ */
+.nav-locdrop { position: relative; }
+
+.nav-locdrop__toggle { cursor: pointer; }
+.nav-locdrop.is-open .header__caret { transform: rotate(180deg); }
+
+.nav-locdrop__panel {
+  position: absolute;
+  top: calc(100% + .55rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  z-index: 130;
+  width: min(24rem, 88vw);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--s-5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 180ms var(--ease-out),
+              transform 180ms var(--ease-out),
+              visibility 0s 180ms;
+}
+.nav-locdrop.is-open .nav-locdrop__panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  transition: opacity 180ms var(--ease-out),
+              transform 180ms var(--ease-out),
+              visibility 0s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-locdrop__panel { transition: none; }
+}
+
+/* ------------------------------------------------------------
+   req 8 — Cart summary: Subtotal / GST (18%) / Total (Total bold).
+   Replaces the old single "Estimated total" row.
+   ------------------------------------------------------------ */
+.cart-summary {
+  display: grid;
+  gap: var(--s-2);
+  margin: 0 0 var(--s-1);
+}
+.cart-summary dt,
+.cart-summary dd { margin: 0; }
+.cart-summary__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+.cart-summary__row dt { color: var(--ink-2); font-weight: 600; }
+.cart-summary__row dd {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.cart-summary__row--total {
+  margin-top: var(--s-1);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--line);
+}
+.cart-summary__row--total dt {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 104;
+  font-weight: 800;
+  color: var(--ink);
+}
+.cart-summary__row--total dd {
+  font-size: var(--t-lg);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------
+   req 9 — Two cart CTAs: Schedule (primary green) + Chat on WhatsApp.
+   Stacked full-width on mobile, side-by-side on desktop, equal width
+   (1fr 1fr) and equal height (grid rows stretch, shared min-height).
+   ------------------------------------------------------------ */
+.cart-cta {
+  display: grid;
+  gap: var(--s-2);
+  grid-template-columns: 1fr;   /* stacked — mobile */
+}
+@media (min-width: 30rem) {
+  .cart-cta { grid-template-columns: 1fr 1fr; }   /* side-by-side — desktop */
+}
+.cart-cta__btn {
+  min-height: 3.25rem;
+  padding: var(--s-2) var(--s-3);
+  font-size: 0.9375rem;
+  line-height: 1.15;
+  white-space: normal;
+  text-align: center;
+}
+/* Secondary — WhatsApp-recognisable green, white text + icon. */
+/* Secondary: WhatsApp-green outline so "Schedule pickup" reads as the single
+   filled primary and this doesn't compete with it as a second solid button. */
+.cart-cta__wa {
+  background: transparent;
+  color: var(--wa-green);
+  border: 1.5px solid var(--wa-green);
+  box-shadow: none;
+}
+.cart-cta__wa:hover,
+.cart-cta__wa:active { background: rgba(12, 125, 89, .08); }

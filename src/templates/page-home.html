@@ -3,8 +3,9 @@
 {% from "_components.html" import before_after, before_after_static, faq_list, review_card %}
 
 {% block preload %}
-  {# The mascot is the banner's LCP candidate — fetch it early. #}
-  <link rel="preload" as="image" href="{{ asset_path }}images/mascot-wash4you.png" fetchpriority="high">
+  {# The hero is live text (its headline is the LCP), so no image to preload —
+     just load this page's redesign stylesheet. #}
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-home.css">
 {% endblock %}
 
 {% block schema %},
@@ -25,43 +26,25 @@
 {% block content %}
 
 {# ============================================================
-   Banner — the happy-face hero. Mascot + headline + booking CTA.
+   Hero — live-text, on-brand. One consistent hero across breakpoints:
+   brand-blue band, white Bricolage headline with green keyword pills,
+   a single primary CTA, and the mascot. Keeps the `hero` class so the
+   mobile sticky-CTA + entrance guards (scroll.js / hero.js) resolve it.
    ============================================================ #}
-<section class="banner">
-  <div class="wrap banner__grid">
-    <div class="banner__copy">
-      <p class="banner__eyebrow reveal">{{ ui('pin', 14) }} <span{{ cms('home:banner.eyebrow') }}>{{ home.banner.eyebrow }}</span></p>
-      <h1 class="display-xl reveal reveal-delay-1">
-        <span{{ cms('home:banner.headline_line1') }}>{{ home.banner.headline_line1 }}</span><br><span{{ cms('home:banner.headline_line2') }}>{{ home.banner.headline_line2 }}</span>
-      </h1>
-      <p class="banner__sub reveal reveal-delay-2"{{ cms('home:banner.subheadline') }}>{{ home.banner.subheadline }}</p>
-
-      <ul class="banner__points reveal reveal-delay-3">
-        {% for point in home.banner.points %}
-        <li>{{ ui('check', 16) }} <span{{ cms('home:banner.points.' ~ loop.index0) }}>{{ point }}</span></li>
-        {% endfor %}
-      </ul>
-
-      <div class="btn-row reveal reveal-delay-3">
-        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener"{{ cms('home:banner.cta_label') }}>{{ home.banner.cta_label }}</a>
-        <a class="btn btn--ghost btn--lg" href="{{ root_path }}pricing/"{{ cms('home:banner.cta_secondary') }}>{{ home.banner.cta_secondary }}</a>
-      </div>
-
-      <div class="banner__trust reveal reveal-delay-4">
-        <span class="banner__stars" aria-hidden="true">
-          {% for _ in range(5) %}{{ ui('star', 16) }}{% endfor %}
-        </span>
-        <span{{ cms('home:banner.trust') }}>{{ home.banner.trust }}</span>
-      </div>
+<section class="hero home-hero">
+  <div class="wrap home-hero__inner">
+    <p class="home-hero__eyebrow">{{ ui('pin', 14) }} Gurugram · Delhi NCR</p>
+    <h1 class="home-hero__title">Premium <span class="kw">Dry Cleaning</span> &amp; Laundry with Free <span class="kw">Pickup &amp; Delivery</span></h1>
+    <p class="home-hero__sub">Eco-friendly laundry, dry cleaning and specialist fabric care. We collect from your door, count every piece with you, and deliver it back fresh — in 24 hours.</p>
+    <div class="home-hero__actions">
+      <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book Free Pickup</a>
+      <a class="btn home-hero__ghost btn--lg" href="{{ root_path }}pricing/">See Pricing</a>
     </div>
-
-    <div class="banner__art reveal reveal-delay-2">
-      <div class="banner__blob" aria-hidden="true"></div>
-      <img class="banner__mascot" src="{{ asset_path }}images/mascot-wash4you.png"
-           alt="Wash4You mascot smiling and holding a freshly cleaned white shirt"
-           width="560" height="560" fetchpriority="high" decoding="async"{{ cms('images/mascot-wash4you.png', 'file') }}>
-    </div>
+    <p class="home-hero__trust"><span class="home-hero__stars" aria-hidden="true">★★★★★</span> Trusted by 1000+ customers in Gurugram</p>
   </div>
+  <span class="home-hero__bubble home-hero__bubble--a" aria-hidden="true"></span>
+  <span class="home-hero__bubble home-hero__bubble--b" aria-hidden="true"></span>
+  <span class="home-hero__bubble home-hero__bubble--c" aria-hidden="true"></span>
 </section>
 
 {# ============================================================

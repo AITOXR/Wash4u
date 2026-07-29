@@ -1,0 +1,125 @@
+/* ============================================================
+   Wash4You — Areas We Serve (2026 redesign)
+
+   Owns the /locate-us/ page only: the full-bleed hero, the
+   embedded coverage map, and the keyword-highlight headings.
+   Loaded exclusively on page-locate-us.html via its
+   {% block preload %}.
+
+   All colour comes from the global brand tokens in base.css
+   :root — no invented values.
+   ============================================================ */
+
+/* ---- Keyword highlight ------------------------------------------------
+   The gidmgurugram heading pattern: the heading body sits in brand-blue
+   (or white on a dark ground) and the 2–3 most important keywords ride a
+   green rounded highlight. Dark ink on the brand green measures ≈6.2:1;
+   white on that hue would fail, so the pill text stays dark. */
+.kw {
+  background: var(--brand-green);
+  color: var(--ink);
+  padding: 0.04em 0.34em;
+  border-radius: 0.34em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  white-space: nowrap;
+}
+
+/* A lighter-touch variant: green TEXT, no pill — for secondary headings
+   where a second pill would over-crowd the ground. */
+.kw-text { color: var(--green); }
+
+/* ============================================================
+   Hero — full-bleed photo, navy overlay, white headline
+   ============================================================ */
+.areas-hero {
+  position: relative;
+  isolation: isolate;
+  color: #fff;
+  background:
+    linear-gradient(103deg, rgba(9, 22, 50, .90) 0%, rgba(9, 22, 50, .72) 52%, rgba(9, 22, 50, .60) 100%),
+    var(--areas-hero-img, none) center / cover no-repeat,
+    var(--navy-deep);
+  padding-block: clamp(3.25rem, 2.3rem + 5vw, 6.5rem);
+  border-bottom: 3px solid var(--brand-green);
+}
+
+.areas-hero__inner { max-width: 48rem; }
+
+/* Breadcrumbs and eyebrow need to flip to light on the dark ground.
+   Scoped under .areas-hero so they out-specify the base rules. */
+.areas-hero .crumbs { color: rgba(255, 255, 255, .72); }
+.areas-hero .crumbs a { color: #fff; }
+.areas-hero .crumbs a:hover { text-decoration: underline; }
+.areas-hero .crumbs span[aria-hidden] { color: rgba(255, 255, 255, .38); }
+
+.areas-hero .eyebrow { color: #bfe6cb; }
+.areas-hero .eyebrow::before { background: var(--brand-green); }
+
+.areas-hero__title {
+  color: #fff;
+  margin-bottom: var(--s-4);
+}
+
+.areas-hero .lede {
+  color: rgba(255, 255, 255, .9);
+  max-width: 40rem;
+}
+
+.areas-hero .btn-row { margin-top: var(--s-6); }
+
+/* Ghost buttons assume a light ground; recolour for the photo. */
+.areas-hero .btn--ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, .28);
+  background: rgba(255, 255, 255, .10);
+}
+.areas-hero .btn--ghost:hover {
+  border-color: rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, .18);
+}
+
+/* ============================================================
+   Coverage map
+   ============================================================ */
+.areas-map {
+  max-width: 1000px;
+  margin: 0 auto var(--s-7);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background: var(--wash-2);
+}
+.areas-map__frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+.areas-map__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+/* Give the map more height on narrow screens where 16:9 goes letterbox-thin. */
+@media (max-width: 40rem) {
+  .areas-map__frame { aspect-ratio: 4 / 3; }
+}
+
+/* ============================================================
+   Keyword headings on the areas section (light ground)
+   ============================================================ */
+.kw-head { color: var(--brand-blue); }
+
+.areas-list-title {
+  color: var(--brand-blue);
+  margin-bottom: var(--s-5);
+}
+
+.areas-note {
+  margin-top: var(--s-6);
+  font-size: var(--t-sm);
+  color: var(--ink-3);
+}

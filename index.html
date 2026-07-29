@@ -29,8 +29,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/images/mascot-wash4you.png" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/redesign-home.css">
 
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
@@ -38,6 +38,12 @@
   <link rel="stylesheet" href="assets/css/page.css">
   <link rel="stylesheet" href="assets/css/features.css">
   <link rel="stylesheet" href="assets/css/animations.css">
+
+  <link rel="stylesheet" href="assets/css/redesign-shell.css">
+  <link rel="stylesheet" href="assets/css/redesign-home.css">
+  <link rel="stylesheet" href="assets/css/redesign-pricing.css">
+  <link rel="stylesheet" href="assets/css/redesign-packages.css">
+  <link rel="stylesheet" href="assets/css/redesign-areas.css">
 
   <script type="application/ld+json">
   {
@@ -156,7 +162,6 @@
              aria-haspopup="true" aria-expanded="false">
             Services <span class="header__caret" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
           </a>
-
           <div class="mega mega--services" role="menu" aria-label="Services">
             <div class="mega__grid">
               <a class="mega__svc" role="menuitem" href="services/eco-friendly-laundry/">
@@ -238,33 +243,28 @@
             <a class="mega__all" role="menuitem" href="services/">All services <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
-        <div class="header__item has-dropdown" data-dropdown>
-          <a class="header__link header__link--parent" href="pricing/"
-             aria-haspopup="true" aria-expanded="false">
+        <div class="header__item nav-locdrop" data-locdrop>
+          <button class="header__link header__link--parent nav-locdrop__toggle" type="button"
+                  aria-haspopup="true" aria-expanded="false" data-locdrop-toggle>
             Pricing <span class="header__caret" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
-          </a>
-
-          <div class="mega mega--pricing" role="menu" aria-label="Pricing">
+          </button>
+          <div class="nav-locdrop__panel" role="menu" aria-label="Pricing by area" data-locdrop-panel>
             <a class="mega__lead" role="menuitem" href="pricing/">
               <strong>Full price list</strong>
               <span>Item-wise rates for all of Gurugram</span>
             </a>
             <p class="mega__label">Pricing by area</p>
             <div class="mega__areas">
-              <a class="mega__area" role="menuitem" href="pricing/sushant-lok/">Sushant Lok</a>
-              <a class="mega__area" role="menuitem" href="pricing/sector-49/">Sector 49</a>
-              <a class="mega__area" role="menuitem" href="pricing/cyber-city/">Cyber City</a>
-              <a class="mega__area" role="menuitem" href="pricing/dlf-phase-3/">DLF Phase 3</a>
-              <a class="mega__area" role="menuitem" href="pricing/golf-course-road/">Golf Course Road</a>
-              <a class="mega__area" role="menuitem" href="pricing/golf-course-extension/">Golf Course Extension</a>
-              <a class="mega__area" role="menuitem" href="pricing/sohna-road/">Sohna Road</a>
-              <a class="mega__area" role="menuitem" href="pricing/sector-29/">Sector 29</a>
-              <a class="mega__area" role="menuitem" href="pricing/palam-vihar/">Palam Vihar</a>
-              <a class="mega__area" role="menuitem" href="pricing/mg-road/">MG Road</a>
-            </div>
-            <div class="mega__foot">
-              <a class="mega__foot-link" role="menuitem" href="packages/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s1.2 5 3 6.8S21 12 21 12s-4.2 1.4-6 3.2S12 21 12 21s-1.2-4-3-5.8S3 12 3 12s4.2-1.4 6-3.2S12 3 12 3Z"/></svg> Packages</a>
-              <a class="mega__foot-link" role="menuitem" href="pricing/#download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"/></svg> Download PDF</a>
+              <a class="mega__area" role="menuitem" href="pricing/?location=sushant-lok">Sushant Lok</a>
+              <a class="mega__area" role="menuitem" href="pricing/?location=sector-49">Sector 49</a>
+              <a class="mega__area" role="menuitem" href="pricing/?location=cyber-city">Cyber City</a>
+              <a class="mega__area" role="menuitem" href="pricing/?location=dlf-phase-3">DLF Phase 3</a>
+              <a class="mega__area" role="menuitem" href="pricing/?location=golf-course-road">Golf Course Road</a>
+              <a class="mega__area" role="menuitem" href="pricing/?location=golf-course-extension">Golf Course Extension</a>
+              <a class="mega__area" role="menuitem" href="pricing/?location=sohna-road">Sohna Road</a>
+              <a class="mega__area" role="menuitem" href="pricing/?location=sector-29">Sector 29</a>
+              <a class="mega__area" role="menuitem" href="pricing/?location=palam-vihar">Palam Vihar</a>
+              <a class="mega__area" role="menuitem" href="pricing/?location=mg-road">MG Road</a>
             </div>
           </div>
         </div>
@@ -324,16 +324,16 @@
           <summary class="mobile-nav__link">Pricing <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="mobile-nav__sub">
             <a href="pricing/">Full price list</a>
-            <a href="pricing/sushant-lok/">Sushant Lok</a>
-            <a href="pricing/sector-49/">Sector 49</a>
-            <a href="pricing/cyber-city/">Cyber City</a>
-            <a href="pricing/dlf-phase-3/">DLF Phase 3</a>
-            <a href="pricing/golf-course-road/">Golf Course Road</a>
-            <a href="pricing/golf-course-extension/">Golf Course Extension</a>
-            <a href="pricing/sohna-road/">Sohna Road</a>
-            <a href="pricing/sector-29/">Sector 29</a>
-            <a href="pricing/palam-vihar/">Palam Vihar</a>
-            <a href="pricing/mg-road/">MG Road</a>
+            <a href="pricing/?location=sushant-lok">Sushant Lok</a>
+            <a href="pricing/?location=sector-49">Sector 49</a>
+            <a href="pricing/?location=cyber-city">Cyber City</a>
+            <a href="pricing/?location=dlf-phase-3">DLF Phase 3</a>
+            <a href="pricing/?location=golf-course-road">Golf Course Road</a>
+            <a href="pricing/?location=golf-course-extension">Golf Course Extension</a>
+            <a href="pricing/?location=sohna-road">Sohna Road</a>
+            <a href="pricing/?location=sector-29">Sector 29</a>
+            <a href="pricing/?location=palam-vihar">Palam Vihar</a>
+            <a href="pricing/?location=mg-road">MG Road</a>
             <a href="packages/">Packages</a>
           </div>
         </details>
@@ -351,40 +351,20 @@
 
   <main id="main">
 
-<section class="banner">
-  <div class="wrap banner__grid">
-    <div class="banner__copy">
-      <p class="banner__eyebrow reveal"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> <span>Gurugram · Delhi NCR</span></p>
-      <h1 class="display-xl reveal reveal-delay-1">
-        <span>Best dry cleaning &amp;</span><br><span>laundry in NCR.</span>
-      </h1>
-      <p class="banner__sub reveal reveal-delay-2">Eco-friendly laundry, dry cleaning and specialist fabric care. We collect from your door, count every piece with you, and deliver it back fresh.</p>
-
-      <ul class="banner__points reveal reveal-delay-3">
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg> <span>Free doorstep pickup &amp; delivery</span></li>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg> <span>Every piece counted with you</span></li>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg> <span>Eco-friendly, fabric-safe cleaning</span></li>
-      </ul>
-
-      <div class="btn-row reveal reveal-delay-3">
-        <a class="btn btn--cta btn--lg" href="https://app.wash4you.in/website/W10795?brand=WASH4U" rel="noopener">Book free pickup</a>
-        <a class="btn btn--ghost btn--lg" href="pricing/">See pricing</a>
-      </div>
-
-      <div class="banner__trust reveal reveal-delay-4">
-        <span class="banner__stars" aria-hidden="true">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7-6.2-3.5L5.8 21l1.4-7L2 9.4l7-.8Z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7-6.2-3.5L5.8 21l1.4-7L2 9.4l7-.8Z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7-6.2-3.5L5.8 21l1.4-7L2 9.4l7-.8Z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7-6.2-3.5L5.8 21l1.4-7L2 9.4l7-.8Z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7-6.2-3.5L5.8 21l1.4-7L2 9.4l7-.8Z"/></svg>        </span>
-        <span>Trusted by 1000+ customers in Gurugram</span>
-      </div>
+<section class="hero home-hero">
+  <div class="wrap home-hero__inner">
+    <p class="home-hero__eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Gurugram · Delhi NCR</p>
+    <h1 class="home-hero__title">Premium <span class="kw">Dry Cleaning</span> &amp; Laundry with Free <span class="kw">Pickup &amp; Delivery</span></h1>
+    <p class="home-hero__sub">Eco-friendly laundry, dry cleaning and specialist fabric care. We collect from your door, count every piece with you, and deliver it back fresh — in 24 hours.</p>
+    <div class="home-hero__actions">
+      <a class="btn btn--cta btn--lg" href="https://app.wash4you.in/website/W10795?brand=WASH4U" rel="noopener">Book Free Pickup</a>
+      <a class="btn home-hero__ghost btn--lg" href="pricing/">See Pricing</a>
     </div>
-
-    <div class="banner__art reveal reveal-delay-2">
-      <div class="banner__blob" aria-hidden="true"></div>
-      <img class="banner__mascot" src="assets/images/mascot-wash4you.png"
-           alt="Wash4You mascot smiling and holding a freshly cleaned white shirt"
-           width="560" height="560" fetchpriority="high" decoding="async">
-    </div>
+    <p class="home-hero__trust"><span class="home-hero__stars" aria-hidden="true">★★★★★</span> Trusted by 1000+ customers in Gurugram</p>
   </div>
+  <span class="home-hero__bubble home-hero__bubble--a" aria-hidden="true"></span>
+  <span class="home-hero__bubble home-hero__bubble--b" aria-hidden="true"></span>
+  <span class="home-hero__bubble home-hero__bubble--c" aria-hidden="true"></span>
 </section>
 
 <section class="section section--wash" id="why">
@@ -1072,14 +1052,29 @@ loading="lazy" decoding="async">
     <ul class="cart-drawer__body" data-cart-body></ul>
 
     <div class="cart-drawer__foot" data-cart-foot hidden>
-      <div class="cart-drawer__total">
-        <span>Estimated total</span>
-        <strong data-cart-total>₹0</strong>
+      <dl class="cart-summary">
+        <div class="cart-summary__row">
+          <dt>Subtotal</dt>
+          <dd data-cart-subtotal>₹0.00</dd>
+        </div>
+        <div class="cart-summary__row">
+          <dt>GST (18%)</dt>
+          <dd data-cart-gst>₹0.00</dd>
+        </div>
+        <div class="cart-summary__row cart-summary__row--total">
+          <dt>Total</dt>
+          <dd data-cart-total>₹0.00</dd>
+        </div>
+      </dl>
+      <p class="cart-drawer__note">Indicative estimate — ‘from’ items are priced after inspection.</p>
+      <div class="cart-cta">
+        <a class="btn btn--cta cart-cta__btn" href="https://app.wash4you.in/website/W10571?brand=WASH4U" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 2.4 1.8 3 .1 1 2.8 2.4 1.7-.9 2.9.9 2.9-2.4 1.7-1 2.8-3 .1L12 22l-2.4-1.8-3-.1-1-2.8L3.2 15.6l.9-2.9-.9-2.9 2.4-1.7 1-2.8 3-.1Z"/><path d="m9 12 2 2 4-4"/></svg> Schedule pickup
+        </a>
+        <a class="btn cart-cta__btn cart-cta__wa" data-cart-book href="https://wa.me/916367600500" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.4 3.4 0 0 0 5.8 9c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.6 4 8 8 0 0 0 1.6.6 3.7 3.7 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg> WhatsApp
+        </a>
       </div>
-      <p class="cart-drawer__note">Indicative — GST extra; ‘from’ items are priced after inspection.</p>
-      <a class="btn btn--cta btn--lg btn--block" data-cart-book href="https://wa.me/916367600500" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.4 3.4 0 0 0 5.8 9c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.6 4 8 8 0 0 0 1.6.6 3.7 3.7 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg> Book my pickup
-      </a>
       <button class="cart-drawer__clear" type="button" data-cart-clear>Clear list</button>
     </div>
   </aside>
@@ -1090,5 +1085,45 @@ loading="lazy" decoding="async">
   </div>
 
   <script src="assets/js/main.js" defer></script>
+
+  <script>
+  (function () {
+    var drops = document.querySelectorAll('[data-locdrop]')
+    if (!drops.length) return
+    var current = null
+    function shut(d) {
+      if (!d) return
+      d.classList.remove('is-open')
+      var t = d.querySelector('[data-locdrop-toggle]')
+      if (t) t.setAttribute('aria-expanded', 'false')
+      if (current === d) current = null
+    }
+    function openIt(d) {
+      var t = d.querySelector('[data-locdrop-toggle]')
+      d.classList.add('is-open')
+      if (t) t.setAttribute('aria-expanded', 'true')
+      current = d
+    }
+    drops.forEach(function (d) {
+      var t = d.querySelector('[data-locdrop-toggle]')
+      if (!t) return
+      t.addEventListener('click', function (e) {
+        e.preventDefault()
+        if (d.classList.contains('is-open')) shut(d)
+        else { if (current) shut(current); openIt(d) }
+      })
+    })
+    document.addEventListener('click', function (e) {
+      if (current && !current.contains(e.target)) shut(current)
+    })
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && current) {
+        var t = current.querySelector('[data-locdrop-toggle]')
+        shut(current)
+        if (t) t.focus()
+      }
+    })
+  })()
+  </script>
 </body>
 </html>

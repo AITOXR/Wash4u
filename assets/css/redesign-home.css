@@ -1,0 +1,111 @@
+/* ============================================================
+   Home hero — live, centered text on a brand-blue band. Matches the
+   pricing / areas hero pattern: white Bricolage headline with green
+   keyword pills, one primary CTA + a ghost secondary, a star trust line.
+   One consistent hero across breakpoints; restrained on-brand bubbles
+   give the band life without an image. All colours from base.css tokens.
+   ============================================================ */
+
+.hero.home-hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  padding: clamp(3rem, 2.2rem + 6vw, 6rem) 0;
+  border-bottom: 4px solid var(--brand-green);
+  background:
+    radial-gradient(90% 90% at 50% 0%, #2a6bb0 0%, rgba(42, 107, 176, 0) 60%),
+    linear-gradient(165deg, var(--brand-blue) 0%, var(--brand-blue-deep) 62%, var(--navy-deep) 100%);
+}
+
+.home-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 52rem;
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: #a8c9ec;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  margin: 0 0 1.1rem;
+}
+.home-hero__eyebrow svg { color: var(--brand-green); }
+
+.home-hero__title {
+  color: #fff;
+  font-size: clamp(2.1rem, 1.4rem + 3vw, 3.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.2rem;
+  text-wrap: balance;
+}
+.home-hero__title .kw {
+  background: var(--brand-green);
+  color: #fff;
+  border-radius: 0.24em;
+  padding: 0 0.22em;
+  box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}
+
+.home-hero__sub {
+  font-size: clamp(1.02rem, 0.96rem + 0.45vw, 1.2rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 46ch;
+  margin: 0 0 1.8rem;
+}
+
+.home-hero__actions {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.home-hero__ghost {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+}
+.home-hero__ghost:hover { background: rgba(255, 255, 255, 0.12); border-color: #fff; }
+
+.home-hero__trust {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+.home-hero__stars { color: #f4b400; letter-spacing: 0.06em; font-size: 1rem; }
+
+/* Restrained ambient bubbles — a soft nod to soap/wash, low opacity, off to
+   the edges so they never crowd the copy. */
+.home-hero__bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.04) 60%, rgba(255, 255, 255, 0) 72%);
+  pointer-events: none;
+  z-index: 1;
+}
+.home-hero__bubble--a { width: 200px; height: 200px; top: -50px; left: -40px; }
+.home-hero__bubble--b { width: 120px; height: 120px; bottom: 6%; left: 12%; }
+.home-hero__bubble--c { width: 260px; height: 260px; top: 8%; right: -70px; }
+
+@media (max-width: 600px) {
+  .home-hero__bubble--b { display: none; }
+  .home-hero__bubble--a { width: 130px; height: 130px; }
+  .home-hero__bubble--c { width: 170px; height: 170px; }
+}
+@media (prefers-reduced-motion: reduce) { .home-hero__bubble { opacity: 0.7; } }
+
+/* Visually-hidden helper. */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0); clip-path: inset(50%);
+  white-space: nowrap; border: 0;
+}
