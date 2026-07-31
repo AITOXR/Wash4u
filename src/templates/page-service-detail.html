@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui, care_tag, service_icon %}
-{% from "_components.html" import before_after, before_after_static, faq_list, review_card %}
+{% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card %}
 
 {% block schema %},
       {
@@ -159,7 +159,12 @@
       <p class="eyebrow">From our customers</p>
       <h2>What people said about this</h2>
     </div>
-    <div class="testimonial-rail-wrap">
+    <div class="testimonial-rail-wrap{% if testimonials.videos %} reviews-split{% endif %}">
+      {% if testimonials.videos %}
+      <div class="reviews-pinned">
+        {% for v in testimonials.videos %}{{ video_review_card(v, ui) }}{% endfor %}
+      </div>
+      {% endif %}
       <div class="review-rail testimonial-rail">
         {% for r in svc_reviews %}{{ review_card(r, asset_path) }}{% endfor %}
       </div>

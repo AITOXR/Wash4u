@@ -173,3 +173,132 @@
 }
 .cart-cta__wa:hover,
 .cart-cta__wa:active { background: rgba(12, 125, 89, .08); }
+
+/* ------------------------------------------------------------
+   Mobile menu — type scale and polish
+
+   layout.css sizes .mobile-nav__link at var(--t-xl), which resolves to
+   24.2px on a 390px phone, in Bricolage Grotesque 700 — the DISPLAY face
+   at headline size. Six of those stacked reads as a list of headlines
+   rather than a menu: heavy, cramped against the chevrons, and it pushed
+   the whole nav to 430px tall.
+
+   Reset to a real nav scale (17px, the size iOS/Android list rows use),
+   then spend the reclaimed space on things that make it feel considered:
+   calmer rows with proper tap targets, a legible parent/child hierarchy,
+   brand colour on the current page, and the sewn-label notch this site
+   uses everywhere else as its active marker.
+   ------------------------------------------------------------ */
+
+/* The panel body keeps its .wrap gutter — do not zero it. The footer CTA
+   shares this container, so removing the gutter full-bleeds the rows while
+   leaving the button inset, and the two left edges stop agreeing. Rows are
+   inset pills within the gutter instead, aligned to the logo and the CTA. */
+
+.mobile-nav__link {
+  position: relative;
+  /* 17px — was var(--t-xl) / 24.2px */
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+  /* 52px row: comfortably over the 44px tap-target floor, 20px shorter
+     than the 72px rows the display size forced */
+  min-height: 3.25rem;
+  padding: 0.85rem 0.7rem 0.85rem 0.7rem;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line-soft);
+  border-radius: var(--r-sm);
+  transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out);
+}
+
+/* The chevron/arrow was 1.25rem next to 24px text; at 17px it dominated. */
+.mobile-nav__link svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  color: var(--ink-3);
+  flex: none;
+  transition: color 160ms var(--ease-out);
+}
+
+/* Press feedback — phones have no hover, so :active is the only affordance. */
+.mobile-nav__link:active {
+  background-color: var(--navy-tint);
+  color: var(--navy);
+}
+.mobile-nav__link:active svg { color: var(--navy); }
+
+/* Current page: brand blue plus the garment-label stitch notch on the left,
+   the same device .tag uses. --brand-blue on --paper is 6.40:1. */
+.mobile-nav__link.is-active {
+  color: var(--brand-blue);
+  background-color: var(--navy-tint);
+}
+.mobile-nav__link.is-active::before {
+  content: '';
+  position: absolute;
+  left: -0.15rem;
+  top: 50%;
+  translate: 0 -50%;
+  width: 3px;
+  height: 1.4rem;
+  border-radius: 0 2px 2px 0;
+  background: var(--brand-blue);
+}
+.mobile-nav__link.is-active svg { color: var(--brand-blue); }
+
+/* ---- Accordion groups (Services) ----
+   The open group gets a tinted well so the sublist reads as contained
+   rather than as six more top-level rows. */
+.mobile-nav__group {
+  border-bottom: 1px solid var(--line-soft);
+  border-radius: var(--r-sm);
+  transition: background-color 180ms var(--ease-out);
+}
+.mobile-nav__group[open] { background: var(--wash); }
+.mobile-nav__group[open] > summary { color: var(--brand-blue); }
+.mobile-nav__group[open] > summary svg { color: var(--brand-blue); }
+
+/* ---- Child links ----
+   Must sit clearly below the parent: 15px vs 17px, lighter ink, and a
+   hairline spine so the indent reads as structure. --ink-2 is 9.0:1. */
+.mobile-nav__sub {
+  gap: 0;
+  margin-left: 1.15rem;
+  padding: 0.1rem 0 0.7rem;
+  border-left: 2px solid var(--line);
+}
+.mobile-nav__sub a {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink-2);
+  /* 40px rows — dense enough for 15 services, still a usable target */
+  min-height: 2.5rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  transition: background-color 140ms var(--ease-out), color 140ms var(--ease-out);
+}
+.mobile-nav__sub a:active {
+  background-color: var(--navy-tint);
+  color: var(--navy);
+}
+.mobile-nav__sub-all {
+  color: var(--brand-blue) !important;
+  font-weight: 700 !important;
+}
+
+/* A coloured seam under the logo bar so the panel is not an unbroken
+   white sheet — picks up the brand green rule used across the site. */
+.mobile-nav__top {
+  border-bottom: 1px solid var(--line);
+  box-shadow: inset 0 -3px 0 -1px var(--brand-green);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav__link,
+  .mobile-nav__link svg,
+  .mobile-nav__group,
+  .mobile-nav__sub a { transition: none; }
+}

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Wash4You static site generator."""
 
+from __future__ import annotations
+
 import html
 import json
 import os

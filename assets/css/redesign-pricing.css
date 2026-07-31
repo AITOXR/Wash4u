@@ -238,9 +238,21 @@
 
 /* Req 3 — filled green "Add to Cart" button, full width, consistent height.
    The data-* hooks and the button element are untouched (cart.js re-renders
-   this same element); only its look and label change. The visible label is
-   completed to "Add to Cart" via ::after so it stays correct in BOTH the
-   server-rendered state and after cart.js re-renders the control to " Add". */
+   this same element); only its look changes here, never its label.
+
+   This block used to finish the label with
+       .price-card__add::after { content: "\00a0to\00a0Cart" }
+   from a time when the button's own text was just "Add". Both writers now
+   emit the whole label already — page-pricing.html and cart.js's
+   renderCardControl() both say "Add to Cart" — so that pseudo-element was
+   appending a second copy and the button read "Add to Cart to Cart".
+
+   It was also mis-escaped. A CSS hex escape consumes up to six hex digits,
+   so "\00a0Cart" parsed as \00A0C ("C" swallowed into the codepoint)
+   followed by "art" — the computed value was literally " toꃊrt", which is
+   the garbled glyph that showed on every card. Terminating the escape
+   ("\00a0 Cart") would have fixed the mojibake but kept the duplication,
+   so the rule is gone entirely. The label belongs to the markup. */
 .pricing-page .price-card__add {
   width: 100%;
   min-height: 2.9rem;
@@ -262,7 +274,6 @@
   height: 1rem;
   margin-right: var(--s-2);
 }
-.pricing-page .price-card__add::after { content: "\00a0to\00a0Cart"; }
 .pricing-page .price-card__add:hover { background: var(--green-deep); color: #fff; }
 .pricing-page .price-card__add:active { transform: translateY(1px); }
 

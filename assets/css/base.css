@@ -258,6 +258,13 @@ strong, b { font-weight: 700; color: var(--ink); }
 .section--navy { background: var(--navy-deep); color: rgba(255,255,255,.9); }
 .section--navy h1, .section--navy h2, .section--navy h3, .section--navy h4 { color: #fff; }
 .section--navy .eyebrow { color: #8fb4ff; }
+/* .section-head p sets --ink-2 (line 276) and out-specifies the .section--navy
+   `color` above, so the lede under every dark-band heading was #3d4a60 on
+   #0d2350 — 1.71:1, i.e. invisible. This is 12.1:1. */
+/* :not(.eyebrow) — the eyebrow is also a <p> inside .section-head, and this
+   rule loads after the #8fb4ff one above, so an unqualified selector turned
+   every dark-band eyebrow white. */
+.section--navy .section-head p:not(.eyebrow) { color: rgba(255, 255, 255, .84); }
 
 /* A hairline that reads as a stitched seam rather than a border. */
 .seam {

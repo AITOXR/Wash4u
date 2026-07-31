@@ -16,10 +16,13 @@
 
 import { initReveal } from './motion/reveal.js'
 import { initHero } from './motion/hero.js'
+import { initHeroSlides } from './motion/heroSlides.js'
+import { initFlowRail } from './motion/flowRail.js'
 import { initScroll } from './motion/scroll.js'
 import { initUI } from './motion/ui.js'
 import { initBeforeAfter } from './ba.js'
 import { initCart } from './cart.js'
+import { initReviewModal } from './reviewModal.js'
 
 const boot = (name, fn) => {
   try {
@@ -78,6 +81,9 @@ boot('contact-form', initContactForm)
 boot('before-after', initBeforeAfter)
 boot('cart', () => initCart(document))
 boot('hero', initHero)
+boot('hero-slides', initHeroSlides)
+boot('flow-rail', initFlowRail)
 boot('reveal', initReveal)
 boot('scroll', initScroll)
 boot('ui', initUI)
+boot('review-modal', initReviewModal)

@@ -94,13 +94,55 @@
 {% endmacro %}
 
 
+{# ----------------------------------------------------------------------------
+   Video review card — the pinned first card(s) of the reviews rail.
+
+   No iframe here. Embedding YouTube on page load pulls ~1MB of third-party
+   script and sets cookies for every visitor who never presses play, so this
+   is a facade: YouTube's own poster frame plus a play button, and
+   reviewModal.js swaps in the real player — in the popup, on click.
+
+   oardefault.jpg is used, not hqdefault.jpg: for a Short, hqdefault is the
+   480x360 16:9 crop, while oardefault is the true 1080x1920 vertical frame.
+
+   The <noscript> link is the whole fallback: with no bundle there is no
+   player to open, so the card becomes a plain link to YouTube.
+   --------------------------------------------------------------------------- #}
+{% macro video_review_card(v, ui) %}
+<article class="review review--video" data-video-id="{{ v.id }}" data-video-title="{{ v.title }}">
+  <button type="button" class="review__play" aria-label="Play video: {{ v.title }}">
+    <img class="review__poster" src="https://i.ytimg.com/vi/{{ v.id }}/oardefault.jpg"
+         alt="" width="1080" height="1920" loading="lazy" decoding="async"
+         referrerpolicy="no-referrer">
+    <span class="review__play-badge" aria-hidden="true">{{ ui('play', 22) }}</span>
+  </button>
+  <div class="review__who">
+    <span class="review__video-mark" aria-hidden="true">{{ ui('youtube', 20) }}</span>
+    <div>
+      <div class="review__name">{{ v.title }}</div>
+      <div class="review__meta">{{ ui('check-badge', 14) }} {{ v.attribution }}</div>
+    </div>
+  </div>
+  <noscript><a class="review__more" href="{{ v.url }}" target="_blank" rel="noopener">Watch on YouTube</a></noscript>
+</article>
+{% endmacro %}
+
 {% macro review_card(r, asset_path) %}
 <article class="review">
   <span class="review__stars" aria-label="{{ r.rating }} out of 5 stars">
     {% for _ in range(r.rating) %}{{ ui('star', 16) }}{% endfor %}
   </span>
-  <blockquote>&ldquo;{{ r.quote }}&rdquo;</blockquote>
-  {% if r.quote_en %}<p class="review__translation">{{ r.quote_en }}</p>{% endif %}
+  {# The quote is clamped to three lines by CSS — but only under `.js`, so
+     with no bundle the full text still renders and nothing is unreachable.
+     The button is hidden in the markup and revealed by reviewModal.js only
+     for the cards whose text is ACTUALLY overflowing, measured in the
+     browser. A server-side character-count guess would show it on cards
+     that fit and miss cards that don't.
+
+     quote_en used to render here as .review__translation. Removed on
+     request — the field is left in testimonials.json so nothing is lost. #}
+  <blockquote class="review__quote">&ldquo;{{ r.quote }}&rdquo;</blockquote>
+  <button type="button" class="review__more" hidden>Read more</button>
   <div class="review__who">
     {% if r.photo %}
     <img src="{{ asset_path }}{{ r.photo }}" alt="{{ r.alt }}" width="44" height="44" loading="lazy" decoding="async">

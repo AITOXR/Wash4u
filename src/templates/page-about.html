@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui %}
-{% from "_components.html" import review_card %}
+{% from "_components.html" import review_card, video_review_card %}
 
 {% block schema %},
       {
@@ -89,7 +89,12 @@
       <p class="eyebrow">From our customers</p>
       <h2>Trusted by 1000+ customers in Gurugram</h2>
     </div>
-    <div class="testimonial-rail-wrap">
+    <div class="testimonial-rail-wrap{% if testimonials.videos %} reviews-split{% endif %}">
+      {% if testimonials.videos %}
+      <div class="reviews-pinned">
+        {% for v in testimonials.videos %}{{ video_review_card(v, ui) }}{% endfor %}
+      </div>
+      {% endif %}
       <div class="review-rail testimonial-rail">
         {% for r in testimonials['items'] if r.photo %}{{ review_card(r, asset_path) }}{% endfor %}
       </div>

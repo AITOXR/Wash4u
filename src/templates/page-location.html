@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_icons.html" import ui, care_tag, service_icon %}
+{% from "_icons.html" import ui, care_tag, service_icon, service_bg %}
 {% from "_components.html" import faq_list, review_card %}
 
 {% block schema %},
@@ -97,7 +97,8 @@
     </div>
     <div class="svc-grid stagger-children">
       {% for s in services.services[:9] %}
-      <article class="svc">
+      <article class="svc svc--art">
+        {{ service_bg(s.slug) }}
         <span class="svc__icon">{{ service_icon(s.slug, 36) }}</span>
         <h3><a class="svc__link" href="{{ root_path }}services/{{ s.slug }}/">{{ s.name }}</a></h3>
         <p>{{ s.short_description }}</p>

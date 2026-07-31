@@ -1,0 +1,211 @@
+/* ============================================================
+   Wash4You — service card background vectors
+   "What we clean" (home) and the full services grid.
+
+   Each .svc card carries a large line-art scene of the thing it
+   cleans, drawn by service_bg() in _icons.html. It sits in the
+   bottom-right corner and bleeds off the card edge, so it reads
+   as a watermark behind the copy rather than a second icon
+   competing with .svc__icon.
+
+   Rules it has to obey:
+     - never touch the text contrast: it lives under the content,
+       tinted at a low alpha of the brand navy;
+     - never intercept the card's click target;
+     - never reflow anything — it is absolutely positioned and the
+       card reserves no space for it.
+   ============================================================ */
+
+/* .svc is also the blog-post card, which has no watermark — so the
+   clipping is opted into by .svc--art rather than applied to every
+   card that happens to share the shell. */
+.svc--art {
+  /* the vector bleeds past the corner; the radius does the trimming */
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.svc__bg {
+  position: absolute;
+  /* Only a sliver leaves the card. Bleeding hard looks arbitrary —
+     the shoe becomes a hill, the cap becomes a curve — so the corner
+     just clips the outline rather than eating half the drawing. */
+  right: -5%;
+  bottom: -7%;
+  width: 54%;
+  max-width: 10.5rem;
+  height: auto;
+  z-index: 0;
+  color: var(--navy);
+  opacity: 0.11;
+  pointer-events: none;
+  transform-origin: 88% 88%;
+  transition:
+    opacity 320ms var(--ease-out),
+    transform 420ms var(--ease-out),
+    color 320ms var(--ease-out);
+}
+
+/* Lift every real child of the card above the watermark. The
+   ::after click overlay on .svc__link rides along with its h3. */
+.svc--art > *:not(.svc__bg) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Contrast, which is what actually constrains this ----------
+   The card blurb is --ink-3 (#677283). That measures 4.94:1 on
+   white — it clears 4.5:1, but only by 0.44. A watermark stroke
+   passing behind a line of it darkens the local ground enough to
+   push it under: navy at just 6% alpha already lands the text at
+   4.43:1, and at the 11% used here it is 4.06:1. There is no
+   opacity that is both visible and safe against --ink-3.
+
+   So the blurb moves to --ink-2, the site's own body-copy token.
+   On white that is 9.0:1, and under the darkest point of the
+   watermark it still holds 7.4:1 — the drawing can be seen and
+   the text never drops below the floor. Headings are --ink and
+   the care tag paints an opaque --paper background, so neither
+   needed changing.                                              */
+.svc--art p { color: var(--ink-2); }
+
+/* Fade the drawing out as it approaches the copy. Full strength
+   is spent in the empty bottom-right corner where nothing sits;
+   by the top-left, where the blurb runs, it is a third of that.
+   Belt and braces on top of the colour change above.            */
+.svc__bg {
+  -webkit-mask-image: linear-gradient(135deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.72) 42%, #000 78%);
+  mask-image: linear-gradient(135deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.72) 42%, #000 78%);
+}
+
+/* ---- Alternating tint ------------------------------------------
+   Nine cards of identical navy watermark reads as wallpaper. Every
+   third card takes the brand green instead, which breaks the grid
+   into a rhythm without introducing a colour that is not ours.
+   Both are non-text graphics at <15% alpha, so the 4.5:1 floor
+   does not apply and the copy above them is unaffected.          */
+.svc--art:nth-child(3n - 1) .svc__bg { color: var(--green-brand); opacity: 0.13; }
+.svc--art:nth-child(3n) .svc__bg { color: var(--brand-blue); opacity: 0.12; }
+
+/* ============================================================
+   Hover / focus — the card fills with the CTA green and lifts.
+   ============================================================
+
+   THE LIFT USES `translate`, NOT `transform`, AND THAT IS LOAD-BEARING.
+   These cards are `.stagger-children > *`, and reveal.js animates them in
+   on `transform` (tokens.js: `transform: ['translateY(24px)','none']`),
+   commits the final value inline, then clears it. animations.css spells
+   out the consequence: a live CSS transition on `transform` for one of
+   these targets re-fires on that release and visibly slides the card
+   back. The independent `translate` property is never touched by Motion,
+   so it composes with the reveal instead of fighting it.
+
+   THE FILL IS --green-cta, NOT --green-brand. The logo green (#21b14b)
+   gives white text 2.82:1. --green-cta (#198639) is the darkened green
+   base.css already defines for exactly this job — a green ground under
+   white text — and it is what every "Book free pickup" button on the
+   site is painted with, so the card lands on a colour users already
+   read as the Wash4You action colour. White on it is 4.71:1.
+
+   A solid colour, not a gradient: background-image does not interpolate,
+   so a gradient would snap on and off while everything else eased.     */
+.svc--art {
+  transition:
+    background-color 260ms var(--ease-out),
+    border-color 260ms var(--ease-out),
+    box-shadow 300ms var(--ease-out),
+    translate 300ms var(--ease-out);
+}
+
+.svc--art:hover,
+.svc--art:focus-within {
+  background-color: var(--green-cta);
+  border-color: var(--green-cta);
+  /* the green cast of --shadow-cta under the CTA-green card, over a
+     neutral lift shadow that gives it height off the page */
+  box-shadow: var(--shadow-cta), var(--shadow-lg);
+  translate: 0 -6px;
+}
+
+/* Everything on the card inverts to white. Pure #fff, not a translucent
+   white: at 90% alpha the blurb would drop to 4.0:1 against this ground. */
+.svc--art:hover .svc__icon,
+.svc--art:focus-within .svc__icon,
+.svc--art:hover h3,
+.svc--art:focus-within h3,
+.svc--art:hover p,
+.svc--art:focus-within p { color: #fff; }
+
+/* The care tag is a white chip at rest. On green it becomes an outlined
+   one, keeping the sewn-label notch on its left edge. */
+.svc--art .tag {
+  transition:
+    background-color 260ms var(--ease-out),
+    border-color 260ms var(--ease-out),
+    color 260ms var(--ease-out);
+}
+.svc--art:hover .tag,
+.svc--art:focus-within .tag {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.42);
+  border-left-color: #fff;
+  color: #fff;
+}
+.svc--art:hover .tag__symbols svg,
+.svc--art:focus-within .tag__symbols svg { stroke: #fff; }
+
+/* The watermark goes DARK on the green, not light — this is the whole
+   reason the hover state is safe. White text on --green-cta has 4.71:1
+   and no headroom, so a lightening watermark would push it under (white
+   at 19% lands 3.4:1). Deepening the ground instead moves it the other
+   way: under the drawing the blurb reads 6.7:1, better than the flat
+   green around it. Placed after the nth-child tints so it wins.       */
+.svc--art:hover .svc__bg,
+.svc--art:focus-within .svc__bg {
+  color: #05230f;
+  opacity: 0.28;
+  transform: scale(1.06) rotate(-2deg);
+}
+
+/* The global focus ring is navy, which is 2.6:1 on this green — under
+   the 3:1 a focus indicator needs. On the filled card it turns white. */
+.svc--art:focus-within :focus-visible { outline-color: #fff; }
+
+/* ---- Small screens ---------------------------------------------
+   One card per column means the card is wide and short, so the
+   same 62% would swamp the copy. Pull it in and down.            */
+@media (max-width: 40rem) {
+  .svc__bg {
+    width: 40%;
+    max-width: 8rem;
+    right: -4%;
+    bottom: -8%;
+    opacity: 0.10;
+  }
+  .svc--art:nth-child(3n - 1) .svc__bg { opacity: 0.12; }
+  .svc--art:nth-child(3n) .svc__bg { opacity: 0.11; }
+}
+
+/* Reduced motion keeps the colour change — that is information, not
+   decoration — and drops the travel and the scale. */
+@media (prefers-reduced-motion: reduce) {
+  .svc__bg { transition: opacity 320ms linear, color 320ms linear; }
+  .svc--art {
+    transition:
+      background-color 260ms linear,
+      border-color 260ms linear,
+      box-shadow 260ms linear;
+  }
+  .svc--art:hover,
+  .svc--art:focus-within { translate: none; }
+  .svc--art:hover .svc__bg,
+  .svc--art:focus-within .svc__bg { transform: none; }
+}
+
+/* Print and forced-colours: a watermark is noise in both. */
+@media print {
+  .svc__bg { display: none; }
+}
+@media (forced-colors: active) {
+  .svc__bg { display: none; }
+}

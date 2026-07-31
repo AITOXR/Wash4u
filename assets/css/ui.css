@@ -412,7 +412,373 @@
   font-weight: 500;
   flex: 1;
 }
-.review__translation { font-size: var(--t-sm); color: var(--ink-3); font-style: italic; }
+
+/* ---- Short cards + read-more -------------------------------------------
+   The cards were as tall as their longest quote, and one 143-character
+   review set the height for all nine. The quote is clamped to three lines
+   and the rest moves into a popup.
+
+   Gated on `.js`. Without the bundle there is no popup to open, so
+   clamping would make the tail of a long review unreachable — no-JS gets
+   the full quote and a taller card, which is the correct trade.
+
+   `flex: 0 1 auto` overrides the `flex: 1` above: with flex-grow the
+   clamped block still stretched to fill the card and the saving vanished. */
+.js .review__quote {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  flex: 0 1 auto;
+}
+
+/* Pushes .review__who to the bottom now that the quote no longer grows. */
+.js .review__who { margin-top: auto; }
+
+.review__more {
+  align-self: flex-start;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--brand-blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.review__more:hover { color: var(--navy); }
+
+/* The whole card is tappable (reviewModal.js), so show the affordance on
+   the card rather than only on the 80px of underlined text. */
+.review.is-clamped { cursor: pointer; }
+/* White, not --navy: hovering the card now fills it green, where --navy
+   measures 2.63:1. This selector is (0,3,0) and out-specifies the
+   .review:hover .review__more rule below, so it has to carry the value
+   itself rather than be left to inherit the fix. */
+.review.is-clamped:hover .review__more { color: #fff; }
+
+/* ---- Review popup ----
+   A native <dialog>, built once by reviewModal.js and reused for every
+   card, so nine reviews do not mean nine hidden copies in the HTML. */
+.review-dialog {
+  width: min(34rem, calc(100vw - 2rem));
+  max-height: min(80vh, 40rem);
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 24px 60px rgba(16, 27, 46, 0.28);
+  overflow: hidden;
+}
+.review-dialog::backdrop { background: rgba(16, 27, 46, 0.55); }
+.review-dialog__body {
+  padding: var(--s-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  overflow-y: auto;
+  max-height: min(80vh, 40rem);
+}
+.review-dialog__body .review__quote,
+.review-dialog blockquote {
+  /* Never clamped in the popup — that is the whole point of it. */
+  display: block;
+  -webkit-line-clamp: none;
+  overflow: visible;
+  font-size: var(--t-lg);
+  line-height: 1.55;
+  margin: 0;
+}
+.review-dialog__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--wash-2);
+  color: var(--ink-2);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.review-dialog__close:hover { background: var(--line); color: var(--ink); }
+
+/* ---- Review hover: green fill + lift ------------------------------------
+   Gated on real hover so a tap on a phone cannot leave a card stuck green.
+
+   The one genuinely hard part is the green meta line ("VERIFIED CUSTOMER /
+   GURUGRAM"). Asked to turn blue on hover, it cannot simply be recoloured:
+   blue and green sit close in luminance, so --navy on --green-cta measures
+   3.03:1 and --navy-deep only 3.40:1, both under the 4.5:1 floor for text
+   this small. Reversing it onto a white chip gives real blue at 12.24:1 and
+   reads as the verification badge it already is.
+   ------------------------------------------------------------------------ */
+@media (hover: hover) and (pointer: fine) {
+  .review {
+    transition:
+      background-color 240ms var(--ease-out),
+      border-color 240ms var(--ease-out),
+      box-shadow 280ms var(--ease-out),
+      translate 280ms var(--ease-out);
+  }
+
+  .review:hover,
+  .review:focus-within {
+    /* #198639, not the logo green: white text on it is 4.66:1, the bright
+       #21b14b only 2.82:1. */
+    background: var(--green-cta);
+    border-color: var(--green-cta);
+    box-shadow: 0 14px 30px rgba(16, 27, 46, 0.22);
+    translate: 0 -6px;
+  }
+
+  .review:hover .review__quote,
+  .review:focus-within .review__quote,
+  .review:hover .review__name,
+  .review:focus-within .review__name { color: #fff; }
+
+  /* Amber on green is 1.74:1 — below even the 3:1 non-text floor. */
+  .review:hover .review__stars,
+  .review:focus-within .review__stars { color: #fff; }
+
+  /* The green line, now blue — reversed onto white so the blue is legible. */
+  .review:hover .review__meta,
+  .review:focus-within .review__meta {
+    color: var(--navy);
+    background: #fff;
+    border-radius: var(--r-pill);
+    /* .review__meta is display:flex in a block parent, so without this the
+       chip stretched the full card width instead of hugging its label. */
+    width: fit-content;
+    padding: 0.15rem 0.5rem;
+    /* Negative margins cancel the padding on both axes, so appearing on hover
+       cannot change the row's height or its left alignment — the card content
+       would otherwise jump every time the pointer crossed it. */
+    margin: -0.15rem 0 -0.15rem -0.5rem;
+  }
+  .review:hover .review__meta svg,
+  .review:focus-within .review__meta svg { color: var(--navy); }
+
+  /* --brand-blue on green is 3.03:1 and this is a control, so it goes white
+     and keeps its underline to stay identifiable as one. */
+  .review:hover .review__more,
+  .review:focus-within .review__more { color: #fff; }
+
+  /* The avatar sits on the green now, so the pale ring around it would read
+     as a halo. */
+  .review:hover .review__who img,
+  .review:focus-within .review__who img { background: rgba(255, 255, 255, 0.22); }
+
+  /* The video card is a photo tile — a green wash over it would just muddy
+     the poster, and it has its own poster/badge hover already. */
+  .review--video:hover,
+  .review--video:focus-within {
+    background: var(--paper);
+    border-color: var(--line);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review { transition: background-color 240ms linear, border-color 240ms linear; }
+  .review:hover, .review:focus-within { translate: none; }
+}
+
+/* ---- Pinned video + scrolling reviews ----------------------------------
+   Card one sits on the left and never moves; cards two to n scroll as a
+   carousel beside it. Two independent tracks, at EVERY width.
+
+   The pinned card is deliberately NOT a child of .review-rail — inside the
+   scroll container it would scroll away with the quotes, and
+   `position: sticky` would keep it visible only by having the other cards
+   slide underneath it.
+   ------------------------------------------------------------------------ */
+.reviews-split {
+  display: grid;
+  /* Percentage on the first track, not a fixed rem: on a 390px phone a fixed
+     21rem column leaves the rail ~90px. 40% keeps both tracks usable, and
+     min() caps the card once there is room so it never becomes a billboard. */
+  grid-template-columns: min(40%, 21rem) minmax(0, 1fr);
+  gap: var(--s-4);
+  align-items: stretch;
+}
+@media (min-width: 62rem) {
+  /* 21rem matches the rail's own card width, so the pinned card reads as one
+     of the set rather than a sidebar. */
+  .reviews-split { grid-template-columns: 21rem minmax(0, 1fr); gap: var(--s-5); }
+}
+
+/* .review-rail bleeds to BOTH screen edges with a negative inline margin. The
+   left bleed would slide the first quote under the pinned card, so only the
+   right one survives here — that is also what makes the next card peek. */
+.reviews-split .review-rail {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* The rail's default track is minmax(17.5rem, 20rem) — 280px minimum, which
+   is wider than the whole rail column on a phone once 40% has gone to the
+   pinned card. Sizing the track off the column instead keeps exactly one
+   quote in view with the next one peeking. */
+@media (max-width: 61.99rem) {
+  /* A single value, not minmax(0, 92%): minmax sizes to max-content clamped
+     into the range, and with a 0 floor every track collapsed to its
+     min-content width — 50px cards. */
+  .reviews-split .review-rail { grid-auto-columns: 92%; }
+}
+
+/* align-items: stretch gives this column the row's height; the card fills it,
+   so the pinned card and the rail cards always end on the same line.
+
+   padding-bottom mirrors .review-rail's own --s-2 scrollbar gutter. Without
+   it the rail's cards sit 8px shorter than the pinned card and the two
+   columns end on different lines. */
+.reviews-pinned {
+  display: flex;
+  min-width: 0;
+  padding-bottom: var(--s-2);
+}
+.reviews-pinned .review { width: 100%; }
+
+/* Tablet — the card still fits its caption, just tighter. */
+@media (min-width: 48rem) and (max-width: 61.99rem) {
+  .reviews-pinned .review__play { min-height: 8rem; }
+  .reviews-pinned .review__who { padding: var(--s-3) var(--s-4) var(--s-4); }
+}
+
+/* Phone — poster only. At ~140px of card width the caption wrapped to four
+   lines and "ON LOCATION, GURUGRAM" broke across three, which pushed the
+   whole row to 310px tall to accommodate text nobody can comfortably read.
+   The card becomes a pure video tile: the title still reaches screen readers
+   through the play button's aria-label, and it is shown in the popup.
+
+   The pinned track also drops to 33% here so the quote beside it gets a
+   usable measure. */
+@media (max-width: 47.99rem) {
+  .reviews-split { grid-template-columns: min(33%, 11rem) minmax(0, 1fr); }
+  .reviews-pinned .review__who { display: none; }
+  .reviews-pinned .review__play { min-height: 100%; }
+  /* Cover the whole tile rather than a band: with the full card height to
+     work with, the 9:16 frame is close to its native shape. */
+  .reviews-pinned .review__poster { object-position: center 38%; }
+  /* 3.25rem covered a third of a 117px-wide tile. */
+  .reviews-pinned .review__play-badge { width: 2.5rem; height: 2.5rem; }
+  .reviews-pinned .review__play-badge svg { width: 16px; height: 16px; }
+}
+
+/* ---- Video review card (pinned first in the rail) ----------------------
+   Same shell as a text review so the rail stays visually uniform: same
+   width, same border, same height. Only the contents differ. */
+.review--video { padding: 0; overflow: hidden; }
+
+/* The poster is a button, not a decorated div — it is the control that
+   opens the player, so it must be focusable and announced as such. */
+.review__play {
+  position: relative;
+  display: block;
+  width: 100%;
+  /* flex-basis 0 + min-height, NOT `flex: 1` alone. The poster is 1080x1920,
+     so with an auto basis the button's intrinsic height was the image's and
+     the video card set the height of the whole rail — every text card went
+     from 262px to 603px. The poster is taken out of flow below, which leaves
+     this button with no intrinsic height at all: the row is sized by the text
+     cards, and the poster fills whatever height the button is given.
+     min-height is the floor for the case where a rail holds only videos. */
+  flex: 1 1 0;
+  min-height: 7rem;
+  padding: 0;
+  border: 0;
+  background: var(--navy-deep);
+  cursor: pointer;
+  overflow: hidden;
+}
+.review__poster {
+  /* Absolute so its 9:16 intrinsic size never feeds back into the layout. */
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* The Short is 9:16 and the card is landscape, so only a horizontal band of
+     the frame survives. 44% down is where a talking-head vertical puts the
+     subject's face — 32% cut through the burnt-in caption instead. A generic
+     default: override per video only if one crops badly. */
+  object-position: center 44%;
+  transition: transform 320ms var(--ease-out);
+}
+.review--video:hover .review__poster { transform: scale(1.04); }
+
+.review__play-badge {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 3.25rem;
+  height: 3.25rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  /* YouTube red is recognisable and unambiguous as "video" here; it is a
+     non-text mark, so it carries no contrast requirement of its own. */
+  background: #ff0033;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  padding-left: 3px;   /* optical centring — a triangle's visual mass sits left */
+  transition: transform 200ms var(--ease-out);
+}
+.review--video:hover .review__play-badge { transform: scale(1.08); }
+
+/* The attribution row sits back inside the padding the card gave up. */
+.review--video .review__who {
+  margin: 0;
+  padding: var(--s-4) var(--s-5) var(--s-5);
+}
+.review__video-mark { color: #ff0033; display: inline-flex; flex: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .review__poster, .review__play-badge { transition: none; }
+  .review--video:hover .review__poster,
+  .review--video:hover .review__play-badge { transform: none; }
+}
+
+/* ---- The player, inside the popup ----
+   9:16 so a Short is never letterboxed, capped by height so it cannot grow
+   past the viewport on a laptop. */
+.review-dialog__video {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  max-height: 70vh;
+  margin-inline: auto;
+  background: #000;
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.review-dialog__video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+/* A vertical video in a 34rem-wide dialog would be taller than any screen,
+   so the video popup is narrower than the quote popup. */
+.review-dialog--video { width: min(24rem, calc(100vw - 2rem)); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .review-dialog[open] { animation: review-pop 180ms var(--ease-out); }
+  @keyframes review-pop {
+    from { opacity: 0; transform: translateY(8px) scale(0.98); }
+    to   { opacity: 1; transform: none; }
+  }
+}
 
 .review__who { display: flex; align-items: center; gap: var(--s-3); margin-top: var(--s-2); }
 .review__who img {

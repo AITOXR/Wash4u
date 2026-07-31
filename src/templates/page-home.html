@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% from "_icons.html" import ui, care_symbol, care_tag, service_icon %}
-{% from "_components.html" import before_after, before_after_static, faq_list, review_card %}
+{% from "_icons.html" import ui, care_symbol, care_tag, service_icon, service_bg %}
+{% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card %}
 
 {% block preload %}
   {# The hero is live text (its headline is the LCP), so no image to preload —
@@ -26,15 +26,33 @@
 {% block content %}
 
 {# ============================================================
-   Hero — live-text, on-brand. One consistent hero across breakpoints:
-   brand-blue band, white Bricolage headline with green keyword pills,
-   a single primary CTA, and the mascot. Keeps the `hero` class so the
-   mobile sticky-CTA + entrance guards (scroll.js / hero.js) resolve it.
+   Hero — two supplied banners crossfading behind live text.
+
+   The headline, sub, CTAs, trust line and offer badge are all real
+   editable text; the images carry no words. Both banners are composed
+   the same way — subject right, empty left — so ONE text layer sits
+   correctly over either, and a white scrim over the left of the media
+   guarantees contrast on both grounds without per-slide theming.
+
+   Keeps the `hero` class so the mobile sticky-CTA + entrance guards
+   (scroll.js / hero.js) still resolve it. The old ambient bubbles are
+   gone: they were lift for an image-less gradient band and read as
+   noise over a photograph.
    ============================================================ #}
 <section class="hero home-hero">
+  {# aria-hidden: the slides are decorative and their alt text would be
+     read out mid-headline. Slide 1 is the LCP image candidate, so it is
+     eager + fetchpriority=high; slide 2 is only needed 6s later. #}
+  <div class="home-hero__media" data-hero-slides aria-hidden="true">
+    <img class="home-hero__slide is-active" src="{{ asset_path }}images/hero-slide-1.jpg"
+         alt="" width="1594" height="527" fetchpriority="high" decoding="async">
+    <img class="home-hero__slide" src="{{ asset_path }}images/hero-slide-2.jpg"
+         alt="" width="1594" height="527" loading="lazy" decoding="async">
+  </div>
+
   <div class="wrap home-hero__inner">
     <p class="home-hero__eyebrow">{{ ui('pin', 14) }} Gurugram · Delhi NCR</p>
-    <h1 class="home-hero__title">Premium <span class="kw">Dry Cleaning</span> &amp; Laundry with Free <span class="kw">Pickup &amp; Delivery</span></h1>
+    <h1 class="home-hero__title">Premium <span class="kw">Dry Cleaning &amp; Laundry</span> with Free <span class="kw">Pickup &amp; Delivery</span></h1>
     <p class="home-hero__sub">Eco-friendly laundry, dry cleaning and specialist fabric care. We collect from your door, count every piece with you, and deliver it back fresh — in 24 hours.</p>
     <div class="home-hero__actions">
       <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book Free Pickup</a>
@@ -42,9 +60,16 @@
     </div>
     <p class="home-hero__trust"><span class="home-hero__stars" aria-hidden="true">★★★★★</span> Trusted by 1000+ customers in Gurugram</p>
   </div>
-  <span class="home-hero__bubble home-hero__bubble--a" aria-hidden="true"></span>
-  <span class="home-hero__bubble home-hero__bubble--b" aria-hidden="true"></span>
-  <span class="home-hero__bubble home-hero__bubble--c" aria-hidden="true"></span>
+
+  {# The offer that used to be baked into both banners, rebuilt as text so
+     it can be edited or switched off from site.json / the admin panel. #}
+  {% if site.offer and site.offer.enabled %}
+  <p class="home-hero__offer">
+    <span class="home-hero__offer-value"{{ cms('site:offer.value') }}>{{ site.offer.value }}</span>
+    <span class="home-hero__offer-label"{{ cms('site:offer.label') }}>{{ site.offer.label }}</span>
+    <span class="home-hero__offer-detail"{{ cms('site:offer.detail') }}>{{ site.offer.detail }}</span>
+  </p>
+  {% endif %}
 </section>
 
 {# ============================================================
@@ -52,10 +77,18 @@
    ============================================================ #}
 <section class="section section--wash" id="why">
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow"{{ cms('home:why.eyebrow') }}>{{ home.why.eyebrow }}</p>
-      <h2{{ cms('home:why.title') }}>{{ home.why.title }}</h2>
-      <p{{ cms('home:why.text') }}>{{ home.why.text }}</p>
+    <div class="why__intro">
+      <div class="section-head reveal">
+        <p class="eyebrow"{{ cms('home:why.eyebrow') }}>{{ home.why.eyebrow }}</p>
+        <h2{{ cms('home:why.title') }}>{{ home.why.title }}</h2>
+        <p{{ cms('home:why.text') }}>{{ home.why.text }}</p>
+      </div>
+      {# Brand mascot — decorative, desktop only (display:none under 62rem, so
+         phones never download it). alt="" + aria-hidden keeps it out of the
+         accessibility tree; it repeats no information. #}
+      <img class="why__mascot" src="{{ asset_path }}images/mascot-why.png"
+           alt="" aria-hidden="true" width="760" height="941"
+           loading="lazy" decoding="async">
     </div>
 
     <div class="promises stagger-children">
@@ -73,9 +106,15 @@
 </section>
 
 {# ============================================================
-   Services
+   Services — "What we clean".
+
+   On a blue band so it reads as its own section: against the light Why
+   section above it, a white ground made the two look like one long block.
+   `section--navy` is reused for the white-on-dark text treatment; .svc-band
+   swaps the background to --navy, a step lighter than the --navy-deep that
+   How it works uses further down, so the two dark bands are not identical.
    ============================================================ #}
-<section class="section">
+<section class="section section--navy svc-band">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow"{{ cms('home:services_section.eyebrow') }}>{{ home.services_section.eyebrow }}</p>
@@ -85,7 +124,8 @@
 
     <div class="svc-grid stagger-children">
       {% for s in services.services[:9] %}
-      <article class="svc">
+      <article class="svc svc--art">
+        {{ service_bg(s.slug) }}
         <span class="svc__icon">{{ service_icon(s.slug, 36) }}</span>
         <h3><a class="svc__link" href="{{ root_path }}services/{{ s.slug }}/"{{ cms('services:services.' ~ loop.index0 ~ '.name') }}>{{ s.name }}</a></h3>
         <p{{ cms('services:services.' ~ loop.index0 ~ '.short_description') }}>{{ s.short_description }}</p>
@@ -105,10 +145,19 @@
    ============================================================ #}
 <section class="section section--wash">
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow"{{ cms('home:proof.eyebrow') }}>{{ home.proof.eyebrow }}</p>
-      <h2{{ cms('home:proof.title') }}>{{ home.proof.title }}</h2>
-      <p{{ cms('home:proof.text') }}>{{ home.proof.text }}</p>
+    {# Same intro-row pattern as the Why section: heading left, mascot right,
+       desktop only. .why__intro / .why__mascot are reused verbatim rather
+       than cloned under proof-* names — identical behaviour, one place to
+       change it. #}
+    <div class="why__intro">
+      <div class="section-head reveal">
+        <p class="eyebrow"{{ cms('home:proof.eyebrow') }}>{{ home.proof.eyebrow }}</p>
+        <h2{{ cms('home:proof.title') }}>{{ home.proof.title }}</h2>
+        <p{{ cms('home:proof.text') }}>{{ home.proof.text }}</p>
+      </div>
+      <img class="why__mascot" src="{{ asset_path }}images/mascot-why.png"
+           alt="" aria-hidden="true" width="760" height="941"
+           loading="lazy" decoding="async">
     </div>
 
     <div class="proof-grid">
@@ -146,6 +195,11 @@
       </li>
       {% endfor %}
     </ol>
+
+    {# Swipe progress for the mobile rail. Hidden from ≥48rem where the steps
+       are a grid, and aria-hidden because it duplicates no information — the
+       list itself is the content. flowRail.js writes --flow-progress. #}
+    <div class="flow-progress" aria-hidden="true"><span></span></div>
   </div>
 </section>
 
@@ -166,7 +220,16 @@
       </div>
     </div>
 
-    <div class="testimonial-rail-wrap">
+    <div class="testimonial-rail-wrap{% if testimonials.videos %} reviews-split{% endif %}">
+      {# The video card is PINNED: it lives outside .review-rail, so the
+         scroll container holds only the text reviews and they slide past a
+         card that never moves. Inside the rail it would scroll away with
+         them, and position:sticky would make the others pass underneath it. #}
+      {% if testimonials.videos %}
+      <div class="reviews-pinned">
+        {% for v in testimonials.videos %}{{ video_review_card(v, ui) }}{% endfor %}
+      </div>
+      {% endif %}
       <div class="review-rail testimonial-rail">
         {% for r in testimonials['items'] if r.photo %}
           {{ review_card(r, asset_path) }}

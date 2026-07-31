@@ -66,6 +66,13 @@
       "detail": "Doorstep collection and delivery, at no charge."
     }
   ],
+  "offer": {
+    "_note": "Home hero badge. Was baked into the supplied banner images as pixels; rebuilt as text so it can be edited or ended without re-exporting artwork. Set enabled:false to remove the badge.",
+    "enabled": true,
+    "value": "25%",
+    "label": "Off",
+    "detail": "On Your First Order"
+  },
   "social": {
     "facebook": "https://www.facebook.com/profile.php?id=61581209511675",
     "instagram": "https://www.instagram.com/wash4you._",
@@ -81,8 +88,7 @@
       },
       {
         "label": "Pricing",
-        "url": "pricing/",
-        "dropdown": "pricing"
+        "url": "pricing/"
       },
       {
         "label": "Packages",

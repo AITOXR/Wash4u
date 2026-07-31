@@ -1,13 +1,13 @@
 {
   "_source": "Verbatim quotes and photographs supplied by the client in docs/Wash4you graphic/. Attribution is recorded exactly as the client published it — only 'Pranav Ji' was named. Do NOT invent names for the others; leaving them as 'Verified Customer' is both truthful and consistent with how the client already published these on social. Before go-live, confirm the client holds written consent to use each person's photograph on the website.",
-
   "aggregate": {
     "customers": "1000+",
     "rating": 5,
     "label": "Trusted by 1000+ customers across Gurugram",
     "_note": "Do not emit aggregateRating schema until a verifiable public review count/average exists (e.g. Google Business Profile). Fabricated review counts are a manual-action risk."
   },
-
+  "videos_note": "Video reviews, rendered as a pinned first card in the 'From our customers' rail. EMPTY = no video card and the rail is a plain carousel of all reviews. To bring it back, add {\"id\": \"<the part of the YouTube URL after /shorts/ or ?v=\", \"url\": ..., \"title\": ..., \"attribution\": ...}. Removed on request 2026-07-30; the previous entry was -TV7WTnFTzM.",
+  "videos": [],
   "items": [
     {
       "id": "review-pranav",

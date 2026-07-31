@@ -45,7 +45,7 @@ export default function Navbar() {
       >
         <div className="mx-auto flex h-[76px] max-w-6xl items-center justify-between gap-6 px-5 md:px-8">
           <a href="#top" aria-label="Wash4You home" className="shrink-0">
-            <img src="./images/logo-header.png" alt="Wash4You" width="150" height="38" className="h-9 w-auto" />
+            <img src="./images/logo-header.png" alt="Wash4You" width="781" height="144" className="h-9 w-auto" />
           </a>
 
           <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">

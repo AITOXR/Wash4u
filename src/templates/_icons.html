@@ -44,6 +44,145 @@
 {% endmacro %}
 
 
+{# ============================================================
+   service_bg() — the large background vector that sits behind
+   each service card in "What we clean".
+
+   Same line-art voice as service_icon() above, but drawn on a
+   160-unit canvas so each service gets a small *scene* rather
+   than a glyph: the thing itself plus the cue that says what we
+   do to it (steam, suction, bristles, bubbles, sparkle).
+
+   Purely decorative — the card's heading and copy carry the
+   meaning — so aria-hidden and no title. Colour and opacity are
+   CSS's job (.svc__bg in redesign-services.css); everything here
+   is currentColor so a card can retint it without touching this
+   file.
+   ============================================================ #}
+
+{% macro service_bg(slug) %}
+<svg class="svc__bg" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+{%- if slug == 'eco-friendly-laundry' -%}
+{# leaf + rinse water + bubbles #}
+<path d="M132 26c6 40-6 74-32 90-22 14-46 10-58-6-12-17-8-42 12-58C78 32 104 26 132 26Z"/>
+<path d="M120 40C96 56 72 78 54 108"/>
+<path d="M100 46c-1 14-4 24-10 34M112 70c-12 3-22 9-30 18"/>
+<circle cx="32" cy="36" r="9"/><circle cx="54" cy="19" r="5"/>
+<path d="M18 140c10-8 21-8 31 0s21 8 31 0 21-8 31 0 21 8 31 0"/>
+{%- elif slug == 'steam-ironing' -%}
+{# iron + rising steam #}
+<path d="M140 116H30c6-27 29-46 57-46h22a31 31 0 0 1 31 31v15Z"/>
+<path d="M74 70V56a13 13 0 0 1 13-13h53"/>
+<path d="M22 132h126"/>
+<path d="M46 46c8-6 8-14 0-20s-8-14 0-20"/>
+<path d="M72 38c7-5 7-12 0-17"/>
+<path d="M22 42c6-5 6-11 0-16"/>
+{%- elif slug == 'premium-dry-cleaning' -%}
+{# garment on a hanger + the ISO dry-clean "P" #}
+<path d="M84 30a9 9 0 1 1 9 9c-5 0-9 3-9 8v5"/>
+<path d="M84 52 40 88a6 6 0 0 0 4 11h80a6 6 0 0 0 4-11L84 52Z"/>
+<path d="M56 112h56"/>
+<circle cx="34" cy="128" r="22"/>
+<path d="M27 117h8a7.5 7.5 0 0 1 0 15h-8v-15Zm0 15v11"/>
+{%- elif slug == 'shoe-cleaning' -%}
+{# sneaker + scrub brush + shine #}
+<path d="M14 116V76c0-6 6-9 11-6l21 13c4 3 10 3 14 0l8-5c4-2 8-1 11 2l15 14c3 3 7 5 11 6l31 6c7 1 18 7 18 16v6a7 7 0 0 1-7 7H21a7 7 0 0 1-7-7Z"/>
+<path d="M70 94 59 105M91 100 80 111"/>
+<rect x="92" y="20" width="52" height="18" rx="9"/>
+<path d="M101 38v11M113 38v13M125 38v13M137 38v11"/>
+<path d="M40 30v14M33 37h14"/>
+{%- elif slug == 'sofa-cleaning' -%}
+{# sofa + extraction sparkle #}
+<path d="M32 84V56a14 14 0 0 1 14-14h68a14 14 0 0 1 14 14v28"/>
+<path d="M16 98a14 14 0 0 1 28 0v18h72V98a14 14 0 0 1 28 0v36H16V98Z"/>
+<path d="M44 84h72"/>
+<path d="M28 134v12M132 134v12"/>
+<path d="M122 20v16M114 28h16"/>
+<path d="M28 22v10M23 27h10"/>
+{%- elif slug == 'mattress-cleaning' -%}
+{# mattress + pillow + freshness #}
+<rect x="18" y="64" width="124" height="52" rx="16"/>
+<path d="M48 82v16M80 82v16M112 82v16"/>
+<path d="M30 118v14M130 118v14"/>
+<path d="M34 34h44a11 11 0 0 1 0 22H34a11 11 0 0 1 0-22Z"/>
+<path d="M108 40c8-5 8-13 0-18M128 46c10-7 10-17 0-24"/>
+{%- elif slug == 'wet-cleaning' -%}
+{# machine drum + water + droplets #}
+<circle cx="84" cy="90" r="52"/><circle cx="84" cy="90" r="34"/>
+<path d="M60 84c8-7 16-7 24 0s16 7 24 0"/>
+<path d="M60 98c8-7 16-7 24 0s16 7 24 0"/>
+<path d="M28 14s15 17 15 25a15 15 0 0 1-30 0c0-8 15-25 15-25Z"/>
+<path d="M132 22s9 11 9 16a9 9 0 0 1-18 0c0-5 9-16 9-16Z"/>
+{%- elif slug == 'bag-cleaning' -%}
+{# handbag + stitch line + shine #}
+<path d="M34 58h92l11 74a13 13 0 0 1-13 15H36a13 13 0 0 1-13-15l11-74Z"/>
+<path d="M54 76V44a26 26 0 0 1 52 0v32"/>
+<path d="M38 76h84" stroke-dasharray="6 8"/>
+<path d="M132 26v14M125 33h14"/>
+{%- elif slug == 'leather-cleaning' -%}
+{# leather jacket + buffed shine #}
+<path d="M60 28 34 40v104h92V40l-26-12-20 13-20-13Z"/>
+<path d="M80 41v103M34 78h20M106 78h20"/>
+<path d="M60 28c0 12 9 21 20 21s20-9 20-21"/>
+<path d="M138 30c10-6 10-15 0-21"/>
+<path d="M22 22v12M16 28h12"/>
+{%- elif slug == 'carpet-cleaning' -%}
+{# fringed rug with a border and medallion + scrub brush.
+   The fringe is what makes this a rug rather than an appliance. #}
+<rect x="8" y="42" width="100" height="70" rx="4"/>
+<rect x="21" y="54" width="74" height="46" rx="3"/>
+<path d="M8 42v-9M25 42v-9M42 42v-9M59 42v-9M75 42v-9M92 42v-9M108 42v-9"/>
+<path d="M8 112v9M25 112v9M42 112v9M59 112v9M75 112v9M92 112v9M108 112v9"/>
+<path d="M58 65l13 12-13 12-13-12 13-12Z"/>
+<rect x="102" y="116" width="48" height="16" rx="8"/>
+<path d="M111 132v11M122 132v13M133 132v13M144 132v11"/>
+{%- elif slug == 'accessories-cleaning' -%}
+{# cap + watch #}
+<path d="M28 90a40 40 0 0 1 80 0"/>
+<path d="M108 90h26a8 8 0 0 1 0 16H28a8 8 0 0 1 0-16h80Z"/>
+<path d="M68 50v40"/>
+<circle cx="116" cy="44" r="21"/>
+<path d="M116 33v11l8 5"/>
+<path d="M107 25l2-11h14l2 11M107 63l2 11h14l2-11"/>
+{%- elif slug == 'toy-cleaning' -%}
+{# soft toy + bubbles #}
+<circle cx="52" cy="46" r="14"/><circle cx="108" cy="46" r="14"/>
+<circle cx="80" cy="74" r="30"/>
+<path d="M70 68h.01M90 68h.01"/>
+<path d="M76 84c3 3 5 3 8 0"/>
+<path d="M58 98 48 132a12 12 0 0 0 11 14h42a12 12 0 0 0 11-14L102 98"/>
+<circle cx="24" cy="24" r="8"/><circle cx="140" cy="110" r="10"/><circle cx="146" cy="82" r="5"/>
+{%- elif slug == 'curtains-cleaning' -%}
+{# rod, drapes, valance #}
+<path d="M14 30h132"/>
+<circle cx="22" cy="24" r="6"/><circle cx="138" cy="24" r="6"/>
+<path d="M44 30c0 44-8 86-26 122 30-6 48-24 48-60V30"/>
+<path d="M116 30c0 44 8 86 26 122-30-6-48-24-48-60V30"/>
+<path d="M66 30v30c8 9 20 9 28 0V30"/>
+{%- elif slug == 'blanket-quilt-cleaning' -%}
+{# two folded layers with soft wavy edges + quilted diamonds.
+   Soft folds read as bedding; a hard rectangle reads as a book. #}
+<path d="M18 66c14-9 28-9 42 0s28 9 42 0 26-8 40-2v34c-14-6-26-6-40 2s-28 9-42 0-28-9-42 0V66Z"/>
+<path d="M18 108c14-9 28-9 42 0s28 9 42 0 26-8 40-2v32c-14-6-26-6-40 2s-28 9-42 0-28-9-42 0v-32Z"/>
+<path d="M46 76l10 9-10 9-10-9 10-9Z" stroke-dasharray="4 5"/>
+<path d="M90 76l10 9-10 9-10-9 10-9Z" stroke-dasharray="4 5"/>
+{%- elif slug == 'linen-cleaning' -%}
+{# folded linen stack + shine #}
+<rect x="24" y="100" width="112" height="26" rx="9"/>
+<rect x="32" y="74" width="96" height="26" rx="9"/>
+<rect x="40" y="48" width="80" height="26" rx="9"/>
+<path d="M24 113h112M32 87h96M40 61h80" stroke-dasharray="5 8"/>
+<path d="M126 22v14M119 29h14"/>
+{%- else -%}
+{# fallback: the wash mark #}
+<circle cx="80" cy="80" r="58"/>
+<path d="M32 68c12 9 24 9 36 0s24-9 36 0 18 9 18 9"/>
+<path d="M32 96c12 9 24 9 36 0s24-9 36 0 18 9 18 9"/>
+{%- endif -%}
+</svg>
+{% endmacro %}
+
+
 {# ---- The care symbols themselves. ISO 3758 / GINETEX shapes. ---- #}
 
 {% macro care_symbol(kind) %}
@@ -158,6 +297,10 @@
 <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg>
 {%- elif name == 'sparkle' -%}
 <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s1.2 5 3 6.8S21 12 21 12s-4.2 1.4-6 3.2S12 21 12 21s-1.2-4-3-5.8S3 12 3 12s4.2-1.4 6-3.2S12 3 12 3Z"/></svg>
+{%- elif name == 'play' -%}
+{# Solid triangle, not a stroked outline: it sits on a photo poster at small
+   sizes, where a 1.8px stroke disappears into the image behind it. #}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 6.8v10.4c0 .8.9 1.3 1.6.9l8.2-5.2a1 1 0 0 0 0-1.7l-8.2-5.2A1 1 0 0 0 9 6.8Z"/></svg>
 {%- else -%}
 <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/></svg>
 {%- endif -%}
