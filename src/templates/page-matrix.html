@@ -111,6 +111,50 @@
   </div>
 </section>
 
+{# ============================================================
+   Sibling links.
+
+   These 79 service-x-locality pages each had exactly ONE inbound internal
+   link, so they sat at the edge of the crawl graph carrying almost no
+   internal link equity. Both lists below are real navigation a visitor
+   might want — the same service near them, or the other things we clean in
+   the same area — not a link farm: each is capped at six and every target
+   is a page that exists.
+   ============================================================ #}
+{% if same_service_elsewhere or other_services_here %}
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="matrix-links">
+      {% if same_service_elsewhere %}
+      <div class="reveal">
+        <h2>{{ service.name }} in other Gurugram areas</h2>
+        <div class="areas">
+          {% for o in same_service_elsewhere %}
+          <a class="area-link" href="{{ root_path }}{{ o.service }}-{{ o.locality }}/">
+            {{ o.locality.replace('-', ' ') | title }} {{ ui('arrow-right', 16) }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if other_services_here %}
+      <div class="reveal">
+        <h2>Also cleaned in {{ locality_name }}</h2>
+        <div class="areas">
+          {% for o in other_services_here %}
+          <a class="area-link" href="{{ root_path }}{{ o.service }}-{{ o.locality }}/">
+            {{ o.service.replace('-', ' ') | title }} {{ ui('arrow-right', 16) }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
 <section class="section section--tight">
   <div class="wrap">
     <div class="cta-band reveal">

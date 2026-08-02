@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_icons.html" import ui, care_tag, service_icon %}
+{% from "_icons.html" import ui, care_tag, service_icon, service_bg %}
 {% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card %}
 
 {% block schema %},
@@ -18,7 +18,20 @@
         "serviceType": {{ service.name | tojson }},
         "description": {{ (service.meta_description or service.short_description) | tojson }},
         "url": "{{ meta.canonical }}",
+        {# was /src/assets/images/mascot-wash4you.png — a path that 404s in the
+           built site, on a 1.8MB marketing poster with a phone number baked
+           into the pixels. Now a real image of what the service cleans. #}
+        {% if service.image %}"image": "{{ site.urls.base }}/{{ service.image }}",{% endif %}
         "provider": { "@id": "{{ site.urls.base }}/#business" },
+        {% if service.gallery and price_index.get(service.gallery[0]) %}
+        "offers": {
+          "@type": "Offer",
+          "price": "{{ price_index[service.gallery[0]].amount }}",
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock",
+          "url": "{{ site.urls.base }}/pricing/"
+        },
+        {% endif %}
         "areaServed": [
           {% for a in site.footer.areas %}{ "@type": "Place", "name": "{{ a.label }}, Gurugram" }{% if not loop.last %},{% endif %}
           {% endfor %}
@@ -40,7 +53,30 @@
 
 {% block content %}
 
-<section class="page-hero">
+{# The hero is a navy band. Column two is a still life of THIS service's
+   own price-list plates: two or three cards, cropped, overlapped and given
+   our own radius and keyline.
+
+   The plates are NOT knock-outs. Each is an opaque #efefef square with a
+   ~12px transparent radius baked into the corners, and sneakers.webp and
+   premium-laundry.webp have no alpha at all, so their corners are opaque
+   WHITE. .svc-card__plate crops 4% off every side, which deletes the baked
+   radius, every transparent pixel and both white-corner files in one rule.
+   Measured across all 31 plates: every slug named in a gallery keeps at
+   least 19px (4.75%) of dead ground on its tightest side, so nothing clips.
+
+   One shape, four states, never a hole:
+     real before/after -> shoe-cleaning, sofa-cleaning
+     2-3 plates        -> eight services
+     exactly one plate -> carpet, curtains, accessories (plate + mark)
+     nothing honest    -> mattress, bag, toy (mark + features)
+   The chip is universal: a from-price where the cast has one, this
+   service's turnaround where it does not. #}
+{% set cast  = (service.gallery or [])[:3] %}
+{% set lead  = price_index.get(cast[0]) if cast else none %}
+{% set state = 'proof' if service_proof else (cast | length if cast else 'mark') %}
+
+<section class="page-hero svc-hero">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="{{ root_path }}">Home</a>
@@ -52,7 +88,7 @@
 
     <div class="page-hero__grid">
       <div>
-        {{ care_tag(service.slug) }}
+        {{ care_tag(service.slug, on_navy=true) }}
         <h1 style="margin-top:var(--s-4)"{{ cms(cms_base ~ '.name') }}>{{ service.h1 or service.name }}</h1>
         <p class="lede"{{ cms(cms_base ~ '.short_description') }}>{{ service.lede or service.short_description }}</p>
         <div class="btn-row">
@@ -61,12 +97,55 @@
         </div>
       </div>
 
-      {% if service_proof %}
-      <div>
+      <div class="svc-stage svc-stage--{{ state }}">
+        {% if service_proof %}
+        {# A photograph of the actual work beats an arrangement of plates,
+           so these two keep their evidence in the hero. #}
         {% set pair = service_proof[0] %}
-        {% if pair.featured %}{{ before_after(pair, asset_path, ui) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
+        <div class="svc-proof"{% if pair.inset %} style="--ba-inset:{{ pair.inset }}"{% endif %}>
+          {% if pair.featured %}{{ before_after(pair, asset_path, ui, eager=true) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
+        </div>
+
+        {% elif cast %}
+        <span class="svc-stage__glow" aria-hidden="true"></span>
+        {% for slug in cast %}
+        <figure class="svc-card svc-card--{{ loop.index }}">
+          <span class="svc-card__plate">
+            <img src="{{ asset_path }}images/pricing/{{ slug }}.webp"
+                 alt="{{ price_index[slug].name if price_index.get(slug) else slug.replace('-', ' ') | title }} cleaned by Wash4You in Gurugram"
+                 width="400" height="400"
+                 {% if loop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
+          </span>
+        </figure>
+        {% endfor %}
+        {% if cast | length == 1 %}
+        {# One plate alone in a slot built for three is the exact
+           looks-broken failure. The second object is openly a drawing, so
+           it cannot be read as a missing photograph. #}
+        <figure class="svc-card svc-card--mark" aria-hidden="true">
+          <span class="svc-card__art">{{ service_bg(service.slug) }}</span>
+        </figure>
+        {% endif %}
+
+        {% else %}
+        {# mattress, bag, toy. Nothing among the 31 cut-outs depicts any of
+           them. Rather than borrow an unrelated garment, the card carries
+           this service's own line drawing and its three features. #}
+        <figure class="svc-card svc-card--mark svc-card--solo">
+          <span class="svc-card__art" aria-hidden="true">{{ service_bg(service.slug) }}</span>
+          {% if service.features %}
+          <ul class="svc-card__specs">
+            {% for f in service.features[:3] %}<li{{ cms(cms_base ~ '.features.' ~ loop.index0) }}>{{ f }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+        </figure>
+        {% endif %}
+
+        <p class="svc-stage__chip">
+          {% if lead %}<span aria-hidden="true">from</span> {{ lead.price }}{% if lead.unit %} <small>{{ lead.unit }}</small>{% endif %}
+          {% else %}<span aria-hidden="true">ready in</span> {{ service.turnaround }}{% endif %}
+        </p>
       </div>
-      {% endif %}
     </div>
   </div>
 </section>
@@ -112,6 +191,80 @@
     </div>
   </div>
 </section>
+
+{# A method comparison, rendered from data rather than markdown: the
+   SSG's markdown subset is headings/paragraphs/lists/bold only, so a
+   pipe table in `body` would ship as literal pipes. Reuses .svc-table,
+   already styled by redesign-services.css and used on /services/ and
+   /about-us/. Renders only where a service defines `comparison`. #}
+{% if service.comparison %}
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">{{ service.comparison.eyebrow }}</p>
+      <h2>{{ service.comparison.title }}</h2>
+      <p>{{ service.comparison.intro }}</p>
+    </div>
+    <div class="svc-table-wrap reveal">
+      <table class="svc-menu svc-compare">
+        <caption class="visually-hidden">How hydrocarbon dry cleaning compares with perchloroethylene</caption>
+        <thead>
+          <tr>{% for c in service.comparison.columns %}<th scope="col">{{ c }}</th>{% endfor %}</tr>
+        </thead>
+        <tbody>
+          {% for row in service.comparison.rows %}
+          <tr>
+            <th scope="row">{{ row[0] }}</th>
+            {% for cell in row[1:] %}<td>{{ cell }}</td>{% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% if service.comparison.footnote %}
+    <p class="svc-table__note reveal">{{ service.comparison.footnote }}</p>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+{# ============================================================
+   What we clean — the real catalogue cut-outs for THIS service.
+
+   Honest framing: these are the items the service covers, photographed
+   as products, not photographs of the work being done. The before/after
+   section below is the work. Only services with genuinely matching
+   artwork carry a gallery; the rest render nothing rather than an
+   unrelated garment.
+   ============================================================ #}
+{% if service.gallery %}
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What we clean</p>
+      <h2>{{ service.name }} covers these</h2>
+      <p>Item-wise rates for every one of them are published on the price list — no quote-on-request.</p>
+    </div>
+    <div class="svc-gallery stagger-children">
+      {% for slug in service.gallery %}
+      {% set gi = price_index.get(slug) %}
+      <figure class="svc-shot">
+        <img src="{{ asset_path }}images/pricing/{{ slug }}.webp"
+             alt="{{ gi.name if gi else slug.replace('-', ' ') | title }} cleaned by Wash4You {{ service.name | lower }} in Gurugram"
+             width="400" height="400" loading="lazy" decoding="async">
+        <figcaption>
+          <span>{{ gi.name if gi else slug.replace('-', ' ') | title }}</span>
+          {% if gi %}<b>from {{ gi.price }}{% if gi.unit %} <small>{{ gi.unit }}</small>{% endif %}</b>{% endif %}
+        </figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    <div class="text-center" style="margin-top:var(--s-7)">
+      <a class="btn btn--ghost btn--lg" href="{{ root_path }}pricing/">See the full price list {{ ui('arrow-right', 18) }}</a>
+    </div>
+  </div>
+</section>
+{% endif %}
 
 {% if service.process %}
 <section class="section section--navy">

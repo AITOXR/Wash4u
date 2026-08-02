@@ -289,6 +289,17 @@ def build() -> None:
     # Page registry
     pages_to_build = []
 
+    # Slug -> price-list item, shared by the home page price rail and every
+    # service detail gallery. Built once here rather than per page: Jinja
+    # resolves `category.items` to the dict METHOD, so walking pricing.json
+    # from a template is a trap.
+    price_index = {
+        item["slug"]: item
+        for category in pricing["categories"]
+        for item in category["items"]
+        if item.get("slug")
+    }
+
     # Home
     pages_to_build.append(("index.html", "page-home.html", {
         "areas": areas_data,
@@ -300,12 +311,7 @@ def build() -> None:
         # slug lookup here rather than in the template: Jinja resolves
         # `cat.items` to the dict METHOD, so walking pricing.json from a
         # template is a trap.
-        "price_index": {
-            item["slug"]: item
-            for category in pricing["categories"]
-            for item in category["items"]
-            if item.get("slug")
-        },
+        "price_index": price_index,
         # Hero garment wall: deal the tile pool into columns here rather
         # than in the template. The pool (24) is smaller than the number of
         # slots (10x5), so it has to wrap — and the stride is what stops a
@@ -378,6 +384,7 @@ def build() -> None:
                 # fields (the loop knows the array index; the template doesn't).
                 "cms_base": f"services:services.{svc_index}",
                 "service_proof": service_proof,
+                "price_index": price_index,
                 "testimonials": testimonials,
                 "depth": 2,
             }
@@ -522,6 +529,20 @@ def build() -> None:
                     m["locality"].replace("-", " ").title(),
                 ),
                 "services": services,
+                # Sibling links. These 79 programmatic pages each had ONE
+                # inbound internal link, so they carried almost no internal
+                # link equity and sat at the edge of the crawl graph. Two
+                # cheap, genuinely useful cross-links fix that: the same
+                # service in nearby localities, and the other services
+                # available in this locality.
+                "same_service_elsewhere": [
+                    o for o in gen["matrix"]
+                    if o["service"] == m["service"] and o["locality"] != m["locality"]
+                ][:6],
+                "other_services_here": [
+                    o for o in gen["matrix"]
+                    if o["locality"] == m["locality"] and o["service"] != m["service"]
+                ][:6],
                 "depth": 1,
             }
         ))

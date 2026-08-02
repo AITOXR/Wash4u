@@ -303,7 +303,9 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
      budget; four at 3.25rem did not, and forced the hero 200px taller than
      the artwork can fill without upscaling. */
   font-size: clamp(1.95rem, 1.3rem + 2.4vw, 2.85rem);
-  line-height: 1.08;
+  /* 1.08 -> 1.26: the green words are now padded highlight blocks, and at
+     1.08 the blocks on consecutive lines touch and read as one slab. */
+  line-height: 1.26;
   letter-spacing: -0.02em;
   margin: 0 0 1.1rem;
   max-width: 42rem;
@@ -325,7 +327,33 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
    banner's near-white left, failing even the 3:1 large-text floor. The
    headline is 45.6px bold, so large text applies. */
 .home-hero__title .hkw--blue  { color: var(--brand-blue); }
-.home-hero__title .hkw--green { color: var(--green); }
+
+/* The green words are the offer — "Dry Cleaning & Laundry", "Free Pickup &
+   Delivery" — so they get the same highlight the interior page headlines
+   use (.kw, redesign-areas.css), not just a colour change.
+
+   Two deliberate differences from .kw:
+   - NO white-space: nowrap. .kw marks single words; these are three- and
+     four-word phrases, and pinning them would force horizontal overflow on
+     a 390px screen.
+   - box-decoration-break: clone so a phrase that wraps gets a properly
+     padded, properly rounded block on EACH line rather than one ragged
+     shape with two open ends.
+
+   --ink on --brand-green measures 8.9:1. The reverse (white on green) is
+   2.8:1 and would fail, which is why the dark ink is not a style choice. */
+.home-hero__title .hkw--green {
+  color: var(--ink);
+  background: var(--brand-green);
+  padding: 0.04em 0.3em;
+  border-radius: 0.28em;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+}
+
+@media (forced-colors: active) {
+  .home-hero__title .hkw--green { background: Highlight; color: HighlightText; }
+}
 
 .home-hero__sub {
   font-size: clamp(1.02rem, 0.96rem + 0.45vw, 1.2rem);

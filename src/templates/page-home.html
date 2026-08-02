@@ -162,12 +162,15 @@
       </div>
       <div class="section-head__aside">
         <p{{ cms('home:services_section.text') }}>{{ home.services_section.text }}</p>
-        <p class="section-figure"><b>{{ services.services | length }}</b> services &middot; <b>9</b> shown here</p>
+        <p class="section-figure"><b>{{ services.services | length }}</b> services &middot; <b>12</b> shown here</p>
       </div>
     </div>
 
     <div class="svc-grid stagger-children">
-      {% for s in services.services[:9] %}
+      {# 12, not 9: the client's own "OUR SERVICES" poster runs to twelve
+         cards, and services.json is now ordered to match it. At 9 the cut
+         fell between Accessories and Sofa, dropping two poster services. #}
+      {% for s in services.services[:12] %}
       <article class="svc svc--art">
         {{ service_bg(s.slug) }}
         <span class="svc__icon">{{ service_icon(s.slug, 36) }}</span>

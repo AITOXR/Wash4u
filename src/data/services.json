@@ -7,8 +7,8 @@
     "og_description": "Explore Wash4You's premium laundry, dry cleaning, and home care services in Delhi NCR. Free pickup and delivery."
   },
   "hero": {
-    "headline": "Services designed for your life.",
-    "subheadline": "From everyday laundry to specialty care, we handle it all with free pickup and delivery."
+    "headline": "Gurgaon & Delhi NCR’s Most Complete Laundry & Dry-Cleaning Services",
+    "subheadline": "Wash4You cleans everything from everyday wash & fold to premium dry cleaning, shoe restoration, leather, bags, curtains, sofas and mattresses. Every service includes free doorstep pickup and delivery across Gurugram and Delhi NCR, and every piece is counted with you before it leaves your door."
   },
   "services": [
     {
@@ -17,7 +17,7 @@
       "short_description": "Planet-safe cleaning using biodegradable, non-toxic solvents, ideal for delicate skin and sustainable living.",
       "description": "Our eco-friendly laundry service uses biodegradable, non-toxic solvents that are gentle on fabrics and safe for sensitive skin. Every load is sorted by color and fabric type, then washed with optimized techniques to deliver fresh, clean clothes while minimizing environmental impact.",
       "icon": "droplet",
-      "image": "/src/assets/images/mascot-wash4you.png",
+      "image": "images/pricing/wash-and-fold.webp",
       "features": [
         "Biodegradable detergents",
         "Gentle on sensitive skin",
@@ -25,39 +25,87 @@
         "Eco-friendly washing processes"
       ],
       "best_for": "Daily wear, baby clothes, sensitive skin",
-      "turnaround": "24 hours"
-    },
-    {
-      "slug": "steam-ironing",
-      "name": "Steam Ironing",
-      "short_description": "Sharp, crease-free results using steam press technology for a crisp, polished finish on every item.",
-      "description": "Get professionally pressed clothes with our steam ironing service. Using advanced steam press technology, we remove wrinkles and give every garment a crisp, polished finish — perfect for office wear, ethnic wear, and everyday essentials.",
-      "icon": "shirt",
-      "image": "/src/assets/images/mascot-wash4you.png",
-      "features": [
-        "Steam press technology",
-        "Crease-free finish",
-        "Safe for all fabric types",
-        "Quick turnaround"
-      ],
-      "best_for": "Office shirts, trousers, sarees, uniforms",
-      "turnaround": "24 hours"
+      "turnaround": "24 hours",
+      "gallery": [
+        "wash-and-fold",
+        "jeans",
+        "kurta",
+        "shirt",
+        "t-shirt",
+        "pant-trouser"
+      ]
     },
     {
       "slug": "premium-dry-cleaning",
       "name": "Premium Dry Cleaning",
       "short_description": "Precision cleaning for suits, dresses, silks, and delicates, handled by experts using gentle, garment-safe methods.",
-      "description": "Our premium dry cleaning service uses Italian hydrocarbon technology to clean delicate garments safely. From suits and dresses to silk sarees and lehengas, every piece is inspected, pre-treated, and finished with expert care.",
+      "description": "Our premium dry cleaning service uses hydrocarbon dry-cleaning technology to clean delicate garments safely. From suits and dresses to silk sarees and lehengas, every piece is inspected, pre-treated, and finished with expert care.",
       "icon": "sparkles",
-      "image": "/src/assets/images/mascot-wash4you.png",
+      "image": "images/pricing/lehenga.webp",
       "features": [
-        "Italian hydrocarbon technology",
+        "Hydrocarbon dry-cleaning technology",
         "Delicate fabric expertise",
         "Stain inspection & pre-treatment",
         "Pressed and finished to perfection"
       ],
       "best_for": "Suits, dresses, silks, wedding wear",
-      "turnaround": "24–48 hours"
+      "turnaround": "24–48 hours",
+      "gallery": [
+        "lehenga",
+        "coat",
+        "sherwani",
+        "men-suit-2pcs",
+        "men-suit-3pcs",
+        "dress"
+      ],
+      "comparison": {
+        "eyebrow": "The solvent",
+        "title": "Hydrocarbon vs perc, honestly",
+        "intro": "Perc has been the dry-cleaning standard for fifty years and is still what most shops in Gurugram run. Here is the actual difference, including where perc still wins.",
+        "columns": [
+          "",
+          "Hydrocarbon — what we use",
+          "Perc — the older standard"
+        ],
+        "rows": [
+          [
+            "Fabric safety",
+            "Gentler on delicate fibre; less shrinkage and stress",
+            "Harder on sensitive fabrics over repeated cleans"
+          ],
+          [
+            "Colour & finish",
+            "Holds dyes, prints, zari and beadwork",
+            "Higher risk of bleeding and fading"
+          ],
+          [
+            "Odour",
+            "No residual chemical smell",
+            "Characteristic sharp odour"
+          ],
+          [
+            "Toxicity",
+            "Not a classified carcinogen",
+            "Classified a probable human carcinogen"
+          ],
+          [
+            "Environment",
+            "Lower VOC emissions; closed-loop recovery and reuse",
+            "Groundwater contaminant"
+          ],
+          [
+            "Cycle time",
+            "Longer — the gentleness costs time",
+            "Faster"
+          ],
+          [
+            "Heavy grease",
+            "Can need a second pass",
+            "More aggressive, and better at it"
+          ]
+        ],
+        "footnote": "Hydrocarbon is a refined petroleum distillate, not a plant-based solvent — we do not market it as green. Where a fabric can safely take water, wet cleaning is the greener choice and we use that instead."
+      }
     },
     {
       "slug": "shoe-cleaning",
@@ -65,7 +113,7 @@
       "short_description": "From sneakers to suede, we deep-clean, deodorize, and restore your footwear to like-new condition.",
       "description": "Give your footwear a fresh start with our professional shoe cleaning service. We clean sports shoes, sneakers, leather shoes, and suede, removing dirt, stains, and odors while preserving material quality.",
       "icon": "footprints",
-      "image": "/src/assets/images/mascot-wash4you.png",
+      "image": "images/pricing/sneakers.webp",
       "features": [
         "Sneaker and sports shoe cleaning",
         "Leather and suede care",
@@ -73,7 +121,121 @@
         "Stain removal and restoration"
       ],
       "best_for": "Sneakers, suede, leather and sports shoes",
+      "turnaround": "24–48 hours",
+      "gallery": [
+        "sneakers",
+        "sports-shoes",
+        "leather-shoes",
+        "suede-leather-shoes"
+      ]
+    },
+    {
+      "slug": "bag-cleaning",
+      "name": "Bag Cleaning",
+      "short_description": "Handbags, totes, and backpacks deep-cleaned, reshaped, and stain-treated with material-safe products.",
+      "description": "Our bag cleaning service restores handbags, totes, backpacks, and more. We use material-safe products to deep-clean, remove stains, and reshape your bags so they look their best.",
+      "icon": "bag",
+      "features": [
+        "Handbag and backpack cleaning",
+        "Material-safe treatments",
+        "Stain removal",
+        "Reshaping and finishing"
+      ],
+      "best_for": "Handbags, totes, backpacks, laptop bags",
       "turnaround": "24–48 hours"
+    },
+    {
+      "slug": "leather-cleaning",
+      "name": "Leather Cleaning",
+      "short_description": "Specialized leather care using pH-balanced solutions that clean and condition without drying or cracking.",
+      "description": "Protect your leather investments with our specialized leather cleaning service. We use pH-balanced solutions that clean, condition, and preserve leather jackets, bags, and accessories without drying or cracking.",
+      "icon": "jacket",
+      "image": "images/pricing/leather-jacket.webp",
+      "features": [
+        "pH-balanced leather solutions",
+        "Cleaning and conditioning",
+        "Prevents drying and cracking",
+        "Ideal for jackets and accessories"
+      ],
+      "best_for": "Leather jackets, belts, wallets, sofas",
+      "turnaround": "48–72 hours",
+      "gallery": [
+        "leather-jacket",
+        "leather-shoes",
+        "suede-leather-shoes"
+      ]
+    },
+    {
+      "slug": "curtains-cleaning",
+      "name": "Curtains Cleaning",
+      "short_description": "Professional curtain care that removes dust, stains, and odors, without compromising fabric quality or color.",
+      "description": "Our curtain cleaning service includes free removal and reinstallation. We remove dust, stains, and odors while protecting fabric quality and color, leaving your curtains fresh and beautiful.",
+      "icon": "curtains",
+      "image": "images/pricing/curtain.webp",
+      "features": [
+        "Free removal and reinstallation",
+        "Dust, stain, and odor removal",
+        "Fabric-safe cleaning",
+        "Color protection"
+      ],
+      "best_for": "All curtain types and fabric weights",
+      "turnaround": "48 hours",
+      "gallery": [
+        "curtain"
+      ]
+    },
+    {
+      "slug": "carpet-cleaning",
+      "name": "Carpet Cleaning",
+      "short_description": "Advanced extraction techniques to clean, refresh, and revive your carpets, residential or commercial.",
+      "description": "Refresh your home or office with our carpet cleaning service. Using advanced extraction techniques, we remove dirt, dust, stains, and odors to revive carpets and extend their life.",
+      "icon": "square",
+      "image": "images/pricing/carpet.webp",
+      "features": [
+        "Deep extraction cleaning",
+        "Stain and odor removal",
+        "Residential and commercial",
+        "Fast drying process"
+      ],
+      "best_for": "Home carpets, office rugs, area rugs",
+      "turnaround": "48 hours",
+      "gallery": [
+        "carpet"
+      ]
+    },
+    {
+      "slug": "toy-cleaning",
+      "name": "Toy Cleaning",
+      "short_description": "Hygienic, safe cleaning for plush and fabric-based toys, perfect for families with kids.",
+      "description": "Our toy cleaning service ensures your child's favorite plush and fabric toys are hygienically cleaned using safe, non-toxic methods — perfect for keeping playtime healthy and worry-free.",
+      "icon": "heart",
+      "features": [
+        "Safe for children",
+        "Non-toxic cleaning",
+        "Plush and fabric toys",
+        "Hygienic results"
+      ],
+      "best_for": "Children's toys, stuffed animals",
+      "turnaround": "24 hours"
+    },
+    {
+      "slug": "accessories-cleaning",
+      "name": "Accessories Cleaning",
+      "short_description": "Neckties, scarves, hats — gently cleaned and reshaped to keep form and color intact.",
+      "description": "Keep your accessories looking sharp with our gentle cleaning service for neckties, scarves, hats, and more. Each item is carefully cleaned and reshaped to maintain its form and color.",
+      "icon": "scarf",
+      "image": "images/pricing/shawl.webp",
+      "features": [
+        "Ties, scarves, and hats",
+        "Gentle fabric care",
+        "Color preservation",
+        "Reshaping and finishing"
+      ],
+      "best_for": "Neckties, scarves, hats, caps, stoles",
+      "turnaround": "24 hours",
+      "gallery": [
+        "shawl"
+      ]
     },
     {
       "slug": "sofa-cleaning",
@@ -86,7 +248,32 @@
         "Dries in hours, not days"
       ],
       "best_for": "Fabric and leather sofas, armchairs",
-      "turnaround": "48 hours"
+      "turnaround": "48 hours",
+      "image": "images/proof/sofa-after.webp"
+    },
+    {
+      "slug": "steam-ironing",
+      "name": "Steam Ironing",
+      "short_description": "Sharp, crease-free results using steam press technology for a crisp, polished finish on every item.",
+      "description": "Get professionally pressed clothes with our steam ironing service. Using advanced steam press technology, we remove wrinkles and give every garment a crisp, polished finish — perfect for office wear, ethnic wear, and everyday essentials.",
+      "icon": "shirt",
+      "image": "images/pricing/wash-and-steam-iron.webp",
+      "features": [
+        "Steam press technology",
+        "Crease-free finish",
+        "Safe for all fabric types",
+        "Quick turnaround"
+      ],
+      "best_for": "Office shirts, trousers, sarees, uniforms",
+      "turnaround": "24 hours",
+      "gallery": [
+        "wash-and-steam-iron",
+        "salwar",
+        "dress",
+        "shirt",
+        "kurta",
+        "pant-trouser"
+      ]
     },
     {
       "slug": "mattress-cleaning",
@@ -112,103 +299,16 @@
         "Better on water-soluble stains"
       ],
       "best_for": "Delicates that water can safely handle",
-      "turnaround": "24–48 hours"
-    },
-    {
-      "slug": "bag-cleaning",
-      "name": "Bag Cleaning",
-      "short_description": "Handbags, totes, and backpacks deep-cleaned, reshaped, and stain-treated with material-safe products.",
-      "description": "Our bag cleaning service restores handbags, totes, backpacks, and more. We use material-safe products to deep-clean, remove stains, and reshape your bags so they look their best.",
-      "icon": "bag",
-      "image": "/src/assets/images/mascot-wash4you.png",
-      "features": [
-        "Handbag and backpack cleaning",
-        "Material-safe treatments",
-        "Stain removal",
-        "Reshaping and finishing"
+      "turnaround": "24–48 hours",
+      "gallery": [
+        "kurta",
+        "dress",
+        "shawl",
+        "shirt",
+        "salwar",
+        "t-shirt"
       ],
-      "best_for": "Handbags, totes, backpacks, laptop bags",
-      "turnaround": "24–48 hours"
-    },
-    {
-      "slug": "leather-cleaning",
-      "name": "Leather Cleaning",
-      "short_description": "Specialized leather care using pH-balanced solutions that clean and condition without drying or cracking.",
-      "description": "Protect your leather investments with our specialized leather cleaning service. We use pH-balanced solutions that clean, condition, and preserve leather jackets, bags, and accessories without drying or cracking.",
-      "icon": "jacket",
-      "image": "/src/assets/images/mascot-wash4you.png",
-      "features": [
-        "pH-balanced leather solutions",
-        "Cleaning and conditioning",
-        "Prevents drying and cracking",
-        "Ideal for jackets and accessories"
-      ],
-      "best_for": "Leather jackets, belts, wallets, sofas",
-      "turnaround": "48–72 hours"
-    },
-    {
-      "slug": "carpet-cleaning",
-      "name": "Carpet Cleaning",
-      "short_description": "Advanced extraction techniques to clean, refresh, and revive your carpets, residential or commercial.",
-      "description": "Refresh your home or office with our carpet cleaning service. Using advanced extraction techniques, we remove dirt, dust, stains, and odors to revive carpets and extend their life.",
-      "icon": "square",
-      "image": "/src/assets/images/mascot-wash4you.png",
-      "features": [
-        "Deep extraction cleaning",
-        "Stain and odor removal",
-        "Residential and commercial",
-        "Fast drying process"
-      ],
-      "best_for": "Home carpets, office rugs, area rugs",
-      "turnaround": "48 hours"
-    },
-    {
-      "slug": "accessories-cleaning",
-      "name": "Accessories Cleaning",
-      "short_description": "Neckties, scarves, hats — gently cleaned and reshaped to keep form and color intact.",
-      "description": "Keep your accessories looking sharp with our gentle cleaning service for neckties, scarves, hats, and more. Each item is carefully cleaned and reshaped to maintain its form and color.",
-      "icon": "scarf",
-      "image": "/src/assets/images/mascot-wash4you.png",
-      "features": [
-        "Ties, scarves, and hats",
-        "Gentle fabric care",
-        "Color preservation",
-        "Reshaping and finishing"
-      ],
-      "best_for": "Neckties, scarves, hats, caps, stoles",
-      "turnaround": "24 hours"
-    },
-    {
-      "slug": "toy-cleaning",
-      "name": "Toy Cleaning",
-      "short_description": "Hygienic, safe cleaning for plush and fabric-based toys, perfect for families with kids.",
-      "description": "Our toy cleaning service ensures your child's favorite plush and fabric toys are hygienically cleaned using safe, non-toxic methods — perfect for keeping playtime healthy and worry-free.",
-      "icon": "heart",
-      "image": "/src/assets/images/mascot-wash4you.png",
-      "features": [
-        "Safe for children",
-        "Non-toxic cleaning",
-        "Plush and fabric toys",
-        "Hygienic results"
-      ],
-      "best_for": "Children's toys, stuffed animals",
-      "turnaround": "24 hours"
-    },
-    {
-      "slug": "curtains-cleaning",
-      "name": "Curtains Cleaning",
-      "short_description": "Professional curtain care that removes dust, stains, and odors, without compromising fabric quality or color.",
-      "description": "Our curtain cleaning service includes free removal and reinstallation. We remove dust, stains, and odors while protecting fabric quality and color, leaving your curtains fresh and beautiful.",
-      "icon": "curtains",
-      "image": "/src/assets/images/mascot-wash4you.png",
-      "features": [
-        "Free removal and reinstallation",
-        "Dust, stain, and odor removal",
-        "Fabric-safe cleaning",
-        "Color protection"
-      ],
-      "best_for": "All curtain types and fabric weights",
-      "turnaround": "48 hours"
+      "image": "images/pricing/kurta.webp"
     },
     {
       "slug": "blanket-quilt-cleaning",
@@ -216,7 +316,7 @@
       "short_description": "Deep cleaning for blankets and quilts to restore softness, freshness, and comfort.",
       "description": "Refresh your blankets and quilts with our specialized cleaning service. We remove dust, allergens, and odors while preserving softness and fluffiness for a comfortable night's sleep.",
       "icon": "bed",
-      "image": "/src/assets/images/mascot-wash4you.png",
+      "image": "images/pricing/double-blanket.webp",
       "features": [
         "Single and double blanket care",
         "Quilt cleaning",
@@ -224,7 +324,12 @@
         "Softness preservation"
       ],
       "best_for": "Winter blankets, comforters, duvets",
-      "turnaround": "48 hours"
+      "turnaround": "48 hours",
+      "gallery": [
+        "double-blanket",
+        "shawl",
+        "single-blanket"
+      ]
     },
     {
       "slug": "linen-cleaning",
@@ -232,7 +337,7 @@
       "short_description": "Expert linen care for bed sheets, table linens, and more — crisp, clean, and hotel-fresh.",
       "description": "Our linen cleaning service keeps bed sheets, table linens, and household fabrics crisp, clean, and fresh. We use techniques that preserve fabric quality and deliver a hotel-like finish.",
       "icon": "sheet",
-      "image": "/src/assets/images/mascot-wash4you.png",
+      "image": "images/pricing/single-bed-sheet.webp",
       "features": [
         "Bed sheets and table linens",
         "Hotel-fresh finish",
@@ -240,7 +345,11 @@
         "Crisp pressing available"
       ],
       "best_for": "Hotels, restaurants, homes, guest houses",
-      "turnaround": "24–48 hours"
+      "turnaround": "24–48 hours",
+      "gallery": [
+        "single-bed-sheet",
+        "double-bed-sheet"
+      ]
     }
   ],
   "intro": {

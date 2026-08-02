@@ -7,8 +7,8 @@
     "og_description": "Item-wise laundry, dry cleaning and steam ironing rates with free doorstep pickup and delivery across Gurugram."
   },
   "hero": {
-    "headline": "Simple, transparent pricing.",
-    "subheadline": "Premium care at affordable rates. Add what you need to your list and book a free pickup. GST extra on all prices shown."
+    "headline": "Gurgaon & Delhi NCR’s Most Transparent Laundry Prices",
+    "subheadline": "Wash4You publishes every rate up front, so you know what a wash, a dry clean or a shoe restoration costs before we collect a single piece. Premium fabric care at honest rates, with free doorstep pickup and delivery across Gurugram and Delhi NCR. GST extra on all prices shown."
   },
   "note": "* GST Extra — all prices shown are exclusive of GST and are starting prices. The final price depends on the actual garment and the work it needs; send a photo on WhatsApp for an exact quote.",
   "categories": [
@@ -103,8 +103,7 @@
           "name": "Saree",
           "price": "₹199",
           "amount": 199,
-          "slug": "saree",
-          "img": "images/pricing/saree.png"
+          "slug": "saree"
         },
         {
           "name": "Lehenga",
@@ -416,8 +415,7 @@
           "name": "Saree",
           "price": "₹39",
           "amount": 39,
-          "slug": "iron-saree",
-          "img": "images/pricing/saree.png"
+          "slug": "iron-saree"
         },
         {
           "name": "Lehenga",

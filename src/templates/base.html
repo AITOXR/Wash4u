@@ -15,13 +15,16 @@
   <meta property="og:description" content="{{ meta.og_description or meta.description }}">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_IN">
-  <meta property="og:image" content="{{ site.urls.base }}/{{ meta.og_image or 'images/proof/sneaker-nike-after.webp' }}">
+  <meta property="og:image" content="{{ site.urls.base }}/{{ meta.og_image or 'images/og-share.jpg' }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wash4You — eco-friendly laundry and dry cleaning in Gurugram and Delhi NCR">
   <meta property="og:site_name" content="Wash4You">
   {% if meta.canonical %}<meta property="og:url" content="{{ meta.canonical }}">{% endif %}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ meta.og_title or meta.title }}">
   <meta name="twitter:description" content="{{ meta.og_description or meta.description }}">
-  <meta name="twitter:image" content="{{ site.urls.base }}/{{ meta.og_image or 'images/proof/sneaker-nike-after.webp' }}">
+  <meta name="twitter:image" content="{{ site.urls.base }}/{{ meta.og_image or 'images/og-share.jpg' }}">
 
   {# Set before paint so hide-then-reveal styles never flash for JS users,
      and so a JS-disabled browser gets every rule's visible fallback. #}
@@ -31,9 +34,18 @@
   <link rel="icon" href="{{ asset_path }}images/favicon-192.png" sizes="192x192">
   <link rel="apple-touch-icon" href="{{ asset_path }}images/favicon-180.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  {# Self-hosted. The two Google Fonts requests were the slowest thing on the
+     site: local CSS arrived by 69ms, the Google CSS at 722ms and the font
+     files at 1155-1174ms — which held the home page LCP at 804ms and caused
+     the site's only CLS when the swap landed. Same files, same OFL licence,
+     our own origin, and two fewer DNS+TLS handshakes.
+
+     Only the two families used above the fold are preloaded, and only their
+     `latin` subsets — preloading latin-ext or the mono would compete with
+     the very requests this is meant to accelerate. #}
+  <link rel="preload" href="{{ asset_path }}fonts/bricolage-grotesque-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ asset_path }}fonts/hanken-grotesk-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ asset_path }}css/fonts.css">
   {% block preload %}{% endblock %}
 
   <link rel="stylesheet" href="{{ asset_path }}css/base.css">

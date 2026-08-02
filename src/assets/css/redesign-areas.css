@@ -15,20 +15,14 @@
    (or white on a dark ground) and the 2–3 most important keywords ride a
    green rounded highlight. Dark ink on the brand green measures ≈6.2:1;
    white on that hue would fail, so the pill text stays dark. */
-/* Was a green marker-pen pill behind hero words. It appeared in exactly
-   three headlines — both /pricing/ variants and /locate-us/ — and it is the
-   treatment the client rejected: /about-us/, the hero they asked us to match,
-   carries no highlight at all. Reduced to plain inherited text.
-
-   The class is kept rather than stripped from the markup so the emphasis
-   points survive in the templates and can be restyled later without hunting
-   for them. .kw-text (green text, no pill) is a quieter device and stays. */
 .kw {
-  background: none;
-  color: inherit;
-  padding: 0;
-  border-radius: 0;
-  white-space: normal;
+  background: var(--brand-green);
+  color: var(--ink);
+  padding: 0.04em 0.34em;
+  border-radius: 0.34em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  white-space: nowrap;
 }
 
 /* A lighter-touch variant: green TEXT, no pill — for secondary headings
@@ -42,9 +36,12 @@
   position: relative;
   isolation: isolate;
   color: #fff;
-  /* Solid, like /about-us/. The route map moved out from behind the copy
-     into .page-hero__figure beside it. */
-  background: var(--navy);
+  /* No scrim. The banner is a designed navy ground with a narrow luminance
+     range, so white type sits on it directly — unlike a photograph, there is
+     nothing here that needs flattening. */
+  background:
+    var(--areas-hero-img, none) center / cover no-repeat,
+    var(--navy-deep);
   padding-block: clamp(3.25rem, 2.3rem + 5vw, 6.5rem);
   border-bottom: 3px solid var(--brand-green);
 }
@@ -53,19 +50,21 @@
    width cap here would CENTRE the column rather than pin it left. The measure
    lives on the children instead. */
 
-/* RETIRED with the hero restructure: the route map is now its own grid
-   column, so there is nothing behind the copy to avoid and this cap only
-   squeezed the headline. */
+/* Hold the copy inside the left half so it never runs across the route map.
+   Below 62rem the map is cropped out of frame (see background-position) and
+   the copy uses the full column. */
 @media (min-width: 62rem) {
   .areas-hero .crumbs,
   .areas-hero .eyebrow,
-  /* max-width: 52% removed — see note above */
+  .areas-hero__title,
+  .areas-hero .lede,
+  .areas-hero .btn-row { max-width: 52%; }
 }
 
 /* The pins live in the right third; anchoring left crops them out rather
    than letting the copy sit on top of them. */
 @media (max-width: 61.99rem) {
-  /* nothing to reposition — the hero ground is a flat colour now */
+  .areas-hero { background-position: left center; }
 }
 
 /* Breadcrumbs and eyebrow need to flip to light on the dark ground.
@@ -77,15 +76,6 @@
 
 .areas-hero .eyebrow { color: #bfe6cb; }
 .areas-hero .eyebrow::before { background: var(--brand-green); }
-
-/* The source carries a soft rectangular erase artefact across its left
-   third — visible as a grey block once the banner is shown at card size
-   rather than full-bleed. Cropping to the right holds the five pins and
-   drops the artefact, the same crop the home page coverage band uses. */
-.areas-hero .page-hero__figure img {
-  aspect-ratio: 16 / 10;
-  object-position: right center;
-}
 
 .areas-hero__title {
   color: #fff;
