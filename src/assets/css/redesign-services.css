@@ -381,7 +381,7 @@
 }
 .svc-menu thead th {
   background: var(--navy); color: #fff;
-  font-family: var(--font-mono); font-size: var(--t-xs);
+  font-family: var(--font-mono); font-size: var(--t-sm);
   letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
 }
 .svc-menu tbody th a {
@@ -424,7 +424,7 @@
   font-family: var(--font-mono); font-size: var(--t-sm);
 }
 .svc-step h3 { color: #fff; font-size: var(--t-md); margin-bottom: var(--s-1); }
-.svc-step p { color: rgba(255, 255, 255, 0.84); font-size: var(--t-sm); }
+.svc-step p { color: rgba(255, 255, 255, 0.84); font-size: var(--t-base); }
 
 /* ---- Why choose us ---- */
 .svc-why { display: grid; gap: var(--s-4); grid-template-columns: 1fr; }

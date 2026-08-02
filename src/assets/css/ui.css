@@ -97,7 +97,7 @@
   border-left: 3px solid var(--navy);
   border-radius: 3px;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: var(--t-xs);
   font-weight: 500;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -238,7 +238,7 @@
   padding: 0.25rem 0.625rem;
   border-radius: var(--r-pill);
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: var(--t-xs);
   font-weight: 500;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -336,7 +336,7 @@
 /* the whole card is clickable, but the link text stays the a11y target */
 .svc__link::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
 
-.svc p { font-size: var(--t-sm); color: var(--ink-3); line-height: 1.55; flex: 1; }
+.svc p { font-size: var(--t-base); color: var(--ink-3); line-height: 1.55; flex: 1; }
 .svc .tag { align-self: flex-start; }
 
 /* ------------------------------------------------------------
@@ -442,7 +442,7 @@
   border: 0;
   background: none;
   font: inherit;
-  font-size: var(--t-sm);
+  font-size: var(--t-base);
   font-weight: 700;
   color: var(--brand-blue);
   text-decoration: underline;
@@ -791,7 +791,7 @@
 .review__meta {
   display: flex; align-items: center; gap: var(--s-1);
   font-family: var(--font-mono);
-  font-size: 0.6875rem; letter-spacing: .08em; text-transform: uppercase;
+  font-size: var(--t-xs); letter-spacing: .08em; text-transform: uppercase;
   color: var(--green);
 }
 .review__meta svg { width: 0.875rem; height: 0.875rem; }
@@ -897,7 +897,7 @@ html:not(.js) .faq-item__icon { display: none; }
   border: 1px solid var(--line);
   border-radius: var(--r-md);
   font-weight: 600;
-  font-size: var(--t-sm);
+  font-size: var(--t-base);
   color: var(--ink);
   transition: border-color 180ms var(--ease-out), background-color 180ms var(--ease-out);
 }

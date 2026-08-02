@@ -215,7 +215,7 @@
   background: var(--navy);
   color: #fff;
   font-family: var(--font-mono);
-  font-size: var(--t-xs);
+  font-size: var(--t-sm);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 500;
@@ -263,7 +263,7 @@
   font-size: var(--t-sm);
 }
 .pkg-step h3 { color: #fff; font-size: var(--t-md); margin-bottom: var(--s-1); }
-.pkg-step p { color: rgba(255, 255, 255, 0.84); font-size: var(--t-sm); }
+.pkg-step p { color: rgba(255, 255, 255, 0.84); font-size: var(--t-base); }
 
 /* ---- What the credit covers ---- */
 .spend-grid {

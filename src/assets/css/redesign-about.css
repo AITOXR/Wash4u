@@ -211,7 +211,7 @@
   background: var(--navy);
   color: #fff;
   font-family: var(--font-mono);
-  font-size: var(--t-xs);
+  font-size: var(--t-sm);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 500;
@@ -267,7 +267,7 @@
   font-size: var(--t-sm);
 }
 .page-about .about-step h3 { font-size: var(--t-md); color: var(--navy); margin-bottom: var(--s-1); }
-.page-about .about-step p { color: var(--ink-2); font-size: var(--t-sm); }
+.page-about .about-step p { color: var(--ink-2); font-size: var(--t-base); }
 
 @media (hover: hover) and (pointer: fine) {
   .page-about .about-step {

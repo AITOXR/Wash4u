@@ -315,7 +315,7 @@
 }
 .coverage-col h4 {
   font-family: var(--font-mono);
-  font-size: var(--t-xs);
+  font-size: var(--t-sm);
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -383,7 +383,7 @@
   background: var(--navy);
   color: #fff;
   font-family: var(--font-mono);
-  font-size: var(--t-xs);
+  font-size: var(--t-sm);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 500;
@@ -435,7 +435,7 @@
   font-size: var(--t-sm);
 }
 .area-step h3 { color: #fff; font-size: var(--t-md); margin-bottom: var(--s-1); }
-.area-step p { color: rgba(255, 255, 255, 0.84); font-size: var(--t-sm); }
+.area-step p { color: rgba(255, 255, 255, 0.84); font-size: var(--t-base); }
 
 /* ---- Why choose us ---- */
 .area-why {
