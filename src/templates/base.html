@@ -343,7 +343,14 @@
           <dd data-cart-total>₹0.00</dd>
         </div>
       </dl>
-      <p class="cart-drawer__note">Indicative estimate — ‘from’ items are priced after inspection.</p>
+      {# The one thing a customer must read before booking: this total is an
+         estimate. It was 13px grey and sat between a bold total and two
+         buttons, where nobody saw it. Now a real notice — but a calm one,
+         since it sets an expectation rather than reporting an error. #}
+      <p class="cart-note">
+        <span class="cart-note__icon" aria-hidden="true">{{ ui('info', 18) }}</span>
+        <span><b>Indicative estimate.</b> ‘From’ items are priced after inspection.</span>
+      </p>
       <div class="cart-cta">
         <a class="btn btn--cta cart-cta__btn" href="{{ site.urls.schedule }}" rel="noopener">
           {{ ui('check-badge', 18) }} Schedule pickup

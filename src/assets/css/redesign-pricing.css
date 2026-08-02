@@ -50,10 +50,10 @@
   min-height: max(24rem, 56vh);
   display: flex;
   align-items: center;
-  background:
-    linear-gradient(100deg, rgba(9, 22, 50, .86) 0%, rgba(9, 22, 50, .66) 48%, rgba(9, 22, 50, .48) 100%),
-    var(--pricing-hero-img, none) center / cover no-repeat,
-    var(--navy-deep);
+  /* Solid, like /about-us/. The photograph moved out from behind the copy
+     into .page-hero__figure beside it, so there is no scrim to tune and no
+     headline sitting on a picture. */
+  background: var(--navy);
   padding-block: clamp(2.75rem, 2rem + 4vw, 5rem);
   border-bottom: 3px solid var(--brand-green);
 }
@@ -114,28 +114,26 @@
    No max-width declaration at all here — `none` would also drop .wrap's own
    72rem cap, which left the copy hard against the viewport edge and out of
    line with every section below it. */
-.pricing-hero__title { max-width: 40rem; }
+.pricing-hero__title { max-width: 20ch; }
 
-/* Hold every line inside the LEFT HALF of the band, so the copy never runs
-   across the shirt or the dress on the right of the banner.
+/* RETIRED with the hero restructure. These caps existed to keep the copy off
+   the shirt and the dress in the background photograph. The photograph is now
+   its own grid column, so the cap squeezed the copy into half of a half — the
+   headline broke over five lines. The grid provides the measure now.
 
-   50% of .wrap rather than of the viewport: .wrap is the narrower box at
-   large sizes, so this lands at or inside the true half-way line.
-
+   (kept for reference; the original note said:
    Not applied below 48rem — there the frame crops to near-square, the layout
    is single column, and half a phone screen is not a usable measure. */
 @media (min-width: 48rem) {
   .pricing-hero .crumbs,
   .pricing-hero .eyebrow,
-  .pricing-hero__title,
-  .pricing-hero__lede,
-  .pricing-hero .btn-row { max-width: 50%; }
+  /* max-width: 50% removed — see note above */
 }
 
 /* Phones crop the 2.36:1 frame to something near-square. Anchor it right so
    the garments, not an empty slice of sky, are what shows behind the copy. */
 @media (max-width: 47.99rem) {
-  .pricing-hero { background-position: center, right center, 0 0; }
+  /* nothing to reposition — the hero ground is a flat colour now */
 }
 
 /* ============================================================

@@ -52,6 +52,8 @@
   --amber:      #ca860e;  /* review stars. Darkened from #f0a92a, which was
                              2.02:1 — under the 3:1 floor for meaningful
                              non-text graphics.                             */
+  --amber-tint: #fdf4e6;  /* amber at ~8% — the notice ground             */
+  --amber-deep: #8a5a00;  /* 6.1:1 on --amber-tint — notice text            */
 
   /* ---- Type ---------------------------------------------------
      Bricolage Grotesque is the display face — a crafted, contemporary

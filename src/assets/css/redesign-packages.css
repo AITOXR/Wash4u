@@ -92,14 +92,16 @@
   position: relative;
   isolation: isolate;
   color: #fff;
-  background: url('../images/hero-packages.svg') center / cover no-repeat, #0B2E4C;
+  background: var(--navy);   /* the banner moved beside the copy, like /about-us/ */
   border-bottom: 3px solid var(--brand-green);
   padding-block: clamp(2.5rem, 1.8rem + 3vw, 4.5rem);
 }
 
 /* Single column: the aside that used to fill the right half now sits below
    the band, and the artwork's tags occupy that side instead. */
-.packages-hero .page-hero__grid { display: block; }
+/* The `display: block` override that lived here was correct while the
+   banner was a background and the grid had only one child. The banner is
+   now a real second column, so the two-column grid applies again. */
 
 .packages-hero .crumbs { color: rgba(255, 255, 255, .72); }
 .packages-hero .crumbs a { color: #fff; }
@@ -108,6 +110,13 @@
 
 .packages-hero .eyebrow { color: #8fe6cd; }
 .packages-hero .eyebrow::before { background: var(--brand-green); }
+
+/* Same crop logic as /services/: the tags sit right of centre in a 3:1
+   frame, so shown whole in a card the tile is mostly empty navy. */
+.packages-hero .page-hero__figure img {
+  aspect-ratio: 12 / 5;
+  object-position: right center;
+}
 
 .packages-hero h1 { color: #fff; }
 .packages-hero .lede { color: rgba(255, 255, 255, .92); }

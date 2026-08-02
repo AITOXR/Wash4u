@@ -68,19 +68,31 @@
    The banner itself carries no text — the headline, sub-copy and chips that
    came baked into the artwork are gone, since the h1 and lede below are the
    real, editable ones. #}
-<section class="areas-hero" style="--areas-hero-img: url('../images/hero-areas.jpg')">
+{# Copy on a solid ground with the route map beside it — the /about-us/
+   treatment, replacing a headline set over the banner. #}
+<section class="areas-hero">
   <div class="wrap areas-hero__inner">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="{{ root_path }}">Home</a>
       <span aria-hidden="true">/</span>
       <span>Areas we serve</span>
     </nav>
-    <p class="eyebrow">{{ ui('pin', 16) }} Gurugram &amp; Delhi NCR</p>
+    <div class="page-hero__grid">
+      <div>
+        <p class="eyebrow">{{ ui('pin', 16) }} Gurugram &amp; Delhi NCR</p>
     <h1 class="areas-hero__title">Premium Laundry &amp; Dry Cleaning Across <span class="kw">Delhi&nbsp;NCR</span></h1>
     <p class="lede">Come to either store, or let us collect from your door at no charge across the city. Every order is counted with you before it leaves.</p>
     <div class="btn-row">
       <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
       <a class="btn btn--ghost btn--lg" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+    </div>
+      </div>
+
+      <div class="page-hero__figure reveal">
+        <img src="{{ asset_path }}images/hero-areas.jpg"
+             alt="Wash4You collection network: a Gurugram hub with routes out to Delhi, Noida, Faridabad and Ghaziabad"
+             width="1998" height="666" loading="lazy" decoding="async">
+      </div>
     </div>
   </div>
 </section>

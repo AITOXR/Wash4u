@@ -72,7 +72,10 @@
    url() inside a custom property resolves against the stylesheet that USES
    the variable, so `{{ asset_path }}` here produced /assets/assets/… and
    404'd. The stylesheet always sits at <assets>/css/. #}
-<section class="pricing-hero" style="--pricing-hero-img: url('../images/hero-pricing.jpg')">
+{# Copy on a solid ground with the photograph beside it — the /about-us/
+   treatment. The headline used to sit ON this image behind a scrim, with
+   green highlight pills, which is what the client rejected. #}
+<section class="pricing-hero">
   <div class="wrap pricing-hero__inner">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="{{ root_path }}">Home</a>
@@ -86,7 +89,9 @@
       {% endif %}
     </nav>
 
-    <p class="eyebrow">{{ ui('pin', 16) }} Pricing{% if is_area %} &middot; {{ area.label }}{% endif %}</p>
+    <div class="page-hero__grid">
+      <div>
+        <p class="eyebrow">{{ ui('pin', 16) }} Pricing{% if is_area %} &middot; {{ area.label }}{% endif %}</p>
 
     {% if is_area %}
     <h1 class="pricing-hero__title">Laundry &amp; dry-clean <span class="kw">prices</span> in {{ area.label }}, <span class="kw-text">Gurugram</span></h1>
@@ -99,6 +104,14 @@
     <div class="btn-row">
       <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
       <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} Ask about an item</a>
+    </div>
+      </div>
+
+      <div class="page-hero__figure reveal">
+        <img src="{{ asset_path }}images/hero-pricing.jpg"
+             alt="A pressed shirt and a dress on hangers, ready for collection"
+             width="1999" height="846" loading="lazy" decoding="async">
+      </div>
     </div>
   </div>
 </section>

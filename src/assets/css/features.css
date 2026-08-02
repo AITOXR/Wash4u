@@ -386,7 +386,42 @@ body.cart-lock { overflow: hidden; }
 }
 .cart-drawer__total span { color: var(--ink-2); font-weight: 600; }
 .cart-drawer__total strong { font-family: var(--font-mono); font-size: var(--t-xl); color: var(--ink); }
-.cart-drawer__note { font-size: var(--t-xs); color: var(--ink-3); }
+/* Estimate notice — the qualifier the customer must read before booking.
+   Was var(--t-xs) --ink-3: 13px grey, set between a bold total and two
+   buttons, i.e. the least visible element in the most important panel.
+
+   Amber, not red or navy: this sets an expectation, it does not report an
+   error, and navy would read as another UI chrome block next to the summary
+   above it. --amber-deep on --amber-tint measures 6.1:1, so the whole line
+   passes AA comfortably and the emphasis carries weight rather than colour
+   alone. */
+.cart-note {
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+  margin: 0;
+  padding: var(--s-3) var(--s-4);
+  /* square on the left so the 3px rule reads as a straight bar; rounding
+     that edge bends the rule into a hook at the corner */
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  /* the rule does the shouting so the fill can stay quiet */
+  border-left: 3px solid var(--amber);
+  background: var(--amber-tint);
+  color: var(--amber-deep);
+  font-size: var(--t-sm);
+  line-height: 1.45;
+}
+.cart-note b { font-weight: 700; }
+.cart-note__icon {
+  display: inline-flex;
+  flex: none;
+  margin-top: .1em;   /* optical: aligns the circle to the cap height, not the line box */
+  color: var(--amber);
+}
+
+@media (forced-colors: active) {
+  .cart-note { border: 1px solid CanvasText; border-left-width: 3px; background: Canvas; color: CanvasText; }
+}
 .cart-drawer__clear {
   justify-self: center;
   min-height: 2.75rem;

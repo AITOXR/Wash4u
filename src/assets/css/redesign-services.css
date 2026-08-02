@@ -223,7 +223,7 @@
   position: relative;
   isolation: isolate;
   color: #fff;
-  background: url('../images/hero-services.svg') center / cover no-repeat, #0B2E4C;
+  background: var(--navy);   /* the banner moved beside the copy, like /about-us/ */
   border-bottom: 3px solid var(--brand-green);
   padding-block: clamp(2.5rem, 1.8rem + 3vw, 4.5rem);
 }
@@ -243,16 +243,22 @@
    column. Capping THAT at 52% left ~310px — enough to stack the two CTAs and
    push the band 200px taller. Single column here; the 52% below is then
    measured against the full wrap, which is what it was meant to be. */
-.services-hero .page-hero__grid { display: block; }
+/* The `display: block` override that lived here was correct while the
+   banner was a background and the grid had only one child. The banner is
+   now a real second column, so the two-column grid applies again. */
 
-/* Hold the copy inside the left half so it never runs across the rail.
-   btn-row is deliberately NOT capped — the buttons are a fixed-size row and
-   a cap only makes them wrap. */
-@media (min-width: 62rem) {
-  .services-hero .crumbs,
-  .services-hero .eyebrow,
-  .services-hero h1,
-  .services-hero .lede { max-width: 52%; }
+/* RETIRED with the hero restructure. This held the copy off the banner's
+   clothes rail while the banner was the background. The banner is now its
+   own grid column, so the cap only squeezed the copy into half of a half. */
+
+/* The banner is a 3:1 navy illustration and its subject sits right; shown
+   whole in a card it is mostly empty ground on a navy hero. Crop to the
+   artwork so the card carries something. */
+.services-hero .page-hero__figure img {
+  /* 12/5 shows ~80% of a 3:1 source, anchored right — enough to keep all six
+     labelled icons. A squarer crop cut LEATHER off the right edge. */
+  aspect-ratio: 12 / 5;
+  object-position: right center;
 }
 
 /* The rail hangs off the right edge of the artwork, and `cover` crops evenly
