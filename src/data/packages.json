@@ -1,8 +1,8 @@
 {
   "_source": "Package tiers, prices, balances, validity and benefit % are from the client's official 'Premium Laundry & Dryclean Packages' graphic (WhatsApp 2026-07-22). Prepaid-wallet model: pay the package cost, receive a free-service bonus, spend the combined balance on any service before it expires. All figures are the client's own — do not invent tiers or change numbers.",
   "meta": {
-    "title": "Laundry & Dry-Clean Packages — Wash4You Gurugram",
-    "description": "Prepaid Wash4You cleaning plans: pay once, get bonus balance and up to 60% more value on dry cleaning, laundry, shoe, leather and home care across Gurugram & Delhi NCR.",
+    "title": "Laundry Packages Gurgaon | Prepaid Plans & Subscriptions",
+    "description": "Prepaid Wash4You laundry packages in Gurugram: six plans from ₹2,500, up to 60% more value in bonus credit, spendable on any service. Free pickup.",
     "canonical": "https://wash4you.in/packages/",
     "og_title": "Wash4You Packages — Save More with Smart Cleaning Plans",
     "og_description": "Prepaid cleaning wallets with bonus balance and up to 60% more value. Free doorstep pickup and delivery across Gurugram & Delhi NCR."
@@ -46,7 +46,13 @@
       "free": "₹500",
       "balance": "₹3,000",
       "validity": "3 months",
-      "benefit": "20%"
+      "benefit": "20%",
+      "best_for": "Solo professionals, students, first-time users",
+      "includes": [
+        "₹3,000 spendable on any service",
+        "Free pickup and delivery on every order",
+        "Standard turnaround"
+      ]
     },
     {
       "name": "Platinum",
@@ -54,7 +60,13 @@
       "free": "₹1,500",
       "balance": "₹6,500",
       "validity": "6 months",
-      "benefit": "30%"
+      "benefit": "30%",
+      "best_for": "Couples, small families, regular users",
+      "includes": [
+        "₹6,500 spendable on any service",
+        "Free pickup and delivery on every order",
+        "Suits a household of two to three"
+      ]
     },
     {
       "name": "Elite",
@@ -62,7 +74,13 @@
       "free": "₹3,500",
       "balance": "₹13,500",
       "validity": "1 year",
-      "benefit": "35%"
+      "benefit": "35%",
+      "best_for": "Families of three to four, high-volume households",
+      "includes": [
+        "₹13,500 spendable on any service",
+        "Priority scheduling — skip the queue",
+        "One-year validity, no expiry pressure"
+      ]
     },
     {
       "name": "Premier",
@@ -70,7 +88,14 @@
       "free": "₹8,000",
       "balance": "₹28,000",
       "validity": "1 year",
-      "benefit": "40%"
+      "benefit": "40%",
+      "best_for": "Large families, housing societies, small businesses",
+      "includes": [
+        "₹28,000 spendable on any service",
+        "Priority scheduling",
+        "Express delivery upgrades on request",
+        "One-year validity"
+      ]
     },
     {
       "name": "Founder",
@@ -80,7 +105,15 @@
       "validity": "Unlimited",
       "benefit": "50%",
       "badge": "Most popular",
-      "tier": "gold"
+      "tier": "gold",
+      "best_for": "Loyal customers, small offices, salons, gyms",
+      "includes": [
+        "₹45,000 spendable on any service",
+        "Priority scheduling",
+        "Express delivery upgrades included",
+        "Unlimited validity — never expires",
+        "Dedicated WhatsApp support line"
+      ]
     },
     {
       "name": "VIP",
@@ -90,7 +123,16 @@
       "validity": "Unlimited",
       "benefit": "60%",
       "badge": "Best value",
-      "tier": "navy"
+      "tier": "navy",
+      "best_for": "Corporate clients, hotels, large housing societies",
+      "includes": [
+        "₹80,000 spendable on any service",
+        "Top-priority scheduling",
+        "Free express delivery on every order",
+        "Unlimited validity",
+        "Dedicated account manager",
+        "Custom SLA for corporate clients"
+      ]
     }
   ],
   "features": [
@@ -115,5 +157,201 @@
     "title": "Pick a plan, or tell us what you send.",
     "subtitle": "Not sure which plan pays off for you? Send us your usual items and how often you send them — we'll point you to the right one.",
     "button": "Get a plan on WhatsApp"
-  }
+  },
+  "intro": {
+    "title": "Laundry packages & subscription plans in Gurgaon",
+    "body": "Tired of paying full price every time? A Wash4You prepaid package gives you up to 60% more value in bonus credit, priority service and free pickup and delivery. The model is simple: top up once, spend the balance on any service, and let the bonus do the rest. Whether you are a solo professional, a busy family or a corporate client, one of the six plans below will fit."
+  },
+  "why_subscribe": {
+    "eyebrow": "Why subscribe",
+    "title": "What a package changes",
+    "columns": [
+      "",
+      "Paying per order",
+      "With a package"
+    ],
+    "rows": [
+      {
+        "label": "Effective cost",
+        "without": "Full price every time",
+        "with": "Up to 60% more value in bonus credit"
+      },
+      {
+        "label": "Minimum order",
+        "without": "Applies per order",
+        "with": "No minimum"
+      },
+      {
+        "label": "Pickup & delivery",
+        "without": "Free",
+        "with": "Free, always"
+      },
+      {
+        "label": "Scheduling",
+        "without": "Standard queue",
+        "with": "Priority from Elite upwards"
+      },
+      {
+        "label": "Express delivery",
+        "without": "1.5× surcharge",
+        "with": "Included on Founder and VIP"
+      },
+      {
+        "label": "Account manager",
+        "without": "—",
+        "with": "Dedicated on VIP"
+      },
+      {
+        "label": "Validity",
+        "without": "—",
+        "with": "3 months to unlimited"
+      }
+    ]
+  },
+  "steps": {
+    "eyebrow": "How it works",
+    "title": "Four steps from top-up to fresh laundry",
+    "items": [
+      {
+        "title": "Choose & pay",
+        "detail": "Pick the plan that fits and pay online, by UPI, or in cash at pickup."
+      },
+      {
+        "title": "Credit activated",
+        "detail": "The bonus is added straight away. Your spendable balance is what you paid plus the bonus."
+      },
+      {
+        "title": "Book & spend",
+        "detail": "Schedule pickups as usual and the balance is deducted per order. No cash handling every time."
+      },
+      {
+        "title": "Top up any time",
+        "detail": "Running low? Top up the same plan or move up a tier whenever you like."
+      }
+    ]
+  },
+  "spend_on": {
+    "eyebrow": "What it covers",
+    "title": "Spend the balance on anything we do",
+    "lede": "No category locks and no restrictions — the credit is yours to use across every service.",
+    "groups": [
+      {
+        "cat": "Laundry",
+        "eg": "Wash & fold, wash & iron, premium laundry, woollen care"
+      },
+      {
+        "cat": "Dry cleaning",
+        "eg": "Suits, sarees, blazers, lehengas, kurtas, dresses, sherwanis"
+      },
+      {
+        "cat": "Steam ironing",
+        "eg": "Shirts, trousers, sarees, bedsheets, blazers"
+      },
+      {
+        "cat": "Home cleaning",
+        "eg": "Curtains, carpets, sofas, blankets and quilts"
+      },
+      {
+        "cat": "Specialist care",
+        "eg": "Shoes, bags, leather, toys, accessories"
+      },
+      {
+        "cat": "Add-ons",
+        "eg": "Antiseptic wash, fabric softener, stain removal, fragrance booster"
+      }
+    ]
+  },
+  "chooser": {
+    "eyebrow": "Which one",
+    "title": "A quick guide to picking a plan",
+    "columns": [
+      "If you are a…",
+      "Start with",
+      "Why"
+    ],
+    "rows": [
+      {
+        "who": "Solo professional",
+        "plan": "Diamond",
+        "why": "Low commitment — a way to try us out."
+      },
+      {
+        "who": "Working couple",
+        "plan": "Platinum",
+        "why": "Covers two to three months comfortably."
+      },
+      {
+        "who": "Family of three to four",
+        "plan": "Elite",
+        "why": "Best value at household volume."
+      },
+      {
+        "who": "Large or joint family",
+        "plan": "Premier",
+        "why": "Bulk saving with a full year to use it."
+      },
+      {
+        "who": "Salon, gym or small hotel",
+        "plan": "Founder",
+        "why": "Unlimited validity suits commercial use."
+      },
+      {
+        "who": "Corporate office or hotel",
+        "plan": "VIP",
+        "why": "Account manager, top priority, best value."
+      },
+      {
+        "who": "Housing society sharing",
+        "plan": "Premier or VIP",
+        "why": "Pool the credit across several flats."
+      },
+      {
+        "who": "Buying it as a gift",
+        "plan": "Elite or Founder",
+        "why": "Practical, and it keeps giving all year."
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Can I use package credit for dry cleaning, or only laundry?",
+      "a": "Any service, no exceptions. The credit works for wash & fold, dry cleaning, steam ironing, curtain cleaning, shoe care — everything we offer. There are no category restrictions."
+    },
+    {
+      "q": "What happens if my plan expires before I use the full credit?",
+      "a": "Diamond, Platinum, Elite and Premier are time-limited, so pick a validity that matches how much you actually send us. Founder and VIP credit never expires — if you are unsure, start with one of those."
+    },
+    {
+      "q": "Can I get a refund on unused credit?",
+      "a": "Package credit is prepaid and non-refundable. The unlimited-validity plans exist precisely so you are never under time pressure to use a balance."
+    },
+    {
+      "q": "Is GST included in the package price?",
+      "a": "No. Package prices are exclusive of GST, which is applied as per government norms at the time of purchase. The credit you receive, bonus included, is your full spendable balance."
+    },
+    {
+      "q": "Can I share a package with family or flatmates?",
+      "a": "Yes. One package can cover multiple addresses on the same account — book pickups from wherever you need and the same balance covers them."
+    },
+    {
+      "q": "Do corporate clients get extra benefits?",
+      "a": "Yes. On Premier, Founder and VIP we offer custom SLAs and invoicing, volume discounts on recharges, priority scheduling for bulk orders, and a dedicated account manager on VIP. Email care@wash4you.in to set one up."
+    },
+    {
+      "q": "Can I upgrade my package before it expires?",
+      "a": "Yes. Pay the difference and we will move you up a tier — your existing balance rolls into the new plan."
+    },
+    {
+      "q": "How do I check my remaining balance?",
+      "a": "Message us on WhatsApp and we will tell you. We also send a balance update after every order, so you are never guessing."
+    },
+    {
+      "q": "What is the difference between Founder and VIP?",
+      "a": "Both have unlimited validity. VIP adds a bigger bonus (₹30,000 against ₹15,000), 60% extra value against 50%, free express delivery on every order, top-priority scheduling and a dedicated account manager."
+    },
+    {
+      "q": "Are there any hidden charges?",
+      "a": "None. The balance covers the service cost, pickup and delivery are free, and the only additional cost is GST — charged once at purchase, not per order."
+    }
+  ]
 }

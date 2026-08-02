@@ -74,7 +74,6 @@ export function initCart(root = document) {
   const subtotal = () => items.reduce((n, i) => n + (Number(i.amount) || 0) * i.qty, 0)
   const gstAmount = () => round2(subtotal() * GST_RATE)
   const grandTotal = () => round2(subtotal() + gstAmount())
-  const hasFrom = () => items.some((i) => i.from)
 
   /* ---- persistence + full re-render ---- */
   const commit = () => {
@@ -179,7 +178,7 @@ export function initCart(root = document) {
         nm.textContent = it.name
         const pr = document.createElement('span')
         pr.className = 'cart-line__price'
-        pr.textContent = (it.from ? 'from ' : '') + (it.price || rupee(it.amount))
+        pr.textContent = it.price || rupee(it.amount)
         info.append(nm, pr)
 
         const ctrl = document.createElement('div')
@@ -210,14 +209,16 @@ export function initCart(root = document) {
   function buildWhatsApp() {
     const lines = ["Hi Wash4You! I'd like to book a free pickup for:"]
     items.forEach((it) => {
-      const each = it.from ? 'from ' + (it.price || rupee(it.amount)) : (it.price || rupee(it.amount))
+      const each = it.price || rupee(it.amount)
       lines.push(`• ${it.name} ×${it.qty} — ${each}`)
     })
     lines.push('')
     lines.push(`Subtotal: ${money2(subtotal())}`)
     lines.push(`GST (18%): ${money2(gstAmount())}`)
     lines.push(`Total: ${money2(grandTotal())}`)
-    if (hasFrom()) lines.push("Note: 'from' items are priced after inspection.")
+    // Every listed rate is a starting price now (data-from is gone), so this
+    // is stated once for the whole list instead of tagged onto each line.
+    lines.push('Note: all rates are starting prices; the final price depends on the garment and the work it needs.')
     lines.push('Please confirm a pickup slot. Thank you!')
     return waBase + (waBase.includes('?') ? '&' : '?') + 'text=' + encodeURIComponent(lines.join('\n'))
   }

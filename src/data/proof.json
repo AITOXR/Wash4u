@@ -1,8 +1,6 @@
 {
   "_source": "Before/after pairs cropped from the client's own job photography in docs/Wash4you graphic/. Each pair is two crops of the SAME shot setup at identical box dimensions, so the drag-slider aligns. Nothing is retouched, mirrored, or stock.",
-
   "hero": "sneaker-nike",
-
   "pairs": [
     {
       "id": "sneaker-nike",
@@ -12,7 +10,7 @@
       "before": "images/proof/sneaker-nike-before.webp",
       "after": "images/proof/sneaker-nike-after.webp",
       "alt_before": "Nike SB Dunk sneaker with heavy blue water staining across the cream suede upper and a discoloured gum sole",
-      "alt_after": "The same Nike SB Dunk sneaker after Wash4You cleaning, with even cream suede and a restored gum sole",
+      "alt_after": "The same Nike SB Dunk sneaker after Wash4You cleaning, with even cream suede and a restored gum sole — Wash4You, Gurgaon",
       "width": 820,
       "height": 455,
       "featured": true
@@ -25,7 +23,7 @@
       "before": "images/proof/sofa-before.webp",
       "after": "images/proof/sofa-after.webp",
       "alt_before": "Light grey three-seater fabric sofa with visible soiling and greying across the seat cushions",
-      "alt_after": "The same three-seater sofa after Wash4You upholstery cleaning, with the fabric returned to an even light grey",
+      "alt_after": "The same three-seater sofa after Wash4You upholstery cleaning, with the fabric returned to an even light grey — Wash4You, Gurgaon",
       "width": 760,
       "height": 710,
       "featured": true
@@ -38,20 +36,28 @@
       "before": "images/proof/sneaker-hoka-before.webp",
       "after": "images/proof/sneaker-hoka-after.webp",
       "alt_before": "Hoka Bondi running shoe with grass stains and dirt across the knit upper and foam midsole",
-      "alt_after": "The same Hoka Bondi running shoe after Wash4You cleaning, with a clean upper and bright white midsole",
+      "alt_after": "The same Hoka Bondi running shoe after Wash4You cleaning, with a clean upper and bright white midsole — Wash4You, Gurgaon",
       "width": 544,
       "height": 1110,
       "featured": false,
       "_note": "The two source panels were shot at slightly different angles, so this pair renders as a static side-by-side card, not a drag slider."
     }
   ],
-
   "process": {
     "_source": "Operational photography from the client's 'Free Pickup/Delivery' graphic (image 18).",
     "steps": [
-      { "title": "Item count", "detail": "Every piece is counted and logged with you at the door before it leaves." },
-      { "title": "Separately packed", "detail": "Each order is bagged on its own — your clothes never share a wash with anyone else's." },
-      { "title": "Acknowledgement", "detail": "You get a written receipt of exactly what was collected, signed at pickup." }
+      {
+        "title": "Item count",
+        "detail": "Every piece is counted and logged with you at the door before it leaves."
+      },
+      {
+        "title": "Separately packed",
+        "detail": "Each order is bagged on its own — your clothes never share a wash with anyone else's."
+      },
+      {
+        "title": "Acknowledgement",
+        "detail": "You get a written receipt of exactly what was collected, signed at pickup."
+      }
     ]
   }
 }

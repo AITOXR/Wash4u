@@ -2,6 +2,12 @@
 {% from "_icons.html" import ui, care_symbol, care_tag, service_icon, service_bg %}
 {% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card %}
 
+{# Page scoping hook. redesign-home.css is linked from base.html on all 114
+   pages, so without a body class every rule in it has to invent a modifier
+   (.cta-band--brand) to avoid repainting the other 113. page-about,
+   page-locate-us and page-services-list already carry one. #}
+{% block body_class %}page-home{% endblock %}
+
 {% block preload %}
   {# The hero is live text (its headline is the LCP), so no image to preload —
      just load this page's redesign stylesheet. #}
@@ -40,19 +46,42 @@
    noise over a photograph.
    ============================================================ #}
 <section class="hero home-hero">
-  {# aria-hidden: the slides are decorative and their alt text would be
-     read out mid-headline. Slide 1 is the LCP image candidate, so it is
-     eager + fetchpriority=high; slide 2 is only needed 6s later. #}
-  <div class="home-hero__media" data-hero-slides aria-hidden="true">
-    <img class="home-hero__slide is-active" src="{{ asset_path }}images/hero-slide-1.jpg"
-         alt="" width="1594" height="527" fetchpriority="high" decoding="async">
-    <img class="home-hero__slide" src="{{ asset_path }}images/hero-slide-2.jpg"
-         alt="" width="1594" height="527" loading="lazy" decoding="async">
+  {# The wall — a tilted, endlessly drifting river of the real garment
+     cut-outs, replacing the two stock banners.
+
+     aria-hidden on the container: it is decoration, and 48 garment names
+     read out before the headline would be hostile. Each tile therefore
+     takes a bare alt="" (house convention when the parent is hidden).
+
+     fetchpriority="low" is a deliberate departure from the site's
+     loading="lazy" default. These sit ABOVE the fold, so `lazy` would not
+     defer them meaningfully and would risk visible pop-in; `low` instead
+     tells the browser to let the stylesheets, fonts and the headline —
+     which is the LCP element — win the bandwidth. 24 unique tiles at
+     ~6 KB each, each one requested once however many times it appears. #}
+  <div class="home-hero__wall" aria-hidden="true">
+    <div class="hero-wall">
+      {% for column in hero_wall_columns %}
+      <div class="hero-wall__col" style="--dur: {{ home.hero_wall.durations[loop.index0] }}s">
+        {# each column's tiles are emitted twice: the keyframe travels
+           exactly one set, so the second copy is what makes the loop
+           seamless rather than snapping back. #}
+        {% for _pass in range(2) %}
+        {% for slug in column %}
+        <span class="hero-wall__tile">
+          <img src="{{ asset_path }}images/hero-wall/{{ slug }}.webp" alt=""
+               width="240" height="240" fetchpriority="low" decoding="async">
+        </span>
+        {% endfor %}
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
   </div>
 
   <div class="wrap home-hero__inner">
     <p class="home-hero__eyebrow">{{ ui('pin', 14) }} Gurugram · Delhi NCR</p>
-    <h1 class="home-hero__title">Premium <span class="kw">Dry Cleaning &amp; Laundry</span> with Free <span class="kw">Pickup &amp; Delivery</span></h1>
+    <h1 class="home-hero__title"><span class="hkw hkw--blue">Premium</span> <span class="hkw hkw--green">Dry Cleaning &amp; Laundry</span> <span class="hkw hkw--blue">with</span> <span class="hkw hkw--green">Free Pickup &amp; Delivery</span></h1>
     <p class="home-hero__sub">Eco-friendly laundry, dry cleaning and specialist fabric care. We collect from your door, count every piece with you, and deliver it back fresh — in 24 hours.</p>
     <div class="home-hero__actions">
       <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book Free Pickup</a>
@@ -83,10 +112,15 @@
         <h2{{ cms('home:why.title') }}>{{ home.why.title }}</h2>
         <p{{ cms('home:why.text') }}>{{ home.why.text }}</p>
       </div>
-      {# Brand mascot — decorative, desktop only (display:none under 62rem, so
-         phones never download it). alt="" + aria-hidden keeps it out of the
-         accessibility tree; it repeats no information. #}
-      <img class="why__mascot" src="{{ asset_path }}images/mascot-why.png"
+      {# Brand mascot — decorative. Desktop keeps the large companion figure
+         (>=62rem); `--sm` brings a small version back BELOW 62rem, where this
+         section is the longest unbroken run of type on the page and four 32px
+         glyphs are its only marks. The Proof section's copy of this same image
+         deliberately does NOT carry the modifier — one file, one fetch, but the
+         same figure twice within two scrolls on a phone reads as a repeat.
+         alt="" + aria-hidden keeps it out of the accessibility tree; it
+         repeats no information. #}
+      <img class="why__mascot why__mascot--sm" src="{{ asset_path }}images/mascot-why.png"
            alt="" aria-hidden="true" width="760" height="941"
            loading="lazy" decoding="async">
     </div>
@@ -116,10 +150,20 @@
    ============================================================ #}
 <section class="section section--navy svc-band">
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow"{{ cms('home:services_section.eyebrow') }}>{{ home.services_section.eyebrow }}</p>
-      <h2{{ cms('home:services_section.title') }}>{{ home.services_section.title }}</h2>
-      <p{{ cms('home:services_section.text') }}>{{ home.services_section.text }}</p>
+    {# A second opener register. Every section on this page opened with the
+       identical dash-eyebrow-h2-paragraph stack; you do not fix that by
+       varying all of them, you fix it by having more than one and using each
+       deliberately. Services earns it: it owns the page's best sentence, and
+       "fifteen services" was buried in prose and never shown as a figure. #}
+    <div class="section-head section-head--statement reveal">
+      <div>
+        <p class="eyebrow"{{ cms('home:services_section.eyebrow') }}>{{ home.services_section.eyebrow }}</p>
+        <h2{{ cms('home:services_section.title') }}>{{ home.services_section.title }}</h2>
+      </div>
+      <div class="section-head__aside">
+        <p{{ cms('home:services_section.text') }}>{{ home.services_section.text }}</p>
+        <p class="section-figure"><b>{{ services.services | length }}</b> services &middot; <b>9</b> shown here</p>
+      </div>
     </div>
 
     <div class="svc-grid stagger-children">
@@ -141,6 +185,77 @@
 </section>
 
 {# ============================================================
+   Price rail — the garment cut-outs, on a light band between the two
+   darkest sections.
+
+   Prices and images are read out of pricing.json by slug, so this strip
+   cannot drift from the price list; home.json only chooses WHICH items
+   appear and in what order. A slug that no longer exists is skipped
+   rather than rendering an empty tile.
+
+   Reuses .review-rail, the site's rail primitive — motion/ui.js binds
+   [data-rail-prev/next] to the .review-rail inside the same <section>,
+   so the arrows work with no new JS.
+   ============================================================ #}
+<section class="section price-rail-band">
+  <div class="wrap">
+    <div class="reviews-head reveal">
+      <div class="section-head" style="margin-bottom:0">
+        <p class="eyebrow"{{ cms('home:price_rail.eyebrow') }}>{{ home.price_rail.eyebrow }}</p>
+        <h2{{ cms('home:price_rail.title') }}>{{ home.price_rail.title }}</h2>
+        <p{{ cms('home:price_rail.text') }}>{{ home.price_rail.text }}</p>
+      </div>
+      {# Every figure is DERIVED in build.py from pricing.json — the catalogue
+         size, the per-piece floor and the carpet rate — so none of it can
+         drift from /pricing/. The arrows live here rather than floating in
+         the empty right field; they stay inside the same <section> as the
+         rail, which is how motion/ui.js binds them. #}
+      <div class="price-ledger">
+        <ul class="price-ledger__rows">
+          <li><b>{{ price_count }}</b><span>rates published &mdash; none on request</span></li>
+          <li><b>&#8377;{{ price_min }}</b><span>lowest per-piece rate</span></li>
+          <li><b>{{ price_index['carpet'].price }}</b><span>{{ price_index['carpet'].unit }}, carpets</span></li>
+        </ul>
+        <div class="rail-nav">
+          <button type="button" data-rail-prev aria-label="Previous items">{{ ui('arrow-left', 18) }}</button>
+          <button type="button" data-rail-next aria-label="Next items">{{ ui('arrow-right', 18) }}</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-rail price-rail">
+      {% for slug in home.price_rail.slugs %}
+      {% set item = price_index.get(slug) %}
+      {% if item %}
+      <a class="price-tile" href="{{ root_path }}pricing/">
+        <span class="price-tile__media">
+          {# 400px source for a tile that renders at 160-200px CSS, so it
+             stays sharp on a 2x screen without shipping the 500px PNG. #}
+          <img src="{{ asset_path }}{{ item.img | replace('.png', '.webp') | replace('.jpg', '.webp') }}"
+               alt="{{ item.name }}"
+               width="400" height="400" loading="lazy" decoding="async">
+        </span>
+        <span class="price-tile__name">{{ item.name }}</span>
+        <span class="price-tile__price">
+          <small class="price-tile__from">from</small>{{ item.price }}{% if item.unit %} <small class="price-tile__unit">{{ item.unit }}</small>{% endif %}
+        </span>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    {# The qualifier /pricing/ carries and the home page did not: these are
+       starting rates and GST is extra. Showing prices this big without it
+       would be the one way this section could mislead. #}
+    <p class="price-rail__note">{{ pricing_note }}</p>
+
+    <div class="text-center" style="margin-top:var(--s-7)">
+      <a class="btn btn--ghost btn--lg" href="{{ root_path }}pricing/"><span{{ cms('home:price_rail.cta') }}>{{ home.price_rail.cta }}</span> {{ ui('arrow-right', 18) }}</a>
+    </div>
+  </div>
+</section>
+
+{# ============================================================
    Proof gallery — the signature before/after slider now leads here.
    ============================================================ #}
 <section class="section section--wash">
@@ -155,22 +270,50 @@
         <h2{{ cms('home:proof.title') }}>{{ home.proof.title }}</h2>
         <p{{ cms('home:proof.text') }}>{{ home.proof.text }}</p>
       </div>
-      <img class="why__mascot" src="{{ asset_path }}images/mascot-why.png"
-           alt="" aria-hidden="true" width="760" height="941"
-           loading="lazy" decoding="async">
+      {# The mascot that sat here is deleted: it was the identical PNG in the
+         identical pose as the Why section two scrolls up. One illustrated
+         character used twice reads as a repeat, and here it stood beside the
+         real before/after photography and weakened both. Why keeps its copy. #}
     </div>
 
-    <div class="proof-grid">
-      {% for pair in proof.pairs %}
-      <div class="proof-grid__item reveal">
-        {% if pair.featured %}
-          {{ before_after(pair, asset_path, ui) }}
-        {% else %}
-          {{ before_after_static(pair, asset_path) }}
-        {% endif %}
-        <p class="proof-grid__summary"{{ cms('proof:pairs.' ~ loop.index0 ~ '.summary') }}>{{ pair.summary }}</p>
-      </div>
+    {# The three pickup guarantees have been sitting in proof.json unrendered
+       by any page. They answer the page's own second FAQ ("How do I know
+       nothing goes missing?"), currently a closed accordion row 3,000px
+       further down. Deliberately NOT a card grid — eight sections already
+       are one. #}
+    <ol class="proof-ledger stagger-children">
+      {% for step in proof.process.steps %}
+      <li class="proof-ledger__step">
+        <span class="proof-ledger__n" aria-hidden="true">{{ '%02d' | format(loop.index) }}</span>
+        <b{{ cms('proof:process.steps.' ~ loop.index0 ~ '.title') }}>{{ step.title }}</b>
+        <span{{ cms('proof:process.steps.' ~ loop.index0 ~ '.detail') }}>{{ step.detail }}</span>
+      </li>
       {% endfor %}
+    </ol>
+
+    {# Lead + supporting, not masonry. The sofa item ran ~500px taller than
+       the Nike item, which left a ~550x470 hole beside the third. .proof-grid
+       is shared with page-service-detail.html, so every override is behind
+       --lead AND .page-home, neither of which that template renders. #}
+    <div class="proof-grid proof-grid--lead">
+      {% set lead = proof.pairs[0] %}
+      <div class="proof-grid__item proof-grid__item--lead reveal">
+        {{ before_after(lead, asset_path, ui) }}
+        <p class="proof-grid__summary"{{ cms('proof:pairs.0.summary') }}>{{ lead.summary }}</p>
+      </div>
+
+      <div class="proof-grid__rest">
+        {% for pair in proof.pairs[1:] %}
+        <div class="proof-grid__item reveal{% if not pair.featured %} proof-grid__item--pair{% endif %}">
+          {% if pair.featured %}
+            {{ before_after(pair, asset_path, ui) }}
+          {% else %}
+            {{ before_after_static(pair, asset_path) }}
+          {% endif %}
+          <p class="proof-grid__summary"{{ cms('proof:pairs.' ~ (loop.index0 + 1) ~ '.summary') }}>{{ pair.summary }}</p>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>
@@ -206,7 +349,7 @@
 {# ============================================================
    Reviews
    ============================================================ #}
-<section class="section">
+<section class="section reviews-band">
   <div class="wrap">
     <div class="reviews-head reveal">
       <div class="section-head" style="margin-bottom:0">
@@ -253,29 +396,71 @@
       <a class="btn btn--ghost" href="{{ root_path }}blog/"><span{{ cms('home:blog_section.cta') }}>{{ home.blog_section.cta }}</span> {{ ui('arrow-right', 16) }}</a>
     </div>
 
-    <div class="blog-grid stagger-children">
+    {# A typographic index, not three cards. The gradient art panels read as
+       three images that failed to load, and all three excerpts terminate
+       mid-word — blog.json's excerpts were never written as teasers, so the
+       fix is to stop showing broken data, not to style around it. #}
+    <div class="blog-index stagger-children">
       {% for post in blog.posts[:3] %}
-      <article class="blog-card">
-        <span class="blog-card__date"{{ cms('blog:posts.' ~ loop.index0 ~ '.date') }}>{{ post.date }}</span>
-        <h3><a href="{{ post.url }}" rel="noopener"{{ cms('blog:posts.' ~ loop.index0 ~ '.title') }}>{{ post.title }}</a></h3>
-        <p{{ cms('blog:posts.' ~ loop.index0 ~ '.excerpt') }}>{{ post.excerpt }}</p>
-        <span class="blog-card__more link-arrow">Read more {{ ui('arrow-right', 16) }}</span>
-      </article>
+      <a class="blog-row" href="{{ post.url }}" rel="noopener">
+        <span class="blog-row__n" aria-hidden="true">{{ '%02d' | format(loop.index) }}</span>
+        <h3{{ cms('blog:posts.' ~ loop.index0 ~ '.title') }}>{{ post.title }}</h3>
+        <span class="blog-row__meta"{{ cms('blog:posts.' ~ loop.index0 ~ '.date') }}>{{ post.date }}</span>
+      </a>
       {% endfor %}
     </div>
   </div>
 </section>
 
 {# ============================================================
-   Areas — the internal-linking surface for local SEO
+   Coverage — the ONE geography section.
+
+   Replaces a pair of them: the ten-locality link grid that sat here, and
+   the five-city grid that sat AFTER the closing CTA. Two link grids in two
+   card styles told the visitor where we operate twice and buried the page's
+   final ask mid-page. This band states the total (456, summed in build.py
+   from areas.json — never typed), shows the network, names the two stores,
+   breaks the counts out per city, and keeps all ten locality links as the
+   local-SEO surface.
    ============================================================ #}
-<section class="section">
+<section class="section section--navy coverage-band" id="coverage">
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow"{{ cms('home:areas_section.eyebrow') }}>{{ home.areas_section.eyebrow }}</p>
-      <h2{{ cms('home:areas_section.title') }}>{{ home.areas_section.title }}</h2>
-      <p{{ cms('home:areas_section.text') }}>{{ home.areas_section.text }}</p>
+    <div class="coverage__top">
+      <div class="coverage__copy reveal">
+        <div class="section-head" style="margin-bottom:0">
+          <p class="eyebrow"{{ cms('home:areas_section.eyebrow') }}>{{ home.areas_section.eyebrow }}</p>
+          <h2><span class="coverage__fig">{{ areas_total }}</span> areas. Free pickup in every one.</h2>
+          <p{{ cms('home:areas_section.text') }}>{{ home.areas_section.text }}</p>
+        </div>
+        <ul class="coverage__stores">
+          {% for loc in site.locations %}
+          <li class="coverage__store"><b>{{ loc.name }}</b>{{ loc.address }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      {# A real <img>, not a CSS background: backgrounds are fetched at parse
+         time and the boot budget is zero. width/height are the asset's true
+         dimensions so the box is reserved before decode, and it is a normal
+         grid child, not absolutely positioned. #}
+      <div class="coverage__map reveal">
+        <img src="{{ asset_path }}images/hero-areas.jpg"
+             width="1998" height="666" loading="lazy" decoding="async"
+             alt="Wash4You collection network: a Gurugram hub with routes out to Delhi, Noida, Faridabad and Ghaziabad">
+      </div>
     </div>
+
+    <ul class="coverage__cities stagger-children">
+      {% for city in areas.cities %}
+      <li>
+        <a class="coverage__city" href="{{ root_path }}locate-us/#coverage">
+          <b>{{ city.count }}</b>
+          <span>{{ city.name }}</span>
+          <small>{{ city.sample }}</small>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
 
     <div class="areas stagger-children">
       {% for a in site.footer.areas %}
@@ -284,6 +469,8 @@
       </a>
       {% endfor %}
     </div>
+
+    <p class="why__seo reveal"{{ cms('home:areas_section.seo_text') }}>{{ home.areas_section.seo_text }}</p>
   </div>
 </section>
 
@@ -303,15 +490,17 @@
 {# ============================================================
    Closing CTA
    ============================================================ #}
-<section class="section section--tight">
+{# Out of the rounded card and onto a full-bleed band. The CTA h2 measured
+   identical to #why and .price-rail-band — the page's final ask was set at
+   the size of its fourth-loudest heading. With the city grid gone this is
+   also now the last thing before the footer. #}
+<section class="section cta-close" id="book">
   <div class="wrap">
-    <div class="cta-band reveal">
-      <h2{{ cms('home:cta.title') }}>{{ home.cta.title }}</h2>
-      <p{{ cms('home:cta.text') }}>{{ home.cta.text }}</p>
-      <div class="btn-row">
-        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener"{{ cms('home:cta.primary') }}>{{ home.cta.primary }}</a>
-        <a class="btn btn--on-navy btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} <span{{ cms('home:cta.secondary') }}>{{ home.cta.secondary }}</span></a>
-      </div>
+    <h2{{ cms('home:cta.title') }}>{{ home.cta.title }}</h2>
+    <p{{ cms('home:cta.text') }}>{{ home.cta.text }}</p>
+    <div class="btn-row">
+      <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener"{{ cms('home:cta.primary') }}>{{ home.cta.primary }}</a>
+      <a class="btn btn--on-navy btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} <span{{ cms('home:cta.secondary') }}>{{ home.cta.secondary }}</span></a>
     </div>
   </div>
 </section>

@@ -1,16 +1,16 @@
 {
   "meta": {
-    "title": "Laundry & Dry-Clean Price List — Gurugram | Wash4You",
-    "description": "Transparent, item-wise laundry and dry-cleaning rates at Wash4You. Add items to your list and book a free pickup across Gurugram & Delhi NCR. GST extra.",
+    "title": "Laundry & Dry Cleaning Price List Gurgaon | Wash4You Rates",
+    "description": "Transparent laundry & dry cleaning prices in Gurgaon & Delhi NCR. Wash & fold from ₹79/kg, dry cleaning from ₹99. Free pickup and delivery, GST extra.",
     "canonical": "https://wash4you.in/pricing/",
-    "og_title": "Wash4You Price List — Laundry & Dry Cleaning in Gurugram",
-    "og_description": "Item-wise rates with free pickup and doorstep delivery across Gurugram & Delhi NCR."
+    "og_title": "Wash4You Price List — Laundry & Dry Cleaning Rates in Gurgaon",
+    "og_description": "Item-wise laundry, dry cleaning and steam ironing rates with free doorstep pickup and delivery across Gurugram."
   },
   "hero": {
     "headline": "Simple, transparent pricing.",
     "subheadline": "Premium care at affordable rates. Add what you need to your list and book a free pickup. GST extra on all prices shown."
   },
-  "note": "* GST Extra — all prices shown are exclusive of GST. Items marked ‘from’ depend on fabric, work and condition; send a photo on WhatsApp for an exact quote.",
+  "note": "* GST Extra — all prices shown are exclusive of GST and are starting prices. The final price depends on the actual garment and the work it needs; send a photo on WhatsApp for an exact quote.",
   "categories": [
     {
       "title": "Clothing Items",
@@ -103,7 +103,6 @@
           "name": "Saree",
           "price": "₹199",
           "amount": 199,
-          "from": true,
           "slug": "saree",
           "img": "images/pricing/saree.png"
         },
@@ -111,7 +110,6 @@
           "name": "Lehenga",
           "price": "₹399",
           "amount": 399,
-          "from": true,
           "slug": "lehenga",
           "img": "images/pricing/lehenga.png"
         },
@@ -119,7 +117,6 @@
           "name": "Dress",
           "price": "₹199",
           "amount": 199,
-          "from": true,
           "slug": "dress",
           "img": "images/pricing/dress.png"
         },
@@ -127,7 +124,6 @@
           "name": "Shawl",
           "price": "₹199",
           "amount": 199,
-          "from": true,
           "slug": "shawl",
           "img": "images/pricing/shawl.png"
         },
@@ -151,6 +147,54 @@
           "amount": 599,
           "slug": "leather-jacket",
           "img": "images/pricing/leather-jacket.png"
+        },
+        {
+          "name": "Dupatta",
+          "price": "₹69",
+          "amount": 69,
+          "slug": "dupatta",
+          "img": "images/pricing/shawl.png"
+        },
+        {
+          "name": "Blouse",
+          "price": "₹79",
+          "amount": 79,
+          "slug": "blouse"
+        },
+        {
+          "name": "Top",
+          "price": "₹119",
+          "amount": 119,
+          "slug": "top",
+          "img": "images/pricing/t-shirt.png"
+        },
+        {
+          "name": "Palazzo",
+          "price": "₹109",
+          "amount": 109,
+          "slug": "palazzo",
+          "img": "images/pricing/pant-trouser.png"
+        },
+        {
+          "name": "Long Coat",
+          "price": "₹369",
+          "amount": 369,
+          "slug": "long-coat",
+          "img": "images/pricing/coat.png"
+        },
+        {
+          "name": "Cardigan",
+          "price": "₹149",
+          "amount": 149,
+          "slug": "cardigan",
+          "img": "images/pricing/sweater.png"
+        },
+        {
+          "name": "Sweatshirt",
+          "price": "₹189",
+          "amount": 189,
+          "slug": "sweatshirt",
+          "img": "images/pricing/sweater.png"
         }
       ]
     },
@@ -159,8 +203,8 @@
       "items": [
         {
           "name": "Carpet",
-          "price": "₹39",
-          "amount": 39,
+          "price": "₹20",
+          "amount": 20,
           "unit": "per sq ft",
           "slug": "carpet",
           "img": "images/pricing/carpet.png"
@@ -169,19 +213,19 @@
           "name": "Curtain",
           "price": "₹149",
           "amount": 149,
-          "unit": "per panel",
+          "unit": "per panel (3.5 ft)",
           "slug": "curtain",
           "img": "images/pricing/curtain.png"
         },
         {
-          "name": "Single Blanket (1 Ply)",
+          "name": "Single Blanket 1 Ply / Quilt",
           "price": "₹299",
           "amount": 299,
           "slug": "single-blanket",
           "img": "images/pricing/single-blanket.png"
         },
         {
-          "name": "Double Blanket (1 Ply)",
+          "name": "Double Blanket 1 Ply / Quilt",
           "price": "₹399",
           "amount": 399,
           "slug": "double-blanket",
@@ -200,6 +244,26 @@
           "amount": 199,
           "slug": "double-bed-sheet",
           "img": "images/pricing/double-bed-sheet.png"
+        },
+        {
+          "name": "Bed Spread Double",
+          "price": "₹359",
+          "amount": 359,
+          "slug": "bed-spread-double",
+          "img": "images/pricing/double-bed-sheet.png"
+        },
+        {
+          "name": "Comforter Double",
+          "price": "₹249",
+          "amount": 249,
+          "slug": "comforter-double",
+          "img": "images/pricing/double-blanket.png"
+        },
+        {
+          "name": "Handbag Leather",
+          "price": "₹599",
+          "amount": 599,
+          "slug": "handbag-leather"
         }
       ]
     },
@@ -233,6 +297,20 @@
           "amount": 549,
           "slug": "suede-leather-shoes",
           "img": "images/pricing/suede-leather-shoes.png"
+        },
+        {
+          "name": "Sneaker Ankle",
+          "price": "₹399",
+          "amount": 399,
+          "slug": "sneaker-ankle",
+          "img": "images/pricing/sneakers.jpg"
+        },
+        {
+          "name": "Boots Mid Length",
+          "price": "₹699",
+          "amount": 699,
+          "slug": "boots-mid-length",
+          "img": "images/pricing/leather-shoes.png"
         }
       ]
     },
@@ -259,6 +337,108 @@
           "amount": 149,
           "slug": "premium-laundry",
           "img": "images/pricing/premium-laundry.jpg"
+        },
+        {
+          "name": "Woollen Laundry (Dailywear)",
+          "price": "₹149",
+          "amount": 149,
+          "slug": "woollen-laundry",
+          "img": "images/pricing/sweater.png"
+        },
+        {
+          "name": "Woollen Laundry & Iron (Dailywear)",
+          "price": "₹199",
+          "amount": 199,
+          "slug": "woollen-laundry-iron",
+          "img": "images/pricing/wash-and-steam-iron.png"
+        }
+      ]
+    },
+    {
+      "title": "Steam Iron",
+      "items": [
+        {
+          "name": "Pant/Trouser",
+          "price": "₹39",
+          "amount": 39,
+          "slug": "iron-pant-trouser",
+          "img": "images/pricing/pant-trouser.png"
+        },
+        {
+          "name": "Jeans",
+          "price": "₹39",
+          "amount": 39,
+          "slug": "iron-jeans",
+          "img": "images/pricing/jeans.png"
+        },
+        {
+          "name": "Shirt",
+          "price": "₹39",
+          "amount": 39,
+          "slug": "iron-shirt",
+          "img": "images/pricing/shirt.png"
+        },
+        {
+          "name": "T-Shirt",
+          "price": "₹29",
+          "amount": 29,
+          "slug": "iron-t-shirt",
+          "img": "images/pricing/t-shirt.png"
+        },
+        {
+          "name": "Coat",
+          "price": "₹79",
+          "amount": 79,
+          "slug": "iron-coat",
+          "img": "images/pricing/coat.png"
+        },
+        {
+          "name": "Single Bedsheet",
+          "price": "₹29",
+          "amount": 29,
+          "slug": "iron-single-bedsheet",
+          "img": "images/pricing/single-bed-sheet.png"
+        },
+        {
+          "name": "Salwar",
+          "price": "₹29",
+          "amount": 29,
+          "slug": "iron-salwar",
+          "img": "images/pricing/salwar.png"
+        },
+        {
+          "name": "Blouse",
+          "price": "₹39",
+          "amount": 39,
+          "slug": "iron-blouse"
+        },
+        {
+          "name": "Saree",
+          "price": "₹39",
+          "amount": 39,
+          "slug": "iron-saree",
+          "img": "images/pricing/saree.png"
+        },
+        {
+          "name": "Lehenga",
+          "price": "₹99",
+          "amount": 99,
+          "slug": "iron-lehenga",
+          "img": "images/pricing/lehenga.png"
+        },
+        {
+          "name": "Dress",
+          "price": "₹49",
+          "amount": 49,
+          "slug": "iron-dress",
+          "img": "images/pricing/dress.png"
+        },
+        {
+          "name": "Double Bedsheet",
+          "price": "₹49",
+          "amount": 49,
+          "slug": "iron-double-bedsheet",
+          "img": "images/pricing/double-bed-sheet.png"
         }
       ]
     }
@@ -267,5 +447,113 @@
     "title": "Need It Washed? We'll Handle the Rest.",
     "subtitle": "Drop it off or let us pick it up. Either way, it's done.",
     "button": "Schedule My Pickup"
-  }
+  },
+  "intro": {
+    "_note": "SEO lead-in. Carries the target keywords (laundry price Gurgaon, dry cleaning rates, cost) in prose a customer would actually read.",
+    "title": "Laundry & dry cleaning price list in Gurgaon & Delhi NCR",
+    "body": "Looking for affordable laundry and dry cleaning prices in Gurgaon? Premium garment care shouldn't cost a fortune. Whether you need wash & fold for everyday clothes, premium dry cleaning for a wedding lehenga, or steam ironing for office wear, the rates below are the rates you pay — with free pickup and delivery across Gurugram."
+  },
+  "difference": {
+    "_note": "Adapted from the SEO guide's comparison table. The named-competitor version (DhobiLite, Tumbledry, local dhobi rates) is deliberately NOT published — those are third-party prices we cannot verify and naming them invites a complaint. The same points are made about our own pricing instead.",
+    "eyebrow": "Why our pricing is different",
+    "title": "No pickup fees, no surprise line items",
+    "rows": [
+      {
+        "label": "Pickup & delivery",
+        "detail": "Free, every order, anywhere we serve. Never a per-trip charge."
+      },
+      {
+        "label": "Pricing model",
+        "detail": "Per kilo for laundry, which is fairer for a family load; per item for dry cleaning, where each garment needs its own handling."
+      },
+      {
+        "label": "Eco-friendly cleaning",
+        "detail": "Included in the base rate. There is no “green” surcharge."
+      },
+      {
+        "label": "GST",
+        "detail": "Stated up front on every card and in the cart, not added quietly at the end."
+      },
+      {
+        "label": "Minimum order",
+        "detail": "Low and flexible — ask on WhatsApp and we will confirm for your area."
+      }
+    ]
+  },
+  "addons": {
+    "eyebrow": "Add-ons",
+    "title": "Optional extras",
+    "lede": "Added to an order only if you ask for them. Prices exclude GST.",
+    "columns": [
+      "Add-on",
+      "Price",
+      "What it does"
+    ],
+    "rows": [
+      {
+        "name": "Antiseptic wash",
+        "price": "₹20 per lot",
+        "detail": "Medical-grade sanitisation for gym wear and baby clothes."
+      },
+      {
+        "name": "Fabric softener",
+        "price": "₹20 per lot",
+        "detail": "Premium softener for a hotel-linen finish."
+      },
+      {
+        "name": "Fragrance booster",
+        "price": "₹15 per lot",
+        "detail": "Longer-lasting fresh scent."
+      },
+      {
+        "name": "Tough stain removal",
+        "price": "₹50–150 per item",
+        "detail": "Wine, ink, oil and curry, treated by hand."
+      },
+      {
+        "name": "Minor repair",
+        "price": "Free",
+        "detail": "Loose buttons and threads, included with every wash & iron order."
+      },
+      {
+        "name": "Express delivery",
+        "price": "1.5× standard",
+        "detail": "Same-day or next-day, subject to your area and order size."
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Is there a minimum order value for free pickup?",
+      "a": "We keep the minimum low and flexible. Send us a WhatsApp with your address and we will confirm the minimum for your area — on a first order we can usually waive it."
+    },
+    {
+      "q": "Do your prices include GST?",
+      "a": "No — every price on this page is a base rate and GST is added at 18% as per government norms. It is shown separately in your cart, so there are no surprises at the end."
+    },
+    {
+      "q": "Why is dry cleaning priced per item but laundry priced per kilo?",
+      "a": "Laundry is bulk work, so weighing by the kilo is fairer for a family load. Dry cleaning needs individual inspection, stain treatment and handling per garment, so per-item pricing means you only pay for the pieces that need expert care."
+    },
+    {
+      "q": "How much does dry cleaning a lehenga or wedding outfit cost?",
+      "a": "Our lehenga rate starts at ₹399. Heavy, bridal and beadwork pieces are quoted after inspection, because the price depends on weight, embroidery and fabric. Send a photo on WhatsApp and we will give you an accurate figure before you commit."
+    },
+    {
+      "q": "Are your rates competitive?",
+      "a": "We own our processing facility rather than running as a franchise, and our machinery is water- and power-efficient, so our rates sit below most app-based services while pickup and delivery stay free."
+    },
+    {
+      "q": "Do you offer corporate or bulk pricing?",
+      "a": "Yes. We provide customised commercial rates for hotels, salons, gyms, corporate offices and housing societies. Email care@wash4you.in or call us for a tailored quote."
+    },
+    {
+      "q": "Can I get same-day or express service?",
+      "a": "Express processing is available at 1.5× the standard rate. Same-day delivery depends on your area and the size of the order — call to confirm availability before you book."
+    },
+    {
+      "q": "What if I am not happy with the result?",
+      "a": "Tell us and we will reprocess the order at no additional cost. We would rather redo a piece than have you live with it."
+    }
+  ]
 }

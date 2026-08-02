@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% from "_icons.html" import ui %}
+{% from "_components.html" import faq_list %}
+{% from "_icons.html" import ui, price_cat_bg %}
 {% set is_area = area is defined and area %}
 
 {% block preload %}
@@ -10,6 +11,38 @@
 {% endblock %}
 
 {% block schema %},
+      {
+        "@type": "PriceSpecification",
+        "@id": "{{ meta.canonical }}#prices",
+        "name": "Wash4You Laundry & Dry Cleaning Pricing",
+        "description": {{ pricing.meta.description | tojson }},
+        "priceCurrency": "INR",
+        "valueAddedTaxIncluded": false,
+        "seller": {
+          "@type": "LocalBusiness",
+          "name": {{ site.brand.name | tojson }},
+          "telephone": {{ site.contact.phone_raw | tojson }},
+          "url": "{{ site.urls.base }}/",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Gurugram",
+            "addressRegion": "Haryana",
+            "addressCountry": "IN"
+          }
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "{{ meta.canonical }}#faq",
+        "mainEntity": [
+          {% for f in pricing.faqs %}{
+            "@type": "Question",
+            "name": {{ f.q | tojson }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | tojson }} }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      },
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -30,7 +63,16 @@
    property so {{ asset_path }} resolves at every URL depth; the overlay
    and white keyword headline live in redesign-pricing.css.
    ============================================================ #}
-<section class="pricing-hero" style="--pricing-hero-img: url('{{ asset_path }}images/hero-pricing.jpg')">
+{# The copy sits ON the banner again, but there is no overlay across the
+   frame. Instead the text block carries its own navy panel — the same device
+   the supplied artwork used for "Know Your Cost Before You Wash". Everything
+   outside that panel is the photograph at full strength.
+
+   The url() is written relative to redesign-pricing.css, NOT to this page: a
+   url() inside a custom property resolves against the stylesheet that USES
+   the variable, so `{{ asset_path }}` here produced /assets/assets/… and
+   404'd. The stylesheet always sits at <assets>/css/. #}
+<section class="pricing-hero" style="--pricing-hero-img: url('../images/hero-pricing.jpg')">
   <div class="wrap pricing-hero__inner">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="{{ root_path }}">Home</a>
@@ -68,8 +110,20 @@
    ============================================================ #}
 <section class="section section--tight pricing-intro">
   <div class="wrap">
+    {# Second line of the GST notice. Declared once and emitted in both
+       branches: on the main page the badge is the right-hand item of a flex
+       row, so it cannot sit inside that row without breaking it, and it must
+       come BEFORE the "Prices for <area>" heading to still read as part of
+       the notice. #}
+    {% set gst_note %}
+    <p class="gst-note">The final price depends on the actual garment and the
+      work it needs; <a href="{{ site.urls.whatsapp }}" rel="noopener">send a photo
+      on WhatsApp</a> for an exact quote.</p>
+    {% endset %}
+
     {% if is_area %}
     <p class="gst-badge gst-badge--solo">All prices exclusive of <strong>GST (18%)</strong></p>
+    {{ gst_note }}
     {% else %}
     <div class="pricing-intro__bar">
       <div class="pricing-location">
@@ -85,6 +139,7 @@
       </div>
       <p class="gst-badge">All prices exclusive of <strong>GST (18%)</strong></p>
     </div>
+    {{ gst_note }}
     <h2 class="pricing-location__heading">Prices for <span class="kw-text" data-location-name>{{ site.pricing_areas[0].label }}</span>, Gurugram</h2>
     {% endif %}
   </div>
@@ -106,10 +161,43 @@
   </div>
 </section>
 
+{# SEO lead-in. Real prose for a real reader that also carries the page's
+   target terms — "laundry price Gurgaon", "dry cleaning rates", "cost". #}
+<section class="section section--tight">
+  <div class="wrap wrap--narrow">
+    <h2 class="price-intro__title"{{ cms('pricing:intro.title') }}>{{ pricing.intro.title }}</h2>
+    <p class="price-intro__body"{{ cms('pricing:intro.body') }}>{{ pricing.intro.body }}</p>
+    <p class="price-intro__links">
+      See <a href="{{ root_path }}services/">what we clean</a>,
+      the <a href="{{ root_path }}packages/">prepaid packages</a>,
+      or <a href="{{ root_path }}locate-us/">where we collect</a>.
+    </p>
+  </div>
+</section>
+
+{# Live filter over all 58 items, plus jump-chips per category. Progressive
+   enhancement: the form is hidden until priceFilter.js unhides it, because
+   with no JS it would be a search box that does nothing. #}
+<div class="price-finder wrap" data-price-finder hidden>
+  <div class="price-finder__search">
+    {{ ui('sparkle', 18) }}
+    <label class="visually-hidden" for="price-search">Search the price list</label>
+    <input id="price-search" type="search" autocomplete="off" placeholder="Search 58 items — shirt, saree, carpet…" data-price-search>
+    <button type="button" class="price-finder__clear" data-price-clear hidden aria-label="Clear search">{{ ui('close', 16) }}</button>
+  </div>
+  <div class="price-finder__chips" role="group" aria-label="Jump to a category">
+    {% for cat in pricing.categories %}
+    <a class="price-chip" href="#cat-{{ loop.index0 }}">{{ cat.title }}</a>
+    {% endfor %}
+  </div>
+  <p class="price-finder__count" data-price-count aria-live="polite"></p>
+</div>
+
 {% for cat in pricing.categories %}
-<section class="section{% if loop.index is even %} section--wash{% endif %}">
+<section class="section price-cat{% if loop.index is even %} section--wash{% endif %}" id="cat-{{ loop.index0 }}" data-price-cat>
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head reveal price-cat__head">
+      {{ price_cat_bg(loop.index0) }}
       <p class="eyebrow">{{ loop.index }} of {{ pricing.categories | length }}</p>
       <h2{{ cms('pricing:categories.' ~ loop.index0 ~ '.title') }}>{{ cat.title }}</h2>
     </div>
@@ -121,16 +209,26 @@
                data-name="{{ item.name }}"
                data-amount="{{ item.amount }}"
                data-price="{{ item.price }}"
-               data-img="{{ asset_path }}{{ item.img }}"
-               {% if item.from %}data-from="1"{% endif %}>
-        <div class="price-card__media">
+               data-img="{% if item.img %}{{ asset_path }}{{ item.img }}{% endif %}">
+        <div class="price-card__media{% if not item.img %} price-card__media--none{% endif %}">
+          {% if item.img %}
           <img src="{{ asset_path }}{{ item.img }}" alt="{{ item.name }}"
                width="300" height="300" loading="lazy" decoding="async">
+          {% else %}
+          {# No photo for this item yet. A branded tile is honest; a stand-in
+             photograph of a different garment is not. Drop a file into
+             src/assets/images/pricing/ and set `img` to replace it. #}
+          <span class="price-card__placeholder" aria-hidden="true">{{ ui('sparkle', 28) }}</span>
+          {% endif %}
         </div>
         <div class="price-card__body">
           <h3 class="price-card__name"{{ cms('pricing:categories.' ~ cat_i0 ~ '.items.' ~ loop.index0 ~ '.name') }}>{{ item.name }}</h3>
           <div class="price-card__meta">
-            <span class="price-card__price">{% if item.from %}<em>from</em> {% endif %}{{ item.price }}</span>
+            {# Every price on this page is a starting price — the poster says
+               "STARTS FROM" over each column — so the label is unconditional
+               rather than driven by a per-item `from` flag. #}
+            <span class="price-card__from">Starts from</span>
+            <span class="price-card__price">{{ item.price }}</span>
             {% if item.unit %}<span class="price-card__unit">{{ item.unit }}</span>{% endif %}
             <span class="price-card__gst">+&nbsp;GST</span>
           </div>
@@ -142,6 +240,7 @@
       </article>
       {% endfor %}
     </div>
+    <p class="price-cat__empty" data-price-empty hidden>Nothing here matches that search.</p>
   </div>
 </section>
 {% endfor %}
@@ -167,6 +266,64 @@
   </div>
 </section>
 {% endif %}
+
+{# ---- Why our pricing is different ---- #}
+<section class="section section--navy price-diff">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('pricing:difference.eyebrow') }}>{{ pricing.difference.eyebrow }}</p>
+      <h2{{ cms('pricing:difference.title') }}>{{ pricing.difference.title }}</h2>
+    </div>
+    <div class="diff-grid stagger-children">
+      {% for r in pricing.difference.rows %}
+      <article class="diff-card">
+        <span class="diff-card__tick">{{ ui('check', 16) }}</span>
+        <h3{{ cms('pricing:difference.rows.' ~ loop.index0 ~ '.label') }}>{{ r.label }}</h3>
+        <p{{ cms('pricing:difference.rows.' ~ loop.index0 ~ '.detail') }}>{{ r.detail }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ---- Add-ons. A real <table>, scrollable on small screens. ---- #}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('pricing:addons.eyebrow') }}>{{ pricing.addons.eyebrow }}</p>
+      <h2{{ cms('pricing:addons.title') }}>{{ pricing.addons.title }}</h2>
+      <p{{ cms('pricing:addons.lede') }}>{{ pricing.addons.lede }}</p>
+    </div>
+    <div class="addon-table-wrap reveal">
+      <table class="addon-table">
+        <caption class="visually-hidden">Optional add-on services and their prices</caption>
+        <thead>
+          <tr>{% for c in pricing.addons.columns %}<th scope="col">{{ c }}</th>{% endfor %}</tr>
+        </thead>
+        <tbody>
+          {% for r in pricing.addons.rows %}
+          <tr>
+            <th scope="row">{{ r.name }}</th>
+            <td><span class="addon-table__price">{{ r.price }}</span></td>
+            <td>{{ r.detail }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{# ---- Pricing FAQ (mirrored into FAQPage schema above) ---- #}
+<section class="section section--wash" id="faq">
+  <div class="wrap wrap--narrow">
+    <div class="section-head reveal">
+      <p class="eyebrow">Pricing FAQ</p>
+      <h2>Questions about our rates</h2>
+    </div>
+    {{ faq_list(pricing.faqs, 'pricing-faq') }}
+  </div>
+</section>
 
 <section class="section section--tight">
   <div class="wrap">

@@ -1,89 +1,267 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui %}
-{% from "_components.html" import review_card, video_review_card %}
+{% from "_components.html" import review_card, video_review_card, faq_list %}
+
+{% block body_class %}page-about{% endblock %}
+
+{% block preload %}
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-about.css">
+{% endblock %}
 
 {% block schema %},
       {
         "@type": "AboutPage",
         "@id": "{{ meta.canonical }}",
         "about": { "@id": "{{ site.urls.base }}/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "{{ meta.canonical }}#faq",
+        "mainEntity": [
+          {% for f in about.faqs %}{
+            "@type": "Question",
+            "name": {{ f.q | tojson }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | tojson }} }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
       }
 {% endblock %}
 
 {% block content %}
 
-<section class="page-hero">
+{# ============================================================
+   Hero — blue band
+   ============================================================ #}
+<section class="page-hero about-hero">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="{{ root_path }}">Home</a>
       <span aria-hidden="true">/</span>
       <span>About</span>
     </nav>
-    <div class="page-hero__grid">
-      <div>
-        <p class="eyebrow">About us</p>
+    {# Back to the two-column layout: copy left, store photograph right. The
+       supplied SVG banner was tried here as a background and pulled its
+       illustration off-screen at most widths — a `cover` crop of a 3:1 frame
+       pushes the 25+ badge outside the viewport as soon as the band is taller
+       than a third of its width, which it always is once the copy is in. #}
+    <div class="page-hero__grid about-hero__grid">
+      <div class="about-hero__copy">
+        <p class="eyebrow"{{ cms('about:hero.eyebrow') }}>{{ about.hero.eyebrow }}</p>
         <h1{{ cms('about:hero.headline') }}>{{ about.hero.headline }}</h1>
-        <p class="lede"{{ cms('about:hero.subheadline') }}>{{ about.hero.subheadline }}</p>
+        <p class="lede"{{ cms('about:hero.lede') }}>{{ about.hero.lede }}</p>
+        <p class="about-hero__body"{{ cms('about:hero.body') }}>{{ about.hero.body }}</p>
+        <div class="btn-row">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
+          <a class="btn btn--ghost btn--lg" href="{{ root_path }}services/">See what we clean</a>
+        </div>
       </div>
       <div class="reveal">
         <img src="{{ asset_path }}images/about-story.jpg" alt="Inside the Wash4You store in Gurugram"
              width="800" height="600" loading="lazy" decoding="async"
-             style="border-radius:var(--r-lg);width:100%;height:auto;box-shadow:var(--shadow-md)"{{ cms('images/about-story.jpg', 'file') }}>
+             class="about-hero__img"{{ cms('images/about-story.jpg', 'file') }}>
       </div>
     </div>
   </div>
 </section>
 
+{# ============================================================
+   Story
+   ============================================================ #}
 <section class="section">
   <div class="wrap wrap--narrow">
-    <div class="prose reveal">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('about:story.eyebrow') }}>{{ about.story.eyebrow }}</p>
       <h2{{ cms('about:story.title') }}>{{ about.story.title }}</h2>
-      <p{{ cms('about:story.content') }}>{{ about.story.content }}</p>
-      <h2{{ cms('about:mission.title') }}>{{ about.mission.title }}</h2>
-      <p{{ cms('about:mission.content') }}>{{ about.mission.content }}</p>
-      <h2{{ cms('about:vision.title') }}>{{ about.vision.title }}</h2>
-      <p{{ cms('about:vision.content') }}>{{ about.vision.content }}</p>
+    </div>
+    <div class="prose reveal">
+      {% for para in about.story.paragraphs %}
+      <p{{ cms('about:story.paragraphs.' ~ loop.index0) }}>{{ para }}</p>
+      {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="section section--wash">
+{# ============================================================
+   Mission + Vision — green band, the two statements side by side
+   ============================================================ #}
+<section class="section about-band-green">
+  <div class="wrap">
+    <div class="mv-grid stagger-children">
+      <article class="mv-card mv-card--mission">
+        <span class="mv-card__icon">{{ ui('sparkle', 26) }}</span>
+        <p class="mv-card__eyebrow"{{ cms('about:mission.title') }}>{{ about.mission.title }}</p>
+        <h2{{ cms('about:mission.subtitle') }}>{{ about.mission.subtitle }}</h2>
+        <p{{ cms('about:mission.body') }}>{{ about.mission.body }}</p>
+      </article>
+      <article class="mv-card mv-card--vision">
+        <span class="mv-card__icon">{{ ui('leaf', 26) }}</span>
+        <p class="mv-card__eyebrow"{{ cms('about:vision.title') }}>{{ about.vision.title }}</p>
+        <h2{{ cms('about:vision.subtitle') }}>{{ about.vision.subtitle }}</h2>
+        <p{{ cms('about:vision.body') }}>{{ about.vision.body }}</p>
+        <ul class="mv-card__list">
+          {% for inv in about.vision.investments %}
+          <li{{ cms('about:vision.investments.' ~ loop.index0) }}>{{ inv }}</li>
+          {% endfor %}
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+{# ============================================================
+   Why Wash4You — blue band, green cards on hover
+   ============================================================ #}
+<section class="section section--navy about-band-blue">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Our promise</p>
+      <p class="eyebrow"{{ cms('about:why.eyebrow') }}>{{ about.why.eyebrow }}</p>
+      <h2{{ cms('about:why.title') }}>{{ about.why.title }}</h2>
+      <p{{ cms('about:why.lede') }}>{{ about.why.lede }}</p>
+    </div>
+    <div class="why-grid stagger-children">
+      {% for item in about.why['items'] %}
+      <article class="why-card">
+        <span class="why-card__icon">{{ ui(item.icon, 24) }}</span>
+        <h3{{ cms('about:why.items.' ~ loop.index0 ~ '.title') }}>{{ item.title }}</h3>
+        <p{{ cms('about:why.items.' ~ loop.index0 ~ '.detail') }}>{{ item.detail }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ============================================================
+   Services table
+   ============================================================ #}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('about:services_table.eyebrow') }}>{{ about.services_table.eyebrow }}</p>
+      <h2{{ cms('about:services_table.title') }}>{{ about.services_table.title }}</h2>
+      <p{{ cms('about:services_table.lede') }}>{{ about.services_table.lede }}</p>
+    </div>
+    {# Scrolls inside its own box on small screens rather than widening the page. #}
+    <div class="svc-table-wrap reveal">
+      <table class="svc-table">
+        <thead>
+          <tr>{% for c in about.services_table.columns %}<th scope="col">{{ c }}</th>{% endfor %}</tr>
+        </thead>
+        <tbody>
+          {% for row in about.services_table.rows %}
+          <tr>
+            <th scope="row">
+              {% if row.url %}<a href="{{ root_path }}{{ row.url }}">{{ row.service }}</a>
+              {% else %}{{ row.service }}{% endif %}
+            </th>
+            <td>{{ row.best_for }}</td>
+            <td><span class="svc-table__turn">{{ row.turnaround }}</span></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{# ============================================================
+   How it works — numbered steps
+   ============================================================ #}
+<section class="section about-band-green">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('about:how.eyebrow') }}>{{ about.how.eyebrow }}</p>
+      <h2{{ cms('about:how.title') }}>{{ about.how.title }}</h2>
+      <p{{ cms('about:how.lede') }}>{{ about.how.lede }}</p>
+    </div>
+    {# The seven steps come from home.json, not about.json. It is one process,
+       and the About page had been given a six-step summary that disagreed with
+       the home page's "in seven steps". Editing the steps in one place now
+       updates both pages. #}
+    <ol class="about-steps stagger-children">
+      {% for step in home.how_it_works.steps %}
+      <li class="about-step">
+        <span class="about-step__num" aria-hidden="true">{{ '%02d' | format(loop.index) }}</span>
+        <h3{{ cms('home:how_it_works.steps.' ~ loop.index0 ~ '.title') }}>{{ step.title }}</h3>
+        <p{{ cms('home:how_it_works.steps.' ~ loop.index0 ~ '.detail') }}>{{ step.detail }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{# ============================================================
+   Areas we serve
+   ============================================================ #}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('about:areas.eyebrow') }}>{{ about.areas.eyebrow }}</p>
+      <h2{{ cms('about:areas.title') }}>{{ about.areas.title }}</h2>
+      <p{{ cms('about:areas.lede') }}>{{ about.areas.lede }}</p>
+    </div>
+    <div class="area-groups stagger-children">
+      {# Each locality links to its own page — the same ten the home FAQ and
+         the areas page list, read from site.json so they cannot drift. #}
+      {% for g in about.areas.groups %}
+      <a class="area-group" href="{{ root_path }}{{ g.url }}">
+        <span class="area-group__pin">{{ ui('pin', 18) }}</span>
+        <h3>{{ g.city }}</h3>
+        <p>{{ g.detail }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    <p class="areas-note">
+      Not listed? Send your address on <a class="link-arrow" href="{{ site.urls.whatsapp }}" rel="noopener">WhatsApp</a> and we will confirm whether we collect there.
+    </p>
+  </div>
+</section>
+
+{# ============================================================
+   Our promise — blue band
+   ============================================================ #}
+<section class="section section--navy about-band-blue">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('about:promise.eyebrow') }}>{{ about.promise.eyebrow }}</p>
       <h2{{ cms('about:promise.title') }}>{{ about.promise.title }}</h2>
     </div>
-    <div class="promises stagger-children">
-      {% for p in site.promises %}
-      <div class="promise">
-        <span class="promise__icon">{{ ui(p.icon, 32) }}</span>
-        <h3>{{ p.title }}</h3>
-        <p>{{ p.detail }}</p>
-      </div>
+    <div class="promise-grid stagger-children">
+      {% for p in about.promise['items'] %}
+      <article class="promise-row">
+        <span class="promise-row__tick">{{ ui('check', 18) }}</span>
+        <h3{{ cms('about:promise.items.' ~ loop.index0 ~ '.title') }}>{{ p.title }}</h3>
+        <p{{ cms('about:promise.items.' ~ loop.index0 ~ '.detail') }}>{{ p.detail }}</p>
+      </article>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="section section--navy">
+{# ============================================================
+   Who we serve
+   ============================================================ #}
+<section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">How pickup works</p>
-      <h2>You watch it get counted</h2>
-      <p>The most common worry with any laundry service is a missing piece. Here is how we take that off the table.</p>
+      <p class="eyebrow"{{ cms('about:audience.eyebrow') }}>{{ about.audience.eyebrow }}</p>
+      <h2{{ cms('about:audience.title') }}>{{ about.audience.title }}</h2>
     </div>
-    <div class="steps stagger-children">
-      {% for step in proof.process.steps %}
-      <div class="step">
-        <h3>{{ step.title }}</h3>
-        <p>{{ step.detail }}</p>
-      </div>
+    <div class="audience-grid stagger-children">
+      {% for a in about.audience['items'] %}
+      <article class="audience-card">
+        <h3{{ cms('about:audience.items.' ~ loop.index0 ~ '.title') }}>{{ a.title }}</h3>
+        <p{{ cms('about:audience.items.' ~ loop.index0 ~ '.detail') }}>{{ a.detail }}</p>
+      </article>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="section">
+{# ============================================================
+   Reviews
+   ============================================================ #}
+<section class="section section--wash">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">From our customers</p>
@@ -102,14 +280,30 @@
   </div>
 </section>
 
+{# ============================================================
+   FAQ
+   ============================================================ #}
+<section class="section" id="faq">
+  <div class="wrap wrap--narrow">
+    <div class="section-head reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2>Frequently asked questions</h2>
+    </div>
+    {{ faq_list(about.faqs, 'about-faq') }}
+  </div>
+</section>
+
+{# ============================================================
+   Closing CTA
+   ============================================================ #}
 <section class="section section--tight">
   <div class="wrap">
     <div class="cta-band reveal">
-      <h2>Try us once.</h2>
-      <p>Free pickup, free delivery, and an honest answer about what we can and cannot save.</p>
+      <h2{{ cms('about:cta.title') }}>{{ about.cta.title }}</h2>
+      <p{{ cms('about:cta.body') }}>{{ about.cta.body }}</p>
       <div class="btn-row">
-        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
-        <a class="btn btn--on-navy btn--lg" href="{{ root_path }}services/">See what we clean</a>
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener"><span{{ cms('about:cta.button') }}>{{ about.cta.button }}</span></a>
+        <a class="btn btn--on-navy btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} {{ site.contact.phone }}</a>
       </div>
     </div>
   </div>

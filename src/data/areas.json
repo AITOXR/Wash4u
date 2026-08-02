@@ -1,0 +1,1699 @@
+{
+  "_source": "Coverage map for /locate-us/, built 2026-08-01 from the client's areas SEO PDF. `featured` marks the localities that have their own page on this site — those are the highlighted ones; everything else is listed as covered but not linked. Add a locality page and add its label to site.json footer.areas to promote it.",
+  "intro": {
+    "title": "Premium laundry & dry cleaning across Delhi NCR",
+    "body": "Whether you are a professional in Cyber Hub, a family in Noida Sector 62 or a student in North Delhi, free pickup and delivery means fresh clothes without stepping out. Gurugram is our home base — the Vyapar Kendra store in Sushant Lok Phase I and the Arcadia store in Sector 49 are the operational hubs for the whole network.",
+    "note": "Highlighted areas below have their own page with local detail. Everything else in the list is covered by the same free pickup and delivery — if your locality is not listed, send us your PIN code and we will confirm."
+  },
+  "cities": [
+    {
+      "name": "Gurugram (Gurgaon)",
+      "slug": "gurugram",
+      "note": "Gurgaon is our home base. The Vyapar Kendra store in Sushant Lok Phase I and the Arcadia store in Sector 49 are the operational hubs for the whole Millennium City. Bulk plans are available for PGs, hostels, co-living spaces and corporate campuses in Cyber Hub, Udyog Vihar and Sohna Road.",
+      "columns": [
+        {
+          "title": "Sectors",
+          "items": [
+            {
+              "name": "Sector 14"
+            },
+            {
+              "name": "Sector 15"
+            },
+            {
+              "name": "Sector 21"
+            },
+            {
+              "name": "Sector 22"
+            },
+            {
+              "name": "Sector 29",
+              "url": "laundry-service-gurugram-sector-29/"
+            },
+            {
+              "name": "Sector 31"
+            },
+            {
+              "name": "Sector 40"
+            },
+            {
+              "name": "Sector 43"
+            },
+            {
+              "name": "Sector 45"
+            },
+            {
+              "name": "Sector 46"
+            },
+            {
+              "name": "Sector 47"
+            },
+            {
+              "name": "Sector 49",
+              "url": "laundry-service-sector-49/"
+            },
+            {
+              "name": "Sector 50"
+            },
+            {
+              "name": "Sector 51"
+            },
+            {
+              "name": "Sector 52"
+            },
+            {
+              "name": "Sector 53"
+            },
+            {
+              "name": "Sector 54"
+            },
+            {
+              "name": "Sector 55"
+            },
+            {
+              "name": "Sector 56"
+            },
+            {
+              "name": "Sector 57"
+            },
+            {
+              "name": "Sector 58"
+            },
+            {
+              "name": "Sector 59"
+            },
+            {
+              "name": "Sector 60"
+            },
+            {
+              "name": "Sector 61"
+            },
+            {
+              "name": "Sector 62"
+            },
+            {
+              "name": "Sector 63"
+            },
+            {
+              "name": "Sector 64"
+            },
+            {
+              "name": "Sector 65"
+            },
+            {
+              "name": "Sector 66"
+            }
+          ]
+        },
+        {
+          "title": "Golf Course Road & DLF",
+          "items": [
+            {
+              "name": "DLF Phase 1"
+            },
+            {
+              "name": "DLF Phase 2"
+            },
+            {
+              "name": "DLF Phase 3",
+              "url": "laundry-service-dlf-phase-3/"
+            },
+            {
+              "name": "DLF Phase 4"
+            },
+            {
+              "name": "DLF Phase 5"
+            },
+            {
+              "name": "Cyber City",
+              "url": "laundry-service-cyber-city/"
+            },
+            {
+              "name": "Golf Course Road",
+              "url": "laundry-service-golf-course-road/"
+            },
+            {
+              "name": "Golf Course Extension",
+              "url": "laundry-service-golf-course-extension/"
+            },
+            {
+              "name": "Sushant Lok",
+              "url": "laundry-service-sushant-lok/"
+            },
+            {
+              "name": "Sushant Lok 2"
+            },
+            {
+              "name": "Palam Vihar",
+              "url": "laundry-service-palam-vihar/"
+            },
+            {
+              "name": "Ardee City"
+            },
+            {
+              "name": "South City 1 & 2"
+            },
+            {
+              "name": "MG Road",
+              "url": "laundry-service-mg-road/"
+            },
+            {
+              "name": "Udyog Vihar"
+            },
+            {
+              "name": "Ambience Island"
+            }
+          ]
+        },
+        {
+          "title": "Sohna Road & new sectors",
+          "items": [
+            {
+              "name": "Sohna Road",
+              "url": "laundry-service-sohna-road/"
+            },
+            {
+              "name": "Sector 67"
+            },
+            {
+              "name": "Sector 68"
+            },
+            {
+              "name": "Sector 69"
+            },
+            {
+              "name": "Sector 70"
+            },
+            {
+              "name": "Sector 71"
+            },
+            {
+              "name": "Sector 72"
+            },
+            {
+              "name": "Sector 73"
+            },
+            {
+              "name": "Sector 74"
+            },
+            {
+              "name": "Sector 75"
+            },
+            {
+              "name": "Sector 76"
+            },
+            {
+              "name": "Sector 77"
+            },
+            {
+              "name": "Sector 78"
+            },
+            {
+              "name": "Sector 79"
+            },
+            {
+              "name": "Sector 80"
+            },
+            {
+              "name": "Sector 81"
+            },
+            {
+              "name": "Sector 82"
+            },
+            {
+              "name": "Sector 83"
+            },
+            {
+              "name": "Sector 84"
+            },
+            {
+              "name": "Sector 85"
+            },
+            {
+              "name": "Sector 86"
+            },
+            {
+              "name": "Sector 87"
+            },
+            {
+              "name": "Sector 88"
+            },
+            {
+              "name": "Sector 89"
+            },
+            {
+              "name": "Sector 90"
+            },
+            {
+              "name": "Sector 91"
+            },
+            {
+              "name": "Sector 92"
+            }
+          ]
+        },
+        {
+          "title": "Old Gurgaon",
+          "items": [
+            {
+              "name": "Sector 4"
+            },
+            {
+              "name": "Sector 5"
+            },
+            {
+              "name": "Sector 7"
+            },
+            {
+              "name": "Sector 9"
+            },
+            {
+              "name": "Sector 10"
+            },
+            {
+              "name": "Sector 12"
+            },
+            {
+              "name": "Sadar Bazar"
+            },
+            {
+              "name": "Jacobpura"
+            },
+            {
+              "name": "Rajiv Nagar"
+            },
+            {
+              "name": "Shivaji Nagar"
+            }
+          ]
+        }
+      ],
+      "count": 82,
+      "sample": "Cyber City, Sushant Lok, Golf Course Road"
+    },
+    {
+      "name": "Delhi",
+      "slug": "delhi",
+      "note": "From the diplomatic enclaves of Chanakyapuri to the streets of Karol Bagh, across all four zones. Free doorstep pickup means no more hauling heavy bags to the dhobi, and we use biodegradable, non-toxic solvents — safe for babies, sensitive skin and the environment.",
+      "columns": [
+        {
+          "title": "North Delhi",
+          "items": [
+            {
+              "name": "Rohini"
+            },
+            {
+              "name": "Pitampura"
+            },
+            {
+              "name": "Shalimar Bagh"
+            },
+            {
+              "name": "Model Town"
+            },
+            {
+              "name": "Ashok Vihar"
+            },
+            {
+              "name": "Civil Lines"
+            },
+            {
+              "name": "Kamla Nagar"
+            },
+            {
+              "name": "Burari"
+            }
+          ]
+        },
+        {
+          "title": "South Delhi",
+          "items": [
+            {
+              "name": "Saket"
+            },
+            {
+              "name": "Greater Kailash I & II"
+            },
+            {
+              "name": "Hauz Khas"
+            },
+            {
+              "name": "Defence Colony"
+            },
+            {
+              "name": "Vasant Kunj"
+            },
+            {
+              "name": "Green Park"
+            },
+            {
+              "name": "Malviya Nagar"
+            },
+            {
+              "name": "Lajpat Nagar"
+            }
+          ]
+        },
+        {
+          "title": "East Delhi",
+          "items": [
+            {
+              "name": "Laxmi Nagar"
+            },
+            {
+              "name": "Mayur Vihar"
+            },
+            {
+              "name": "Preet Vihar"
+            },
+            {
+              "name": "Anand Vihar"
+            },
+            {
+              "name": "Shahdara"
+            },
+            {
+              "name": "Patparganj"
+            },
+            {
+              "name": "Karkardooma"
+            },
+            {
+              "name": "Krishna Nagar"
+            }
+          ]
+        },
+        {
+          "title": "West Delhi",
+          "items": [
+            {
+              "name": "Rajouri Garden"
+            },
+            {
+              "name": "Janakpuri"
+            },
+            {
+              "name": "Dwarka"
+            },
+            {
+              "name": "Punjabi Bagh"
+            },
+            {
+              "name": "Tilak Nagar"
+            },
+            {
+              "name": "Paschim Vihar"
+            },
+            {
+              "name": "Uttam Nagar"
+            },
+            {
+              "name": "Vikaspuri"
+            }
+          ]
+        }
+      ],
+      "count": 32,
+      "sample": "Saket, Dwarka, Rohini"
+    },
+    {
+      "name": "Noida & Greater Noida",
+      "slug": "noida",
+      "note": "From Sector 18's shopping hub to Jaypee Greens in Greater Noida, the whole corridor. Special plans are available for students and staff at Amity University, Jaypee Institute and Galgotias University.",
+      "columns": [
+        {
+          "title": "Noida sectors 1–62",
+          "items": [
+            {
+              "name": "Sector 1"
+            },
+            {
+              "name": "Sector 2"
+            },
+            {
+              "name": "Sector 3"
+            },
+            {
+              "name": "Sector 4"
+            },
+            {
+              "name": "Sector 5"
+            },
+            {
+              "name": "Sector 6"
+            },
+            {
+              "name": "Sector 7"
+            },
+            {
+              "name": "Sector 8"
+            },
+            {
+              "name": "Sector 9"
+            },
+            {
+              "name": "Sector 10"
+            },
+            {
+              "name": "Sector 11"
+            },
+            {
+              "name": "Sector 12"
+            },
+            {
+              "name": "Sector 13"
+            },
+            {
+              "name": "Sector 14"
+            },
+            {
+              "name": "Sector 15"
+            },
+            {
+              "name": "Sector 16"
+            },
+            {
+              "name": "Sector 17"
+            },
+            {
+              "name": "Sector 18"
+            },
+            {
+              "name": "Sector 19"
+            },
+            {
+              "name": "Sector 20"
+            },
+            {
+              "name": "Sector 21"
+            },
+            {
+              "name": "Sector 22"
+            },
+            {
+              "name": "Sector 23"
+            },
+            {
+              "name": "Sector 24"
+            },
+            {
+              "name": "Sector 25"
+            },
+            {
+              "name": "Sector 26"
+            },
+            {
+              "name": "Sector 27"
+            },
+            {
+              "name": "Sector 28"
+            },
+            {
+              "name": "Sector 29"
+            },
+            {
+              "name": "Sector 30"
+            },
+            {
+              "name": "Sector 31"
+            },
+            {
+              "name": "Sector 32"
+            },
+            {
+              "name": "Sector 33"
+            },
+            {
+              "name": "Sector 34"
+            },
+            {
+              "name": "Sector 35"
+            },
+            {
+              "name": "Sector 36"
+            },
+            {
+              "name": "Sector 37"
+            },
+            {
+              "name": "Sector 38"
+            },
+            {
+              "name": "Sector 39"
+            },
+            {
+              "name": "Sector 40"
+            },
+            {
+              "name": "Sector 41"
+            },
+            {
+              "name": "Sector 42"
+            },
+            {
+              "name": "Sector 43"
+            },
+            {
+              "name": "Sector 44"
+            },
+            {
+              "name": "Sector 45"
+            },
+            {
+              "name": "Sector 46"
+            },
+            {
+              "name": "Sector 47"
+            },
+            {
+              "name": "Sector 48"
+            },
+            {
+              "name": "Sector 49"
+            },
+            {
+              "name": "Sector 50"
+            },
+            {
+              "name": "Sector 51"
+            },
+            {
+              "name": "Sector 52"
+            },
+            {
+              "name": "Sector 53"
+            },
+            {
+              "name": "Sector 54"
+            },
+            {
+              "name": "Sector 55"
+            },
+            {
+              "name": "Sector 56"
+            },
+            {
+              "name": "Sector 57"
+            },
+            {
+              "name": "Sector 58"
+            },
+            {
+              "name": "Sector 59"
+            },
+            {
+              "name": "Sector 60"
+            },
+            {
+              "name": "Sector 61"
+            },
+            {
+              "name": "Sector 62"
+            }
+          ]
+        },
+        {
+          "title": "Noida sectors 63–167",
+          "items": [
+            {
+              "name": "Sector 63"
+            },
+            {
+              "name": "Sector 64"
+            },
+            {
+              "name": "Sector 65"
+            },
+            {
+              "name": "Sector 66"
+            },
+            {
+              "name": "Sector 67"
+            },
+            {
+              "name": "Sector 68"
+            },
+            {
+              "name": "Sector 69"
+            },
+            {
+              "name": "Sector 70"
+            },
+            {
+              "name": "Sector 71"
+            },
+            {
+              "name": "Sector 72"
+            },
+            {
+              "name": "Sector 73"
+            },
+            {
+              "name": "Sector 74"
+            },
+            {
+              "name": "Sector 75"
+            },
+            {
+              "name": "Sector 76"
+            },
+            {
+              "name": "Sector 77"
+            },
+            {
+              "name": "Sector 78"
+            },
+            {
+              "name": "Sector 79"
+            },
+            {
+              "name": "Sector 80"
+            },
+            {
+              "name": "Sector 81"
+            },
+            {
+              "name": "Sector 82"
+            },
+            {
+              "name": "Sector 83"
+            },
+            {
+              "name": "Sector 84"
+            },
+            {
+              "name": "Sector 85"
+            },
+            {
+              "name": "Sector 86"
+            },
+            {
+              "name": "Sector 87"
+            },
+            {
+              "name": "Sector 88"
+            },
+            {
+              "name": "Sector 89"
+            },
+            {
+              "name": "Sector 90"
+            },
+            {
+              "name": "Sector 91"
+            },
+            {
+              "name": "Sector 92"
+            },
+            {
+              "name": "Sector 93"
+            },
+            {
+              "name": "Sector 94"
+            },
+            {
+              "name": "Sector 95"
+            },
+            {
+              "name": "Sector 96"
+            },
+            {
+              "name": "Sector 97"
+            },
+            {
+              "name": "Sector 98"
+            },
+            {
+              "name": "Sector 99"
+            },
+            {
+              "name": "Sector 100"
+            },
+            {
+              "name": "Sector 101"
+            },
+            {
+              "name": "Sector 102"
+            },
+            {
+              "name": "Sector 103"
+            },
+            {
+              "name": "Sector 104"
+            },
+            {
+              "name": "Sector 105"
+            },
+            {
+              "name": "Sector 106"
+            },
+            {
+              "name": "Sector 107"
+            },
+            {
+              "name": "Sector 108"
+            },
+            {
+              "name": "Sector 109"
+            },
+            {
+              "name": "Sector 110"
+            },
+            {
+              "name": "Sector 111"
+            },
+            {
+              "name": "Sector 112"
+            },
+            {
+              "name": "Sector 113"
+            },
+            {
+              "name": "Sector 114"
+            },
+            {
+              "name": "Sector 115"
+            },
+            {
+              "name": "Sector 116"
+            },
+            {
+              "name": "Sector 117"
+            },
+            {
+              "name": "Sector 118"
+            },
+            {
+              "name": "Sector 119"
+            },
+            {
+              "name": "Sector 120"
+            },
+            {
+              "name": "Sector 121"
+            },
+            {
+              "name": "Sector 122"
+            },
+            {
+              "name": "Sector 123"
+            },
+            {
+              "name": "Sector 124"
+            },
+            {
+              "name": "Sector 125"
+            },
+            {
+              "name": "Sector 126"
+            },
+            {
+              "name": "Sector 127"
+            },
+            {
+              "name": "Sector 128"
+            },
+            {
+              "name": "Sector 129"
+            },
+            {
+              "name": "Sector 130"
+            },
+            {
+              "name": "Sector 131"
+            },
+            {
+              "name": "Sector 132"
+            },
+            {
+              "name": "Sector 133"
+            },
+            {
+              "name": "Sector 134"
+            },
+            {
+              "name": "Sector 135"
+            },
+            {
+              "name": "Sector 136"
+            },
+            {
+              "name": "Sector 137"
+            },
+            {
+              "name": "Sector 138"
+            },
+            {
+              "name": "Sector 139"
+            },
+            {
+              "name": "Sector 140"
+            },
+            {
+              "name": "Sector 141"
+            },
+            {
+              "name": "Sector 142"
+            },
+            {
+              "name": "Sector 143"
+            },
+            {
+              "name": "Sector 144"
+            },
+            {
+              "name": "Sector 145"
+            },
+            {
+              "name": "Sector 146"
+            },
+            {
+              "name": "Sector 147"
+            },
+            {
+              "name": "Sector 148"
+            },
+            {
+              "name": "Sector 149"
+            },
+            {
+              "name": "Sector 150"
+            },
+            {
+              "name": "Sector 151"
+            },
+            {
+              "name": "Sector 152"
+            },
+            {
+              "name": "Sector 153"
+            },
+            {
+              "name": "Sector 154"
+            },
+            {
+              "name": "Sector 155"
+            },
+            {
+              "name": "Sector 156"
+            },
+            {
+              "name": "Sector 157"
+            },
+            {
+              "name": "Sector 158"
+            },
+            {
+              "name": "Sector 159"
+            },
+            {
+              "name": "Sector 160"
+            },
+            {
+              "name": "Sector 161"
+            },
+            {
+              "name": "Sector 162"
+            },
+            {
+              "name": "Sector 163"
+            },
+            {
+              "name": "Sector 164"
+            },
+            {
+              "name": "Sector 165"
+            },
+            {
+              "name": "Sector 166"
+            },
+            {
+              "name": "Sector 167"
+            }
+          ]
+        },
+        {
+          "title": "Greater Noida",
+          "items": [
+            {
+              "name": "Alpha 1"
+            },
+            {
+              "name": "Alpha 2"
+            },
+            {
+              "name": "Beta 1"
+            },
+            {
+              "name": "Beta 2"
+            },
+            {
+              "name": "Gamma 1"
+            },
+            {
+              "name": "Gamma 2"
+            },
+            {
+              "name": "Delta 1"
+            },
+            {
+              "name": "Delta 2"
+            },
+            {
+              "name": "Delta 3"
+            },
+            {
+              "name": "Chi"
+            },
+            {
+              "name": "Phi"
+            },
+            {
+              "name": "Omicron"
+            },
+            {
+              "name": "Jaypee Greens"
+            },
+            {
+              "name": "Knowledge Park"
+            }
+          ]
+        },
+        {
+          "title": "Key localities",
+          "items": [
+            {
+              "name": "Atta Market"
+            },
+            {
+              "name": "Botanical Garden"
+            },
+            {
+              "name": "Noida City Centre"
+            },
+            {
+              "name": "Indirapuram"
+            },
+            {
+              "name": "Vaishali"
+            },
+            {
+              "name": "Kaushambi"
+            }
+          ]
+        }
+      ],
+      "count": 187,
+      "sample": "Sector 18, Sector 62, Jaypee Greens"
+    },
+    {
+      "name": "Faridabad",
+      "slug": "faridabad",
+      "note": "The industrial and residential heart of Faridabad, including Ballabgarh and the Greater Faridabad sectors. Landmarks covered include Badkhal Lake, Surajkund, NIT Faridabad, Bata Chowk and Mathura Road.",
+      "columns": [
+        {
+          "title": "Old Faridabad",
+          "items": [
+            {
+              "name": "Sector 1"
+            },
+            {
+              "name": "Sector 2"
+            },
+            {
+              "name": "Sector 3"
+            },
+            {
+              "name": "Sector 4"
+            },
+            {
+              "name": "Sector 5"
+            },
+            {
+              "name": "Sector 6"
+            },
+            {
+              "name": "Sector 7"
+            },
+            {
+              "name": "Sector 8"
+            },
+            {
+              "name": "Sector 9"
+            },
+            {
+              "name": "Sector 10"
+            },
+            {
+              "name": "Sector 11"
+            },
+            {
+              "name": "Sector 12"
+            },
+            {
+              "name": "Sector 13"
+            },
+            {
+              "name": "Sector 27"
+            },
+            {
+              "name": "Sector 29"
+            },
+            {
+              "name": "Sector 31"
+            },
+            {
+              "name": "Sector 33"
+            },
+            {
+              "name": "Sector 35"
+            },
+            {
+              "name": "Sector 37"
+            },
+            {
+              "name": "Sector 39"
+            },
+            {
+              "name": "Sector 41"
+            },
+            {
+              "name": "Sector 43"
+            },
+            {
+              "name": "Sector 45"
+            },
+            {
+              "name": "Sector 47"
+            },
+            {
+              "name": "Sector 49"
+            },
+            {
+              "name": "Sector 51"
+            },
+            {
+              "name": "Sector 53"
+            }
+          ]
+        },
+        {
+          "title": "New Faridabad",
+          "items": [
+            {
+              "name": "Sector 14"
+            },
+            {
+              "name": "Sector 15"
+            },
+            {
+              "name": "Sector 16"
+            },
+            {
+              "name": "Sector 17"
+            },
+            {
+              "name": "Sector 18"
+            },
+            {
+              "name": "Sector 19"
+            },
+            {
+              "name": "Sector 20"
+            },
+            {
+              "name": "Sector 21"
+            },
+            {
+              "name": "Sector 22"
+            },
+            {
+              "name": "Sector 23"
+            },
+            {
+              "name": "Sector 24"
+            },
+            {
+              "name": "Sector 25"
+            },
+            {
+              "name": "Sector 26"
+            },
+            {
+              "name": "Sector 28"
+            },
+            {
+              "name": "Sector 30"
+            },
+            {
+              "name": "Sector 32"
+            },
+            {
+              "name": "Sector 34"
+            },
+            {
+              "name": "Sector 36"
+            },
+            {
+              "name": "Sector 38"
+            },
+            {
+              "name": "Sector 40"
+            },
+            {
+              "name": "Sector 42"
+            },
+            {
+              "name": "Sector 44"
+            },
+            {
+              "name": "Sector 46"
+            },
+            {
+              "name": "Sector 48"
+            },
+            {
+              "name": "Sector 50"
+            },
+            {
+              "name": "Sector 52"
+            },
+            {
+              "name": "Sector 54"
+            }
+          ]
+        },
+        {
+          "title": "Ballabgarh",
+          "items": [
+            {
+              "name": "Sector 55"
+            },
+            {
+              "name": "Sector 56"
+            },
+            {
+              "name": "Sector 57"
+            },
+            {
+              "name": "Sector 58"
+            },
+            {
+              "name": "Sector 59"
+            },
+            {
+              "name": "Sector 60"
+            },
+            {
+              "name": "Sector 61"
+            },
+            {
+              "name": "Sector 62"
+            },
+            {
+              "name": "Sector 63"
+            },
+            {
+              "name": "Sector 64"
+            },
+            {
+              "name": "Sector 65"
+            },
+            {
+              "name": "Sector 66"
+            },
+            {
+              "name": "Sector 67"
+            },
+            {
+              "name": "Sector 68"
+            },
+            {
+              "name": "Sector 69"
+            },
+            {
+              "name": "Sector 70"
+            },
+            {
+              "name": "Sector 71"
+            },
+            {
+              "name": "Sector 72"
+            },
+            {
+              "name": "Sector 73"
+            },
+            {
+              "name": "Sector 74"
+            }
+          ]
+        },
+        {
+          "title": "Greater Faridabad",
+          "items": [
+            {
+              "name": "Sector 75"
+            },
+            {
+              "name": "Sector 76"
+            },
+            {
+              "name": "Sector 77"
+            },
+            {
+              "name": "Sector 78"
+            },
+            {
+              "name": "Sector 79"
+            },
+            {
+              "name": "Sector 80"
+            },
+            {
+              "name": "Sector 81"
+            },
+            {
+              "name": "Sector 82"
+            },
+            {
+              "name": "Sector 83"
+            },
+            {
+              "name": "Sector 84"
+            },
+            {
+              "name": "Sector 85"
+            },
+            {
+              "name": "Sector 86"
+            },
+            {
+              "name": "Sector 87"
+            },
+            {
+              "name": "Sector 88"
+            },
+            {
+              "name": "Sector 89"
+            },
+            {
+              "name": "Sector 90"
+            },
+            {
+              "name": "Sector 91"
+            },
+            {
+              "name": "Sector 92"
+            },
+            {
+              "name": "Sector 93"
+            },
+            {
+              "name": "Sector 94"
+            },
+            {
+              "name": "Sector 95"
+            },
+            {
+              "name": "Sector 96"
+            },
+            {
+              "name": "Sector 97"
+            },
+            {
+              "name": "Sector 98"
+            },
+            {
+              "name": "Sector 99"
+            },
+            {
+              "name": "Sector 100"
+            }
+          ]
+        },
+        {
+          "title": "Landmarks",
+          "items": [
+            {
+              "name": "Badkhal Lake"
+            },
+            {
+              "name": "Surajkund"
+            },
+            {
+              "name": "NIT Faridabad"
+            },
+            {
+              "name": "Bata Chowk"
+            },
+            {
+              "name": "Mathura Road"
+            }
+          ]
+        }
+      ],
+      "count": 105,
+      "sample": "Surajkund, NIT Faridabad, Ballabgarh"
+    },
+    {
+      "name": "Ghaziabad",
+      "slug": "ghaziabad",
+      "note": "From Indirapuram's high-rises to Raj Nagar's markets. Residents near Anand Vihar, Vaishali and Kaushambi get same-day pickup thanks to the Gurgaon–Delhi–Ghaziabad corridor.",
+      "columns": [
+        {
+          "title": "Indirapuram",
+          "items": [
+            {
+              "name": "Ahinsa Khand 1"
+            },
+            {
+              "name": "Ahinsa Khand 2"
+            },
+            {
+              "name": "Ahinsa Khand 3"
+            },
+            {
+              "name": "Gyan Khand 1"
+            },
+            {
+              "name": "Gyan Khand 2"
+            },
+            {
+              "name": "Gyan Khand 3"
+            },
+            {
+              "name": "Niti Khand 1"
+            },
+            {
+              "name": "Niti Khand 2"
+            },
+            {
+              "name": "Nyay Khand 1"
+            },
+            {
+              "name": "Nyay Khand 2"
+            },
+            {
+              "name": "Nyay Khand 3"
+            },
+            {
+              "name": "Shakti Khand 1"
+            },
+            {
+              "name": "Shakti Khand 2"
+            },
+            {
+              "name": "Shakti Khand 3"
+            },
+            {
+              "name": "Shakti Khand 4"
+            },
+            {
+              "name": "Vaibhav Khand"
+            }
+          ]
+        },
+        {
+          "title": "Vaishali",
+          "items": [
+            {
+              "name": "Sector 1"
+            },
+            {
+              "name": "Sector 2"
+            },
+            {
+              "name": "Sector 3"
+            },
+            {
+              "name": "Sector 4"
+            },
+            {
+              "name": "Sector 5"
+            },
+            {
+              "name": "Sector 6"
+            },
+            {
+              "name": "Sector 7"
+            },
+            {
+              "name": "Sector 8"
+            },
+            {
+              "name": "Sector 9"
+            },
+            {
+              "name": "Sector 10"
+            },
+            {
+              "name": "Sector 11"
+            },
+            {
+              "name": "Sector 12"
+            },
+            {
+              "name": "Sector 13"
+            },
+            {
+              "name": "Sector 14"
+            },
+            {
+              "name": "Sector 15"
+            },
+            {
+              "name": "Sector 16"
+            },
+            {
+              "name": "Sector 17"
+            },
+            {
+              "name": "Sector 18"
+            }
+          ]
+        },
+        {
+          "title": "Raj Nagar",
+          "items": [
+            {
+              "name": "Raj Nagar Extension"
+            },
+            {
+              "name": "Rajendra Nagar"
+            },
+            {
+              "name": "Kavi Nagar"
+            },
+            {
+              "name": "Nehru Nagar"
+            },
+            {
+              "name": "Shastri Nagar"
+            },
+            {
+              "name": "Navyug Market"
+            },
+            {
+              "name": "Mohan Nagar"
+            }
+          ]
+        },
+        {
+          "title": "Other areas",
+          "items": [
+            {
+              "name": "Kaushambi"
+            },
+            {
+              "name": "Sahibabad"
+            },
+            {
+              "name": "Loni"
+            },
+            {
+              "name": "Crossing Republik"
+            },
+            {
+              "name": "Govindpuram"
+            },
+            {
+              "name": "Modi Nagar"
+            },
+            {
+              "name": "Hapur Road"
+            },
+            {
+              "name": "NH-24"
+            },
+            {
+              "name": "NH-58"
+            }
+          ]
+        }
+      ],
+      "count": 50,
+      "sample": "Indirapuram, Vaishali, Kaushambi"
+    }
+  ],
+  "featured_count": 10,
+  "_featured_note": "Highlighted = has its own locality page. Matching is scoped to the Gurugram block on purpose: Sector 29 and Sector 49 also exist in Noida and Faridabad.",
+  "hero": {
+    "h1": "Premium laundry & dry cleaning services across Delhi NCR",
+    "lede": "Wash4You brings premium laundry, dry cleaning and home fabric care to every corner of Delhi NCR. Whether you are a professional in Cyber Hub, a family in Noida Sector 62 or a student in North Delhi, free pickup and delivery means fresh clothes without stepping out."
+  },
+  "cities_intro": {
+    "eyebrow": "Cities we serve",
+    "title": "Six cities, one logistics network",
+    "body": "Wash4You serves Delhi, Gurgaon (Gurugram), Noida, Greater Noida, Faridabad and Ghaziabad. The network covers residential societies, corporate offices, hotels and educational institutions."
+  },
+  "service_menu": {
+    "eyebrow": "Service menu",
+    "title": "Everything we do, available everywhere we serve",
+    "lede": "No matter which city or sector you are in, you get the full range.",
+    "columns": [
+      "Service",
+      "What it is",
+      "Ideal for"
+    ],
+    "rows": [
+      {
+        "service": "Eco-friendly laundry",
+        "what": "Planet-safe cleaning with biodegradable, non-toxic solvents",
+        "ideal": "Daily wear, baby clothes, sensitive skin",
+        "url": "services/eco-friendly-laundry/"
+      },
+      {
+        "service": "Premium dry cleaning",
+        "what": "Precision cleaning for delicate fabrics using garment-safe methods",
+        "ideal": "Suits, dresses, silks, wedding wear",
+        "url": "services/premium-dry-cleaning/"
+      },
+      {
+        "service": "Steam ironing",
+        "what": "Steam press for a crisp, polished finish",
+        "ideal": "Office shirts, trousers, sarees",
+        "url": "services/steam-ironing/"
+      },
+      {
+        "service": "Shoe cleaning",
+        "what": "Deep clean, deodorise and restore footwear",
+        "ideal": "Sneakers, suede, leather shoes",
+        "url": "services/shoe-cleaning/"
+      },
+      {
+        "service": "Bag cleaning",
+        "what": "Deep-cleaned, reshaped and stain-treated",
+        "ideal": "Handbags, totes, backpacks",
+        "url": "services/bag-cleaning/"
+      },
+      {
+        "service": "Leather cleaning",
+        "what": "pH-balanced solutions that clean and condition",
+        "ideal": "Leather jackets, belts, wallets",
+        "url": "services/leather-cleaning/"
+      },
+      {
+        "service": "Carpet cleaning",
+        "what": "Extraction techniques for residential and commercial",
+        "ideal": "Home carpets, office rugs",
+        "url": "services/carpet-cleaning/"
+      },
+      {
+        "service": "Curtain cleaning",
+        "what": "Professional care without compromising fabric quality",
+        "ideal": "All curtain types and fabrics",
+        "url": "services/curtains-cleaning/"
+      },
+      {
+        "service": "Toy cleaning",
+        "what": "Hygienic, child-safe cleaning for plush and fabric toys",
+        "ideal": "Children's toys, stuffed animals",
+        "url": "services/toy-cleaning/"
+      },
+      {
+        "service": "Accessories cleaning",
+        "what": "Gently cleaned and reshaped",
+        "ideal": "Neckties, scarves, hats",
+        "url": "services/accessories-cleaning/"
+      },
+      {
+        "service": "Blanket & quilt cleaning",
+        "what": "Deep clean and fluff restoration",
+        "ideal": "Winter blankets, comforters, quilts",
+        "url": "services/blanket-quilt-cleaning/"
+      },
+      {
+        "service": "Linen cleaning",
+        "what": "Professional care for bed and table linens",
+        "ideal": "Hotels, restaurants, homes",
+        "url": "services/linen-cleaning/"
+      }
+    ]
+  },
+  "why": {
+    "eyebrow": "Why Wash4You",
+    "title": "The same standard in every area we cover",
+    "rows": [
+      {
+        "label": "Free pickup & delivery",
+        "detail": "No minimum order. No hidden charges."
+      },
+      {
+        "label": "24-hour turnaround",
+        "detail": "Most orders are back with you the next day."
+      },
+      {
+        "label": "Earth-safe cleansers",
+        "detail": "Biodegradable, non-toxic, baby-safe."
+      },
+      {
+        "label": "Satisfaction guarantee",
+        "detail": "Not happy? We re-process at no extra cost."
+      },
+      {
+        "label": "Multiple payment options",
+        "detail": "UPI, cards, cash on delivery and wallets."
+      },
+      {
+        "label": "Corporate & bulk plans",
+        "detail": "Special pricing for offices, PGs and hotels."
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Do you offer free pickup and delivery in my area?",
+      "a": "Yes. Free doorstep pickup and delivery across every area listed on this page in Delhi, Gurgaon, Noida, Greater Noida, Faridabad and Ghaziabad, with no minimum order value."
+    },
+    {
+      "q": "How fast can I get my laundry done?",
+      "a": "A 24-hour turnaround on most services. Express same-day is available in select localities near our Vyapar Kendra hub in Gurgaon."
+    },
+    {
+      "q": "Is your cleaning safe for babies and sensitive skin?",
+      "a": "Yes. We use biodegradable, non-toxic, planet-safe cleansers that are gentle on delicate skin and safe for baby clothes."
+    },
+    {
+      "q": "Do you serve corporate offices and co-living spaces?",
+      "a": "Yes. We run bulk laundry and dry cleaning plans for corporate campuses, co-living spaces, PGs, hostels and hotels across Delhi NCR. Contact us for custom pricing."
+    },
+    {
+      "q": "What if I am not satisfied with the cleaning?",
+      "a": "Tell us and we will re-process your items at no extra cost."
+    },
+    {
+      "q": "How do I book a pickup?",
+      "a": "Book online through the website, or call or WhatsApp +91 63 67 600 500."
+    },
+    {
+      "q": "Do you clean wedding lehengas and designer wear?",
+      "a": "Yes. Our premium dry cleaning is built for delicate, high-value garments including wedding wear, designer suits and silk sarees."
+    },
+    {
+      "q": "Which areas in Gurgaon do you cover?",
+      "a": "All sectors of Gurgaon from Sector 1 to Sector 92 and beyond, including DLF, Sushant Lok, Palam Vihar, Golf Course Road, Sohna Road and Old Gurgaon. The Vyapar Kendra store is the main hub."
+    }
+  ],
+  "_meta_note": "Page title/description live in locations.json meta — this page's meta comes from there.",
+  "_steps_note": "The process steps live in home.json how_it_works — seven of them — and every page renders from there."
+}

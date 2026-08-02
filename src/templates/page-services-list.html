@@ -1,7 +1,54 @@
 {% extends "base.html" %}
+{% from "_components.html" import faq_list %}
 {% from "_icons.html" import ui, care_tag, service_icon, service_bg %}
 
+{% block body_class %}page-services{% endblock %}
+
 {% block schema %},
+      {
+        "@type": "OfferCatalog",
+        "@id": "{{ meta.canonical }}#catalog",
+        "name": "Laundry & Dry Cleaning Services",
+        "itemListElement": [
+          {% for sv in services.services %}{
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": {{ sv.name | tojson }},
+              "description": {{ sv.short_description | tojson }},
+              "url": "{{ site.urls.base }}/services/{{ sv.slug }}/",
+              "provider": { "@id": "{{ site.urls.base }}/#business" }
+            }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "{{ meta.canonical }}#howto",
+        "name": {{ home.how_it_works.title | tojson }},
+        "step": [
+          {% for st in home.how_it_works.steps %}{
+            "@type": "HowToStep",
+            "position": {{ loop.index }},
+            "name": {{ st.title | tojson }},
+            "text": {{ st.detail | tojson }}
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "{{ meta.canonical }}#faq",
+        "mainEntity": [
+          {% for f in services.faqs %}{
+            "@type": "Question",
+            "name": {{ f.q | tojson }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | tojson }} }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      },
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -26,7 +73,10 @@
 
 {% block content %}
 
-<section class="page-hero">
+{# Services banner. The SVG carries no headline of its own (see the comment
+   at the top of hero-services.svg), so the h1 and lede below are the only
+   words in the band and stay editable. Vector, so it is sharp at any width. #}
+<section class="page-hero services-hero">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="{{ root_path }}">Home</a>
@@ -49,10 +99,32 @@
 
 <section class="section">
   <div class="wrap">
-    <h2 class="visually-hidden">All services</h2>
+    <div class="section-head reveal">
+      <h2{{ cms('services:intro.title') }}>{{ services.intro.title }}</h2>
+      <p{{ cms('services:intro.body') }}>{{ services.intro.body }}</p>
+    </div>
+
+    {# The guide's UX suggestion: "What do you need cleaned?". Hidden until
+       svcFilter.js reveals it — a search box that does nothing is worse than
+       none, and the grid below is complete without it. #}
+    <div class="svc-finder" data-svc-finder hidden>
+      <div class="svc-finder__search">
+        {{ ui('sparkle', 18) }}
+        <label class="visually-hidden" for="svc-search">What do you need cleaned?</label>
+        <input id="svc-search" type="search" autocomplete="off"
+               placeholder="What do you need cleaned? — saree, sneakers, carpet…" data-svc-search>
+        <button type="button" class="svc-finder__clear" data-svc-clear hidden aria-label="Clear search">{{ ui('close', 16) }}</button>
+      </div>
+      <p class="svc-finder__count" data-svc-count aria-live="polite"></p>
+    </div>
+
     <div class="svc-grid stagger-children">
       {% for s in services.services %}
-      <article class="svc svc--art">
+      {# Index the description too, not just the name and "best for" — people
+         search by the ITEM ("saree", "sneakers"), and the word often only
+         appears in the prose. #}
+      <article class="svc svc--art" data-svc-item
+               data-name="{{ s.name }} {{ s.slug }} {{ s.best_for }} {{ s.short_description }}">
         {{ service_bg(s.slug) }}
         <span class="svc__icon">{{ service_icon(s.slug, 36) }}</span>
         <h3><a class="svc__link" href="{{ root_path }}services/{{ s.slug }}/"{{ cms('services:services.' ~ loop.index0 ~ '.name') }}>{{ s.name }}</a></h3>
@@ -64,7 +136,93 @@
   </div>
 </section>
 
+{# Blue band. `section--navy` carries the white-on-dark type treatment from
+   base.css; .collect-band only swaps the ground to --navy, a step lighter
+   than the --navy-deep used by other dark bands so two of them are never
+   identical. #}
+{# ---- Service menu at a glance ---- #}
 <section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">At a glance</p>
+      <h2>The full menu, with turnaround times</h2>
+      <p>Prices are on the <a href="{{ root_path }}pricing/">pricing page</a>, item by item.</p>
+    </div>
+    <div class="svc-table-wrap reveal">
+      <table class="svc-menu">
+        <caption class="visually-hidden">Every Wash4You service, what it is for, and how long it takes</caption>
+        <thead>
+          <tr><th scope="col">Service</th><th scope="col">Best for</th><th scope="col">Turnaround</th></tr>
+        </thead>
+        <tbody>
+          {% for sv in services.services %}
+          <tr>
+            <th scope="row"><a href="{{ root_path }}services/{{ sv.slug }}/">{{ sv.name }}</a></th>
+            <td>{{ sv.best_for }}</td>
+            <td><span class="svc-menu__turn">{{ sv.turnaround }}</span></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{# ---- How it works (mirrored into HowTo schema) ---- #}
+<section class="section section--navy svc-steps">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2{{ cms('home:how_it_works.title') }}>{{ home.how_it_works.title }}</h2>
+      <p{{ cms('home:how_it_works.text') }}>{{ home.how_it_works.text }}</p>
+    </div>
+    {# THE seven steps, from home.json — there is one cleaning process and
+       every page that describes it reads the same source. The SEO guide gave
+       a five-step summary; that disagreed with the home page's "in seven
+       steps", so it is not used. #}
+    <ol class="svc-steps__grid stagger-children">
+      {% for st in home.how_it_works.steps %}
+      <li class="svc-step">
+        <span class="svc-step__num" aria-hidden="true">{{ loop.index }}</span>
+        <h3{{ cms('home:how_it_works.steps.' ~ loop.index0 ~ '.title') }}>{{ st.title }}</h3>
+        <p{{ cms('home:how_it_works.steps.' ~ loop.index0 ~ '.detail') }}>{{ st.detail }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{# ---- Why choose us ---- #}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('services:why.eyebrow') }}>{{ services.why.eyebrow }}</p>
+      <h2{{ cms('services:why.title') }}>{{ services.why.title }}</h2>
+    </div>
+    <div class="svc-why stagger-children">
+      {% for r in services.why.rows %}
+      <article class="svc-why__card">
+        <span class="svc-why__tick">{{ ui('check', 16) }}</span>
+        <h3{{ cms('services:why.rows.' ~ loop.index0 ~ '.label') }}>{{ r.label }}</h3>
+        <p{{ cms('services:why.rows.' ~ loop.index0 ~ '.detail') }}>{{ r.detail }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ---- FAQ (mirrored into FAQPage schema) ---- #}
+<section class="section section--wash" id="faq">
+  <div class="wrap wrap--narrow">
+    <div class="section-head reveal">
+      <p class="eyebrow">Services FAQ</p>
+      <h2>Common questions</h2>
+    </div>
+    {{ faq_list(services.faqs, 'svc-faq') }}
+  </div>
+</section>
+
+<section class="section section--navy collect-band">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Where we collect</p>

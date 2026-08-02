@@ -1,45 +1,291 @@
 {
+  "_source": "Rewritten 2026-08-01 from the client's 'About Us Page Content' PDF. The PDF's 'Local SEO Tip' paragraph is intentionally NOT included — it is an instruction to the site owner, not page copy.",
   "meta": {
-    "title": "About Wash4You – Trusted Laundry & Dry-Clean Experts",
-    "description": "Learn about Wash4You, your trusted laundry and dry-clean partner in Delhi NCR. We offer reliable, eco-friendly services with free pickup and delivery.",
+    "title": "About Wash4You — Gurgaon's Trusted Laundry & Dry-Cleaning Service",
+    "description": "Wash4You is a premium laundry and dry-cleaning service in Gurugram and Delhi NCR — eco-friendly processing, free doorstep pickup and delivery, and 25+ years of European garment-care experience behind the team.",
     "canonical": "https://wash4you.in/about-us/",
-    "og_title": "About Wash4You – Trusted Laundry & Dry-Clean Experts",
-    "og_description": "Learn about Wash4You, your trusted laundry and dry-clean partner in Delhi NCR. We offer reliable, eco-friendly services with free pickup and delivery."
+    "og_title": "About Wash4You — Gurgaon's Trusted Laundry & Dry-Cleaning Service",
+    "og_description": "A premium laundry service in Gurugram and Delhi NCR, built on one promise: your laundry is our responsibility."
   },
   "hero": {
-    "headline": "About Wash4You",
-    "subheadline": "Your trusted laundry and dry-clean partner in Delhi NCR."
+    "eyebrow": "About us",
+    "headline": "Gurgaon's Most Trusted Laundry & Dry-Cleaning Service",
+    "lede": "Wash4You is a premium laundry service in Gurugram and Delhi NCR, built on a simple promise: your laundry is our responsibility.",
+    "body": "As a unit of Vaaruni Ventures LLP, we combine 25+ years of European garment-care expertise with modern technology to deliver eco-friendly, doorstep laundry and dry-cleaning that saves you time and protects your clothes. Whether you need wash & fold, premium dry cleaning for designer wear, or steam ironing for office formals, our team treats every garment as if it were our own."
   },
   "story": {
-    "title": "Our Story",
-    "content": "What began by serving a few clients has grown through word-of-mouth, consistent service, and a clear promise: your laundry is our responsibility, so you can reclaim your time and energy. We've invested in better technology at every process — washing, dry-cleaning, ironing, and scheduling — more sustainable practices, experts with more than 25 years of experience in European market best practices, and a continuously growing team committed to excellence. Wash4You is a unit of Vaaruni Ventures LLP.",
-    "image": "/src/assets/images/about-story.jpg"
+    "eyebrow": "Our story",
+    "title": "From a handful of clients to Gurugram's favourite laundry partner",
+    "paragraphs": [
+      "What started as a small service for a few local families has grown into one of the most reliable online laundry services in Delhi NCR — entirely through word-of-mouth, consistent quality, and an obsession with customer satisfaction.",
+      "We didn't just bring another “dhobi” to the market. We built a technology-enabled laundry ecosystem where you can schedule a pickup online, track your order, and get your clothes back — freshly cleaned, perfectly pressed and neatly packed — without stepping out of your home or office.",
+      "Our leadership team brings more than 25 years of hands-on experience from the European laundry and dry-cleaning market, where standards for fabric care, stain removal and eco-friendly processing are among the strictest in the world. We've adapted those practices for local fabrics and climates, and packaged them into an affordable, hassle-free service for professionals, families and businesses across the NCR."
+    ]
   },
   "mission": {
-    "title": "Mission",
-    "content": "We aim to elevate daily life with efficient, eco-friendly, and high-quality laundry services. Through innovation, people-first approaches, and seamless experiences, we make laundry not just easier, but a joyfully seamless part of life."
+    "title": "Our mission",
+    "subtitle": "Elevating everyday life through better laundry",
+    "body": "Laundry shouldn't be a chore. Our mission is to elevate daily life with efficient, eco-friendly, high-quality laundry that gives you back your weekends and your peace of mind. Every wash cycle, every steam press, every doorstep delivery is designed around one question: does this make our customer's life better?"
   },
   "vision": {
-    "title": "Vision",
-    "content": "To become the most dependable, convenient laundry partner in every community we serve, delivering sustainable solutions while raising the standard of garment care everywhere."
+    "title": "Our vision",
+    "subtitle": "The most dependable laundry partner in every community we serve",
+    "body": "We envision a future where every household and workplace in Delhi NCR has access to professional, sustainable garment care — without the hassle of traditional laundry. We are working towards it by continuously investing in:",
+    "investments": [
+      "Greener cleaning agents and water-conservation technology",
+      "Advanced washing, dry-cleaning and finishing equipment",
+      "A growing team of certified fabric-care experts",
+      "Smarter scheduling and order-tracking systems"
+    ]
+  },
+  "why": {
+    "eyebrow": "Why Wash4You",
+    "title": "Rated among the best laundry services in Gurgaon & Delhi NCR",
+    "lede": "Choosing a laundry service isn't just about clean clothes — it's about trust, convenience and consistency. Here's why customers across the NCR stay with us.",
+    "items": [
+      {
+        "icon": "clock",
+        "title": "On-time pickup & delivery",
+        "detail": "Late deliveries ruin plans. We collect and drop off at your chosen time slot — rain or shine, busy Monday or quiet Sunday."
+      },
+      {
+        "icon": "leaf",
+        "title": "Eco-friendly practices",
+        "detail": "Biodegradable detergents, water-efficient machines and sustainable packaging. Our dry-cleaning process avoids harsh chemicals, which is safer for your skin, your clothes and the planet."
+      },
+      {
+        "icon": "sparkle",
+        "title": "25+ years of European expertise",
+        "detail": "Our founders and senior technicians honed their craft in Europe's most demanding dry-cleaning markets. Silk sarees, woollen coats, designer blazers and delicate ethnic wear get that same precision."
+      },
+      {
+        "icon": "check",
+        "title": "Book in 60 seconds",
+        "detail": "No phone calls or chasing on WhatsApp. Book a pickup online in under a minute, choose your service, and track the order from collection to delivery."
+      },
+      {
+        "icon": "shield",
+        "title": "Quality you can see",
+        "detail": "Every garment goes through tagging, fabric assessment, stain pre-treatment, processing, steam finishing, a quality check and protective packing."
+      },
+      {
+        "icon": "truck",
+        "title": "Free pickup & delivery",
+        "detail": "Complimentary doorstep collection and delivery across our service area. No minimum-order anxiety and no hidden charges."
+      }
+    ]
+  },
+  "services_table": {
+    "eyebrow": "Our services",
+    "title": "Complete fabric care under one roof",
+    "lede": "Wash4You isn't just a laundry shop. We're a full-service fabric care centre.",
+    "columns": [
+      "Service",
+      "Best for",
+      "Turnaround"
+    ],
+    "rows": [
+      {
+        "service": "Wash & fold laundry",
+        "best_for": "Everyday clothes, bedsheets, towels",
+        "turnaround": "24 hours",
+        "url": "services/eco-friendly-laundry/"
+      },
+      {
+        "service": "Wash & iron / steam press",
+        "best_for": "Office wear, school uniforms, formals",
+        "turnaround": "24 hours",
+        "url": "services/steam-ironing/"
+      },
+      {
+        "service": "Premium dry cleaning",
+        "best_for": "Suits, sarees, lehengas, blazers, delicate fabrics",
+        "turnaround": "48–72 hours",
+        "url": "services/premium-dry-cleaning/"
+      },
+      {
+        "service": "Curtain & home linen",
+        "best_for": "Curtains, cushion covers, quilts",
+        "turnaround": "3–5 days",
+        "url": "services/curtains-cleaning/"
+      },
+      {
+        "service": "Woollen care",
+        "best_for": "Sweaters, shawls, jackets",
+        "turnaround": "3–5 days",
+        "url": ""
+      },
+      {
+        "service": "Shoe & bag cleaning",
+        "best_for": "Leather, suede, canvas accessories",
+        "turnaround": "3–5 days",
+        "url": "services/shoe-cleaning/"
+      },
+      {
+        "service": "Corporate laundry",
+        "best_for": "Hotels, salons, gyms, offices",
+        "turnaround": "Custom SLA",
+        "url": ""
+      }
+    ]
+  },
+  "how": {
+    "_note": "Steps are mirrored from home.json how_it_works so the two pages can never describe the process differently. Edit them in home.json.",
+    "eyebrow": "How it works",
+    "title": "From your door and back, in seven steps.",
+    "lede": "The same care as a specialist store, with the pickup and delivery done for you."
+  },
+  "areas": {
+    "_note": "Localities mirror site.json footer.areas, which is what the home page FAQ and the areas page both use. The supplied PDF claimed Delhi, Noida, Faridabad and Ghaziabad as well; that is wider than anything else on the site claims, so it is not published here.",
+    "eyebrow": "Areas we serve",
+    "title": "Free pickup and delivery across Gurugram",
+    "lede": "Doorstep collection and delivery are included at no extra charge anywhere we serve in Gurugram, plus the sectors around them.",
+    "groups": [
+      {
+        "city": "Sushant Lok",
+        "detail": "Free doorstep pickup and delivery.",
+        "url": "laundry-service-sushant-lok/"
+      },
+      {
+        "city": "Sector 49",
+        "detail": "Free doorstep pickup and delivery.",
+        "url": "laundry-service-sector-49/"
+      },
+      {
+        "city": "Cyber City",
+        "detail": "Free doorstep pickup and delivery.",
+        "url": "laundry-service-cyber-city/"
+      },
+      {
+        "city": "DLF Phase 3",
+        "detail": "Free doorstep pickup and delivery.",
+        "url": "laundry-service-dlf-phase-3/"
+      },
+      {
+        "city": "Golf Course Road",
+        "detail": "Free doorstep pickup and delivery.",
+        "url": "laundry-service-golf-course-road/"
+      },
+      {
+        "city": "Golf Course Extension",
+        "detail": "Free doorstep pickup and delivery.",
+        "url": "laundry-service-golf-course-extension/"
+      },
+      {
+        "city": "Sohna Road",
+        "detail": "Free doorstep pickup and delivery.",
+        "url": "laundry-service-sohna-road/"
+      },
+      {
+        "city": "Sector 29",
+        "detail": "Free doorstep pickup and delivery.",
+        "url": "laundry-service-gurugram-sector-29/"
+      },
+      {
+        "city": "Palam Vihar",
+        "detail": "Free doorstep pickup and delivery.",
+        "url": "laundry-service-palam-vihar/"
+      },
+      {
+        "city": "MG Road",
+        "detail": "Free doorstep pickup and delivery.",
+        "url": "laundry-service-mg-road/"
+      }
+    ]
   },
   "promise": {
-    "title": "Our Promise",
+    "eyebrow": "Our promise",
+    "title": "The Wash4You guarantee",
     "items": [
-      { "title": "On-time delivery & pick-ups", "description": "We respect your schedule." },
-      { "title": "Eco-friendly practices", "description": "Better cleaning agents and methods, water conservation." },
-      { "title": "Top-quality cleaning", "description": "We treat your clothes as if they were our own." },
-      { "title": "Consistent reliability", "description": "Rain or shine, busy or slow, we maintain the same level of service." }
+      {
+        "title": "On-time delivery",
+        "detail": "Your clothes arrive in the promised slot, or we make it right."
+      },
+      {
+        "title": "Eco-friendly cleaning",
+        "detail": "Biodegradable agents, water-saving technology, recyclable packaging."
+      },
+      {
+        "title": "Top-quality standards",
+        "detail": "European-trained staff and a multi-point quality inspection."
+      },
+      {
+        "title": "Consistent reliability",
+        "detail": "The same care on day one and on day 1,001."
+      },
+      {
+        "title": "Damage protection",
+        "detail": "Rare — but if we damage an item, we compensate fairly."
+      }
     ]
   },
-  "why_choose": {
-    "title": "Why Choose Us",
+  "audience": {
+    "eyebrow": "Who we serve",
+    "title": "Busy professionals, families & businesses",
     "items": [
-      "Reliable & Punctual",
-      "Eco-Conscious & Sustainable",
-      "Experienced Cleaning Experts",
-      "Technology-Enabled Convenience",
-      "Satisfaction Guarantee"
+      {
+        "title": "Working professionals",
+        "detail": "Never miss a crisp shirt for Monday morning."
+      },
+      {
+        "title": "Families",
+        "detail": "Bulk laundry handled effortlessly — more time for what matters."
+      },
+      {
+        "title": "Students",
+        "detail": "Affordable wash & fold near campus."
+      },
+      {
+        "title": "Hotels & Airbnbs",
+        "detail": "White-linen freshness on commercial SLAs."
+      },
+      {
+        "title": "Salons & spas",
+        "detail": "Hygienic towel and gown processing."
+      },
+      {
+        "title": "Corporate offices",
+        "detail": "Uniform and linen care at scale."
+      }
     ]
+  },
+  "faqs": [
+    {
+      "q": "What areas does Wash4You cover for free pickup and delivery?",
+      "a": "We offer free pickup and delivery across Gurugram — Sushant Lok, Sector 49, Cyber City, DLF Phase 3, Golf Course Road, Golf Course Extension, Sohna Road, Sector 29, Palam Vihar, MG Road, plus the sectors around them. If you are not sure, send us a WhatsApp with your address and we will confirm."
+    },
+    {
+      "q": "How is Wash4You different from a local dhobi or other online laundry services?",
+      "a": "Wash4You brings 25+ years of European garment-care expertise, technology-enabled booking and tracking, eco-friendly processing and on-time delivery. We are a registered unit of Vaaruni Ventures LLP, so there is accountability at every step."
+    },
+    {
+      "q": "What is your turnaround time for laundry and dry cleaning?",
+      "a": "Standard wash & fold and wash & iron come back in 24 hours. Premium dry cleaning takes 48–72 hours, and specialist items such as curtains, woollens, shoes and bags take 3–5 days."
+    },
+    {
+      "q": "Do you use eco-friendly cleaning products?",
+      "a": "Yes. We use biodegradable detergents, enzyme-based stain removers and water-efficient machines, and our dry-cleaning process avoids harsh PERC chemicals — safer for sensitive skin and for the environment."
+    },
+    {
+      "q": "Is there a minimum order value for free pickup?",
+      "a": "We keep the minimum order value reasonable and transparent. See the pricing page for current rates, or message us on WhatsApp for a quick estimate."
+    },
+    {
+      "q": "Can I trust Wash4You with expensive or delicate garments?",
+      "a": "Yes. Our team is trained in fabric-specific care, from silk sarees and woollen coats to designer blazers and lehengas. Every item is inspected, tagged and processed according to its care label and fabric."
+    },
+    {
+      "q": "How do I schedule a pickup?",
+      "a": "Book a free pickup online, choose your service and time slot, and confirm. You can also call or WhatsApp +91 63 67 600 500."
+    },
+    {
+      "q": "Do you offer corporate or bulk laundry services?",
+      "a": "Yes. We provide customised commercial laundry for hotels, salons, gyms and corporate offices across Delhi NCR. Email care@wash4you.in for a tailored quote."
+    }
+  ],
+  "cta": {
+    "title": "Ready to reclaim your weekends?",
+    "body": "Stop spending Sundays sorting, washing and ironing. Let Wash4You handle it.",
+    "button": "Schedule your free pickup"
   }
 }

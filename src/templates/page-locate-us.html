@@ -1,12 +1,38 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui %}
+{% from "_components.html" import faq_list %}
+
+{% block body_class %}page-areas{% endblock %}
 
 {% block preload %}
-  <link rel="preload" as="image" href="{{ asset_path }}images/hero-home.jpg">
+  <link rel="preload" as="image" href="{{ asset_path }}images/hero-areas.jpg">
   <link rel="stylesheet" href="{{ asset_path }}css/redesign-areas.css">
 {% endblock %}
 
 {% block schema %},
+      {
+        "@type": "Service",
+        "@id": "{{ meta.canonical }}#servicearea",
+        "name": "Laundry & dry cleaning with free pickup and delivery",
+        "serviceType": "Laundry and dry cleaning",
+        "provider": { "@id": "{{ site.urls.base }}/#business" },
+        "areaServed": [
+          {% for c in areas.cities %}{ "@type": "City", "name": {{ c.name | tojson }} }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "{{ meta.canonical }}#faq",
+        "mainEntity": [
+          {% for f in areas.faqs %}{
+            "@type": "Question",
+            "name": {{ f.q | tojson }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | tojson }} }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      },
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -33,7 +59,16 @@
 
 {% block content %}
 
-<section class="areas-hero" style="--areas-hero-img: url('{{ asset_path }}images/hero-home.jpg')">
+{# The url() is written relative to redesign-areas.css, NOT to this page: a
+   url() inside a custom property resolves against the stylesheet that USES
+   the variable, so `{{ asset_path }}` produced /assets/assets/images/… and
+   this hero image 404'd on every build. The stylesheet always sits at
+   <assets>/css/, so `../images/` is correct at any URL depth.
+
+   The banner itself carries no text — the headline, sub-copy and chips that
+   came baked into the artwork are gone, since the h1 and lede below are the
+   real, editable ones. #}
+<section class="areas-hero" style="--areas-hero-img: url('../images/hero-areas.jpg')">
   <div class="wrap areas-hero__inner">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="{{ root_path }}">Home</a>
@@ -41,7 +76,7 @@
       <span>Areas we serve</span>
     </nav>
     <p class="eyebrow">{{ ui('pin', 16) }} Gurugram &amp; Delhi NCR</p>
-    <h1 class="areas-hero__title">Laundry Pickup &amp; Delivery Across <span class="kw">Gurugram</span> &amp; <span class="kw">Delhi&nbsp;NCR</span></h1>
+    <h1 class="areas-hero__title">Premium Laundry &amp; Dry Cleaning Across <span class="kw">Delhi&nbsp;NCR</span></h1>
     <p class="lede">Come to either store, or let us collect from your door at no charge across the city. Every order is counted with you before it leaves.</p>
     <div class="btn-row">
       <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
@@ -92,6 +127,9 @@
     </div>
 
     <h3 class="areas-list-title">Areas we serve in <span class="kw-text">Gurugram</span></h3>
+    {# The ten highlighted areas: each has its own page, so each is a link.
+       Everything else is listed as covered further down but is not linked —
+       a chip that goes nowhere is worse than plain text. #}
     <div class="areas stagger-children">
       {% for a in site.footer.areas %}
       <a class="area-link" href="{{ root_path }}{{ a.url }}">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
@@ -100,6 +138,138 @@
     <p class="areas-note">
       Not listed? Send your address on <a class="link-arrow" href="{{ site.urls.whatsapp }}" rel="noopener">WhatsApp</a> and we will confirm whether we collect there.
     </p>
+  </div>
+</section>
+
+{# ============================================================
+   Full coverage — every locality, city by city. Highlighted ones repeat
+   here as links; the rest are plain text.
+   ============================================================ #}
+<section class="section section--wash" id="coverage">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Full coverage</p>
+      <h2{{ cms('areas:intro.title') }}>{{ areas.intro.title }}</h2>
+      <p{{ cms('areas:intro.body') }}>{{ areas.intro.body }}</p>
+      <p class="coverage-note"{{ cms('areas:intro.note') }}>{{ areas.intro.note }}</p>
+    </div>
+
+    {# Search across all 456 localities. Hidden until JS reveals it. #}
+    <div class="coverage-finder" data-coverage-finder hidden>
+      <div class="coverage-finder__search">
+        {{ ui('pin', 18) }}
+        <label class="visually-hidden" for="coverage-search">Search your locality</label>
+        <input id="coverage-search" type="search" autocomplete="off"
+               placeholder="Type your sector or locality — Sector 62, Indirapuram…" data-coverage-search>
+        <button type="button" class="coverage-finder__clear" data-coverage-clear hidden aria-label="Clear search">{{ ui('close', 16) }}</button>
+      </div>
+      <p class="coverage-finder__count" data-coverage-count aria-live="polite"></p>
+    </div>
+
+    <div class="coverage-cities">
+      {% for city in areas.cities %}
+      <section class="coverage-city" data-coverage-city>
+        <h3 class="coverage-city__name">{{ city.name }}</h3>
+        <p class="coverage-city__note">{{ city.note }}</p>
+        <div class="coverage-cols">
+          {% for col in city.columns %}
+          <div class="coverage-col" data-coverage-col>
+            <h4>{{ col.title }}</h4>
+            <ul>
+              {% for it in col['items'] %}
+              <li data-coverage-item data-name="{{ it.name }}">
+                {% if it.url %}<a class="coverage-hit" href="{{ root_path }}{{ it.url }}">{{ it.name }} {{ ui('arrow-right', 13) }}</a>
+                {% else %}{{ it.name }}{% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% endfor %}
+    </div>
+    <p class="coverage-empty" data-coverage-empty hidden>
+      We could not find that one in the list. Send us your PIN code on
+      <a class="link-arrow" href="{{ site.urls.whatsapp }}" rel="noopener">WhatsApp</a> and we will confirm.
+    </p>
+  </div>
+</section>
+
+{# ---- Service menu ---- #}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('areas:service_menu.eyebrow') }}>{{ areas.service_menu.eyebrow }}</p>
+      <h2{{ cms('areas:service_menu.title') }}>{{ areas.service_menu.title }}</h2>
+      <p{{ cms('areas:service_menu.lede') }}>{{ areas.service_menu.lede }}</p>
+    </div>
+    <div class="area-table-wrap reveal">
+      <table class="area-table">
+        <caption class="visually-hidden">Services available in every area we serve</caption>
+        <thead><tr>{% for c in areas.service_menu.columns %}<th scope="col">{{ c }}</th>{% endfor %}</tr></thead>
+        <tbody>
+          {% for r in areas.service_menu.rows %}
+          <tr>
+            <th scope="row"><a href="{{ root_path }}{{ r.url }}">{{ r.service }}</a></th>
+            <td>{{ r.what }}</td>
+            <td><span class="area-table__ideal">{{ r.ideal }}</span></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{# ---- How it works ---- #}
+<section class="section section--navy area-steps">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2{{ cms('home:how_it_works.title') }}>{{ home.how_it_works.title }}</h2>
+      <p{{ cms('home:how_it_works.text') }}>{{ home.how_it_works.text }}</p>
+    </div>
+    {# Seven steps, from home.json — one process, one source. #}
+    <ol class="area-steps__grid stagger-children">
+      {% for st in home.how_it_works.steps %}
+      <li class="area-step">
+        <span class="area-step__num" aria-hidden="true">{{ loop.index }}</span>
+        <h3{{ cms('home:how_it_works.steps.' ~ loop.index0 ~ '.title') }}>{{ st.title }}</h3>
+        <p{{ cms('home:how_it_works.steps.' ~ loop.index0 ~ '.detail') }}>{{ st.detail }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{# ---- Why choose us ---- #}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('areas:why.eyebrow') }}>{{ areas.why.eyebrow }}</p>
+      <h2{{ cms('areas:why.title') }}>{{ areas.why.title }}</h2>
+    </div>
+    <div class="area-why stagger-children">
+      {% for r in areas.why.rows %}
+      <article class="area-why__card">
+        <span class="area-why__tick">{{ ui('check', 16) }}</span>
+        <h3{{ cms('areas:why.rows.' ~ loop.index0 ~ '.label') }}>{{ r.label }}</h3>
+        <p{{ cms('areas:why.rows.' ~ loop.index0 ~ '.detail') }}>{{ r.detail }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ---- FAQ (mirrored into FAQPage schema) ---- #}
+<section class="section section--wash" id="faq">
+  <div class="wrap wrap--narrow">
+    <div class="section-head reveal">
+      <p class="eyebrow">Areas FAQ</p>
+      <h2>Questions about coverage</h2>
+    </div>
+    {{ faq_list(areas.faqs, 'areas-faq') }}
   </div>
 </section>
 

@@ -305,3 +305,69 @@
 <svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/></svg>
 {%- endif -%}
 {% endmacro %}
+
+
+{# ----------------------------------------------------------------------------
+   price_cat_bg(index) — a large line-art scene behind each pricing category
+   heading. Same idea as service_bg: currentColor, aria-hidden, no fill, so a
+   single stroke colour and opacity control the whole thing from CSS.
+
+   viewBox is 200x140 (landscape) because these sit beside a heading rather
+   than inside a square card.
+   --------------------------------------------------------------------------- #}
+{% macro price_cat_bg(i) %}
+<svg class="price-cat__bg" viewBox="0 0 200 140" fill="none" stroke="currentColor"
+     stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+{%- if i == 0 -%}
+{# Clothing: a hanging rail with a shirt, a dress and a jacket. #}
+<path d="M14 26h172"/>
+<path d="M20 20v12M180 20v12"/>
+<path d="M52 26v10"/>
+<path d="M38 52c0-8 6-13 14-16 8 3 14 8 14 16v46H38V52Z"/>
+<path d="M38 52l-8 8M66 52l8 8"/>
+<path d="M104 26v10"/>
+<path d="M92 50h24l10 62H82l10-62Z"/>
+<path d="M92 50c4 6 8 6 12 6s8 0 12-6"/>
+<path d="M156 26v10"/>
+<path d="M138 54c0-8 8-14 18-16 10 2 18 8 18 16v52h-36V54Z"/>
+<path d="M156 40v66"/>
+{%- elif i == 1 -%}
+{# Home textiles: a bed with a folded quilt, and a curtain on a rod. #}
+<path d="M12 44v70M12 62h96a14 14 0 0 1 14 14v38H12"/>
+<path d="M26 62V50h34v12"/>
+<path d="M12 94h110"/>
+<path d="M22 114v10M118 114v10"/>
+<path d="M142 22h50"/>
+<path d="M148 28c0 22-6 30-6 46s6 20 6 34"/>
+<path d="M164 28c0 22 6 30 6 46s-6 20-6 34"/>
+<path d="M186 28c0 24-4 32-4 48s4 22 4 32"/>
+{%- elif i == 2 -%}
+{# Footwear: a sneaker in profile with laces, plus a boot behind it. #}
+<path d="M18 96c0-14 6-24 14-30 6 4 10 8 18 12 12 6 24 6 34 8 10 2 14 8 13 16l-1 6H22c-3 0-4-2-4-5v-7Z"/>
+<path d="M32 66l10 10M44 74l10 8M58 82l10 6"/>
+<path d="M18 104h78"/>
+<path d="M126 40h22v40c0 8 4 12 12 16 10 5 20 8 24 14 3 5 2 12-6 12h-52V40Z"/>
+<path d="M126 92h52"/>
+{%- elif i == 3 -%}
+{# Laundry per kg: a front-loader with a drum, beside a weighing scale. #}
+<rect x="16" y="20" width="92" height="104" rx="10"/>
+<circle cx="62" cy="80" r="28"/>
+<circle cx="62" cy="80" r="14"/>
+<path d="M30 38h14M56 38h34"/>
+<path d="M132 118h58"/>
+<path d="M138 118V96h46v22"/>
+<path d="M146 96l6-22h20l6 22"/>
+<path d="M152 62a9 9 0 0 1 18 0"/>
+{%- elif i == 4 -%}
+{# Steam iron: the iron with steam curls, over a pressed shirt collar. #}
+<path d="M28 92c0-20 16-34 40-34h56c14 0 22 10 20 22l-4 20c-1 6-6 10-13 10H36c-5 0-8-3-8-8V92Z"/>
+<path d="M62 58V44h34v14"/>
+<path d="M28 116h120"/>
+<path d="M150 30c6-4 6-10 0-14M168 40c8-5 8-13 0-18M150 58c6-4 6-10 0-14"/>
+<path d="M40 78h34"/>
+{%- else -%}
+<rect x="30" y="24" width="140" height="92" rx="12"/>
+<path d="M60 70h80M60 90h50"/>
+{%- endif -%}
+</svg>
+{% endmacro %}

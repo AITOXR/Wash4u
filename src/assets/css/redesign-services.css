@@ -209,3 +209,242 @@
 @media (forced-colors: active) {
   .svc__bg { display: none; }
 }
+
+/* ============================================================
+   Services banner
+
+   The supplied SVG as a full-bleed band with the live copy over it.
+
+   No scrim: this is a designed navy ground with a narrow luminance range,
+   so white type sits on it directly. (The pricing photograph needed one
+   because its sky ran from deep blue to white cloud.)
+   ============================================================ */
+.services-hero {
+  position: relative;
+  isolation: isolate;
+  color: #fff;
+  background: url('../images/hero-services.svg') center / cover no-repeat, #0B2E4C;
+  border-bottom: 3px solid var(--brand-green);
+  padding-block: clamp(2.5rem, 1.8rem + 3vw, 4.5rem);
+}
+
+.services-hero .crumbs { color: rgba(255, 255, 255, .72); }
+.services-hero .crumbs a { color: #fff; }
+.services-hero .crumbs a:hover { text-decoration: underline; }
+.services-hero .crumbs span[aria-hidden] { color: rgba(255, 255, 255, .38); }
+
+.services-hero .eyebrow { color: #8fe6cd; }
+.services-hero .eyebrow::before { background: var(--brand-green); }
+
+.services-hero h1 { color: #fff; }
+.services-hero .lede { color: rgba(255, 255, 255, .92); }
+
+/* page-hero__grid is a two-column grid, so the copy already sits in a ~600px
+   column. Capping THAT at 52% left ~310px — enough to stack the two CTAs and
+   push the band 200px taller. Single column here; the 52% below is then
+   measured against the full wrap, which is what it was meant to be. */
+.services-hero .page-hero__grid { display: block; }
+
+/* Hold the copy inside the left half so it never runs across the rail.
+   btn-row is deliberately NOT capped — the buttons are a fixed-size row and
+   a cap only makes them wrap. */
+@media (min-width: 62rem) {
+  .services-hero .crumbs,
+  .services-hero .eyebrow,
+  .services-hero h1,
+  .services-hero .lede { max-width: 52%; }
+}
+
+/* The rail hangs off the right edge of the artwork, and `cover` crops evenly
+   from both sides — at 1440 that removed 318px a side and cut the rail in
+   half. Anchoring right keeps all six badges in frame and crops the empty
+   gradient on the left instead. */
+@media (min-width: 62rem) {
+  .services-hero { background-position: right center; }
+}
+
+/* Below 62rem the copy uses the full column, so the rail must be out of
+   frame entirely — anchoring left crops from the right, where it hangs. */
+@media (max-width: 61.99rem) {
+  .services-hero { background-position: left center; }
+}
+
+/* Ghost button on the dark band. */
+.services-hero .btn--ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, .28);
+  background: rgba(255, 255, 255, .10);
+}
+.services-hero .btn--ghost:hover {
+  border-color: rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, .18);
+}
+
+/* ============================================================
+   "Where we collect" — blue band, green cards on hover
+   ============================================================ */
+.collect-band {
+  background: var(--navy);
+  border-top: 3px solid var(--brand-green);
+  border-bottom: 3px solid var(--brand-green);
+}
+
+/* .area-link was drawn for a white ground: --ink label, --line border and
+   --ink-3 arrow are all but invisible on navy. */
+.collect-band .area-link {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+}
+.collect-band .area-link svg { color: rgba(255, 255, 255, 0.72); }
+
+@media (hover: hover) and (pointer: fine) {
+  .collect-band .area-link {
+    transition:
+      background-color 220ms var(--ease-out),
+      border-color 220ms var(--ease-out),
+      box-shadow 260ms var(--ease-out),
+      translate 260ms var(--ease-out);
+  }
+  /* #198639, not the logo green: white text on it is 4.66:1, the bright
+     #21b14b only 2.82:1.
+
+     `translate`, never `transform` — .areas carries .stagger-children and
+     animations.css reserves transform/opacity for the reveal. */
+  .collect-band .area-link:hover,
+  .collect-band .area-link:focus-visible {
+    background: var(--green-cta);
+    border-color: var(--green-cta);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+    translate: 0 -3px;
+    color: #fff;
+  }
+  .collect-band .area-link:hover svg,
+  .collect-band .area-link:focus-visible svg { color: #fff; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Keep the colour — that is the feedback. Drop only the movement. */
+  .collect-band .area-link:hover,
+  .collect-band .area-link:focus-visible { translate: none; }
+}
+
+/* ============================================================
+   Services page — finder, menu table, steps, why
+   ============================================================ */
+.svc-finder { display: grid; gap: var(--s-2); margin-bottom: var(--s-5); }
+.svc-finder__search {
+  display: flex; align-items: center; gap: var(--s-2);
+  padding: 0.55rem 0.9rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+  transition: border-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
+}
+.svc-finder__search:focus-within {
+  border-color: var(--brand-green);
+  box-shadow: 0 0 0 4px rgba(33, 177, 75, 0.14);
+}
+.svc-finder__search > svg { color: var(--green); flex: none; }
+.svc-finder__search input {
+  flex: 1; min-width: 0; border: 0; outline: none; background: none;
+  font: inherit; font-size: var(--t-base); color: var(--ink); padding: 0.35rem 0;
+}
+.svc-finder__search input::placeholder { color: var(--ink-3); }
+.svc-finder__search input::-webkit-search-cancel-button { display: none; }
+.svc-finder__clear {
+  flex: none; display: grid; place-items: center;
+  width: 1.9rem; height: 1.9rem;
+  border: 0; border-radius: 50%;
+  background: var(--wash-2); color: var(--ink-2); cursor: pointer;
+}
+.svc-finder__clear:hover { background: var(--line); color: var(--ink); }
+.svc-finder__count {
+  margin: 0; font-size: var(--t-sm); color: var(--green-deep);
+  font-weight: 600; min-height: 1.2em;
+}
+
+/* ---- Menu table ---- */
+.svc-table-wrap {
+  overflow-x: auto;                /* the table scrolls, never the page */
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+}
+.svc-menu { width: 100%; min-width: 34rem; border-collapse: collapse; text-align: left; }
+.svc-menu th, .svc-menu td {
+  padding: var(--s-4) var(--s-5);
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+.svc-menu thead th {
+  background: var(--navy); color: #fff;
+  font-family: var(--font-mono); font-size: var(--t-xs);
+  letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+}
+.svc-menu tbody th a {
+  color: var(--navy); font-weight: 700;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+.svc-menu tbody th a:hover { color: var(--green-deep); }
+.svc-menu td { color: var(--ink-2); font-size: var(--t-sm); }
+.svc-menu tbody tr:last-child th,
+.svc-menu tbody tr:last-child td { border-bottom: 0; }
+.svc-menu tbody tr:hover { background: var(--green-tint); }
+.svc-menu__turn {
+  display: inline-block; padding: 0.2rem 0.6rem;
+  border-radius: var(--r-pill);
+  background: var(--green-tint); color: var(--green-deep);
+  font-weight: 600; white-space: nowrap;
+}
+
+/* ---- How it works ---- */
+.svc-steps { border-block: 3px solid var(--brand-green); }
+.svc-steps__grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: var(--s-4); grid-template-columns: 1fr;
+}
+@media (min-width: 40rem) { .svc-steps__grid { grid-template-columns: repeat(2, 1fr); } }
+/* Seven steps: 4-up leaves a tidy 4+3, which reads better than 7 in a row. */
+@media (min-width: 68rem) { .svc-steps__grid { grid-template-columns: repeat(4, 1fr); } }
+.svc-step {
+  padding: var(--s-5);
+  border-radius: var(--r-lg);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.svc-step__num {
+  display: inline-grid; place-items: center;
+  width: 2.25rem; height: 2.25rem; margin-bottom: var(--s-3);
+  border-radius: 50%;
+  background: var(--brand-green);
+  color: #06210f;                  /* dark on the bright brand green */
+  font-family: var(--font-mono); font-size: var(--t-sm);
+}
+.svc-step h3 { color: #fff; font-size: var(--t-md); margin-bottom: var(--s-1); }
+.svc-step p { color: rgba(255, 255, 255, 0.84); font-size: var(--t-sm); }
+
+/* ---- Why choose us ---- */
+.svc-why { display: grid; gap: var(--s-4); grid-template-columns: 1fr; }
+@media (min-width: 40rem) { .svc-why { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 64rem) { .svc-why { grid-template-columns: repeat(4, 1fr); } }
+.svc-why__card {
+  display: grid; grid-template-columns: auto 1fr;
+  column-gap: var(--s-3); align-items: start;
+  padding: var(--s-5);
+  border-radius: var(--r-lg);
+  background: var(--wash);
+  border: 1px solid var(--line-soft);
+  border-left: 4px solid var(--brand-green);
+}
+.svc-why__tick {
+  grid-row: 1 / span 2;
+  display: inline-grid; place-items: center;
+  width: 1.9rem; height: 1.9rem;
+  border-radius: 50%;
+  background: var(--brand-green); color: #06210f;
+}
+.svc-why__card h3 { font-size: var(--t-base); color: var(--navy); margin: 0 0 0.15rem; }
+.svc-why__card p { color: var(--ink-2); font-size: var(--t-sm); margin: 0; }

@@ -108,7 +108,7 @@
   </script>
 </head>
 
-<body>
+<body class="{% block body_class %}{% endblock %}">
   <a class="skip-link" href="#main">Skip to content</a>
 
   {% from "_icons.html" import ui, care_symbol, care_tag, service_icon %}

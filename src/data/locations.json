@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "Wash4You – Explore Our Laundry & Dry-Cleaning Services in Delhi",
-    "description": "Discover how Wash4You in Delhi is transforming laundry and dry-cleaning services—innovative technology, eco-friendly processes, with doorstep pick-up & delivery service.",
+    "title": "Areas We Serve — Laundry & Dry Cleaning in Delhi NCR | Wash4You",
+    "description": "Free pickup & delivery laundry, dry cleaning & home fabric care across Delhi, Gurgaon, Noida, Faridabad & Ghaziabad. Book online in 60 seconds.",
     "canonical": "https://wash4you.in/locate-us/",
-    "og_title": "Wash4You – Explore Our Laundry & Dry-Cleaning Services in Delhi",
-    "og_description": "Discover how Wash4You in Delhi is transforming laundry and dry-cleaning services—innovative technology, eco-friendly processes, with doorstep pick-up & delivery service."
+    "og_title": "Areas We Serve — Wash4You Laundry & Dry Cleaning in Delhi NCR",
+    "og_description": "Free pickup and delivery across Delhi, Gurgaon, Noida, Faridabad and Ghaziabad. Find your sector and book in 60 seconds."
   },
   "hero": {
     "headline": "We're in your neighbourhood.",
@@ -30,56 +30,88 @@
       "name": "Cyber City",
       "title": "Laundry Service in Cyber City",
       "description": "Premium laundry and dry cleaning service in Cyber City, Gurugram. Free pickup and delivery for offices and residents.",
-      "highlights": ["Corporate laundry solutions", "Same-day pickup available", "Dry cleaning for formal wear"]
+      "highlights": [
+        "Corporate laundry solutions",
+        "Same-day pickup available",
+        "Dry cleaning for formal wear"
+      ]
     },
     {
       "slug": "laundry-service-dlf-phase-3",
       "name": "DLF Phase 3",
       "title": "Laundry Service in DLF Phase 3",
       "description": "Reliable laundry and dry cleaning service in DLF Phase 3, Gurugram. We pickup and deliver at your doorstep.",
-      "highlights": ["Home pickup & delivery", "Eco-friendly cleaning", "Premium garment care"]
+      "highlights": [
+        "Home pickup & delivery",
+        "Eco-friendly cleaning",
+        "Premium garment care"
+      ]
     },
     {
       "slug": "laundry-service-golf-course-extension",
       "name": "Golf Course Extension",
       "title": "Laundry Service in Golf Course Extension",
       "description": "Expert laundry and dry cleaning service in Golf Course Extension, Gurugram. Quality care for all your garments.",
-      "highlights": ["Delicate fabric care", "Curtain and carpet cleaning", "Shoe and bag cleaning"]
+      "highlights": [
+        "Delicate fabric care",
+        "Curtain and carpet cleaning",
+        "Shoe and bag cleaning"
+      ]
     },
     {
       "slug": "laundry-service-golf-course-road",
       "name": "Golf Course Road",
       "title": "Laundry Service in Golf Course Road",
       "description": "Premium laundry service in Golf Course Road, Gurugram. Experience hassle-free garment care with free pickup.",
-      "highlights": ["Premium dry cleaning", "Steam ironing", "Fast turnaround"]
+      "highlights": [
+        "Premium dry cleaning",
+        "Steam ironing",
+        "Fast turnaround"
+      ]
     },
     {
       "slug": "laundry-service-gurugram-sector-29",
       "name": "Gurugram Sector 29",
       "title": "Laundry Service in Gurugram Sector 29",
       "description": "Trusted laundry and dry cleaning service in Sector 29, Gurugram. We handle everyday wear to festive outfits.",
-      "highlights": ["Festive wear cleaning", "Saree and lehenga care", "Free doorstep delivery"]
+      "highlights": [
+        "Festive wear cleaning",
+        "Saree and lehenga care",
+        "Free doorstep delivery"
+      ]
     },
     {
       "slug": "laundry-service-palam-vihar",
       "name": "Palam Vihar",
       "title": "Laundry Service in Palam Vihar",
       "description": "Convenient laundry and dry cleaning service in Palam Vihar, Gurugram. Book online for free pickup.",
-      "highlights": ["Online booking", "Affordable pricing", "Quality assured"]
+      "highlights": [
+        "Online booking",
+        "Affordable pricing",
+        "Quality assured"
+      ]
     },
     {
       "slug": "laundry-service-sohna-road",
       "name": "Sohna Road",
       "title": "Laundry Service in Sohna Road",
       "description": "Professional laundry and dry cleaning service in Sohna Road, Gurugram. Care for clothes, shoes, bags, and home linens.",
-      "highlights": ["Complete garment care", "Home textile cleaning", "Leather and suede care"]
+      "highlights": [
+        "Complete garment care",
+        "Home textile cleaning",
+        "Leather and suede care"
+      ]
     },
     {
       "slug": "laundry-service-sushant-lok",
       "name": "Sushant Lok",
       "title": "Laundry Service in Sushant Lok",
       "description": "Top-rated laundry and dry cleaning service in Sushant Lok, Gurugram. Free pickup and delivery across the area.",
-      "highlights": ["Top-rated service", "Eco-friendly practices", "24-hour turnaround"]
+      "highlights": [
+        "Top-rated service",
+        "Eco-friendly practices",
+        "24-hour turnaround"
+      ]
     }
   ]
 }

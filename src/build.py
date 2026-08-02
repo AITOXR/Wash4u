@@ -128,6 +128,27 @@ def _make_cms(enabled: bool):
 BRAND_SUFFIXES = (" | Wash4You", " — Wash4You", " - Wash4You", " | Wash4You Gurugram")
 
 
+def _deal_wall(tiles: list, columns: int, per_column: int) -> list:
+    """Deal a tile pool into columns for the home hero wall.
+
+    Fills the grid in column-major order and wraps. Two properties this
+    relies on, both of which a "cleverer" strided deal loses:
+
+      - every tile appears, provided columns*per_column >= len(tiles).
+        A stride whose parity divides into len(tiles) silently locks out
+        part of the pool — a 7-stride over 24 tiles renders only 18.
+      - horizontal neighbours always differ: the same row in adjacent
+        columns is exactly per_column apart in the pool.
+    """
+    if not tiles:
+        return []
+    n = len(tiles)
+    return [
+        [tiles[(col * per_column + row) % n] for row in range(per_column)]
+        for col in range(columns)
+    ]
+
+
 def fit_title(title: str, limit: int = 60) -> str:
     """Keep titles inside Google's ~60-character display width.
 
@@ -231,6 +252,7 @@ def build() -> None:
     policies = load_json(DATA_DIR / "policies.json")
     pages = load_json(DATA_DIR / "pages.json")
     proof = load_json(DATA_DIR / "proof.json")
+    areas_data = load_json(DATA_DIR / "areas.json")
     testimonials = load_json(DATA_DIR / "testimonials.json")
 
     # Generated SEO copy. Absent on a clean checkout — the site still builds
@@ -269,9 +291,47 @@ def build() -> None:
 
     # Home
     pages_to_build.append(("index.html", "page-home.html", {
+        "areas": areas_data,
         "meta": home["meta"],
         "home": home,
         "services": services,
+        # The home page price rail reads rates and images straight out of the
+        # price list, so it can never quote a stale figure. Flattened to a
+        # slug lookup here rather than in the template: Jinja resolves
+        # `cat.items` to the dict METHOD, so walking pricing.json from a
+        # template is a trap.
+        "price_index": {
+            item["slug"]: item
+            for category in pricing["categories"]
+            for item in category["items"]
+            if item.get("slug")
+        },
+        # Hero garment wall: deal the tile pool into columns here rather
+        # than in the template. The pool (24) is smaller than the number of
+        # slots (10x5), so it has to wrap — and the stride is what stops a
+        # plain wrap from parking the same garment next to itself in the
+        # adjacent column.
+        "hero_wall_columns": _deal_wall(
+            home["hero_wall"]["tiles"],
+            home["hero_wall"]["columns"],
+            home["hero_wall"]["per_column"],
+        ),
+        # Price-rail evidence figures. Derived from pricing.json so the home
+        # page can never quote a stale catalogue size or a stale floor. The
+        # `unit` filter excludes per-sq-ft and per-panel rates, which are not
+        # comparable to a per-piece price.
+        "price_count": sum(len(c["items"]) for c in pricing["categories"]),
+        "price_min": min(
+            item["amount"]
+            for c in pricing["categories"]
+            for item in c["items"]
+            if not item.get("unit")
+        ),
+        "pricing_note": pricing["note"],
+        # Coverage total, summed from areas.json so the headline figure can
+        # never be typed by hand and drift from the per-city counts printed
+        # directly beneath it.
+        "areas_total": sum(c["count"] for c in areas_data["cities"]),
         "proof": proof,
         "hero_pair": hero_pair,
         "testimonials": testimonials,
@@ -280,9 +340,13 @@ def build() -> None:
     }))
 
     # About
+    # `home` is passed so the About page can render the SAME seven process
+    # steps the home page does, from one source, instead of keeping its own
+    # copy that can drift out of sync.
     pages_to_build.append(("about-us/index.html", "page-about.html", {
         "meta": about["meta"],
         "about": about,
+        "home": home,
         "proof": proof,
         "testimonials": testimonials,
         "depth": 1,
@@ -290,6 +354,7 @@ def build() -> None:
 
     # Services list
     pages_to_build.append(("services/index.html", "page-services-list.html", {
+        "home": home,
         "meta": services["meta"],
         "services": services,
         "depth": 1,
@@ -383,6 +448,8 @@ def build() -> None:
 
     # Locate Us
     pages_to_build.append(("locate-us/index.html", "page-locate-us.html", {
+        "home": home,
+        "areas": areas_data,
         "meta": locations["meta"],
         "locations": locations,
         "depth": 1,

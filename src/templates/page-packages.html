@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui, service_icon %}
+{% from "_components.html" import faq_list %}
 
 {% block preload %}
   {# req 10: packages-only overrides for the per-plan feature/inclusion list. #}
@@ -7,6 +8,43 @@
 {% endblock %}
 
 {% block schema %},
+      {
+        "@type": "Product",
+        "@id": "{{ meta.canonical }}#packages",
+        "name": "Wash4You Laundry Packages",
+        "description": {{ packages.meta.description | tojson }},
+        "brand": { "@type": "Brand", "name": {{ site.brand.name | tojson }} },
+        "offers": {
+          "@type": "AggregateOffer",
+          "offerCount": {{ packages.plans | length }},
+          "lowPrice": "{{ packages.plans[0].cost | replace('₹','') | replace(',','') }}",
+          "highPrice": "{{ packages.plans[-1].cost | replace('₹','') | replace(',','') }}",
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock",
+          "offers": [
+            {% for pl in packages.plans %}{
+              "@type": "Offer",
+              "name": {{ (pl.name ~ ' package') | tojson }},
+              "price": "{{ pl.cost | replace('₹','') | replace(',','') }}",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            }{% if not loop.last %},{% endif %}
+            {% endfor %}
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "{{ meta.canonical }}#faq",
+        "mainEntity": [
+          {% for f in packages.faqs %}{
+            "@type": "Question",
+            "name": {{ f.q | tojson }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | tojson }} }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      },
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -18,7 +56,11 @@
 
 {% block content %}
 
-<section class="page-hero">
+{# Packages banner. The SVG is a background layer, so the copy below is real
+   editable text over it — the artwork ships with no words of its own (see the
+   comment at the top of hero-packages.svg). Vector, so it is sharp at any
+   width and costs ~4 KB. #}
+<section class="page-hero packages-hero">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="{{ root_path }}">Home</a>
@@ -39,12 +81,21 @@
           {% endif %}
         </div>
       </div>
-      <aside class="store-card reveal">
-        <strong>How the plans work</strong>
-        <p{{ cms('packages:how') }}>{{ packages.how }}</p>
-        <a class="btn btn--ghost btn--block" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} Ask which plan fits</a>
-      </aside>
     </div>
+  </div>
+</section>
+
+{# "How the plans work" used to be an aside inside the banner. The artwork's
+   three tags occupy the right of the frame — exactly where that card sat — so
+   it moves directly beneath the band instead. Same content, same component,
+   nothing dropped. #}
+<section class="section section--tight packages-how">
+  <div class="wrap">
+    <aside class="store-card reveal">
+      <strong>How the plans work</strong>
+      <p{{ cms('packages:how') }}>{{ packages.how }}</p>
+      <a class="btn btn--ghost btn--block" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} Ask which plan fits</a>
+    </aside>
   </div>
 </section>
 
@@ -89,6 +140,14 @@
           <div><dt>Free bonus</dt><dd class="is-free">+<span{{ cms('packages:plans.' ~ loop.index0 ~ '.free') }}>{{ p.free }}</span></dd></div>
           <div><dt>Valid for</dt><dd{{ cms('packages:plans.' ~ loop.index0 ~ '.validity') }}>{{ p.validity }}</dd></div>
         </dl>
+        {% if p.best_for %}
+        <p class="plan-card__for"><span>Best for</span> {{ p.best_for }}</p>
+        {% endif %}
+        {% if p.includes %}
+        <ul class="plan-card__includes">
+          {% for inc in p.includes %}<li>{{ inc }}</li>{% endfor %}
+        </ul>
+        {% endif %}
         <a class="btn {% if p.tier %}btn--cta{% else %}btn--ghost{% endif %} btn--block"
            href="{{ site.urls.whatsapp }}" rel="noopener">Choose {{ p.name }}</a>
       </article>
@@ -113,6 +172,109 @@
       </div>
       {% endfor %}
     </div>
+  </div>
+</section>
+
+{# ---- Why subscribe: a real comparison table ---- #}
+<section class="section pkg-why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('packages:why_subscribe.eyebrow') }}>{{ packages.why_subscribe.eyebrow }}</p>
+      <h2{{ cms('packages:why_subscribe.title') }}>{{ packages.why_subscribe.title }}</h2>
+    </div>
+    <div class="pkg-table-wrap reveal">
+      <table class="pkg-table">
+        <caption class="visually-hidden">What changes when you buy a package</caption>
+        <thead>
+          <tr>{% for c in packages.why_subscribe.columns %}<th scope="col">{{ c or 'Benefit' }}</th>{% endfor %}</tr>
+        </thead>
+        <tbody>
+          {% for r in packages.why_subscribe.rows %}
+          <tr>
+            <th scope="row">{{ r.label }}</th>
+            <td>{{ r.without }}</td>
+            <td><span class="pkg-table__win">{{ r['with'] }}</span></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{# ---- How packages work ---- #}
+<section class="section section--navy pkg-steps">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('packages:steps.eyebrow') }}>{{ packages.steps.eyebrow }}</p>
+      <h2{{ cms('packages:steps.title') }}>{{ packages.steps.title }}</h2>
+    </div>
+    <ol class="pkg-steps__grid stagger-children">
+      {% for st in packages.steps['items'] %}
+      <li class="pkg-step">
+        <span class="pkg-step__num" aria-hidden="true">{{ loop.index }}</span>
+        <h3{{ cms('packages:steps.items.' ~ loop.index0 ~ '.title') }}>{{ st.title }}</h3>
+        <p{{ cms('packages:steps.items.' ~ loop.index0 ~ '.detail') }}>{{ st.detail }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{# ---- What the credit covers ---- #}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('packages:spend_on.eyebrow') }}>{{ packages.spend_on.eyebrow }}</p>
+      <h2{{ cms('packages:spend_on.title') }}>{{ packages.spend_on.title }}</h2>
+      <p{{ cms('packages:spend_on.lede') }}>{{ packages.spend_on.lede }}</p>
+    </div>
+    <div class="spend-grid stagger-children">
+      {% for g in packages.spend_on.groups %}
+      <article class="spend-card">
+        <h3>{{ g.cat }}</h3>
+        <p>{{ g.eg }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ---- Which plan should I take ---- #}
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"{{ cms('packages:chooser.eyebrow') }}>{{ packages.chooser.eyebrow }}</p>
+      <h2{{ cms('packages:chooser.title') }}>{{ packages.chooser.title }}</h2>
+    </div>
+    <div class="pkg-table-wrap reveal">
+      <table class="pkg-table">
+        <caption class="visually-hidden">Recommended package by customer type</caption>
+        <thead>
+          <tr>{% for c in packages.chooser.columns %}<th scope="col">{{ c }}</th>{% endfor %}</tr>
+        </thead>
+        <tbody>
+          {% for r in packages.chooser.rows %}
+          <tr>
+            <th scope="row">{{ r.who }}</th>
+            <td><span class="pkg-table__win">{{ r.plan }}</span></td>
+            <td>{{ r.why }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{# ---- FAQ (mirrored into FAQPage schema) ---- #}
+<section class="section" id="faq">
+  <div class="wrap wrap--narrow">
+    <div class="section-head reveal">
+      <p class="eyebrow">Package FAQ</p>
+      <h2>Questions about the plans</h2>
+    </div>
+    {{ faq_list(packages.faqs, 'pkg-faq') }}
   </div>
 </section>
 

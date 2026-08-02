@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Our Services – Wash4You",
-    "description": "Explore Wash4You's premium laundry, dry cleaning, and home care services in Delhi NCR. Free pickup and delivery.",
+    "title": "Premium Laundry & Dry Cleaning Services in Delhi NCR | Wash4You",
+    "description": "Wash4You's full service menu: eco-friendly laundry, premium dry cleaning, shoe & bag care, carpet cleaning and more. Free pickup across Delhi NCR.",
     "canonical": "https://wash4you.in/services/",
     "og_title": "Our Services – Wash4You",
     "og_description": "Explore Wash4You's premium laundry, dry cleaning, and home care services in Delhi NCR. Free pickup and delivery."
@@ -23,7 +23,9 @@
         "Gentle on sensitive skin",
         "Color and fabric sorting",
         "Eco-friendly washing processes"
-      ]
+      ],
+      "best_for": "Daily wear, baby clothes, sensitive skin",
+      "turnaround": "24 hours"
     },
     {
       "slug": "steam-ironing",
@@ -37,7 +39,9 @@
         "Crease-free finish",
         "Safe for all fabric types",
         "Quick turnaround"
-      ]
+      ],
+      "best_for": "Office shirts, trousers, sarees, uniforms",
+      "turnaround": "24 hours"
     },
     {
       "slug": "premium-dry-cleaning",
@@ -51,7 +55,9 @@
         "Delicate fabric expertise",
         "Stain inspection & pre-treatment",
         "Pressed and finished to perfection"
-      ]
+      ],
+      "best_for": "Suits, dresses, silks, wedding wear",
+      "turnaround": "24–48 hours"
     },
     {
       "slug": "shoe-cleaning",
@@ -65,7 +71,9 @@
         "Leather and suede care",
         "Deodorizing treatment",
         "Stain removal and restoration"
-      ]
+      ],
+      "best_for": "Sneakers, suede, leather and sports shoes",
+      "turnaround": "24–48 hours"
     },
     {
       "slug": "sofa-cleaning",
@@ -76,7 +84,9 @@
         "Cleaned in your home",
         "Fabric tested before treatment",
         "Dries in hours, not days"
-      ]
+      ],
+      "best_for": "Fabric and leather sofas, armchairs",
+      "turnaround": "48 hours"
     },
     {
       "slug": "mattress-cleaning",
@@ -87,7 +97,9 @@
         "Cleaned in your home",
         "Low-moisture method",
         "Deodorised and sanitised"
-      ]
+      ],
+      "best_for": "Mattresses, toppers, box springs",
+      "turnaround": "48 hours"
     },
     {
       "slug": "wet-cleaning",
@@ -98,7 +110,9 @@
         "No harsh solvents",
         "Gentler on skin",
         "Better on water-soluble stains"
-      ]
+      ],
+      "best_for": "Delicates that water can safely handle",
+      "turnaround": "24–48 hours"
     },
     {
       "slug": "bag-cleaning",
@@ -112,7 +126,9 @@
         "Material-safe treatments",
         "Stain removal",
         "Reshaping and finishing"
-      ]
+      ],
+      "best_for": "Handbags, totes, backpacks, laptop bags",
+      "turnaround": "24–48 hours"
     },
     {
       "slug": "leather-cleaning",
@@ -126,7 +142,9 @@
         "Cleaning and conditioning",
         "Prevents drying and cracking",
         "Ideal for jackets and accessories"
-      ]
+      ],
+      "best_for": "Leather jackets, belts, wallets, sofas",
+      "turnaround": "48–72 hours"
     },
     {
       "slug": "carpet-cleaning",
@@ -140,7 +158,9 @@
         "Stain and odor removal",
         "Residential and commercial",
         "Fast drying process"
-      ]
+      ],
+      "best_for": "Home carpets, office rugs, area rugs",
+      "turnaround": "48 hours"
     },
     {
       "slug": "accessories-cleaning",
@@ -154,7 +174,9 @@
         "Gentle fabric care",
         "Color preservation",
         "Reshaping and finishing"
-      ]
+      ],
+      "best_for": "Neckties, scarves, hats, caps, stoles",
+      "turnaround": "24 hours"
     },
     {
       "slug": "toy-cleaning",
@@ -168,7 +190,9 @@
         "Non-toxic cleaning",
         "Plush and fabric toys",
         "Hygienic results"
-      ]
+      ],
+      "best_for": "Children's toys, stuffed animals",
+      "turnaround": "24 hours"
     },
     {
       "slug": "curtains-cleaning",
@@ -182,7 +206,9 @@
         "Dust, stain, and odor removal",
         "Fabric-safe cleaning",
         "Color protection"
-      ]
+      ],
+      "best_for": "All curtain types and fabric weights",
+      "turnaround": "48 hours"
     },
     {
       "slug": "blanket-quilt-cleaning",
@@ -196,7 +222,9 @@
         "Quilt cleaning",
         "Allergen and odor removal",
         "Softness preservation"
-      ]
+      ],
+      "best_for": "Winter blankets, comforters, duvets",
+      "turnaround": "48 hours"
     },
     {
       "slug": "linen-cleaning",
@@ -210,7 +238,90 @@
         "Hotel-fresh finish",
         "Fabric quality preservation",
         "Crisp pressing available"
-      ]
+      ],
+      "best_for": "Hotels, restaurants, homes, guest houses",
+      "turnaround": "24–48 hours"
     }
-  ]
+  ],
+  "intro": {
+    "title": "Complete fabric & item care across Delhi NCR",
+    "body": "From everyday eco-friendly laundry to specialist leather care, our team uses planet-safe, biodegradable solvents and fabric-specific methods. Whether it is office shirts steam-pressed, a wedding lehenga dry-cleaned or a living-room carpet deep-cleaned, every service includes free doorstep pickup and delivery."
+  },
+  "why": {
+    "eyebrow": "Why Wash4You",
+    "title": "What you get with every service",
+    "rows": [
+      {
+        "label": "Eco-friendly process",
+        "detail": "Biodegradable, non-toxic solvents, safe for your family and the planet."
+      },
+      {
+        "label": "Free pickup & delivery",
+        "detail": "We come to you, anywhere we serve."
+      },
+      {
+        "label": "24-hour turnaround",
+        "detail": "Most services are back with you the next day."
+      },
+      {
+        "label": "Expert care",
+        "detail": "Trained staff handle delicate fabrics, designer wear and leather."
+      },
+      {
+        "label": "Safe handling",
+        "detail": "Every item is tagged and tracked through the process."
+      },
+      {
+        "label": "Easy booking",
+        "detail": "Book online or on the phone in under a minute."
+      },
+      {
+        "label": "Corporate plans",
+        "detail": "Custom packages for businesses, hotels and co-living spaces."
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What services does Wash4You offer?",
+      "a": "Fifteen services: eco-friendly laundry, premium dry cleaning, steam ironing, wet cleaning, shoe cleaning, bag cleaning, leather cleaning, carpet cleaning, curtain cleaning, sofa and upholstery cleaning, mattress cleaning, toy cleaning, accessories cleaning, blanket and quilt cleaning, and linen cleaning. All include free pickup and delivery."
+    },
+    {
+      "q": "How do I book a service?",
+      "a": "Book online through the website, or call or WhatsApp +91 63 67 600 500. Choose your services, pick a slot, and we handle the rest."
+    },
+    {
+      "q": "Is there a minimum order?",
+      "a": "For per-kilo laundry there is a small minimum for free pickup — ask us for your area. For dry cleaning and individual items there is no minimum; every piece counts."
+    },
+    {
+      "q": "Are your cleaning products safe for babies and sensitive skin?",
+      "a": "Yes. We use biodegradable, non-toxic cleansers that are gentle on delicate skin, and the eco-friendly laundry service is built for baby clothes and sensitive skin."
+    },
+    {
+      "q": "How long does dry cleaning take?",
+      "a": "Most dry cleaning is done in 24–48 hours. Express same-day is available in select localities near our Gurgaon hub for an additional charge."
+    },
+    {
+      "q": "Do you clean wedding lehengas and designer wear?",
+      "a": "Yes. Premium dry cleaning is built for high-value garments — wedding lehengas, designer suits, silk sarees and delicate ethnic wear, each handled individually."
+    },
+    {
+      "q": "Can you clean carpets and curtains at home?",
+      "a": "For carpets and curtains we offer both collection to our facility and on-site cleaning for large or fixed installations. Tell us the size and we will advise which suits."
+    },
+    {
+      "q": "What if an item is damaged during cleaning?",
+      "a": "Every item is tagged and tracked. In the rare event of damage we will repair or compensate as set out in our terms."
+    },
+    {
+      "q": "Do you offer corporate or bulk plans?",
+      "a": "Yes — for offices, PGs, hostels, hotels, restaurants and co-living spaces, with volume pricing and scheduled pickups. Email care@wash4you.in."
+    },
+    {
+      "q": "What payment options do you accept?",
+      "a": "UPI, credit and debit cards, net banking, cash on delivery and the major mobile wallets."
+    }
+  ],
+  "_steps_note": "The process steps live in home.json how_it_works — seven of them — and every page renders from there."
 }
