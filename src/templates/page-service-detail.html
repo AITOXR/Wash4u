@@ -89,8 +89,8 @@
     <div class="page-hero__grid">
       <div>
         {{ care_tag(service.slug, on_navy=true) }}
-        <h1 style="margin-top:var(--s-4)"{{ cms(cms_base ~ '.name') }}>{{ service.h1 or service.name }}</h1>
-        <p class="lede"{{ cms(cms_base ~ '.short_description') }}>{{ service.lede or service.short_description }}</p>
+        <h1 style="margin-top:var(--s-4)"{{ cms((gen_base ~ '.h1') if gen_base else (cms_base ~ '.name')) }}>{{ service.h1 or service.name }}</h1>
+        <p class="lede"{{ cms((gen_base ~ '.lede') if gen_base else (cms_base ~ '.short_description')) }}>{{ service.lede or service.short_description }}</p>
         <div class="btn-row">
           <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" rel="noopener">Book free pickup</a>
           <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" rel="noopener">{{ ui('whatsapp', 18) }} Ask a question</a>
@@ -155,7 +155,7 @@
     <div class="svc-detail">
       <div>
         <div class="prose reveal">
-          {% if service.body %}{{ service.body | markdown | safe }}{% else %}<p{{ cms(cms_base ~ '.description', 'rich') }}>{{ service.description }}</p>{% endif %}
+          {% if service.body %}<div{{ cms((gen_base ~ '.body') if gen_base else (cms_base ~ '.description'), 'rich') }}>{{ service.body | markdown | safe }}</div>{% else %}<p{{ cms(cms_base ~ '.description', 'rich') }}>{{ service.description }}</p>{% endif %}
         </div>
 
         {% if service.what_we_clean %}
@@ -201,9 +201,9 @@
 <section class="section section--wash">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">{{ service.comparison.eyebrow }}</p>
-      <h2>{{ service.comparison.title }}</h2>
-      <p>{{ service.comparison.intro }}</p>
+      <p class="eyebrow"{{ cms(cms_base ~ '.comparison.eyebrow') }}>{{ service.comparison.eyebrow }}</p>
+      <h2{{ cms(cms_base ~ '.comparison.title') }}>{{ service.comparison.title }}</h2>
+      <p{{ cms(cms_base ~ '.comparison.intro') }}>{{ service.comparison.intro }}</p>
     </div>
     <div class="svc-table-wrap reveal">
       <table class="svc-menu svc-compare">
@@ -222,7 +222,7 @@
       </table>
     </div>
     {% if service.comparison.footnote %}
-    <p class="svc-table__note reveal">{{ service.comparison.footnote }}</p>
+    <p class="svc-table__note reveal"{{ cms(cms_base ~ '.comparison.footnote') }}>{{ service.comparison.footnote }}</p>
     {% endif %}
   </div>
 </section>

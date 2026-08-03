@@ -261,6 +261,11 @@ def build() -> None:
 
     # Merge the generated long-form copy onto the matching service entries.
     gen_services = {s["slug"]: s for s in gen.get("services", [])}
+    # Index of each slug inside generated/services.json, so the admin overlay
+    # can bind a service page's headline and body to the file that actually
+    # supplies them. Editing the same field in services.json has no effect —
+    # the merge below overwrites it.
+    gen_index = {s["slug"]: i for i, s in enumerate(gen.get("services", []))}
     for service in services["services"]:
         extra = gen_services.get(service["slug"])
         if extra:
@@ -383,6 +388,13 @@ def build() -> None:
                 # Binding prefix so the admin overlay can edit this service's
                 # fields (the loop knows the array index; the template doesn't).
                 "cms_base": f"services:services.{svc_index}",
+                # Binding base for the copy that generated/services.json owns:
+                # h1, lede, body, meta and faqs. None if this service has no
+                # generated entry, in which case services.json IS the source.
+                "gen_base": (
+                    f"generated-services:services.{gen_index[service['slug']]}"
+                    if service["slug"] in gen_index else None
+                ),
                 "service_proof": service_proof,
                 "price_index": price_index,
                 "testimonials": testimonials,

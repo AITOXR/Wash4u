@@ -65,3 +65,24 @@ the repo root that the deploy serves, and commits. Two checkboxes:
   editable yet — edit `src/data/home.json` / `testimonials.json` directly for now.
 - Saving reformats the touched JSON file to 2-space indent (kept deliberately to
   match the existing files and keep diffs small).
+
+## Content stores
+
+A binding is `<store>:<dotted.path>`, and `<store>` maps to `src/data/<store>.json`
+— with two exceptions worth knowing about:
+
+- **`areas`** drives the home page coverage band (city names, per-city area counts,
+  and the 456 total that is summed from them) and the `/locate-us/` page.
+
+- **`generated-services`** is `src/data/generated/services.json`, **not** a second
+  copy of `services`. `build.py` merges it *on top of* `services.json`, so for the
+  15 service detail pages it is the real source of `h1`, `lede`, `body`,
+  `meta_title`, `meta_description`, `faqs` and `what_we_clean`. Editing those same
+  fields under `services:` has **no visible effect**. The overlay binds each service
+  page's headline, lede and body to `generated-services:` for exactly this reason;
+  `services:` still owns that service's `name`, `gallery`, `comparison`, `image`,
+  `features`, `turnaround` and `best_for`.
+
+Everything else resolves normally. `src/data/generated/matrix.json` and
+`localities.json` are **not** editable from the panel — they drive ~80 long-tail
+pages and are regenerated, not hand-edited.

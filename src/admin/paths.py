@@ -21,6 +21,21 @@ ALLOWED_STORES = {
     "site", "home", "about", "services", "pricing", "packages",
     "steam-iron", "blog", "locations", "policies", "pages",
     "proof", "testimonials",
+    # Drives the home page coverage band (city names, per-city area counts,
+    # the 456 total summed from them) and the /locate-us/ page. Was missing,
+    # so none of that was editable.
+    "areas",
+    # src/data/generated/services.json. This is NOT a duplicate of "services":
+    # build.py merges it ON TOP of services.json (see the gen_services loop),
+    # so for the 15 service pages it is the real source of h1, lede, body,
+    # meta_title, meta_description, faqs and what_we_clean. Editing the same
+    # field in "services" has NO visible effect — a trap worth closing.
+    "generated-services",
+}
+
+# Stores whose file does not sit directly at src/data/<name>.json.
+_STORE_FILES = {
+    "generated-services": "generated/services.json",
 }
 
 _KEY_RE = re.compile(r"^[A-Za-z0-9_.\-]+$")
@@ -29,7 +44,7 @@ _KEY_RE = re.compile(r"^[A-Za-z0-9_.\-]+$")
 def _store_file(store: str) -> Path:
     if store not in ALLOWED_STORES:
         raise ValueError(f"unknown store: {store!r}")
-    return DATA_DIR / f"{store}.json"
+    return DATA_DIR / _STORE_FILES.get(store, f"{store}.json")
 
 
 def load_store(store: str) -> dict | list:
