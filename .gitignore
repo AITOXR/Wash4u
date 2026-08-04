@@ -13,3 +13,9 @@ docs/
 
 # Local screenshot output from tools/shot.mjs
 shots/
+
+# Throwaway puppeteer/screenshot scripts. These must live in the repo root to
+# resolve node_modules, so they are easy to leave behind — two were committed
+# by accident. Anything matching these is scratch, never site source.
+.*.mjs
+.shot.tmp.mjs
