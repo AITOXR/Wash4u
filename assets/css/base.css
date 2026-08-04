@@ -52,6 +52,8 @@
   --amber:      #ca860e;  /* review stars. Darkened from #f0a92a, which was
                              2.02:1 — under the 3:1 floor for meaningful
                              non-text graphics.                             */
+  --amber-tint: #fdf4e6;  /* amber at ~8% — the notice ground             */
+  --amber-deep: #8a5a00;  /* 6.1:1 on --amber-tint — notice text            */
 
   /* ---- Type ---------------------------------------------------
      Bricolage Grotesque is the display face — a crafted, contemporary
@@ -63,8 +65,12 @@
   --font-mono:    'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
   /* Fluid scale — 360px → 1280px viewport */
-  --t-xs:   0.75rem;
-  --t-sm:   0.8125rem;
+  --t-xs:   0.8125rem;  /* 13px. The CAPTION FLOOR — dates, legal lines, tax
+                          and unit qualifiers, badges. Never a sentence, a
+                          link or a control label. Was 0.75rem/12px. */
+  --t-sm:   0.9375rem;  /* 15px. Secondary text that is still read, not
+                          skimmed. Was 0.8125rem/13px, which 77 rules used
+                          for body copy, navigation and control labels. */
   --t-base: 1rem;
   --t-md:   clamp(1.0625rem, 0.99rem + 0.32vw, 1.1875rem);
   --t-lg:   clamp(1.25rem,  1.14rem + 0.48vw, 1.5rem);

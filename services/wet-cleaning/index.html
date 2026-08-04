@@ -14,12 +14,15 @@
   <meta property="og:description" content="Solvent-free cleaning in water for wool, silk and daily wear in Gurugram. We dye-test each garment first and finish it on tension to prevent shrinkage.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_IN">
-  <meta property="og:image" content="https://wash4you.in/images/proof/sneaker-nike-after.webp">
+  <meta property="og:image" content="https://wash4you.in/images/og-share.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wash4You — eco-friendly laundry and dry cleaning in Gurugram and Delhi NCR">
   <meta property="og:site_name" content="Wash4You">
 <meta property="og:url" content="https://wash4you.in/services/wet-cleaning/">  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Wet Cleaning in Gurugram | Water-Based Dry Cleaning">
   <meta name="twitter:description" content="Solvent-free cleaning in water for wool, silk and daily wear in Gurugram. We dye-test each garment first and finish it on tension to prevent shrinkage.">
-  <meta name="twitter:image" content="https://wash4you.in/images/proof/sneaker-nike-after.webp">
+  <meta name="twitter:image" content="https://wash4you.in/images/og-share.jpg">
 
   <script>document.documentElement.classList.add('js');</script>
 
@@ -27,9 +30,9 @@
   <link rel="icon" href="../../assets/images/favicon-192.png" sizes="192x192">
   <link rel="apple-touch-icon" href="../../assets/images/favicon-180.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" href="../../assets/fonts/bricolage-grotesque-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/hanken-grotesk-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/fonts.css">
 
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
@@ -110,7 +113,14 @@
         "serviceType": "Wet Cleaning",
         "description": "Solvent-free cleaning in water for wool, silk and daily wear in Gurugram. We dye-test each garment first and finish it on tension to prevent shrinkage.",
         "url": "https://wash4you.in/services/wet-cleaning/",
-        "provider": { "@id": "https://wash4you.in/#business" },
+"image": "https://wash4you.in/images/pricing/kurta.webp",        "provider": { "@id": "https://wash4you.in/#business" },
+        "offers": {
+          "@type": "Offer",
+          "price": "119",
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock",
+          "url": "https://wash4you.in/pricing/"
+        },
         "areaServed": [
 { "@type": "Place", "name": "Sushant Lok, Gurugram" },{ "@type": "Place", "name": "Sector 49, Gurugram" },{ "@type": "Place", "name": "Cyber City, Gurugram" },{ "@type": "Place", "name": "DLF Phase 3, Gurugram" },{ "@type": "Place", "name": "Golf Course Road, Gurugram" },{ "@type": "Place", "name": "Golf Course Extension, Gurugram" },{ "@type": "Place", "name": "Sohna Road, Gurugram" },{ "@type": "Place", "name": "Sector 29, Gurugram" },{ "@type": "Place", "name": "Palam Vihar, Gurugram" },{ "@type": "Place", "name": "MG Road, Gurugram" }        ]
       },
@@ -152,7 +162,7 @@
   </script>
 </head>
 
-<body>
+<body class="">
   <a class="skip-link" href="#main">Skip to content</a>
 
 
@@ -191,11 +201,6 @@
 </span>
                 <span>Eco-Friendly Laundry</span>
               </a>
-              <a class="mega__svc" role="menuitem" href="../../services/steam-ironing/">
-                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15H3.6c.9-4.1 4.4-7 8.6-7h3.3c3 0 5.5 2.4 5.5 5.4V15Z"/><path d="M9 8V6a2 2 0 0 1 2-2h8"/><line x1="3" y1="19" x2="21" y2="19"/></svg>
-</span>
-                <span>Steam Ironing</span>
-              </a>
               <a class="mega__svc" role="menuitem" href="../../services/premium-dry-cleaning/">
                 <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5a2 2 0 1 0-2-2"/><path d="M12 6.5 3.5 13a1.6 1.6 0 0 0 1 2.9h15a1.6 1.6 0 0 0 1-2.9L12 6.5Z"/><path d="M7 19.5h10"/></svg>
 </span>
@@ -205,21 +210,6 @@
                 <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 15V9.5c0-.8.9-1.3 1.6-.9l3 1.9c.6.4 1.4.4 2 0l1.2-.7c.5-.3 1.2-.2 1.6.2l2.1 2c.4.4 1 .7 1.6.8l4.4.9c1 .2 2.5 1 2.5 2.3v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1Z"/><path d="M12 12l-1.5 1.5M15 13.5 13.5 15"/></svg>
 </span>
                 <span>Shoe Cleaning</span>
-              </a>
-              <a class="mega__svc" role="menuitem" href="../../services/sofa-cleaning/">
-                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2Z"/><path d="M6 11h12"/><path d="M5 20v1M19 20v1"/></svg>
-</span>
-                <span>Sofa &amp; Upholstery Cleaning</span>
-              </a>
-              <a class="mega__svc" role="menuitem" href="../../services/mattress-cleaning/">
-                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7" width="19" height="10" rx="2.5"/><path d="M7 11.2v1.6M12 11.2v1.6M17 11.2v1.6"/><path d="M4.5 19v1.5M19.5 19v1.5"/></svg>
-</span>
-                <span>Mattress Cleaning</span>
-              </a>
-              <a class="mega__svc" role="menuitem" href="../../services/wet-cleaning/">
-                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.2 6 10a6 6 0 0 1-12 0c0-3.8 6-10 6-10Z"/><path d="M9.2 14.4c.9-.8 1.9-.8 2.8 0s1.9.8 2.8 0"/></svg>
-</span>
-                <span>Wet Cleaning</span>
               </a>
               <a class="mega__svc" role="menuitem" href="../../services/bag-cleaning/">
                 <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9h12l1.5 10a1.8 1.8 0 0 1-1.8 2H6.3a1.8 1.8 0 0 1-1.8-2L6 9Z"/><path d="M8.5 12V7.5a3.5 3.5 0 0 1 7 0V12"/></svg>
@@ -231,25 +221,45 @@
 </span>
                 <span>Leather Cleaning</span>
               </a>
+              <a class="mega__svc" role="menuitem" href="../../services/curtains-cleaning/">
+                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18"/><path d="M6 4c0 6-1 12-3 17 4-1 6-3 6-8V4M18 4c0 6 1 12 3 17-4-1-6-3-6-8V4"/><path d="M9 4v5c1.5 1.5 4.5 1.5 6 0V4"/></svg>
+</span>
+                <span>Curtains Cleaning</span>
+              </a>
               <a class="mega__svc" role="menuitem" href="../../services/carpet-cleaning/">
                 <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h14v18H5z"/><path d="M5 7h14M5 17h14"/><circle cx="12" cy="12" r="2.2"/></svg>
 </span>
                 <span>Carpet Cleaning</span>
-              </a>
-              <a class="mega__svc" role="menuitem" href="../../services/accessories-cleaning/">
-                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M9.5 7.7 10 3h4l.5 4.7M9.5 16.3 10 21h4l.5-4.7"/></svg>
-</span>
-                <span>Accessories Cleaning</span>
               </a>
               <a class="mega__svc" role="menuitem" href="../../services/toy-cleaning/">
                 <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.8" cy="5.6" r="1.9"/><circle cx="16.2" cy="5.6" r="1.9"/><circle cx="12" cy="9.6" r="4.1"/><path d="M8.9 12.4 7.2 18.5A1.7 1.7 0 0 0 8.8 20.7h6.4a1.7 1.7 0 0 0 1.6-2.2l-1.7-6.1"/><path d="M10.6 9.4h.01M13.4 9.4h.01"/></svg>
 </span>
                 <span>Toy Cleaning</span>
               </a>
-              <a class="mega__svc" role="menuitem" href="../../services/curtains-cleaning/">
-                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18"/><path d="M6 4c0 6-1 12-3 17 4-1 6-3 6-8V4M18 4c0 6 1 12 3 17-4-1-6-3-6-8V4"/><path d="M9 4v5c1.5 1.5 4.5 1.5 6 0V4"/></svg>
+              <a class="mega__svc" role="menuitem" href="../../services/accessories-cleaning/">
+                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M9.5 7.7 10 3h4l.5 4.7M9.5 16.3 10 21h4l.5-4.7"/></svg>
 </span>
-                <span>Curtains Cleaning</span>
+                <span>Accessories Cleaning</span>
+              </a>
+              <a class="mega__svc" role="menuitem" href="../../services/sofa-cleaning/">
+                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2Z"/><path d="M6 11h12"/><path d="M5 20v1M19 20v1"/></svg>
+</span>
+                <span>Sofa &amp; Upholstery Cleaning</span>
+              </a>
+              <a class="mega__svc" role="menuitem" href="../../services/steam-ironing/">
+                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15H3.6c.9-4.1 4.4-7 8.6-7h3.3c3 0 5.5 2.4 5.5 5.4V15Z"/><path d="M9 8V6a2 2 0 0 1 2-2h8"/><line x1="3" y1="19" x2="21" y2="19"/></svg>
+</span>
+                <span>Steam Ironing</span>
+              </a>
+              <a class="mega__svc" role="menuitem" href="../../services/mattress-cleaning/">
+                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7" width="19" height="10" rx="2.5"/><path d="M7 11.2v1.6M12 11.2v1.6M17 11.2v1.6"/><path d="M4.5 19v1.5M19.5 19v1.5"/></svg>
+</span>
+                <span>Mattress Cleaning</span>
+              </a>
+              <a class="mega__svc" role="menuitem" href="../../services/wet-cleaning/">
+                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.2 6 10a6 6 0 0 1-12 0c0-3.8 6-10 6-10Z"/><path d="M9.2 14.4c.9-.8 1.9-.8 2.8 0s1.9.8 2.8 0"/></svg>
+</span>
+                <span>Wet Cleaning</span>
               </a>
               <a class="mega__svc" role="menuitem" href="../../services/blanket-quilt-cleaning/">
                 <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8c0-1.7 1.3-3 3-3h13v11H7c-1.7 0-3 1.3-3 3V8Z"/><path d="M4 19c0 .6.4 1 1 1h15v-4"/><path d="M9 5v6l2-1.5L13 11V5"/></svg>
@@ -301,18 +311,18 @@
           <summary class="mobile-nav__link">Services <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="mobile-nav__sub">
             <a href="../../services/eco-friendly-laundry/">Eco-Friendly Laundry</a>
-            <a href="../../services/steam-ironing/">Steam Ironing</a>
             <a href="../../services/premium-dry-cleaning/">Premium Dry Cleaning</a>
             <a href="../../services/shoe-cleaning/">Shoe Cleaning</a>
-            <a href="../../services/sofa-cleaning/">Sofa &amp; Upholstery Cleaning</a>
-            <a href="../../services/mattress-cleaning/">Mattress Cleaning</a>
-            <a href="../../services/wet-cleaning/">Wet Cleaning</a>
             <a href="../../services/bag-cleaning/">Bag Cleaning</a>
             <a href="../../services/leather-cleaning/">Leather Cleaning</a>
-            <a href="../../services/carpet-cleaning/">Carpet Cleaning</a>
-            <a href="../../services/accessories-cleaning/">Accessories Cleaning</a>
-            <a href="../../services/toy-cleaning/">Toy Cleaning</a>
             <a href="../../services/curtains-cleaning/">Curtains Cleaning</a>
+            <a href="../../services/carpet-cleaning/">Carpet Cleaning</a>
+            <a href="../../services/toy-cleaning/">Toy Cleaning</a>
+            <a href="../../services/accessories-cleaning/">Accessories Cleaning</a>
+            <a href="../../services/sofa-cleaning/">Sofa &amp; Upholstery Cleaning</a>
+            <a href="../../services/steam-ironing/">Steam Ironing</a>
+            <a href="../../services/mattress-cleaning/">Mattress Cleaning</a>
+            <a href="../../services/wet-cleaning/">Wet Cleaning</a>
             <a href="../../services/blanket-quilt-cleaning/">Blanket/Quilt Cleaning</a>
             <a href="../../services/linen-cleaning/">Linen Cleaning</a>
             <a class="mobile-nav__sub-all" href="../../services/">All services</a>
@@ -333,7 +343,8 @@
 
   <main id="main">
 
-<section class="page-hero">
+
+<section class="page-hero svc-hero">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="../../">Home</a>
@@ -345,12 +356,12 @@
 
     <div class="page-hero__grid">
       <div>
-        <span class="tag">
+        <span class="tag tag--on-navy">
   <span class="tag__symbols"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.6 9.4h18.8l-1.6 9.2a1.9 1.9 0 0 1-1.9 1.6H6.1a1.9 1.9 0 0 1-1.9-1.6Z"/><path d="M8 9.4V5.6a1.1 1.1 0 0 1 2.2 0v3M10.2 9.4V4.6a1.1 1.1 0 0 1 2.2 0v4.8M12.4 9.4V5.2a1.1 1.1 0 0 1 2.2 0v4.2M14.6 9.4V6.4a1.1 1.1 0 0 1 2.2 0v3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.4 21.4 20H2.6Z"/><path d="M7.6 8.6 15.4 17M15.4 8.6 7.6 17"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="1.6"/><circle cx="12" cy="12" r="5.6"/><path d="M3.9 3.9 20.1 20.1M20.1 3.9 3.9 20.1"/></svg></span>
   Wet clean
 </span>
 
-        <h1 style="margin-top:var(--s-4)">Cleaned in water, not solvent.</h1>
+        <h1 style="margin-top:var(--s-4)">Gurgaon &amp; Delhi NCR’s Gentlest Wet Cleaning for Delicates</h1>
         <p class="lede">Wet cleaning is professional cleaning in water, controlled tightly enough to take on wool, silk and most dry clean only labels. It lifts out what solvent leaves behind: sweat, salt, deodorant and everything else your body puts into a garment.</p>
         <div class="btn-row">
           <a class="btn btn--cta btn--lg" href="https://app.wash4you.in/website/W10795?brand=WASH4U" rel="noopener">Book free pickup</a>
@@ -358,6 +369,37 @@
         </div>
       </div>
 
+      <div class="svc-stage svc-stage--3">
+        <span class="svc-stage__glow" aria-hidden="true"></span>
+        <figure class="svc-card svc-card--1">
+          <span class="svc-card__plate">
+            <img src="../../assets/images/pricing/kurta.webp"
+                 alt="Kurta cleaned by Wash4You in Gurugram"
+                 width="400" height="400"
+fetchpriority="high" decoding="async">
+          </span>
+        </figure>
+        <figure class="svc-card svc-card--2">
+          <span class="svc-card__plate">
+            <img src="../../assets/images/pricing/dress.webp"
+                 alt="Dress cleaned by Wash4You in Gurugram"
+                 width="400" height="400"
+loading="lazy" decoding="async">
+          </span>
+        </figure>
+        <figure class="svc-card svc-card--3">
+          <span class="svc-card__plate">
+            <img src="../../assets/images/pricing/shawl.webp"
+                 alt="Shawl cleaned by Wash4You in Gurugram"
+                 width="400" height="400"
+loading="lazy" decoding="async">
+          </span>
+        </figure>
+
+
+        <p class="svc-stage__chip">
+<span aria-hidden="true">from</span> ₹119        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -367,7 +409,7 @@
     <div class="svc-detail">
       <div>
         <div class="prose reveal">
-<h2>What wet cleaning actually is</h2>
+<div><h2>What wet cleaning actually is</h2>
 <p>Wet cleaning is professional cleaning in water. That sounds like what your machine at home does, and it isn't. The difference is control. A wet cleaning machine holds water temperature inside a narrow band, rotates the drum slowly with long pauses between reversals, and keeps both the water level and the extraction speed low. Detergents are pH-matched to the fibre: mildly alkaline for cotton and linen, near-neutral or slightly acidic for wool and silk. Wool felts and shrinks when alkalinity, heat and agitation arrive together. Take away any one of the three and the garment survives.</p>
 <p>Then there is finishing, which is where most of the actual work sits. Wet-cleaned garments leave the machine damp on purpose, at roughly eighty to ninety per cent dry. Over-drying wool in a tumbler is what shrinks it, not the water. The rest of the moisture comes out on tensioning and steam finishing equipment that pulls the garment back to its cut shape while it dries. Skip that step and even a perfectly washed jacket comes back looking a size smaller.</p>
 <h2>When water beats solvent</h2>
@@ -377,7 +419,7 @@
 <p>Some damage arrives already done. Chlorine bleach spots on coloured cotton are not stains, they are missing dye, and nothing brings the colour back. Yellowed underarm staining that has been set by an iron over several years has usually degraded the fibre itself, and whitening it further weakens it to the point of opening a hole. Perspiration combined with antiperspirant on silk can strip dye permanently. Dried emulsion paint is permanent. Old sugar stains from juice, cola or white wine are invisible when fresh and caramelise into a brown mark months later, so tell us where you spilled something even if you cannot see anything there today.</p>
 <p>Some garments are also not wet cleaning candidates at all. Fused jacket fronts and cheap bonded interlinings can bubble and delaminate in water. Real zari, mukaish and glued-on sequins do not tolerate it. Unfixed dyes on bandhani, hand-block prints and some deep-dyed silks bleed. We test for dye bleed on an inside seam before anything goes in, and if the test fails the item goes to solvent instead, or comes back to you untouched with an explanation.</p>
 <h2>Before you hand the item over</h2>
-<p>Empty every pocket, pens especially. Point out each stain, say what caused it, and tell us if you already tried something at home. A mark that has had vinegar, bleach or a supermarket spray on it behaves very differently, and we need to know before we treat it. Flag loose buttons, seam splits and moth holes so they get recorded at pickup rather than discovered at delivery.</p>        </div>
+<p>Empty every pocket, pens especially. Point out each stain, say what caused it, and tell us if you already tried something at home. A mark that has had vinegar, bleach or a supermarket spray on it behaves very differently, and we need to know before we treat it. Flag loose buttons, seam splits and moth holes so they get recorded at pickup rather than discovered at delivery.</p></div>        </div>
 
         <div style="margin-top:var(--s-9)" class="reveal">
           <p class="eyebrow">What we take</p>
@@ -406,6 +448,70 @@
         <hr class="seam">
         <p style="font-size:var(--t-xs)">Not sure if we can save it? Send a photo on WhatsApp and we will tell you honestly before you book.</p>
       </aside>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What we clean</p>
+      <h2>Wet Cleaning covers these</h2>
+      <p>Item-wise rates for every one of them are published on the price list — no quote-on-request.</p>
+    </div>
+    <div class="svc-gallery stagger-children">
+      <figure class="svc-shot">
+        <img src="../../assets/images/pricing/kurta.webp"
+             alt="Kurta cleaned by Wash4You wet cleaning in Gurugram"
+             width="400" height="400" loading="lazy" decoding="async">
+        <figcaption>
+          <span>Kurta</span>
+<b>from ₹119</b>        </figcaption>
+      </figure>
+      <figure class="svc-shot">
+        <img src="../../assets/images/pricing/dress.webp"
+             alt="Dress cleaned by Wash4You wet cleaning in Gurugram"
+             width="400" height="400" loading="lazy" decoding="async">
+        <figcaption>
+          <span>Dress</span>
+<b>from ₹199</b>        </figcaption>
+      </figure>
+      <figure class="svc-shot">
+        <img src="../../assets/images/pricing/shawl.webp"
+             alt="Shawl cleaned by Wash4You wet cleaning in Gurugram"
+             width="400" height="400" loading="lazy" decoding="async">
+        <figcaption>
+          <span>Shawl</span>
+<b>from ₹199</b>        </figcaption>
+      </figure>
+      <figure class="svc-shot">
+        <img src="../../assets/images/pricing/shirt.webp"
+             alt="Shirt cleaned by Wash4You wet cleaning in Gurugram"
+             width="400" height="400" loading="lazy" decoding="async">
+        <figcaption>
+          <span>Shirt</span>
+<b>from ₹99</b>        </figcaption>
+      </figure>
+      <figure class="svc-shot">
+        <img src="../../assets/images/pricing/salwar.webp"
+             alt="Salwar cleaned by Wash4You wet cleaning in Gurugram"
+             width="400" height="400" loading="lazy" decoding="async">
+        <figcaption>
+          <span>Salwar</span>
+<b>from ₹109</b>        </figcaption>
+      </figure>
+      <figure class="svc-shot">
+        <img src="../../assets/images/pricing/t-shirt.webp"
+             alt="T-Shirt cleaned by Wash4You wet cleaning in Gurugram"
+             width="400" height="400" loading="lazy" decoding="async">
+        <figcaption>
+          <span>T-Shirt</span>
+<b>from ₹99</b>        </figcaption>
+      </figure>
+    </div>
+    <div class="text-center" style="margin-top:var(--s-7)">
+      <a class="btn btn--ghost btn--lg" href="../../pricing/">See the full price list <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
@@ -588,13 +694,13 @@
           <h3>Services</h3>
           <ul class="footer__links">
             <li><a href="../../services/eco-friendly-laundry/">Eco-Friendly Laundry</a></li>
-            <li><a href="../../services/steam-ironing/">Steam Ironing</a></li>
             <li><a href="../../services/premium-dry-cleaning/">Premium Dry Cleaning</a></li>
             <li><a href="../../services/shoe-cleaning/">Shoe Cleaning</a></li>
-            <li><a href="../../services/sofa-cleaning/">Sofa &amp; Upholstery Cleaning</a></li>
-            <li><a href="../../services/mattress-cleaning/">Mattress Cleaning</a></li>
-            <li><a href="../../services/wet-cleaning/">Wet Cleaning</a></li>
             <li><a href="../../services/bag-cleaning/">Bag Cleaning</a></li>
+            <li><a href="../../services/leather-cleaning/">Leather Cleaning</a></li>
+            <li><a href="../../services/curtains-cleaning/">Curtains Cleaning</a></li>
+            <li><a href="../../services/carpet-cleaning/">Carpet Cleaning</a></li>
+            <li><a href="../../services/toy-cleaning/">Toy Cleaning</a></li>
             <li><a href="../../services/">All services</a></li>
           </ul>
         </div>
@@ -674,7 +780,10 @@
           <dd data-cart-total>₹0.00</dd>
         </div>
       </dl>
-      <p class="cart-drawer__note">Indicative estimate — ‘from’ items are priced after inspection.</p>
+      <p class="cart-note">
+        <span class="cart-note__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.75h.01"/></svg></span>
+        <span><b>Indicative estimate.</b> ‘From’ items are priced after inspection.</span>
+      </p>
       <div class="cart-cta">
         <a class="btn btn--cta cart-cta__btn" href="https://app.wash4you.in/website/W10571?brand=WASH4U" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 2.4 1.8 3 .1 1 2.8 2.4 1.7-.9 2.9.9 2.9-2.4 1.7-1 2.8-3 .1L12 22l-2.4-1.8-3-.1-1-2.8L3.2 15.6l.9-2.9-.9-2.9 2.4-1.7 1-2.8 3-.1Z"/><path d="m9 12 2 2 4-4"/></svg> Schedule pickup

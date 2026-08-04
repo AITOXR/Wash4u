@@ -157,7 +157,8 @@
 .cart-cta__btn {
   min-height: 3.25rem;
   padding: var(--s-2) var(--s-3);
-  font-size: 0.9375rem;
+  font-size: var(--t-base);   /* was 0.9375rem — same navigation as the
+                                 desktop mega menu, so the same size */
   line-height: 1.15;
   white-space: normal;
   text-align: center;

@@ -14,12 +14,15 @@
   <meta property="og:description" content="Suits, sarees, lehengas and woollens dry cleaned in Gurugram. Colour-bleed tested and hand-spotted before cleaning. Free pickup and delivery at your door.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_IN">
-  <meta property="og:image" content="https://wash4you.in/images/proof/sneaker-nike-after.webp">
+  <meta property="og:image" content="https://wash4you.in/images/og-share.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wash4You — eco-friendly laundry and dry cleaning in Gurugram and Delhi NCR">
   <meta property="og:site_name" content="Wash4You">
 <meta property="og:url" content="https://wash4you.in/services/premium-dry-cleaning/">  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Dry Cleaning in Gurugram | Suits, Sarees &amp; Woollens">
   <meta name="twitter:description" content="Suits, sarees, lehengas and woollens dry cleaned in Gurugram. Colour-bleed tested and hand-spotted before cleaning. Free pickup and delivery at your door.">
-  <meta name="twitter:image" content="https://wash4you.in/images/proof/sneaker-nike-after.webp">
+  <meta name="twitter:image" content="https://wash4you.in/images/og-share.jpg">
 
   <script>document.documentElement.classList.add('js');</script>
 
@@ -27,9 +30,9 @@
   <link rel="icon" href="../../assets/images/favicon-192.png" sizes="192x192">
   <link rel="apple-touch-icon" href="../../assets/images/favicon-180.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" href="../../assets/fonts/bricolage-grotesque-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/hanken-grotesk-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/fonts.css">
 
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
@@ -110,7 +113,14 @@
         "serviceType": "Premium Dry Cleaning",
         "description": "Suits, sarees, lehengas and woollens dry cleaned in Gurugram. Colour-bleed tested and hand-spotted before cleaning. Free pickup and delivery at your door.",
         "url": "https://wash4you.in/services/premium-dry-cleaning/",
-        "provider": { "@id": "https://wash4you.in/#business" },
+"image": "https://wash4you.in/images/pricing/lehenga.webp",        "provider": { "@id": "https://wash4you.in/#business" },
+        "offers": {
+          "@type": "Offer",
+          "price": "399",
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock",
+          "url": "https://wash4you.in/pricing/"
+        },
         "areaServed": [
 { "@type": "Place", "name": "Sushant Lok, Gurugram" },{ "@type": "Place", "name": "Sector 49, Gurugram" },{ "@type": "Place", "name": "Cyber City, Gurugram" },{ "@type": "Place", "name": "DLF Phase 3, Gurugram" },{ "@type": "Place", "name": "Golf Course Road, Gurugram" },{ "@type": "Place", "name": "Golf Course Extension, Gurugram" },{ "@type": "Place", "name": "Sohna Road, Gurugram" },{ "@type": "Place", "name": "Sector 29, Gurugram" },{ "@type": "Place", "name": "Palam Vihar, Gurugram" },{ "@type": "Place", "name": "MG Road, Gurugram" }        ]
       },
@@ -150,13 +160,21 @@
             "@type": "Question",
             "name": "Do you handle woollens and pashmina shawls?",
             "acceptedAnswer": { "@type": "Answer", "text": "Yes. Dry cleaning is the right method for wool and pashmina, and it has the added benefit of clearing moth larvae. Store them clean and out of polythene afterwards \u2014 sealed plastic traps moisture and yellows both wool and silk over time." }
+          },{
+            "@type": "Question",
+            "name": "What is hydrocarbon dry cleaning, and how is it different?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Dry cleaning is a wash in solvent instead of water, and the solvent is the difference. Most shops use perchloroethylene \u2014 perc \u2014 which cleans hard but is aggressive on dyes, embellishment and delicate fibre, and is classified as a probable human carcinogen. We use hydrocarbon, a refined petroleum distillate that is gentler on fabric and finish and far less toxic. It runs a longer cycle to get the same result, which is a trade we are happy to make on a saree or a suit." }
+          },{
+            "@type": "Question",
+            "name": "Is hydrocarbon cleaning eco-friendly?",
+            "acceptedAnswer": { "@type": "Answer", "text": "It is much better than perc, but we would not call it green and you should be sceptical of anyone who does. Hydrocarbon is petroleum-derived. What is true: it is not a classified carcinogen, it emits far fewer volatile compounds, it is not a groundwater contaminant the way perc is, and our machine runs a closed loop that filters and distils the solvent after every load so it is reused rather than discharged. For genuinely water-safe items we use wet cleaning instead, which is the greener option where the fabric allows it." }
           }        ]
       }    ]
   }
   </script>
 </head>
 
-<body>
+<body class="">
   <a class="skip-link" href="#main">Skip to content</a>
 
 
@@ -195,11 +213,6 @@
 </span>
                 <span>Eco-Friendly Laundry</span>
               </a>
-              <a class="mega__svc" role="menuitem" href="../../services/steam-ironing/">
-                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15H3.6c.9-4.1 4.4-7 8.6-7h3.3c3 0 5.5 2.4 5.5 5.4V15Z"/><path d="M9 8V6a2 2 0 0 1 2-2h8"/><line x1="3" y1="19" x2="21" y2="19"/></svg>
-</span>
-                <span>Steam Ironing</span>
-              </a>
               <a class="mega__svc" role="menuitem" href="../../services/premium-dry-cleaning/">
                 <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5a2 2 0 1 0-2-2"/><path d="M12 6.5 3.5 13a1.6 1.6 0 0 0 1 2.9h15a1.6 1.6 0 0 0 1-2.9L12 6.5Z"/><path d="M7 19.5h10"/></svg>
 </span>
@@ -209,21 +222,6 @@
                 <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 15V9.5c0-.8.9-1.3 1.6-.9l3 1.9c.6.4 1.4.4 2 0l1.2-.7c.5-.3 1.2-.2 1.6.2l2.1 2c.4.4 1 .7 1.6.8l4.4.9c1 .2 2.5 1 2.5 2.3v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1Z"/><path d="M12 12l-1.5 1.5M15 13.5 13.5 15"/></svg>
 </span>
                 <span>Shoe Cleaning</span>
-              </a>
-              <a class="mega__svc" role="menuitem" href="../../services/sofa-cleaning/">
-                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2Z"/><path d="M6 11h12"/><path d="M5 20v1M19 20v1"/></svg>
-</span>
-                <span>Sofa &amp; Upholstery Cleaning</span>
-              </a>
-              <a class="mega__svc" role="menuitem" href="../../services/mattress-cleaning/">
-                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7" width="19" height="10" rx="2.5"/><path d="M7 11.2v1.6M12 11.2v1.6M17 11.2v1.6"/><path d="M4.5 19v1.5M19.5 19v1.5"/></svg>
-</span>
-                <span>Mattress Cleaning</span>
-              </a>
-              <a class="mega__svc" role="menuitem" href="../../services/wet-cleaning/">
-                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.2 6 10a6 6 0 0 1-12 0c0-3.8 6-10 6-10Z"/><path d="M9.2 14.4c.9-.8 1.9-.8 2.8 0s1.9.8 2.8 0"/></svg>
-</span>
-                <span>Wet Cleaning</span>
               </a>
               <a class="mega__svc" role="menuitem" href="../../services/bag-cleaning/">
                 <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9h12l1.5 10a1.8 1.8 0 0 1-1.8 2H6.3a1.8 1.8 0 0 1-1.8-2L6 9Z"/><path d="M8.5 12V7.5a3.5 3.5 0 0 1 7 0V12"/></svg>
@@ -235,25 +233,45 @@
 </span>
                 <span>Leather Cleaning</span>
               </a>
+              <a class="mega__svc" role="menuitem" href="../../services/curtains-cleaning/">
+                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18"/><path d="M6 4c0 6-1 12-3 17 4-1 6-3 6-8V4M18 4c0 6 1 12 3 17-4-1-6-3-6-8V4"/><path d="M9 4v5c1.5 1.5 4.5 1.5 6 0V4"/></svg>
+</span>
+                <span>Curtains Cleaning</span>
+              </a>
               <a class="mega__svc" role="menuitem" href="../../services/carpet-cleaning/">
                 <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h14v18H5z"/><path d="M5 7h14M5 17h14"/><circle cx="12" cy="12" r="2.2"/></svg>
 </span>
                 <span>Carpet Cleaning</span>
-              </a>
-              <a class="mega__svc" role="menuitem" href="../../services/accessories-cleaning/">
-                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M9.5 7.7 10 3h4l.5 4.7M9.5 16.3 10 21h4l.5-4.7"/></svg>
-</span>
-                <span>Accessories Cleaning</span>
               </a>
               <a class="mega__svc" role="menuitem" href="../../services/toy-cleaning/">
                 <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.8" cy="5.6" r="1.9"/><circle cx="16.2" cy="5.6" r="1.9"/><circle cx="12" cy="9.6" r="4.1"/><path d="M8.9 12.4 7.2 18.5A1.7 1.7 0 0 0 8.8 20.7h6.4a1.7 1.7 0 0 0 1.6-2.2l-1.7-6.1"/><path d="M10.6 9.4h.01M13.4 9.4h.01"/></svg>
 </span>
                 <span>Toy Cleaning</span>
               </a>
-              <a class="mega__svc" role="menuitem" href="../../services/curtains-cleaning/">
-                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18"/><path d="M6 4c0 6-1 12-3 17 4-1 6-3 6-8V4M18 4c0 6 1 12 3 17-4-1-6-3-6-8V4"/><path d="M9 4v5c1.5 1.5 4.5 1.5 6 0V4"/></svg>
+              <a class="mega__svc" role="menuitem" href="../../services/accessories-cleaning/">
+                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M9.5 7.7 10 3h4l.5 4.7M9.5 16.3 10 21h4l.5-4.7"/></svg>
 </span>
-                <span>Curtains Cleaning</span>
+                <span>Accessories Cleaning</span>
+              </a>
+              <a class="mega__svc" role="menuitem" href="../../services/sofa-cleaning/">
+                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2Z"/><path d="M6 11h12"/><path d="M5 20v1M19 20v1"/></svg>
+</span>
+                <span>Sofa &amp; Upholstery Cleaning</span>
+              </a>
+              <a class="mega__svc" role="menuitem" href="../../services/steam-ironing/">
+                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15H3.6c.9-4.1 4.4-7 8.6-7h3.3c3 0 5.5 2.4 5.5 5.4V15Z"/><path d="M9 8V6a2 2 0 0 1 2-2h8"/><line x1="3" y1="19" x2="21" y2="19"/></svg>
+</span>
+                <span>Steam Ironing</span>
+              </a>
+              <a class="mega__svc" role="menuitem" href="../../services/mattress-cleaning/">
+                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7" width="19" height="10" rx="2.5"/><path d="M7 11.2v1.6M12 11.2v1.6M17 11.2v1.6"/><path d="M4.5 19v1.5M19.5 19v1.5"/></svg>
+</span>
+                <span>Mattress Cleaning</span>
+              </a>
+              <a class="mega__svc" role="menuitem" href="../../services/wet-cleaning/">
+                <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.2 6 10a6 6 0 0 1-12 0c0-3.8 6-10 6-10Z"/><path d="M9.2 14.4c.9-.8 1.9-.8 2.8 0s1.9.8 2.8 0"/></svg>
+</span>
+                <span>Wet Cleaning</span>
               </a>
               <a class="mega__svc" role="menuitem" href="../../services/blanket-quilt-cleaning/">
                 <span class="mega__svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8c0-1.7 1.3-3 3-3h13v11H7c-1.7 0-3 1.3-3 3V8Z"/><path d="M4 19c0 .6.4 1 1 1h15v-4"/><path d="M9 5v6l2-1.5L13 11V5"/></svg>
@@ -305,18 +323,18 @@
           <summary class="mobile-nav__link">Services <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="mobile-nav__sub">
             <a href="../../services/eco-friendly-laundry/">Eco-Friendly Laundry</a>
-            <a href="../../services/steam-ironing/">Steam Ironing</a>
             <a href="../../services/premium-dry-cleaning/">Premium Dry Cleaning</a>
             <a href="../../services/shoe-cleaning/">Shoe Cleaning</a>
-            <a href="../../services/sofa-cleaning/">Sofa &amp; Upholstery Cleaning</a>
-            <a href="../../services/mattress-cleaning/">Mattress Cleaning</a>
-            <a href="../../services/wet-cleaning/">Wet Cleaning</a>
             <a href="../../services/bag-cleaning/">Bag Cleaning</a>
             <a href="../../services/leather-cleaning/">Leather Cleaning</a>
-            <a href="../../services/carpet-cleaning/">Carpet Cleaning</a>
-            <a href="../../services/accessories-cleaning/">Accessories Cleaning</a>
-            <a href="../../services/toy-cleaning/">Toy Cleaning</a>
             <a href="../../services/curtains-cleaning/">Curtains Cleaning</a>
+            <a href="../../services/carpet-cleaning/">Carpet Cleaning</a>
+            <a href="../../services/toy-cleaning/">Toy Cleaning</a>
+            <a href="../../services/accessories-cleaning/">Accessories Cleaning</a>
+            <a href="../../services/sofa-cleaning/">Sofa &amp; Upholstery Cleaning</a>
+            <a href="../../services/steam-ironing/">Steam Ironing</a>
+            <a href="../../services/mattress-cleaning/">Mattress Cleaning</a>
+            <a href="../../services/wet-cleaning/">Wet Cleaning</a>
             <a href="../../services/blanket-quilt-cleaning/">Blanket/Quilt Cleaning</a>
             <a href="../../services/linen-cleaning/">Linen Cleaning</a>
             <a class="mobile-nav__sub-all" href="../../services/">All services</a>
@@ -337,7 +355,8 @@
 
   <main id="main">
 
-<section class="page-hero">
+
+<section class="page-hero svc-hero">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href="../../">Home</a>
@@ -349,19 +368,50 @@
 
     <div class="page-hero__grid">
       <div>
-        <span class="tag">
+        <span class="tag tag--on-navy">
   <span class="tag__symbols"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.8"/><path d="M10 8.6h2.6a1.9 1.9 0 0 1 0 3.8H10V8.6Zm0 3.8v3"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.4 21.4 20H2.6Z"/><path d="M7.6 8.6 15.4 17M15.4 8.6 7.6 17"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.2 16.6c1.1-4 4.6-6.8 8.8-6.8h5.2a3.4 3.4 0 0 1 3.3 2.7l.9 4.1Z"/><path d="M1.8 19.6h20.4"/><circle cx="12" cy="13.8" r=".9" fill="currentColor" stroke="none"/></svg></span>
   Dry clean
 </span>
 
-        <h1 style="margin-top:var(--s-4)">Dry cleaning for the clothes you can&#39;t afford to get wrong</h1>
-        <p class="lede">Suits, sarees, lehengas, sherwanis, woollens and embellished designer wear — inspected and tested before anyone decides how to clean them. Free pickup and delivery across Gurugram.</p>
+        <h1 style="margin-top:var(--s-4)">Gurgaon &amp; Delhi NCR’s Most Trusted Premium Dry Cleaning</h1>
+        <p class="lede">Suits, sarees, lehengas, sherwanis, woollens and embellished designer wear — cleaned on hydrocarbon machines and inspected before anyone decides how to treat them. Free pickup and delivery across Gurugram.</p>
         <div class="btn-row">
           <a class="btn btn--cta btn--lg" href="https://app.wash4you.in/website/W10795?brand=WASH4U" rel="noopener">Book free pickup</a>
           <a class="btn btn--ghost btn--lg" href="https://wa.me/916367600500" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.4 3.4 0 0 0 5.8 9c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.6 4 8 8 0 0 0 1.6.6 3.7 3.7 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg> Ask a question</a>
         </div>
       </div>
 
+      <div class="svc-stage svc-stage--3">
+        <span class="svc-stage__glow" aria-hidden="true"></span>
+        <figure class="svc-card svc-card--1">
+          <span class="svc-card__plate">
+            <img src="../../assets/images/pricing/lehenga.webp"
+                 alt="Lehenga cleaned by Wash4You in Gurugram"
+                 width="400" height="400"
+fetchpriority="high" decoding="async">
+          </span>
+        </figure>
+        <figure class="svc-card svc-card--2">
+          <span class="svc-card__plate">
+            <img src="../../assets/images/pricing/coat.webp"
+                 alt="Coat cleaned by Wash4You in Gurugram"
+                 width="400" height="400"
+loading="lazy" decoding="async">
+          </span>
+        </figure>
+        <figure class="svc-card svc-card--3">
+          <span class="svc-card__plate">
+            <img src="../../assets/images/pricing/sherwani.webp"
+                 alt="Sherwani cleaned by Wash4You in Gurugram"
+                 width="400" height="400"
+loading="lazy" decoding="async">
+          </span>
+        </figure>
+
+
+        <p class="svc-stage__chip">
+<span aria-hidden="true">from</span> ₹399        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -371,16 +421,28 @@
     <div class="svc-detail">
       <div>
         <div class="prose reveal">
-<h2>Solvent cleans oil. It does not clean sweat.</h2>
-<p>Dry cleaning is a wash in solvent rather than water. Solvent is very good at what water struggles with: body oil, the sebum ring inside a collar, ghee and cooking grease, make-up, car grime. It is close to useless on water-based staining — perspiration, tea, coffee, cold drink, juice, wine, most gravies. Those have to be lifted by hand first, on a spotting board with steam, vacuum and the correct agent for that stain group, before the garment goes anywhere near a machine.</p>
+<div><h2>Solvent cleans oil. It does not clean sweat.</h2>
+<p>Dry cleaning is a wash in solvent rather than water. We run hydrocarbon solvent, which is gentler on fibre and finish than the older perc systems still common in Gurugram. Solvent is very good at what water struggles with: body oil, the sebum ring inside a collar, ghee and cooking grease, make-up, car grime. It is close to useless on water-based staining — perspiration, tea, coffee, cold drink, juice, wine, most gravies. Those have to be lifted by hand first, on a spotting board with steam, vacuum and the correct agent for that stain group, before the garment goes anywhere near a machine.</p>
 <p>This is where dry cleaning is actually won or lost. A shop that skips pre-spotting hands back a garment that smells clean with the mark still sitting in it. It is also why we ask what the spill was. Tannin, protein, oil and dye each need a different treatment, and the wrong one can set a stain permanently instead of removing it. One of our customers put it plainly: "I tried at home and the stain didn't go. Wash4You removed it completely." Nothing clever happened there — we just identified the stain before treating it.</p>
 <h2>Every piece is inspected before it is processed</h2>
 <p>Fibre first, care label second. Sarees, lehengas and sherwanis very often arrive with no label at all, or with a tailor's label that says nothing useful, so the fabric has to be identified by hand and eye. We then test for colour bleed on an inside seam or hem — non-negotiable for bandhani, leheriya, hand-dyed cotton, and for anything with a dark border sitting against a pale body, like a maroon-bordered cream Kanjeevaram.</p>
 <p>Embellishment decides the method. Zari and dabka can tarnish, plastic sequins can soften in solvent or under a press, and mukaish and stone-work is often glued rather than stitched. Heavily worked pieces are covered, tacked with muslin, or cleaned by hand and spot-treated only — never tumbled. Nazuk kapde, extra care: that means slower work, not a different marketing word. Beads and stones are counted at intake and checked again at packing, and any existing damage is noted on your receipt before the garment leaves your door.</p>
 <h2>What we cannot save — and will tell you upfront</h2>
 <p>Chlorine damage is permanent. Splash from a toilet or bathroom cleaner, hair bleach, or benzoyl peroxide acne cream on a collar or pillowcase destroys the dye itself; there is nothing left to clean. Sugar stains from juice or cold drink go in invisible and oxidise into brown caramel over months in storage — once they have browned, they are usually there for good. Heat sets stains, so a mark that has already been ironed over is far harder. Mehendi and permanent marker are dyes and behave like dyes. And a garment already weakened at the underarm by years of antiperspirant and sweat can split during finishing — the damage was there before it reached us, but you deserve to hear it in advance rather than at delivery.</p>
+<h2>What we clean in, and why it matters</h2>
+<p>Not all dry cleaning is the same chemical. The industry standard for fifty years was perchloroethylene — perc — and a lot of shops in Gurugram still run it. We run hydrocarbon.</p>
+<p>Hydrocarbon solvent is a refined petroleum distillate, purified to strip the aromatics and impurities you would find in fuel. It is not a "green" solvent and we will not pretend otherwise. What it is, is a much gentler one. It dissolves body oil, collar sebum, ghee and cooking grease, make-up and traffic grime, without the aggression that makes perc hard on dyes, sequins, beadwork and finishes over repeated cleans.</p>
+<p>That gentleness has a cost, and it is ours to carry rather than yours: a hydrocarbon cycle runs longer than a perc cycle to reach the same result, and on very heavy grease perc is still the more brutal tool. We would rather run the slower machine and keep your lehenga's zari intact.</p>
+<p>The solvent runs in a closed loop. It is filtered and distilled after every load and returned to the tank, so the same solvent is recovered and reused rather than discharged.</p>
+<p><strong>What you actually notice</strong></p>
+<ul>
+<li>Nothing smells of chemicals when it comes back. Perc leaves a characteristic sharp odour; hydrocarbon does not.</li>
+<li>Colours hold. Dyes, prints and metallic finishes survive repeat cleaning far better.</li>
+<li>Delicates come back the same size. Less shrinkage and less fibre stress on silk, wool and pashmina.</li>
+<li>Perc is classified as a probable human carcinogen. Hydrocarbon is not — which matters most for the people who work with it every day, and for anything that sits in your wardrobe afterwards.</li>
+</ul>
 <h2>Before you hand it over</h2>
-<p>Empty every pocket, especially of tissues. Remove brooches and detachable buttons. Tell us about spills you can no longer see — a clear one today is a brown one in six months. And tell us honestly if you have already tried something at home, because nail-polish remover, hot water or a supermarket stain remover changes what we can safely do next.</p>        </div>
+<p>Empty every pocket, especially of tissues. Remove brooches and detachable buttons. Tell us about spills you can no longer see — a clear one today is a brown one in six months. And tell us honestly if you have already tried something at home, because nail-polish remover, hot water or a supermarket stain remover changes what we can safely do next.</p></div>        </div>
 
         <div style="margin-top:var(--s-9)" class="reveal">
           <p class="eyebrow">What we take</p>
@@ -408,6 +470,111 @@
         <hr class="seam">
         <p style="font-size:var(--t-xs)">Not sure if we can save it? Send a photo on WhatsApp and we will tell you honestly before you book.</p>
       </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The solvent</p>
+      <h2>Hydrocarbon vs perc, honestly</h2>
+      <p>Perc has been the dry-cleaning standard for fifty years and is still what most shops in Gurugram run. Here is the actual difference, including where perc still wins.</p>
+    </div>
+    <div class="svc-table-wrap reveal">
+      <table class="svc-menu svc-compare">
+        <caption class="visually-hidden">How hydrocarbon dry cleaning compares with perchloroethylene</caption>
+        <thead>
+          <tr><th scope="col"></th><th scope="col">Hydrocarbon — what we use</th><th scope="col">Perc — the older standard</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Fabric safety</th>
+<td>Gentler on delicate fibre; less shrinkage and stress</td><td>Harder on sensitive fabrics over repeated cleans</td>          </tr>
+          <tr>
+            <th scope="row">Colour &amp; finish</th>
+<td>Holds dyes, prints, zari and beadwork</td><td>Higher risk of bleeding and fading</td>          </tr>
+          <tr>
+            <th scope="row">Odour</th>
+<td>No residual chemical smell</td><td>Characteristic sharp odour</td>          </tr>
+          <tr>
+            <th scope="row">Toxicity</th>
+<td>Not a classified carcinogen</td><td>Classified a probable human carcinogen</td>          </tr>
+          <tr>
+            <th scope="row">Environment</th>
+<td>Lower VOC emissions; closed-loop recovery and reuse</td><td>Groundwater contaminant</td>          </tr>
+          <tr>
+            <th scope="row">Cycle time</th>
+<td>Longer — the gentleness costs time</td><td>Faster</td>          </tr>
+          <tr>
+            <th scope="row">Heavy grease</th>
+<td>Can need a second pass</td><td>More aggressive, and better at it</td>          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="svc-table__note reveal">Hydrocarbon is a refined petroleum distillate, not a plant-based solvent — we do not market it as green. Where a fabric can safely take water, wet cleaning is the greener choice and we use that instead.</p>
+  </div>
+</section>
+
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What we clean</p>
+      <h2>Premium Dry Cleaning covers these</h2>
+      <p>Item-wise rates for every one of them are published on the price list — no quote-on-request.</p>
+    </div>
+    <div class="svc-gallery stagger-children">
+      <figure class="svc-shot">
+        <img src="../../assets/images/pricing/lehenga.webp"
+             alt="Lehenga cleaned by Wash4You premium dry cleaning in Gurugram"
+             width="400" height="400" loading="lazy" decoding="async">
+        <figcaption>
+          <span>Lehenga</span>
+<b>from ₹399</b>        </figcaption>
+      </figure>
+      <figure class="svc-shot">
+        <img src="../../assets/images/pricing/coat.webp"
+             alt="Coat cleaned by Wash4You premium dry cleaning in Gurugram"
+             width="400" height="400" loading="lazy" decoding="async">
+        <figcaption>
+          <span>Coat</span>
+<b>from ₹249</b>        </figcaption>
+      </figure>
+      <figure class="svc-shot">
+        <img src="../../assets/images/pricing/sherwani.webp"
+             alt="Sherwani cleaned by Wash4You premium dry cleaning in Gurugram"
+             width="400" height="400" loading="lazy" decoding="async">
+        <figcaption>
+          <span>Sherwani</span>
+<b>from ₹449</b>        </figcaption>
+      </figure>
+      <figure class="svc-shot">
+        <img src="../../assets/images/pricing/men-suit-2pcs.webp"
+             alt="Men Suit 2 Pcs cleaned by Wash4You premium dry cleaning in Gurugram"
+             width="400" height="400" loading="lazy" decoding="async">
+        <figcaption>
+          <span>Men Suit 2 Pcs</span>
+<b>from ₹349</b>        </figcaption>
+      </figure>
+      <figure class="svc-shot">
+        <img src="../../assets/images/pricing/men-suit-3pcs.webp"
+             alt="Men Suit 3 Pcs cleaned by Wash4You premium dry cleaning in Gurugram"
+             width="400" height="400" loading="lazy" decoding="async">
+        <figcaption>
+          <span>Men Suit 3 Pcs</span>
+<b>from ₹429</b>        </figcaption>
+      </figure>
+      <figure class="svc-shot">
+        <img src="../../assets/images/pricing/dress.webp"
+             alt="Dress cleaned by Wash4You premium dry cleaning in Gurugram"
+             width="400" height="400" loading="lazy" decoding="async">
+        <figcaption>
+          <span>Dress</span>
+<b>from ₹199</b>        </figcaption>
+      </figure>
+    </div>
+    <div class="text-center" style="margin-top:var(--s-7)">
+      <a class="btn btn--ghost btn--lg" href="../../pricing/">See the full price list <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
@@ -583,6 +750,24 @@
       <div>Yes. Dry cleaning is the right method for wool and pashmina, and it has the added benefit of clearing moth larvae. Store them clean and out of polythene afterwards — sealed plastic traps moisture and yellows both wool and silk over time.</div>
     </div>
   </div>
+  <div class="faq-item">
+    <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="svc-faq-9">
+      What is hydrocarbon dry cleaning, and how is it different?
+      <span class="faq-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+    </button>
+    <div class="faq-item__answer" id="svc-faq-9" role="region">
+      <div>Dry cleaning is a wash in solvent instead of water, and the solvent is the difference. Most shops use perchloroethylene — perc — which cleans hard but is aggressive on dyes, embellishment and delicate fibre, and is classified as a probable human carcinogen. We use hydrocarbon, a refined petroleum distillate that is gentler on fabric and finish and far less toxic. It runs a longer cycle to get the same result, which is a trade we are happy to make on a saree or a suit.</div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="svc-faq-10">
+      Is hydrocarbon cleaning eco-friendly?
+      <span class="faq-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+    </button>
+    <div class="faq-item__answer" id="svc-faq-10" role="region">
+      <div>It is much better than perc, but we would not call it green and you should be sceptical of anyone who does. Hydrocarbon is petroleum-derived. What is true: it is not a classified carcinogen, it emits far fewer volatile compounds, it is not a groundwater contaminant the way perc is, and our machine runs a closed loop that filters and distils the solvent after every load so it is reused rather than discharged. For genuinely water-safe items we use wet cleaning instead, which is the greener option where the fabric allows it.</div>
+    </div>
+  </div>
 </div>
 
   </div>
@@ -646,13 +831,13 @@
           <h3>Services</h3>
           <ul class="footer__links">
             <li><a href="../../services/eco-friendly-laundry/">Eco-Friendly Laundry</a></li>
-            <li><a href="../../services/steam-ironing/">Steam Ironing</a></li>
             <li><a href="../../services/premium-dry-cleaning/">Premium Dry Cleaning</a></li>
             <li><a href="../../services/shoe-cleaning/">Shoe Cleaning</a></li>
-            <li><a href="../../services/sofa-cleaning/">Sofa &amp; Upholstery Cleaning</a></li>
-            <li><a href="../../services/mattress-cleaning/">Mattress Cleaning</a></li>
-            <li><a href="../../services/wet-cleaning/">Wet Cleaning</a></li>
             <li><a href="../../services/bag-cleaning/">Bag Cleaning</a></li>
+            <li><a href="../../services/leather-cleaning/">Leather Cleaning</a></li>
+            <li><a href="../../services/curtains-cleaning/">Curtains Cleaning</a></li>
+            <li><a href="../../services/carpet-cleaning/">Carpet Cleaning</a></li>
+            <li><a href="../../services/toy-cleaning/">Toy Cleaning</a></li>
             <li><a href="../../services/">All services</a></li>
           </ul>
         </div>
@@ -732,7 +917,10 @@
           <dd data-cart-total>₹0.00</dd>
         </div>
       </dl>
-      <p class="cart-drawer__note">Indicative estimate — ‘from’ items are priced after inspection.</p>
+      <p class="cart-note">
+        <span class="cart-note__icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.75h.01"/></svg></span>
+        <span><b>Indicative estimate.</b> ‘From’ items are priced after inspection.</span>
+      </p>
       <div class="cart-cta">
         <a class="btn btn--cta cart-cta__btn" href="https://app.wash4you.in/website/W10571?brand=WASH4U" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 2.4 1.8 3 .1 1 2.8 2.4 1.7-.9 2.9.9 2.9-2.4 1.7-1 2.8-3 .1L12 22l-2.4-1.8-3-.1-1-2.8L3.2 15.6l.9-2.9-.9-2.9 2.4-1.7 1-2.8 3-.1Z"/><path d="m9 12 2 2 4-4"/></svg> Schedule pickup

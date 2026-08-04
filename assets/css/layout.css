@@ -191,7 +191,7 @@
 }
 .hero__care-text {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: var(--t-xs);
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -267,7 +267,7 @@
   background: var(--navy-deep);
   color: rgba(255,255,255,.66);
   padding-block: var(--s-9) var(--s-6);
-  font-size: var(--t-sm);
+  font-size: var(--t-base);   /* navigation, not fine print */
 }
 
 .footer__grid {
@@ -288,9 +288,9 @@
 
 .footer h3 {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: var(--t-sm);
   font-weight: 500;
-  letter-spacing: .16em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   /* .42 measured 3.81:1 on --navy-deep; .55 clears 4.5:1 */
   color: rgba(255,255,255,.55);
@@ -330,3 +330,15 @@
 .footer__store { margin-bottom: var(--s-4); }
 .footer__store strong { display: block; color: #fff; font-weight: 700; margin-bottom: var(--s-1); }
 .footer__store address { font-style: normal; line-height: 1.55; }
+
+
+/* ---- Header row capacity (PREREQUISITE for the --t-sm change) ----------
+   .header__nav is a nowrap flex row with no scroll. Raising --t-sm grows
+   .header__phone inside it, and between 992px and 1199px the row has no
+   slack left — the CTA would be pushed under the viewport edge. The phone
+   number is already reachable from the topbar and the mobile bar, so it is
+   the correct thing to drop in that band, and only in that band.
+   ------------------------------------------------------------------------ */
+@media (min-width: 62rem) and (max-width: 74.99rem) {
+  .header__phone { display: none; }
+}

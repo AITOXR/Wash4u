@@ -1,15 +1,15 @@
 /* ============================================================
-   Home hero — the two supplied banners crossfading behind live text.
+   Home hero — live text over a drifting wall of the real catalogue.
 
-   Both banners are composed identically: subject on the right, empty
-   ground on the left. So the text sits LEFT here (it was centred over
-   the old gradient band, which had nothing to avoid).
+   Replaced the two supplied stock banners (a stock family, a stock
+   laundromat) with ten tilted columns of the actual garment cut-outs.
+   The text stays LEFT and the scrim is heaviest there, so the copy
+   always has a near-solid ground while the wall runs free on the right.
 
-   The ink is dark, not white, on BOTH slides. Their empty regions are
-   white and pale blue respectively — white type would fail on either,
-   and per-slide colour switching would mean the headline changes colour
-   every six seconds. One dark ink over a white scrim is legible on both
-   and never flickers.
+   The ink is dark, not white. The tiles carry a light #eee ground, so a
+   dark navy wash would fight them and would also force the blue/green
+   headline to a single flat white — throwing away the colour scheme
+   that makes the type work.
    ============================================================ */
 
 .hero.home-hero {
@@ -19,70 +19,208 @@
   color: var(--ink);
   padding: clamp(2rem, 1.4rem + 2vw, 2.75rem) 0;
   border-bottom: 4px solid var(--brand-green);
-  /* Ground behind the images: matches slide 1's white so a slow image
-     load shows the finished colour, not a dark band that then flips. */
+  /* Ground behind the wall: the tiles' own #eee is close to this, so a
+     slow image load shows the finished colour rather than a band that
+     then flips. */
   background: var(--paper);
-  /* Height budget, not a style choice. The banners are 1594x527 native.
-     object-fit:cover scales to width, so at a 1440px viewport a slide is
-     527 * (1440/1594) = 476px tall. Any band taller than that upscales the
-     photograph and crops the subject vertically — at 671px the family was
-     at 1.41x and losing their feet. The cap keeps the crop shallow, and the
-     type scale below is sized to fit inside it.
-
-     The cap is a MIN-height only. A max-height here clips instead of
-     shrinking — the section is overflow:hidden for the crossfade, so a
-     34rem cap silently ate the trust line at 1440px. The band's real
-     height is content plus padding; the padding above is what holds it
-     near the artwork's natural size. */
+  /* The cap is a MIN-height only. A max-height clips instead of
+     shrinking — the section is overflow:hidden for the wall, so a 34rem
+     cap silently ate the trust line at 1440px. The band's real height is
+     content plus padding. The wall scales to whatever this resolves to,
+     so unlike the fixed-ratio banners it has no upscaling ceiling. */
   min-height: clamp(19rem, 12rem + 15vw, 28rem);
 }
 
-/* ---- Media layer + crossfade ----
-   Both slides are stacked and absolutely positioned; only opacity
-   animates, which is compositor-only. object-position keeps the RIGHT
-   of the frame (where every subject is) in view as the band is cropped
-   from 3:1 down to something much squarer on a phone. */
-.home-hero__media {
+/* ---- Media layer — the garment wall -------------------------------
+   Replaces the two supplied stock banners. Ten columns of the real
+   catalogue cut-outs, tilted and drifting in alternating directions, so
+   the hero shows what the business actually cleans instead of a stock
+   family in a stock laundry room.
+
+   WHY IT IS CHEAPER THAN WHAT IT REPLACES. 24 unique tiles at 240px
+   webp, ~6 KB each = ~144 KB, against 156 KB for the two JPEG banners.
+   Each tile is requested once no matter how many times it appears, and
+   every one is fetchpriority="low" — the headline is still the LCP
+   element and nothing here competes with it.
+
+   MOTION IS COMPOSITOR-ONLY. Each column animates one transform and
+   nothing else: no layout, no paint, no JS, no timer. `heroSlides.js`
+   still ships but finds no [data-hero-slides] and no-ops by design.
+
+   The tilt is on the flex parent, not the columns, so the animation
+   stays a pure vertical translate — rotating each column instead would
+   make every keyframe a compound transform for no visual gain. */
+.home-hero__wall {
   position: absolute;
   inset: 0;
   z-index: 0;
+  overflow: hidden;
   pointer-events: none;
 }
-.home-hero__slide {
+
+.hero-wall {
+  --wall-gap: clamp(0.5rem, 1vw, 0.9rem);
+  --wall-tile: clamp(6rem, 8vw, 8.5rem);
+
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* right edge, not centre: cover crops horizontally here (the band is
-     wider in ratio than 3.02:1 once the type sets its height), and every
-     subject — family, washer, clothes rack — is flush to the right edge of
-     both banners. Cropping from the LEFT eats the empty ground the text
-     sits on, which is exactly what we want to lose. */
-  object-position: 100% center;
-  opacity: 0;
-  transition: opacity 900ms var(--ease-out);
+  /* Oversized so the rotation can never expose a corner: a 12deg tilt on
+     a 100%-wide box leaves triangular gaps at every edge, and scaling the
+     box rather than the content keeps the tiles at their natural size.
+
+     Anchored to the TOP, not centred. The hero's height is content-driven,
+     so it grows ~30px when the webfont swaps in and the headline reflows.
+     Centring meant that growth re-centred the whole wall and every tile
+     moved a few px at once — a huge painted area shifting, which scored
+     CLS 0.60 against 0.008 for the same reflow with no wall. Anchored at
+     the top the wall can only extend downward: nothing already on screen
+     moves, and CLS goes back to the reflow's own cost. */
+  top: calc(-11vw);
+  left: 50%;
+  /* Sized from the geometry rather than a guessed percentage. Rotating
+     by 12deg needs W*cos + H*sin of width and H*cos + W*sin of height;
+     the vw terms are the sin(12deg) ~= 0.21 overhang each axis owes the
+     other. A flat 190% was right for a 3:1 desktop band and 80% too tall
+     on a phone, which is what left the loop with a gap to expose. */
+  width: calc(100% + 26vw);
+  height: calc(100% + 22vw);
+  translate: -50% 0;
+  rotate: -12deg;
+
+  display: flex;
+  justify-content: center;
+  gap: var(--wall-gap);
 }
-.home-hero__slide.is-active { opacity: 1; }
 
-/* No-JS / pre-boot: the first slide must be visible without the class
-   being toggled, so `.is-active` ships in the HTML. Nothing here depends
-   on the bundle for the hero to look finished. */
+.hero-wall__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wall-gap);
+  /* the transform is the only animated property; hint it once rather
+     than letting the compositor re-decide every frame */
+  will-change: transform;
+  animation: hero-wall-roll var(--dur, 46s) linear infinite;
+}
+/* Alternating direction is what stops the wall reading as one sliding
+   sheet — opposing columns give it depth. */
+.hero-wall__col:nth-child(even) { animation-direction: reverse; }
 
-/* The scrim. A white wash over the left of the media, fading out before
-   the subject starts, so the text column is effectively near-white on
-   either banner. Sits above the images, below the copy. */
-.home-hero__media::after {
+/* Travel exactly one set of tiles, so tile 5 lands where tile 1 began.
+   A column holds its tiles duplicated once, so one set is half the
+   children plus their gaps — which is (height + gap) / 2, hence the half-gap correction.
+   A plain -50% is off by half a gap and visibly stutters each cycle. */
+@keyframes hero-wall-roll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, calc(-50% - (var(--wall-gap) / 2)), 0); }
+}
+
+.hero-wall__tile {
+  display: block;
+  width: var(--wall-tile);
+  /* the artwork's own #eee ground and baked rounded corners supply the
+     tile shape — no background or radius needed here */
+  flex: 0 0 auto;
+}
+.hero-wall__tile img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+/* Phones get six columns, not ten: at 390px the outer four sit entirely
+   behind the copy scrim, so they would be pure download for no picture.
+   The tiles they use are still fetched by the visible columns. */
+@media (max-width: 40rem) {
+  .hero-wall__col:nth-child(n + 7) { display: none; }
+}
+
+/* An endless decorative loop is the archetype of what this preference
+   is asking to stop — the wall stays, as a still collage. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-wall__col { animation: none; will-change: auto; }
+}
+
+/* Release the ten promoted layers once the hero is off screen. Gated on
+   html.wall-gated, which ONLY heroWall.js adds — without the gate a blocked
+   bundle would freeze the wall at first paint, which is worse than leaving it
+   running. No reduced-motion variant is needed: the rule above already sets
+   `animation: none`, and pausing a non-existent animation is a no-op. */
+html.wall-gated .home-hero:not(.is-onscreen) .hero-wall__col {
+  animation-play-state: paused;
+  will-change: auto;   /* this line is the actual saving — the layer release */
+}
+html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
+  /* Safe on CLS: this element is absolutely positioned and sized entirely by
+     its insets, so there is no intrinsic size to guess. It must go HERE and
+     never on .hero-wall or a column, both of which are sized by content. */
+  content-visibility: auto;
+}
+
+/* Two layers, painted in this order (first listed = on top):
+
+   1. The SCRIM — a wash over the left of the wall so the text column has
+      a near-solid ground, falling to near-nothing by 80% so the garments
+      on the right stay saturated and legible as garments.
+   2. The BLUE VEIL across the whole frame at 14%, tying the wall into the
+      brand blue without draining the colour out of it. It was 26% at
+      first and everything behind the type went grey — the tiles are
+      light, so this tint costs saturation far faster than it would over
+      a photograph. */
+.home-hero__wall::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    100deg,
-    rgba(255, 255, 255, 0.96) 0%,
-    rgba(255, 255, 255, 0.94) 34%,
-    rgba(255, 255, 255, 0.72) 52%,
-    rgba(255, 255, 255, 0.12) 68%,
-    rgba(255, 255, 255, 0) 80%);
+  /* Sits above the wall but below .home-hero__inner (z-index 2). */
+  z-index: 1;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(234, 242, 251, 0.97) 0%,
+      rgba(234, 242, 251, 0.95) 34%,
+      rgba(234, 242, 251, 0.55) 52%,
+      rgba(234, 242, 251, 0.10) 68%,
+      rgba(234, 242, 251, 0.02) 80%),
+    linear-gradient(
+      100deg,
+      rgba(32, 96, 160, 0.14) 0%,
+      rgba(32, 96, 160, 0.14) 100%);
+}
+
+/* Below 48rem the copy is full-width, so a LEFT-heavy scrim protects
+   nothing — the sub-headline ran straight over a dark trouser tile. The
+   gradient turns vertical instead.
+
+   The stops are a fixed distance from the BOTTOM EDGE, not percentages of
+   hero height. Percentages had to be tuned for the tallest copy case in the
+   range (768px, two-line headline), which over-scrimmed every narrower
+   screen: at 390px the 0.91 stop landed 63px BELOW where the copy ends, so
+   barely 60px of a 721px hero showed a garment at all — the phone lost the
+   entire point of the redesign. Anchoring to the bottom gives the wall a
+   clean zone of the same physical height on every phone, and it cannot
+   drift when someone edits the sub-headline.
+
+   180deg, not 184deg: on a tilted gradient the gradient line is longer than
+   the box, so calc(100% - Nrem) stops stop landing where they are written.
+   The 4deg was never visible at this scale.
+
+   Breakpoint is 47.99rem to match the layout block below — at exactly 768px
+   the two disagreed, pairing the vertical mobile scrim with the desktop
+   layout. */
+@media (max-width: 47.99rem) {
+  .home-hero__wall::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(234, 242, 251, 0.97) 0%,
+        rgba(234, 242, 251, 0.95) calc(100% - 14.5rem),
+        rgba(234, 242, 251, 0.86) calc(100% - 11rem),
+        rgba(234, 242, 251, 0.34) calc(100% - 6rem),
+        rgba(234, 242, 251, 0.04) 100%),
+      linear-gradient(
+        rgba(32, 96, 160, 0.14),
+        rgba(32, 96, 160, 0.14));
+  }
 }
 
 /* .wrap carries `margin-inline: auto`. Capping this element's own width
@@ -114,7 +252,7 @@
   top: clamp(0.75rem, 2vw, 1.75rem);
   right: clamp(0.75rem, 2.5vw, 2.5rem);
   margin: 0;
-  width: clamp(6.5rem, 9vw, 8.5rem);
+  width: clamp(7.5rem, 10vw, 9.5rem);
   aspect-ratio: 1;
   display: flex;
   flex-direction: column;
@@ -135,14 +273,14 @@
   line-height: 1;
 }
 .home-hero__offer-label {
-  font-size: 0.75rem;
+  font-size: var(--t-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   line-height: 1;
 }
 .home-hero__offer-detail {
-  font-size: 0.6875rem;
+  font-size: var(--t-xs);
   font-weight: 600;
   line-height: 1.2;
   max-width: 78%;
@@ -151,7 +289,7 @@
 
 .home-hero__eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase;
+  font-size: var(--t-xs); letter-spacing: 0.16em; text-transform: uppercase;
   /* was #a8c9ec, for white text on the old blue band */
   color: var(--ink-2);
   display: inline-flex; align-items: center; gap: 0.5rem;
@@ -165,55 +303,56 @@
      budget; four at 3.25rem did not, and forced the hero 200px taller than
      the artwork can fill without upscaling. */
   font-size: clamp(1.95rem, 1.3rem + 2.4vw, 2.85rem);
-  line-height: 1.08;
+  /* 1.08 -> 1.26: the green words are now padded highlight blocks, and at
+     1.08 the blocks on consecutive lines touch and read as one slab. */
+  line-height: 1.26;
   letter-spacing: -0.02em;
   margin: 0 0 1.1rem;
   max-width: 42rem;
   text-wrap: balance;
 }
-.home-hero__title .kw {
-  background: var(--brand-green);
-  /* Dark ink on the pill, matching redesign-pricing.css. White on
-     --brand-green measures 2.82:1 and fails AA at any size; --ink on the
-     same hue measures ~6.2:1. On the old dark band white was at least
-     consistent with the headline — on a light hero it is neither
-     consistent nor legible. */
+/* ---- Headline colouring ------------------------------------------------
+   Four phrases alternating the two logo colours, as plain coloured TEXT.
+   This replaces the green .kw highlight pills the headline used to carry.
+
+   The pills are gone deliberately, not merely restyled. A pill is a filled
+   box that cannot break across lines without shattering, which is why this
+   one headline needed an explicit nowrap, a cross-file specificity note
+   about redesign-pricing/areas, and a measured 440px escape hatch to stop
+   it being clipped off both edges of a 320px screen. Coloured text wraps
+   like text, so all three of those go with it.
+
+   Both hues come straight off the logo. --green (#17883b), not the logo's
+   own #21b14b: that is the non-text green and measures 2.06:1 on the
+   banner's near-white left, failing even the 3:1 large-text floor. The
+   headline is 45.6px bold, so large text applies. */
+.home-hero__title .hkw--blue  { color: var(--brand-blue); }
+
+/* The green words are the offer — "Dry Cleaning & Laundry", "Free Pickup &
+   Delivery" — so they get the same highlight the interior page headlines
+   use (.kw, redesign-areas.css), not just a colour change.
+
+   Two deliberate differences from .kw:
+   - NO white-space: nowrap. .kw marks single words; these are three- and
+     four-word phrases, and pinning them would force horizontal overflow on
+     a 390px screen.
+   - box-decoration-break: clone so a phrase that wraps gets a properly
+     padded, properly rounded block on EACH line rather than one ragged
+     shape with two open ends.
+
+   --ink on --brand-green measures 8.9:1. The reverse (white on green) is
+   2.8:1 and would fail, which is why the dark ink is not a style choice. */
+.home-hero__title .hkw--green {
   color: var(--ink);
-  border-radius: 0.24em;
-  padding: 0 0.22em;
-  box-decoration-break: clone; -webkit-box-decoration-break: clone;
-
-  /* Stated on purpose — do not delete as redundant.
-
-     redesign-pricing.css and redesign-areas.css each declare a BARE
-     `.kw { white-space: nowrap }` for their own heading pills, and both
-     load after this file. This rule is more specific for the properties
-     it names, but it never named white-space, so the hero pill was
-     silently inheriting nowrap from a rule that has nothing to do with
-     it. Keeping the phrase on one line IS what we want here — but by
-     declaration, not by accident, so reordering the stylesheets or
-     editing those files can't quietly change the hero. */
-  white-space: nowrap;
+  background: var(--brand-green);
+  padding: 0.04em 0.3em;
+  border-radius: 0.28em;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
 }
 
-/* Below 440px "Dry Cleaning & Laundry" no longer fits: it needs ~380px
-   against ~284px of gutter on a 320px screen. Held atomic it cannot
-   break, so the h1 overflowed to left:-30px and was clipped off BOTH
-   edges of the viewport. Under that width the pill is allowed to wrap —
-   box-decoration-break:clone above draws each fragment as its own
-   rounded pill, so a broken phrase still reads as one highlight.
-
-   440px is measured, not guessed: it is the narrowest viewport at which
-   the phrase still clears the gutter on one line. Above it the pill
-   stays atomic, which keeps text-wrap:balance from splitting it and
-   preserves the intended three-line headline. */
-@media (max-width: 27.5rem) {
-  .home-hero__title .kw { white-space: normal; }
-
-  /* Balancing works against us once the pill is breakable: it spreads the
-     words evenly and splits "Dry Cleaning & Laundry" three ways. Filling
-     lines greedily keeps them fuller and the highlight in fewer pieces. */
-  .home-hero__title { text-wrap-style: auto; }
+@media (forced-colors: active) {
+  .home-hero__title .hkw--green { background: Highlight; color: HighlightText; }
 }
 
 .home-hero__sub {
@@ -251,6 +390,31 @@
    readable without it) but it is aria-hidden, not information. */
 .home-hero__stars { color: #e8a100; letter-spacing: 0.06em; font-size: 1rem; }
 
+/* Between the phone layout (below 48rem) and a wide desktop, the copy spans
+   almost the whole band — at 768px it reaches 91% of the width, well past
+   where the scrim above has faded out. The green headline measured 1.01:1
+   and the lede 2.95:1 there, straight over the shirt.
+
+   The wash therefore holds its strength nearly to the right edge at these
+   widths. It hides more of the photograph than the wide layout does, which
+   is the correct trade: this is a narrow band of viewports and the copy has
+   nowhere else to sit. */
+@media (min-width: 48rem) and (max-width: 61.99rem) {
+  .home-hero__media::after {
+    background:
+      linear-gradient(
+        100deg,
+        rgba(234, 242, 251, 0.97) 0%,
+        rgba(234, 242, 251, 0.95) 60%,
+        rgba(234, 242, 251, 0.88) 84%,
+        rgba(234, 242, 251, 0.55) 100%),
+      linear-gradient(
+        100deg,
+        rgba(32, 96, 160, 0.22) 0%,
+        rgba(32, 96, 160, 0.22) 100%);
+  }
+}
+
 /* ---- Small screens ----
    At phone width a 3:1 banner cropped to a ~1:1 box shows the subject and
    nothing else, so the scrim goes near-solid vertically instead of
@@ -267,7 +431,10 @@
      downscaled — sharper than the desktop band, not softer. */
   .hero.home-hero {
     min-height: 0;
-    padding-bottom: 12rem;
+    /* 14rem, not 12: the scrim's falloff is measured from this edge, so the
+       extra 32px is headroom for a future home.json sub-headline edit to
+       grow into without eating the wall's clean zone. */
+    padding-bottom: 14rem;
   }
   .home-hero__media {
     top: auto;
@@ -282,12 +449,17 @@
   /* Feathers the strip's top edge into the white above it so it reads as
      part of the hero rather than a pasted-in photo block. */
   .home-hero__media::after {
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0.55) 34%,
-      rgba(255, 255, 255, 0.1) 72%,
-      rgba(255, 255, 255, 0) 100%);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(234, 242, 251, 1) 0%,
+        rgba(234, 242, 251, 0.55) 34%,
+        rgba(234, 242, 251, 0.1) 72%,
+        rgba(234, 242, 251, 0) 100%),
+      linear-gradient(
+        180deg,
+        rgba(32, 96, 160, 0.22) 0%,
+        rgba(32, 96, 160, 0.22) 100%);
   }
   /* Kept, not hidden — most of this site's traffic is phones, and the
      offer is the one piece of the artwork with commercial weight. Moved
@@ -297,11 +469,13 @@
     top: auto;
     bottom: 0.85rem;
     right: 0.85rem;
-    width: 5.75rem;
+    width: 7rem;
   }
   .home-hero__offer-value  { font-size: 1.15rem; }
-  .home-hero__offer-label  { font-size: 0.625rem; letter-spacing: 0.06em; }
-  .home-hero__offer-detail { font-size: 0.5rem; max-width: 84%; }
+  .home-hero__offer-label  { font-size: var(--t-xs); letter-spacing: 0.06em; }
+  /* the 0.5rem/8px override here was the smallest text on the site, on
+     the viewport where it is hardest to read. The badge box grew instead. */
+  .home-hero__offer-detail { max-width: 84%; }
 }
 
 /* Reduced motion: the crossfade is decorative and repeats forever, which
@@ -501,8 +675,10 @@
    card has the shortest blurb. */
 .promise {
   --pc-pad:   var(--s-5);
-  --pc-plate: var(--navy);
-  --pc-ink:   var(--navy);
+  /* The logo's own blue. Was --navy (#14336b), a structural colour rather
+     than a brand one. */
+  --pc-plate: var(--brand-blue);
+  --pc-ink:   var(--brand-blue);
 
   display: grid;
   grid-template-columns: auto 1fr;
@@ -525,10 +701,21 @@
     translate    280ms var(--ease-out);
 }
 
-/* Card 1 is the default declared above. */
-.promise:nth-child(4n + 2) { --pc-plate: var(--green-brand); --pc-ink: var(--green); }
+/* Two colours only, both straight off the logo: #2060A0 and #21b14b,
+   alternating so no two neighbours share a hue at any column count. The
+   previous set added --navy and --green-deep, which are structural/pressed
+   shades rather than brand ones.
+
+   The plate/ink split still matters here. #21b14b is the untouched logo
+   green: fine as a decorative fill, but only 2.82:1 under white, so the
+   glyph that sits on paper uses --green (#17883b, 4.54:1) instead. The blue
+   needs no such substitution — #2060A0 is 6.4:1 on white — so plate and ink
+   are the same value on the blue cards.
+
+   Card 1 is the blue default declared above. */
+.promise:nth-child(4n + 2) { --pc-plate: var(--brand-green); --pc-ink: var(--green); }
 .promise:nth-child(4n + 3) { --pc-plate: var(--brand-blue);  --pc-ink: var(--brand-blue); }
-.promise:nth-child(4n + 4) { --pc-plate: var(--green-deep);  --pc-ink: var(--green-deep); }
+.promise:nth-child(4n + 4) { --pc-plate: var(--brand-green); --pc-ink: var(--green); }
 
 /* --pc-ink, not --pc-plate, on the border: this line sits on --paper, so
    it takes the legible step. Card 2 borders in --green (4.54:1) while its
@@ -967,3 +1154,620 @@
 .svc-band .svc:hover h3 a,
 .svc-band .svc:focus-within h3,
 .svc-band .svc:focus-within h3 a { color: #fff; }
+
+/* The .home-locations city grid was deleted with the coverage merge — its
+   five text cards duplicated the areas section and sat AFTER the closing
+   CTA. The class occurs in no other template. */
+
+}
+
+/* ------------------------------------------------------------
+   Price rail — garment cut-outs between the two dark bands.
+
+   The tiles are the pricing set's own 500px cut-outs, re-encoded to
+   400px webp (tools/to-webp.py): each carries a neutral #eee ground
+   with transparent rounded corners baked in, so the artwork supplies
+   the tile shape and the card behind it stays plain --paper. No
+   background or clip on the media element — adding one would double
+   up the radius and show a hard grey square behind the rounding.
+
+   The rail is .review-rail so motion/ui.js drives the arrows, but the
+   columns are re-sized here: 20rem review cards would fit barely three
+   garments on a laptop.
+   ------------------------------------------------------------ */
+
+.price-rail { grid-auto-columns: minmax(9.5rem, 11rem); gap: var(--s-3); }
+/* superseded by the .page-home block at the end of this file — kept as the
+   unscoped fallback so the rail still lays out if the body class is lost */
+
+.price-tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  padding: var(--s-3);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  text-decoration: none;
+  transition: border-color .18s ease, box-shadow .18s ease, translate .18s ease;
+}
+.price-tile__media { display: block; }
+.price-tile__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+.price-tile__name {
+  font-weight: 600;
+  font-size: var(--t-sm);
+  line-height: 1.3;
+  color: var(--navy);
+}
+.price-tile__price {
+  /* the rail is a grid, so every tile is as tall as the longest name
+     ("Double Blanket 1 Ply / Quilt"); this puts the slack above the price
+     instead of below it, so the prices line up across the row */
+  margin-top: auto;
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  font-weight: 500;
+  color: var(--green-deep);
+}
+.price-tile__price small {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--t-xs);
+  font-weight: 400;
+  color: var(--ink-3);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .price-tile:hover {
+    border-color: var(--brand-blue);
+    box-shadow: 0 12px 26px rgba(16, 27, 46, .12);
+    translate: 0 -4px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .price-tile { transition: none; }
+  .price-tile:hover { translate: none; }
+}
+
+/* .cta-band--brand was retired when the closing CTA moved out of the
+   rounded card onto a full-bleed band — see .cta-close at the end of this
+   file. */
+
+/* The illustrated blog plates were retired: on a wash ground the near-white
+   gradient read as three images that had failed to load. See .blog-index at
+   the end of this file. */
+
+/* ---- Why mascot below 62rem ----------------------------------------
+   `.why__mascot { display: none }` stays the default and the Proof
+   section keeps relying on it. The default is wrong in exactly one
+   place: below 62rem the Why section is heading, lede, four cards whose
+   only marks are 32px glyphs, then a 3-4 line SEO paragraph — the
+   longest unbroken run of type on the page — and mascot-why.png is the
+   only original, on-palette, text-free illustration the brand owns.
+
+   CLS: none. width/height are on the tag and height:auto preserves the
+   760x941 box, so the row is reserved before the bitmap decodes.
+
+   `screen and` is load-bearing: the @media print rule for .why__mascot
+   has equal specificity and sits earlier in this file, so without the
+   media-type guard this block would resurrect the mascot in print.
+   -------------------------------------------------------------------*/
+@media screen and (max-width: 61.999rem) {
+  .why__mascot--sm {
+    display: block;
+    /* ~88-128px. A companion mark beside the heading, never a hero. */
+    width: clamp(5.5rem, 22vw, 8rem);
+    height: auto;
+    /* Pin right, mirroring the desktop justify-self: end. */
+    margin-inline: auto 0;
+    /* Close the heading block's gap, then sit down into .why__intro's
+       bottom margin so the figure looks like it is standing on the
+       first promise card. Net clearance stays 1rem — no overlap. */
+    margin-block: var(--s-2) calc(var(--s-6) * -1);
+  }
+}
+
+
+/* ---- Price rail, second pass: set the prices at price size --------------
+
+   The section is headlined "Real prices, on the actual items" and shipped
+   with .price-tile__name and .price-tile__price at the SAME --t-sm — the
+   numbers were the size of their own caption, and smaller than body copy.
+   The garments were ~150px on their baked #eee grounds, which on a white
+   band read as grey placeholder boxes.
+
+   Everything here is .page-home scoped: this stylesheet loads on all 114
+   pages and .price-card__media / .rail-nav are shared furniture.
+   ------------------------------------------------------------------------ */
+
+/* A tinted band gives the white tiles an edge and resolves the cut-outs'
+   #eee grounds as studio backdrops rather than missing images. */
+.page-home .price-rail-band { background: var(--navy-tint); }
+
+/* ~200px of garment instead of ~150px. Fewer tiles fit per screen — that is
+   the intent, and it finally gives the arrows a reason to exist. */
+.page-home .price-rail { grid-auto-columns: minmax(12.5rem, 14rem); gap: var(--s-4); }
+.page-home .price-tile { padding: var(--s-4); }
+
+.page-home .price-tile__name {
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: var(--ink-2);   /* was --navy 600 — it was competing with the price */
+}
+
+.page-home .price-tile__price {
+  margin-top: auto;
+  /* was --font-mono. Mono at this size reads as a receipt line: the docket
+     voice is right for counts and captions, wrong for the one number this
+     section exists to show. */
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1.1rem + 0.7vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--navy-deep);
+  font-variant-numeric: tabular-nums;
+}
+.page-home .price-tile__from {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.page-home .price-tile__unit {
+  display: inline;   /* was block — the unit belongs on the price line */
+  font-family: var(--font-sans);
+  font-size: var(--t-xs);
+  font-weight: 400;
+  color: var(--ink-3);
+}
+
+/* Ledger — fills the empty right-hand field .reviews-head leaves beside a
+   three-line intro, and carries the arrows so they stop floating. */
+.page-home .price-ledger { display: grid; gap: var(--s-4); justify-items: start; }
+.page-home .price-ledger__rows {
+  list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-2);
+}
+.page-home .price-ledger__rows li { display: flex; align-items: baseline; gap: var(--s-3); }
+.page-home .price-ledger__rows b {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--t-lg);
+  line-height: 1;
+  min-width: 4ch;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--navy);
+}
+.page-home .price-ledger__rows span { font-size: var(--t-sm); color: var(--ink-3); }
+
+.page-home .price-rail__note {
+  margin: var(--s-5) 0 0;
+  max-width: 60ch;
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  line-height: 1.6;
+  color: var(--ink-3);
+}
+
+@media (max-width: 55.99rem) {
+  /* .reviews-head stacks below 56rem; keep the ledger and arrows on one row
+     rather than orphaning the arrows under the figures. */
+  .page-home .price-ledger { grid-template-columns: 1fr auto; align-items: end; width: 100%; }
+}
+@media (forced-colors: active) { .page-home .price-rail-band { background: Canvas; } }
+@media print { .page-home .price-rail-band { background: #fff; } }
+
+/* ---- Proof: lead + supporting, not masonry -----------------------------
+
+   The two-column masonry left a ~550x470 block of empty background beside
+   the third item, because the sofa runs ~500px taller than the Nike pair.
+   The Nike pair — the configured hero in proof.json — takes the full
+   container instead, and the sofa and Hoka sit under it in a real 2-up.
+
+   MOBILE IS DELIBERATELY UNTOUCHED. Below 56rem both containers are one
+   column, byte-for-byte the stack that ships today, which was the best
+   mobile section on the page. Every override is inside a min-width query.
+   ------------------------------------------------------------------------ */
+.page-home .proof-grid--lead { grid-template-columns: 1fr; gap: var(--s-8); }
+@media (min-width: 56rem) {
+  /* page.css puts .proof-grid at two columns here; the lead needs all of it */
+  .page-home .proof-grid--lead { grid-template-columns: 1fr; gap: var(--s-8); }
+}
+
+.page-home .proof-grid__rest { display: grid; gap: var(--s-8); }
+@media (min-width: 56rem) {
+  .page-home .proof-grid__rest { grid-template-columns: 1fr 1fr; gap: var(--s-7); }
+}
+
+/* HEIGHT MATCH — and it is LESS crop than what shipped. The sofa frame takes
+   its aspect from --ba-ratio, set inline from the asset's real 760x710 =
+   1.070. The Hoka renders as .ba-pair, two panels side by side, so the box
+   aspect is 1 / (0.5 * panel ratio). ui.css crops each panel to 1/1.6, which
+   puts the pair box at 1.25 — ~90px short of the sofa, i.e. the ragged row.
+   1/1.87 puts it at 1.07, matching. The native panel is 544x1110 = 1/2.04,
+   so this crops LESS than the shipped value, not more. */
+@media (min-width: 56rem) {
+  .page-home .proof-grid__item--pair .ba-pair img { aspect-ratio: 1 / 1.87; }
+  /* Two lines reserved: the Hoka title wraps to one line and the sofa's to
+     two, so without a floor the summaries sit ~35px apart. */
+  .page-home .proof-grid--lead .proof-grid__summary { min-height: 3.2em; max-width: none; }
+  .page-home .proof-grid__item--lead .proof-grid__summary { max-width: 46rem; }
+}
+
+/* 11px pills and a 44px knob read as UI debris on a 1140px slider. ONLY the
+   lead scales up — raising the caption globally re-raggeds the row below. */
+.page-home .proof-grid__item--lead .ba__caption strong { font-size: var(--t-lg); }
+.page-home .proof-grid__item--lead .ba__label { font-size: .8125rem; padding: .35rem .8rem; }
+.page-home .proof-grid__item--lead .ba__knob { width: 3.5rem; height: 3.5rem; }
+.page-home .proof-grid__item--lead .ba__knob svg { width: 1.5rem; height: 1.5rem; }
+
+/* ---- Coverage band — the one geography section -------------------------
+
+   ASSET NOTE. hero-areas.jpg is the client's own designed navy route map
+   (1998x666, 59 KB), previously used on page-locate-us only. It is a
+   DESIGNED ground with a narrow luminance range, not a photograph, so it
+   needs no scrim — the same reasoning recorded in redesign-areas.css. Its
+   only baked text is five place names, which are exactly areas.json
+   cities[1..4] plus the Gurugram HQ.
+   ------------------------------------------------------------------------ */
+.page-home .coverage__top { display: grid; gap: var(--s-6); align-items: center; }
+@media (min-width: 62rem) {
+  .page-home .coverage__top {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: var(--s-8);
+  }
+}
+
+.page-home .coverage__fig {
+  display: inline-block;
+  vertical-align: -.04em;
+  margin-right: .12em;
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 2.2rem + 4.6vw, 6rem);
+  font-weight: 800;
+  line-height: .9;
+  letter-spacing: -.03em;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+}
+
+.page-home .coverage__map {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, .34);
+}
+/* 3/2 on a 3/1 source crops to the RIGHT half, which holds all five pins and
+   drops the empty left ground the source carries for copy it no longer has
+   to hold. Source defect to know about: the GURUGRAM HQ pill is clipped at
+   its right edge in the original file. */
+.page-home .coverage__map img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: right center;
+}
+@media (max-width: 61.99rem) { .page-home .coverage__map img { aspect-ratio: 16 / 9; } }
+
+/* Counts strip — a 1px-gap grid over a light rule, so the dividers are the
+   background showing through and cost no borders. */
+.page-home .coverage__cities {
+  list-style: none;
+  margin: var(--s-7) 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: rgba(255, 255, 255, .14);
+  border-block: 1px solid rgba(255, 255, 255, .14);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 56rem) {
+  .page-home .coverage__cities { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+.page-home .coverage__cities > li { display: contents; }
+
+.page-home .coverage__city {
+  background: var(--navy-deep);
+  padding: var(--s-4) var(--s-3);
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  text-decoration: none;
+  transition: background-color 180ms var(--ease-out);
+}
+.page-home .coverage__city b {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+}
+.page-home .coverage__city span { font-size: var(--t-sm); font-weight: 600; color: #fff; }
+.page-home .coverage__city small {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: rgba(255, 255, 255, .55);
+}
+@media (hover: hover) and (pointer: fine) {
+  .page-home .coverage__city:hover { background: var(--green-cta); }  /* 4.66:1 under white */
+  .page-home .coverage__city:hover small { color: rgba(255, 255, 255, .85); }
+}
+
+/* Stores — the only place on the homepage that says where we physically are. */
+.page-home .coverage__stores {
+  list-style: none; margin: var(--s-5) 0 0; padding: 0; display: grid; gap: var(--s-3);
+}
+.page-home .coverage__store {
+  padding-left: var(--s-4);
+  border-left: 2px solid var(--green-brand);
+  font-size: var(--t-sm);
+  line-height: 1.45;
+  color: rgba(255, 255, 255, .78);
+}
+.page-home .coverage__store b { display: block; font-size: var(--t-base); color: #fff; }
+
+/* The ten locality links, on navy. ui.css gives .area-link a --line border
+   and --ink text, both invisible here — and .area-link is shared with
+   page-locate-us / page-location / page-matrix, hence the .coverage-band
+   scope on top of .page-home. */
+.page-home .coverage-band .areas { margin-top: var(--s-6); }
+.page-home .coverage-band .area-link {
+  background: rgba(255, 255, 255, .05);
+  border-color: rgba(255, 255, 255, .2);
+  color: #fff;
+}
+.page-home .coverage-band .area-link svg { color: var(--green-brand); }
+.page-home .coverage-band .area-link:hover {
+  background: rgba(255, 255, 255, .12); border-color: #fff;
+}
+.page-home .coverage-band .why__seo { margin-top: var(--s-6); color: rgba(255, 255, 255, .55); }
+
+@media (forced-colors: active) {
+  .page-home .coverage__cities { background: CanvasText; }
+  .page-home .coverage__city { background: Canvas; }
+  .page-home .coverage__store { border-left-color: Highlight; }
+}
+@media print {
+  .page-home .coverage-band { background: #fff; color: #000; }
+  .page-home .coverage-band h2,
+  .page-home .coverage__fig,
+  .page-home .coverage__city b,
+  .page-home .coverage__city span,
+  .page-home .coverage__store b { color: #000; }
+  .page-home .coverage__map { display: none; }
+  .page-home .coverage__city { background: #fff; }
+  .page-home .coverage-band .area-link { color: #000; border-color: #b6bfcd; background: none; }
+}
+
+
+/* ---- Closing CTA — the page's final ask, at the size of an ask ---------
+
+   Measured before changing anything: .cta-band h2, #why h2 and
+   .price-rail-band h2 all computed identical. That parity was the defect.
+
+   hero-packages.svg is verified safe as a CSS background — zero <text>
+   nodes, unlike hero-services.svg which silently loses its labels in this
+   role because an SVG used as a background never loads the page's webfonts.
+   background-color is declared FIRST so a failed image request still leaves
+   a navy band. The veil stays at .90; below ~.80 the art stops reading as a
+   watermark and starts competing with the copy.
+   ------------------------------------------------------------------------ */
+.page-home .cta-close {
+  background-color: var(--navy-deep);
+  background-image:
+    linear-gradient(rgba(13, 35, 80, .90), rgba(13, 35, 80, .90)),
+    url('../images/hero-packages.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-position: center, center bottom;
+  color: rgba(255, 255, 255, .9);
+  padding-block: clamp(4rem, 2.6rem + 6vw, 8rem);
+}
+.page-home .cta-close h2 {
+  margin: 0;
+  max-width: 14ch;   /* guard if home.cta.title is ever lengthened */
+  color: #fff;
+  /* 4.6rem, not the 4.1 the spec carried: item 9's statement opener sets the
+     Services h2 at 4.25rem, which measured 68px against this heading's 66px
+     and made the page's final ask the SECOND loudest line — the exact defect
+     this item exists to remove. The two were written independently; this is
+     the reconciliation. */
+  font-size: clamp(2.4rem, 1.6rem + 3.9vw, 4.6rem);
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+.page-home .cta-close p {
+  max-width: 34rem;
+  margin: var(--s-5) 0 var(--s-7);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, .8);
+}
+.page-home .cta-close .btn { font-size: 1.05rem; padding-inline: 1.9rem; }
+
+@media (forced-colors: active) { .page-home .cta-close { background-image: none; } }
+@media print {
+  .page-home .cta-close { background-image: none; background-color: #fff; color: #000; }
+  .page-home .cta-close h2 { color: #000; }
+}
+
+/* ---- How it works: a readable measure ---------------------------------
+
+   The 7-column rule is features.css at min-width 72rem, NOT 62rem —
+   features.css already resolves 2 columns at 34rem and 4 at 52rem, both of
+   which are correct. So only 72rem+ needs fixing, and there 4-up is exactly
+   what the 52rem rule already says. Each column was 149px at 1440, which
+   forced three-line headings ("Finishing / & quality / check") and 3-4 words
+   per line of body copy.
+
+   Row two is three cards, left-aligned under 01-04. Centring them would
+   break the 01 -> 07 reading line; the gap at position 8 reads as the end of
+   the list, which is what it is.
+
+   MOBILE IS UNTOUCHED: flowRail.js gates the snap rail, the .is-active card
+   and .flow-progress at max-width 47.99rem, below every query here.
+   ------------------------------------------------------------------------ */
+@media (min-width: 72rem) {
+  .page-home .flow {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--s-4);
+    row-gap: var(--s-5);
+  }
+}
+@media (min-width: 48rem) {
+  .page-home .flow__step {
+    background: rgba(255, 255, 255, .06);    /* was .03 — the card was not present */
+    border-color: rgba(255, 255, 255, .20);  /* was .14 */
+  }
+}
+/* NOTE ON THE MOTION CONTRACT: .flow carries .stagger-children, and
+   reveal.js commits inline transform/opacity on finish then clears them.
+   Nothing above is transform or opacity and nothing above is given a
+   transition, so there is no re-fire hazard. Do not add one. */
+
+
+/* ---- Blog: a typographic index ----------------------------------------
+   Three full-width rows on hairline rules. The whole row is the target. */
+.page-home .blog-index { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.page-home .blog-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-2) var(--s-5);
+  align-items: baseline;
+  padding: var(--s-6) 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+}
+@media (min-width: 48rem) {
+  .page-home .blog-row { grid-template-columns: 4.5rem minmax(0, 1fr) auto; }
+}
+.page-home .blog-row__n {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--t-xl);
+  line-height: 1;
+  letter-spacing: -.03em;
+  /* --green-brand is 2.82:1 and is documented NON-TEXT only. Legal here: the
+     numeral is aria-hidden decoration duplicating DOM order and carrying no
+     information — the same allowance .flow__num already takes. */
+  color: var(--green-brand);
+}
+.page-home .blog-row h3 {
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  font-size: clamp(1.25rem, 1rem + 1.1vw, 1.875rem);
+}
+.page-home .blog-row__meta {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+@media (hover: hover) and (pointer: fine) {
+  .page-home .blog-row:hover h3 { color: var(--brand-blue); }
+}
+
+/* ---- Six services on a phone, nine on desktop -------------------------
+   Mobile Services ran 2,698px — 3.2 phone screens of the same card nine
+   times — at exactly the point the visitor decides whether to stay. All
+   nine stay in the DOM with intact hrefs and the full set is published at
+   /services/, so this is visual truncation, not hidden text.
+
+   cappedStagger clamps the child index at 5, so six visible children is
+   exactly the cap and the cascade timing is unchanged. .svc-grid is also
+   rendered by page-blog-list / page-location / page-services-list, so the
+   .page-home scope here is load-bearing. */
+@media (max-width: 47.99rem) {
+  .page-home .svc-grid > .svc:nth-child(n + 7) { display: none; }
+}
+
+/* A third ground value. The page's entire alternation was #ffffff against
+   #f4f8fd — a 3-value difference, invisible at arm's length — so the white
+   review cards had only a 1px outline to be found by. */
+.page-home .reviews-band { background: var(--navy-tint); }
+
+
+/* ---- A second section-opener register ---------------------------------
+   Asymmetric: statement left, lede and figure right, baseline-aligned. */
+.page-home .section-head--statement { max-width: none; display: grid; gap: var(--s-6); }
+@media (min-width: 62rem) {
+  .page-home .section-head--statement {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, .85fr);
+    gap: var(--s-9);
+    align-items: end;
+  }
+}
+.page-home .section-head--statement h2 {
+  margin: 0;
+  max-width: 18ch;
+  font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4.25rem);
+  line-height: 1.02;
+  letter-spacing: -.03em;
+}
+.page-home .section-head--statement .section-head__aside p { margin: 0; }
+/* Selector depth, not !important: base.css sets .section-head p
+   { margin-top: var(--s-4) } at (0,1,1); this is (0,3,1) and wins cleanly. */
+.page-home .section-head--statement .section-figure {
+  margin-top: var(--s-4);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #8fb4ff;   /* the .section--navy eyebrow blue */
+}
+.page-home .section-head--statement .section-figure b {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: #fff;
+}
+
+/* ---- Proof ledger — the three pickup guarantees -----------------------
+   No card, no border, no plate: the page already runs eight grids of
+   bordered rectangles. Three columns under the house stitched seam. */
+.page-home .proof-ledger {
+  list-style: none;
+  margin: 0 0 var(--s-8);
+  padding: var(--s-5) 0 0;
+  display: grid;
+  gap: var(--s-5);
+  background:
+    repeating-linear-gradient(to right, var(--line) 0 6px, transparent 6px 12px)
+    top left / 100% 1px no-repeat;
+}
+@media (min-width: 48rem) {
+  .page-home .proof-ledger { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-6); }
+}
+.page-home .proof-ledger__step { display: grid; gap: .3rem; align-content: start; }
+.page-home .proof-ledger__n {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: .14em;
+  color: var(--green);   /* 4.54:1 — the TEXT green, not --green-brand */
+}
+.page-home .proof-ledger__step b { font-size: var(--t-base); font-weight: 700; color: var(--ink); }
+.page-home .proof-ledger__step span { font-size: var(--t-sm); line-height: 1.55; color: var(--ink-2); }
+
+@media (forced-colors: active) {
+  .page-home .proof-ledger { background: none; border-top: 1px solid CanvasText; }
+}
+@media print { .page-home .proof-ledger { break-inside: avoid; } }

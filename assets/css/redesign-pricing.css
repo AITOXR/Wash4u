@@ -35,19 +35,21 @@
 .kw-text { color: var(--green); }
 
 /* ============================================================
-   Req 5 — Hero: full-bleed photo, brand-navy overlay, white headline
+   Hero: full-bleed photo under the brand-navy overlay, white headline
+
+   The overlay is what makes this band work. The banner's sky runs from deep
+   blue (lum 0.12) to white cloud (0.81) right where the copy sits, so with
+   no wash at all nothing is legible over it — measured 1.41:1 for dark ink
+   on the lede and 1.39:1 for white. The navy gradient flattens that range
+   into one dark ground that white type can sit on at any width.
    ============================================================ */
 .pricing-hero {
   position: relative;
   isolation: isolate;
   color: #fff;
-  min-height: max(24rem, 56vh);          /* ~56vh, spec asks 50-60vh */
+  min-height: max(24rem, 56vh);
   display: flex;
   align-items: center;
-  /* Dark left-weighted gradient over the photo for text contrast (spec:
-     "dark overlay ... or left gradient"). object-fit:cover equivalent via
-     background-size:cover. The image url is passed per-page as a custom
-     property so {{ asset_path }} resolves correctly at every URL depth. */
   background:
     linear-gradient(100deg, rgba(9, 22, 50, .86) 0%, rgba(9, 22, 50, .66) 48%, rgba(9, 22, 50, .48) 100%),
     var(--pricing-hero-img, none) center / cover no-repeat,
@@ -56,9 +58,7 @@
   border-bottom: 3px solid var(--brand-green);
 }
 
-.pricing-hero__inner { max-width: 48rem; }
-
-/* Breadcrumbs + eyebrow flip to light on the dark ground. */
+/* Breadcrumbs + eyebrow on the dark ground. */
 .pricing-hero .crumbs { color: rgba(255, 255, 255, .72); }
 .pricing-hero .crumbs a { color: #fff; }
 .pricing-hero .crumbs a:hover { text-decoration: underline; }
@@ -77,8 +77,8 @@
   max-width: 40rem;
 }
 
-/* The GST notice repeated in the hero header (req 6). inline-block so the
-   text between "GST" and "(18%)" keeps its natural word spacing. */
+/* The GST notice repeated in the hero header. inline-block so the text
+   between "GST" and "(18%)" keeps its natural word spacing. */
 .pricing-hero__gst {
   display: inline-block;
   margin-top: var(--s-5);
@@ -105,6 +105,39 @@
   background: rgba(255, 255, 255, .18);
 }
 
+/* This element is the .wrap, which carries `margin-inline: auto`. Capping its
+   width therefore CENTRES the whole column instead of pinning it left — at
+   1440px the copy started at x=430 rather than at the page gutter, which is
+   why no left-weighted scrim ever lined up with it. The wrap keeps its normal
+   page gutter; the measure lives on the children.
+
+   No max-width declaration at all here — `none` would also drop .wrap's own
+   72rem cap, which left the copy hard against the viewport edge and out of
+   line with every section below it. */
+.pricing-hero__title { max-width: 40rem; }
+
+/* Hold every line inside the LEFT HALF of the band, so the copy never runs
+   across the shirt or the dress on the right of the banner.
+
+   50% of .wrap rather than of the viewport: .wrap is the narrower box at
+   large sizes, so this lands at or inside the true half-way line.
+
+   Not applied below 48rem — there the frame crops to near-square, the layout
+   is single column, and half a phone screen is not a usable measure. */
+@media (min-width: 48rem) {
+  .pricing-hero .crumbs,
+  .pricing-hero .eyebrow,
+  .pricing-hero__title,
+  .pricing-hero__lede,
+  .pricing-hero .btn-row { max-width: 50%; }
+}
+
+/* Phones crop the 2.36:1 frame to something near-square. Anchor it right so
+   the garments, not an empty slice of sky, are what shows behind the copy. */
+@media (max-width: 47.99rem) {
+  .pricing-hero { background-position: center, right center, 0 0; }
+}
+
 /* ============================================================
    Req 2b + Req 6 — Intro bar: location selector + GST notice
    ============================================================ */
@@ -125,9 +158,9 @@
 }
 .pricing-location__label {
   font-family: var(--font-mono);
-  font-size: var(--t-xs);
+  font-size: var(--t-sm);
   font-weight: 500;
-  letter-spacing: .1em;
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--ink-3);
 }
@@ -265,7 +298,7 @@
   background: var(--brand-green-cta);
   color: #fff;
   font-weight: 700;
-  font-size: var(--t-sm);
+  font-size: var(--t-base);
   letter-spacing: .01em;
   transition: background-color 160ms var(--ease-out), transform 120ms var(--ease-out);
 }
@@ -302,4 +335,256 @@
   .pricing-location__field { flex: 1; }
   .pricing-location__select { width: 100%; }
   .gst-badge { justify-content: center; }
+}
+
+/* ---- "Starts from" label + photo-less cards ----------------------------
+   Every rate on this page is a starting price, so the label is part of the
+   price block rather than a per-item flag. It is quiet by design: the number
+   stays the loudest thing on the card. --ink-3 is 4.94:1 on white; this text
+   is 11px, so it uses --ink-2 (8.95:1) instead. */
+.price-card__from {
+  display: block;
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  line-height: 1;
+  margin-bottom: 0.15rem;
+}
+
+/* Items with no photograph yet. A branded tile rather than a stand-in
+   picture of a different garment. */
+.price-card__media--none {
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(135deg, var(--navy-tint) 0%, var(--green-tint) 100%);
+}
+.price-card__placeholder { color: var(--brand-blue); opacity: 0.55; }
+
+/* Second line of the GST notice, under the badge. Deliberately quieter than
+   the badge — it is a qualifier, not a headline — but --ink-2 (8.95:1), not
+   --ink-3, because it carries the one caveat that changes what a customer
+   actually pays. */
+.gst-note {
+  margin: var(--s-3) 0 0;
+  max-width: 46rem;
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.gst-note a {
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.gst-note a:hover { color: var(--green-deep); }
+
+/* ============================================================
+   SEO sections added from the pricing content guide
+   ============================================================ */
+.price-intro__title { font-size: var(--t-xl); color: var(--navy); margin-bottom: var(--s-3); }
+.price-intro__body { color: var(--ink-2); }
+.price-intro__links { margin-top: var(--s-3); font-size: var(--t-sm); color: var(--ink-2); }
+.price-intro__links a { color: var(--green); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.price-intro__links a:hover { color: var(--green-deep); }
+
+/* ---- Why our pricing is different (blue band) ---- */
+.price-diff { background: var(--navy); border-block: 3px solid var(--brand-green); }
+.diff-grid {
+  display: grid;
+  gap: var(--s-4);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 44rem) { .diff-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 68rem) { .diff-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.diff-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--s-3);
+  align-items: start;
+  padding: var(--s-5);
+  border-radius: var(--r-lg);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.diff-card__tick {
+  grid-row: 1 / span 2;
+  display: inline-grid;
+  place-items: center;
+  width: 1.9rem; height: 1.9rem;
+  border-radius: 50%;
+  background: var(--brand-green);
+  color: #06210f;          /* dark on the bright brand green */
+}
+.diff-card h3 { color: #fff; font-size: var(--t-base); margin: 0 0 0.15rem; }
+.diff-card p { color: rgba(255, 255, 255, 0.84); font-size: var(--t-sm); margin: 0; }
+
+/* ---- Add-ons table ---- */
+.addon-table-wrap {
+  overflow-x: auto;               /* the table scrolls, never the page */
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+}
+.addon-table { width: 100%; min-width: 34rem; border-collapse: collapse; text-align: left; }
+.addon-table th, .addon-table td {
+  padding: var(--s-4) var(--s-5);
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+.addon-table thead th {
+  background: var(--navy);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.addon-table tbody th { color: var(--navy); font-weight: 700; white-space: nowrap; }
+.addon-table td { color: var(--ink-2); font-size: var(--t-sm); }
+.addon-table tbody tr:last-child th,
+.addon-table tbody tr:last-child td { border-bottom: 0; }
+.addon-table tbody tr:hover { background: var(--green-tint); }
+.addon-table__price {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--r-pill);
+  background: var(--green-tint);
+  color: var(--green-deep);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Category watermark + the price finder
+   ============================================================ */
+
+/* ---- Watermark behind each category heading ----
+   Same device as the service cards: one line-art scene, currentColor, low
+   opacity, sitting behind the heading rather than beside it. */
+.price-cat { position: relative; overflow: hidden; }
+.price-cat__head { position: relative; }
+.price-cat__bg {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  translate: 0 -50%;
+  width: min(34%, 15rem);
+  height: auto;
+  z-index: 0;
+  color: var(--brand-blue);
+  opacity: 0.12;
+  pointer-events: none;
+}
+.price-cat__head > *:not(.price-cat__bg) { position: relative; z-index: 1; }
+/* Alternate the hue so consecutive bands do not repeat. */
+.price-cat:nth-child(even) .price-cat__bg { color: var(--green-brand); opacity: 0.14; }
+
+@media (max-width: 47.99rem) {
+  /* On a phone the heading fills the width; a watermark behind it competes
+     with the words instead of sitting behind them. */
+  .price-cat__bg { width: 42%; opacity: 0.08; }
+}
+
+/* ---- The finder ---- */
+.price-finder {
+  display: grid;
+  gap: var(--s-3);
+  margin-bottom: var(--s-6);
+}
+.price-finder__search {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 0.55rem 0.9rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+  transition: border-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
+}
+.price-finder__search:focus-within {
+  border-color: var(--brand-green);
+  box-shadow: 0 0 0 4px rgba(33, 177, 75, 0.14);
+}
+.price-finder__search > svg { color: var(--green); flex: none; }
+.price-finder__search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: none;
+  font: inherit;
+  font-size: var(--t-base);
+  color: var(--ink);
+  padding: 0.35rem 0;
+}
+.price-finder__search input::placeholder { color: var(--ink-3); }
+.price-finder__search input::-webkit-search-cancel-button { display: none; }
+
+.price-finder__clear {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.9rem; height: 1.9rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--wash-2);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.price-finder__clear:hover { background: var(--line); color: var(--ink); }
+
+.price-finder__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+.price-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--paper);
+  color: var(--ink-2);
+  font-size: var(--t-base);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out), color 160ms var(--ease-out), translate 200ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .price-chip:hover {
+    background: var(--green-cta);
+    border-color: var(--green-cta);
+    color: #fff;
+    translate: 0 -2px;
+  }
+}
+/* The section you are actually reading. */
+.price-chip.is-current {
+  background: var(--navy-tint);
+  border-color: var(--brand-blue);
+  color: var(--navy);
+}
+
+.price-finder__count {
+  margin: 0;
+  font-size: var(--t-sm);
+  color: var(--ink-2);
+  min-height: 1.2em;      /* reserve the line so the grid never jumps */
+}
+
+.price-cat__empty { color: var(--ink-2); }
+
+@media (prefers-reduced-motion: reduce) {
+  .price-chip:hover { translate: none; }
 }

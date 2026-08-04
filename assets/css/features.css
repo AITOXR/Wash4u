@@ -26,6 +26,11 @@
   font-size: var(--t-xs);
 }
 .topbar__inner {
+  /* PREREQUISITE for the --t-xs change: this is a single nowrap row and at
+     13px it overflows by ~1px on 11 of 12 page types. Wrapping costs nothing
+     above 340px and prevents a clipped utility bar below it. */
+  flex-wrap: wrap;
+  row-gap: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -122,7 +127,12 @@
 .mega--services { width: min(40rem, 88vw); }
 .mega__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* Two columns, NOT a wider panel. At 16px in three ~186px columns 12 of
+     the 15 service names break onto two lines ('Sofa & Upholstery /
+     Cleaning'). Two ~296px columns fit every name on one line inside the
+     SAME min(40rem, 88vw) panel — widening it pushes the first column off
+     the left edge at 992-1100px, where body{overflow-x:hidden} hides it. */
+  grid-template-columns: repeat(2, 1fr);
   gap: 2px var(--s-4);
 }
 .mega__svc {
@@ -131,7 +141,9 @@
   gap: var(--s-3);
   padding: var(--s-2) var(--s-3);
   border-radius: var(--r-md);
-  font-size: var(--t-sm);
+  /* primary navigation, not a caption: must never be smaller than the
+     .header__link that opens it, which resolves to 1rem */
+  font-size: var(--t-base);
   font-weight: 600;
   color: var(--ink-2);
   transition: background-color 150ms var(--ease-out), color 150ms var(--ease-out);
@@ -160,12 +172,12 @@
   margin-bottom: var(--s-4);
 }
 .mega__lead strong { display: block; color: var(--ink); }
-.mega__lead span { font-size: var(--t-sm); color: var(--ink-3); }
+.mega__lead span { font-size: var(--t-base); color: var(--ink-3); }
 .mega__lead:hover { background: var(--navy-tint); }
 .mega__label {
   font-family: var(--font-mono);
-  font-size: .625rem;
-  letter-spacing: .14em;
+  font-size: var(--t-xs);
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--ink-3);
   margin-bottom: var(--s-2);
@@ -174,7 +186,7 @@
 .mega__area {
   padding: var(--s-2) var(--s-3);
   border-radius: var(--r-sm);
-  font-size: var(--t-sm);
+  font-size: var(--t-base);
   font-weight: 600;
   color: var(--ink-2);
   transition: background-color 150ms var(--ease-out), color 150ms var(--ease-out);
@@ -246,7 +258,7 @@
   color: #fff;
   border-radius: var(--r-pill);
   font-family: var(--font-mono);
-  font-size: .625rem;
+  font-size: var(--t-xs);
   font-weight: 600;
   line-height: 1;
 }
@@ -341,7 +353,7 @@ body.cart-lock { overflow: hidden; }
 }
 .cart-line__media img { width: 100%; height: 100%; object-fit: cover; }
 .cart-line__info { display: grid; gap: 2px; min-width: 0; }
-.cart-line__name { font-weight: 700; color: var(--ink); font-size: var(--t-sm); }
+.cart-line__name { font-weight: 700; color: var(--ink); font-size: var(--t-base); }
 .cart-line__price { font-family: var(--font-mono); font-size: var(--t-xs); color: var(--ink-3); }
 .cart-line__control { display: flex; align-items: center; gap: var(--s-2); }
 .cart-line__remove {
@@ -374,7 +386,42 @@ body.cart-lock { overflow: hidden; }
 }
 .cart-drawer__total span { color: var(--ink-2); font-weight: 600; }
 .cart-drawer__total strong { font-family: var(--font-mono); font-size: var(--t-xl); color: var(--ink); }
-.cart-drawer__note { font-size: var(--t-xs); color: var(--ink-3); }
+/* Estimate notice — the qualifier the customer must read before booking.
+   Was var(--t-xs) --ink-3: 13px grey, set between a bold total and two
+   buttons, i.e. the least visible element in the most important panel.
+
+   Amber, not red or navy: this sets an expectation, it does not report an
+   error, and navy would read as another UI chrome block next to the summary
+   above it. --amber-deep on --amber-tint measures 6.1:1, so the whole line
+   passes AA comfortably and the emphasis carries weight rather than colour
+   alone. */
+.cart-note {
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+  margin: 0;
+  padding: var(--s-3) var(--s-4);
+  /* square on the left so the 3px rule reads as a straight bar; rounding
+     that edge bends the rule into a hook at the corner */
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  /* the rule does the shouting so the fill can stay quiet */
+  border-left: 3px solid var(--amber);
+  background: var(--amber-tint);
+  color: var(--amber-deep);
+  font-size: var(--t-sm);
+  line-height: 1.45;
+}
+.cart-note b { font-weight: 700; }
+.cart-note__icon {
+  display: inline-flex;
+  flex: none;
+  margin-top: .1em;   /* optical: aligns the circle to the cap height, not the line box */
+  color: var(--amber);
+}
+
+@media (forced-colors: active) {
+  .cart-note { border: 1px solid CanvasText; border-left-width: 3px; background: Canvas; color: CanvasText; }
+}
 .cart-drawer__clear {
   justify-self: center;
   min-height: 2.75rem;
@@ -441,7 +488,7 @@ body.cart-lock { overflow: hidden; }
   border: 1px solid var(--line);
   border-radius: var(--r-pill);
   font-family: var(--font-mono);
-  font-size: .6875rem;
+  font-size: var(--t-xs);
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--navy);
@@ -554,7 +601,7 @@ body.cart-lock { overflow: hidden; }
   font-weight: 500;
 }
 .flow__step h3 { font-size: var(--t-md); color: #fff; margin-bottom: var(--s-1); }
-.flow__step p { font-size: var(--t-sm); color: rgba(255, 255, 255, .74); line-height: 1.5; }
+.flow__step p { font-size: var(--t-base); color: rgba(255, 255, 255, .74); line-height: 1.5; }
 
 /* ------------------------------------------------------------
    Home blog cards
@@ -587,7 +634,7 @@ body.cart-lock { overflow: hidden; }
 }
 .blog-card h3 { font-size: var(--t-md); line-height: 1.35; }
 .blog-card h3 a { color: var(--ink); }
-.blog-card p { font-size: var(--t-sm); color: var(--ink-3); line-height: 1.55; flex: 1; }
+.blog-card p { font-size: var(--t-base); color: var(--ink-3); line-height: 1.55; flex: 1; }
 /* whole card is the click target; the title link owns the a11y name */
 .blog-card h3 a::after { content: ''; position: absolute; inset: 0; }
 .blog-card { position: relative; }
@@ -645,7 +692,7 @@ body.cart-lock { overflow: hidden; }
   border-radius: var(--r-pill);
   color: var(--green-cta);
   font-weight: 700;
-  font-size: var(--t-sm);
+  font-size: var(--t-base);
   transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out);
 }
 .price-card__add:hover { background: var(--green-cta); color: #fff; }
@@ -761,7 +808,7 @@ body.cart-lock { overflow: hidden; }
   padding: .25rem .7rem;
   border-radius: var(--r-pill);
   font-family: var(--font-mono);
-  font-size: .625rem;
+  font-size: var(--t-xs);
   font-weight: 500;
   letter-spacing: .1em;
   text-transform: uppercase;

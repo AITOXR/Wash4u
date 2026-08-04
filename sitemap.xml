@@ -4,18 +4,18 @@
   <url><loc>https://wash4you.in/about-us/</loc><priority>0.7</priority></url>
   <url><loc>https://wash4you.in/services/</loc><priority>0.9</priority></url>
   <url><loc>https://wash4you.in/services/eco-friendly-laundry/</loc><priority>0.9</priority></url>
-  <url><loc>https://wash4you.in/services/steam-ironing/</loc><priority>0.9</priority></url>
   <url><loc>https://wash4you.in/services/premium-dry-cleaning/</loc><priority>0.9</priority></url>
   <url><loc>https://wash4you.in/services/shoe-cleaning/</loc><priority>0.9</priority></url>
-  <url><loc>https://wash4you.in/services/sofa-cleaning/</loc><priority>0.9</priority></url>
-  <url><loc>https://wash4you.in/services/mattress-cleaning/</loc><priority>0.9</priority></url>
-  <url><loc>https://wash4you.in/services/wet-cleaning/</loc><priority>0.9</priority></url>
   <url><loc>https://wash4you.in/services/bag-cleaning/</loc><priority>0.9</priority></url>
   <url><loc>https://wash4you.in/services/leather-cleaning/</loc><priority>0.9</priority></url>
-  <url><loc>https://wash4you.in/services/carpet-cleaning/</loc><priority>0.9</priority></url>
-  <url><loc>https://wash4you.in/services/accessories-cleaning/</loc><priority>0.9</priority></url>
-  <url><loc>https://wash4you.in/services/toy-cleaning/</loc><priority>0.9</priority></url>
   <url><loc>https://wash4you.in/services/curtains-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/carpet-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/toy-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/accessories-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/sofa-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/steam-ironing/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/mattress-cleaning/</loc><priority>0.9</priority></url>
+  <url><loc>https://wash4you.in/services/wet-cleaning/</loc><priority>0.9</priority></url>
   <url><loc>https://wash4you.in/services/blanket-quilt-cleaning/</loc><priority>0.9</priority></url>
   <url><loc>https://wash4you.in/services/linen-cleaning/</loc><priority>0.9</priority></url>
   <url><loc>https://wash4you.in/pricing/</loc><priority>0.8</priority></url>
