@@ -39,11 +39,12 @@ def test_page_matching_its_published_snapshot_is_not_pending():
 
 
 def test_page_to_yaml_uses_home_filename_for_empty_slug():
+    # conftest.py already seeds the one slug="" (homepage) row every test
+    # session gets — reuse it rather than inserting a second one (slug is
+    # UNIQUE).
     db = SessionLocal()
     try:
-        page = Page(slug="", title="Home", status=PageStatus.draft, is_home=True)
-        db.add(page)
-        db.commit()
+        page = db.query(Page).filter(Page.slug == "").first()
         rel, _content = page_to_yaml(page)
         assert rel == "content/pages/home.yml"
     finally:

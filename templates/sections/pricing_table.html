@@ -1,11 +1,15 @@
+{% from "_editor.html" import ed %}
 {# Section type: pricing_table — reuses .price-grid/.price-card from the
-   live pricing page's CSS + priceFilter.js search/filter behaviour. #}
+   live pricing page's CSS + priceFilter.js search/filter behaviour.
+   The price items themselves are edited from Products/Pricing in the
+   admin menu, not inline here — this section just displays the catalogue,
+   it doesn't own the items. #}
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
-      <h2>{{ section.props.heading }}</h2>
-      {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
+      {% if section.props.eyebrow or edit_mode %}<p class="eyebrow"{{ ed('eyebrow') }}>{{ section.props.eyebrow }}</p>{% endif %}
+      <h2{{ ed('heading') }}>{{ section.props.heading }}</h2>
+      {% if section.props.text or edit_mode %}<p{{ ed('text') }}>{{ section.props.text }}</p>{% endif %}
     </div>
     {% for cat in pricing.categories %}
     <div class="price-cat" id="cat-{{ loop.index0 }}">
@@ -39,6 +43,6 @@
       </div>
     </div>
     {% endfor %}
-    {% if section.props.note %}<p class="mono mono--note">{{ section.props.note }}</p>{% endif %}
+    {% if section.props.note or edit_mode %}<p class="mono mono--note"{{ ed('note') }}>{{ section.props.note }}</p>{% endif %}
   </div>
 </section>

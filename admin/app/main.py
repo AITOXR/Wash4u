@@ -6,11 +6,15 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, PlainTextResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
+from pathlib import Path
+
 from app.config import settings
 from app.deps import RedirectToLogin
-from app.routers import auth, blog, crm, dashboard, leads, media, orders, pages, products, public_api, settings as settings_router, users
+from app.routers import auth, blog, crm, dashboard, editor, leads, media, orders, pages, products, public_api, settings as settings_router, users
 
 app = FastAPI(title="Wash4You Admin")
+
+REPO_ROOT = Path(settings.repo_path).resolve()
 
 # CORS: locked to the public site's own origin — the public API is called
 # cross-origin from the static site, everything else (/admin/*) is
@@ -23,8 +27,16 @@ app.add_middleware(
 )
 
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
+# Serves the site's own CSS/JS/images for the editor's preview render.
+# Registered before the broader /assets mount below so uploads (which land
+# in content/media/, not src/assets/) resolve correctly — Starlette checks
+# mounts in registration order and uses the first path-prefix match.
+media_dir = REPO_ROOT / "content" / "media"
+media_dir.mkdir(parents=True, exist_ok=True)
+app.mount("/assets/media", StaticFiles(directory=str(media_dir)), name="media")
+app.mount("/assets", StaticFiles(directory=str(REPO_ROOT / "src" / "assets")), name="site-assets")
 
-for router in (auth.router, dashboard.router, pages.router, products.router, blog.router,
+for router in (auth.router, editor.router, dashboard.router, pages.router, products.router, blog.router,
                orders.router, crm.router, leads.router, settings_router.router, media.router,
                users.router, public_api.router):
     app.include_router(router)
@@ -40,7 +52,7 @@ async def _http_exception_handler(request: Request, exc: HTTPException):
     # Admin API routes (require_api_user) always get JSON, matching the
     # acceptance test "hitting an admin API directly returns 401" —
     # never a redirect, never a leaked traceback.
-    if request.url.path.startswith("/api/") or "application/json" in request.headers.get("accept", ""):
+    if "/api/" in request.url.path or "application/json" in request.headers.get("accept", ""):
         return JSONResponse({"detail": exc.detail}, status_code=exc.status_code)
     return PlainTextResponse(exc.detail, status_code=exc.status_code)
 

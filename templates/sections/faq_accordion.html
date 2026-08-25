@@ -1,12 +1,30 @@
-{# Section type: faq_accordion — reuses the faq_list macro so the existing
-   accordion JS/CSS and FAQPage schema convention keep working unchanged. #}
-{% from "_components.html" import faq_list %}
+{% from "_editor.html" import ed, rep, rep_item %}
+{# Section type: faq_accordion. Deliberately NOT using the shared faq_list
+   macro from _components.html here — that macro is also used for
+   product/location FAQ lists, which are plain data (not a section with a
+   db id), so it can't safely carry repeater add/remove wiring. Same CSS
+   classes (.faq/.faq-item/...), so styling and the accordion JS still
+   apply unchanged. #}
 <section class="section section--wash">
   <div class="wrap wrap--narrow">
     <div class="section-head reveal">
-      {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
-      <h2>{{ section.props.heading }}</h2>
+      {% if section.props.eyebrow or edit_mode %}<p class="eyebrow"{{ ed('eyebrow') }}>{{ section.props.eyebrow }}</p>{% endif %}
+      <h2{{ ed('heading') }}>{{ section.props.heading }}</h2>
     </div>
-    {{ faq_list(section.props['items'], section.id) }}
+    <div class="faq"{{ rep('items') }}>
+      {% for f in section.props['items'] %}
+      <div class="faq-item{% if edit_mode %} w4u-rep-item{% endif %}"{{ rep_item(loop.index0) }}>
+        <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="{{ section.id }}-{{ loop.index }}">
+          <span{{ ed('q') }}>{{ f.q }}</span>
+          <span class="faq-item__icon">{{ ui('plus', 24) }}</span>
+        </button>
+        <div class="faq-item__answer" id="{{ section.id }}-{{ loop.index }}" role="region">
+          <div{{ ed('a') }}>{{ f.a }}</div>
+        </div>
+        {% if edit_mode %}<button type="button" class="w4u-rep-remove" aria-label="Remove this question">×</button>{% endif %}
+      </div>
+      {% endfor %}
+      {% if edit_mode %}<button type="button" class="w4u-rep-add" data-repeater-add="items">+ Add question</button>{% endif %}
+    </div>
   </div>
 </section>

@@ -15,7 +15,7 @@ router = APIRouter(tags=["dashboard"])
 templates = Jinja2Templates(directory="app/templates")
 
 
-@router.get("/admin")
+@router.get("/admin/dashboard")
 def dashboard(request: Request, db: DBSession = Depends(get_db), user: User = Depends(require_any_role)):
     now = datetime.now(timezone.utc)
     today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)

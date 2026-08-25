@@ -1,4 +1,5 @@
 {% from "_icons.html" import ui %}
+{% from "_editor.html" import ed %}
 
 {# ============================================================
    before_after — the proof mechanic.
@@ -134,11 +135,11 @@
    photo keeps the plain text layout — same shell, same voice. #}
 <article class="review{% if r.photo %} review--photo{% endif %}">
   {% if r.photo %}
-  <span class="review__photo">
-    <img src="{{ asset_path }}{{ r.photo }}" alt="{{ r.alt }}" width="320" height="320" loading="lazy" decoding="async">
+  <span class="review__photo"{{ ed('photo', 'image') }}>
+    <img src="{{ asset_path }}{{ r.photo }}" alt="{{ r.alt or '' }}" width="320" height="320" loading="lazy" decoding="async">
   </span>
   {% endif %}
-  <span class="review__stars" aria-label="{{ r.rating }} out of 5 stars">
+  <span class="review__stars" aria-label="{{ r.rating }} out of 5 stars"{{ ed('rating', 'stars') }}>
     {% for _ in range(r.rating) %}{{ ui('star', 16) }}{% endfor %}
   </span>
   {# The quote is clamped to three lines by CSS — but only under `.js`, so
@@ -150,12 +151,12 @@
 
      quote_en used to render here as .review__translation. Removed on
      request — the field is left in testimonials.json so nothing is lost. #}
-  <blockquote class="review__quote">&ldquo;{{ r.quote }}&rdquo;</blockquote>
+  <blockquote class="review__quote"{{ ed('quote') }}>&ldquo;{{ r.quote }}&rdquo;</blockquote>
   <button type="button" class="review__more" hidden>Read more</button>
   <div class="review__who">
     <div>
-      <div class="review__name">{{ r.name }}</div>
-      <div class="review__meta">{{ ui('check-badge', 14) }} {{ r.attribution }}</div>
+      <div class="review__name"{{ ed('name') }}>{{ r.name }}</div>
+      <div class="review__meta">{{ ui('check-badge', 14) }} <span{{ ed('attribution') }}>{{ r.attribution }}</span></div>
     </div>
   </div>
 </article>

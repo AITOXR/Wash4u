@@ -1,20 +1,23 @@
+{% from "_editor.html" import ed, rep, rep_item %}
 {# Section type: steps_how_it_works — reuses .flow/.flow__step from the
    live site's CSS + flowRail.js (mobile swipe progress). #}
 <section class="section section--navy">
   <div class="wrap">
     <div class="section-head reveal">
-      {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
-      <h2>{{ section.props.heading }}</h2>
-      {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
+      {% if section.props.eyebrow or edit_mode %}<p class="eyebrow"{{ ed('eyebrow') }}>{{ section.props.eyebrow }}</p>{% endif %}
+      <h2{{ ed('heading') }}>{{ section.props.heading }}</h2>
+      {% if section.props.text or edit_mode %}<p{{ ed('text') }}>{{ section.props.text }}</p>{% endif %}
     </div>
-    <ol class="flow stagger-children">
+    <ol class="flow stagger-children"{{ rep('steps') }}>
       {% for step in section.props.steps %}
-      <li class="flow__step">
+      <li class="flow__step{% if edit_mode %} w4u-rep-item{% endif %}"{{ rep_item(loop.index0) }}>
         <span class="flow__num" aria-hidden="true">{{ '%02d' | format(loop.index) }}</span>
-        <h3>{{ step.title }}</h3>
-        <p>{{ step.detail }}</p>
+        <h3{{ ed('title') }}>{{ step.title }}</h3>
+        <p{{ ed('detail') }}>{{ step.detail }}</p>
+        {% if edit_mode %}<button type="button" class="w4u-rep-remove" aria-label="Remove this step">×</button>{% endif %}
       </li>
       {% endfor %}
+      {% if edit_mode %}<li class="w4u-rep-add" data-repeater-add="steps">+ Add step</li>{% endif %}
     </ol>
     <div class="flow-progress" aria-hidden="true"><span></span></div>
   </div>

@@ -1,13 +1,18 @@
+{% from "_editor.html" import ed, rep, rep_item %}
 {# Section type: legal_body — see schemas/sections/legal_body.yml #}
 <section class="doc">
   <div class="wrap wrap--narrow">
     {# Legal copy is never hidden behind a scroll reveal — if the observer
        never fires, an entire policy page would be invisible. #}
-    <div class="prose policy-section">
+    <div class="prose policy-section"{{ rep('clauses') }}>
       {% for clause in section.props.clauses %}
-      <h2>{{ clause.heading }}</h2>
-      <p>{{ clause.content }}</p>
+      <div class="{% if edit_mode %}w4u-rep-item{% endif %}"{{ rep_item(loop.index0) }}>
+        <h2{{ ed('heading') }}>{{ clause.heading }}</h2>
+        <p{{ ed('content') }}>{{ clause.content }}</p>
+        {% if edit_mode %}<button type="button" class="w4u-rep-remove" aria-label="Remove this clause">×</button>{% endif %}
+      </div>
       {% endfor %}
+      {% if edit_mode %}<button type="button" class="w4u-rep-add" data-repeater-add="clauses">+ Add clause</button>{% endif %}
     </div>
   </div>
 </section>

@@ -118,9 +118,19 @@
     ]
   }
   </script>
+  {% if edit_mode %}
+  {# The WYSIWYG editor's own stylesheet — namespaced under #w4u-editor-*
+     / .w4u-* classes so it can never collide with the site's own CSS.
+     edit_mode is only ever True when the admin renders this exact
+     template for GET /admin/edit/<slug>; the public build (build.py) and
+     GitHub Pages never set it, so this tag and everything it loads is
+     completely absent from the published site. #}
+  <link rel="stylesheet" href="/static/editor.css">
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js" defer></script>
+  {% endif %}
 </head>
 
-<body class="{% block body_class %}{% endblock %}">
+<body class="{% block body_class %}{% endblock %}{% if edit_mode %} w4u-edit-mode{% endif %}">
   <a class="skip-link" href="#main">Skip to content</a>
 
   {% from "_icons.html" import ui, care_symbol, care_tag, service_icon %}
@@ -633,5 +643,24 @@
     })
   })()
   </script>
+
+  {% if edit_mode %}
+  {# The editor chrome itself (top bar, side menu, style panel, section
+     picker, image picker, toast) is built entirely by editor.js — kept
+     out of the HTML here so there is exactly one place (admin/app/static/editor.js)
+     that owns its structure and behaviour. window.__W4U_EDITOR__ passes
+     the per-page/user data the script needs; it never leaks into the
+     production build since this whole block is edit_mode-gated. #}
+  <script>
+    window.__W4U_EDITOR__ = {
+      pageId: {{ page.db_id | tojson }},
+      pageTitle: {{ page.title | tojson }},
+      pageSlug: {{ page.slug | tojson }},
+      canEdit: {{ (user.role.value in ('owner', 'editor')) | tojson }},
+      pendingCount: {{ (pending_count or 0) | tojson }}
+    }
+  </script>
+  <script src="/static/editor.js" defer></script>
+  {% endif %}
 </body>
 </html>

@@ -1,8 +1,9 @@
+{% from "_editor.html" import ed %}
 {# Section type: text_block #}
 <section class="section">
   <div class="wrap wrap--narrow">
-    {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
-    {% if section.props.heading %}<h2>{{ section.props.heading }}</h2>{% endif %}
-    <div class="prose">{{ section.props.body | markdown | safe }}</div>
+    {% if section.props.eyebrow or edit_mode %}<p class="eyebrow"{{ ed('eyebrow') }}>{{ section.props.eyebrow }}</p>{% endif %}
+    {% if section.props.heading or edit_mode %}<h2{{ ed('heading') }}>{{ section.props.heading }}</h2>{% endif %}
+    <div class="prose"{{ ed('body', 'richtext') }}>{{ section.props.body | markdown | safe }}</div>
   </div>
 </section>

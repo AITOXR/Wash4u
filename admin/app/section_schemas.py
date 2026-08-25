@@ -31,14 +31,32 @@ def get_schema(section_type: str) -> dict | None:
     return load_section_schemas().get(section_type)
 
 
+_PLACEHOLDER_BY_KEY = {
+    "heading": "New heading", "heading_line1": "New heading", "title": "New title",
+    "eyebrow": "Label", "subheading": "A short supporting line goes here.",
+    "text": "A short supporting line goes here.", "body": "Click to edit this text. Write a sentence or two here.",
+    "detail": "Describe this here.", "quote": "A short customer quote goes here.",
+    "cta_label": "Click here", "label": "Click here", "q": "A frequently asked question?",
+    "a": "The answer goes here.", "name": "Customer name", "attribution": "Location",
+}
+
+
+def _placeholder_for(field: dict) -> object:
+    if field["type"] == "toggle":
+        return False
+    if field["type"] == "number":
+        return 5 if field["key"] == "rating" else 0
+    if field["type"] == "repeater":
+        # One sample item, not an empty list — "pre-filled with sensible
+        # placeholder content he can immediately click and edit", not a
+        # blank section that looks broken until someone adds a first row.
+        item = {}
+        for sub in field.get("item_fields", []):
+            item[sub["key"]] = _placeholder_for(sub)
+        return [item]
+    return _PLACEHOLDER_BY_KEY.get(field["key"], "Click to edit")
+
+
 def default_props(section_type: str) -> dict:
     schema = get_schema(section_type) or {}
-    props = {}
-    for field in schema.get("fields", []):
-        if field["type"] == "repeater":
-            props[field["key"]] = []
-        elif field["type"] == "toggle":
-            props[field["key"]] = False
-        else:
-            props[field["key"]] = ""
-    return props
+    return {field["key"]: _placeholder_for(field) for field in schema.get("fields", [])}

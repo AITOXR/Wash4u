@@ -293,6 +293,14 @@ def build(check_only: bool = False) -> None:
         if images_src.exists():
             shutil.copytree(images_src, DIST_DIR / "images")
 
+    # Media Library uploads (admin/app/routers/{media,editor}.py) land in
+    # content/media/ — copy them alongside the other assets so an image
+    # swapped in the editor actually appears on the published site, not
+    # just in the admin's own preview.
+    media_src = CONTENT_DIR / "media"
+    if media_src.exists():
+        shutil.copytree(media_src, DIST_DIR / "assets" / "media", dirs_exist_ok=True)
+
     common = dict(
         site=site, services=services, blog=blog, all_posts=all_posts,
         products=products, pricing=pricing, packages=packages,

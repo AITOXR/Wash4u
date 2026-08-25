@@ -1,3 +1,4 @@
+{% from "_editor.html" import ed %}
 {# Section type: page_header — see schemas/sections/page_header.yml #}
 <section class="page-hero">
   <div class="wrap wrap--narrow">
@@ -6,8 +7,8 @@
       <span aria-hidden="true">/</span>
       <span>{{ page.title }}</span>
     </nav>
-    {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
-    <h1>{{ section.props.heading }}</h1>
-    {% if section.props.subheading %}<p class="lede">{{ section.props.subheading }}</p>{% endif %}
+    {% if section.props.eyebrow or edit_mode %}<p class="eyebrow"{{ ed('eyebrow') }}>{{ section.props.eyebrow }}</p>{% endif %}
+    <h1{{ ed('heading') }}>{{ section.props.heading }}</h1>
+    {% if section.props.subheading or edit_mode %}<p class="lede"{{ ed('subheading') }}>{{ section.props.subheading }}</p>{% endif %}
   </div>
 </section>

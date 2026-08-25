@@ -17,7 +17,7 @@ from fastapi.testclient import TestClient
 
 from app.db import Base, SessionLocal, engine
 from app.main import app
-from app.models import Role, User
+from app.models import Page, PageStatus, Role, Section, User
 from app.security import hash_password
 
 
@@ -28,6 +28,13 @@ def _db():
     db = SessionLocal()
     db.add(User(email="owner@test.local", password_hash=hash_password("TestPassword123!"), role=Role.owner, must_change_password=False))
     db.add(User(email="staff@test.local", password_hash=hash_password("TestPassword123!"), role=Role.staff, must_change_password=False))
+    # A minimal homepage so /admin (-> /admin/edit/) and the section-editing
+    # tests have something real to act on, mirroring what seed_content.py
+    # loads from content/ in a real deployment.
+    home = Page(slug="", title="Home", is_home=True, depth=0, status=PageStatus.published)
+    db.add(home)
+    db.flush()
+    db.add(Section(page_id=home.id, type="hero", order=0, props={"heading_line1": "Test heading", "heading_line2": ""}))
     db.commit()
     db.close()
     yield

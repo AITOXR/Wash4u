@@ -11,7 +11,7 @@
     <td>/{{ page.slug }}{% if page.slug %}/{% endif %}</td>
     <td>{{ page.status.value }}</td>
     <td>{{ page.sections | length }}</td>
-    <td><a href="/admin/pages/{{ page.id }}/edit">Edit</a></td>
+    <td><a href="/admin/edit/{{ page.slug }}">Edit</a></td>
   </tr>
   {% endfor %}
 </table>

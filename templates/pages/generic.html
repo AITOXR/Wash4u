@@ -1,11 +1,28 @@
 {% extends "base.html" %}
 {# Generic page template: renders `page.sections` in order, one include per
    section type. This file never changes when a new section type is added —
-   see build.py's `--check` validation and schemas/sections/*.yml. #}
+   see build.py's `--check` validation and schemas/sections/*.yml.
+
+   In edit_mode (the admin's live-edit view — see admin/app/site_preview.py)
+   every section is wrapped with the identifying attributes and insertion
+   points the overlay JS needs for drag-reorder, the section toolbar and the
+   "+ add section" picker. When edit_mode is false (every production build)
+   this wrapper — the div itself, not just its attributes — is absent
+   entirely, so the published site's markup is byte-for-byte what it would
+   have been without the editor ever existing. #}
 {% block content %}
+{% if edit_mode %}<div class="w4u-insert" data-insert-at="0" data-page-id="{{ page.db_id }}"></div>{% endif %}
 {% for section in page.sections %}
-{% if section.visible %}
+{% if section.visible or edit_mode %}
+{% if edit_mode %}
+<div class="w4u-section{% if not section.visible %} w4u-section--hidden{% endif %}"
+     data-section-id="{{ section.db_id }}" data-section-type="{{ section.type }}" data-section-index="{{ loop.index0 }}">
 {% include "sections/" ~ section.type ~ ".html" %}
+</div>
+{% else %}
+{% include "sections/" ~ section.type ~ ".html" %}
+{% endif %}
+{% if edit_mode %}<div class="w4u-insert" data-insert-at="{{ loop.index }}" data-page-id="{{ page.db_id }}"></div>{% endif %}
 {% endif %}
 {% endfor %}
 {% endblock %}

@@ -27,10 +27,17 @@ def test_rate_limit_locks_out_after_five_failures(client):
     assert resp.status_code == 429
 
 
-def test_logged_in_owner_can_reach_dashboard(client):
+def test_logged_in_owner_lands_on_the_live_editor_not_a_dashboard(client):
+    # "The website is the editor" — /admin redirects straight into the
+    # inline editor for the homepage, not a dashboard.
     login(client, "owner@test.local", "TestPassword123!")
-    resp = client.get("/admin")
-    assert resp.status_code == 200
+    resp = client.get("/admin", follow_redirects=False)
+    assert resp.status_code == 303
+    assert resp.headers["location"] == "/admin/edit/"
+    edit_resp = client.get("/admin/edit/")
+    assert edit_resp.status_code == 200
+    assert 'data-field="heading_line1"' in edit_resp.text
+    assert "editor.js" in edit_resp.text
 
 
 def test_staff_cannot_reach_settings(client):

@@ -1,3 +1,4 @@
+{% from "_editor.html" import ed, rep, rep_item %}
 {# Section type: testimonials — reuses the review_card macro + .review-rail
    from the live site so styling/behaviour (rail-nav arrows, star rating,
    "read more" clamp) all keep working unchanged. #}
@@ -6,19 +7,23 @@
   <div class="wrap">
     <div class="reviews-head reveal">
       <div class="section-head" style="margin-bottom:0">
-        {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
-        <h2>{{ section.props.heading }}</h2>
-        {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
+        {% if section.props.eyebrow or edit_mode %}<p class="eyebrow"{{ ed('eyebrow') }}>{{ section.props.eyebrow }}</p>{% endif %}
+        <h2{{ ed('heading') }}>{{ section.props.heading }}</h2>
+        {% if section.props.text or edit_mode %}<p{{ ed('text') }}>{{ section.props.text }}</p>{% endif %}
       </div>
       <div class="rail-nav">
         <button type="button" data-rail-prev aria-label="Previous reviews">{{ ui('arrow-left', 18) }}</button>
         <button type="button" data-rail-next aria-label="Next reviews">{{ ui('arrow-right', 18) }}</button>
       </div>
     </div>
-    <div class="review-rail testimonial-rail">
+    <div class="review-rail testimonial-rail"{{ rep('items') }}>
       {% for t in section.props['items'] %}
-      {{ review_card(t, asset_path) }}
+      <div class="{% if edit_mode %}w4u-rep-item{% endif %}"{{ rep_item(loop.index0) }}>
+        {{ review_card(t, asset_path) }}
+        {% if edit_mode %}<button type="button" class="w4u-rep-remove" aria-label="Remove this testimonial">×</button>{% endif %}
+      </div>
       {% endfor %}
+      {% if edit_mode %}<button type="button" class="w4u-rep-add" data-repeater-add="items">+ Add testimonial</button>{% endif %}
     </div>
   </div>
 </section>

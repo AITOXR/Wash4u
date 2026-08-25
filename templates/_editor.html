@@ -1,0 +1,17 @@
+{# One shared macro, used by every section template, that marks an element
+   as editable. In production (edit_mode is False) it emits nothing, so
+   this can never affect the published build. In the admin's live-edit
+   view it emits the data-field attributes the overlay JS (admin/app/static/editor.js)
+   reads to wire up click-to-edit, image-swap and repeater controls.
+
+   kind: text (default, contenteditable) | image | button | link
+   This is the ONE place that has to change if the binding contract ever
+   changes — every section template just calls ed(...), so a new section
+   type is automatically editable with no admin-side wiring. #}
+{% macro ed(field, kind='text') %}{% if edit_mode %} data-field="{{ field }}"{% if kind != 'text' %} data-field-kind="{{ kind }}"{% endif %}{% endif %}{% endmacro %}
+
+{# Repeater container + item markers. `field` is the repeater's own key
+   (e.g. "items", "pairs", "steps"); call rep_item() around each rendered
+   item with its index so add/remove/reorder can target it. #}
+{% macro rep(field) %}{% if edit_mode %} data-repeater="{{ field }}"{% endif %}{% endmacro %}
+{% macro rep_item(index) %}{% if edit_mode %} data-repeater-item data-repeater-index="{{ index }}"{% endif %}{% endmacro %}

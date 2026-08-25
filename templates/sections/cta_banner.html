@@ -1,17 +1,20 @@
+{% from "_editor.html" import ed, rep, rep_item %}
 {# Section type: cta_banner — see schemas/sections/cta_banner.yml.
    `section--tight` (existing token, .62x padding) rather than the default
    `.section` padding: this is a closing row, not a full band, and sits
    right under whatever came before it. #}
 <section class="section section--tight">
   <div class="wrap wrap--narrow">
-    {% if section.props.heading %}<h2>{{ section.props.heading }}</h2>{% endif %}
-    {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
-    {% if section.props.buttons %}
-    <div class="btn-row">
+    {% if section.props.heading or edit_mode %}<h2{{ ed('heading') }}>{{ section.props.heading }}</h2>{% endif %}
+    {% if section.props.text or edit_mode %}<p{{ ed('text') }}>{{ section.props.text }}</p>{% endif %}
+    <div class="btn-row"{{ rep('buttons') }}>
       {% for btn in section.props.buttons %}
-      <a class="btn {{ 'btn--cta' if btn.style == 'primary' else 'btn--ghost' }}" href="{{ btn.href if btn.href.startswith('http') else root_path ~ btn.href }}"{% if btn.external %} target="_blank" rel="noopener"{% endif %}>{{ btn.label }}</a>
+      <span class="{% if edit_mode %}w4u-rep-item{% endif %}" style="display:inline-flex;gap:.25rem;align-items:center"{{ rep_item(loop.index0) }}>
+      <a class="btn {{ 'btn--cta' if btn.style == 'primary' else 'btn--ghost' }}" href="{{ btn.href if btn.href.startswith('http') else root_path ~ btn.href }}"{% if btn.external %} target="_blank" rel="noopener"{% endif %}{{ ed('label', 'button') }}>{{ btn.label }}</a>
+      {% if edit_mode %}<button type="button" class="w4u-rep-remove" aria-label="Remove this button">×</button>{% endif %}
+      </span>
       {% endfor %}
+      {% if edit_mode %}<button type="button" class="w4u-rep-add" data-repeater-add="buttons">+ Add button</button>{% endif %}
     </div>
-    {% endif %}
   </div>
 </section>
