@@ -9,7 +9,10 @@
 
 .header {
   position: sticky;
-  top: 0;
+  /* Docks directly under the pinned offer strip (--promo-h, set by JS —
+     see base.html) rather than at the viewport top. Falls back to 0 when
+     the offer is off, or before the script has measured it. */
+  top: var(--promo-h, 0px);
   z-index: 100;
   background: rgba(255,255,255,.88);
   backdrop-filter: saturate(180%) blur(14px);
@@ -258,6 +261,51 @@
 @media (prefers-reduced-motion: reduce) {
   .cta-bar { transition: none; }
 }
+
+/* ------------------------------------------------------------
+   Desktop quick-contact side rail — the .cta-bar above, for desktop.
+   ------------------------------------------------------------ */
+
+.side-rail {
+  display: none;
+}
+@media (min-width: 62rem) {
+  .side-rail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    position: fixed;
+    right: var(--s-5);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 80;
+  }
+}
+
+.side-rail__btn {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: var(--navy);
+  box-shadow: var(--shadow-lg);
+  transition: transform 160ms var(--ease-out), background 160ms var(--ease-out), color 160ms var(--ease-out);
+}
+.side-rail__btn svg { width: 1.375rem; height: 1.375rem; }
+.side-rail__btn:hover { transform: translateX(-.25rem); }
+
+/* WhatsApp leads in brand green, same tone the mobile bar's "Chat" CTAs use. */
+.side-rail__btn--whatsapp { background: var(--wa-green); color: #fff; }
+.side-rail__btn--whatsapp:hover { background: var(--wa-green-hover); }
+
+@media (prefers-reduced-motion: reduce) {
+  .side-rail__btn { transition: none; }
+  .side-rail__btn:hover { transform: none; }
+}
+
+@media print { .side-rail { display: none; } }
 
 /* ------------------------------------------------------------
    Footer

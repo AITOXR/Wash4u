@@ -152,8 +152,7 @@
           "name": "Dupatta",
           "price": "₹69",
           "amount": 69,
-          "slug": "dupatta",
-          "img": "images/pricing/shawl.png"
+          "slug": "dupatta"
         },
         {
           "name": "Blouse",
@@ -165,36 +164,31 @@
           "name": "Top",
           "price": "₹119",
           "amount": 119,
-          "slug": "top",
-          "img": "images/pricing/t-shirt.png"
+          "slug": "top"
         },
         {
           "name": "Palazzo",
           "price": "₹109",
           "amount": 109,
-          "slug": "palazzo",
-          "img": "images/pricing/pant-trouser.png"
+          "slug": "palazzo"
         },
         {
           "name": "Long Coat",
           "price": "₹369",
           "amount": 369,
-          "slug": "long-coat",
-          "img": "images/pricing/coat.png"
+          "slug": "long-coat"
         },
         {
           "name": "Cardigan",
           "price": "₹149",
           "amount": 149,
-          "slug": "cardigan",
-          "img": "images/pricing/sweater.png"
+          "slug": "cardigan"
         },
         {
           "name": "Sweatshirt",
           "price": "₹189",
           "amount": 189,
-          "slug": "sweatshirt",
-          "img": "images/pricing/sweater.png"
+          "slug": "sweatshirt"
         }
       ]
     },
@@ -249,15 +243,13 @@
           "name": "Bed Spread Double",
           "price": "₹359",
           "amount": 359,
-          "slug": "bed-spread-double",
-          "img": "images/pricing/double-bed-sheet.png"
+          "slug": "bed-spread-double"
         },
         {
           "name": "Comforter Double",
           "price": "₹249",
           "amount": 249,
-          "slug": "comforter-double",
-          "img": "images/pricing/double-blanket.png"
+          "slug": "comforter-double"
         },
         {
           "name": "Handbag Leather",
@@ -302,15 +294,13 @@
           "name": "Sneaker Ankle",
           "price": "₹399",
           "amount": 399,
-          "slug": "sneaker-ankle",
-          "img": "images/pricing/sneakers.jpg"
+          "slug": "sneaker-ankle"
         },
         {
           "name": "Boots Mid Length",
           "price": "₹699",
           "amount": 699,
-          "slug": "boots-mid-length",
-          "img": "images/pricing/leather-shoes.png"
+          "slug": "boots-mid-length"
         }
       ]
     },
@@ -342,15 +332,13 @@
           "name": "Woollen Laundry (Dailywear)",
           "price": "₹149",
           "amount": 149,
-          "slug": "woollen-laundry",
-          "img": "images/pricing/sweater.png"
+          "slug": "woollen-laundry"
         },
         {
           "name": "Woollen Laundry & Iron (Dailywear)",
           "price": "₹199",
           "amount": 199,
-          "slug": "woollen-laundry-iron",
-          "img": "images/pricing/wash-and-steam-iron.png"
+          "slug": "woollen-laundry-iron"
         }
       ]
     },

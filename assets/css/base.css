@@ -141,8 +141,12 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
-  /* offset for the sticky header when jumping to an anchor */
-  scroll-padding-top: 5.5rem;
+  /* Offset for the sticky header when jumping to an anchor, plus the
+     pinned offer strip's measured height (--promo-h, set by base.html) —
+     the header now docks below that strip instead of at the true top, so
+     an anchor target needs to clear both to land in view, not just the
+     header. */
+  scroll-padding-top: calc(5.5rem + var(--promo-h, 0px));
 }
 
 body {

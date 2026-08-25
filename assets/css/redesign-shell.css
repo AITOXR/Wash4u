@@ -329,8 +329,24 @@
 
 /* ------------------------------------------------------------
    First-order offer strip — every page, above the utility bar.
+
+   Pinned to the very top of the viewport at every scroll position, on
+   every page — sticky rather than fixed: it is already the first thing
+   in <body>, so its own sticky threshold (top: 0) is crossed the instant
+   the page scrolls at all, giving the exact same permanently-visible
+   result as `position: fixed` without needing to reserve space for it
+   manually (sticky keeps its normal-flow footprint until it locks).
+
+   The utility bar below it still scrolls away as before; only the header
+   needs to know this strip's height, since it stacks its own sticky
+   position directly beneath it — see `--promo-h`, measured by the inline
+   script at the end of base.html (the strip's height is set dynamically
+   because the copy can wrap to two lines on narrow phones).
    ------------------------------------------------------------ */
 .promo-strip {
+  position: sticky;
+  top: 0;
+  z-index: 110;
   background: linear-gradient(90deg, var(--brand-green-cta), var(--green-cta));
   color: #fff;
 }

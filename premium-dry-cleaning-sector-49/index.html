@@ -146,7 +146,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
 
-  <div class="promo-strip">
+  <div class="promo-strip" id="promo-strip">
     <div class="wrap promo-strip__inner">
       <p class="promo-strip__text">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s1.2 5 3 6.8S21 12 21 12s-4.2 1.4-6 3.2S12 21 12 21s-1.2-4-3-5.8S3 12 3 12s4.2-1.4 6-3.2S12 3 12 3Z"/></svg>
@@ -155,6 +155,22 @@
       </p>
     </div>
   </div>
+  <script>
+  (function () {
+    // The header docks directly under this strip (--promo-h, layout.css),
+    // so the header must know its real rendered height — which varies with
+    // the copy wrapping to two lines on narrow phones. Measured, not
+    // hardcoded, and re-measured on resize/orientation change.
+    var strip = document.getElementById('promo-strip')
+    if (!strip) return
+    function setH() {
+      document.documentElement.style.setProperty('--promo-h', strip.offsetHeight + 'px')
+    }
+    setH()
+    window.addEventListener('resize', setH)
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(setH)
+  })()
+  </script>
 
   <div class="topbar">
     <div class="wrap topbar__inner">
@@ -674,6 +690,12 @@
   <div class="cta-bar" id="mobile-cta-bar">
     <a class="btn btn--ghost" href="https://wa.me/916367600500" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.4 3.4 0 0 0 5.8 9c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.6 4 8 8 0 0 0 1.6.6 3.7 3.7 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg> WhatsApp</a>
     <a class="btn btn--cta" href="https://app.wash4you.in/website/W10795?brand=WASH4U" rel="noopener">Book pickup</a>
+  </div>
+
+  <div class="side-rail" aria-label="Quick contact">
+    <a class="side-rail__btn side-rail__btn--whatsapp" href="https://wa.me/916367600500" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.4 3.4 0 0 0 5.8 9c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.6 4 8 8 0 0 0 1.6.6 3.7 3.7 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg></a>
+    <a class="side-rail__btn" href="https://www.instagram.com/wash4you._" target="_blank" rel="noopener" aria-label="Wash4You on Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+    <a class="side-rail__btn" href="https://www.facebook.com/profile.php?id=61581209511675" target="_blank" rel="noopener" aria-label="Wash4You on Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V7c0-.8.2-1.2 1.4-1.2H17V3h-2.6C11.6 3 10.7 4.4 10.7 7v1.5H9V12h1.7v9H14v-9h2.4l.3-3.5Z"/></svg></a>
   </div>
 
   <script src="../assets/js/main.js" defer></script>

@@ -127,10 +127,11 @@
 
   {# First-order offer, on every page. A slim band above the utility bar
      rather than another line inside it, so it reads as its own announcement.
-     On narrow phones the single line is tight for both the phone number and
-     the offer, so it plays as a two-slide crossfade instead of two rows. #}
+     Pinned to the top of the viewport at all times (see .promo-strip in
+     redesign-shell.css and the height-measuring script below) so it never
+     scrolls out of view. #}
   {% if site.offer and site.offer.enabled %}
-  <div class="promo-strip">
+  <div class="promo-strip" id="promo-strip">
     <div class="wrap promo-strip__inner">
       <p class="promo-strip__text">
         {{ ui('sparkle', 14) }}
@@ -139,6 +140,22 @@
       </p>
     </div>
   </div>
+  <script>
+  (function () {
+    // The header docks directly under this strip (--promo-h, layout.css),
+    // so the header must know its real rendered height — which varies with
+    // the copy wrapping to two lines on narrow phones. Measured, not
+    // hardcoded, and re-measured on resize/orientation change.
+    var strip = document.getElementById('promo-strip')
+    if (!strip) return
+    function setH() {
+      document.documentElement.style.setProperty('--promo-h', strip.offsetHeight + 'px')
+    }
+    setH()
+    window.addEventListener('resize', setH)
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(setH)
+  })()
+  </script>
   {% endif %}
 
   {# Top utility bar — phone, area, contact and socials. Scrolls away above
@@ -432,6 +449,16 @@
   <div class="cta-bar" id="mobile-cta-bar">
     <a class="btn btn--ghost" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp</a>
     <a class="btn btn--cta" href="{{ site.nav.cta.url }}" rel="noopener">Book pickup</a>
+  </div>
+
+  {# Desktop's equivalent of the mobile sticky bar above: mobile always has a
+     one-tap WhatsApp button on screen, desktop had nothing persistent once
+     the header scrolled past. A fixed side rail, always on screen, every
+     page. Hidden below 62rem — .cta-bar already owns that width. #}
+  <div class="side-rail" aria-label="Quick contact">
+    <a class="side-rail__btn side-rail__btn--whatsapp" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">{{ ui('whatsapp', 22) }}</a>
+    <a class="side-rail__btn" href="{{ site.social.instagram }}" target="_blank" rel="noopener" aria-label="Wash4You on Instagram">{{ ui('instagram', 20) }}</a>
+    <a class="side-rail__btn" href="{{ site.social.facebook }}" target="_blank" rel="noopener" aria-label="Wash4You on Facebook">{{ ui('facebook', 20) }}</a>
   </div>
 
   <script src="{{ asset_path }}js/main.js" defer></script>
