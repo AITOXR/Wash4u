@@ -6,7 +6,7 @@
 {% block preload %}
   {# The pricing hero photo is this page's LCP candidate — preload it, and
      load this page's redesign stylesheet. #}
-  <link rel="preload" as="image" href="{{ asset_path }}images/hero-pricing.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="{{ asset_path }}images/hero-pricing.webp" fetchpriority="high">
   <link rel="stylesheet" href="{{ asset_path }}css/redesign-pricing.css">
 {% endblock %}
 
@@ -72,7 +72,7 @@
    url() inside a custom property resolves against the stylesheet that USES
    the variable, so `{{ asset_path }}` here produced /assets/assets/… and
    404'd. The stylesheet always sits at <assets>/css/. #}
-<section class="pricing-hero" style="--pricing-hero-img: url('../images/hero-pricing.jpg')">
+<section class="pricing-hero" style="--pricing-hero-img: url('../images/hero-pricing.webp')">
   <div class="wrap pricing-hero__inner">
   <div class="pricing-hero__panel">
     <nav class="crumbs" aria-label="Breadcrumb">

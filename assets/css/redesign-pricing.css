@@ -29,11 +29,13 @@
 
 /* ============================================================
    Hero: full-bleed photo at full strength, no wash across the frame.
-   The banner's sky runs from deep blue to white cloud right where the
-   copy used to sit (1.41:1 for dark ink, 1.39:1 for white — illegible
-   either way), so legibility now comes from a contained navy panel
-   behind just the text (.pricing-hero__panel) instead of a gradient
-   tinting the whole photograph.
+   No boxed panel behind the text any more — the copy runs the full
+   normal content width (.wrap, same as every other section) instead of
+   being pinned into a half-width tinted card. The banner's sky runs
+   from deep blue to white cloud right where the copy sits (1.41:1 for
+   dark ink, 1.39:1 for white against the brightest patch — illegible
+   either way), so a text-shadow carries legibility instead of a
+   background tint.
    ============================================================ */
 .pricing-hero {
   position: relative;
@@ -47,35 +49,26 @@
   border-bottom: 1px solid rgba(217, 184, 120, .35);
 }
 .pricing-hero__panel {
-  background: rgba(9, 22, 50, .82);
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
-  border: 1px solid rgba(217, 184, 120, .3);
-  border-radius: var(--r-xl);
-  padding: var(--s-6) var(--s-7);
-  max-width: 40rem;
-}
-@media (max-width: 30rem) {
-  .pricing-hero__panel { padding: var(--s-5) var(--s-4); }
+  max-width: none;
 }
 
 /* Breadcrumbs + eyebrow on the dark ground. */
-.pricing-hero .crumbs { color: rgba(255, 255, 255, .72); }
+.pricing-hero .crumbs { color: rgba(255, 255, 255, .85); text-shadow: 0 1px 8px rgba(0, 0, 0, .6); }
 .pricing-hero .crumbs a { color: #fff; }
 .pricing-hero .crumbs a:hover { text-decoration: underline; }
-.pricing-hero .crumbs span[aria-hidden] { color: rgba(255, 255, 255, .38); }
+.pricing-hero .crumbs span[aria-hidden] { color: rgba(255, 255, 255, .5); }
 
-.pricing-hero .eyebrow { color: #bfe6cb; }
-
+.pricing-hero .eyebrow { color: #bfe6cb; text-shadow: 0 1px 8px rgba(0, 0, 0, .6); }
 
 .pricing-hero__title {
   color: #fff;
   margin-bottom: var(--s-4);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .65);
 }
 
 .pricing-hero__lede {
-  color: rgba(255, 255, 255, .9);
-  max-width: 40rem;
+  color: rgba(255, 255, 255, .95);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .6);
 }
 
 /* The GST notice repeated in the hero header. inline-block so the text
@@ -106,32 +99,10 @@
   background: rgba(255, 255, 255, .18);
 }
 
-/* This element is the .wrap, which carries `margin-inline: auto`. Capping its
-   width therefore CENTRES the whole column instead of pinning it left — at
-   1440px the copy started at x=430 rather than at the page gutter, which is
-   why no left-weighted scrim ever lined up with it. The wrap keeps its normal
-   page gutter; the measure lives on the children.
-
-   No max-width declaration at all here — `none` would also drop .wrap's own
-   72rem cap, which left the copy hard against the viewport edge and out of
-   line with every section below it. */
-.pricing-hero__title { max-width: 40rem; }
-
-/* Hold every line inside the LEFT HALF of the band, so the copy never runs
-   across the shirt or the dress on the right of the banner.
-
-   50% of .wrap rather than of the viewport: .wrap is the narrower box at
-   large sizes, so this lands at or inside the true half-way line.
-
-   Not applied below 48rem — there the frame crops to near-square, the layout
-   is single column, and half a phone screen is not a usable measure. */
-@media (min-width: 48rem) {
-  .pricing-hero .crumbs,
-  .pricing-hero .eyebrow,
-  .pricing-hero__title,
-  .pricing-hero__lede,
-  .pricing-hero .btn-row { max-width: 50%; }
-}
+/* The copy runs the full .wrap width (72rem, same page gutter as every
+   other section) instead of being pinned to the left half — `.wrap`
+   already carries `margin-inline: auto`, so no extra width cap is needed
+   here at all. */
 
 /* Phones crop the 2.36:1 frame to something near-square. Anchor it right so
    the garments, not an empty slice of sky, are what shows behind the copy.
