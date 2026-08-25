@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui, care_tag %}
+{% from "_components.html" import page_hero_mascot_inline %}
 
 {# Legacy URL kept alive for SEO — it ranks for "steam iron" queries. It now
    carries the real price list and points at the steam-ironing service page. #}
@@ -32,6 +33,7 @@
           <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
           <a class="btn btn--ghost btn--lg" href="{{ root_path }}services/steam-ironing/">How it works</a>
         </div>
+        {{ page_hero_mascot_inline(asset_path) }}
       </div>
       <aside class="store-card reveal">
         <strong>Press only</strong>

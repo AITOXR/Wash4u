@@ -1,6 +1,27 @@
 {% from "_icons.html" import ui %}
 
 {# ============================================================
+   page_hero_mascot — the Why-section mascot treatment, reused inside
+   the second column of a plain .page-hero__grid (contact, blog,
+   locations, steam-iron, pricing matrix, policies).
+   ============================================================ #}
+{% macro page_hero_mascot(asset_path) %}
+<img class="page-hero__mascot" src="{{ asset_path }}images/mascot-why.png" alt=""
+     width="760" height="941" loading="lazy" decoding="async" aria-hidden="true">
+<img class="page-hero__mascot--sm" src="{{ asset_path }}images/mascot-why.png" alt=""
+     width="760" height="941" loading="lazy" decoding="async" aria-hidden="true">
+{% endmacro %}
+
+{# A single small, always-visible mascot for page-hero layouts whose second
+   grid column is already spoken for by a CTA aside (steam-iron, the
+   location x service matrix) or that have no second column at all
+   (narrow policy pages). #}
+{% macro page_hero_mascot_inline(asset_path) %}
+<img class="page-hero__mascot-inline" src="{{ asset_path }}images/mascot-why.png" alt=""
+     width="760" height="941" loading="lazy" decoding="async" aria-hidden="true">
+{% endmacro %}
+
+{# ============================================================
    before_after — the proof mechanic.
 
    The AFTER image is the base layer. The BEFORE image sits in a

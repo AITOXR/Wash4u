@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui, care_tag, service_icon %}
-{% from "_components.html" import faq_list %}
+{% from "_components.html" import faq_list, page_hero_mascot_inline %}
 
 {# The service x locality long-tail page. Deliberately lean: its whole job is
    to answer one specific query well and then hand the visitor to the two
@@ -60,6 +60,7 @@
           <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
           <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp us</a>
         </div>
+        {{ page_hero_mascot_inline(asset_path) }}
       </div>
 
       <aside class="store-card reveal">

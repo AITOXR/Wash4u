@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui %}
+{% from "_components.html" import page_hero_mascot %}
 
 {% block schema %},
       {
@@ -28,6 +29,7 @@
           <a class="btn btn--ghost btn--lg" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
         </div>
       </div>
+      {{ page_hero_mascot(asset_path) }}
     </div>
   </div>
 </section>

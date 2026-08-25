@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui, service_icon %}
+{% from "_components.html" import page_hero_mascot %}
 
 {% block content %}
 
@@ -16,6 +17,7 @@
         <h1{{ cms('blog:hero.headline') }}>{{ blog.hero.headline | replace('Most Trusted', '<span class="kw--onlight">Most Trusted</span>', 1) | replace('Laundry & Dry Cleaners', '<span class="neon-kw">Laundry &amp; Dry Cleaners</span>', 1) | safe }}</h1>
         <p class="lede"{{ cms('blog:hero.subheadline') }}>{{ blog.hero.subheadline }}</p>
       </div>
+      {{ page_hero_mascot(asset_path) }}
     </div>
   </div>
 </section>

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui, care_tag, service_icon, service_bg %}
-{% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card %}
+{% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card, page_hero_mascot_inline %}
 
 {% block schema %},
       {
@@ -95,6 +95,7 @@
           <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
           <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">{{ ui('whatsapp', 18) }} Ask a question</a>
         </div>
+        {{ page_hero_mascot_inline(asset_path) }}
       </div>
 
       <div class="svc-stage svc-stage--{{ state }}">

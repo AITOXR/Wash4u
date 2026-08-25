@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui %}
-{% from "_components.html" import review_card, video_review_card, faq_list %}
+{% from "_components.html" import review_card, video_review_card, faq_list, page_hero_mascot_inline %}
 
 {% block body_class %}page-about{% endblock %}
 
@@ -55,6 +55,7 @@
           <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
           <a class="btn btn--ghost btn--lg" href="{{ root_path }}services/">See what we clean</a>
         </div>
+        {{ page_hero_mascot_inline(asset_path) }}
       </div>
       <div class="reveal">
         <img src="{{ asset_path }}images/about-story.webp" alt="Inside the Wash4You store in Gurugram"

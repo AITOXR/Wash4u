@@ -64,6 +64,35 @@
 .page-hero .lede { max-width: 38rem; }
 .page-hero .btn-row { margin-top: var(--s-6); }
 
+/* Mascot companion, reused from the home page's Why section on the plain
+   two-column page-hero pages (contact, blog, locations, steam-iron,
+   pricing matrix, policies). Decorative only: alt="" + aria-hidden. */
+.page-hero__mascot, .page-hero__mascot--sm { display: none; }
+@media (min-width: 60rem) {
+  .page-hero__mascot {
+    display: block;
+    width: clamp(10rem, 14vw, 15rem);
+    height: auto;
+    justify-self: end;
+  }
+}
+@media (max-width: 59.999rem) {
+  .page-hero__mascot--sm {
+    display: block;
+    width: clamp(5.5rem, 22vw, 7rem);
+    height: auto;
+    margin: var(--s-6) auto 0;
+  }
+}
+@media print { .page-hero__mascot, .page-hero__mascot--sm { display: none; } }
+.page-hero__mascot-inline {
+  display: block;
+  width: clamp(4.5rem, 14vw, 6rem);
+  height: auto;
+  margin: var(--s-4) 0 0;
+}
+@media print { .page-hero__mascot-inline { display: none; } }
+
 /* Breadcrumbs */
 .crumbs {
   display: flex;

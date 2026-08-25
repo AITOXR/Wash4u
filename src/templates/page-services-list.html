@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_components.html" import faq_list %}
+{% from "_components.html" import faq_list, page_hero_mascot_inline %}
 {% from "_icons.html" import ui, care_tag, service_icon, service_bg %}
 
 {% block body_class %}page-services{% endblock %}
@@ -92,6 +92,7 @@
           <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
           <a class="btn btn--ghost btn--lg" href="{{ root_path }}pricing/">See pricing</a>
         </div>
+        {{ page_hero_mascot_inline(asset_path) }}
       </div>
     </div>
   </div>

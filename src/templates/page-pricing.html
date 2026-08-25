@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_components.html" import faq_list %}
+{% from "_components.html" import faq_list, page_hero_mascot_inline %}
 {% from "_icons.html" import ui, price_cat_bg %}
 {% set is_area = area is defined and area %}
 
@@ -101,6 +101,7 @@
       <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
       <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">{{ ui('whatsapp', 18) }} Ask about an item</a>
     </div>
+    {{ page_hero_mascot_inline(asset_path) }}
   </div>
   </div>
 </section>

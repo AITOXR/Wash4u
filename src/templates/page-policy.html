@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui %}
+{% from "_components.html" import page_hero_mascot_inline %}
 
 {% block content %}
 
@@ -12,6 +13,7 @@
     </nav>
     <p class="eyebrow">Policy</p>
     <h1{{ cms(cms_base ~ '.title') }}>{{ policy.title }}</h1>
+    {{ page_hero_mascot_inline(asset_path) }}
   </div>
 </section>
 

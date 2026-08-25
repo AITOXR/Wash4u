@@ -137,6 +137,7 @@
       "short_description": "Expert cleaning for handbags, leather handbags, totes, backpacks and other bags, with careful stain removal and material-specific care. We don't do restoration.",
       "description": "Our bag cleaning service deep-cleans handbags, leather handbags, totes, backpacks, and more. We use material-safe products to clean, remove stains and condition your bags — we do not do restoration, and we will tell you upfront if a bag is not a good candidate for cleaning.",
       "icon": "bag",
+      "image": "images/pricing/handbag-leather.webp",
       "features": [
         "Handbag, leather handbag and backpack cleaning",
         "Material-safe treatments",
@@ -212,6 +213,7 @@
       "short_description": "Safe and hygienic cleaning for soft, plush and fabric toys.",
       "description": "Our toy cleaning service ensures your child's favorite plush and fabric toys are hygienically cleaned using safe, non-toxic methods — perfect for keeping playtime healthy and worry-free.",
       "icon": "heart",
+      "image": "images/pricing/toy-cleaning.webp",
       "features": [
         "Safe for children",
         "Non-toxic cleaning",
@@ -282,6 +284,7 @@
       "slug": "mattress-cleaning",
       "name": "Mattress Cleaning Service",
       "icon": "mattress",
+      "image": "images/pricing/mattress-cleaning.webp",
       "short_description": "Deep mattress cleaning to remove dust, stains, sweat and everyday buildup.",
       "features": [
         "Cleaned in your home",

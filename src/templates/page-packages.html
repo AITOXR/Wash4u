@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui, service_icon %}
-{% from "_components.html" import faq_list %}
+{% from "_components.html" import faq_list, page_hero_mascot_inline %}
 
 {% block preload %}
   {# req 10: packages-only overrides for the per-plan feature/inclusion list. #}
@@ -80,6 +80,7 @@
           <a class="btn btn--ghost btn--lg" href="{{ root_path }}pricing/">See item pricing {{ ui('arrow-right', 18) }}</a>
           {% endif %}
         </div>
+        {{ page_hero_mascot_inline(asset_path) }}
       </div>
     </div>
   </div>

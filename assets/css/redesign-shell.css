@@ -305,29 +305,6 @@
 }
 
 /* ------------------------------------------------------------
-   Mascot badge, riding beside the wordmark in both the desktop
-   header and the mobile-nav top bar. Small, circular, on the same
-   tint the rest of the chrome uses — a brand mark, not artwork
-   competing with the photography used inside the page.
-   ------------------------------------------------------------ */
-.header__logo { gap: var(--s-2); }
-.header__mascot {
-  height: 2.25rem;
-  width: 2.25rem;
-  object-fit: contain;
-  border-radius: 50%;
-  background: var(--wash);
-  padding: 3px;
-  flex: none;
-}
-@media (min-width: 62rem) {
-  .header__mascot { height: 2.75rem; width: 2.75rem; }
-}
-@media (max-width: 26rem) {
-  .header__mascot { display: none; }
-}
-
-/* ------------------------------------------------------------
    First-order offer strip — every page, above the utility bar.
 
    Pinned to the very top of the viewport at every scroll position, on
