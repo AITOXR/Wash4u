@@ -207,7 +207,7 @@
     <div class="price-grid stagger-children">
       {% set cat_i0 = loop.index0 %}
       {% for item in cat['items'] %}
-      <article class="price-card" data-price-item
+      <article class="price-card" id="{{ item.slug }}" data-price-item
                data-slug="{{ item.slug }}"
                data-name="{{ item.name }}"
                data-amount="{{ item.amount }}"

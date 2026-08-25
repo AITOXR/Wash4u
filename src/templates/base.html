@@ -382,6 +382,22 @@
         </div>
       </div>
 
+      <div class="footer__products">
+        <h3>All Products</h3>
+        <div class="footer__product-groups">
+          {% for cat in pricing.categories %}
+          <div class="footer__product-group">
+            <p class="footer__product-group-title">{{ cat.title }}</p>
+            <ul class="footer__product-list">
+              {% for item in cat['items'] %}
+              <li><a href="{{ root_path }}pricing/#{{ item.slug }}">{{ item.name }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
       <div class="footer__bottom">
         <span{{ cms('site:brand.copyright') }}>{{ site.brand.copyright }}</span>
         <span{{ cms('site:brand.legal_name') }}>{{ site.brand.legal_name }}</span>

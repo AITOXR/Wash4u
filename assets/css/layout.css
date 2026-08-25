@@ -386,6 +386,42 @@
 .footer__store strong { display: block; color: #fff; font-weight: 700; margin-bottom: var(--s-1); }
 .footer__store address { font-style: normal; line-height: 1.55; }
 
+/* All Products — every priced item, not just the 15 broad service
+   categories above. One column per pricing category (5 of them). */
+.footer__products {
+  margin-top: var(--s-8);
+  padding-top: var(--s-7);
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.footer__product-groups {
+  display: grid;
+  gap: var(--s-6);
+  grid-template-columns: 1fr;
+  margin-top: var(--s-2);
+}
+@media (min-width: 40rem) { .footer__product-groups { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 68rem) { .footer__product-groups { grid-template-columns: repeat(5, 1fr); } }
+.footer__product-group-title {
+  font-weight: 600;
+  color: rgba(255,255,255,.85);
+  font-size: var(--t-sm);
+  margin-bottom: var(--s-3);
+}
+.footer__product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-3);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer__product-list a {
+  font-size: var(--t-xs);
+  color: rgba(255,255,255,.6);
+  transition: color 160ms var(--ease-out);
+}
+.footer__product-list a:hover { color: #fff; }
+
 
 /* ---- Header row capacity (PREREQUISITE for the --t-sm change) ----------
    .header__nav is a nowrap flex row with no scroll. Raising --t-sm grows

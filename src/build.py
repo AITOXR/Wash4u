@@ -613,6 +613,9 @@ def build() -> None:
         # the other-city names on every page, not just the home page.
         context.setdefault("areas_total_all", areas_total_all)
         context.setdefault("other_cities", other_cities)
+        # The footer's All Products section walks the full price list on
+        # every page too.
+        context.setdefault("pricing", pricing)
 
         rendered = template.render(**context)
         write_html(DIST_DIR / rel_path, rendered)
