@@ -1,0 +1,20 @@
+{% set list = products if section.props.mode != 'manual' else (products | selectattr('slug', 'in', (section.props.slugs or []) | map(attribute='slug') | list) | list) %}
+<section class="section">
+  <div class="wrap">
+    {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+    {% if section.props.heading %}<h2>{{ section.props.heading }}</h2>{% endif %}
+    <div class="svc-grid stagger-children">
+      {% for s in list %}
+      <article class="svc svc--photo">
+        <span class="svc__media{% if not s.image %} svc__media--tonal{% endif %}" aria-hidden="true">
+          {% if s.image %}<img src="{{ asset_path }}{{ s.image | replace('.png', '.webp') }}" alt="" width="500" height="500" loading="lazy" decoding="async">{% endif %}
+        </span>
+        <span class="svc__body">
+          <h3><a class="svc__link" href="{{ root_path }}services/{{ s.slug }}/">{{ s.name }}</a></h3>
+          <p>{{ s.short_description }}</p>
+        </span>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

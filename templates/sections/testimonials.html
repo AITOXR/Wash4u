@@ -1,0 +1,24 @@
+{# Section type: testimonials — reuses the review_card macro + .review-rail
+   from the live site so styling/behaviour (rail-nav arrows, star rating,
+   "read more" clamp) all keep working unchanged. #}
+{% from "_components.html" import review_card %}
+<section class="section">
+  <div class="wrap">
+    <div class="reviews-head reveal">
+      <div class="section-head" style="margin-bottom:0">
+        {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+        <h2>{{ section.props.heading }}</h2>
+        {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
+      </div>
+      <div class="rail-nav">
+        <button type="button" data-rail-prev aria-label="Previous reviews">{{ ui('arrow-left', 18) }}</button>
+        <button type="button" data-rail-next aria-label="Next reviews">{{ ui('arrow-right', 18) }}</button>
+      </div>
+    </div>
+    <div class="review-rail testimonial-rail">
+      {% for t in section.props['items'] %}
+      {{ review_card(t, asset_path) }}
+      {% endfor %}
+    </div>
+  </div>
+</section>

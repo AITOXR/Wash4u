@@ -1,0 +1,17 @@
+{# Section type: cta_banner — see schemas/sections/cta_banner.yml.
+   `section--tight` (existing token, .62x padding) rather than the default
+   `.section` padding: this is a closing row, not a full band, and sits
+   right under whatever came before it. #}
+<section class="section section--tight">
+  <div class="wrap wrap--narrow">
+    {% if section.props.heading %}<h2>{{ section.props.heading }}</h2>{% endif %}
+    {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
+    {% if section.props.buttons %}
+    <div class="btn-row">
+      {% for btn in section.props.buttons %}
+      <a class="btn {{ 'btn--cta' if btn.style == 'primary' else 'btn--ghost' }}" href="{{ btn.href if btn.href.startswith('http') else root_path ~ btn.href }}"{% if btn.external %} target="_blank" rel="noopener"{% endif %}>{{ btn.label }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>

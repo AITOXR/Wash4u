@@ -1,0 +1,12 @@
+{# Section type: faq_accordion — reuses the faq_list macro so the existing
+   accordion JS/CSS and FAQPage schema convention keep working unchanged. #}
+{% from "_components.html" import faq_list %}
+<section class="section section--wash">
+  <div class="wrap wrap--narrow">
+    <div class="section-head reveal">
+      {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+      <h2>{{ section.props.heading }}</h2>
+    </div>
+    {{ faq_list(section.props['items'], section.id) }}
+  </div>
+</section>

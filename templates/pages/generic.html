@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{# Generic page template: renders `page.sections` in order, one include per
+   section type. This file never changes when a new section type is added —
+   see build.py's `--check` validation and schemas/sections/*.yml. #}
+{% block content %}
+{% for section in page.sections %}
+{% if section.visible %}
+{% include "sections/" ~ section.type ~ ".html" %}
+{% endif %}
+{% endfor %}
+{% endblock %}

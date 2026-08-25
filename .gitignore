@@ -2,6 +2,7 @@
 .research/
 dist/
 dist-edit/
+dist2/
 node_modules/
 __pycache__/
 *.pyc
@@ -19,3 +20,10 @@ shots/
 # by accident. Anything matching these is scratch, never site source.
 .*.mjs
 .shot.tmp.mjs
+
+# Control plane (admin/) — local dev DB and secrets, never committed.
+admin/admin.db
+admin/.env
+admin/__pycache__/
+admin/**/__pycache__/
+admin/.pytest_cache/

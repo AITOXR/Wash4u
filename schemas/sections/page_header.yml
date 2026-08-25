@@ -1,0 +1,17 @@
+label: Page Header
+description: Breadcrumb, small eyebrow label and a headline at the top of an interior page (not the homepage).
+icon: layout
+fields:
+  - key: eyebrow
+    label: Small label above the heading
+    type: text
+    help: e.g. "Policy", "About us". Optional.
+  - key: heading
+    label: Heading
+    type: text
+    required: true
+    max: 90
+  - key: subheading
+    label: Sub-headline
+    type: textarea
+    help: Optional supporting line under the heading.

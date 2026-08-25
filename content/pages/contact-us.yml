@@ -1,0 +1,62 @@
+title: Contact Us
+slug: contact-us
+status: published
+seo:
+  title: Contact Wash4You – Laundry & Dry-Clean Service in Delhi NCR
+  description: >-
+    Get in touch with Wash4You for laundry, dry cleaning, and ironing
+    services in Delhi NCR. Call, WhatsApp, or fill out our enquiry form.
+  canonical: https://wash4you.in/contact-us/
+sections:
+  - type: page_header
+    id: sec_contact_header
+    visible: true
+    props:
+      eyebrow: Contact
+      heading: "Talk to Gurgaon & Delhi NCR's Most Trusted Laundry & Dry Cleaners"
+      subheading: >-
+        Wash4You is here for pickups, quotes and anything you want to ask
+        about a garment. Send a photo on WhatsApp for an exact price, call
+        the store directly, or book a free doorstep collection anywhere we
+        serve across Gurugram and Delhi NCR.
+
+  - type: contact_form
+    id: sec_contact_form
+    visible: true
+    props:
+      heading: Send us a message
+      submit_label: Submit Enquiry
+      fields:
+        - {name: name, label: Full Name, type: text, required: true}
+        - {name: email, label: Email Address, type: email, required: true}
+        - {name: phone, label: Phone Number, type: tel, required: true}
+        - {name: city, label: City, type: text, required: false}
+        - name: service
+          label: Service Type
+          type: select
+          required: false
+          options:
+            - {value: "Eco-Friendly Laundry Service"}
+            - {value: "Steam Ironing Service"}
+            - {value: "Premium Dry Cleaning Service"}
+            - {value: "Shoe Cleaning Service"}
+            - {value: "Bag & Handbag Cleaning"}
+            - {value: "Leather Cleaning & Care"}
+            - {value: "Carpet Cleaning Service"}
+            - {value: "Accessories Cleaning"}
+            - {value: "Toy Cleaning Service"}
+            - {value: "Curtain Cleaning Service"}
+            - {value: "Blanket & Quilt Cleaning"}
+            - {value: "Linen Cleaning Service"}
+        - {name: message, label: Message/Details, type: textarea, required: false}
+
+  - type: contact_info
+    id: sec_contact_info
+    visible: true
+    props:
+      heading: Contact Information
+      items:
+        - {label: Phone, value: "+91 63 67 600 500", href: "tel:+916367600500"}
+        - {label: Email, value: "care@wash4you.in", href: "mailto:care@wash4you.in"}
+        - {label: Service Area, value: "Gurugram | NCR"}
+        - {label: WhatsApp, value: "Chat on WhatsApp", href: "https://wa.me/916367600500"}

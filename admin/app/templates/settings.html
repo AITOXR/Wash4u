@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}Settings — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>Settings</h1>
+
+<form method="post" action="/admin/settings/branding" class="card">
+  <h2>Branding</h2>
+  <label class="form__field"><span>Logo path</span><input name="logo" value="{{ branding.logo or '' }}"></label>
+  <label class="form__field"><span>Favicon path</span><input name="favicon" value="{{ branding.favicon or '' }}"></label>
+  <label class="form__field"><span>Primary colour</span><input type="color" name="primary_color" value="{{ branding.primary_color or '#14336b' }}" style="min-height:44px"></label>
+  <label class="form__field"><span>Accent colour</span><input type="color" name="accent_color" value="{{ branding.accent_color or '#21b14b' }}" style="min-height:44px"></label>
+  <button class="btn btn--primary" type="submit">Save branding</button>
+</form>
+
+<form method="post" action="/admin/settings/business" class="card">
+  <h2>Business info</h2>
+  <label class="form__field"><span>Business name</span><input name="name" value="{{ business.name or '' }}"></label>
+  <label class="form__field"><span>Phone</span><input name="phone" value="{{ business.phone or '' }}"></label>
+  <label class="form__field"><span>WhatsApp number</span><input name="whatsapp" value="{{ business.whatsapp or '' }}"></label>
+  <label class="form__field"><span>Email</span><input name="email" value="{{ business.email or '' }}"></label>
+  <label class="form__field"><span>Address</span><textarea name="address">{{ business.address or '' }}</textarea></label>
+  <button class="btn btn--primary" type="submit">Save business info</button>
+</form>
+
+<form method="post" action="/admin/settings/seo" class="card">
+  <h2>SEO defaults</h2>
+  <label class="form__field"><span>Default page title suffix</span><input name="title_suffix" value="{{ seo.title_suffix or '' }}"></label>
+  <label class="form__field"><span>Default meta description</span><textarea name="default_description">{{ seo.default_description or '' }}</textarea></label>
+  <label class="form__field"><span>Google Analytics ID</span><input name="ga_id" value="{{ seo.ga_id or '' }}"></label>
+  <button class="btn btn--primary" type="submit">Save SEO defaults</button>
+</form>
+
+<form method="post" action="/admin/settings/announcement" class="card">
+  <h2>Announcement bar</h2>
+  <label class="form__field"><span>Enabled</span><input type="checkbox" name="enabled" value="1" {{ 'checked' if announcement.enabled }} style="width:auto;min-height:auto"></label>
+  <label class="form__field"><span>Text</span><input name="text" value="{{ announcement.text or '' }}"></label>
+  <button class="btn btn--primary" type="submit">Save</button>
+</form>
+
+<form method="post" action="/admin/settings/maintenance" class="card">
+  <h2>Maintenance mode</h2>
+  <label class="form__field"><span>Enabled</span><input type="checkbox" name="enabled" value="1" {{ 'checked' if maintenance.enabled }} style="width:auto;min-height:auto"></label>
+  <label class="form__field"><span>Message</span><textarea name="message">{{ maintenance.message or '' }}</textarea></label>
+  <button class="btn btn--primary" type="submit">Save</button>
+</form>
+
+<div class="card">
+  <h2>Backups</h2>
+  <a class="btn" href="/admin/settings/export">Export all content as JSON</a>
+</div>
+{% endblock %}

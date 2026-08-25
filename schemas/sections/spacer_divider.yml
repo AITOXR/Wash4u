@@ -1,0 +1,6 @@
+label: Spacer / Divider
+description: Empty vertical space, with or without a horizontal line.
+icon: minus
+fields:
+  - {key: height, label: Height, type: select, options: [small, medium, large]}
+  - {key: show_line, label: Show a divider line, type: toggle}

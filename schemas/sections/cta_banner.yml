@@ -1,0 +1,31 @@
+label: Call-to-action row
+description: One or two buttons, optionally with a short heading — used to close out a page.
+icon: megaphone
+fields:
+  - key: heading
+    label: Heading
+    type: text
+    help: Optional. Leave blank for just the buttons.
+  - key: text
+    label: Supporting text
+    type: textarea
+    help: Optional.
+  - key: buttons
+    label: Buttons
+    type: repeater
+    item_fields:
+      - key: label
+        label: Button text
+        type: text
+        required: true
+      - key: href
+        label: Button links to
+        type: link
+        required: true
+      - key: style
+        label: Style
+        type: select
+        options: [primary, secondary]
+      - key: external
+        label: Open in a new tab
+        type: toggle

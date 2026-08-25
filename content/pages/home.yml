@@ -1,0 +1,258 @@
+title: Home
+slug: ''
+depth: 0
+status: published
+seo:
+  title: Laundry & Dry Cleaning Service in Gurgaon & NCR | Wash4You
+  description: Premium eco-friendly laundry & dry cleaning in Gurgaon & Delhi NCR. Free doorstep pickup
+    & delivery, every piece counted with you. Book in 60 seconds.
+  canonical: https://wash4you.in/
+  og_title: Best Dry Cleaning & Laundry Service in Gurgaon & NCR — Wash4You
+  og_description: Free doorstep pickup and delivery across Gurugram. See the before-and-after for yourself.
+sections:
+- type: hero
+  id: sec_home_17
+  visible: true
+  props:
+    eyebrow: Gurugram · Delhi NCR
+    heading_line1: Shrink the hassle,
+    heading_line2: not the fabric.
+    subheading: We collect from your door and count every piece with you before it leaves.
+    cta_label: Book free pickup
+    cta_secondary_label: See pricing
+    trust_line: Trusted by 1000+ customers in Gurugram
+  style:
+    hide_on_mobile: false
+- type: features_grid
+  id: sec_home_18
+  visible: true
+  props:
+    eyebrow: Why Wash4You
+    heading: Premium Dry Cleaning & Laundry in Gurgaon & Delhi NCR
+    text: Professional laundry, dry cleaning and doorstep pickup & delivery you can count on. From clothes
+      and shoes to curtains and blankets, Wash4You gives every item the care it deserves — clean, fresh
+      and hassle-free, with skin-safe solvents and detergents gentle enough for kids' clothes.
+    items:
+    - icon: shield
+      title: Safe on fabric & skin
+      detail: Skin-safe solvents and detergents — gentle enough for kids' clothes — checked piece by piece.
+    - icon: leaf
+      title: Eco friendly
+      detail: Biodegradable detergents, water-saving machines and zero harsh chemicals — safer for your
+        fabric and the planet.
+    - icon: clock
+      title: On time
+      detail: Collected and returned when we said we would. 24-hour turnaround for laundry, 48–72 hours
+        for dry cleaning.
+    - icon: truck
+      title: Free pickup
+      detail: Doorstep collection and delivery, at no charge, across Gurugram, Delhi, Noida, Faridabad
+        and Ghaziabad.
+  style: {}
+- type: services_list
+  id: sec_home_19
+  visible: true
+  props:
+    eyebrow: What we clean
+    heading: Premium laundry to premium dryclean for clothes, shoes and handbags that need professional
+      care — with free pickup and delivery.
+    text: Fifteen services under one roof, each with its own handling. From everyday laundry to advanced
+      dry cleaning, specialist leather, shoe and upholstery care — all with free pickup and delivery in
+      Gurugram.
+    limit: 12
+    cta_label: All services
+  style: {}
+- type: price_rail
+  id: sec_home_20
+  visible: true
+  props:
+    eyebrow: What it costs
+    heading: Real prices, on the actual items.
+    text: No quote-on-request, no surprise at delivery. These are the rates for the pieces we handle most,
+      dry cleaned or laundered with free pickup and delivery across Gurugram.
+    cta_label: See the full price list
+    slugs:
+    - slug: wash-and-fold
+    - slug: shirt
+    - slug: men-suit-3pcs
+    - slug: sneakers
+    - slug: kurta
+    - slug: lehenga
+    - slug: leather-jacket
+    - slug: jeans
+    - slug: sherwani
+    - slug: sports-shoes
+    - slug: curtain
+    - slug: sweater
+    - slug: leather-shoes
+    - slug: carpet
+    - slug: double-blanket
+    - slug: kurta-fancy
+  style: {}
+- type: proof_gallery
+  id: sec_home_21
+  visible: true
+  props:
+    eyebrow: Real results
+    heading: Drag the handle. That's the same shoe.
+    text: Every before-and-after on this site is our own work, photographed in our Gurugram store. Nothing
+      is stock and nothing is retouched.
+    pairs:
+    - id: sneaker-nike
+      title: Nike SB Dunk — suede deep clean
+      summary: Water staining across the suede upper and a yellowed gum sole, brought back without bleaching
+        or re-dyeing.
+      before: images/proof/sneaker-nike-before.webp
+      after: images/proof/sneaker-nike-after.webp
+      alt_before: Nike SB Dunk sneaker with heavy blue water staining across the cream suede upper and
+        a discoloured gum sole
+      alt_after: The same Nike SB Dunk sneaker after Wash4You cleaning, with even cream suede and a cleaned
+        gum sole — Wash4You, Gurgaon
+      width: 820
+      height: 455
+    - id: sofa
+      title: Three-seater fabric sofa
+      summary: Body-oil greying across the seat cushions and backrest, deep-shampooed and extracted in
+        the customer's home.
+      before: images/proof/sofa-before.webp
+      after: images/proof/sofa-after.webp
+      alt_before: Light grey three-seater fabric sofa with visible soiling and greying across the seat
+        cushions
+      alt_after: The same three-seater sofa after Wash4You upholstery cleaning, with the fabric returned
+        to an even light grey — Wash4You, Gurgaon
+      width: 760
+      height: 710
+  style: {}
+- type: steps_how_it_works
+  id: sec_home_22
+  visible: true
+  props:
+    eyebrow: How it works
+    heading: From your door and back, in seven steps.
+    text: The same care as a specialist store, with the pickup and delivery done for you. Book online
+      or on WhatsApp and we handle the rest, across Gurugram and Delhi NCR.
+    steps:
+    - title: Book a free pickup
+      detail: Choose a time online or on WhatsApp. Pickup and delivery are always free across Gurugram
+        and Delhi NCR.
+    - title: Doorstep collection
+      detail: We arrive at your slot and count every piece with you before it leaves. No guesswork, no
+        mix-ups.
+    - title: Sorting & inspection
+      detail: Sorted by fabric and colour; stains, damage and special care are flagged by our fabric experts,
+        photographed and sent to you for approval before any treatment starts.
+    - title: Stain treatment
+      detail: Marks are pre-treated by hand with the right, skin-safe solution for the fabric — gentle
+        enough for kids' clothes.
+    - title: Cleaning
+      detail: Dry-cleaned or washed by the method each garment actually needs — an advanced, skin-safe
+        dry-cleaning process for delicates and structured wear, water-based washing for the rest.
+    - title: Finishing & quality check
+      detail: Steam-pressed, re-counted and checked piece by piece against your list before packing.
+    - title: Delivered to your door
+      detail: Packed separately as your order and returned when we said we would — fresh, crisp, and ready
+        to wear.
+  style: {}
+- type: testimonials
+  id: sec_home_23
+  visible: true
+  props:
+    eyebrow: From our customers
+    heading: Real customers, real reviews.
+    text: Our own customers, in their own words, at the moment they collected their order.
+    items:
+    - name: Pranav Ji
+      attribution: Happy Customer
+      rating: 5
+      quote: Very good service, professional cleaning. Highly recommended.
+      photo: images/reviews/review-pranav.webp
+    - name: Verified Customer
+      attribution: Visiting from Ahmedabad
+      rating: 5
+      quote: I looked up Wash4You online and took their laundry service for my 15-day stay. The service
+        is excellent — I recommend them to everyone.
+      photo: images/reviews/review-07.webp
+    - name: Verified Customer
+      attribution: Gurugram
+      rating: 5
+      quote: The way you clean clothes and shoes is wonderful.
+      photo: images/reviews/review-08.webp
+    - name: Verified Customer
+      attribution: Gurugram
+      rating: 5
+      quote: My delivery came today and I'm very happy — the sneakers came back perfectly clean.
+      photo: images/reviews/review-06.webp
+    - name: Verified Customer
+      attribution: Gurugram
+      rating: 5
+      quote: I tried at home and the stain didn't go. Wash4You removed it completely.
+      photo: images/reviews/review-05.webp
+    - name: Verified Customer
+      attribution: Gurugram
+      rating: 5
+      quote: Oh my god, unbelievable — you've done magic!
+      photo: images/reviews/review-01.webp
+  style: {}
+- type: coverage_band
+  id: sec_home_24
+  visible: true
+  props:
+    eyebrow: Where we collect
+    heading: Free pickup across Gurugram.
+    text: Two stores — one in Sushant Lok, one in Sector 49 — serving the sectors and colonies around
+      them. We also collect across Delhi, Noida, Faridabad and Ghaziabad.
+    map_image: images/hero-areas.webp
+  style: {}
+- type: blog_feed
+  id: sec_home_25
+  visible: true
+  props:
+    eyebrow: From the blog
+    heading: Laundry & Dry Cleaning tips
+    text: Guides on stains, fabrics, footwear and monsoon drying — written by the people who do it.
+    limit: 3
+    cta_label: Read the blog
+  style: {}
+- type: faq_accordion
+  id: sec_home_26
+  visible: true
+  props:
+    heading: Frequently asked questions
+    items:
+    - q: Is pickup and delivery really free?
+      a: Yes. Doorstep collection and delivery are included at no extra charge anywhere we serve in Gurugram.
+    - q: How do I know nothing goes missing?
+      a: Every piece is counted with you at the door before it leaves, and you get a written acknowledgement
+        of exactly what was collected. Your order is then bagged on its own — it never shares a machine
+        or a bag with another customer's clothes.
+    - q: What if a stain doesn't come out?
+      a: Tell us what the stain is and roughly how old it is when you book, because that genuinely changes
+        what we can do. Some stains — old oil, set ink, heat-fixed marks — may not lift completely. We
+        would rather tell you that before we treat the garment than after.
+    - q: Can you clean things other than clothes?
+      a: Yes. Shoes and sneakers, handbags, leather, curtains, carpets, sofas, mattresses, blankets and
+        soft toys. Sofas and mattresses are cleaned at your home; everything else is collected.
+    - q: Which parts of Gurugram do you cover?
+      a: Sushant Lok, Sector 49, Cyber City, DLF Phase 3, Golf Course Road, Golf Course Extension Road,
+        Sohna Road, Sector 29, Palam Vihar and MG Road, plus the sectors around them. If you are not sure,
+        send us a WhatsApp with your address and we will confirm.
+    - q: How do I book a laundry pickup?
+      a: Book a pickup online, or send a WhatsApp to +91 63 67 600 500 with your address and a time window
+        that suits you.
+  style: {}
+- type: cta_banner
+  id: sec_home_27
+  visible: true
+  props:
+    heading: Book a free pickup.
+    text: Tell us when suits you. We come to your door, count everything with you, and take it from there.
+    buttons:
+    - label: Book free pickup
+      href: https://app.wash4you.in/website/W10795?brand=WASH4U
+      style: primary
+      external: true
+    - label: WhatsApp us
+      href: https://wa.me/916367600500
+      style: secondary
+      external: true
+  style: {}

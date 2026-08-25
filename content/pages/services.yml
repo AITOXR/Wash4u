@@ -1,0 +1,35 @@
+title: Services
+slug: services
+status: published
+seo:
+  title: Laundry & Dry Cleaning Services in Gurgaon | Wash4You
+  description: >-
+    All 15 Wash4You services — eco-friendly laundry, premium dry cleaning,
+    shoe, leather, carpet, curtain, sofa and more — with free doorstep
+    pickup and delivery across Gurugram.
+  canonical: https://wash4you.in/services/
+sections:
+  - type: page_header
+    id: sec_services_header
+    visible: true
+    props:
+      eyebrow: Services
+      heading: Fifteen services, one doorstep pickup.
+      subheading: >-
+        From everyday laundry to specialist leather, shoe and upholstery
+        care — every service includes free pickup and delivery across
+        Gurugram.
+
+  - type: product_grid
+    id: sec_services_grid
+    visible: true
+    props:
+      mode: all
+
+  - type: cta_banner
+    id: sec_services_cta
+    visible: true
+    props:
+      buttons:
+        - {label: Book free pickup, href: "https://app.wash4you.in/website/W10795?brand=WASH4U", style: primary, external: true}
+        - {label: See pricing, href: "pricing/", style: secondary}

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}{{ product.name if product else 'New product' }} — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>{{ product.name if product else 'New product' }}</h1>
+<form method="post" class="card" enctype="multipart/form-data">
+  <label class="form__field"><span>Name</span><input name="name" value="{{ product.name if product else '' }}" required></label>
+  <label class="form__field"><span>Web address</span><input name="slug" value="{{ product.slug if product else '' }}" required></label>
+  <label class="form__field"><span>Short description</span><textarea name="short_desc">{{ product.short_desc if product else '' }}</textarea></label>
+  <label class="form__field"><span>Full description</span><textarea name="long_desc" rows="8">{{ product.long_desc if product else '' }}</textarea></label>
+  <label class="form__field"><span>Price</span><input name="price" value="{{ product.price if product else '' }}" placeholder="₹149"></label>
+  <label class="form__field"><span>Sale price (optional)</span><input name="sale_price" value="{{ product.sale_price if product else '' }}"></label>
+  <label class="form__field"><span>Unit label (optional)</span><input name="unit_label" value="{{ product.unit_label if product else '' }}" placeholder="per kg / per piece"></label>
+  <label class="form__field"><span>Images (comma-separated paths — use Media Library to upload)</span>
+    <input name="images" value="{{ (product.images if product else []) | join(', ') }}"></label>
+  <label class="form__field"><span>Active</span>
+    <input type="checkbox" name="is_active" value="1" {{ 'checked' if not product or product.is_active }} style="width:auto;min-height:auto"></label>
+  <button class="btn btn--primary" type="submit">Save</button>
+</form>
+{% endblock %}

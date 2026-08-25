@@ -1,0 +1,89 @@
+title: About Us
+slug: about-us
+status: published
+seo:
+  title: About Wash4You — Gurgaon's Trusted Laundry & Dry-Cleaning Service
+  description: >-
+    Wash4You is a premium laundry and dry-cleaning service in Gurugram and
+    Delhi NCR — eco-friendly processing, free doorstep pickup and
+    delivery, and 25+ years of European garment-care experience behind the
+    team.
+  canonical: https://wash4you.in/about-us/
+sections:
+  - type: page_header
+    id: sec_about_header
+    visible: true
+    props:
+      eyebrow: About us
+      heading: "Gurgaon's Most Trusted Laundry & Dry-Cleaning Service"
+      subheading: >-
+        Wash4You is a premium laundry service in Gurugram and Delhi NCR,
+        built on a simple promise: your laundry is our responsibility.
+
+  - type: text_block
+    id: sec_about_story
+    visible: true
+    props:
+      eyebrow: Our story
+      heading: >-
+        From a handful of clients to Gurugram's favourite laundry and
+        dry-cleaning partner
+      body: |
+        What started as a small service for a few local families has grown into one of the most reliable online laundry services in Delhi NCR — entirely through word-of-mouth, consistent quality, and an obsession with customer satisfaction.
+
+        We didn't just bring another "dhobi" to the market. We built a technology-enabled laundry ecosystem where you can schedule a pickup online, track your order, and get your clothes back — freshly cleaned, perfectly pressed and neatly packed — without stepping out of your home or office.
+
+        Our leadership team brings more than 25 years of hands-on experience from the European laundry and dry-cleaning market, where standards for fabric care, stain removal and eco-friendly processing are among the strictest in the world. We've adapted those practices for local fabrics and climates, and packaged them into an affordable, hassle-free service for professionals, families and businesses across the NCR.
+
+  - type: features_grid
+    id: sec_about_why
+    visible: true
+    props:
+      eyebrow: Why Wash4You
+      heading: Rated among the best laundry and dry-cleaning services in Gurgaon & Delhi NCR
+      text: "Choosing a laundry service isn't just about clean clothes — it's about trust, convenience and consistency. Here's why customers across the NCR stay with us."
+      items:
+        - icon: clock
+          title: On-time pickup & delivery
+          detail: "Late deliveries ruin plans. We collect and drop off at your chosen time slot — rain or shine, busy Monday or quiet Sunday."
+        - icon: leaf
+          title: Eco-friendly practices
+          detail: "Biodegradable detergents, water-efficient machines and sustainable packaging. Our dry-cleaning process avoids harsh chemicals, which is safer for your skin, your clothes and the planet."
+        - icon: sparkle
+          title: 25+ years of European expertise
+          detail: "Our founders and senior technicians honed their craft in Europe's most demanding dry-cleaning markets. Silk sarees, woollen coats, designer blazers and delicate ethnic wear get that same precision."
+        - icon: check
+          title: Book in 60 seconds
+          detail: "No phone calls or chasing on WhatsApp. Book a pickup online in under a minute, choose your service, and track the order from collection to delivery."
+        - icon: shield
+          title: Quality you can see
+          detail: "Every garment goes through tagging, fabric assessment, stain pre-treatment, processing, steam finishing, a quality check and protective packing."
+        - icon: truck
+          title: Free pickup & delivery
+          detail: "Complimentary doorstep collection and delivery across our service area. No minimum-order anxiety and no hidden charges."
+
+  - type: faq_accordion
+    id: sec_about_faq
+    visible: true
+    props:
+      heading: Frequently asked questions
+      items:
+        - q: What areas does Wash4You cover for free pickup and delivery?
+          a: "We offer free pickup and delivery across Gurugram — Sushant Lok, Sector 49, Cyber City, DLF Phase 3, Golf Course Road, Golf Course Extension, Sohna Road, Sector 29, Palam Vihar, MG Road, plus the sectors around them. If you are not sure, send us a WhatsApp with your address and we will confirm."
+        - q: How is Wash4You different from a local dhobi or other online laundry services?
+          a: "Wash4You brings 25+ years of European garment-care expertise, technology-enabled booking and tracking, eco-friendly processing and on-time delivery. We are a registered unit of Vaaruni Ventures LLP, so there is accountability at every step."
+        - q: What is your turnaround time for laundry and dry cleaning?
+          a: "Standard wash & fold and wash & iron come back in 24 hours. Premium dry cleaning takes 48–72 hours, and specialist items such as curtains, woollens, shoes and bags take 3–5 days."
+        - q: Do you use eco-friendly cleaning products?
+          a: "Yes. We use biodegradable detergents, enzyme-based stain removers and water-efficient machines, and our dry-cleaning process avoids harsh PERC chemicals — safer for sensitive skin and for the environment."
+        - q: Can I trust Wash4You with expensive or delicate garments?
+          a: "Yes. Our team is trained in fabric-specific care, from silk sarees and woollen coats to designer blazers and lehengas. Every item is inspected, tagged and processed according to its care label and fabric."
+
+  - type: cta_banner
+    id: sec_about_cta
+    visible: true
+    props:
+      heading: Ready to reclaim your weekends?
+      text: "Stop spending Sundays sorting, washing and ironing. Let Wash4You handle it."
+      buttons:
+        - {label: "Schedule your free pickup", href: "https://app.wash4you.in/website/W10571?brand=WASH4U", style: primary, external: true}

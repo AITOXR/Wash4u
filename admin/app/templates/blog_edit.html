@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}{{ post.title if post else 'New post' }} — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>{{ post.title if post else 'New post' }}</h1>
+<form method="post" class="card">
+  <label class="form__field"><span>Title</span><input name="title" value="{{ post.title if post else '' }}" required></label>
+  <label class="form__field"><span>Web address</span><input name="slug" value="{{ post.slug if post else '' }}" required></label>
+  <label class="form__field"><span>Excerpt</span><textarea name="excerpt">{{ post.excerpt if post else '' }}</textarea></label>
+  <label class="form__field"><span>Body (Markdown — headings with ##, **bold**, lists with -)</span>
+    <textarea name="body" rows="16">{{ post.body if post else '' }}</textarea></label>
+  <label class="form__field"><span>Cover image</span><input name="cover_image" value="{{ post.cover_image if post else '' }}"></label>
+  <label class="form__field"><span>Status</span>
+    <select name="status">
+      {% for s in ('draft', 'scheduled', 'published') %}
+      <option value="{{ s }}" {{ 'selected' if post and post.status == s }}>{{ s }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <label class="form__field"><span>Publish date/time (for scheduling)</span>
+    <input type="datetime-local" name="published_at" value="{{ post.published_at.strftime('%Y-%m-%dT%H:%M') if post and post.published_at else '' }}"></label>
+  <label class="form__field"><span>Search title (SEO)</span><input name="seo_title" value="{{ post.seo_title if post else '' }}"></label>
+  <label class="form__field"><span>Search description (SEO)</span><textarea name="seo_description">{{ post.seo_description if post else '' }}</textarea></label>
+  <button class="btn btn--primary" type="submit">Save</button>
+</form>
+{% endblock %}

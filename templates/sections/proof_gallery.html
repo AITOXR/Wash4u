@@ -1,0 +1,16 @@
+{# Section type: proof_gallery — reuses the before_after drag-slider macro. #}
+{% from "_components.html" import before_after %}
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+      <h2>{{ section.props.heading }}</h2>
+      {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
+    </div>
+    <div class="proof-grid stagger-children">
+      {% for pair in section.props.pairs %}
+      {{ before_after(pair, asset_path, ui) }}
+      {% endfor %}
+    </div>
+  </div>
+</section>

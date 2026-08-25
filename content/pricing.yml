@@ -1,0 +1,387 @@
+meta:
+  title: Laundry & Dry Cleaning Price List Gurgaon | Wash4You Rates
+  description: Transparent laundry & dry cleaning prices in Gurgaon & Delhi NCR. Wash & fold from ₹79/kg,
+    dry cleaning from ₹99. Free pickup and delivery, GST extra.
+  canonical: https://wash4you.in/pricing/
+  og_title: Wash4You Price List — Laundry & Dry Cleaning Rates in Gurgaon
+  og_description: Item-wise laundry, dry cleaning and steam ironing rates with free doorstep pickup and
+    delivery across Gurugram.
+hero:
+  headline: Gurgaon & Delhi NCR’s Most Transparent Laundry Prices
+  subheadline: Wash4You publishes every rate up front, so you know what a wash, a dry clean or a shoe
+    clean costs before we collect a single piece. Premium fabric care at honest rates, with free doorstep
+    pickup and delivery across Gurugram and Delhi NCR. GST extra on all prices shown.
+note: '* GST Extra — all prices shown are exclusive of GST and are starting prices. The final price depends
+  on the actual garment and the work it needs; send a photo on WhatsApp for an exact quote.'
+categories:
+- title: Clothing Items
+  items:
+  - name: Pant/Trouser
+    price: ₹99
+    amount: 99
+    slug: pant-trouser
+    img: images/pricing/pant-trouser.png
+  - name: Jeans
+    price: ₹99
+    amount: 99
+    slug: jeans
+    img: images/pricing/jeans.png
+  - name: Shirt
+    price: ₹99
+    amount: 99
+    slug: shirt
+    img: images/pricing/shirt.png
+  - name: T-Shirt
+    price: ₹99
+    amount: 99
+    slug: t-shirt
+    img: images/pricing/t-shirt.png
+  - name: Coat
+    price: ₹249
+    amount: 249
+    slug: coat
+    img: images/pricing/coat.png
+  - name: Men Suit 2 Pcs
+    price: ₹349
+    amount: 349
+    slug: men-suit-2pcs
+    img: images/pricing/men-suit-2pcs.png
+  - name: Men Suit 3 Pcs
+    price: ₹429
+    amount: 429
+    slug: men-suit-3pcs
+    img: images/pricing/men-suit-3pcs.png
+  - name: Sherwani
+    price: ₹449
+    amount: 449
+    slug: sherwani
+    img: images/pricing/sherwani.png
+  - name: Kurta
+    price: ₹119
+    amount: 119
+    slug: kurta
+    img: images/pricing/kurta.png
+  - name: Kurta Fancy
+    price: ₹249
+    amount: 249
+    slug: kurta-fancy
+    img: images/pricing/kurta-fancy.png
+  - name: Kurta Heavy
+    price: ₹299
+    amount: 299
+    slug: kurta-heavy
+    img: images/pricing/kurta-heavy.png
+  - name: Salwar
+    price: ₹109
+    amount: 109
+    slug: salwar
+    img: images/pricing/salwar.png
+  - name: Saree
+    price: ₹199
+    amount: 199
+    slug: saree
+    img: images/pricing/saree.png
+  - name: Lehenga
+    price: ₹399
+    amount: 399
+    slug: lehenga
+    img: images/pricing/lehenga.png
+  - name: Dress
+    price: ₹199
+    amount: 199
+    slug: dress
+    img: images/pricing/dress.png
+  - name: Shawl
+    price: ₹199
+    amount: 199
+    slug: shawl
+    img: images/pricing/shawl.png
+  - name: Sweater
+    price: ₹149
+    amount: 149
+    slug: sweater
+    img: images/pricing/sweater.png
+  - name: Jacket
+    price: ₹249
+    amount: 249
+    slug: jacket
+    img: images/pricing/jacket.png
+  - name: Leather Jacket
+    price: ₹599
+    amount: 599
+    slug: leather-jacket
+    img: images/pricing/leather-jacket.png
+  - name: Dupatta
+    price: ₹69
+    amount: 69
+    slug: dupatta
+  - name: Blouse
+    price: ₹79
+    amount: 79
+    slug: blouse
+  - name: Top
+    price: ₹119
+    amount: 119
+    slug: top
+  - name: Palazzo
+    price: ₹109
+    amount: 109
+    slug: palazzo
+  - name: Long Coat
+    price: ₹369
+    amount: 369
+    slug: long-coat
+  - name: Cardigan
+    price: ₹149
+    amount: 149
+    slug: cardigan
+  - name: Sweatshirt
+    price: ₹189
+    amount: 189
+    slug: sweatshirt
+- title: Home Textiles
+  items:
+  - name: Carpet
+    price: ₹20
+    amount: 20
+    unit: per sq ft
+    slug: carpet
+    img: images/pricing/carpet.png
+  - name: Curtain
+    price: ₹149
+    amount: 149
+    unit: per panel (3.5 ft)
+    slug: curtain
+    img: images/pricing/curtain.png
+  - name: Single Blanket 1 Ply / Quilt
+    price: ₹299
+    amount: 299
+    slug: single-blanket
+    img: images/pricing/single-blanket.png
+  - name: Double Blanket 1 Ply / Quilt
+    price: ₹399
+    amount: 399
+    slug: double-blanket
+    img: images/pricing/double-blanket.png
+  - name: Single Bed Sheet
+    price: ₹119
+    amount: 119
+    slug: single-bed-sheet
+    img: images/pricing/single-bed-sheet.png
+  - name: Double Bed Sheet
+    price: ₹199
+    amount: 199
+    slug: double-bed-sheet
+    img: images/pricing/double-bed-sheet.png
+  - name: Bed Spread Double
+    price: ₹359
+    amount: 359
+    slug: bed-spread-double
+  - name: Comforter Double
+    price: ₹249
+    amount: 249
+    slug: comforter-double
+  - name: Handbag Leather
+    price: ₹599
+    amount: 599
+    slug: handbag-leather
+- title: Footwear Cleaning
+  items:
+  - name: Sports Shoes
+    price: ₹299
+    amount: 299
+    slug: sports-shoes
+    img: images/pricing/sports-shoes.png
+  - name: Sneakers
+    price: ₹349
+    amount: 349
+    slug: sneakers
+    img: images/pricing/sneakers.jpg
+  - name: Leather Shoes
+    price: ₹499
+    amount: 499
+    slug: leather-shoes
+    img: images/pricing/leather-shoes.png
+  - name: Suede Leather Shoes
+    price: ₹549
+    amount: 549
+    slug: suede-leather-shoes
+    img: images/pricing/suede-leather-shoes.png
+  - name: Sneaker Ankle
+    price: ₹399
+    amount: 399
+    slug: sneaker-ankle
+  - name: Boots Mid Length
+    price: ₹699
+    amount: 699
+    slug: boots-mid-length
+- title: Laundry Services
+  items:
+  - name: Wash and Fold
+    price: ₹79
+    amount: 79
+    slug: wash-and-fold
+    img: images/pricing/wash-and-fold.png
+  - name: Wash and Steam Iron
+    price: ₹109
+    amount: 109
+    slug: wash-and-steam-iron
+    img: images/pricing/wash-and-steam-iron.png
+  - name: Premium Laundry
+    price: ₹149
+    amount: 149
+    slug: premium-laundry
+    img: images/pricing/premium-laundry.jpg
+  - name: Woollen Laundry (Dailywear)
+    price: ₹149
+    amount: 149
+    slug: woollen-laundry
+  - name: Woollen Laundry & Iron (Dailywear)
+    price: ₹199
+    amount: 199
+    slug: woollen-laundry-iron
+- title: Steam Iron
+  items:
+  - name: Pant/Trouser
+    price: ₹39
+    amount: 39
+    slug: iron-pant-trouser
+    img: images/pricing/pant-trouser.png
+  - name: Jeans
+    price: ₹39
+    amount: 39
+    slug: iron-jeans
+    img: images/pricing/jeans.png
+  - name: Shirt
+    price: ₹39
+    amount: 39
+    slug: iron-shirt
+    img: images/pricing/shirt.png
+  - name: T-Shirt
+    price: ₹29
+    amount: 29
+    slug: iron-t-shirt
+    img: images/pricing/t-shirt.png
+  - name: Coat
+    price: ₹79
+    amount: 79
+    slug: iron-coat
+    img: images/pricing/coat.png
+  - name: Single Bedsheet
+    price: ₹29
+    amount: 29
+    slug: iron-single-bedsheet
+    img: images/pricing/single-bed-sheet.png
+  - name: Salwar
+    price: ₹29
+    amount: 29
+    slug: iron-salwar
+    img: images/pricing/salwar.png
+  - name: Blouse
+    price: ₹39
+    amount: 39
+    slug: iron-blouse
+  - name: Saree
+    price: ₹39
+    amount: 39
+    slug: iron-saree
+    img: images/pricing/saree.png
+  - name: Lehenga
+    price: ₹99
+    amount: 99
+    slug: iron-lehenga
+    img: images/pricing/lehenga.png
+  - name: Dress
+    price: ₹49
+    amount: 49
+    slug: iron-dress
+    img: images/pricing/dress.png
+  - name: Double Bedsheet
+    price: ₹49
+    amount: 49
+    slug: iron-double-bedsheet
+    img: images/pricing/double-bed-sheet.png
+cta:
+  title: Need It Washed? We'll Handle the Rest.
+  subtitle: Drop it off or let us pick it up. Either way, it's done.
+  button: Schedule My Pickup
+intro:
+  _note: SEO lead-in. Carries the target keywords (laundry price Gurgaon, dry cleaning rates, cost) in
+    prose a customer would actually read.
+  title: Laundry & dry cleaning price list in Gurgaon & Delhi NCR
+  body: Looking for affordable laundry and dry cleaning prices in Gurgaon? Premium garment care shouldn't
+    cost a fortune. Whether you need wash & fold for everyday clothes, premium dry cleaning for a wedding
+    lehenga, or steam ironing for office wear, the rates below are the rates you pay — with free pickup
+    and delivery across Gurugram.
+difference:
+  _note: Adapted from the SEO guide's comparison table. The named-competitor version (DhobiLite, Tumbledry,
+    local dhobi rates) is deliberately NOT published — those are third-party prices we cannot verify and
+    naming them invites a complaint. The same points are made about our own pricing instead.
+  eyebrow: Why our pricing is different
+  title: No pickup fees, no surprise line items
+  rows:
+  - label: Pickup & delivery
+    detail: Free, every order, anywhere we serve. Never a per-trip charge.
+  - label: Pricing model
+    detail: Per kilo for laundry, which is fairer for a family load; per item for dry cleaning, where
+      each garment needs its own handling.
+  - label: Eco-friendly cleaning
+    detail: Included in the base rate. There is no “green” surcharge.
+  - label: GST
+    detail: Stated up front on every card and in the cart, not added quietly at the end.
+  - label: Minimum order
+    detail: Low and flexible — ask on WhatsApp and we will confirm for your area.
+addons:
+  eyebrow: Add-ons
+  title: Optional extras
+  lede: Added to an order only if you ask for them. Prices exclude GST.
+  columns:
+  - Add-on
+  - Price
+  - What it does
+  rows:
+  - name: Antiseptic wash
+    price: ₹20 per lot
+    detail: Medical-grade sanitisation for gym wear and baby clothes.
+  - name: Fabric softener
+    price: ₹20 per lot
+    detail: Premium softener for a hotel-linen finish.
+  - name: Fragrance booster
+    price: ₹15 per lot
+    detail: Longer-lasting fresh scent.
+  - name: Tough stain removal
+    price: ₹50–150 per item
+    detail: Wine, ink, oil and curry, treated by hand.
+  - name: Minor repair
+    price: Free
+    detail: Loose buttons and threads, included with every wash & iron order.
+  - name: Express delivery
+    price: 1.5× standard
+    detail: Same-day or next-day, subject to your area and order size.
+faqs:
+- q: Is there a minimum order value for free pickup?
+  a: We keep the minimum low and flexible. Send us a WhatsApp with your address and we will confirm the
+    minimum for your area — on a first order we can usually waive it.
+- q: Do your prices include GST?
+  a: No — every price on this page is a base rate and GST is added at 18% as per government norms. It
+    is shown separately in your cart, so there are no surprises at the end.
+- q: Why is dry cleaning priced per item but laundry priced per kilo?
+  a: Laundry is bulk work, so weighing by the kilo is fairer for a family load. Dry cleaning needs individual
+    inspection, stain treatment and handling per garment, so per-item pricing means you only pay for the
+    pieces that need expert care.
+- q: How much does dry cleaning a lehenga or wedding outfit cost?
+  a: Our lehenga rate starts at ₹399. Heavy, bridal and beadwork pieces are quoted after inspection, because
+    the price depends on weight, embroidery and fabric. Send a photo on WhatsApp and we will give you
+    an accurate figure before you commit.
+- q: Are your rates competitive?
+  a: We own our processing facility rather than running as a franchise, and our machinery is water- and
+    power-efficient, so our rates sit below most app-based services while pickup and delivery stay free.
+- q: Do you offer corporate or bulk pricing?
+  a: Yes. We provide customised commercial rates for hotels, salons, gyms, corporate offices and housing
+    societies. Email care@wash4you.in or call us for a tailored quote.
+- q: Can I get same-day or express service?
+  a: Express processing is available at 1.5× the standard rate. Same-day delivery depends on your area
+    and the size of the order — call to confirm availability before you book.
+- q: What if I am not happy with the result?
+  a: Tell us and we will reprocess the order at no additional cost. We would rather redo a piece than
+    have you live with it.

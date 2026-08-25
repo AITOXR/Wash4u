@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d2350">
+  <meta name="format-detection" content="telephone=yes">
+
+  <title>{{ meta.title }}</title>
+  <meta name="description" content="{{ meta.description }}">
+  <meta name="robots" content="{{ meta.robots or 'index, follow, max-image-preview:large' }}">
+  {% if meta.canonical %}<link rel="canonical" href="{{ meta.canonical }}">{% endif %}
+
+  <meta property="og:title" content="{{ meta.og_title or meta.title }}">
+  <meta property="og:description" content="{{ meta.og_description or meta.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="{{ site.urls.base }}/{{ meta.og_image or 'images/og-share.jpg' }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wash4You — eco-friendly laundry and dry cleaning in Gurugram and Delhi NCR">
+  <meta property="og:site_name" content="Wash4You">
+  {% if meta.canonical %}<meta property="og:url" content="{{ meta.canonical }}">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ meta.og_title or meta.title }}">
+  <meta name="twitter:description" content="{{ meta.og_description or meta.description }}">
+  <meta name="twitter:image" content="{{ site.urls.base }}/{{ meta.og_image or 'images/og-share.jpg' }}">
+
+  {# Set before paint so hide-then-reveal styles never flash for JS users,
+     and so a JS-disabled browser gets every rule's visible fallback. #}
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="icon" href="{{ asset_path }}images/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="{{ asset_path }}images/favicon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="{{ asset_path }}images/favicon-180.png">
+
+  {# Self-hosted. The two Google Fonts requests were the slowest thing on the
+     site: local CSS arrived by 69ms, the Google CSS at 722ms and the font
+     files at 1155-1174ms — which held the home page LCP at 804ms and caused
+     the site's only CLS when the swap landed. Same files, same OFL licence,
+     our own origin, and two fewer DNS+TLS handshakes.
+
+     Only the two families used above the fold are preloaded, and only their
+     `latin` subsets — preloading latin-ext or the mono would compete with
+     the very requests this is meant to accelerate. #}
+  <link rel="preload" href="{{ asset_path }}fonts/fraunces-normal-300-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ asset_path }}fonts/hanken-grotesk-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ asset_path }}css/fonts.css">
+  {% block preload %}{% endblock %}
+
+  <link rel="stylesheet" href="{{ asset_path }}css/base.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/layout.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/ui.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/page.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/features.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/animations.css">
+
+  {# 2026 redesign layers — loaded last so they win at equal specificity. #}
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-shell.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-home.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-pricing.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-packages.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-areas.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-services.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{ site.urls.base }}/#organization",
+        "name": {{ site.brand.name | tojson }},
+        "legalName": {{ site.brand.legal_name | tojson }},
+        "url": "{{ site.urls.base }}/",
+        "logo": "{{ site.urls.base }}/images/logo-wash4you.png",
+        "telephone": {{ site.contact.phone_raw | tojson }},
+        "email": {{ site.contact.email | tojson }},
+        "sameAs": [
+          "{{ site.social.facebook }}",
+          "{{ site.social.instagram }}",
+          "{{ site.social.linkedin }}",
+          "{{ site.social.youtube }}"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ site.urls.base }}/#website",
+        "url": "{{ site.urls.base }}/",
+        "name": {{ site.brand.name | tojson }},
+        "publisher": { "@id": "{{ site.urls.base }}/#organization" },
+        "inLanguage": "en-IN"
+      },
+      {
+        "@type": "DryCleaningOrLaundry",
+        "@id": "{{ site.urls.base }}/#business",
+        "name": {{ site.brand.name | tojson }},
+        "url": "{{ site.urls.base }}/",
+        "telephone": {{ site.contact.phone_raw | tojson }},
+        "email": {{ site.contact.email | tojson }},
+        "image": "{{ site.urls.base }}/images/logo-wash4you.png",
+        "priceRange": "₹₹",
+        "parentOrganization": { "@id": "{{ site.urls.base }}/#organization" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": {{ site.locations[0].street | tojson }},
+          "addressLocality": "Gurugram",
+          "addressRegion": "Haryana",
+          "postalCode": {{ site.locations[0].postal_code | tojson }},
+          "addressCountry": "IN"
+        },
+        "areaServed": [
+          {% for a in site.footer.areas %}{ "@type": "Place", "name": {{ (a.label ~ ', Gurugram') | tojson }} }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }
+      {% block schema %}{% endblock %}
+    ]
+  }
+  </script>
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  {% from "_icons.html" import ui, care_symbol, care_tag, service_icon %}
+
+  {# First-order offer, on every page. A slim band above the utility bar
+     rather than another line inside it, so it reads as its own announcement.
+     Pinned to the top of the viewport at all times (see .promo-strip in
+     redesign-shell.css and the height-measuring script below) so it never
+     scrolls out of view. #}
+  {% if site.offer and site.offer.enabled %}
+  <div class="promo-strip" id="promo-strip">
+    <div class="wrap promo-strip__inner">
+      <p class="promo-strip__text">
+        {{ ui('sparkle', 14) }}
+        <span class="promo-strip__value"{{ cms('site:offer.value') }}>{{ site.offer.value }} {{ site.offer.label }}</span>
+        <span{{ cms('site:offer.detail') }}>{{ site.offer.detail }}</span> — book your free pickup today.
+      </p>
+    </div>
+  </div>
+  <script>
+  (function () {
+    // The header docks directly under this strip (--promo-h, layout.css),
+    // so the header must know its real rendered height — which varies with
+    // the copy wrapping to two lines on narrow phones. Measured, not
+    // hardcoded, and re-measured on resize/orientation change.
+    var strip = document.getElementById('promo-strip')
+    if (!strip) return
+    function setH() {
+      document.documentElement.style.setProperty('--promo-h', strip.offsetHeight + 'px')
+    }
+    setH()
+    window.addEventListener('resize', setH)
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(setH)
+  })()
+  </script>
+  {% endif %}
+
+  {# Top utility bar — phone, area, contact and socials. Scrolls away above
+     the sticky header. #}
+  <div class="topbar">
+    <div class="wrap topbar__inner">
+      <div class="topbar__left">
+        {# The offer already has its own full-width band above (.promo-strip,
+           every page) and its own badge on the home hero — a third,
+           crossfading copy of the same "25% Off" message here just stacked a
+           third offer callout into the first screenful on mobile. The
+           topbar now does what its name says: phone + area, nothing else. #}
+        <a class="topbar__phone" href="{{ site.urls.phone }}">{{ ui('phone', 14) }} {{ site.contact.phone }}</a>
+        <span class="topbar__area">{{ ui('pin', 13) }} {{ site.contact.area }}</span>
+      </div>
+      <div class="topbar__right">
+        <a class="topbar__link" href="{{ root_path }}contact-us/">Contact</a>
+        <span class="topbar__socials">
+          <a href="{{ site.social.facebook }}" target="_blank" rel="noopener" aria-label="Wash4You on Facebook">{{ ui('facebook', 15) }}</a>
+          <a href="{{ site.social.instagram }}" target="_blank" rel="noopener" aria-label="Wash4You on Instagram">{{ ui('instagram', 15) }}</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <header class="header" id="header">
+    <div class="wrap header__inner">
+      <a class="header__logo" href="{{ root_path or '/' }}" aria-label="Wash4You — home">
+        <img src="{{ asset_path }}images/logo-header.png" alt="Wash4You" width="781" height="144">
+        <img class="header__mascot" src="{{ asset_path }}images/mascot.png" alt="" width="320" height="320" loading="eager" decoding="async">
+      </a>
+
+      <nav class="header__nav" aria-label="Main">
+        {% for item in site.nav.main %}
+        {% if item.dropdown == 'services' %}
+        <div class="header__item has-dropdown" data-dropdown>
+          <a class="header__link header__link--parent" href="{{ root_path }}{{ item.url }}"
+             aria-haspopup="true" aria-expanded="false">
+            {{ item.label }} <span class="header__caret" aria-hidden="true">{{ ui('chevron-down', 14) }}</span>
+          </a>
+          <div class="mega mega--services" role="menu" aria-label="Services">
+            <div class="mega__grid">
+              {% for s in services.services %}
+              <a class="mega__svc" role="menuitem" href="{{ root_path }}services/{{ s.slug }}/">
+                <span class="mega__svc-icon">{{ service_icon(s.slug, 22) }}</span>
+                <span>{{ s.name }}</span>
+              </a>
+              {% endfor %}
+            </div>
+            <a class="mega__all" role="menuitem" href="{{ root_path }}services/">All services {{ ui('arrow-right', 16) }}</a>
+          </div>
+        </div>
+        {% elif item.dropdown == 'pricing' %}
+        {# Click-to-open location dropdown (req 2b). Not hover. The toggle is a
+           button so it never navigates; the panel's lead link reaches /pricing/.
+           Area links carry ?location=<slug> — no per-location pages exist. #}
+        <div class="header__item nav-locdrop" data-locdrop>
+          <button class="header__link header__link--parent nav-locdrop__toggle" type="button"
+                  aria-haspopup="true" aria-expanded="false" data-locdrop-toggle>
+            {{ item.label }} <span class="header__caret" aria-hidden="true">{{ ui('chevron-down', 14) }}</span>
+          </button>
+          <div class="nav-locdrop__panel" role="menu" aria-label="Pricing by area" data-locdrop-panel>
+            <a class="mega__lead" role="menuitem" href="{{ root_path }}pricing/">
+              <strong>Full price list</strong>
+              <span>Item-wise rates for all of Gurugram</span>
+            </a>
+            <p class="mega__label">Pricing by area</p>
+            <div class="mega__areas">
+              {% for a in site.pricing_areas %}
+              <a class="mega__area" role="menuitem" href="{{ root_path }}pricing/?location={{ a.slug }}">{{ a.label }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <a class="header__link" href="{{ root_path }}{{ item.url }}">{{ item.label }}</a>
+        {% endif %}
+        {% endfor %}
+      </nav>
+
+      <div class="header__actions">
+        <a class="header__phone" href="{{ site.urls.phone }}">
+          {{ ui('phone', 16) }} {{ site.contact.phone }}
+        </a>
+        <button class="search-toggle" id="search-toggle" type="button" aria-label="Search the site" aria-expanded="false" aria-controls="site-search">
+          {{ ui('search', 20) }}
+        </button>
+        <button class="cart-toggle" id="cart-toggle" type="button" aria-label="View your pickup list" aria-expanded="false" aria-controls="cart-drawer" hidden>
+          {{ ui('cart', 20) }}
+          <span class="cart-toggle__count" data-cart-count aria-hidden="true">0</span>
+        </button>
+        <a class="btn btn--cta header__cta" href="{{ site.nav.cta.url }}" rel="noopener">{{ site.nav.cta.label }}</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          {{ ui('menu', 22) }}
+        </button>
+      </div>
+    </div>
+  </header>
+
+  {# Site search — client-side only, no backend/index to run on a static
+     host. The index is every page, service, locality and blog post already
+     in this render's context, inlined once and filtered in the browser. #}
+  <div class="site-search" id="site-search" aria-hidden="true">
+    <div class="site-search__inner">
+      <div class="site-search__field">
+        {{ ui('search', 18) }}
+        <input type="search" id="site-search-input" placeholder="Search services, pricing, areas…" autocomplete="off" aria-label="Search Wash4You" aria-controls="site-search-results">
+        <button type="button" class="site-search__close" id="site-search-close" aria-label="Close search">{{ ui('close', 18) }}</button>
+      </div>
+      <ul class="site-search__results" id="site-search-results" role="listbox" aria-label="Search results"></ul>
+      <p class="site-search__empty" id="site-search-empty" hidden>No matches. Try “pricing”, “shoe cleaning” or an area name.</p>
+    </div>
+  </div>
+  <div class="site-search-backdrop" id="site-search-backdrop" hidden></div>
+
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="wrap mobile-nav__top">
+      <a class="header__logo" href="{{ root_path or '/' }}">
+        <img src="{{ asset_path }}images/logo-header.png" alt="Wash4You" width="781" height="144">
+        <img class="header__mascot" src="{{ asset_path }}images/mascot.png" alt="" width="320" height="320" loading="lazy" decoding="async">
+      </a>
+      <button class="menu-toggle" id="menu-close" type="button" aria-label="Close menu">{{ ui('close', 22) }}</button>
+    </div>
+    <div class="wrap mobile-nav__body">
+      <button class="search-toggle search-toggle--mobile" type="button" data-mobile-search-open aria-controls="site-search">
+        {{ ui('search', 18) }} Search the site
+      </button>
+      <nav aria-label="Mobile">
+        {% for item in site.nav.main %}
+        {% if item.dropdown == 'services' %}
+        <details class="mobile-nav__group">
+          <summary class="mobile-nav__link">{{ item.label }} {{ ui('chevron-down', 20) }}</summary>
+          <div class="mobile-nav__sub">
+            {% for s in services.services %}
+            <a href="{{ root_path }}services/{{ s.slug }}/">{{ s.name }}</a>
+            {% endfor %}
+            <a class="mobile-nav__sub-all" href="{{ root_path }}services/">All services</a>
+          </div>
+        </details>
+        {% elif item.dropdown == 'pricing' %}
+        <details class="mobile-nav__group">
+          <summary class="mobile-nav__link">{{ item.label }} {{ ui('chevron-down', 20) }}</summary>
+          <div class="mobile-nav__sub">
+            <a href="{{ root_path }}pricing/">Full price list</a>
+            {% for a in site.pricing_areas %}
+            <a href="{{ root_path }}pricing/?location={{ a.slug }}">{{ a.label }}</a>
+            {% endfor %}
+            <a href="{{ root_path }}packages/">Packages</a>
+          </div>
+        </details>
+        {% else %}
+        <a class="mobile-nav__link" href="{{ root_path }}{{ item.url }}">{{ item.label }} {{ ui('arrow-right', 20) }}</a>
+        {% endif %}
+        {% endfor %}
+      </nav>
+      <div class="mobile-nav__foot">
+        <a class="btn btn--cta btn--lg btn--block" href="{{ site.nav.cta.url }}" rel="noopener">{{ site.nav.cta.label }}</a>
+        <a class="btn btn--ghost btn--block" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="{{ asset_path }}images/logo-white.png" alt="Wash4You" width="150" height="36"{{ cms('images/logo-white.png', 'file') }}>
+          <p{{ cms('site:brand.description') }}>{{ site.brand.description }}</p>
+          <div class="footer__contact">
+            <a href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+            <a href="{{ site.urls.email }}">{{ ui('mail', 18) }} {{ site.contact.email }}</a>
+          </div>
+          <div class="footer__social">
+            <a href="{{ site.social.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">{{ ui('instagram', 18) }}</a>
+            <a href="{{ site.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">{{ ui('facebook', 18) }}</a>
+            <a href="{{ site.social.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">{{ ui('linkedin', 18) }}</a>
+            <a href="{{ site.social.youtube }}" target="_blank" rel="noopener" aria-label="YouTube">{{ ui('youtube', 18) }}</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Services</h3>
+          <ul class="footer__links">
+            {% for s in services.services %}
+            <li><a href="{{ root_path }}services/{{ s.slug }}/">{{ s.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div>
+          <h3>Areas we serve</h3>
+          <ul class="footer__links">
+            {% for a in site.footer.areas %}
+            <li><a href="{{ root_path }}{{ a.url }}">{{ a.label }}</a></li>
+            {% endfor %}
+          </ul>
+          {# The 10 links above are Gurugram localities with their own page.
+             Coverage is bigger than that — five cities, 456 localities per
+             areas.json — so say so and point at /locate-us/, the one page
+             that actually lists them, instead of pretending the footer link
+             list is the whole service area. #}
+          <p class="footer__more-areas">
+            Also serving {{ other_cities | join(', ') }} —
+            <a href="{{ root_path }}locate-us/">{{ areas_total_all }} areas covered</a>
+          </p>
+        </div>
+
+        <div>
+          <h3>Our stores</h3>
+          {% for loc in site.locations %}
+          <div class="footer__store">
+            <strong{{ cms('site:locations.' ~ loop.index0 ~ '.name') }}>{{ loc.name }}</strong>
+            <address{{ cms('site:locations.' ~ loop.index0 ~ '.address') }}>{{ loc.address }}</address>
+          </div>
+          {% endfor %}
+          <h3 style="margin-top:var(--s-6)">Policies</h3>
+          <ul class="footer__links">
+            {% for item in site.footer.support %}
+            <li><a href="{{ root_path }}{{ item.url }}">{{ item.label }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span{{ cms('site:brand.copyright') }}>{{ site.brand.copyright }}</span>
+        <span{{ cms('site:brand.legal_name') }}>{{ site.brand.legal_name }}</span>
+      </div>
+    </div>
+  </footer>
+
+  {# Cart / pickup list — populated client-side from the pricing page.
+     Books the whole list as a pre-filled WhatsApp message (static host, no
+     backend), matching the contact form's handoff. #}
+  <div class="cart-backdrop" id="cart-backdrop" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Your pickup list" aria-hidden="true"
+         data-whatsapp="{{ site.urls.whatsapp }}">
+    <div class="cart-drawer__head">
+      <h2>Your pickup list</h2>
+      <button class="cart-drawer__close" id="cart-close" type="button" aria-label="Close pickup list">{{ ui('close', 22) }}</button>
+    </div>
+
+    <div class="cart-drawer__empty" data-cart-empty>
+      <span class="cart-drawer__empty-icon">{{ ui('cart', 40) }}</span>
+      <p>Your list is empty.</p>
+      <a class="link-arrow" href="{{ root_path }}pricing/">Browse the price list {{ ui('arrow-right', 16) }}</a>
+    </div>
+
+    <ul class="cart-drawer__body" data-cart-body></ul>
+
+    <div class="cart-drawer__foot" data-cart-foot hidden>
+      <dl class="cart-summary">
+        <div class="cart-summary__row">
+          <dt>Subtotal</dt>
+          <dd data-cart-subtotal>₹0.00</dd>
+        </div>
+        <div class="cart-summary__row">
+          <dt>GST (18%)</dt>
+          <dd data-cart-gst>₹0.00</dd>
+        </div>
+        <div class="cart-summary__row cart-summary__row--total">
+          <dt>Total</dt>
+          <dd data-cart-total>₹0.00</dd>
+        </div>
+      </dl>
+      {# The one thing a customer must read before booking: this total is an
+         estimate. It was 13px grey and sat between a bold total and two
+         buttons, where nobody saw it. Now a real notice — but a calm one,
+         since it sets an expectation rather than reporting an error. #}
+      <p class="cart-note">
+        <span class="cart-note__icon" aria-hidden="true">{{ ui('info', 18) }}</span>
+        <span><b>Indicative estimate.</b> ‘From’ items are priced after inspection.</span>
+      </p>
+      <div class="cart-cta">
+        <a class="btn btn--cta cart-cta__btn" href="{{ site.urls.schedule }}" target="_blank" rel="noopener">
+          {{ ui('check-badge', 18) }} Schedule pickup
+        </a>
+        <a class="btn cart-cta__btn cart-cta__wa" data-cart-book href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">
+          {{ ui('whatsapp', 18) }} WhatsApp
+        </a>
+      </div>
+      <button class="cart-drawer__clear" type="button" data-cart-clear>Clear list</button>
+    </div>
+  </aside>
+
+  {# Sticky booking bar — mobile only, appears past the hero #}
+  <div class="cta-bar" id="mobile-cta-bar">
+    <a class="btn btn--ghost" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp</a>
+    <a class="btn btn--cta" href="{{ site.nav.cta.url }}" rel="noopener">Book pickup</a>
+  </div>
+
+  {# Desktop's equivalent of the mobile sticky bar above: mobile always has a
+     one-tap WhatsApp button on screen, desktop had nothing persistent once
+     the header scrolled past. A fixed side rail, always on screen, every
+     page. Hidden below 62rem — .cta-bar already owns that width. #}
+  <div class="side-rail" aria-label="Quick contact">
+    <a class="side-rail__btn side-rail__btn--whatsapp" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">{{ ui('whatsapp', 22) }}</a>
+    <a class="side-rail__btn" href="{{ site.social.instagram }}" target="_blank" rel="noopener" aria-label="Wash4You on Instagram">{{ ui('instagram', 20) }}</a>
+    <a class="side-rail__btn" href="{{ site.social.facebook }}" target="_blank" rel="noopener" aria-label="Wash4You on Facebook">{{ ui('facebook', 20) }}</a>
+  </div>
+
+  <script src="{{ asset_path }}js/main.js" defer></script>
+  {% block scripts %}{% endblock %}
+
+  {# Pricing "by area" nav — click-to-open location dropdown (req 2b).
+     Hover is intentionally not used. This mirrors aria-expanded and closes on
+     outside-click and Escape. The mobile nav uses native <details> and needs
+     none of this. Kept inline and self-contained so it runs without the
+     bundle. #}
+  <script>
+  (function () {
+    var drops = document.querySelectorAll('[data-locdrop]')
+    if (!drops.length) return
+    var current = null
+    function shut(d) {
+      if (!d) return
+      d.classList.remove('is-open')
+      var t = d.querySelector('[data-locdrop-toggle]')
+      if (t) t.setAttribute('aria-expanded', 'false')
+      if (current === d) current = null
+    }
+    function openIt(d) {
+      var t = d.querySelector('[data-locdrop-toggle]')
+      d.classList.add('is-open')
+      if (t) t.setAttribute('aria-expanded', 'true')
+      current = d
+    }
+    drops.forEach(function (d) {
+      var t = d.querySelector('[data-locdrop-toggle]')
+      if (!t) return
+      t.addEventListener('click', function (e) {
+        e.preventDefault()
+        if (d.classList.contains('is-open')) shut(d)
+        else { if (current) shut(current); openIt(d) }
+      })
+    })
+    document.addEventListener('click', function (e) {
+      if (current && !current.contains(e.target)) shut(current)
+    })
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && current) {
+        var t = current.querySelector('[data-locdrop-toggle]')
+        shut(current)
+        if (t) t.focus()
+      }
+    })
+  })()
+  </script>
+
+  {# Site search — the index is every page, service, locality and blog post
+     already in this render's context. No build-time step, no backend: the
+     static host has neither, so filtering happens entirely in the browser
+     against this inlined array. #}
+  <script>
+  window.__SEARCH_INDEX__ = [
+    { "title": "Home", "group": "Pages", "url": {{ (root_path or '/') | tojson }} },
+    { "title": "Services", "group": "Pages", "url": {{ (root_path ~ 'services/') | tojson }} },
+    { "title": "Pricing", "group": "Pages", "url": {{ (root_path ~ 'pricing/') | tojson }} },
+    { "title": "Packages", "group": "Pages", "url": {{ (root_path ~ 'packages/') | tojson }} },
+    { "title": "Locate us", "group": "Pages", "url": {{ (root_path ~ 'locate-us/') | tojson }} },
+    { "title": "About us", "group": "Pages", "url": {{ (root_path ~ 'about-us/') | tojson }} },
+    { "title": "Blog", "group": "Pages", "url": {{ (root_path ~ 'blog/') | tojson }} },
+    { "title": "Contact us", "group": "Pages", "url": {{ (root_path ~ 'contact-us/') | tojson }} },
+    {% for s in services.services %}{ "title": {{ s.name | tojson }}, "group": "Services", "url": {{ (root_path ~ 'services/' ~ s.slug ~ '/') | tojson }} },
+    {% endfor %}
+    {% for a in site.footer.areas %}{ "title": {{ ('Pickup in ' ~ a.label) | tojson }}, "group": "Areas", "url": {{ (root_path ~ a.url) | tojson }} },
+    {% endfor %}
+    {% if blog and blog.posts %}{% for post in blog.posts %}{ "title": {{ post.title | tojson }}, "group": "Blog", "url": {{ post.url | tojson }} },
+    {% endfor %}{% endif %}
+    {% for item in (search_pricing_items or []) %}{ "title": {{ item.name | tojson }}, "group": "Pricing", "url": {{ (root_path ~ 'pricing/#cat-' ~ item.cat_index) | tojson }} },
+    {% endfor %}
+  ]
+
+  ;(function () {
+    var toggle = document.getElementById('search-toggle')
+    var mobileOpen = document.querySelector('[data-mobile-search-open]')
+    var panel = document.getElementById('site-search')
+    var backdrop = document.getElementById('site-search-backdrop')
+    var closeBtn = document.getElementById('site-search-close')
+    var input = document.getElementById('site-search-input')
+    var results = document.getElementById('site-search-results')
+    var empty = document.getElementById('site-search-empty')
+    if (!panel || !input || !results) return
+
+    function open() {
+      panel.classList.add('is-open')
+      panel.setAttribute('aria-hidden', 'false')
+      backdrop.hidden = false
+      if (toggle) toggle.setAttribute('aria-expanded', 'true')
+      document.documentElement.classList.add('search-open')
+      window.setTimeout(function () { input.focus() }, 10)
+    }
+    function close() {
+      panel.classList.remove('is-open')
+      panel.setAttribute('aria-hidden', 'true')
+      backdrop.hidden = true
+      if (toggle) toggle.setAttribute('aria-expanded', 'false')
+      document.documentElement.classList.remove('search-open')
+    }
+    // Edit distance between two strings — used only as a typo-tolerance
+    // fallback below, so a misspelled query ("curten", "shert") still finds
+    // "Curtains Cleaning" / "Shirt" instead of returning nothing.
+    function levenshtein(a, b) {
+      if (a === b) return 0
+      if (!a.length) return b.length
+      if (!b.length) return a.length
+      var prev = []
+      for (var j = 0; j <= b.length; j++) prev[j] = j
+      for (var i = 1; i <= a.length; i++) {
+        var cur = [i]
+        for (var j = 1; j <= b.length; j++) {
+          var cost = a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1
+          cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + cost)
+        }
+        prev = cur
+      }
+      return prev[b.length]
+    }
+
+    function render(query) {
+      var q = query.trim().toLowerCase()
+      results.innerHTML = ''
+      if (!q) { empty.hidden = true; return }
+
+      // Tier 1: substring matches, ranked by how early the query appears.
+      var exact = []
+      // Tier 2: no substring hit anywhere in the title — fall back to the
+      // closest single word by edit distance, within a tolerance that grows
+      // with the query length (longer queries can absorb more typos).
+      var fuzzy = []
+      var tolerance = q.length <= 4 ? 1 : q.length <= 7 ? 2 : 3
+      window.__SEARCH_INDEX__.forEach(function (item) {
+        var t = item.title.toLowerCase()
+        var at = t.indexOf(q)
+        if (at !== -1) { exact.push({ item: item, rank: at }); return }
+        var words = t.split(/\s+/)
+        var best = Infinity
+        for (var i = 0; i < words.length; i++) {
+          var d = levenshtein(q, words[i])
+          if (d < best) best = d
+        }
+        if (best <= tolerance) fuzzy.push({ item: item, rank: best })
+      })
+      exact.sort(function (a, b) { return a.rank - b.rank })
+      fuzzy.sort(function (a, b) { return a.rank - b.rank })
+      var matches = exact.concat(fuzzy).slice(0, 8).map(function (m) { return m.item })
+      empty.hidden = matches.length !== 0
+      matches.forEach(function (item) {
+        var li = document.createElement('li')
+        li.setAttribute('role', 'option')
+        var a = document.createElement('a')
+        a.href = item.url
+        a.innerHTML = '<span>' + item.title + '</span><small>' + item.group + '</small>'
+        li.appendChild(a)
+        results.appendChild(li)
+      })
+    }
+
+    if (toggle) toggle.addEventListener('click', function () {
+      panel.classList.contains('is-open') ? close() : open()
+    })
+    if (mobileOpen) mobileOpen.addEventListener('click', function () {
+      document.getElementById('menu-close').click()
+      open()
+    })
+    if (closeBtn) closeBtn.addEventListener('click', close)
+    if (backdrop) backdrop.addEventListener('click', close)
+    input.addEventListener('input', function () { render(input.value) })
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && panel.classList.contains('is-open')) close()
+    })
+  })()
+  </script>
+</body>
+</html>

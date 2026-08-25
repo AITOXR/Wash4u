@@ -1,0 +1,11 @@
+<div class="contact-info-wrap">
+  {% if section.props.heading %}<h2>{{ section.props.heading }}</h2>{% endif %}
+  <ul class="contact-info-list">
+    {% for item in section.props['items'] %}
+    <li>
+      <span class="contact-info-label">{{ item.label }}</span>
+      {% if item.href %}<a href="{{ item.href }}">{{ item.value }}</a>{% else %}<span>{{ item.value }}</span>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>

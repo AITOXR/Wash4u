@@ -1,0 +1,8 @@
+label: Pricing Table
+description: The full item-wise price list, grouped by category. Pulls from the Pricing catalogue.
+icon: table
+fields:
+  - {key: eyebrow, label: Small label above the heading, type: text}
+  - {key: heading, label: Heading, type: text, required: true}
+  - {key: text, label: Supporting text, type: textarea}
+  - {key: note, label: Small print (e.g. GST note), type: text}

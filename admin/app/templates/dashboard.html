@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}Dashboard — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>Dashboard</h1>
+<div class="card" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:1rem">
+  <div><div style="font-size:2rem;font-weight:700">{{ stats.orders_today }}</div><div>Orders today</div></div>
+  <div><div style="font-size:2rem;font-weight:700">{{ stats.orders_week }}</div><div>Orders this week</div></div>
+  <div><div style="font-size:2rem;font-weight:700">{{ stats.new_customers }}</div><div>New customers</div></div>
+  <div><div style="font-size:2rem;font-weight:700">{{ stats.repeat_customers }}</div><div>Repeat customers</div></div>
+  <div><div style="font-size:2rem;font-weight:700">{{ stats.pending_leads }}</div><div>New leads</div></div>
+  <div><div style="font-size:2rem;font-weight:700">{{ stats.pending_tasks }}</div><div>Pending tasks</div></div>
+</div>
+
+<div class="card">
+  <h2>Orders by status</h2>
+  <table>
+    <tr>{% for s, n in stats.by_status.items() %}<th>{{ s }}</th>{% endfor %}</tr>
+    <tr>{% for s, n in stats.by_status.items() %}<td>{{ n }}</td>{% endfor %}</tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>Recent leads</h2>
+  {% if stats.recent_leads %}
+  <table>
+    <tr><th>Name</th><th>Source</th><th>Status</th><th></th></tr>
+    {% for lead in stats.recent_leads %}
+    <tr><td>{{ lead.name or lead.phone or lead.email }}</td><td>{{ lead.source }}</td><td>{{ lead.status.value }}</td>
+      <td><a href="/admin/leads/{{ lead.id }}">View</a></td></tr>
+    {% endfor %}
+  </table>
+  {% else %}<p class="empty-state">No leads yet. They'll show up here as soon as someone fills in the contact form.</p>{% endif %}
+</div>
+{% endblock %}

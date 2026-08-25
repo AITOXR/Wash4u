@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% from "_icons.html" import ui %}
+{# NOTE: this is a genuinely NEW capability — the live site today has blog
+   teaser cards whose links 404 (src/data/blog.json's `url` field points at
+   pages that were never built). This template finally gives each post a
+   real page, using whatever body content exists in content/posts/*.md
+   (currently just the excerpt — see scripts/migrate_content.py). #}
+{% block content %}
+<article class="section">
+  <div class="wrap wrap--narrow">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ root_path }}blog/">Blog</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ post.title }}</span>
+    </nav>
+    <p class="mono mono--note">{{ post.date }}</p>
+    <h1>{{ post.title }}</h1>
+    <div class="prose reveal">{{ post.body | markdown | safe }}</div>
+  </div>
+</article>
+{% endblock %}

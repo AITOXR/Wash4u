@@ -1,0 +1,14 @@
+label: Price Rail
+description: A scrolling strip of priced items pulled live from the Pricing catalogue, so the price shown here can never go stale.
+icon: rail
+fields:
+  - {key: eyebrow, label: Small label above the heading, type: text}
+  - {key: heading, label: Heading, type: text, required: true}
+  - {key: text, label: Supporting text, type: textarea}
+  - {key: cta_label, label: "\"See full price list\" button text", type: text}
+  - key: slugs
+    label: Which priced items to show (in order)
+    type: repeater
+    required: true
+    item_fields:
+      - {key: slug, label: Price-list item, type: text, required: true}

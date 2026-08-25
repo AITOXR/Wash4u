@@ -1,0 +1,21 @@
+# PLACEHOLDER for Phase 5 (Products & categories). Only slug + name are
+# here for now — just enough for the header mega-menu, footer list and
+# search index to render identically. Full service detail pages (price,
+# gallery, long-form copy, FAQs) still come from src/data/services.json
+# until that phase migrates them properly into the products collection.
+services:
+  - {slug: eco-friendly-laundry, name: Eco-Friendly Laundry Service}
+  - {slug: premium-dry-cleaning, name: Premium Dry Cleaning Service}
+  - {slug: shoe-cleaning, name: Shoe Cleaning Service}
+  - {slug: bag-cleaning, name: Bag & Handbag Cleaning}
+  - {slug: leather-cleaning, name: Leather Cleaning & Care}
+  - {slug: curtains-cleaning, name: Curtain Cleaning Service}
+  - {slug: carpet-cleaning, name: Carpet Cleaning Service}
+  - {slug: toy-cleaning, name: Toy Cleaning Service}
+  - {slug: accessories-cleaning, name: Accessories Cleaning}
+  - {slug: sofa-cleaning, name: Sofa & Upholstery Cleaning}
+  - {slug: steam-ironing, name: Steam Ironing Service}
+  - {slug: mattress-cleaning, name: Mattress Cleaning Service}
+  - {slug: wet-cleaning, name: Wet Cleaning Service}
+  - {slug: blanket-quilt-cleaning, name: Blanket & Quilt Cleaning}
+  - {slug: linen-cleaning, name: Linen Cleaning Service}

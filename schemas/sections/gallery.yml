@@ -1,0 +1,12 @@
+label: Gallery
+description: A grid of images.
+icon: grid
+fields:
+  - {key: heading, label: Heading, type: text}
+  - key: images
+    label: Images
+    type: repeater
+    required: true
+    item_fields:
+      - {key: image, label: Image, type: image, required: true}
+      - {key: alt, label: Alt text, type: text}

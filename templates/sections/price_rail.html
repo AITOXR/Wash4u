@@ -1,0 +1,44 @@
+{# Section type: price_rail — reuses .price-rail-band/.price-tile from the
+   live home page CSS. Price + image are read from the pricing catalogue at
+   build time by slug, so this can never quote a stale rate. #}
+<section class="section price-rail-band">
+  <div class="wrap">
+    <div class="reviews-head reveal">
+      <div class="section-head" style="margin-bottom:0">
+        {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+        <h2>{{ section.props.heading }}</h2>
+        {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
+      </div>
+      <div class="price-ledger">
+        <ul class="price-ledger__rows">
+          <li><b>{{ price_count }}</b><span>rates published &mdash; none on request</span></li>
+          <li><b>&#8377;{{ price_min }}</b><span>lowest per-piece rate</span></li>
+          {% if price_index.get('carpet') %}<li><b>{{ price_index['carpet'].price }}</b><span>{{ price_index['carpet'].unit }}, carpets</span></li>{% endif %}
+        </ul>
+        <div class="rail-nav">
+          <button type="button" data-rail-prev aria-label="Previous items">{{ ui('arrow-left', 18) }}</button>
+          <button type="button" data-rail-next aria-label="Next items">{{ ui('arrow-right', 18) }}</button>
+        </div>
+      </div>
+    </div>
+    <div class="review-rail price-rail">
+      {% for entry in section.props.slugs %}
+      {% set item = price_index.get(entry.slug) %}
+      {% if item %}
+      <a class="price-tile" href="{{ root_path }}pricing/">
+        <span class="price-tile__media">
+          {% if item.img %}<img src="{{ asset_path }}{{ item.img }}" alt="{{ item.name }}" width="200" height="200" loading="lazy" decoding="async">{% endif %}
+        </span>
+        <span class="price-tile__name">{{ item.name }}</span>
+        <span class="price-tile__price">{{ item.price }}</span>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% if section.props.cta_label %}
+    <div class="text-center" style="margin-top:var(--s-6)">
+      <a class="btn btn--ghost" href="{{ root_path }}pricing/">{{ section.props.cta_label }} {{ ui('arrow-right', 18) }}</a>
+    </div>
+    {% endif %}
+  </div>
+</section>

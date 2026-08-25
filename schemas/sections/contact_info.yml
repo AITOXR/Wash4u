@@ -1,0 +1,12 @@
+label: Contact Info
+description: Phone / email / address / WhatsApp block, usually placed next to a contact form.
+icon: phone
+fields:
+  - {key: heading, label: Heading, type: text}
+  - key: items
+    label: Contact rows
+    type: repeater
+    item_fields:
+      - {key: label, label: Label, type: text, required: true}
+      - {key: value, label: Value shown, type: text, required: true}
+      - {key: href, label: Link (optional), type: link}

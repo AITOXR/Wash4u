@@ -1,0 +1,16 @@
+{# Section type: hero — homepage hero. Reuses .home-hero classes from the
+   live site's CSS (redesign-home.css) so it renders using existing styles. #}
+<section class="hero home-hero">
+  <div class="wrap home-hero__grid">
+    <div class="home-hero__inner">
+      {% if section.props.eyebrow %}<p class="home-hero__eyebrow">{{ ui('pin', 14) }} {{ section.props.eyebrow }}</p>{% endif %}
+      <h1 class="home-hero__title">{{ section.props.heading_line1 }}{% if section.props.heading_line2 %} {{ section.props.heading_line2 }}{% endif %}</h1>
+      {% if section.props.subheading %}<p class="home-hero__sub">{{ section.props.subheading }}</p>{% endif %}
+      <div class="home-hero__actions">
+        {% if section.props.cta_label %}<a class="btn btn--cta btn--lg" href="{{ site.nav.cta.url }}">{{ section.props.cta_label }}</a>{% endif %}
+        {% if section.props.cta_secondary_label %}<a class="btn home-hero__ghost btn--lg" href="{{ root_path }}pricing/">{{ section.props.cta_secondary_label }}</a>{% endif %}
+      </div>
+      {% if section.props.trust_line %}<p class="home-hero__trust"><span class="home-hero__stars" aria-hidden="true">★★★★★</span> {{ section.props.trust_line }}</p>{% endif %}
+    </div>
+  </div>
+</section>

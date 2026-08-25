@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Wash4You Admin{% endblock %}</title>
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.14.1/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="/static/admin.css">
+</head>
+<body>
+{% if user %}
+<div class="shell">
+  <nav class="sidebar">
+    <div class="sidebar__brand">Wash4You</div>
+    <a href="/admin" class="{{ 'is-active' if active == 'dashboard' }}">Dashboard</a>
+    {% if user.role.value in ('owner', 'editor') %}
+    <a href="/admin/pages" class="{{ 'is-active' if active == 'pages' }}">Pages</a>
+    <a href="/admin/products" class="{{ 'is-active' if active == 'products' }}">Products</a>
+    <a href="/admin/blog" class="{{ 'is-active' if active == 'blog' }}">Blog</a>
+    <a href="/admin/media" class="{{ 'is-active' if active == 'media' }}">Media</a>
+    {% endif %}
+    <a href="/admin/orders" class="{{ 'is-active' if active == 'orders' }}">Orders</a>
+    <a href="/admin/crm" class="{{ 'is-active' if active == 'crm' }}">Customers</a>
+    <a href="/admin/leads" class="{{ 'is-active' if active == 'leads' }}">Leads</a>
+    {% if user.role.value == 'owner' %}
+    <a href="/admin/settings" class="{{ 'is-active' if active == 'settings' }}">Settings</a>
+    <a href="/admin/users" class="{{ 'is-active' if active == 'users' }}">Team</a>
+    {% endif %}
+    <form method="post" action="/admin/logout" style="margin-top:auto">
+      <button type="submit" class="link-btn">Log out</button>
+    </form>
+  </nav>
+  <div class="main">
+    <header class="topbar">
+      <div>{{ user.email }} <span class="badge">{{ user.role.value }}</span></div>
+      {% block publish_bar %}{% endblock %}
+    </header>
+    <main class="content">
+      {% for message in (flash or []) %}
+      <div class="flash flash--{{ message.kind }}">{{ message.text }}</div>
+      {% endfor %}
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+</div>
+{% else %}
+{% block guest_content %}{% endblock %}
+{% endif %}
+</body>
+</html>

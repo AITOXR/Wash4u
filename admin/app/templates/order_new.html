@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}New order — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>New order (phone / walk-in)</h1>
+<form method="post" class="card">
+  <label class="form__field"><span>Customer name</span><input name="customer_name"></label>
+  <label class="form__field"><span>Phone</span><input name="customer_phone" required></label>
+  <label class="form__field"><span>Email</span><input name="customer_email" type="email"></label>
+  <label class="form__field"><span>Address</span><textarea name="address"></textarea></label>
+  <label class="form__field"><span>Pickup slot</span><input name="slot" placeholder="e.g. Tomorrow, 4-6pm"></label>
+  <label class="form__field"><span>Items (one per line: name, qty, price)</span><textarea name="items_raw" rows="4" placeholder="Shirt, 3, ₹49"></textarea></label>
+  <label class="form__field"><span>Total</span><input name="total" placeholder="₹500"></label>
+  <button class="btn btn--primary" type="submit">Create order</button>
+</form>
+{% endblock %}

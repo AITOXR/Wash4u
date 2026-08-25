@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Leads — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>Leads</h1>
+<table>
+  <tr><th>Name</th><th>Phone</th><th>Source</th><th>Status</th><th></th></tr>
+  {% for lead in leads %}
+  <tr>
+    <td>{{ lead.name or '—' }}</td><td>{{ lead.phone or '—' }}</td><td>{{ lead.source }}</td>
+    <td>
+      <form method="post" action="/admin/leads/{{ lead.id }}/status" style="display:inline">
+        <select name="status" onchange="this.form.submit()">
+          {% for s in ('new', 'contacted', 'quoted', 'won', 'lost') %}
+          <option value="{{ s }}" {{ 'selected' if s == lead.status.value }}>{{ s }}</option>
+          {% endfor %}
+        </select>
+      </form>
+    </td>
+    <td><a href="/admin/leads/{{ lead.id }}">View</a></td>
+  </tr>
+  {% else %}
+  <tr><td colspan="5" class="empty-state">No leads yet — they appear automatically when someone submits the contact form.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

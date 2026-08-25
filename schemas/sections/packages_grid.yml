@@ -1,0 +1,7 @@
+label: Packages Grid
+description: The prepaid package/plan cards. Pulls from the Packages catalogue.
+icon: package
+fields:
+  - {key: eyebrow, label: Small label above the heading, type: text}
+  - {key: heading, label: Heading, type: text, required: true}
+  - {key: text, label: Supporting text, type: textarea}

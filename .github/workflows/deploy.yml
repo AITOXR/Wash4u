@@ -1,0 +1,69 @@
+# Deploys the NEW content-plane generator (build.py + content/) to GitHub
+# Pages via GitHub Actions.
+#
+# NOT YET ACTIVE: this workflow builds and validates on every push so it
+# stays correct as the migration progresses, but the "deploy" job's
+# actions/deploy-pages step is intentionally left out until build.py can
+# render the WHOLE site (see the migration-status comment at the top of
+# build.py — only 5 of ~125 pages are migrated as of Phase 1).
+#
+# Repo Settings → Pages → Source is still "Deploy from a branch" (the
+# current manual rsync-to-root workflow) and must stay that way until
+# someone flips it deliberately, once dist2/ output covers every live
+# page. Flipping it earlier would replace the live site with 5 pages.
+name: Build & validate (content plane)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate content against section schemas
+        run: python3 build.py --check
+
+      - name: Build
+        run: python3 build.py
+
+      - name: Upload build output (artifact only, not deployed yet)
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist2
+          path: dist2/
+          retention-days: 7
+
+  # --- Uncomment once build.py covers the whole site and dist2/ has been
+  #     spot-checked to match the live site, then flip Pages → Source to
+  #     "GitHub Actions" in repo settings. ---
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     pages: write
+  #     id-token: write
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   steps:
+  #     - uses: actions/download-artifact@v4
+  #       with:
+  #         name: dist2
+  #         path: dist2/
+  #     - uses: actions/upload-pages-artifact@v3
+  #       with:
+  #         path: dist2/
+  #     - id: deployment
+  #       uses: actions/deploy-pages@v4

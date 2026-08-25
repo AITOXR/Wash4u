@@ -1,0 +1,65 @@
+title: Privacy & Security Policy
+slug: privacy-and-security-policy
+status: published
+seo:
+  title: Privacy and Security Policy Wash4You Laundry
+  description: >-
+    Read Wash4You's privacy and security policy to understand how we
+    protect your personal data, ensure safe transactions, and maintain
+    confidentiality in Delhi and Gurgaon.
+  canonical: https://wash4you.in/privacy-and-security-policy/
+sections:
+  - type: page_header
+    id: sec_privacy_header
+    visible: true
+    props:
+      eyebrow: Policy
+      heading: Privacy & Security Policy
+  - type: legal_body
+    id: sec_privacy_body
+    visible: true
+    props:
+      clauses:
+        - heading: Information We Collect
+          content: >-
+            We collect customer information including: name, address, and
+            contact details; records of services used and payments made;
+            preferences and customer feedback.
+        - heading: How Information is Used
+          content: >-
+            Customer data is used to manage logistics including pickups,
+            cleaning, and delivery; send service updates, confirmations,
+            and invoices; enhance service quality; and share promotional
+            offers (not if customer opts out).
+        - heading: Data Protection
+          content: >-
+            All information is stored on secure, encrypted servers.
+            Payments are processed through PCI-DSS-compliant gateways. We
+            do not retain credit or debit card information. All employees
+            follow strict confidentiality policies.
+        - heading: Data Sharing
+          content: >-
+            Information is shared only with logistics and payment partners
+            under secure agreements. Wash4You does not sell or share data
+            for external marketing purposes.
+        - heading: Cookies & Analytics
+          content: >-
+            Our website may use cookies for analytics and user
+            functionality. Cookies do not store sensitive information and
+            can be disabled in browser settings.
+        - heading: Customer Rights
+          content: >-
+            Customers may access, update, or request deletion of their
+            personal data by contacting care@wash4you.in.
+        - heading: Data Retention
+          content: >-
+            Personal data is retained only as long as needed for service
+            and regulatory compliance. Anonymized data may be used for
+            reporting or auditing.
+  - type: cta_banner
+    id: sec_privacy_cta
+    visible: true
+    props:
+      buttons:
+        - {label: "Questions? Contact us", href: "contact-us/", style: secondary}
+        - {label: "Book free pickup", href: "https://app.wash4you.in/website/W10795?brand=WASH4U", style: primary, external: true}

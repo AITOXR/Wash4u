@@ -1,0 +1,44 @@
+{# Section type: pricing_table — reuses .price-grid/.price-card from the
+   live pricing page's CSS + priceFilter.js search/filter behaviour. #}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+      <h2>{{ section.props.heading }}</h2>
+      {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
+    </div>
+    {% for cat in pricing.categories %}
+    <div class="price-cat" id="cat-{{ loop.index0 }}">
+      <h3>{{ cat.title }}</h3>
+      <div class="price-grid">
+        {% for item in cat['items'] %}
+        <article class="price-card" data-price-item data-slug="{{ item.slug }}" data-name="{{ item.name }}"
+                 data-amount="{{ item.amount }}" data-price="{{ item.price }}"
+                 data-img="{% if item.img %}{{ asset_path }}{{ item.img }}{% endif %}">
+          <div class="price-card__media{% if not item.img %} price-card__media--none{% endif %}">
+            {% if item.img %}
+            <img src="{{ asset_path }}{{ item.img }}" alt="{{ item.name }}" width="300" height="300" loading="lazy" decoding="async">
+            {% else %}
+            <span class="price-card__placeholder" aria-hidden="true">{{ ui('sparkle', 28) }}</span>
+            {% endif %}
+          </div>
+          <div class="price-card__body">
+            <h4 class="price-card__name">{{ item.name }}</h4>
+            <div class="price-card__meta">
+              <span class="price-card__from">Starts from</span>
+              <span class="price-card__price">{{ item.price }}</span>
+              {% if item.unit %}<span class="price-card__unit">{{ item.unit }}</span>{% endif %}
+              <span class="price-card__gst">+&nbsp;GST</span>
+            </div>
+            <div class="price-card__control" data-cart-control>
+              <button class="price-card__add" type="button" data-add aria-label="Add {{ item.name }} to your pickup list">{{ ui('plus', 16) }} Add to Cart</button>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+    {% if section.props.note %}<p class="mono mono--note">{{ section.props.note }}</p>{% endif %}
+  </div>
+</section>

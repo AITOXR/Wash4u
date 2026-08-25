@@ -1,0 +1,19 @@
+label: Contact Form
+description: An enquiry form. Submissions become leads in the CRM.
+icon: mail
+fields:
+  - {key: heading, label: Heading, type: text, required: true}
+  - key: fields
+    label: Form fields
+    type: repeater
+    item_fields:
+      - {key: name, label: Field name, type: text, required: true}
+      - {key: label, label: Field label, type: text, required: true}
+      - {key: type, label: Field type, type: select, options: [text, email, tel, textarea, select]}
+      - {key: required, label: Required, type: toggle}
+      - key: options
+        label: Options (for select fields)
+        type: repeater
+        item_fields:
+          - {key: value, label: Option, type: text}
+  - {key: submit_label, label: Submit button text, type: text}

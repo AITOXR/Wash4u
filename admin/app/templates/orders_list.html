@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Orders — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>Orders</h1>
+<p><a class="btn btn--primary" href="/admin/orders/new">+ New order (phone / walk-in)</a></p>
+<form method="get" style="margin-bottom:1rem;display:flex;gap:.5rem">
+  <input type="search" name="q" value="{{ q or '' }}" placeholder="Search by name or phone">
+  <select name="status"><option value="">All statuses</option>
+    {% for s in statuses %}<option value="{{ s }}" {{ 'selected' if s == status_filter }}>{{ s }}</option>{% endfor %}
+  </select>
+  <button class="btn" type="submit">Filter</button>
+</form>
+<table>
+  <tr><th>#</th><th>Customer</th><th>Phone</th><th>Status</th><th>Total</th><th></th></tr>
+  {% for o in orders %}
+  <tr>
+    <td>{{ o.id }}</td><td>{{ o.customer_name or '—' }}</td><td>{{ o.customer_phone or '—' }}</td>
+    <td>{{ o.status.value }}</td><td>{{ o.total or '—' }}</td>
+    <td><a href="/admin/orders/{{ o.id }}">View</a></td>
+  </tr>
+  {% else %}
+  <tr><td colspan="6" class="empty-state">No orders yet.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

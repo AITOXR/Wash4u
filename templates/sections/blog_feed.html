@@ -1,0 +1,26 @@
+{# Section type: blog_feed — reads from the full posts collection
+   (content/posts/*.md), not the minimal blog.posts used for the header
+   search index. #}
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+      <h2>{{ section.props.heading }}</h2>
+      {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
+    </div>
+    {% set limit = section.props.limit or 3 %}
+    <div class="blog-index" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:var(--s-6)">
+      {% for post in all_posts[:limit] %}
+      <a class="blog-card" href="{{ root_path }}blog/{{ post.slug }}/">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.excerpt }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    {% if section.props.cta_label %}
+    <div class="text-center" style="margin-top:var(--s-6)">
+      <a class="btn btn--ghost" href="{{ root_path }}blog/">{{ section.props.cta_label }} {{ ui('arrow-right', 18) }}</a>
+    </div>
+    {% endif %}
+  </div>
+</section>

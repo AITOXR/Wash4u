@@ -1,0 +1,81 @@
+contact:
+  meta:
+    title: Contact Wash4You – Laundry & Dry-Clean Service in Delhi NCR
+    description: Get in touch with Wash4You for laundry, dry cleaning, and ironing services in Delhi NCR.
+      Call, WhatsApp, or fill out our enquiry form.
+    canonical: https://wash4you.in/contact-us/
+    og_title: Contact Wash4You – Laundry & Dry-Clean Service in Delhi NCR
+    og_description: Get in touch with Wash4You for laundry, dry cleaning, and ironing services in Delhi
+      NCR. Call, WhatsApp, or fill out our enquiry form.
+  hero:
+    headline: Talk to Gurgaon & Delhi NCR’s Most Trusted Laundry & Dry Cleaners
+    subheadline: Wash4You is here for pickups, quotes and anything you want to ask about a garment. Send
+      a photo on WhatsApp for an exact price, call the store directly, or book a free doorstep collection
+      anywhere we serve across Gurugram and Delhi NCR.
+  form:
+    title: Send us a message
+    action: mailto:care@wash4you.in?subject=Website Enquiry
+    method: GET
+    fields:
+    - name: name
+      label: Full Name
+      type: text
+      required: true
+    - name: email
+      label: Email Address
+      type: email
+      required: true
+    - name: phone
+      label: Phone Number
+      type: tel
+      required: true
+    - name: city
+      label: City
+      type: text
+      required: false
+    - name: service
+      label: Service Type
+      type: select
+      required: false
+      options:
+      - Eco-Friendly Laundry Service
+      - Steam Ironing Service
+      - Premium Dry Cleaning Service
+      - Shoe Cleaning Service
+      - Bag & Handbag Cleaning
+      - Leather Cleaning & Care
+      - Carpet Cleaning Service
+      - Accessories Cleaning
+      - Toy Cleaning Service
+      - Curtain Cleaning Service
+      - Blanket & Quilt Cleaning
+      - Linen Cleaning Service
+    - name: message
+      label: Message/Details
+      type: textarea
+      required: false
+    submit: Submit Enquiry
+  info:
+    title: Contact Information
+    items:
+    - label: Phone
+      value: +91 63 67 600 500
+      url: tel:+916367600500
+    - label: Email
+      value: care@wash4you.in
+      url: mailto:care@wash4you.in
+    - label: Service Area
+      value: Gurugram | NCR
+    - label: WhatsApp
+      value: Chat on WhatsApp
+      url: https://wa.me/916367600500
+not_found:
+  meta:
+    title: Page Not Found - Wash4You
+    description: Sorry, the page you are looking for does not exist. Explore Wash4You's laundry and dry-cleaning
+      services.
+    robots: noindex, follow
+  title: Oops! Page not found.
+  subtitle: The page you're looking for doesn't exist or has been moved.
+  cta: Go to Homepage
+  secondary_cta: View Services

@@ -7,7 +7,55 @@ Generated with Python + Jinja2 and deployed on GitHub Pages. Every page is
 pre-rendered HTML, which is why the site can carry ~110 SEO landing pages at
 zero hosting cost.
 
-## Structure
+## CMS migration — two generators currently coexist
+
+This repo is mid-migration to a full admin/CMS. **`src/build.py` is still
+the live generator** — it reads `src/data/*.json` + `src/templates/`, and
+its output (rsynced onto the repo root) is what GitHub Pages actually
+serves today. Nothing about it has changed.
+
+Alongside it, a **new, content-driven generator** now exists at the repo
+root:
+
+```
+content/            NEW single source of truth (YAML + Markdown)
+schemas/sections/   field schemas — one per section type, drive the admin's forms
+templates/          NEW Jinja templates: base.html (shared chrome) + one
+                     partial per section type + one fixed template per
+                     collection (products, locations, blog posts, etc.)
+build.py            NEW generator: content/ + templates/ -> dist2/
+admin/              the control plane — a FastAPI app (see admin/README.md)
+                     that lets a non-technical owner edit content/ through
+                     a real UI instead of hand-editing YAML
+scripts/migrate_content.py   one-time converter: src/data/*.json -> content/
+```
+
+`python3 build.py` builds the **entire site** (119 pages: all marketing
+pages, all 15 services, all 10 locality pages, all 70 service×locality
+pages, and the blog) from `content/` into `dist2/` — verified to build
+cleanly and spot-checked against the live output. It is **not yet the
+active deploy target**: GitHub Pages' source is still "deploy from
+branch" against the root-level HTML the old pipeline produces. See
+`.github/workflows/deploy.yml` for the cutover checklist before switching
+that over.
+
+The admin app (`admin/`) is a separately-deployed FastAPI service with its
+own database (never committed — orders/customers/leads are PII and stay
+out of git entirely). Its **Publish** button is what turns an edit made in
+the admin into an actual commit to this repo's `content/` files. See
+`admin/README.md` for local setup and `CLIENT-GUIDE.md` for the
+non-technical walkthrough.
+
+**Known gaps in this migration pass** (real, not hidden — see
+`admin/README.md`'s "Known simplifications" section for the full list):
+pricing/packages/areas data still round-trips through `src/data/*.json`
+rather than being fully owned by the new `content/` collections; the
+9 blog posts only have their original excerpt as body text (the source
+data never had full article bodies to migrate); and the section editor's
+repeater fields (testimonials, FAQs, steps) are edited as raw JSON rather
+than a polished row-by-row builder.
+
+## Structure (the ORIGINAL generator — still live)
 
 ```
 src/

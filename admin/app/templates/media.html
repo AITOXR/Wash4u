@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Media — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>Media Library</h1>
+<form method="post" action="/admin/media/upload" enctype="multipart/form-data" class="card">
+  <label class="form__field"><span>Upload image (converted to WebP, EXIF stripped, resized automatically)</span>
+    <input type="file" name="file" accept="image/*,application/pdf" required></label>
+  <label class="form__field"><span>Alt text</span><input name="alt"></label>
+  <button class="btn btn--primary" type="submit">Upload</button>
+</form>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(9rem,1fr));gap:1rem">
+  {% for m in media %}
+  <div class="card" style="padding:.5rem">
+    <img src="/admin/media/{{ m.id }}/file" style="width:100%;height:6rem;object-fit:cover;border-radius:6px" alt="{{ m.alt or '' }}">
+    <p style="font-size:.8rem;word-break:break-all">{{ m.filename }}</p>
+    <form method="post" action="/admin/media/{{ m.id }}/delete" onsubmit="return confirm('Delete this file?')"><button class="btn btn--danger" style="width:100%" type="submit">Delete</button></form>
+  </div>
+  {% else %}
+  <p class="empty-state">No media uploaded yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}

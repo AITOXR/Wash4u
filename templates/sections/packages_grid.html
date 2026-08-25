@@ -1,0 +1,41 @@
+{# Section type: packages_grid — reuses .plan-card from redesign-packages.css #}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+      <h2>{{ section.props.heading }}</h2>
+      {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
+    </div>
+    <div class="plan-grid stagger-children">
+      {% for p in packages.plans %}
+      <article class="plan-card{% if p.tier %} plan-card--{{ p.tier }}{% endif %}">
+        {% if p.badge %}<span class="plan-card__badge">{{ p.badge }}</span>{% endif %}
+        <div class="plan-card__head">
+          <h3 class="plan-card__name">{{ p.name }}</h3>
+          <span class="plan-card__benefit">+{{ p.benefit }} value</span>
+        </div>
+        <div class="plan-card__balance">
+          <div class="plan-card__balance-pay">
+            <span class="plan-card__balance-pay-label">You pay</span>
+            <span class="plan-card__balance-pay-num">{{ p.cost }}</span>
+          </div>
+          <span class="plan-card__balance-arrow" aria-hidden="true">{{ ui('arrow-right', 16) }}</span>
+          <div class="plan-card__balance-get">
+            <span class="plan-card__balance-num">{{ p.balance }}</span>
+            <span class="plan-card__balance-label">you get to spend</span>
+          </div>
+        </div>
+        <dl class="plan-card__rows">
+          <div><dt>You save</dt><dd class="is-free"><span>{{ p.free }}</span></dd></div>
+          <div><dt>Valid for</dt><dd>{{ p.validity }}</dd></div>
+        </dl>
+        {% if p.best_for %}<p class="plan-card__for"><span>Best for</span> {{ p.best_for }}</p>{% endif %}
+        {% if p.includes %}
+        <ul class="plan-card__includes">{% for inc in p.includes %}<li>{{ inc }}</li>{% endfor %}</ul>
+        {% endif %}
+        <a class="btn {% if p.tier %}btn--cta{% else %}btn--ghost{% endif %} btn--block" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">Choose {{ p.name }}</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

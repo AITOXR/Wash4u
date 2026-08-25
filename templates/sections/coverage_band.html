@@ -1,0 +1,26 @@
+{# Section type: coverage_band — "where we collect" section. Coverage total
+   is computed at build time from the areas data (see build.py), never
+   hand-typed, so it can't drift from the real per-city counts. #}
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+      <h2>{{ section.props.heading }}</h2>
+      {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
+    </div>
+    <div class="coverage-grid">
+      <ul class="coverage__store-list">
+        {% for loc in site.locations %}
+        <li class="coverage__store"><b>{{ loc.name }}</b>{{ loc.address }}</li>
+        {% endfor %}
+      </ul>
+      {% if section.props.map_image %}
+      <div class="coverage__map reveal">
+        <img src="{{ asset_path }}{{ section.props.map_image }}" width="1998" height="666" loading="lazy" decoding="async"
+             alt="Wash4You collection network: a Gurugram hub with routes out to Delhi, Noida, Faridabad and Ghaziabad">
+      </div>
+      {% endif %}
+    </div>
+    <p class="areas-total">Free pickup across <b>{{ areas_total_all }}</b> localities in Gurugram, Delhi, Noida, Faridabad and Ghaziabad.</p>
+  </div>
+</section>

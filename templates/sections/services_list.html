@@ -1,0 +1,40 @@
+{# Section type: services_list — grid of cards from the products catalogue. #}
+<section class="section section--navy svc-band">
+  <div class="wrap">
+    <div class="section-head section-head--statement reveal">
+      <div>
+        {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+        <h2>{{ section.props.heading }}</h2>
+      </div>
+      {% if section.props.text %}
+      <div class="section-head__aside">
+        <p>{{ section.props.text }}</p>
+        <p class="section-figure"><b>{{ products | length }}</b> services</p>
+      </div>
+      {% endif %}
+    </div>
+    {% set limit = section.props.limit or (products | length) %}
+    <div class="svc-grid stagger-children">
+      {% for s in products[:limit] %}
+      <article class="svc svc--photo">
+        <span class="svc__media{% if not s.image %} svc__media--tonal{% endif %}" aria-hidden="true">
+          {% if s.image %}
+          <img src="{{ asset_path }}{{ s.image | replace('.png', '.webp') }}" alt="" width="500" height="500" loading="lazy" decoding="async">
+          {% else %}
+          {{ service_icon(s.slug, 44) }}
+          {% endif %}
+        </span>
+        <span class="svc__body">
+          <h3><a class="svc__link" href="{{ root_path }}services/{{ s.slug }}/">{{ s.name }}</a></h3>
+          <p>{{ s.short_description }}</p>
+        </span>
+      </article>
+      {% endfor %}
+    </div>
+    {% if section.props.cta_label %}
+    <div class="text-center" style="margin-top:var(--s-7)">
+      <a class="btn btn--ghost btn--lg" href="{{ root_path }}services/">{{ section.props.cta_label }} {{ ui('arrow-right', 18) }}</a>
+    </div>
+    {% endif %}
+  </div>
+</section>

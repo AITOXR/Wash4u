@@ -1,0 +1,10 @@
+<section class="section">
+  <div class="wrap">
+    {% if section.props.heading %}<h2 class="text-center">{{ section.props.heading }}</h2>{% endif %}
+    <div class="price-ledger__rows" style="justify-content:center;display:flex;gap:var(--s-8)">
+      {% for s in section.props['items'] %}
+      <div style="text-align:center"><b style="font-size:2rem;display:block">{{ s.value }}</b><span>{{ s.label }}</span></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,70 @@
+title: Refund & Delivery Policy
+slug: refund-and-delivery-policy
+status: published
+seo:
+  title: Refund and Delivery Policy Wash4You Laundry Service
+  description: >-
+    Discover Wash4You's refund and delivery policy for laundry and
+    dry-cleaning. We ensure smooth, reliable service for all customers in
+    Delhi and Gurgaon.
+  canonical: https://wash4you.in/refund-and-delivery-policy/
+sections:
+  - type: page_header
+    id: sec_refund_header
+    visible: true
+    props:
+      eyebrow: Policy
+      heading: Refund & Delivery Policy
+  - type: legal_body
+    id: sec_refund_body
+    visible: true
+    props:
+      clauses:
+        - heading: "1. Delivery & Pickup"
+          content: >-
+            We offer complimentary pickup and delivery services within
+            operational areas. Curtain cleaning includes free
+            de-installation and reinstallation. Standard turnaround time is
+            5 to 7 working days. Missed pickups or deliveries may be
+            rescheduled at a nominal charge.
+        - heading: "2. Storage Policy"
+          content: >-
+            Items unclaimed for over 15 days will incur a storage charge of
+            30% of the invoice per month. Items not collected within 90
+            days will be considered abandoned and may be responsibly
+            disposed of.
+        - heading: "3. Refunds & Compensation"
+          content: >-
+            Refunds are not offered. Any compensation is limited to five
+            times the service charge of the item. Curtains, leather items,
+            and carpets are not eligible for compensation. Items designated
+            as 'owner risk' (including delicate or embellished garments)
+            are excluded from claims. All claims must be made within 24
+            hours of delivery.
+        - heading: "4. Service Limitations"
+          content: >-
+            Full stain removal is not guaranteed. We are not liable for
+            issues resulting from poor-quality materials or construction.
+            For curtain de-installation/removal or re-installation: where
+            rods, brackets or fixtures are weak, faulty or previously
+            damaged, Wash4You is not responsible for any resulting damages.
+            Alteration, darning, and repair services are permanent and
+            non-refundable.
+        - heading: "5. Payment & Disputes"
+          content: >-
+            Payments are due prior to or upon delivery. Late payments
+            attract 18% annual interest from the invoice date. Disputes
+            related to the invoice must be raised within 24 hours of
+            receipt.
+        - heading: Contact Information
+          content: >-
+            Wash4You – Laundry & Cleaning Services. Location: Gurugram |
+            NCR. Email: care@wash4you.in. Phone: +91 63 67 600 500.
+            Website: www.wash4you.in
+  - type: cta_banner
+    id: sec_refund_cta
+    visible: true
+    props:
+      buttons:
+        - {label: "Questions? Contact us", href: "contact-us/", style: secondary}
+        - {label: "Book free pickup", href: "https://app.wash4you.in/website/W10795?brand=WASH4U", style: primary, external: true}

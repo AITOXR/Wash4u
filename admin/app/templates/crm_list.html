@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}Customers — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>Customers</h1>
+<form method="get" style="margin-bottom:1rem;display:flex;gap:.5rem">
+  <input type="search" name="q" value="{{ q or '' }}" placeholder="Search by name or phone">
+  <select name="tag"><option value="">All tags</option>
+    {% for t in ('new_customer', 'repeat', 'vip', 'dormant') %}<option value="{{ t }}" {{ 'selected' if t == tag_filter }}>{{ t }}</option>{% endfor %}
+  </select>
+  <button class="btn" type="submit">Filter</button>
+  <a class="btn" href="/admin/crm/export{{ '?' + request_qs if request_qs else '' }}">Export CSV</a>
+</form>
+<table>
+  <tr><th>Name</th><th>Phone</th><th>Tags</th><th>Orders</th><th>LTV</th><th></th></tr>
+  {% for c in customers %}
+  <tr>
+    <td>{{ c.name or '—' }}</td><td>{{ c.phone or '—' }}</td>
+    <td>{% for t in c.tags %}<span class="badge">{{ t }}</span> {% endfor %}</td>
+    <td>{{ c.total_orders }}</td><td>₹{{ c.lifetime_value }}</td>
+    <td><a href="/admin/crm/{{ c.id }}">View</a></td>
+  </tr>
+  {% else %}
+  <tr><td colspan="6" class="empty-state">No customers yet — they're created automatically when an order is marked completed.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

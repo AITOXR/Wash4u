@@ -1,0 +1,36 @@
+title: Curtain Cleaning Policy
+slug: curtain-cleaning-policy
+status: published
+seo:
+  title: Curtain Cleaning Policy Wash4You Delhi and Gurgaon
+  description: >-
+    Discover Wash4You's curtain cleaning policy outlining our washing
+    methods, fabric protection, and delivery guidelines for homes across
+    Delhi and Gurgaon.
+  canonical: https://wash4you.in/curtain-cleaning-policy/
+sections:
+  - type: page_header
+    id: sec_curtain_header
+    visible: true
+    props:
+      eyebrow: Policy
+      heading: Curtain Cleaning Policy
+  - type: legal_body
+    id: sec_curtain_body
+    visible: true
+    props:
+      clauses:
+        - heading: Curtain Cleaning Policy
+          content: >-
+            Curtain cleaning includes free removal and reinstallation after
+            service. The company is not responsible for damages to rods,
+            brackets, or fixtures that are weak or faulty prior to service.
+            Scheduling is subject to technician availability and may be
+            adjusted with prior notice.
+  - type: cta_banner
+    id: sec_curtain_cta
+    visible: true
+    props:
+      buttons:
+        - {label: "Questions? Contact us", href: "contact-us/", style: secondary}
+        - {label: "Book free pickup", href: "https://app.wash4you.in/website/W10795?brand=WASH4U", style: primary, external: true}

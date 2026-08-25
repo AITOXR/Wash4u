@@ -1,0 +1,40 @@
+title: Locate Us
+slug: locate-us
+status: published
+seo:
+  title: Where We Collect | Wash4You Gurugram & Delhi NCR
+  description: >-
+    Wash4You collects across Gurugram, Delhi, Noida, Faridabad and
+    Ghaziabad. Find your area and book a free pickup.
+  canonical: https://wash4you.in/locate-us/
+sections:
+  - type: page_header
+    id: sec_locateus_header
+    visible: true
+    props:
+      eyebrow: Locate us
+      heading: Premium laundry & dry cleaning across Delhi NCR
+      subheading: >-
+        Wash4You brings premium laundry, dry cleaning and home fabric care
+        to every corner of Delhi NCR — free pickup and delivery, wherever
+        you are.
+
+  - type: coverage_band
+    id: sec_locateus_coverage
+    visible: true
+    props:
+      eyebrow: Cities we serve
+      heading: Five cities, one logistics network.
+      text: >-
+        Wash4You serves Delhi, Gurgaon (Gurugram), Noida, Greater Noida,
+        Faridabad and Ghaziabad. The network covers residential societies,
+        corporate offices, hotels and educational institutions.
+      map_image: images/hero-areas.webp
+
+  - type: cta_banner
+    id: sec_locateus_cta
+    visible: true
+    props:
+      buttons:
+        - {label: Book free pickup, href: "https://app.wash4you.in/website/W10795?brand=WASH4U", style: primary, external: true}
+        - {label: WhatsApp us, href: "https://wa.me/916367600500", style: secondary, external: true}

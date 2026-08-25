@@ -1,0 +1,24 @@
+title: Page Not Found
+slug: "404"
+depth: 0
+status: published
+seo:
+  title: Page Not Found - Wash4You
+  description: >-
+    Sorry, the page you are looking for does not exist. Explore
+    Wash4You's laundry and dry-cleaning services.
+  robots: "noindex, follow"
+sections:
+  - type: text_block
+    id: sec_404_body
+    visible: true
+    props:
+      heading: "Oops! Page not found."
+      body: "The page you're looking for doesn't exist or has been moved."
+  - type: cta_banner
+    id: sec_404_cta
+    visible: true
+    props:
+      buttons:
+        - {label: Go to Homepage, href: "", style: primary}
+        - {label: View Services, href: "services/", style: secondary}

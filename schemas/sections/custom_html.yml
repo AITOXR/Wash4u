@@ -1,0 +1,6 @@
+label: Custom HTML (Advanced)
+description: Raw HTML, for one-off needs the other section types don't cover. Owner role only. Output is sanitised server-side before it can ever reach the live site.
+icon: code
+owner_only: true
+fields:
+  - {key: html, label: HTML, type: textarea, required: true}

@@ -1,0 +1,10 @@
+# Coverage figures shown in the footer's "also serving" line. count is the
+# number of localities Wash4You covers in that city per the client's areas
+# SEO PDF — full per-locality detail lives in src/data/areas.json until the
+# /locate-us/ page is migrated.
+cities:
+  - {name: "Gurugram (Gurgaon)", count: 82}
+  - {name: "Delhi", count: 32}
+  - {name: "Noida & Greater Noida", count: 187}
+  - {name: "Faridabad", count: 105}
+  - {name: "Ghaziabad", count: 50}

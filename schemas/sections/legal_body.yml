@@ -1,0 +1,17 @@
+label: Legal Text
+description: A numbered/headed list of clauses — used for policy and legal pages. Each clause has its own heading and paragraph.
+icon: file-text
+fields:
+  - key: clauses
+    label: Clauses
+    type: repeater
+    required: true
+    item_fields:
+      - key: heading
+        label: Clause heading
+        type: text
+        required: true
+      - key: content
+        label: Clause text
+        type: textarea
+        required: true

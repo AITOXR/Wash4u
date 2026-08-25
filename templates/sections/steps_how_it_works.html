@@ -1,0 +1,21 @@
+{# Section type: steps_how_it_works — reuses .flow/.flow__step from the
+   live site's CSS + flowRail.js (mobile swipe progress). #}
+<section class="section section--navy">
+  <div class="wrap">
+    <div class="section-head reveal">
+      {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+      <h2>{{ section.props.heading }}</h2>
+      {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
+    </div>
+    <ol class="flow stagger-children">
+      {% for step in section.props.steps %}
+      <li class="flow__step">
+        <span class="flow__num" aria-hidden="true">{{ '%02d' | format(loop.index) }}</span>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.detail }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+    <div class="flow-progress" aria-hidden="true"><span></span></div>
+  </div>
+</section>

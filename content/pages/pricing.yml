@@ -1,0 +1,30 @@
+title: Pricing
+slug: pricing
+status: published
+seo:
+  title: "Gurgaon & Delhi NCR's Most Transparent Laundry & Dryclean Prices"
+  description: >-
+    Wash4You publishes every rate up front. Item-wise laundry and
+    dry-cleaning prices with free doorstep pickup and delivery across
+    Gurugram and Delhi NCR. GST extra.
+  canonical: https://wash4you.in/pricing/
+sections:
+  - type: page_header
+    id: sec_pricing_header
+    visible: true
+    props:
+      eyebrow: Pricing
+      heading: "Gurgaon & Delhi NCR's Most Transparent Laundry & Dryclean Prices"
+      subheading: >-
+        Wash4You publishes every rate up front, so you know what a wash, a
+        dry clean or a shoe clean costs before we collect a single piece.
+        Premium fabric care at honest rates, with free doorstep pickup and
+        delivery across Gurugram and Delhi NCR. GST extra on all prices
+        shown.
+
+  - type: pricing_table
+    id: sec_pricing_table
+    visible: true
+    props:
+      heading: The full price list
+      note: "All prices exclusive of GST. 'From' items are priced after inspection."

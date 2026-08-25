@@ -1,0 +1,9 @@
+label: Blog Feed
+description: A row of recent blog post cards.
+icon: newspaper
+fields:
+  - {key: eyebrow, label: Small label above the heading, type: text}
+  - {key: heading, label: Heading, type: text, required: true}
+  - {key: text, label: Supporting text, type: textarea}
+  - {key: limit, label: How many posts to show, type: number}
+  - {key: cta_label, label: "\"Read the blog\" button text", type: text}

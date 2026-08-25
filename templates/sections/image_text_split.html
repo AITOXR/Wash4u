@@ -1,0 +1,13 @@
+<section class="section">
+  <div class="wrap page-hero__grid" style="{% if section.props.image_side == 'left' %}direction:rtl{% endif %}">
+    <div style="direction:ltr">
+      {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+      <h2>{{ section.props.heading }}</h2>
+      {% if section.props.body %}<div class="prose">{{ section.props.body | markdown | safe }}</div>{% endif %}
+      {% if section.props.cta_label %}<a class="btn btn--cta" href="{{ section.props.cta_href }}">{{ section.props.cta_label }}</a>{% endif %}
+    </div>
+    <div style="direction:ltr">
+      <img src="{{ asset_path }}{{ section.props.image }}" alt="" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:var(--r-xl)">
+    </div>
+  </div>
+</section>

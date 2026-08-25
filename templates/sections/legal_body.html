@@ -1,0 +1,13 @@
+{# Section type: legal_body — see schemas/sections/legal_body.yml #}
+<section class="doc">
+  <div class="wrap wrap--narrow">
+    {# Legal copy is never hidden behind a scroll reveal — if the observer
+       never fires, an entire policy page would be invisible. #}
+    <div class="prose policy-section">
+      {% for clause in section.props.clauses %}
+      <h2>{{ clause.heading }}</h2>
+      <p>{{ clause.content }}</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+<section class="section">
+  <div class="wrap">
+    {% if section.props.heading %}<h2>{{ section.props.heading }}</h2>{% endif %}
+    <div class="cp-gallery-grid">
+      {% for img in section.props.images %}
+      <img src="{{ asset_path }}{{ img.image }}" alt="{{ img.alt or '' }}" loading="lazy" decoding="async">
+      {% endfor %}
+    </div>
+  </div>
+</section>

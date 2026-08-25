@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block title %}Order #{{ order.id }} — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>Order #{{ order.id }}</h1>
+<div class="card">
+  <h2>Customer</h2>
+  <p>{{ order.customer_name or '—' }} · {{ order.customer_phone or '—' }} · {{ order.customer_email or '—' }}</p>
+  <p>{{ order.address or 'No address on file' }}</p>
+  <p>Slot: {{ order.slot or '—' }}</p>
+  {% if order.customer_phone %}<a class="btn" href="tel:{{ order.customer_phone }}">Call</a>
+  <a class="btn" href="https://wa.me/{{ order.customer_phone | replace('+','') | replace(' ','') }}" target="_blank">WhatsApp</a>{% endif %}
+</div>
+
+<div class="card">
+  <h2>Items</h2>
+  <table>
+    <tr><th>Item</th><th>Qty</th><th>Price</th></tr>
+    {% for item in order.items %}<tr><td>{{ item.name }}</td><td>{{ item.qty }}</td><td>{{ item.price }}</td></tr>{% endfor %}
+  </table>
+  <p>Subtotal: {{ order.subtotal or '—' }} · Tax: {{ order.tax or '—' }} · Delivery: {{ order.delivery or '—' }} · <strong>Total: {{ order.total or '—' }}</strong></p>
+</div>
+
+<div class="card">
+  <h2>Status</h2>
+  <form method="post" action="/admin/orders/{{ order.id }}/status">
+    <select name="status">
+      {% for s in statuses %}<option value="{{ s }}" {{ 'selected' if s == order.status.value }}>{{ s }}</option>{% endfor %}
+    </select>
+    <button class="btn btn--primary" type="submit">Update status</button>
+  </form>
+  <h3 style="margin-top:1rem">History</h3>
+  <ul>{% for log in status_log %}<li>{{ log.created_at.strftime('%Y-%m-%d %H:%M') }} — {{ log.from_status or 'created' }} → {{ log.to_status }}</li>{% endfor %}</ul>
+</div>
+
+<div class="card">
+  <h2>Internal notes</h2>
+  <form method="post" action="/admin/orders/{{ order.id }}/notes">
+    <textarea name="internal_notes" rows="4">{{ order.internal_notes or '' }}</textarea>
+    <button class="btn" type="submit">Save notes</button>
+  </form>
+</div>
+{% endblock %}

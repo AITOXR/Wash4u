@@ -1,0 +1,7 @@
+label: Image
+description: A single full-width image.
+icon: image
+fields:
+  - {key: image, label: Image, type: image, required: true}
+  - {key: alt, label: Alt text, type: text}
+  - {key: caption, label: Caption, type: text}

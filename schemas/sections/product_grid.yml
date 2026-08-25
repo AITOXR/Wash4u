@@ -1,0 +1,12 @@
+label: Product Grid
+description: A grid of products/services — auto-filled from the catalogue or a manual pick.
+icon: grid
+fields:
+  - {key: eyebrow, label: Small label above the heading, type: text}
+  - {key: heading, label: Heading, type: text}
+  - {key: mode, label: Which products to show, type: select, options: [all, manual]}
+  - key: slugs
+    label: Manually picked products (if mode = manual)
+    type: repeater
+    item_fields:
+      - {key: slug, label: Product, type: text, required: true}

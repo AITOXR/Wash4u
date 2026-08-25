@@ -1,0 +1,8 @@
+{# Section type: text_block #}
+<section class="section">
+  <div class="wrap wrap--narrow">
+    {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+    {% if section.props.heading %}<h2>{{ section.props.heading }}</h2>{% endif %}
+    <div class="prose">{{ section.props.body | markdown | safe }}</div>
+  </div>
+</section>

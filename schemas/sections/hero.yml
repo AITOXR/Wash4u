@@ -1,0 +1,11 @@
+label: Hero Banner
+description: The big banner at the top of the homepage.
+icon: layout
+fields:
+  - {key: eyebrow, label: Small label above the heading, type: text}
+  - {key: heading_line1, label: Heading (line 1), type: text, required: true}
+  - {key: heading_line2, label: Heading (line 2), type: text}
+  - {key: subheading, label: Sub-headline, type: textarea}
+  - {key: cta_label, label: Primary button text, type: text}
+  - {key: cta_secondary_label, label: Secondary button text, type: text}
+  - {key: trust_line, label: Trust line, type: text, help: e.g. "Trusted by 1000+ customers"}

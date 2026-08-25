@@ -1,0 +1,15 @@
+label: Features Grid
+description: A row of icon + title + text cards — used for "Why choose us" style sections.
+icon: grid
+fields:
+  - {key: eyebrow, label: Small label above the heading, type: text}
+  - {key: heading, label: Heading, type: text, required: true}
+  - {key: text, label: Supporting text, type: textarea}
+  - key: items
+    label: Cards
+    type: repeater
+    required: true
+    item_fields:
+      - {key: icon, label: Icon, type: icon}
+      - {key: title, label: Title, type: text, required: true}
+      - {key: detail, label: Text, type: textarea, required: true}

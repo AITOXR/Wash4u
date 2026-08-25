@@ -1,0 +1,25 @@
+title: Steam Iron
+slug: steam-iron
+status: published
+seo:
+  title: Steam Ironing Service in Gurgaon | Wash4You
+  description: >-
+    Wrinkle-free steam ironing with free doorstep pickup and delivery
+    across Gurugram.
+  canonical: https://wash4you.in/steam-iron/
+sections:
+  - type: page_header
+    id: sec_steamiron_header
+    visible: true
+    props:
+      eyebrow: Steam Iron
+      heading: Crisp, wrinkle-free steam ironing.
+      subheading: Free doorstep pickup and delivery across Gurugram.
+
+  - type: cta_banner
+    id: sec_steamiron_cta
+    visible: true
+    props:
+      buttons:
+        - {label: Book free pickup, href: "https://app.wash4you.in/website/W10795?brand=WASH4U", style: primary, external: true}
+        - {label: See pricing, href: "pricing/", style: secondary}

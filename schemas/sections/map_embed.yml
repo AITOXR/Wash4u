@@ -1,0 +1,7 @@
+label: Map Embed
+description: An embedded Google Map.
+icon: map-pin
+fields:
+  - {key: heading, label: Heading, type: text}
+  - {key: embed_url, label: Google Maps embed URL, type: link, required: true}
+  - {key: height, label: Height (px), type: number}

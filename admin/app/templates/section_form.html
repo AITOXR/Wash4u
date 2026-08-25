@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block title %}{{ schema.label }} — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>{{ schema.label }}</h1>
+<p style="color:var(--ink-2)">{{ schema.description }}</p>
+<form method="post" class="card">
+  {% for field in schema.fields %}
+  {% set value = props.get(field.key) %}
+  <label class="form__field">
+    <span>{{ field.label }}{% if field.required %} *{% endif %}</span>
+    {% if field.help %}<small style="display:block;color:var(--ink-2);margin-bottom:.35rem">{{ field.help }}</small>{% endif %}
+
+    {% if field.type == 'textarea' or field.type == 'markdown' %}
+    <textarea name="{{ field.key }}">{{ value or '' }}</textarea>
+
+    {% elif field.type == 'toggle' %}
+    <input type="checkbox" name="{{ field.key }}" value="1" {{ 'checked' if value }} style="width:auto;min-height:auto">
+
+    {% elif field.type == 'select' %}
+    <select name="{{ field.key }}">
+      {% for opt in field.options %}<option value="{{ opt }}" {{ 'selected' if value == opt }}>{{ opt }}</option>{% endfor %}
+    </select>
+
+    {% elif field.type == 'number' %}
+    <input type="number" name="{{ field.key }}" value="{{ value or '' }}">
+
+    {% elif field.type == 'image' %}
+    <input type="text" name="{{ field.key }}" value="{{ value or '' }}" placeholder="images/... (use Media Library to upload, then paste the path)">
+
+    {% elif field.type == 'repeater' %}
+    <div data-repeater="{{ field.key }}">
+      <textarea name="{{ field.key }}__json" rows="10">{{ (value or []) | tojson(indent=2) }}</textarea>
+      <small style="color:var(--ink-2)">Advanced: one JSON object per item. A future pass replaces this with a proper repeating-row builder — flagged, not hidden.</small>
+    </div>
+
+    {% else %}
+    <input type="text" name="{{ field.key }}" value="{{ value or '' }}">
+    {% endif %}
+  </label>
+  {% endfor %}
+
+  <label class="form__field"><span>Hide on mobile</span>
+    <input type="checkbox" name="hide_on_mobile" value="1" {{ 'checked' if style.get('hide_on_mobile') }} style="width:auto;min-height:auto">
+  </label>
+
+  <button class="btn btn--primary" type="submit">Save section</button>
+  <a class="btn" href="/admin/pages/{{ page_id }}/edit">Cancel</a>
+</form>
+{% endblock %}

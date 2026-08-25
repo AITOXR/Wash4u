@@ -1,0 +1,13 @@
+label: Logo Strip
+description: A row of small partner/press logos.
+icon: image
+fields:
+  - {key: heading, label: Heading, type: text}
+  - key: logos
+    label: Logos
+    type: repeater
+    required: true
+    item_fields:
+      - {key: image, label: Logo image, type: image, required: true}
+      - {key: alt, label: Alt text, type: text}
+      - {key: href, label: Link (optional), type: link}

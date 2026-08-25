@@ -1,0 +1,11 @@
+label: Image + Text Split
+description: An image on one side, heading + text on the other.
+icon: columns
+fields:
+  - {key: eyebrow, label: Small label above the heading, type: text}
+  - {key: heading, label: Heading, type: text, required: true}
+  - {key: body, label: Body text, type: markdown}
+  - {key: image, label: Image, type: image, required: true}
+  - {key: image_side, label: Image side, type: select, options: [left, right]}
+  - {key: cta_label, label: Button text, type: text}
+  - {key: cta_href, label: Button links to, type: link}

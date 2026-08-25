@@ -1,0 +1,2 @@
+{% set h = {'small': 'var(--s-5)', 'medium': 'var(--s-8)', 'large': 'var(--s-9)'}.get(section.props.height, 'var(--s-8)') %}
+<div style="height:{{ h }}{% if section.props.show_line %};border-top:1px solid var(--line);margin-top:calc({{ h }} / 2){% endif %}"></div>

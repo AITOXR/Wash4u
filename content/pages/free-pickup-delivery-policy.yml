@@ -1,0 +1,46 @@
+title: Free Pickup & Delivery Policy
+slug: free-pickup-delivery-policy
+status: published
+seo:
+  title: Wash4You Free Pickup and Delivery Policy Delhi Gurgaon
+  description: >-
+    Learn about Wash4You's free pickup and delivery process designed for
+    your convenience. Enjoy smooth, on-time laundry and dry-clean service
+    in Delhi and Gurgaon.
+  canonical: https://wash4you.in/free-pickup-delivery-policy/
+sections:
+  - type: page_header
+    id: sec_pickup_header
+    visible: true
+    props:
+      eyebrow: Policy
+      heading: Free Pickup & Delivery Policy
+  - type: legal_body
+    id: sec_pickup_body
+    visible: true
+    props:
+      clauses:
+        - heading: Free Pickup & Delivery Policy
+          content: >-
+            Free Home Pickup and Delivery apply to orders within the
+            service area as decided by management from time to time.
+            Availability depends on logistics routes and operating hours.
+            If the customer is unavailable during pickup/delivery,
+            redelivery may be rescheduled at a nominal fee. For gated
+            communities, customers must ensure access for Company
+            personnel.
+        - heading: Legal Jurisdiction
+          content: >-
+            All legal matters fall under the jurisdiction of courts in
+            Gurugram, Haryana, India. Wash4You reserves the right to revise
+            these terms without prior notice. Wash4You reserves the right
+            to refuse service at its discretion. These Terms & Conditions
+            constitute the entire agreement between the customer and
+            Wash4You.
+  - type: cta_banner
+    id: sec_pickup_cta
+    visible: true
+    props:
+      buttons:
+        - {label: "Questions? Contact us", href: "contact-us/", style: secondary}
+        - {label: "Book free pickup", href: "https://app.wash4you.in/website/W10795?brand=WASH4U", style: primary, external: true}

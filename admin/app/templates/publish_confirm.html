@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Publish — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>Publish</h1>
+{% if not changes %}
+<p class="empty-state">Nothing to publish — everything is already live.</p>
+{% else %}
+<form method="post" action="/admin/publish" class="card">
+  <p>The following will go live:</p>
+  <ul>
+    {% for c in changes %}
+    <li>
+      <label>
+        <input type="checkbox" name="{{ c.entity }}_ids" value="{{ c.id }}" checked style="width:auto;min-height:auto">
+        {{ c.summary }}
+      </label>
+    </li>
+    {% endfor %}
+  </ul>
+  <button class="btn btn--primary" type="submit">Publish selected</button>
+  <button class="btn" type="submit" name="publish_all" value="1">Publish all</button>
+</form>
+{% endif %}
+<p><a href="/admin/revert-last-publish" onclick="return confirm('Revert the live site to the last published state?')">Revert to last published</a></p>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% from "_icons.html" import ui, care_tag, service_icon %}
+{# Fixed template for one product/service — content/products/<slug>.yml.
+   Products are a data collection (like a CMS "post type"), not a
+   drag-and-drop section page: every field is still admin-editable, just
+   through one consistent form instead of a section picker. #}
+{% block content %}
+<section class="page-hero svc-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ root_path }}services/">Services</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ product.name }}</span>
+    </nav>
+    <div class="page-hero__grid">
+      <div>
+        {{ care_tag(product.slug, on_navy=true) }}
+        <h1 style="margin-top:var(--s-4)">{{ product.h1 or product.name }}</h1>
+        <p class="lede">{{ product.lede or product.short_description }}</p>
+        <div class="btn-row">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
+          <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">{{ ui('whatsapp', 18) }} Ask a question</a>
+        </div>
+      </div>
+      <div class="svc-stage">
+        <span class="svc__icon">{{ service_icon(product.slug, 64) }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="svc-detail">
+      <div>
+        <div class="prose reveal">
+          {% if product.body %}{{ product.body | markdown | safe }}{% else %}<p>{{ product.description }}</p>{% endif %}
+        </div>
+
+        {% if product.what_we_clean %}
+        <div style="margin-top:var(--s-9)" class="reveal">
+          <p class="eyebrow">What we take</p>
+          <h2>Items we handle</h2>
+          <ul class="checklist stagger-children" style="margin-top:var(--s-6)">
+            {% for w in product.what_we_clean %}
+            <li><strong>{{ w.item }}</strong>{{ w.detail }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% elif product.features %}
+        <div style="margin-top:var(--s-9)" class="reveal">
+          <p class="eyebrow">What you get</p>
+          <h2>Included</h2>
+          <ul class="checklist stagger-children" style="margin-top:var(--s-6)">
+            {% for f in product.features %}<li><strong>{{ f }}</strong></li>{% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+        {% if product.faqs %}
+        {% from "_components.html" import faq_list %}
+        <div style="margin-top:var(--s-9)" class="reveal">
+          <h2>Frequently asked questions</h2>
+          {{ faq_list(product.faqs, product.slug) }}
+        </div>
+        {% endif %}
+      </div>
+
+      <aside class="svc-aside reveal">
+        <span class="svc__icon">{{ service_icon(product.slug, 36) }}</span>
+        <h3>Book {{ product.name | lower }}</h3>
+        <p>Free doorstep pickup and delivery across Gurugram. Every piece counted with you before it leaves.</p>
+        <a class="btn btn--cta btn--block" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
+        <a class="btn btn--ghost btn--block" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+        <hr class="seam">
+        <p style="font-size:var(--t-xs)">Not sure if we can save it? Send a photo on WhatsApp and we will tell you honestly before you book.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,23 @@
+# PLACEHOLDER for Phase 6 (Blog). Only title + url are here for now — just
+# enough for the header search index to include blog posts identically.
+# Full post content, excerpts and archives still come from
+# src/data/blog.json until that phase migrates the blog into content/posts/.
+posts:
+  - title: "Laundry Service Cost in Gurgaon: Complete Pricing Guide"
+    url: "https://wash4you.in/laundry-service-cost-in-gurgaon/"
+  - title: "How to Dry Clothes in Rainy Season – Complete Monsoon Laundry Guide by Wash4You"
+    url: "https://wash4you.in/how-to-dry-clothes-in-rainy-season/"
+  - title: "Why Professional Laundry Services Are a Smart Choice for Busy Lifestyles"
+    url: "https://wash4you.in/why-professional-laundry-services-are-a-smart-choice/"
+  - title: "The Importance of Professional Laundry & Fabric Care"
+    url: "https://wash4you.in/the-importance-of-professional-laundry-fabric-care/"
+  - title: "How to Clean Leather Shoes at Home – Complete Care Guide by Wash4You"
+    url: "https://wash4you.in/how-to-clean-leather-shoes-at-home/"
+  - title: "How To Care For Silk Pillowcases"
+    url: "https://wash4you.in/how-to-care-for-silk-pillowcases/"
+  - title: "Laundry Accessories You Need To Care For Silk Clothes"
+    url: "https://wash4you.in/laundry-accessories-you-need-to-care-for-silk-clothes/"
+  - title: "How To Care For Silk Clothes"
+    url: "https://wash4you.in/how-to-care-for-silk-clothes/"
+  - title: "5 ways to store silk clothes at home"
+    url: "https://wash4you.in/5-ways-to-store-silk-clothes-at-home/"

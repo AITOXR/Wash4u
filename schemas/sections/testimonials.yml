@@ -1,0 +1,17 @@
+label: Testimonials
+description: A rail of customer review cards.
+icon: quote
+fields:
+  - {key: eyebrow, label: Small label above the heading, type: text}
+  - {key: heading, label: Heading, type: text, required: true}
+  - {key: text, label: Supporting text, type: textarea}
+  - key: items
+    label: Reviews
+    type: repeater
+    required: true
+    item_fields:
+      - {key: name, label: Customer name, type: text, required: true}
+      - {key: attribution, label: Location / detail, type: text}
+      - {key: rating, label: Star rating (1-5), type: number}
+      - {key: quote, label: Quote, type: textarea, required: true}
+      - {key: photo, label: Photo, type: image}

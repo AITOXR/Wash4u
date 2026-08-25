@@ -1,0 +1,42 @@
+# Header and footer menus. Edited from Settings → Navigation in the admin.
+header_main:
+  - {label: Services, url: "services/", dropdown: services}
+  - {label: Pricing, url: "pricing/"}
+  - {label: Packages, url: "packages/"}
+  - {label: Store, url: "locate-us/"}
+  - {label: About, url: "about-us/"}
+  - {label: Blog, url: "blog/"}
+
+header_cta:
+  label: Book free pickup
+  url: https://app.wash4you.in/website/W10795?brand=WASH4U
+
+footer_explore:
+  - {label: Home, url: ""}
+  - {label: Services, url: "services/"}
+  - {label: Pricing, url: "pricing/"}
+  - {label: About Us, url: "about-us/"}
+  - {label: Contact Us, url: "contact-us/"}
+  - {label: Locate Us, url: "locate-us/"}
+
+# The 10 Gurugram localities that have their own dedicated page. See
+# content/areas.yml for the full 5-city coverage figure shown alongside
+# these in the footer.
+footer_areas:
+  - {label: Sushant Lok, url: "laundry-service-sushant-lok/"}
+  - {label: Sector 49, url: "laundry-service-sector-49/"}
+  - {label: Cyber City, url: "laundry-service-cyber-city/"}
+  - {label: DLF Phase 3, url: "laundry-service-dlf-phase-3/"}
+  - {label: Golf Course Road, url: "laundry-service-golf-course-road/"}
+  - {label: Golf Course Extension, url: "laundry-service-golf-course-extension/"}
+  - {label: Sohna Road, url: "laundry-service-sohna-road/"}
+  - {label: Sector 29, url: "laundry-service-gurugram-sector-29/"}
+  - {label: Palam Vihar, url: "laundry-service-palam-vihar/"}
+  - {label: MG Road, url: "laundry-service-mg-road/"}
+
+footer_support:
+  - {label: Terms and Conditions, url: "terms-and-conditions/"}
+  - {label: Curtain Cleaning Policy, url: "curtain-cleaning-policy/"}
+  - {label: Free Pickup and Delivery Policy, url: "free-pickup-delivery-policy/"}
+  - {label: Privacy and Security Policy, url: "privacy-and-security-policy/"}
+  - {label: Refund and Delivery Policy, url: "refund-and-delivery-policy/"}

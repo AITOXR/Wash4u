@@ -1,0 +1,8 @@
+<section class="section">
+  <div class="wrap">
+    {% if section.props.heading %}<h2>{{ section.props.heading }}</h2>{% endif %}
+    <iframe src="{{ section.props.embed_url }}" width="100%" height="{{ section.props.height or 400 }}"
+            style="border:0;border-radius:var(--r-lg)" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Wash4You location map"></iframe>
+  </div>
+</section>

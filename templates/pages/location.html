@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% from "_icons.html" import ui %}
+{# Fixed template for one locality page — content/locations/<url_slug>.yml #}
+{% block content %}
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ location.name }}</span>
+    </nav>
+    <p class="eyebrow">{{ ui('pin', 16) }} {{ location.name }}</p>
+    <h1>{{ location.h1 or location.title or ('Laundry & Dry Cleaning in ' ~ location.name) }}</h1>
+    {% if location.lede %}<p class="lede">{{ location.lede }}</p>{% endif %}
+    <div class="btn-row">
+      <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
+      <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="prose reveal">
+      {% if location.body %}{{ location.body | markdown | safe }}{% endif %}
+    </div>
+
+    <div style="margin-top:var(--s-9)" class="reveal">
+      <h2>Services available in {{ location.name }}</h2>
+      <div class="svc-grid stagger-children">
+        {% for s in products[:6] %}
+        <article class="svc svc--photo">
+          <span class="svc__body">
+            <h3><a class="svc__link" href="{{ root_path }}{{ s.slug }}-{{ location.loc_slug }}/">{{ s.name }}</a></h3>
+            <p>{{ s.short_description }}</p>
+          </span>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if location.faqs %}
+    {% from "_components.html" import faq_list %}
+    <div style="margin-top:var(--s-9)" class="reveal">
+      <h2>Frequently asked questions</h2>
+      {{ faq_list(location.faqs, location.url_slug) }}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,12 @@
+<section class="section section--tight">
+  <div class="wrap">
+    {% if section.props.heading %}<p class="eyebrow text-center">{{ section.props.heading }}</p>{% endif %}
+    <div style="display:flex;flex-wrap:wrap;gap:var(--s-6);justify-content:center;align-items:center">
+      {% for logo in section.props.logos %}
+      {% if logo.href %}<a href="{{ logo.href }}" target="_blank" rel="noopener">{% endif %}
+      <img src="{{ asset_path }}{{ logo.image }}" alt="{{ logo.alt or '' }}" loading="lazy" style="height:2rem;width:auto">
+      {% if logo.href %}</a>{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

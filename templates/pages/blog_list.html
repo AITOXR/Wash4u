@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% from "_icons.html" import ui %}
+{% block content %}
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Blog</p>
+    <h1>Laundry &amp; Dry Cleaning Tips</h1>
+    <p class="lede">Guides on stains, fabrics, footwear and monsoon drying.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="blog-index" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:var(--s-6)">
+      {% for post in all_posts %}
+      <a class="blog-card" href="{{ root_path }}blog/{{ post.slug }}/">
+        <h2>{{ post.title }}</h2>
+        <p class="mono mono--note">{{ post.date }}</p>
+        <p>{{ post.excerpt }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

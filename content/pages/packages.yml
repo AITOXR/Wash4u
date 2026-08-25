@@ -1,0 +1,29 @@
+title: Packages
+slug: packages
+status: published
+seo:
+  title: "Laundry Packages Gurgaon | Prepaid Plans & Subscriptions"
+  description: >-
+    Prepaid Wash4You laundry packages in Gurugram: six plans from ₹2,500,
+    up to 60% more value in bonus credit, spendable on any service. Free
+    pickup.
+  canonical: https://wash4you.in/packages/
+sections:
+  - type: page_header
+    id: sec_packages_header
+    visible: true
+    props:
+      eyebrow: Packages
+      heading: "Gurgaon & Delhi NCR's Best-Value Laundry & Dry-Cleaning Plans"
+      subheading: >-
+        Wash4You packages let you load a wallet once and receive bonus
+        balance on top, then spend it on any service — dry cleaning,
+        laundry, shoes, leather and home fabric care. The bigger the plan,
+        the more you save, and free doorstep pickup and delivery is
+        included on every one.
+
+  - type: packages_grid
+    id: sec_packages_grid
+    visible: true
+    props:
+      heading: Choose your plan

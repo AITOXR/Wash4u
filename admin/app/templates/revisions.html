@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Revision history — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>Revision history — {{ page.title }}</h1>
+<table>
+  <tr><th>When</th><th>Author</th><th></th></tr>
+  {% for r in revisions %}
+  <tr>
+    <td>{{ r.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+    <td>{{ r.author.email if r.author else '—' }}</td>
+    <td><a href="/admin/pages/{{ page.id }}/revisions/{{ r.id }}/restore" onclick="return confirm('Restore this version? Your current draft will be replaced.')">Restore</a></td>
+  </tr>
+  {% else %}
+  <tr><td colspan="3" class="empty-state">No revisions yet.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

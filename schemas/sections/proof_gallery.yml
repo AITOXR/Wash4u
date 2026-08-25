@@ -1,0 +1,15 @@
+label: Before/After Proof Gallery
+description: Drag-to-reveal before/after photo pairs, plus the pickup-process steps.
+icon: image
+fields:
+  - {key: eyebrow, label: Small label above the heading, type: text}
+  - {key: heading, label: Heading, type: text, required: true}
+  - {key: text, label: Supporting text, type: textarea}
+  - key: pairs
+    label: Before/after pairs
+    type: repeater
+    item_fields:
+      - {key: title, label: Title, type: text, required: true}
+      - {key: summary, label: Summary, type: textarea}
+      - {key: before, label: Before photo, type: image, required: true}
+      - {key: after, label: After photo, type: image, required: true}

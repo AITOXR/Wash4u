@@ -1,0 +1,12 @@
+label: Stats / Counters
+description: A row of big numbers with a label underneath each.
+icon: bar-chart
+fields:
+  - {key: heading, label: Heading, type: text}
+  - key: items
+    label: Stats
+    type: repeater
+    required: true
+    item_fields:
+      - {key: value, label: Number/value, type: text, required: true}
+      - {key: label, label: Label, type: text, required: true}

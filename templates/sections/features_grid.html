@@ -1,0 +1,19 @@
+{# Section type: features_grid — reuses .promises from redesign-home.css #}
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      {% if section.props.eyebrow %}<p class="eyebrow">{{ section.props.eyebrow }}</p>{% endif %}
+      <h2>{{ section.props.heading }}</h2>
+      {% if section.props.text %}<p>{{ section.props.text }}</p>{% endif %}
+    </div>
+    <div class="promises stagger-children">
+      {% for item in section.props['items'] %}
+      <div class="promise">
+        {% if item.icon %}<span class="promise__icon">{{ ui(item.icon, 32) }}</span>{% endif %}
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.detail }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

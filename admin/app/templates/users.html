@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Team — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>Team</h1>
+<table>
+  <tr><th>Email</th><th>Role</th><th></th></tr>
+  {% for u in users %}
+  <tr><td>{{ u.email }}</td><td>{{ u.role.value }}</td>
+    <td>{% if u.id != current_user.id %}<form method="post" action="/admin/users/{{ u.id }}/deactivate" onsubmit="return confirm('Deactivate this account?')"><button class="btn btn--danger" type="submit">Deactivate</button></form>{% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+<form method="post" action="/admin/users/new" class="card" style="margin-top:1rem">
+  <h2>Invite a team member</h2>
+  <label class="form__field"><span>Email</span><input name="email" type="email" required></label>
+  <label class="form__field"><span>Temporary password</span><input name="password" required></label>
+  <label class="form__field"><span>Role</span>
+    <select name="role"><option value="editor">Editor (content + blog)</option><option value="staff">Staff (orders + CRM only)</option><option value="owner">Owner (everything)</option></select>
+  </label>
+  <button class="btn btn--primary" type="submit">Create account</button>
+</form>
+{% endblock %}

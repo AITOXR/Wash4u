@@ -1,0 +1,14 @@
+label: How It Works (Steps)
+description: A numbered list of process steps.
+icon: list-ordered
+fields:
+  - {key: eyebrow, label: Small label above the heading, type: text}
+  - {key: heading, label: Heading, type: text, required: true}
+  - {key: text, label: Supporting text, type: textarea}
+  - key: steps
+    label: Steps
+    type: repeater
+    required: true
+    item_fields:
+      - {key: title, label: Step title, type: text, required: true}
+      - {key: detail, label: Step text, type: textarea, required: true}

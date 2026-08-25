@@ -1,0 +1,5 @@
+{# Section type: custom_html — html is pre-sanitised at PUBLISH time in the
+   admin (server-side, bleach), never at render time — see the publish
+   pipeline. `| safe` here is therefore safe: by the time content/ contains
+   this HTML, it has already been through sanitisation once. #}
+{{ section.props.html | safe }}

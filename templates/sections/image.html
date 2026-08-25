@@ -1,0 +1,8 @@
+<section class="section">
+  <div class="wrap">
+    <figure class="cp-image">
+      <img src="{{ asset_path }}{{ section.props.image }}" alt="{{ section.props.alt or '' }}" loading="lazy" decoding="async">
+      {% if section.props.caption %}<figcaption>{{ section.props.caption }}</figcaption>{% endif %}
+    </figure>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+{# Section type: contact_form — POSTs to the control plane's public API
+   (see Phase "Public API + forms"), which creates a Lead record. Falls
+   back to a mailto: action so the form still works if JS/the API is
+   unreachable — matching the current site's mailto handoff. #}
+<div class="contact-form-wrap">
+  <h2>{{ section.props.heading }}</h2>
+  <form class="form" method="POST" action="https://admin.wash4you.in/api/public/submit" data-form-type="contact">
+    <input type="hidden" name="form_type" value="contact">
+    <input type="text" name="honeypot" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px" aria-hidden="true">
+    {% for field in section.props.fields %}
+    <label class="form__field">
+      <span>{{ field.label }}{% if field.required %} *{% endif %}</span>
+      {% if field.type == 'textarea' %}
+      <textarea name="{{ field.name }}" rows="4"{% if field.required %} required{% endif %}></textarea>
+      {% elif field.type == 'select' %}
+      <select name="{{ field.name }}"{% if field.required %} required{% endif %}>
+        {% for opt in field.options %}<option value="{{ opt.value }}">{{ opt.value }}</option>{% endfor %}
+      </select>
+      {% else %}
+      <input type="{{ field.type or 'text' }}" name="{{ field.name }}"{% if field.required %} required{% endif %}>
+      {% endif %}
+    </label>
+    {% endfor %}
+    <button type="submit" class="btn btn--cta btn--block">{{ section.props.submit_label or 'Submit' }}</button>
+  </form>
+</div>

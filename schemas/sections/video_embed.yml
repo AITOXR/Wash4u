@@ -1,0 +1,6 @@
+label: Video Embed
+description: An embedded YouTube video.
+icon: video
+fields:
+  - {key: heading, label: Heading, type: text}
+  - {key: youtube_id, label: YouTube video ID, type: text, required: true, help: "The part after v= or /shorts/ in the URL"}

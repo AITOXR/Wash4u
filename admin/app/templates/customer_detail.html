@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block title %}{{ customer.name or customer.phone }} — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>{{ customer.name or customer.phone or 'Customer #' ~ customer.id }}</h1>
+<div class="card">
+  <p>{{ customer.phone or '—' }} · {{ customer.email or '—' }}</p>
+  <p>{% for t in customer.tags %}<span class="badge">{{ t }}</span> {% endfor %}</p>
+  <p>{{ customer.total_orders }} orders · Lifetime value ₹{{ customer.lifetime_value }} · Avg order ₹{{ customer.avg_order_value }}</p>
+  {% if customer.phone %}<a class="btn" href="tel:{{ customer.phone }}">Call</a>
+  <a class="btn" href="https://wa.me/{{ customer.phone | replace('+','') | replace(' ','') }}" target="_blank">WhatsApp</a>{% endif %}
+  {% if customer.email %}<a class="btn" href="mailto:{{ customer.email }}">Email</a>{% endif %}
+</div>
+
+<div class="card">
+  <h2>Notes</h2>
+  <form method="post" action="/admin/crm/{{ customer.id }}/notes">
+    <textarea name="notes" rows="4">{{ customer.notes or '' }}</textarea>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</div>
+
+<div class="card">
+  <h2>Tasks</h2>
+  <form method="post" action="/admin/crm/{{ customer.id }}/tasks" style="display:flex;gap:.5rem;margin-bottom:1rem">
+    <input name="title" placeholder="Task" style="flex:1">
+    <input type="date" name="due_date">
+    <button class="btn" type="submit">Add task</button>
+  </form>
+  <ul>
+    {% for t in tasks %}
+    <li>{{ '✅' if t.done else '⬜' }} {{ t.title }} {% if t.due_at %}(due {{ t.due_at.strftime('%Y-%m-%d') }}){% endif %}
+      {% if not t.done %}<form method="post" action="/admin/crm/{{ customer.id }}/tasks/{{ t.id }}/done" style="display:inline"><button class="btn" type="submit">Mark done</button></form>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Activity timeline</h2>
+  <ul>{% for e in timeline %}<li>{{ e.created_at.strftime('%Y-%m-%d %H:%M') }} — {{ e.kind }}: {{ e.detail }}</li>{% endfor %}</ul>
+</div>
+{% endblock %}

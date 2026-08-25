@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Lead — Wash4You Admin{% endblock %}
+{% block content %}
+<h1>Lead from {{ lead.source }}</h1>
+<div class="card">
+  <p>{{ lead.name or '—' }} · {{ lead.phone or '—' }} · {{ lead.email or '—' }}</p>
+  <h3>Submitted details</h3>
+  <table>{% for k, v in lead.payload.items() %}<tr><th>{{ k }}</th><td>{{ v }}</td></tr>{% endfor %}</table>
+</div>
+<div class="card">
+  <form method="post" action="/admin/leads/{{ lead.id }}/notes">
+    <textarea name="notes" rows="4">{{ lead.notes or '' }}</textarea>
+    <button class="btn" type="submit">Save notes</button>
+  </form>
+</div>
+{% endblock %}
