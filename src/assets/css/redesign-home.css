@@ -323,6 +323,7 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
 .why__intro > .section-head { margin-bottom: 0; }
 .why__intro { margin-bottom: var(--s-8); }
 .why__mascot { display: none; }
+.why__mascot--sm { display: none; }
 
 @media (min-width: 62rem) {
   .why__intro {
@@ -360,7 +361,7 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
 }
 
 /* Print: decorative art costs ink and says nothing. */
-@media print { .why__mascot { display: none; } }
+@media print { .why__mascot, .why__mascot--sm { display: none; } }
 
 /* ---- Strip -> cards -----------------------------------------------
    Four calm cards: warm paper, one hairline, one soft shadow, one
@@ -714,12 +715,13 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
    the end of this file. */
 
 /* ---- Why mascot below 62rem ----------------------------------------
-   `.why__mascot { display: none }` stays the default and the Proof
-   section keeps relying on it. The default is wrong in exactly one
-   place: below 62rem the Why section is heading, lede, four cards whose
-   only marks are 32px glyphs, then a 3-4 line SEO paragraph — the
-   longest unbroken run of type on the page — and mascot-why.png is the
-   only original, on-palette, text-free illustration the brand owns.
+   `.why__mascot--sm` renders the same mascot-why.png as a smaller,
+   right-aligned companion mark below 62rem, where the desktop
+   `.why__mascot` (see above) is hidden. Below 62rem the Why section is
+   heading, lede, four cards whose only marks are 32px glyphs, then a
+   3-4 line SEO paragraph — the longest unbroken run of type on the
+   page — and mascot-why.png is the only original, on-palette,
+   text-free illustration the brand owns.
 
    CLS: none. width/height are on the tag and height:auto preserves the
    760x941 box, so the row is reserved before the bitmap decodes.

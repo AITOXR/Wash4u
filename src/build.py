@@ -300,6 +300,12 @@ def build() -> None:
         if item.get("name")
     ]
 
+    # Coverage total and the non-Gurugram cities, summed/read from areas.json
+    # so neither can drift from the per-city counts on /locate-us/. Shared by
+    # the home page hero band and the footer's "also serving" line below.
+    areas_total_all = sum(c["count"] for c in areas_data["cities"])
+    other_cities = [c["name"] for c in areas_data["cities"] if c["name"] != "Gurugram (Gurgaon)"]
+
     # Home
     pages_to_build.append(("index.html", "page-home.html", {
         "areas": areas_data,
@@ -327,7 +333,7 @@ def build() -> None:
         # Coverage total, summed from areas.json so the headline figure can
         # never be typed by hand and drift from the per-city counts printed
         # directly beneath it.
-        "areas_total": sum(c["count"] for c in areas_data["cities"]),
+        "areas_total": areas_total_all,
         "proof": proof,
         "hero_pair": hero_pair,
         "testimonials": testimonials,
@@ -603,6 +609,10 @@ def build() -> None:
         context.setdefault("services_by_slug", services_by_slug)
         # The header search index needs every priced item on every page too.
         context.setdefault("search_pricing_items", search_pricing_items)
+        # The footer's "also serving" line needs the full coverage figure and
+        # the other-city names on every page, not just the home page.
+        context.setdefault("areas_total_all", areas_total_all)
+        context.setdefault("other_cities", other_cities)
 
         rendered = template.render(**context)
         write_html(DIST_DIR / rel_path, rendered)

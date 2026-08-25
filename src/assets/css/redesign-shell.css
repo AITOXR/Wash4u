@@ -359,46 +359,6 @@
 }
 
 /* ------------------------------------------------------------
-   Topbar phone/offer slider. Desktop shows the phone number only —
-   the promo strip above already carries the offer. Below 33rem,
-   where the two would otherwise fight for one line, they crossfade
-   in the same slot instead.
-   ------------------------------------------------------------ */
-.topbar__slider { position: relative; display: inline-flex; align-items: center; }
-.topbar__slide--b { display: none; }
-@media (max-width: 33rem) {
-  @media (prefers-reduced-motion: no-preference) {
-    /* Both slides are position:absolute, so they contribute nothing to the
-       parent's own size — a min-width here would just collapse to that
-       minimum regardless of the text inside. Fixed width instead, sized to
-       the longer of the two slides ("+91 63 67 600 500" / "✧ 25% Off on
-       first order") at this breakpoint's font size. */
-    .topbar__slider {
-      display: inline-block;
-      height: 1.1rem;
-      width: 12.5rem;
-      overflow: hidden;
-    }
-    .topbar__slide {
-      position: absolute;
-      inset: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: var(--s-2);
-      white-space: nowrap;
-      opacity: 0;
-      animation: topbarSlide 9s ease-in-out infinite;
-    }
-    .topbar__slide--a { animation-delay: 0s; }
-    .topbar__slide--b { display: inline-flex; animation-delay: -4.5s; }
-  }
-}
-@keyframes topbarSlide {
-  0%, 5%    { opacity: 1; }
-  45%, 100% { opacity: 0; }
-}
-
-/* ------------------------------------------------------------
    Search — header toggle + slide-down panel. Client-side only:
    no backend on a static host, so the index (window.__SEARCH_INDEX__,
    inlined in base.html) is filtered entirely in the browser.

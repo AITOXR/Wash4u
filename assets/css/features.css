@@ -753,14 +753,17 @@ body.cart-lock { overflow: hidden; }
 .plan-cover__icon { display: inline-grid; place-items: center; color: var(--navy); flex: none; }
 .plan-cover__icon svg { width: 1.5rem; height: 1.5rem; }
 
-/* The plan cards */
+/* The plan cards. Two-up from the smallest phone: minmax(0, 1fr), not a
+   bare 1fr, so a card's own content (the "You pay X -> Y you get to
+   spend" row, wider than the old single balance line) can never force it
+   past its column's share — that gap is what overflowed the page at
+   ~600px before minmax(0, ...) was added here. */
 .plan-grid {
   display: grid;
-  gap: var(--s-4);
-  grid-template-columns: 1fr;
+  gap: var(--s-3);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-@media (min-width: 34rem) { .plan-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 64rem) { .plan-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 64rem) { .plan-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
 .plan-card {
   position: relative;
@@ -774,6 +777,22 @@ body.cart-lock { overflow: hidden; }
   transition: border-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
 }
 .plan-card:hover { border-color: var(--navy); box-shadow: var(--shadow-md); }
+
+/* Two-up on a phone leaves ~150-180px per card — tighten padding and type
+   so the name, balance figures and includes list still fit, and let the
+   head/rows wrap to a second line instead of overflowing the card when
+   they still don't (a nowrap flex row with no shrinkable child spills
+   past its box rather than compressing — "+30% value" next to a plan
+   name was exactly that). */
+@media (max-width: 30rem) {
+  .plan-card { padding: var(--s-4) var(--s-4) var(--s-4); gap: var(--s-3); }
+  .plan-card__name { font-size: var(--t-base); }
+  .plan-card__balance-num { font-size: var(--t-xl); }
+  .plan-card__balance-pay-num { font-size: var(--t-sm); }
+  .plan-card__head { flex-wrap: wrap; gap: var(--s-2); }
+  .plan-card__benefit { font-size: 0.625rem; padding: .15rem .4rem; }
+  .plan-grid .plan-card__rows > div { flex-wrap: wrap; }
+}
 
 .plan-card__head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
 .plan-card__name { font-size: var(--t-lg); }
@@ -789,7 +808,12 @@ body.cart-lock { overflow: hidden; }
   white-space: nowrap;
 }
 
-.plan-card__balance { display: flex; align-items: baseline; gap: var(--s-2); padding-bottom: var(--s-3); border-bottom: 1px solid var(--line-soft); }
+.plan-card__balance { display: flex; align-items: center; flex-wrap: wrap; gap: var(--s-2) var(--s-3); padding-bottom: var(--s-3); border-bottom: 1px solid var(--line-soft); }
+.plan-card__balance-pay { display: flex; flex-direction: column; gap: 2px; }
+.plan-card__balance-pay-label { font-size: var(--t-xs); color: var(--ink-3); }
+.plan-card__balance-pay-num { font-family: var(--font-mono); font-weight: 600; font-size: var(--t-base); color: var(--ink-2); }
+.plan-card__balance-arrow { color: var(--brass-deep); flex: none; }
+.plan-card__balance-get { display: flex; flex-direction: column; gap: 2px; }
 .plan-card__balance-num { font-family: var(--font-display); font-weight: 800; font-size: var(--t-2xl); color: var(--ink); line-height: 1; }
 .plan-card__balance-label { font-size: var(--t-sm); color: var(--ink-3); }
 
@@ -831,7 +855,10 @@ body.cart-lock { overflow: hidden; }
 .plan-card--navy .plan-card__rows dd { color: #fff; }
 .plan-card--navy .plan-card__balance { border-bottom-color: rgba(255,255,255,.16); }
 .plan-card--navy .plan-card__balance-label,
+.plan-card--navy .plan-card__balance-pay-label,
 .plan-card--navy .plan-card__rows dt { color: rgba(255,255,255,.6); }
+.plan-card--navy .plan-card__balance-pay-num { color: rgba(255,255,255,.82); }
+.plan-card--navy .plan-card__balance-arrow { color: var(--brass-bright); }
 .plan-card--navy .plan-card__benefit { color: var(--brass-bright); background: rgba(217,184,120,.14); }
 .plan-card--navy .plan-card__rows dd.is-free { color: var(--brass-bright); }
 

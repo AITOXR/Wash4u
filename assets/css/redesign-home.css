@@ -1,11 +1,12 @@
 /* ============================================================
    Home hero — the wall at premium scale.
 
-   Two rows of large graded tiles drift imperceptibly (38s / 47s,
-   opposite directions) behind a navy scrim that rises from the text
-   side. One grade, one 16px radius, one exact 12px gap. The copy
-   column is the same voice as the rest of the site: white serif,
-   one brass italic phrase, quiet offer tag.
+   Three diagonal lanes, each one category of what we clean — garments,
+   then shoes & bags, then everything else — drifting at three different
+   speeds behind a navy scrim that rises from the text side. One grade,
+   one 16px radius, one exact 12px gap. The copy column is the same
+   voice as the rest of the site: white serif, one brass italic phrase,
+   quiet offer tag.
    ============================================================ */
 
 .hero.home-hero {
@@ -20,10 +21,19 @@
   align-items: center;
 }
 
-/* ---- The wall ----------------------------------------------------- */
+/* ---- The wall -----------------------------------------------------
+   Rotated a few degrees off the horizontal so the tiles read as a
+   diagonal band rather than a straight grid. Oversized on every side
+   (inset goes negative) so the rotated box still covers every corner
+   of the hero — the section itself clips (`overflow:clip` above), so
+   nothing escapes the band. The scrim used to be this element's own
+   ::after, which would have rotated with it; it now lives on
+   `.hero.home-hero::before` instead (unrotated, see below) so the
+   "navy rising from the text side" gradient stays aligned to the
+   viewport, not to the tilted tiles. */
 .home-hero__wall {
   position: absolute;
-  inset: 0;
+  inset: -14% -8%;
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
@@ -31,6 +41,10 @@
   gap: 12px;
   align-content: center;
   justify-items: start;
+  transform: rotate(-6deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-hero__wall { transform: rotate(-3deg); }
 }
 
 .hero-wall__col {
@@ -40,11 +54,16 @@
   will-change: transform;
   animation: wall-drift var(--dur, 40s) linear infinite;
 }
-/* Opposite directions give the wall depth without speed; the half-tile
-   offset bricks the rows so their seams never align. */
+/* Opposite directions on the middle row give the wall depth without
+   speed; the fractional-tile offsets on rows 2 and 3 are different
+   fractions of each other (and of row 1's zero offset) so no two of the
+   three lanes ever brick their seams into alignment. */
 .hero-wall__col:nth-child(2) {
   animation-direction: reverse;
   margin-left: calc(clamp(9.5rem, 17.5vw, 16rem) / -2);
+}
+.hero-wall__col:nth-child(3) {
+  margin-left: calc(clamp(9.5rem, 17.5vw, 16rem) / -4);
 }
 
 /* Travel exactly one set of tiles. Each row holds its tiles twice;
@@ -74,11 +93,18 @@
 /* ---- The scrim ----------------------------------------------------
    Navy rising from the text side: near-solid under the copy, falling
    away so the wall glows on the right. A faint full-frame veil keeps
-   the tiles a half-step behind the headline everywhere. */
-.home-hero__wall::after {
+   the tiles a half-step behind the headline everywhere.
+
+   Lives on the hero section itself, not on .home-hero__wall — the wall
+   is now rotated for the diagonal tile band, and this gradient must
+   stay aligned to the viewport (and the text column), not to the
+   tilted tiles. z-index seats it between the wall (0) and the copy (2). */
+.hero.home-hero::before {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background:
     linear-gradient(95deg,
       rgba(13, 35, 80, .98) 0%,
@@ -144,9 +170,13 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
   max-width: 21ch;
   text-wrap: balance;
 }
-/* One phrase in the brass italic — the offer, not decoration. */
-.home-hero__title .hkw--blue,
-.home-hero__title .hkw--green { color: #fff; }
+/* "Laundry & Dry Cleaning" is the one phrase this business is actually
+   named for — real green (the logo's), not white like the rest of the
+   line. The closing offer phrase keeps its own brass-italic treatment,
+   the offer, not decoration — :last-of-type's higher specificity wins
+   over the plain rule below it regardless of source order. */
+.home-hero__title .hkw--blue { color: #fff; }
+.home-hero__title .hkw--green { color: var(--brand-green); font-weight: 700; }
 .home-hero__title .hkw--green:last-of-type {
   font-style: italic;
   font-weight: 480;
@@ -211,11 +241,11 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
 
 /* ---- Small screens ------------------------------------------------
    The scrim turns vertical: copy on near-solid navy at the top, the
-   wall glowing through along the foot. Tiles step down so two rows
-   still fit behind the band. */
+   wall glowing through along the foot. Tiles step down further than a
+   two-row wall needed — there are three lanes to fit now. */
 @media (max-width: 61.99rem) {
-  .hero-wall__tile { width: clamp(7rem, 22vw, 10rem); }
-  .home-hero__wall::after {
+  .hero-wall__tile { width: clamp(5.5rem, 18vw, 8rem); }
+  .hero.home-hero::before {
     background:
       linear-gradient(185deg,
         rgba(13, 35, 80, .97) 0%,
@@ -293,6 +323,7 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
 .why__intro > .section-head { margin-bottom: 0; }
 .why__intro { margin-bottom: var(--s-8); }
 .why__mascot { display: none; }
+.why__mascot--sm { display: none; }
 
 @media (min-width: 62rem) {
   .why__intro {
@@ -330,7 +361,7 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
 }
 
 /* Print: decorative art costs ink and says nothing. */
-@media print { .why__mascot { display: none; } }
+@media print { .why__mascot, .why__mascot--sm { display: none; } }
 
 /* ---- Strip -> cards -----------------------------------------------
    Four calm cards: warm paper, one hairline, one soft shadow, one
@@ -684,12 +715,13 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
    the end of this file. */
 
 /* ---- Why mascot below 62rem ----------------------------------------
-   `.why__mascot { display: none }` stays the default and the Proof
-   section keeps relying on it. The default is wrong in exactly one
-   place: below 62rem the Why section is heading, lede, four cards whose
-   only marks are 32px glyphs, then a 3-4 line SEO paragraph — the
-   longest unbroken run of type on the page — and mascot-why.png is the
-   only original, on-palette, text-free illustration the brand owns.
+   `.why__mascot--sm` renders the same mascot-why.png as a smaller,
+   right-aligned companion mark below 62rem, where the desktop
+   `.why__mascot` (see above) is hidden. Below 62rem the Why section is
+   heading, lede, four cards whose only marks are 32px glyphs, then a
+   3-4 line SEO paragraph — the longest unbroken run of type on the
+   page — and mascot-why.png is the only original, on-palette,
+   text-free illustration the brand owns.
 
    CLS: none. width/height are on the tag and height:auto preserves the
    760x941 box, so the row is reserved before the bitmap decodes.

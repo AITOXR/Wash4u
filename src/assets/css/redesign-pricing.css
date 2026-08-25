@@ -134,9 +134,13 @@
 }
 
 /* Phones crop the 2.36:1 frame to something near-square. Anchor it right so
-   the garments, not an empty slice of sky, are what shows behind the copy. */
+   the garments, not an empty slice of sky, are what shows behind the copy.
+   One value, not three: `background` above only declares two layers (the
+   photo, then --navy-deep as a plain colour), so a 3-value list here mapped
+   "right center" onto the colour layer — a no-op — and left the photo on
+   its default centred position, i.e. never actually applied on phones. */
 @media (max-width: 47.99rem) {
-  .pricing-hero { background-position: center, right center, 0 0; }
+  .pricing-hero { background-position: right center; }
 }
 
 /* ============================================================

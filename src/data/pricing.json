@@ -103,7 +103,8 @@
           "name": "Saree",
           "price": "₹199",
           "amount": 199,
-          "slug": "saree"
+          "slug": "saree",
+          "img": "images/pricing/saree.png"
         },
         {
           "name": "Lehenga",
@@ -415,7 +416,8 @@
           "name": "Saree",
           "price": "₹39",
           "amount": 39,
-          "slug": "iron-saree"
+          "slug": "iron-saree",
+          "img": "images/pricing/saree.png"
         },
         {
           "name": "Lehenga",

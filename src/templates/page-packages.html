@@ -145,7 +145,7 @@
           </div>
         </div>
         <dl class="plan-card__rows">
-          <div><dt>Free bonus</dt><dd class="is-free">+<span{{ cms('packages:plans.' ~ loop.index0 ~ '.free') }}>{{ p.free }}</span></dd></div>
+          <div><dt>You save</dt><dd class="is-free"><span{{ cms('packages:plans.' ~ loop.index0 ~ '.free') }}>{{ p.free }}</span></dd></div>
           <div><dt>Valid for</dt><dd{{ cms('packages:plans.' ~ loop.index0 ~ '.validity') }}>{{ p.validity }}</dd></div>
         </dl>
         {% if p.best_for %}

@@ -146,6 +146,16 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
 
+  <div class="promo-strip">
+    <div class="wrap promo-strip__inner">
+      <p class="promo-strip__text">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s1.2 5 3 6.8S21 12 21 12s-4.2 1.4-6 3.2S12 21 12 21s-1.2-4-3-5.8S3 12 3 12s4.2-1.4 6-3.2S12 3 12 3Z"/></svg>
+        <span class="promo-strip__value">25% Off</span>
+        <span>On Your First Order</span> — book your free pickup today.
+      </p>
+    </div>
+  </div>
+
   <div class="topbar">
     <div class="wrap topbar__inner">
       <div class="topbar__left">
@@ -155,8 +165,8 @@
       <div class="topbar__right">
         <a class="topbar__link" href="../contact-us/">Contact</a>
         <span class="topbar__socials">
-          <a href="https://www.facebook.com/profile.php?id=61581209511675" rel="noopener" aria-label="Wash4You on Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V7c0-.8.2-1.2 1.4-1.2H17V3h-2.6C11.6 3 10.7 4.4 10.7 7v1.5H9V12h1.7v9H14v-9h2.4l.3-3.5Z"/></svg></a>
-          <a href="https://www.instagram.com/wash4you._" rel="noopener" aria-label="Wash4You on Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61581209511675" target="_blank" rel="noopener" aria-label="Wash4You on Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V7c0-.8.2-1.2 1.4-1.2H17V3h-2.6C11.6 3 10.7 4.4 10.7 7v1.5H9V12h1.7v9H14v-9h2.4l.3-3.5Z"/></svg></a>
+          <a href="https://www.instagram.com/wash4you._" target="_blank" rel="noopener" aria-label="Wash4You on Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
         </span>
       </div>
     </div>
@@ -166,6 +176,7 @@
     <div class="wrap header__inner">
       <a class="header__logo" href="../" aria-label="Wash4You — home">
         <img src="../assets/images/logo-header.png" alt="Wash4You" width="781" height="144">
+        <img class="header__mascot" src="../assets/images/mascot.png" alt="" width="320" height="320" loading="eager" decoding="async">
       </a>
 
       <nav class="header__nav" aria-label="Main">
@@ -266,6 +277,9 @@
         <a class="header__phone" href="tel:+916367600500">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg> +91 63 67 600 500
         </a>
+        <button class="search-toggle" id="search-toggle" type="button" aria-label="Search the site" aria-expanded="false" aria-controls="site-search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
         <button class="cart-toggle" id="cart-toggle" type="button" aria-label="View your pickup list" aria-expanded="false" aria-controls="cart-drawer" hidden>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h2l1.5 10.5a1.5 1.5 0 0 0 1.5 1.3h8a1.5 1.5 0 0 0 1.5-1.2L20 9H6.2"/><circle cx="9.5" cy="20.5" r="1.1"/><circle cx="17" cy="20.5" r="1.1"/></svg>
           <span class="cart-toggle__count" data-cart-count aria-hidden="true">0</span>
@@ -278,14 +292,31 @@
     </div>
   </header>
 
+  <div class="site-search" id="site-search" aria-hidden="true">
+    <div class="site-search__inner">
+      <div class="site-search__field">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" id="site-search-input" placeholder="Search services, pricing, areas…" autocomplete="off" aria-label="Search Wash4You" aria-controls="site-search-results">
+        <button type="button" class="site-search__close" id="site-search-close" aria-label="Close search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </div>
+      <ul class="site-search__results" id="site-search-results" role="listbox" aria-label="Search results"></ul>
+      <p class="site-search__empty" id="site-search-empty" hidden>No matches. Try “pricing”, “shoe cleaning” or an area name.</p>
+    </div>
+  </div>
+  <div class="site-search-backdrop" id="site-search-backdrop" hidden></div>
+
   <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
     <div class="wrap mobile-nav__top">
       <a class="header__logo" href="../">
         <img src="../assets/images/logo-header.png" alt="Wash4You" width="781" height="144">
+        <img class="header__mascot" src="../assets/images/mascot.png" alt="" width="320" height="320" loading="lazy" decoding="async">
       </a>
       <button class="menu-toggle" id="menu-close" type="button" aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     </div>
     <div class="wrap mobile-nav__body">
+      <button class="search-toggle search-toggle--mobile" type="button" data-mobile-search-open aria-controls="site-search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg> Search the site
+      </button>
       <nav aria-label="Mobile">
         <details class="mobile-nav__group">
           <summary class="mobile-nav__link">Services <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
@@ -343,8 +374,8 @@
         <h1 style="margin-top:var(--s-4)">Laundry (Wash &amp; Fold) on Sohna Road, Gurugram</h1>
         <p class="lede">Everyday wash and fold for the condominium belt along Sectors 47–49 — counted with you at your door, packed separately from every other order, and collected from your tower rather than the main road.</p>
         <div class="btn-row">
-          <a class="btn btn--cta btn--lg" href="https://app.wash4you.in/website/W10795?brand=WASH4U" rel="noopener">Book free pickup</a>
-          <a class="btn btn--ghost btn--lg" href="https://wa.me/916367600500" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.4 3.4 0 0 0 5.8 9c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.6 4 8 8 0 0 0 1.6.6 3.7 3.7 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg> WhatsApp us</a>
+          <a class="btn btn--cta btn--lg" href="https://app.wash4you.in/website/W10795?brand=WASH4U" target="_blank" rel="noopener">Book free pickup</a>
+          <a class="btn btn--ghost btn--lg" href="https://wa.me/916367600500" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.4 3.4 0 0 0 5.8 9c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.6 4 8 8 0 0 0 1.6.6 3.7 3.7 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg> WhatsApp us</a>
         </div>
       </div>
 
@@ -353,7 +384,7 @@
 </span>
         <strong>Eco-Friendly Laundry Service in Sohna Road</strong>
         <p>Free doorstep pickup and delivery. Every piece counted with you before it leaves.</p>
-        <a class="btn btn--cta btn--block" href="https://app.wash4you.in/website/W10795?brand=WASH4U" rel="noopener">Book free pickup</a>
+        <a class="btn btn--cta btn--block" href="https://app.wash4you.in/website/W10795?brand=WASH4U" target="_blank" rel="noopener">Book free pickup</a>
         <a class="btn btn--ghost btn--block" href="tel:+916367600500"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg> +91 63 67 600 500</a>
       </aside>
     </div>
@@ -498,8 +529,8 @@
       <h2>Book eco-friendly laundry service in Sohna Road.</h2>
       <p>Free pickup and delivery at your door, at a time that suits you.</p>
       <div class="btn-row">
-        <a class="btn btn--cta btn--lg" href="https://app.wash4you.in/website/W10795?brand=WASH4U" rel="noopener">Book free pickup</a>
-        <a class="btn btn--on-navy btn--lg" href="https://wa.me/916367600500" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.4 3.4 0 0 0 5.8 9c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.6 4 8 8 0 0 0 1.6.6 3.7 3.7 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg> WhatsApp us</a>
+        <a class="btn btn--cta btn--lg" href="https://app.wash4you.in/website/W10795?brand=WASH4U" target="_blank" rel="noopener">Book free pickup</a>
+        <a class="btn btn--on-navy btn--lg" href="https://wa.me/916367600500" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.4 3.4 0 0 0 5.8 9c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.6 4 8 8 0 0 0 1.6.6 3.7 3.7 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg> WhatsApp us</a>
       </div>
     </div>
   </div>
@@ -518,10 +549,10 @@
             <a href="mailto:care@wash4you.in"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg> care@wash4you.in</a>
           </div>
           <div class="footer__social">
-            <a href="https://www.instagram.com/wash4you._" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-            <a href="https://www.facebook.com/profile.php?id=61581209511675" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V7c0-.8.2-1.2 1.4-1.2H17V3h-2.6C11.6 3 10.7 4.4 10.7 7v1.5H9V12h1.7v9H14v-9h2.4l.3-3.5Z"/></svg></a>
-            <a href="https://www.linkedin.com/company/wash4you-eco-friendly-laundry-and-dryclean/" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3 9h3v12H3zM9 9h2.9v1.7A3.2 3.2 0 0 1 14.8 9C18 9 19 11 19 14.2V21h-3v-6c0-1.6-.6-2.7-2-2.7s-2 1-2 2.6V21H9Z"/></svg></a>
-            <a href="https://www.youtube.com/channel/UCji5ILTjdrl-DOXf8loAX8Q" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12s0-3.4-.4-5a2.6 2.6 0 0 0-1.8-1.8C18.1 4.8 12 4.8 12 4.8s-6.1 0-7.8.4A2.6 2.6 0 0 0 2.4 7C2 8.6 2 12 2 12s0 3.4.4 5a2.6 2.6 0 0 0 1.8 1.8c1.7.4 7.8.4 7.8.4s6.1 0 7.8-.4A2.6 2.6 0 0 0 21.6 17c.4-1.6.4-5 .4-5ZM10 15.2V8.8l5.2 3.2Z"/></svg></a>
+            <a href="https://www.instagram.com/wash4you._" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/profile.php?id=61581209511675" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V7c0-.8.2-1.2 1.4-1.2H17V3h-2.6C11.6 3 10.7 4.4 10.7 7v1.5H9V12h1.7v9H14v-9h2.4l.3-3.5Z"/></svg></a>
+            <a href="https://www.linkedin.com/company/wash4you-eco-friendly-laundry-and-dryclean/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3 9h3v12H3zM9 9h2.9v1.7A3.2 3.2 0 0 1 14.8 9C18 9 19 11 19 14.2V21h-3v-6c0-1.6-.6-2.7-2-2.7s-2 1-2 2.6V21H9Z"/></svg></a>
+            <a href="https://www.youtube.com/channel/UCji5ILTjdrl-DOXf8loAX8Q" target="_blank" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12s0-3.4-.4-5a2.6 2.6 0 0 0-1.8-1.8C18.1 4.8 12 4.8 12 4.8s-6.1 0-7.8.4A2.6 2.6 0 0 0 2.4 7C2 8.6 2 12 2 12s0 3.4.4 5a2.6 2.6 0 0 0 1.8 1.8c1.7.4 7.8.4 7.8.4s6.1 0 7.8-.4A2.6 2.6 0 0 0 21.6 17c.4-1.6.4-5 .4-5ZM10 15.2V8.8l5.2 3.2Z"/></svg></a>
           </div>
         </div>
 
@@ -536,7 +567,13 @@
             <li><a href="../services/curtains-cleaning/">Curtain Cleaning Service</a></li>
             <li><a href="../services/carpet-cleaning/">Carpet Cleaning Service</a></li>
             <li><a href="../services/toy-cleaning/">Toy Cleaning Service</a></li>
-            <li><a href="../services/">All services</a></li>
+            <li><a href="../services/accessories-cleaning/">Accessories Cleaning</a></li>
+            <li><a href="../services/sofa-cleaning/">Sofa &amp; Upholstery Cleaning</a></li>
+            <li><a href="../services/steam-ironing/">Steam Ironing Service</a></li>
+            <li><a href="../services/mattress-cleaning/">Mattress Cleaning Service</a></li>
+            <li><a href="../services/wet-cleaning/">Wet Cleaning Service</a></li>
+            <li><a href="../services/blanket-quilt-cleaning/">Blanket &amp; Quilt Cleaning</a></li>
+            <li><a href="../services/linen-cleaning/">Linen Cleaning Service</a></li>
           </ul>
         </div>
 
@@ -554,6 +591,10 @@
             <li><a href="../laundry-service-palam-vihar/">Palam Vihar</a></li>
             <li><a href="../laundry-service-mg-road/">MG Road</a></li>
           </ul>
+          <p class="footer__more-areas">
+            Also serving Delhi, Noida &amp; Greater Noida, Faridabad, Ghaziabad —
+            <a href="../locate-us/">456 areas covered</a>
+          </p>
         </div>
 
         <div>
@@ -620,7 +661,7 @@
         <span><b>Indicative estimate.</b> ‘From’ items are priced after inspection.</span>
       </p>
       <div class="cart-cta">
-        <a class="btn btn--cta cart-cta__btn" href="https://app.wash4you.in/website/W10571?brand=WASH4U" rel="noopener">
+        <a class="btn btn--cta cart-cta__btn" href="https://app.wash4you.in/website/W10571?brand=WASH4U" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 2.4 1.8 3 .1 1 2.8 2.4 1.7-.9 2.9.9 2.9-2.4 1.7-1 2.8-3 .1L12 22l-2.4-1.8-3-.1-1-2.8L3.2 15.6l.9-2.9-.9-2.9 2.4-1.7 1-2.8 3-.1Z"/><path d="m9 12 2 2 4-4"/></svg> Schedule pickup
         </a>
         <a class="btn cart-cta__btn cart-cta__wa" data-cart-book href="https://wa.me/916367600500" target="_blank" rel="noopener">
@@ -632,7 +673,7 @@
   </aside>
 
   <div class="cta-bar" id="mobile-cta-bar">
-    <a class="btn btn--ghost" href="https://wa.me/916367600500" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.4 3.4 0 0 0 5.8 9c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.6 4 8 8 0 0 0 1.6.6 3.7 3.7 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg> WhatsApp</a>
+    <a class="btn btn--ghost" href="https://wa.me/916367600500" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5v-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4A3.4 3.4 0 0 0 5.8 9c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.6 4 8 8 0 0 0 1.6.6 3.7 3.7 0 0 0 1.7.1 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg> WhatsApp</a>
     <a class="btn btn--cta" href="https://app.wash4you.in/website/W10795?brand=WASH4U" rel="noopener">Book pickup</a>
   </div>
 
@@ -674,6 +715,211 @@
         shut(current)
         if (t) t.focus()
       }
+    })
+  })()
+  </script>
+
+  <script>
+  window.__SEARCH_INDEX__ = [
+    { "title": "Home", "group": "Pages", "url": "../" },
+    { "title": "Services", "group": "Pages", "url": "../services/" },
+    { "title": "Pricing", "group": "Pages", "url": "../pricing/" },
+    { "title": "Packages", "group": "Pages", "url": "../packages/" },
+    { "title": "Locate us", "group": "Pages", "url": "../locate-us/" },
+    { "title": "About us", "group": "Pages", "url": "../about-us/" },
+    { "title": "Blog", "group": "Pages", "url": "../blog/" },
+    { "title": "Contact us", "group": "Pages", "url": "../contact-us/" },
+{ "title": "Eco-Friendly Laundry Service", "group": "Services", "url": "../services/eco-friendly-laundry/" },
+{ "title": "Premium Dry Cleaning Service", "group": "Services", "url": "../services/premium-dry-cleaning/" },
+{ "title": "Shoe Cleaning Service", "group": "Services", "url": "../services/shoe-cleaning/" },
+{ "title": "Bag \u0026 Handbag Cleaning", "group": "Services", "url": "../services/bag-cleaning/" },
+{ "title": "Leather Cleaning \u0026 Care", "group": "Services", "url": "../services/leather-cleaning/" },
+{ "title": "Curtain Cleaning Service", "group": "Services", "url": "../services/curtains-cleaning/" },
+{ "title": "Carpet Cleaning Service", "group": "Services", "url": "../services/carpet-cleaning/" },
+{ "title": "Toy Cleaning Service", "group": "Services", "url": "../services/toy-cleaning/" },
+{ "title": "Accessories Cleaning", "group": "Services", "url": "../services/accessories-cleaning/" },
+{ "title": "Sofa \u0026 Upholstery Cleaning", "group": "Services", "url": "../services/sofa-cleaning/" },
+{ "title": "Steam Ironing Service", "group": "Services", "url": "../services/steam-ironing/" },
+{ "title": "Mattress Cleaning Service", "group": "Services", "url": "../services/mattress-cleaning/" },
+{ "title": "Wet Cleaning Service", "group": "Services", "url": "../services/wet-cleaning/" },
+{ "title": "Blanket \u0026 Quilt Cleaning", "group": "Services", "url": "../services/blanket-quilt-cleaning/" },
+{ "title": "Linen Cleaning Service", "group": "Services", "url": "../services/linen-cleaning/" },
+{ "title": "Pickup in Sushant Lok", "group": "Areas", "url": "../laundry-service-sushant-lok/" },
+{ "title": "Pickup in Sector 49", "group": "Areas", "url": "../laundry-service-sector-49/" },
+{ "title": "Pickup in Cyber City", "group": "Areas", "url": "../laundry-service-cyber-city/" },
+{ "title": "Pickup in DLF Phase 3", "group": "Areas", "url": "../laundry-service-dlf-phase-3/" },
+{ "title": "Pickup in Golf Course Road", "group": "Areas", "url": "../laundry-service-golf-course-road/" },
+{ "title": "Pickup in Golf Course Extension", "group": "Areas", "url": "../laundry-service-golf-course-extension/" },
+{ "title": "Pickup in Sohna Road", "group": "Areas", "url": "../laundry-service-sohna-road/" },
+{ "title": "Pickup in Sector 29", "group": "Areas", "url": "../laundry-service-gurugram-sector-29/" },
+{ "title": "Pickup in Palam Vihar", "group": "Areas", "url": "../laundry-service-palam-vihar/" },
+{ "title": "Pickup in MG Road", "group": "Areas", "url": "../laundry-service-mg-road/" },
+{ "title": "Laundry Service Cost in Gurgaon: Complete Pricing Guide", "group": "Blog", "url": "https://wash4you.in/laundry-service-cost-in-gurgaon/" },
+{ "title": "How to Dry Clothes in Rainy Season \u2013 Complete Monsoon Laundry Guide by Wash4You", "group": "Blog", "url": "https://wash4you.in/how-to-dry-clothes-in-rainy-season/" },
+{ "title": "Why Professional Laundry Services Are a Smart Choice for Busy Lifestyles", "group": "Blog", "url": "https://wash4you.in/why-professional-laundry-services-are-a-smart-choice/" },
+{ "title": "The Importance of Professional Laundry \u0026 Fabric Care", "group": "Blog", "url": "https://wash4you.in/the-importance-of-professional-laundry-fabric-care/" },
+{ "title": "How to Clean Leather Shoes at Home \u2013 Complete Care Guide by Wash4You", "group": "Blog", "url": "https://wash4you.in/how-to-clean-leather-shoes-at-home/" },
+{ "title": "How To Care For Silk Pillowcases", "group": "Blog", "url": "https://wash4you.in/how-to-care-for-silk-pillowcases/" },
+{ "title": "Laundry Accessories You Need To Care For Silk Clothes", "group": "Blog", "url": "https://wash4you.in/laundry-accessories-you-need-to-care-for-silk-clothes/" },
+{ "title": "How To Care For Silk Clothes", "group": "Blog", "url": "https://wash4you.in/how-to-care-for-silk-clothes/" },
+{ "title": "5 ways to store silk clothes at home", "group": "Blog", "url": "https://wash4you.in/5-ways-to-store-silk-clothes-at-home/" },
+{ "title": "Pant/Trouser", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Jeans", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Shirt", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "T-Shirt", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Coat", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Men Suit 2 Pcs", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Men Suit 3 Pcs", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Sherwani", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Kurta", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Kurta Fancy", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Kurta Heavy", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Salwar", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Saree", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Lehenga", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Dress", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Shawl", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Sweater", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Jacket", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Leather Jacket", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Dupatta", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Blouse", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Top", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Palazzo", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Long Coat", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Cardigan", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Sweatshirt", "group": "Pricing", "url": "../pricing/#cat-0" },
+{ "title": "Carpet", "group": "Pricing", "url": "../pricing/#cat-1" },
+{ "title": "Curtain", "group": "Pricing", "url": "../pricing/#cat-1" },
+{ "title": "Single Blanket 1 Ply / Quilt", "group": "Pricing", "url": "../pricing/#cat-1" },
+{ "title": "Double Blanket 1 Ply / Quilt", "group": "Pricing", "url": "../pricing/#cat-1" },
+{ "title": "Single Bed Sheet", "group": "Pricing", "url": "../pricing/#cat-1" },
+{ "title": "Double Bed Sheet", "group": "Pricing", "url": "../pricing/#cat-1" },
+{ "title": "Bed Spread Double", "group": "Pricing", "url": "../pricing/#cat-1" },
+{ "title": "Comforter Double", "group": "Pricing", "url": "../pricing/#cat-1" },
+{ "title": "Handbag Leather", "group": "Pricing", "url": "../pricing/#cat-1" },
+{ "title": "Sports Shoes", "group": "Pricing", "url": "../pricing/#cat-2" },
+{ "title": "Sneakers", "group": "Pricing", "url": "../pricing/#cat-2" },
+{ "title": "Leather Shoes", "group": "Pricing", "url": "../pricing/#cat-2" },
+{ "title": "Suede Leather Shoes", "group": "Pricing", "url": "../pricing/#cat-2" },
+{ "title": "Sneaker Ankle", "group": "Pricing", "url": "../pricing/#cat-2" },
+{ "title": "Boots Mid Length", "group": "Pricing", "url": "../pricing/#cat-2" },
+{ "title": "Wash and Fold", "group": "Pricing", "url": "../pricing/#cat-3" },
+{ "title": "Wash and Steam Iron", "group": "Pricing", "url": "../pricing/#cat-3" },
+{ "title": "Premium Laundry", "group": "Pricing", "url": "../pricing/#cat-3" },
+{ "title": "Woollen Laundry (Dailywear)", "group": "Pricing", "url": "../pricing/#cat-3" },
+{ "title": "Woollen Laundry \u0026 Iron (Dailywear)", "group": "Pricing", "url": "../pricing/#cat-3" },
+{ "title": "Pant/Trouser", "group": "Pricing", "url": "../pricing/#cat-4" },
+{ "title": "Jeans", "group": "Pricing", "url": "../pricing/#cat-4" },
+{ "title": "Shirt", "group": "Pricing", "url": "../pricing/#cat-4" },
+{ "title": "T-Shirt", "group": "Pricing", "url": "../pricing/#cat-4" },
+{ "title": "Coat", "group": "Pricing", "url": "../pricing/#cat-4" },
+{ "title": "Single Bedsheet", "group": "Pricing", "url": "../pricing/#cat-4" },
+{ "title": "Salwar", "group": "Pricing", "url": "../pricing/#cat-4" },
+{ "title": "Blouse", "group": "Pricing", "url": "../pricing/#cat-4" },
+{ "title": "Saree", "group": "Pricing", "url": "../pricing/#cat-4" },
+{ "title": "Lehenga", "group": "Pricing", "url": "../pricing/#cat-4" },
+{ "title": "Dress", "group": "Pricing", "url": "../pricing/#cat-4" },
+{ "title": "Double Bedsheet", "group": "Pricing", "url": "../pricing/#cat-4" },
+  ]
+
+  ;(function () {
+    var toggle = document.getElementById('search-toggle')
+    var mobileOpen = document.querySelector('[data-mobile-search-open]')
+    var panel = document.getElementById('site-search')
+    var backdrop = document.getElementById('site-search-backdrop')
+    var closeBtn = document.getElementById('site-search-close')
+    var input = document.getElementById('site-search-input')
+    var results = document.getElementById('site-search-results')
+    var empty = document.getElementById('site-search-empty')
+    if (!panel || !input || !results) return
+
+    function open() {
+      panel.classList.add('is-open')
+      panel.setAttribute('aria-hidden', 'false')
+      backdrop.hidden = false
+      if (toggle) toggle.setAttribute('aria-expanded', 'true')
+      document.documentElement.classList.add('search-open')
+      window.setTimeout(function () { input.focus() }, 10)
+    }
+    function close() {
+      panel.classList.remove('is-open')
+      panel.setAttribute('aria-hidden', 'true')
+      backdrop.hidden = true
+      if (toggle) toggle.setAttribute('aria-expanded', 'false')
+      document.documentElement.classList.remove('search-open')
+    }
+    // Edit distance between two strings — used only as a typo-tolerance
+    // fallback below, so a misspelled query ("curten", "shert") still finds
+    // "Curtains Cleaning" / "Shirt" instead of returning nothing.
+    function levenshtein(a, b) {
+      if (a === b) return 0
+      if (!a.length) return b.length
+      if (!b.length) return a.length
+      var prev = []
+      for (var j = 0; j <= b.length; j++) prev[j] = j
+      for (var i = 1; i <= a.length; i++) {
+        var cur = [i]
+        for (var j = 1; j <= b.length; j++) {
+          var cost = a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1
+          cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + cost)
+        }
+        prev = cur
+      }
+      return prev[b.length]
+    }
+
+    function render(query) {
+      var q = query.trim().toLowerCase()
+      results.innerHTML = ''
+      if (!q) { empty.hidden = true; return }
+
+      // Tier 1: substring matches, ranked by how early the query appears.
+      var exact = []
+      // Tier 2: no substring hit anywhere in the title — fall back to the
+      // closest single word by edit distance, within a tolerance that grows
+      // with the query length (longer queries can absorb more typos).
+      var fuzzy = []
+      var tolerance = q.length <= 4 ? 1 : q.length <= 7 ? 2 : 3
+      window.__SEARCH_INDEX__.forEach(function (item) {
+        var t = item.title.toLowerCase()
+        var at = t.indexOf(q)
+        if (at !== -1) { exact.push({ item: item, rank: at }); return }
+        var words = t.split(/\s+/)
+        var best = Infinity
+        for (var i = 0; i < words.length; i++) {
+          var d = levenshtein(q, words[i])
+          if (d < best) best = d
+        }
+        if (best <= tolerance) fuzzy.push({ item: item, rank: best })
+      })
+      exact.sort(function (a, b) { return a.rank - b.rank })
+      fuzzy.sort(function (a, b) { return a.rank - b.rank })
+      var matches = exact.concat(fuzzy).slice(0, 8).map(function (m) { return m.item })
+      empty.hidden = matches.length !== 0
+      matches.forEach(function (item) {
+        var li = document.createElement('li')
+        li.setAttribute('role', 'option')
+        var a = document.createElement('a')
+        a.href = item.url
+        a.innerHTML = '<span>' + item.title + '</span><small>' + item.group + '</small>'
+        li.appendChild(a)
+        results.appendChild(li)
+      })
+    }
+
+    if (toggle) toggle.addEventListener('click', function () {
+      panel.classList.contains('is-open') ? close() : open()
+    })
+    if (mobileOpen) mobileOpen.addEventListener('click', function () {
+      document.getElementById('menu-close').click()
+      open()
+    })
+    if (closeBtn) closeBtn.addEventListener('click', close)
+    if (backdrop) backdrop.addEventListener('click', close)
+    input.addEventListener('input', function () { render(input.value) })
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && panel.classList.contains('is-open')) close()
     })
   })()
   </script>

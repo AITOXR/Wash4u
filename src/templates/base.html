@@ -146,14 +146,12 @@
   <div class="topbar">
     <div class="wrap topbar__inner">
       <div class="topbar__left">
-        {% if site.offer and site.offer.enabled %}
-        <span class="topbar__slider">
-          <a class="topbar__phone topbar__slide topbar__slide--a" href="{{ site.urls.phone }}">{{ ui('phone', 14) }} {{ site.contact.phone }}</a>
-          <span class="topbar__offer topbar__slide topbar__slide--b">{{ ui('sparkle', 13) }} {{ site.offer.value }} {{ site.offer.label }} on first order</span>
-        </span>
-        {% else %}
+        {# The offer already has its own full-width band above (.promo-strip,
+           every page) and its own badge on the home hero — a third,
+           crossfading copy of the same "25% Off" message here just stacked a
+           third offer callout into the first screenful on mobile. The
+           topbar now does what its name says: phone + area, nothing else. #}
         <a class="topbar__phone" href="{{ site.urls.phone }}">{{ ui('phone', 14) }} {{ site.contact.phone }}</a>
-        {% endif %}
         <span class="topbar__area">{{ ui('pin', 13) }} {{ site.contact.area }}</span>
       </div>
       <div class="topbar__right">
@@ -328,10 +326,9 @@
         <div>
           <h3>Services</h3>
           <ul class="footer__links">
-            {% for s in services.services[:8] %}
+            {% for s in services.services %}
             <li><a href="{{ root_path }}services/{{ s.slug }}/">{{ s.name }}</a></li>
             {% endfor %}
-            <li><a href="{{ root_path }}services/">All services</a></li>
           </ul>
         </div>
 
@@ -342,6 +339,15 @@
             <li><a href="{{ root_path }}{{ a.url }}">{{ a.label }}</a></li>
             {% endfor %}
           </ul>
+          {# The 10 links above are Gurugram localities with their own page.
+             Coverage is bigger than that — five cities, 456 localities per
+             areas.json — so say so and point at /locate-us/, the one page
+             that actually lists them, instead of pretending the footer link
+             list is the whole service area. #}
+          <p class="footer__more-areas">
+            Also serving {{ other_cities | join(', ') }} —
+            <a href="{{ root_path }}locate-us/">{{ areas_total_all }} areas covered</a>
+          </p>
         </div>
 
         <div>
@@ -526,13 +532,53 @@
       if (toggle) toggle.setAttribute('aria-expanded', 'false')
       document.documentElement.classList.remove('search-open')
     }
+    // Edit distance between two strings — used only as a typo-tolerance
+    // fallback below, so a misspelled query ("curten", "shert") still finds
+    // "Curtains Cleaning" / "Shirt" instead of returning nothing.
+    function levenshtein(a, b) {
+      if (a === b) return 0
+      if (!a.length) return b.length
+      if (!b.length) return a.length
+      var prev = []
+      for (var j = 0; j <= b.length; j++) prev[j] = j
+      for (var i = 1; i <= a.length; i++) {
+        var cur = [i]
+        for (var j = 1; j <= b.length; j++) {
+          var cost = a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1
+          cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + cost)
+        }
+        prev = cur
+      }
+      return prev[b.length]
+    }
+
     function render(query) {
       var q = query.trim().toLowerCase()
       results.innerHTML = ''
       if (!q) { empty.hidden = true; return }
-      var matches = window.__SEARCH_INDEX__.filter(function (item) {
-        return item.title.toLowerCase().indexOf(q) !== -1
-      }).slice(0, 8)
+
+      // Tier 1: substring matches, ranked by how early the query appears.
+      var exact = []
+      // Tier 2: no substring hit anywhere in the title — fall back to the
+      // closest single word by edit distance, within a tolerance that grows
+      // with the query length (longer queries can absorb more typos).
+      var fuzzy = []
+      var tolerance = q.length <= 4 ? 1 : q.length <= 7 ? 2 : 3
+      window.__SEARCH_INDEX__.forEach(function (item) {
+        var t = item.title.toLowerCase()
+        var at = t.indexOf(q)
+        if (at !== -1) { exact.push({ item: item, rank: at }); return }
+        var words = t.split(/\s+/)
+        var best = Infinity
+        for (var i = 0; i < words.length; i++) {
+          var d = levenshtein(q, words[i])
+          if (d < best) best = d
+        }
+        if (best <= tolerance) fuzzy.push({ item: item, rank: best })
+      })
+      exact.sort(function (a, b) { return a.rank - b.rank })
+      fuzzy.sort(function (a, b) { return a.rank - b.rank })
+      var matches = exact.concat(fuzzy).slice(0, 8).map(function (m) { return m.item })
       empty.hidden = matches.length !== 0
       matches.forEach(function (item) {
         var li = document.createElement('li')

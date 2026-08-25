@@ -102,9 +102,10 @@
         <h2{{ cms('home:why.title') }}>{{ home.why.title }}</h2>
         <p{{ cms('home:why.text') }}>{{ home.why.text | replace("skin-safe solvents and detergents", '<span class="neon-kw">skin-safe solvents and detergents</span>', 1) | safe }}</p>
       </div>
-      {# The illustrated mascot that sat here was retired in the imagery
-         pass — RULE 0: one photographic language; no cartoons beside
-         photography. The file stays in assets for print/social use. #}
+      <img class="why__mascot" src="{{ asset_path }}images/mascot-why.png" alt=""
+           width="760" height="941" loading="lazy" decoding="async" aria-hidden="true">
+      <img class="why__mascot--sm" src="{{ asset_path }}images/mascot-why.png" alt=""
+           width="760" height="941" loading="lazy" decoding="async" aria-hidden="true">
     </div>
 
     <div class="promises stagger-children">

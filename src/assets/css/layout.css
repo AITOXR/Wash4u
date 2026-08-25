@@ -301,6 +301,13 @@
 .footer__links a { transition: color 160ms var(--ease-out); }
 .footer__links a:hover { color: #fff; }
 
+.footer__more-areas {
+  margin-top: var(--s-4);
+  font-size: var(--t-sm);
+  line-height: 1.55;
+}
+.footer__more-areas a { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: .15em; }
+
 .footer__social { display: flex; gap: var(--s-3); margin-top: var(--s-5); }
 .footer__social a {
   width: 2.5rem; height: 2.5rem;
