@@ -359,9 +359,14 @@
              areas.json — so say so and point at /locate-us/, the one page
              that actually lists them, instead of pretending the footer link
              list is the whole service area. #}
+          {# Four city links, not 371. The per-locality coverage pages hang off
+             these hubs; dumping them all into a site-wide footer would be a
+             spam signal and unusable on a phone. #}
           <p class="footer__more-areas">
-            Also serving {{ other_cities | join(', ') }} —
-            <a href="{{ root_path }}locate-us/">{{ areas_total_all }} areas covered</a>
+            Also serving
+            {% for h in (hub_links or []) %}<a href="{{ root_path }}{{ h.url }}">{{ h.label }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+            {% if not hub_links %}{{ other_cities | join(', ') }}{% endif %}
+            — <a href="{{ root_path }}locate-us/">{{ areas_total_all }} areas covered</a>
           </p>
         </div>
 

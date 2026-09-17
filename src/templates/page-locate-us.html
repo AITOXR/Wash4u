@@ -172,6 +172,15 @@
       <section class="coverage-city" data-coverage-city>
         <h3 class="coverage-city__name">{{ city.name }}</h3>
         <p class="coverage-city__note">{{ city.note }}</p>
+        {% if city.hub_url %}
+        {# Grouped directory: each non-Gurugram city has its own hub page
+           listing that city's localities, so this page links four hubs rather
+           than acting as the only route to several hundred pages. #}
+        <p class="coverage-city__note">
+          <a class="link-arrow" href="{{ root_path }}{{ city.hub_url }}">All {{ city.name }} areas {{ ui('arrow-right', 14) }}</a>
+          — a service area, not a branch: both our shops are in Gurugram.
+        </p>
+        {% endif %}
         <div class="coverage-cols">
           {% for col in city.columns %}
           <div class="coverage-col" data-coverage-col>

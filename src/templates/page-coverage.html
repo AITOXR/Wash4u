@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% from "_icons.html" import ui, care_tag, service_icon, service_bg %}
+{% from "_components.html" import faq_list, page_hero_mascot %}
+
+{#
+  Coverage (service-area) page — Delhi / Noida / Faridabad / Ghaziabad.
+
+  Deliberately NOT page-location.html. Wash4You has no premises in these
+  cities, so this template:
+    * never renders a "nearest store" for the page's own city,
+    * prints the coverage_note disclosure above the fold,
+    * emits a Service with an areaServed Place and no local address, so the
+      page can never be read as a LocalBusiness listing in that city,
+    * makes no turnaround-time or same-day claim anywhere.
+  The two Gurugram stores are still shown, clearly labelled as Gurugram.
+#}
+
+{% block schema %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.urls.base }}/" },
+          { "@type": "ListItem", "position": 2, "name": "Areas", "item": "{{ site.urls.base }}/locate-us/" },
+          { "@type": "ListItem", "position": 3, "name": {{ area.city | tojson }}, "item": "{{ site.urls.base }}/{{ area.hub_slug }}/" },
+          { "@type": "ListItem", "position": 4, "name": {{ area.name | tojson }} }
+        ]
+      }{% if area.faqs %},
+      {
+        "@type": "FAQPage",
+        "@id": "{{ meta.canonical }}#faq",
+        "mainEntity": [
+          {% for f in area.faqs %}{
+            "@type": "Question",
+            "name": {{ f.q | tojson }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | tojson }} }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }{% endif %},
+      {
+        "@type": "Service",
+        "@id": "{{ meta.canonical }}#service",
+        "name": {{ ('Laundry & dry cleaning pickup in ' ~ area.name ~ ', ' ~ area.city) | tojson }},
+        "serviceType": "Laundry and dry cleaning pickup and delivery",
+        "provider": { "@id": "{{ site.urls.base }}/#business" },
+        "areaServed": {
+          "@type": "Place",
+          "name": {{ (area.name ~ ', ' ~ area.city ~ ', ' ~ area.state) | tojson }}
+        },
+        "serviceOutput": "Cleaned garments and household textiles returned to the collection address",
+        "url": "{{ meta.canonical }}"
+      }
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ root_path }}locate-us/">Areas</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ root_path }}{{ area.hub_slug }}/">{{ area.city }}</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ area.name }}</span>
+    </nav>
+
+    <div class="page-hero__grid">
+      <div>
+        <p class="eyebrow">{{ ui('pin', 16) }} {{ area.city }} service area</p>
+        <h1>{{ area.h1 }}</h1>
+        <p class="lede">{{ area.lede }}</p>
+        <div class="btn-row">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
+          <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp us</a>
+        </div>
+      </div>
+
+      {# The disclosure. Above the fold on purpose — nobody should have to
+         scroll to find out there is no branch in their city. #}
+      <aside class="store-card reveal">
+        <p class="mono">Where we actually are</p>
+        <p style="margin:0">{{ area.coverage_note }}</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+{% if area.body %}
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <div class="prose reveal">{{ area.body | markdown | safe }}</div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Everything we clean</p>
+      <h2>Services available on a {{ area.name }} collection</h2>
+      <p>One pickup can carry any mix of these. Each is priced per piece on the
+        <a href="{{ root_path }}pricing/">price list</a>, and the same rates apply here as in Gurugram.</p>
+    </div>
+    <div class="svc-grid stagger-children">
+      {% for s in services.services[:9] %}
+      <article class="svc svc--art">
+        {{ service_bg(s.slug) }}
+        <span class="svc__icon">{{ service_icon(s.slug, 36) }}</span>
+        <h3><a class="svc__link" href="{{ root_path }}services/{{ s.slug }}/">{{ s.name }}</a></h3>
+        <p>{{ s.short_description }}</p>
+        {{ care_tag(s.slug) }}
+      </article>
+      {% endfor %}
+    </div>
+    <div class="text-center" style="margin-top:var(--s-7)">
+      <a class="btn btn--ghost btn--lg" href="{{ root_path }}services/">All services {{ ui('arrow-right', 18) }}</a>
+    </div>
+  </div>
+</section>
+
+{# The stores, labelled for what they are: Gurugram addresses, not a counter
+   in this city. #}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Our addresses</p>
+      <h2>Both our shops are in Gurugram</h2>
+      <p>There is no walk-in counter in {{ area.city }}. If you would rather hand something over
+        in person, these are the only two places to do it — otherwise the doorstep collection
+        from {{ area.name }} is free.</p>
+    </div>
+    <div class="store-grid stagger-children">
+      {% for loc in site.locations %}
+      <div class="store-card">
+        <strong>{{ loc.name }}</strong>
+        <address>{{ loc.address }}</address>
+        <div class="btn-row">
+          <a class="btn btn--ghost" href="{{ loc.map_url }}" target="_blank" rel="noopener">{{ ui('pin', 16) }} Directions</a>
+          <a class="btn btn--ghost" href="{{ site.urls.phone }}">{{ ui('phone', 16) }} Call</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% if area.faqs %}
+<section class="section section--wash">
+  <div class="wrap wrap--narrow">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow eyebrow--center">Questions</p>
+      <h2>{{ area.name }} — what people ask</h2>
+    </div>
+    {{ faq_list(area.faqs, 'cov-faq') }}
+  </div>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Nearby</p>
+      <h2>Other {{ area.city }} areas on the same coverage list</h2>
+    </div>
+    <div class="areas stagger-children">
+      {% for a in area.nearby_links %}
+      <a class="area-link" href="{{ root_path }}{{ a.url }}">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
+      {% endfor %}
+    </div>
+    <p class="areas-note" style="margin-top:var(--s-5)">
+      <a class="link-arrow" href="{{ root_path }}{{ area.hub_slug }}/">Every {{ area.city }} area we cover {{ ui('arrow-right', 16) }}</a>
+    </p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Free collection from {{ area.name }}.</h2>
+      <p>Tell us what you have and where you are, and we will give you the next day we can reach you — a real date, not a promise.</p>
+      <div class="btn-row">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
+        <a class="btn btn--on-navy btn--lg" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
