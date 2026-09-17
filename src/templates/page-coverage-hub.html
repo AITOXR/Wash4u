@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% from "_icons.html" import ui %}
+
+{#
+  City coverage hub — one per non-Gurugram city. This is the grouped directory
+  that keeps the ~371 coverage pages out of the footer: /locate-us/ links to
+  four hubs, each hub lists its own city's localities by zone.
+
+  Like the locality coverage pages, it never claims a branch in this city and
+  emits a Service with an areaServed City, not a LocalBusiness.
+#}
+
+{% block schema %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.urls.base }}/" },
+          { "@type": "ListItem", "position": 2, "name": "Areas", "item": "{{ site.urls.base }}/locate-us/" },
+          { "@type": "ListItem", "position": 3, "name": {{ hub.name | tojson }} }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "{{ meta.canonical }}#service",
+        "name": {{ ('Laundry & dry cleaning pickup across ' ~ hub.name) | tojson }},
+        "serviceType": "Laundry and dry cleaning pickup and delivery",
+        "provider": { "@id": "{{ site.urls.base }}/#business" },
+        "areaServed": { "@type": "City", "name": {{ hub.name | tojson }} },
+        "url": "{{ meta.canonical }}"
+      },
+      {
+        "@type": "ItemList",
+        "@id": "{{ meta.canonical }}#areas",
+        "name": {{ ('Wash4You coverage areas in ' ~ hub.name) | tojson }},
+        "numberOfItems": {{ hub.count }},
+        "itemListElement": [
+          {% for a in hub.all_links %}{ "@type": "ListItem", "position": {{ loop.index }}, "name": {{ a.label | tojson }}, "url": "{{ site.urls.base }}/{{ a.url }}" }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ root_path }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ root_path }}locate-us/">Areas</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ hub.name }}</span>
+    </nav>
+
+    <div class="page-hero__grid">
+      <div>
+        <p class="eyebrow">{{ ui('pin', 16) }} Service area</p>
+        <h1>{{ hub.h1 }}</h1>
+        <p class="lede">{{ hub.lede }}</p>
+        <div class="btn-row">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
+          <a class="btn btn--ghost btn--lg" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+        </div>
+      </div>
+
+      <aside class="store-card reveal">
+        <p class="mono">Where we actually are</p>
+        <p style="margin:0">{{ hub.coverage_note }}</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Where we collect</p>
+      <h2>{{ hub.count }} areas in {{ hub.name }}</h2>
+      <p>Grouped the way the city is actually laid out. Open your locality for what a
+        collection from there involves, or just call {{ site.contact.phone }}.</p>
+    </div>
+
+    <div class="coverage-cols">
+      {% for zone in hub.zones %}
+      <div class="coverage-col">
+        <h3>{{ zone.title }}</h3>
+        <ul>
+          {% for it in zone['items'] %}
+          <li><a class="coverage-hit" href="{{ root_path }}{{ it.slug }}/">{{ it.name }} {{ ui('arrow-right', 13) }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+
+    <p class="areas-note" style="margin-top:var(--s-5)">
+      Not on the list? Send your address on
+      <a class="link-arrow" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a>
+      and we will tell you straight whether we can reach it.
+    </p>
+  </div>
+</section>
+
+<section class="section section--wash">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Our addresses</p>
+      <h2>Both shops are in Gurugram</h2>
+      <p>There is no Wash4You counter in {{ hub.name }}. Collections here are booked runs from
+        Gurugram, and both pickup and delivery are free.</p>
+    </div>
+    <div class="store-grid stagger-children">
+      {% for loc in site.locations %}
+      <div class="store-card">
+        <strong>{{ loc.name }}</strong>
+        <address>{{ loc.address }}</address>
+        <div class="btn-row">
+          <a class="btn btn--ghost" href="{{ loc.map_url }}" target="_blank" rel="noopener">{{ ui('pin', 16) }} Directions</a>
+          <a class="btn btn--ghost" href="{{ site.urls.phone }}">{{ ui('phone', 16) }} Call</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Also covered</p>
+      <h2>The rest of the network</h2>
+    </div>
+    <div class="areas stagger-children">
+      <a class="area-link" href="{{ root_path }}locate-us/">Gurugram &amp; all NCR coverage {{ ui('arrow-right', 16) }}</a>
+      {% for h in hub_links if h.url.rstrip('/') != hub.slug %}
+      <a class="area-link" href="{{ root_path }}{{ h.url }}">{{ h.label }} {{ ui('arrow-right', 16) }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <h2>Book a collection in {{ hub.name }}.</h2>
+      <p>Tell us where you are and what you have. We will name the next day we can reach you.</p>
+      <div class="btn-row">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
+        <a class="btn btn--on-navy btn--lg" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

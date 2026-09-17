@@ -110,7 +110,7 @@
           "addressCountry": "IN"
         },
         "areaServed": [
-          {% for a in site.footer.areas %}{ "@type": "Place", "name": {{ (a.label ~ ', Gurugram') | tojson }} }{% if not loop.last %},{% endif %}
+          {% for a in (area_links or site.footer.areas) %}{ "@type": "Place", "name": {{ (a.label ~ ', Gurugram') | tojson }} }{% if not loop.last %},{% endif %}
           {% endfor %}
         ]
       }
@@ -359,9 +359,14 @@
              areas.json — so say so and point at /locate-us/, the one page
              that actually lists them, instead of pretending the footer link
              list is the whole service area. #}
+          {# Four city links, not 371. The per-locality coverage pages hang off
+             these hubs; dumping them all into a site-wide footer would be a
+             spam signal and unusable on a phone. #}
           <p class="footer__more-areas">
-            Also serving {{ other_cities | join(', ') }} —
-            <a href="{{ root_path }}locate-us/">{{ areas_total_all }} areas covered</a>
+            Also serving
+            {% for h in (hub_links or []) %}<a href="{{ root_path }}{{ h.url }}">{{ h.label }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+            {% if not hub_links %}{{ other_cities | join(', ') }}{% endif %}
+            — <a href="{{ root_path }}locate-us/">{{ areas_total_all }} areas covered</a>
           </p>
         </div>
 
@@ -539,7 +544,7 @@
     { "title": "Contact us", "group": "Pages", "url": {{ (root_path ~ 'contact-us/') | tojson }} },
     {% for s in services.services %}{ "title": {{ s.name | tojson }}, "group": "Services", "url": {{ (root_path ~ 'services/' ~ s.slug ~ '/') | tojson }} },
     {% endfor %}
-    {% for a in site.footer.areas %}{ "title": {{ ('Pickup in ' ~ a.label) | tojson }}, "group": "Areas", "url": {{ (root_path ~ a.url) | tojson }} },
+    {% for a in (area_links or site.footer.areas) %}{ "title": {{ ('Pickup in ' ~ a.label) | tojson }}, "group": "Areas", "url": {{ (root_path ~ a.url) | tojson }} },
     {% endfor %}
     {% if blog and blog.posts %}{% for post in blog.posts %}{ "title": {{ post.title | tojson }}, "group": "Blog", "url": {{ post.url | tojson }} },
     {% endfor %}{% endif %}
