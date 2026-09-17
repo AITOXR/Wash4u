@@ -128,11 +128,11 @@
     </div>
 
     <h3 class="areas-list-title">Areas we serve in <span class="kw-text">Gurugram</span></h3>
-    {# The ten highlighted areas: each has its own page, so each is a link.
-       Everything else is listed as covered further down but is not linked —
+    {# Every area with its own page, from src/data/area-pages.json. The rest
+       of the coverage list further down is listed as covered but not linked —
        a chip that goes nowhere is worse than plain text. #}
     <div class="areas stagger-children">
-      {% for a in site.footer.areas %}
+      {% for a in (area_links or site.footer.areas) %}
       <a class="area-link" href="{{ root_path }}{{ a.url }}">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
       {% endfor %}
     </div>

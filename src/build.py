@@ -233,6 +233,10 @@ def build() -> None:
     proof = load_json(DATA_DIR / "proof.json")
     areas_data = load_json(DATA_DIR / "areas.json")
     testimonials = load_json(DATA_DIR / "testimonials.json")
+    # Central registry for the /laundry-service-*/ local-SEO area pages. One
+    # entry per published area; build.py loops over it below, so adding an
+    # area to this file is the only step needed to publish its page.
+    area_pages = load_json(DATA_DIR / "area-pages.json")["areas"]
 
     # Generated SEO copy. Absent on a clean checkout — the site still builds
     # without it, just without the long-tail matrix pages.
@@ -465,31 +469,70 @@ def build() -> None:
         "depth": 1,
     }))
 
-    # Location pages.
-    # The generated copy is keyed by a plain locality slug ("sushant-lok");
-    # the live URL keeps the original "laundry-service-*" path so none of the
-    # eight existing URLs change. site.json holds the mapping.
+    # Area pages — one per entry in src/data/area-pages.json.
+    #
+    # That file is the single registry: name, live URL slug, character,
+    # customer profile, service emphasis, nearest store, nearby areas and
+    # (for areas whose copy is not already in generated/localities.json)
+    # the long-form copy itself. Adding an entry there publishes a page; no
+    # code change is needed. The ten original URLs are unchanged — those
+    # entries carry a `content_slug` pointing at the authored copy that
+    # already lives in generated/localities.json, so nothing was rewritten.
     url_map = {k: v for k, v in site["locality_urls"].items() if not k.startswith("_")}
     gen_localities = {loc["slug"]: loc for loc in gen.get("localities", [])}
+    legacy_areas = {a["slug"]: a for a in locations["service_areas"]}
+    stores_by_id = {loc["id"]: loc for loc in site["locations"]}
+    area_by_slug = {a["slug"]: a for a in area_pages}
 
-    for loc_slug, url_slug in url_map.items():
-        loc = gen_localities.get(loc_slug)
-        legacy = next((a for a in locations["service_areas"] if a["slug"] == url_slug), None)
-        if not loc and not legacy:
-            continue
+    # Label/URL pairs for every published area page. The footer keeps its
+    # shorter curated list, but the coverage page, the header search index
+    # and the LocalBusiness areaServed block all use this, so no generated
+    # page is left without an inbound link.
+    area_links = [{"label": a["name"], "url": a["slug"] + "/"} for a in area_pages]
 
-        area = dict(legacy or {})
+    # Link the coverage list on /locate-us/ to the pages that now exist.
+    # Done here rather than by hand-editing areas.json so the coverage list
+    # can never point at an area page that was removed from the registry.
+    coverage_urls = {a["coverage_name"]: a["slug"] + "/" for a in area_pages if a.get("coverage_name")}
+    for city in areas_data["cities"]:
+        for column in city["columns"]:
+            for item in column["items"]:
+                url = coverage_urls.get(item["name"])
+                if url and city["slug"] == "gurugram":
+                    item["url"] = url
+
+    for entry in area_pages:
+        url_slug = entry["slug"]
+        area = dict(legacy_areas.get(url_slug, {}))
+        area.update({k: v for k, v in entry.items() if v is not None})
         area["slug"] = url_slug
-        area["loc_slug"] = loc_slug
-        area["name"] = next(
-            (a["label"] for a in site["footer"]["areas"] if a["url"].rstrip("/") == url_slug),
-            area.get("name", loc_slug.replace("-", " ").title()),
-        )
-        if loc:
-            area.update({k: v for k, v in loc.items() if k != "slug"})
 
-        # Which matrix pages exist for this locality — the internal-link surface.
-        area["matrix"] = [m for m in gen.get("matrix", []) if m.get("locality") == loc_slug]
+        # Long-form copy for the ten original areas still lives in
+        # generated/localities.json; merge it in without letting it clobber
+        # the registry fields (nearby, store, character, ...).
+        content_slug = entry.get("content_slug")
+        if content_slug:
+            area["loc_slug"] = content_slug
+            loc = gen_localities.get(content_slug)
+            if loc:
+                area.update({k: v for k, v in loc.items() if k != "slug"})
+        area["name"] = entry["name"]
+
+        # Which matrix pages exist for this area — the internal-link surface.
+        matrix_key = content_slug or url_slug
+        area["matrix"] = [m for m in gen.get("matrix", []) if m.get("locality") == matrix_key]
+
+        # Nearby areas, resolved from the registry so a link can never point
+        # at a page that is not built.
+        area["nearby_links"] = [
+            {"label": area_by_slug[s]["name"], "url": s + "/"}
+            for s in entry.get("nearby", []) if s in area_by_slug
+        ]
+        area["store"] = stores_by_id.get(entry.get("nearest_store"))
+        area["emphasis"] = [
+            services_by_slug[s] for s in entry.get("service_emphasis", [])
+            if s in services_by_slug
+        ]
 
         pages_to_build.append((
             f"{url_slug}/index.html",
@@ -613,6 +656,9 @@ def build() -> None:
         # the other-city names on every page, not just the home page.
         context.setdefault("areas_total_all", areas_total_all)
         context.setdefault("other_cities", other_cities)
+        # Every published area page, for the header search index, the
+        # LocalBusiness areaServed block and the coverage page grid.
+        context.setdefault("area_links", area_links)
         # The footer's All Products section walks the full price list on
         # every page too.
         context.setdefault("pricing", pricing)

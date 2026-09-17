@@ -110,7 +110,7 @@
           "addressCountry": "IN"
         },
         "areaServed": [
-          {% for a in site.footer.areas %}{ "@type": "Place", "name": {{ (a.label ~ ', Gurugram') | tojson }} }{% if not loop.last %},{% endif %}
+          {% for a in (area_links or site.footer.areas) %}{ "@type": "Place", "name": {{ (a.label ~ ', Gurugram') | tojson }} }{% if not loop.last %},{% endif %}
           {% endfor %}
         ]
       }
@@ -539,7 +539,7 @@
     { "title": "Contact us", "group": "Pages", "url": {{ (root_path ~ 'contact-us/') | tojson }} },
     {% for s in services.services %}{ "title": {{ s.name | tojson }}, "group": "Services", "url": {{ (root_path ~ 'services/' ~ s.slug ~ '/') | tojson }} },
     {% endfor %}
-    {% for a in site.footer.areas %}{ "title": {{ ('Pickup in ' ~ a.label) | tojson }}, "group": "Areas", "url": {{ (root_path ~ a.url) | tojson }} },
+    {% for a in (area_links or site.footer.areas) %}{ "title": {{ ('Pickup in ' ~ a.label) | tojson }}, "group": "Areas", "url": {{ (root_path ~ a.url) | tojson }} },
     {% endfor %}
     {% if blog and blog.posts %}{% for post in blog.posts %}{ "title": {{ post.title | tojson }}, "group": "Blog", "url": {{ post.url | tojson }} },
     {% endfor %}{% endif %}

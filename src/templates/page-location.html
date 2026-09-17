@@ -22,7 +22,30 @@
           }{% if not loop.last %},{% endif %}
           {% endfor %}
         ]
-      }{% endif %}
+      }{% endif %},
+      {
+        "@type": "Service",
+        "@id": "{{ meta.canonical }}#service",
+        "name": {{ ('Laundry & dry cleaning in ' ~ area.name ~ ', ' ~ (area.city or 'Gurugram')) | tojson }},
+        "serviceType": "Laundry and dry cleaning",
+        "provider": { "@id": "{{ site.urls.base }}/#business" },
+        "areaServed": {
+          "@type": "Place",
+          "name": {{ (area.name ~ ', ' ~ (area.city or 'Gurugram') ~ ', ' ~ (area.state or 'Haryana')) | tojson }}
+        },
+        "url": "{{ meta.canonical }}"{% if area.emphasis %},
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": {{ ('Services offered in ' ~ area.name) | tojson }},
+          "itemListElement": [
+            {% for s in area.emphasis %}{
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": {{ s.name | tojson }}, "url": "{{ site.urls.base }}/services/{{ s.slug }}/" }
+            }{% if not loop.last %},{% endif %}
+            {% endfor %}
+          ]
+        }{% endif %}
+      }
 {% endblock %}
 
 {% block content %}
@@ -39,7 +62,7 @@
 
     <div class="page-hero__grid">
       <div>
-        <p class="eyebrow">{{ ui('pin', 16) }} Gurugram</p>
+        <p class="eyebrow">{{ ui('pin', 16) }} {{ area.city or 'Gurugram' }}</p>
         <h1>{{ area.h1 or area.title }}</h1>
         <p class="lede">{{ area.lede or area.description }}</p>
         <div class="btn-row">
@@ -97,6 +120,11 @@
     <div class="section-head reveal">
       <p class="eyebrow">Everything we clean</p>
       <h2>All services, collected from {{ area.name }}</h2>
+      {% if area.emphasis %}
+      <p>Most asked for in {{ area.name }}:
+        {% for s in area.emphasis %}<a href="{{ root_path }}services/{{ s.slug }}/">{{ s.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}.
+      </p>
+      {% endif %}
     </div>
     <div class="svc-grid stagger-children">
       {% for s in services.services[:9] %}
@@ -119,7 +147,12 @@
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Come to us</p>
+      {% if area.store %}
+      <h2>Nearest store to {{ area.name }}</h2>
+      <p>{{ area.store.name }} is the closer of our two Gurugram counters to {{ area.name }} — useful if you would rather hand something over in person. Doorstep pickup is free either way.</p>
+      {% else %}
       <h2>Our two Gurugram stores</h2>
+      {% endif %}
     </div>
     <div class="store-grid stagger-children">
       {% for loc in site.locations %}
@@ -152,13 +185,22 @@
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Nearby</p>
-      <h2>Other areas we collect from</h2>
+      <h2>Areas we also collect from, close to {{ area.name }}</h2>
     </div>
     <div class="areas stagger-children">
+      {% if area.nearby_links %}
+      {% for a in area.nearby_links if a.url.rstrip('/') != area.slug %}
+      <a class="area-link" href="{{ root_path }}{{ a.url }}">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
+      {% endfor %}
+      {% else %}
       {% for a in site.footer.areas if a.url.rstrip('/') != area.slug %}
       <a class="area-link" href="{{ root_path }}{{ a.url }}">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
       {% endfor %}
+      {% endif %}
     </div>
+    <p class="areas-note" style="margin-top:var(--s-5)">
+      <a class="link-arrow" href="{{ root_path }}locate-us/">See every area we collect from {{ ui('arrow-right', 16) }}</a>
+    </p>
   </div>
 </section>
 
