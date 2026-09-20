@@ -56,7 +56,16 @@
         <thead><tr><th scope="col">Item</th><th scope="col">Price</th></tr></thead>
         <tbody>
           {% for item in steam['items'] %}
-          <tr><td{{ cms('steam-iron:items.' ~ loop.index0 ~ '.name') }}>{{ item.name }}</td><td{{ cms('steam-iron:items.' ~ loop.index0 ~ '.price') }}>{{ item.price }}</td></tr>
+          <tr>
+            <td{{ cms('steam-iron:items.' ~ loop.index0 ~ '.name') }}>
+              {% if item.name | lower == 'jeans' %}
+              <a href="{{ root_path }}products/jeans/" style="color:inherit; font-weight:600; text-decoration:underline; text-decoration-color:var(--brand-yellow, #ffbe1a); text-underline-offset:3px;" title="View Jeans Care Details">{{ item.name }}</a>
+              {% else %}
+              {{ item.name }}
+              {% endif %}
+            </td>
+            <td{{ cms('steam-iron:items.' ~ loop.index0 ~ '.price') }}>{{ item.price }}</td>
+          </tr>
           {% endfor %}
         </tbody>
       </table>

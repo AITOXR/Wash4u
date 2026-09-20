@@ -111,12 +111,23 @@
         <span class="svc-stage__glow" aria-hidden="true"></span>
         {% for slug in cast %}
         <figure class="svc-card svc-card--{{ loop.index }}">
+          {% if slug == 'jeans' %}
+          <a href="{{ root_path }}products/jeans/" title="View Jeans Care Details" style="display:contents; color:inherit;">
+            <span class="svc-card__plate" style="cursor:pointer;">
+              <img src="{{ asset_path }}images/pricing/{{ slug }}.webp"
+                   alt="{{ price_index[slug].name if price_index.get(slug) else slug.replace('-', ' ') | title }} cleaned by Wash4You in Gurugram"
+                   width="400" height="400"
+                   {% if loop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
+            </span>
+          </a>
+          {% else %}
           <span class="svc-card__plate">
             <img src="{{ asset_path }}images/pricing/{{ slug }}.webp"
                  alt="{{ price_index[slug].name if price_index.get(slug) else slug.replace('-', ' ') | title }} cleaned by Wash4You in Gurugram"
                  width="400" height="400"
                  {% if loop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
           </span>
+          {% endif %}
         </figure>
         {% endfor %}
         {% if cast | length == 1 %}
@@ -272,6 +283,19 @@
     <div class="svc-gallery stagger-children">
       {% for slug in service.gallery %}
       {% set gi = price_index.get(slug) %}
+      {% if slug == 'jeans' %}
+      <a href="{{ root_path }}products/jeans/" class="svc-shot-link" title="View Jeans Care Details" style="text-decoration:none; color:inherit; display:block;">
+        <figure class="svc-shot" style="cursor:pointer;">
+          <img src="{{ asset_path }}images/pricing/{{ slug }}.webp"
+               alt="{{ gi.name if gi else slug.replace('-', ' ') | title }} cleaned by Wash4You {{ service.name | lower }} in Gurugram"
+               width="400" height="400" loading="lazy" decoding="async">
+          <figcaption>
+            <span style="text-decoration:underline; text-decoration-color:var(--brand-yellow, #ffbe1a); text-underline-offset:3px;">{{ gi.name if gi else slug.replace('-', ' ') | title }}</span>
+            {% if gi %}<b>from {{ gi.price }}{% if gi.unit %} <small>{{ gi.unit }}</small>{% endif %}</b>{% endif %}
+          </figcaption>
+        </figure>
+      </a>
+      {% else %}
       <figure class="svc-shot">
         <img src="{{ asset_path }}images/pricing/{{ slug }}.webp"
              alt="{{ gi.name if gi else slug.replace('-', ' ') | title }} cleaned by Wash4You {{ service.name | lower }} in Gurugram"
@@ -281,6 +305,7 @@
           {% if gi %}<b>from {{ gi.price }}{% if gi.unit %} <small>{{ gi.unit }}</small>{% endif %}</b>{% endif %}
         </figcaption>
       </figure>
+      {% endif %}
       {% endfor %}
     </div>
     <div class="text-center" style="margin-top:var(--s-7)">

@@ -214,7 +214,12 @@
                data-price="{{ item.price }}"
                data-img="{% if item.img %}{{ asset_path }}{{ item.img }}{% endif %}">
         <div class="price-card__media{% if not item.img %} price-card__media--none{% endif %}">
-          {% if item.img %}
+          {% if item.slug == 'jeans' or item.slug == 'iron-jeans' %}
+          <a href="{{ root_path }}products/jeans/" title="View Jeans Product Details" style="display:block; width:100%; height:100%;">
+            <img src="{{ asset_path }}{{ item.img }}" alt="{{ item.name }}"
+                 width="300" height="300" loading="lazy" decoding="async">
+          </a>
+          {% elif item.img %}
           <img src="{{ asset_path }}{{ item.img }}" alt="{{ item.name }}"
                width="300" height="300" loading="lazy" decoding="async">
           {% else %}
@@ -225,7 +230,13 @@
           {% endif %}
         </div>
         <div class="price-card__body">
-          <h3 class="price-card__name"{{ cms('pricing:categories.' ~ cat_i0 ~ '.items.' ~ loop.index0 ~ '.name') }}>{{ item.name }}</h3>
+          <h3 class="price-card__name"{{ cms('pricing:categories.' ~ cat_i0 ~ '.items.' ~ loop.index0 ~ '.name') }}>
+            {% if item.slug == 'jeans' or item.slug == 'iron-jeans' %}
+            <a href="{{ root_path }}products/jeans/" style="color:inherit; text-decoration:underline; text-decoration-color:var(--brand-yellow, #ffbe1a); text-underline-offset:3px;" title="View {{ item.name }} Details">{{ item.name }}</a>
+            {% else %}
+            {{ item.name }}
+            {% endif %}
+          </h3>
           <div class="price-card__meta">
             {# Every price on this page is a starting price — the poster says
                "STARTS FROM" over each column — so the label is unconditional

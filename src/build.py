@@ -246,6 +246,13 @@ def build() -> None:
     coverage_pages = coverage_data["areas"]
     coverage_hubs = coverage_data["hubs"]
 
+    # Product pages (pilot: Jeans; reusable architecture for future product pages)
+    products_dir = DATA_DIR / "products"
+    products_list = []
+    if products_dir.exists():
+        for p_file in sorted(products_dir.glob("*.json")):
+            products_list.append(load_json(p_file))
+
     # Generated SEO copy. Absent on a clean checkout — the site still builds
     # without it, just without the long-tail matrix pages.
     gen = load_generated(DATA_DIR / "generated")
@@ -439,6 +446,19 @@ def build() -> None:
         "packages": packages,
         "depth": 1,
     }))
+
+    # Product detail pages (pilot: Jeans; reusable across all catalog products)
+    for prod in products_list:
+        pages_to_build.append((
+            f"products/{prod['slug']}/index.html",
+            "page-product-detail.html",
+            {
+                "meta": prod["meta"],
+                "product": prod,
+                "price_index": price_index,
+                "depth": 2,
+            }
+        ))
 
     # Print-only price list — the source for wash4you-price-list.pdf. Standalone
     # (does not extend base.html), noindex, and kept out of the sitemap below.
@@ -744,6 +764,7 @@ def build() -> None:
         # The footer's All Products section walks the full price list on
         # every page too.
         context.setdefault("pricing", pricing)
+        context.setdefault("products_list", products_list)
 
         rendered = template.render(**context)
         write_html(DIST_DIR / rel_path, rendered)
@@ -752,7 +773,7 @@ def build() -> None:
     # Sitemap, derived from the page registry so it can never drift out of
     # sync with what was actually built.
     base = site["urls"]["base"]
-    priorities = [("index.html", "1.0"), ("services/", "0.9"), ("pricing/", "0.8")]
+    priorities = [("index.html", "1.0"), ("services/", "0.9"), ("products/", "0.85"), ("pricing/", "0.8")]
     urls = []
     for rel_path, _tpl, _ctx in pages_to_build:
         if rel_path in ("404.html", "pricing-print.html"):
@@ -777,6 +798,13 @@ def build() -> None:
         f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n", encoding="utf-8"
     )
     (DIST_DIR / ".nojekyll").write_text("", encoding="utf-8")
+
+    # Sync dist/products to repo root products/ for GitHub Pages static serving
+    repo_products = ROOT.parent / "products"
+    if (DIST_DIR / "products").exists():
+        if repo_products.exists():
+            shutil.rmtree(repo_products)
+        shutil.copytree(DIST_DIR / "products", repo_products)
 
     print(f"\nDone. Generated {len(pages_to_build)} pages + sitemap ({len(urls)} URLs) in {DIST_DIR}")
 

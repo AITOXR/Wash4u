@@ -1,0 +1,652 @@
+{% extends "base.html" %}
+{% from "_icons.html" import ui %}
+{% from "_components.html" import faq_list %}
+
+{% block preload %}
+  <link rel="preload" href="{{ asset_path }}{{ product.heroImage }}" as="image">
+{% endblock %}
+
+{% block schema %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.urls.base }}/" },
+          { "@type": "ListItem", "position": 2, "name": "Products", "item": "{{ site.urls.base }}/pricing/" },
+          { "@type": "ListItem", "position": 3, "name": {{ product.name | tojson }} }
+        ]
+      },
+      {
+        "@type": "Product",
+        "@id": "{{ site.urls.base }}/products/{{ product.slug }}/#product",
+        "name": {{ product.name | tojson }},
+        "description": {{ (product.meta.description or product.subtitle) | tojson }},
+        "image": "{{ site.urls.base }}/{{ product.heroImageFallback or product.heroImage }}",
+        "url": "{{ site.urls.base }}/products/{{ product.slug }}/",
+        "brand": {
+          "@type": "Brand",
+          "name": {{ site.brand.name | tojson }}
+        },
+        "offers": [
+          {% for s in product.services %}
+          {
+            "@type": "Offer",
+            "name": {{ (product.name ~ ' — ' ~ s.name) | tojson }},
+            "price": "{{ s.amount }}",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "{{ site.urls.base }}/products/{{ product.slug }}/"
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }{% if product.faqs %},
+      {
+        "@type": "FAQPage",
+        "@id": "{{ site.urls.base }}/products/{{ product.slug }}/#faq",
+        "mainEntity": [
+          {% for f in product.faqs %}{
+            "@type": "Question",
+            "name": {{ f.q | tojson }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | tojson }} }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="page-product">
+  {# Serialized JSON config for product-page.js client interactions #}
+  <script type="application/json" id="product-json-data">{{ product | tojson }}</script>
+
+  {# ============================================================
+     1. HERO SECTION
+     ============================================================ #}
+  <section class="prod-hero">
+    <div class="wrap prod-hero__grid">
+      <div class="prod-hero__copy">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="{{ root_path }}">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="{{ root_path }}pricing/">Products</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{{ product.name }}</span>
+        </nav>
+
+        <span class="prod-badge">{{ ui('sparkle', 14) }} {{ product.eyebrow }}</span>
+        <h1 class="prod-hero__title">{{ product.h1 or product.name }}</h1>
+        <p class="prod-hero__lede">{{ product.subtitle }}</p>
+
+        <div class="prod-hero__actions">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book a Pickup</a>
+          <a class="btn btn--on-navy btn--lg" href="#service-selector">View Pricing</a>
+        </div>
+
+        <ul class="prod-hero__bar">
+          <li class="prod-hero__stat">
+            <span class="prod-hero__stat-icon" aria-hidden="true">{{ ui('check', 12) }}</span>
+            <span>{{ product.badge }}</span>
+          </li>
+          <li class="prod-hero__stat">
+            <span class="prod-hero__stat-icon" aria-hidden="true">{{ ui('clock', 12) }}</span>
+            <span>{{ product.turnaroundNote }}</span>
+          </li>
+          <li class="prod-hero__stat">
+            <span class="prod-hero__stat-icon" aria-hidden="true">{{ ui('sparkle', 12) }}</span>
+            <span>From <strong>{{ product.startingPrice }}</strong> + GST</span>
+          </li>
+        </ul>
+      </div>
+
+      <figure class="prod-hero__media">
+        <img class="prod-hero__photo"
+             src="{{ asset_path }}{{ product.photos.hero.src }}"
+             alt="{{ product.photos.hero.alt }}"
+             width="700" height="620" fetchpriority="high" decoding="async">
+        <div class="prod-hero__plate">
+          <picture>
+            <source srcset="{{ asset_path }}{{ product.heroImage }}" type="image/webp">
+            <img class="prod-hero__img"
+                 src="{{ asset_path }}{{ product.heroImageFallback or product.heroImage }}"
+                 alt="{{ product.heroImageAlt }}"
+                 width="200" height="200" decoding="async">
+          </picture>
+        </div>
+        <figcaption class="prod-hero__price-tag">
+          <span>Starting at</span>
+          <strong>{{ product.startingPrice }}</strong>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  {# ============================================================
+     2. PRICE / SERVICE SELECTOR BUY BOX
+     ============================================================ #}
+  <section class="prod-buybox-section" id="service-selector">
+    <div class="wrap">
+      <div class="prod-buybox-grid">
+        {# Column 2: Service Selector Buy Box #}
+        {% set primary_svc = product.services[0] %}
+        <div class="prod-buybox"
+             id="product-buybox"
+             data-price-item
+             data-slug="{{ primary_svc.slug }}"
+             data-name="{{ product.name }} ({{ primary_svc.name }})"
+             data-amount="{{ primary_svc.amount }}"
+             data-price="{{ primary_svc.price }}"
+             data-img="{{ asset_path }}{{ product.heroImageFallback or product.heroImage }}">
+
+          <p class="prod-buybox__eyebrow">{{ product.name }} Care</p>
+          <h2 class="prod-buybox__title">Choose Your {{ product.name }} Service</h2>
+
+          <div class="prod-buybox__price-row">
+            <span class="prod-buybox__price" id="product-price-display">{{ primary_svc.price }}</span>
+            <span class="prod-buybox__gst">+ 18% GST</span>
+            <span class="prod-buybox__service-label" id="product-selected-service-name">{{ primary_svc.name }}</span>
+          </div>
+
+          {# Interactive Service Selector #}
+          <div class="prod-selector-group">
+            <span class="prod-selector-legend">Select Treatment</span>
+            <div class="prod-selector-pills" role="radiogroup" aria-label="{{ product.name }} service options">
+              {% for svc in product.services %}
+              <button type="button"
+                      class="prod-pill{% if loop.first %} is-active{% endif %}"
+                      data-service-select="{{ svc.id }}"
+                      aria-pressed="{{ 'true' if loop.first else 'false' }}">
+                <span class="prod-pill__name">{{ svc.name }}</span>
+                <span class="prod-pill__sub">{{ svc.tagline }} &middot; {{ svc.price }}</span>
+              </button>
+              {% endfor %}
+            </div>
+          </div>
+
+          <p class="prod-buybox__desc" id="product-service-desc">
+            {{ primary_svc.longDescription or primary_svc.shortDescription }}
+          </p>
+
+          <div class="prod-buybox__inclusions-wrap">
+            <p class="prod-buybox__inclusions-title">What's Included in This Service</p>
+            <ul class="prod-checklist prod-checklist--2col" id="product-service-includes">
+              {% for inc in primary_svc.includes %}
+              <li>
+                <span class="prod-check" aria-hidden="true">{{ ui('check', 12) }}</span>
+                <span>{{ inc }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="prod-buybox__cta-row">
+            <button type="button" class="btn btn-add-cart" id="product-add-cart-btn" data-add aria-label="Add {{ product.name }} to pickup list">
+              {{ ui('plus', 16) }} Add to Cart
+            </button>
+            <a class="btn btn--navy" href="{{ site.urls.booking }}" target="_blank" rel="noopener">
+              Book a Pickup
+            </a>
+          </div>
+
+          <div class="prod-buybox__guarantee">
+            {{ ui('shield', 14) }}
+            <span>Safe on Fabric guarantee &middot; Free doorstep pickup &amp; delivery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ============================================================
+     2b. PHOTO GALLERY STRIP
+     ============================================================ #}
+  <section class="prod-gallery-section">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">{{ product.photos.gallery.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ product.photos.gallery.title }}</h2>
+      </div>
+      <div class="prod-gallery">
+        {% for g in product.photos.gallery['items'] %}
+        <figure class="prod-gallery__item">
+          <img src="{{ asset_path }}{{ g.src }}" alt="{{ g.alt }}" loading="lazy" decoding="async">
+          <figcaption>{{ g.caption }}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ============================================================
+     3. SERVICE SELECTION EXPLANATION (COMPARISON SECTION)
+     ============================================================ #}
+  <section class="prod-compare-section">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">{{ product.serviceComparison.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ product.serviceComparison.title }}</h2>
+        <p class="prod-section-subtitle">{{ product.serviceComparison.intro }}</p>
+      </div>
+
+      {# Two Large Feature Cards #}
+      <div class="prod-compare-cards">
+        {% for svc in product.services %}
+        <div class="prod-compare-card">
+          <span class="prod-compare-card__tag">{{ svc.tagline }}</span>
+          <h3 class="prod-compare-card__title">{{ svc.name }}</h3>
+          <p class="prod-compare-card__price">Starts at {{ svc.price }} <small style="font-size:0.75rem; font-weight:normal; color:var(--ink-3)">+ GST</small></p>
+          <p class="prod-compare-card__desc">{{ svc.longDescription }}</p>
+
+          <p class="prod-compare-card__subhead">Best Suited For:</p>
+          <ul class="prod-compare-card__list">
+            {% for b in svc.bestFor %}
+            <li>
+              <span class="prod-check" aria-hidden="true">{{ ui('check', 12) }}</span>
+              <span>{{ b }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+
+          <button type="button" class="btn btn--ghost" data-choose-service="{{ svc.id }}">
+            Choose {{ svc.name }} &rarr;
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+
+      {# Comparison Table (Desktop) #}
+      <div class="prod-table-wrap">
+        <table class="prod-table" aria-label="Service feature comparison">
+          <thead>
+            <tr>
+              <th scope="col" style="width:50%">Treatment Feature</th>
+              <th scope="col" class="text-center" style="width:25%">Dry Clean &amp; Press</th>
+              <th scope="col" class="text-center" style="width:25%">Steam Press</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in product.serviceComparison.features %}
+            <tr>
+              <th scope="row" style="font-weight:600; color:var(--ink)">{{ item.name }}</th>
+              <td class="text-center">
+                {% if item.dryClean == true %}
+                  <span class="prod-cell-check" aria-label="Included">{{ ui('check', 12) }}</span>
+                {% elif item.dryClean == 'N/A' %}
+                  <span style="font-size:var(--t-xs); color:var(--ink-3)">Preserved</span>
+                {% else %}
+                  <span class="prod-cell-dash">&mdash;</span>
+                {% endif %}
+              </td>
+              <td class="text-center">
+                {% if item.steamPress == true %}
+                  <span class="prod-cell-check" aria-label="Included">{{ ui('check', 12) }}</span>
+                {% elif item.steamPress == 'N/A' %}
+                  <span style="font-size:var(--t-xs); color:var(--ink-3)">N/A</span>
+                {% else %}
+                  <span class="prod-cell-dash">&mdash;</span>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      {# Mobile Comparison List (Mobile Only) #}
+      <div class="prod-mobile-compare">
+        {% for item in product.serviceComparison.features %}
+        <div class="prod-mobile-compare-item">
+          <div class="prod-mobile-compare-item__title">{{ item.name }}</div>
+          <div class="prod-mobile-compare-item__badges">
+            <div class="prod-mobile-badge">
+              <span>Dry Clean</span>
+              {% if item.dryClean == true %}
+                <span class="prod-cell-check">{{ ui('check', 10) }}</span>
+              {% else %}
+                <span class="prod-cell-dash">&mdash;</span>
+              {% endif %}
+            </div>
+            <div class="prod-mobile-badge">
+              <span>Steam Press</span>
+              {% if item.steamPress == true %}
+                <span class="prod-cell-check">{{ ui('check', 10) }}</span>
+              {% else %}
+                <span class="prod-cell-dash">&mdash;</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ============================================================
+     4. "WHY PROFESSIONAL JEANS CARE?"
+     ============================================================ #}
+  <section class="prod-why-section">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">{{ product.whyProfessional.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ product.whyProfessional.title }}</h2>
+        <p class="prod-section-subtitle">{{ product.whyProfessional.subtitle }}</p>
+      </div>
+
+      <div class="prod-grid-3col">
+        {% for pt in product.whyProfessional.points %}
+        <div class="prod-card">
+          <span class="prod-card__num">0{{ loop.index }}</span>
+          <h3 class="prod-card__title">{{ pt.title }}</h3>
+          <p class="prod-card__desc">{{ pt.desc }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ============================================================
+     5. WHAT'S INCLUDED
+     ============================================================ #}
+  <section class="prod-compare-section prod-section--white">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">{{ product.whatsIncluded.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ product.whatsIncluded.title }}</h2>
+        <p class="prod-section-subtitle">{{ product.whatsIncluded.subtitle }}</p>
+      </div>
+
+      <div class="prod-grid-4col">
+        {% for inc in product.whatsIncluded['items'] %}
+        <div class="prod-card prod-card--boxed">
+          <div class="prod-card__head">
+            <span class="prod-check">{{ ui('check', 12) }}</span>
+            <h3 class="prod-card__title">{{ inc.title }}</h3>
+          </div>
+          <p class="prod-card__desc">{{ inc.desc }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ============================================================
+     6. OUR JEANS CARE PROCESS (8 STEPS)
+     ============================================================ #}
+  <section class="prod-process-section">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">{{ product.careProcess.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ product.careProcess.title }}</h2>
+        <p class="prod-section-subtitle">{{ product.careProcess.subtitle }}</p>
+      </div>
+
+      <div class="prod-photo-strip">
+        {% for ph in product.photos.process %}
+        <figure class="prod-photo-strip__item">
+          <img src="{{ asset_path }}{{ ph.src }}" alt="{{ ph.alt }}" loading="lazy" decoding="async">
+          <figcaption>{{ ph.label }}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+
+      <div class="prod-steps-grid">
+        {% for s in product.careProcess.steps %}
+        <div class="prod-step-card">
+          <span class="prod-step-card__num">{{ s.step }}</span>
+          <h3 class="prod-step-card__title">{{ s.title }}</h3>
+          <p class="prod-step-card__desc">{{ s.desc }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ============================================================
+     7. STAIN TREATMENT SECTION
+     ============================================================ #}
+  <section class="prod-stains-section">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">{{ product.stainTreatment.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ product.stainTreatment.title }}</h2>
+        <p class="prod-section-subtitle">{{ product.stainTreatment.subtitle }}</p>
+      </div>
+
+      <div class="prod-stains-layout">
+        {# Stain Categories #}
+        <div class="prod-stain-grid">
+          {% for st in product.stainTreatment.categories %}
+          <div class="prod-stain-item">
+            <h3 class="prod-stain-item__name">{{ st.name }}</h3>
+            <p class="prod-stain-item__detail">{{ st.detail }}</p>
+          </div>
+          {% endfor %}
+        </div>
+
+        {# Conditioned Note Callout #}
+        <div class="prod-stain-callout">
+          <h3 class="prod-stain-callout__title">Pre-Treatment Before Main Cycle</h3>
+          <p class="prod-stain-callout__body">
+            Every garment is inspected individually upon collection. Targeted spotting agents are applied to loosen oils and grime before deep cleaning begins.
+          </p>
+          <div class="prod-stain-callout__note">
+            <strong>Important Care Notice:</strong> {{ product.stainTreatment.disclaimer }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ============================================================
+     8. JEANS DETAIL-CARE SECTION ("Every Detail Matters")
+     ============================================================ #}
+  <section class="prod-why-section prod-section--white">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">{{ product.detailCare.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ product.detailCare.title }}</h2>
+        <p class="prod-section-subtitle">{{ product.detailCare.subtitle }}</p>
+      </div>
+
+      <figure class="prod-banner">
+        <img src="{{ asset_path }}{{ product.photos.banner.src }}" alt="{{ product.photos.banner.alt }}" loading="lazy" decoding="async">
+        <figcaption>{{ product.photos.banner.caption }}</figcaption>
+      </figure>
+
+      <div class="prod-grid-3col">
+        {% for d in product.detailCare.details %}
+        <div class="prod-card">
+          <span class="prod-card__num">{{ d.num }}</span>
+          <h3 class="prod-card__title">{{ d.title }}</h3>
+          <p class="prod-card__desc">{{ d.desc }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ============================================================
+     9. BEFORE / AFTER SECTION ("See the Difference")
+     ============================================================ #}
+  <section class="prod-proof-section">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">{{ product.beforeAfter.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ product.beforeAfter.title }}</h2>
+        <p class="prod-section-subtitle">{{ product.beforeAfter.subtitle }}</p>
+      </div>
+
+      <div class="prod-proof-grid">
+        {% for ex in product.beforeAfter.examples %}
+        <div class="prod-proof-card">
+          <h3 class="prod-proof-card__title">{{ ex.title }}</h3>
+          <div class="prod-proof-flow">
+            <div class="prod-proof-step prod-proof-step--problem">
+              <span class="prod-proof-label">Problem</span>
+              <span>{{ ex.problem }}</span>
+            </div>
+            <div class="prod-proof-step prod-proof-step--treatment">
+              <span class="prod-proof-label">Treatment</span>
+              <span>{{ ex.treatment }}</span>
+            </div>
+            <div class="prod-proof-step prod-proof-step--result">
+              <span class="prod-proof-label">Result</span>
+              <span>{{ ex.result }}</span>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ============================================================
+     10. THE WASH4YOU DIFFERENCE
+     ============================================================ #}
+  <section class="prod-why-section">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">{{ product.whyWash4You.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ product.whyWash4You.title }}</h2>
+        <p class="prod-section-subtitle">{{ product.whyWash4You.subtitle }}</p>
+      </div>
+
+      <div class="prod-grid-4col">
+        {% for r in product.whyWash4You.reasons %}
+        <div class="prod-card prod-card--boxed">
+          <div class="prod-card__head">
+            <span class="prod-check">{{ ui('shield', 12) }}</span>
+            <h3 class="prod-card__title">{{ r.title }}</h3>
+          </div>
+          <p class="prod-card__desc">{{ r.desc }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ============================================================
+     11. DOORSTEP EXPERIENCE BAND
+     ============================================================ #}
+  <section class="prod-doorstep-band">
+    <div class="wrap">
+      <div class="prod-section-header prod-section-header--dark">
+        <p class="prod-section-eyebrow">{{ product.doorstepExperience.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ product.doorstepExperience.title }}</h2>
+        <p class="prod-section-subtitle">{{ product.doorstepExperience.subtitle }}</p>
+      </div>
+
+      <img class="prod-doorstep-photo" src="{{ asset_path }}{{ product.photos.doorstep.src }}" alt="{{ product.photos.doorstep.alt }}" loading="lazy" decoding="async">
+
+      <div class="prod-doorstep-grid">
+        {% for step in product.doorstepExperience.steps %}
+        <div class="prod-doorstep-card">
+          <div class="prod-doorstep-card__num">{{ step.num }}</div>
+          <h3 class="prod-doorstep-card__title">{{ step.title }}</h3>
+          <p class="prod-doorstep-card__desc">{{ step.desc }}</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="prod-doorstep-actions">
+        <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">
+          {{ product.doorstepExperience.cta }}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {# ============================================================
+     12. LOCATION / LOCAL SERVICE SECTION
+     ============================================================ #}
+  <section class="prod-location-section">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">{{ product.localCoverage.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ product.localCoverage.title }}</h2>
+        <p class="prod-section-subtitle">{{ product.localCoverage.subtitle }}</p>
+      </div>
+
+      <div class="prod-area-chips">
+        {% for area in product.localCoverage.highlightAreas %}
+        <a class="prod-area-chip" href="{{ root_path }}{{ area.url }}">
+          {{ ui('pin', 12) }} {{ area.name }}
+        </a>
+        {% endfor %}
+      </div>
+
+      <a class="btn btn--ghost" href="{{ root_path }}{{ product.localCoverage.ctaUrl }}">
+        {{ product.localCoverage.cta }} &rarr;
+      </a>
+    </div>
+  </section>
+
+  {# ============================================================
+     13. RELATED SERVICES
+     ============================================================ #}
+  <section class="prod-related-section">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">Complete Wardrobe Care</p>
+        <h2 class="prod-section-title">More Garment Care Services</h2>
+        <p class="prod-section-subtitle">Add other daily wardrobe essentials or specialty items to your pickup order:</p>
+      </div>
+
+      <div class="prod-related-grid">
+        {% for rel in product.relatedServices %}
+        <a class="prod-related-card" href="{{ root_path }}pricing/#{{ rel.slug }}">
+          <div class="prod-related-card__media">
+            <img class="prod-related-card__img"
+                 src="{{ asset_path }}{{ rel.img }}"
+                 alt="{{ rel.name }} dry cleaning and pressing"
+                 width="90" height="90" loading="lazy" decoding="async">
+          </div>
+          <h3 class="prod-related-card__title">{{ rel.name }}</h3>
+          <p class="prod-related-card__price">{{ rel.price }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ============================================================
+     14. FAQ SECTION
+     ============================================================ #}
+  <section class="prod-faq-section" id="faq">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">Common Questions</p>
+        <h2 class="prod-section-title">Frequently Asked Questions</h2>
+        <p class="prod-section-subtitle">Everything you need to know about professional {{ product.name | lower }} care, turnaround, and doorstep pickup.</p>
+      </div>
+
+      <div class="prod-faq-wrap">
+        {{ faq_list(product.faqs, id_prefix='prod-faq') }}
+      </div>
+    </div>
+  </section>
+
+  {# ============================================================
+     15. FINAL CTA BANNER
+     ============================================================ #}
+  <section class="prod-final-cta-section">
+    <div class="wrap">
+      <div class="prod-final-cta-banner">
+        <img class="prod-final-cta__bg" src="{{ asset_path }}{{ product.photos.cta.src }}" alt="" loading="lazy" decoding="async">
+        <p class="prod-section-eyebrow">{{ product.finalCta.eyebrow }}</p>
+        <h2 class="prod-final-cta__title">{{ product.finalCta.title }}</h2>
+        <p class="prod-final-cta__desc">{{ product.finalCta.subtitle }}</p>
+        <div class="prod-final-cta__btns">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">
+            {{ product.finalCta.primaryCta }}
+          </a>
+          <a class="btn btn--on-navy btn--lg" href="{{ root_path }}services/">
+            {{ product.finalCta.secondaryCta }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{# Product Page Interactive Script #}
+<script src="{{ asset_path }}js/product-page.js" defer></script>
+{% endblock %}
