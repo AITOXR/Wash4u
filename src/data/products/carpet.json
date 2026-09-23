@@ -1,0 +1,283 @@
+{
+  "_generated": "tools/gen-product-pages.py — edit the generator (or delete this key to hand-maintain the file)",
+  "name": "Carpet",
+  "slug": "carpet",
+  "noun": "carpet",
+  "seo": "Carpet Cleaning",
+  "care": "carpet care",
+  "category": "Home Textiles",
+  "eyebrow": "Professional Carpet Care",
+  "h1": "Professional Carpet Cleaning, Collected From Your Door",
+  "subtitle": "Rugs and carpets collected from your door, dusted, deep-cleaned with extraction methods and dried completely at Wash4You. Priced per square foot, across Gurugram & Delhi NCR.",
+  "heroImage": "images/pricing/carpet.webp",
+  "heroImageFallback": "images/pricing/carpet.png",
+  "heroImageAlt": "Carpet — carpet cleaning by Wash4You",
+  "turnaroundNote": "Ready in 48 hrs",
+  "badge": "Free Doorstep Pickup & Delivery",
+  "meta": {
+    "title": "Carpet Cleaning Service in Gurgaon | Wash4You",
+    "description": "Professional carpet cleaning in Gurgaon & Delhi NCR by Wash4You. Stain treatment, expert finishing and free doorstep pickup & delivery.",
+    "og_title": "Carpet Cleaning with Free Pickup | Wash4You",
+    "og_description": "Rugs and carpets collected from your door, dusted, deep-cleaned with extraction methods and dried completely at Wash4You. Priced per square foot, across Gurugram & Delhi NCR."
+  },
+  "services": [
+    {
+      "id": "dry-clean",
+      "slug": "carpet",
+      "name": "Carpet Deep Cleaning",
+      "short": "Carpet Cleaning",
+      "tagline": "Dust Extraction & Deep Clean",
+      "shortDescription": "Deep extraction cleaning for rugs and carpets, priced per square foot.",
+      "longDescription": "Your carpet is collected, dusted, deep-cleaned with extraction methods that pull dirt out of the pile rather than pushing it in, dried completely and returned rolled.",
+      "bestFor": [
+        "Wool, silk and synthetic rugs",
+        "Living-room and bedroom carpets",
+        "Carpets with spills or pet stains",
+        "Rugs that smell dusty or damp"
+      ],
+      "includes": [
+        "Size, fibre & backing check",
+        "Dry dusting of the pile",
+        "Spot pre-treatment where applicable",
+        "Deep extraction cleaning",
+        "Complete drying",
+        "Rolled & packed for delivery"
+      ],
+      "turnaround": "48 hours"
+    }
+  ],
+  "studioLabel": "Carpet Care",
+  "tag": {
+    "title": "Carpet Care Tag",
+    "line": "Tagged at your door · Returned clean & packed"
+  },
+  "studio": {
+    "eyebrow": "Inside Wash4You",
+    "title": "How Wash4You Cleans Your {name}",
+    "subtitle": "A carpet cannot be cleaned properly on the floor it lies on. It is collected, cleaned at the Wash4You studio, dried through and returned rolled.",
+    "points": [
+      {
+        "title": "Dusted first",
+        "desc": "Loose grit is removed from the pile before any liquid touches it."
+      },
+      {
+        "title": "Tagged from pickup to delivery",
+        "desc": "Measured and tagged at your door, so you know exactly what is being cleaned."
+      },
+      {
+        "title": "Extraction cleaning",
+        "desc": "Dirt is pulled out of the pile and backing, not spread around it."
+      },
+      {
+        "title": "Dried completely",
+        "desc": "Dried all the way to the backing so it never goes back down damp."
+      }
+    ]
+  },
+  "whyProfessional": {
+    "eyebrow": "Carpet Care",
+    "title": "Why Professional Carpet Cleaning?",
+    "subtitle": "Carpets hold far more dust and grit than they show. Here is why professional carpet cleaning is worth doing once or twice a year:",
+    "points": [
+      {
+        "title": "Grit Out of the Pile",
+        "desc": "Grit cuts carpet fibres from below; dusting and extraction remove it."
+      },
+      {
+        "title": "Allergens Removed",
+        "desc": "Dust, mites and pet dander are cleaned out, not just vacuumed from the surface."
+      },
+      {
+        "title": "Colours Revived",
+        "desc": "A deep clean lifts the grey film that dulls colour over time."
+      },
+      {
+        "title": "Dried Properly",
+        "desc": "Complete drying avoids the damp smell of a carpet washed at home."
+      },
+      {
+        "title": "Backing Protected",
+        "desc": "Fibre and backing are assessed so the carpet keeps its shape."
+      },
+      {
+        "title": "No Mess at Home",
+        "desc": "We take it away and bring it back; nothing is soaked on your floor."
+      }
+    ]
+  },
+  "stainTreatment": {
+    "eyebrow": "Targeted Treatment",
+    "title": "Tough Stains? We Treat Them Before the Deep Clean.",
+    "subtitle": "These are the marks we see most often on carpets & rugs. Each one is assessed and pre-treated before the main clean.",
+    "categories": [
+      {
+        "name": "Food & Drink",
+        "detail": "Tea, coffee, juice and snack spills"
+      },
+      {
+        "name": "Mud & Footwear",
+        "detail": "Tracked-in mud and grit"
+      },
+      {
+        "name": "Pet Accidents",
+        "detail": "Pet stains and odour"
+      },
+      {
+        "name": "Oil & Grease",
+        "detail": "Food oil and cosmetic marks"
+      },
+      {
+        "name": "Ink & Crayon",
+        "detail": "Children's pens and crayons"
+      },
+      {
+        "name": "Traffic Lanes",
+        "detail": "Grey paths where people walk every day"
+      }
+    ],
+    "disclaimer": "Treatment results depend on the type of stain, fabric condition, age of the stain and any previous treatment. We use professional spot-lifting techniques, but complete removal cannot be guaranteed for every aged or heat-set mark."
+  },
+  "detailCare": {
+    "eyebrow": "Craftsmanship",
+    "title": "Every Detail Matters",
+    "subtitle": "Here is how the Wash4You studio treats the parts of your carpet that matter most:",
+    "details": [
+      {
+        "title": "Fibre Type",
+        "desc": "Wool, silk, synthetic and blends are identified first; each needs a different method."
+      },
+      {
+        "title": "Fringes & Edges",
+        "desc": "Fringes are cleaned and combed out; edges are checked for fraying."
+      },
+      {
+        "title": "Pile Direction",
+        "desc": "The pile is groomed in its natural direction as it dries."
+      },
+      {
+        "title": "Fibre Type",
+        "desc": "Wool, silk, synthetic and blends are identified first; each needs a different method."
+      },
+      {
+        "title": "Fringes & Edges",
+        "desc": "Fringes are cleaned and combed out; edges are checked for fraying."
+      },
+      {
+        "title": "Pile Direction",
+        "desc": "The pile is groomed in its natural direction as it dries."
+      }
+    ]
+  },
+  "beforeAfter": {
+    "eyebrow": "Visual Results",
+    "title": "See the Difference",
+    "subtitle": "How Wash4You's professional carpet care resolves common problems:",
+    "examples": [
+      {
+        "title": "Grey Traffic Lanes",
+        "problem": "Walking paths that have gone visibly grey.",
+        "treatment": "Dusting, pre-treatment and extraction cleaning.",
+        "result": "Even colour across the carpet."
+      },
+      {
+        "title": "Tea Spill",
+        "problem": "A spill that dried into a brown ring.",
+        "treatment": "Spot pre-treatment before the deep clean.",
+        "result": "Ring treated and the area blended back in."
+      },
+      {
+        "title": "Musty Smell",
+        "problem": "A carpet that smells damp and stale.",
+        "treatment": "Deep clean and complete drying.",
+        "result": "Fresh-smelling carpet."
+      }
+    ]
+  },
+  "careProcess": {
+    "eyebrow": "Our Process",
+    "title": "The 8-Step Wash4You Carpet Process",
+    "subtitle": "From your doorstep, through the Wash4You studio, and back:",
+    "steps": [
+      {
+        "step": "01",
+        "title": "Book Your Pickup",
+        "desc": "Book online or on WhatsApp and tell us the carpet size."
+      },
+      {
+        "step": "02",
+        "title": "Doorstep Collection",
+        "desc": "Measured, tagged and rolled at your door."
+      },
+      {
+        "step": "03",
+        "title": "Inspection",
+        "desc": "Fibre, backing, fringes and stains are checked."
+      },
+      {
+        "step": "04",
+        "title": "Dry Dusting",
+        "desc": "Grit is removed from the pile before cleaning."
+      },
+      {
+        "step": "05",
+        "title": "Extraction Cleaning",
+        "desc": "Deep-cleaned to pull dirt out of the pile and backing."
+      },
+      {
+        "step": "06",
+        "title": "Complete Drying",
+        "desc": "Dried through to the backing, pile groomed as it dries."
+      },
+      {
+        "step": "07",
+        "title": "Quality Check",
+        "desc": "Checked for evenness, smell and dryness."
+      },
+      {
+        "step": "08",
+        "title": "Rolled & Delivered",
+        "desc": "Rolled, packed and delivered back to your door."
+      }
+    ]
+  },
+  "relatedServices": [
+    "curtain",
+    "double-blanket",
+    "comforter-double",
+    "bed-spread-double",
+    "single-blanket",
+    "double-bed-sheet"
+  ],
+  "relatedTitle": "More From the Wash4You Dryclean Studio",
+  "faqs": [
+    {
+      "q": "How much does carpet cleaning cost at Wash4You?",
+      "a": "Carpet cleaning starts from {price1} per square foot. Prices are exclusive of 18% GST, and pickup and delivery are free."
+    },
+    {
+      "q": "How long does carpet cleaning take?",
+      "a": "Carpet cleaning takes about 48 hours, including complete drying."
+    },
+    {
+      "q": "Do I need to measure my carpet before booking?",
+      "a": "It helps. Tell us the approximate size when you book and we will give you an estimate; the carpet is measured again at pickup and the final price confirmed before cleaning."
+    },
+    {
+      "q": "Can you remove stains from carpets & rugs?",
+      "a": "Visible stains are identified and pre-treated before the main clean. Results depend on the type and age of the stain, the fabric and any earlier home treatment, so complete removal cannot be guaranteed for every mark."
+    }
+  ],
+  "finalCta": {
+    "title": "Your Carpet, Deep-Cleaned by Wash4You."
+  },
+  "photos": {
+    "hero": {
+      "src": "images/studio/washers.webp",
+      "alt": "Commercial cleaning machines at a laundry facility"
+    }
+  },
+  "parentService": {
+    "slug": "carpet-cleaning",
+    "name": "Carpet Cleaning Service"
+  }
+}

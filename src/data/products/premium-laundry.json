@@ -1,0 +1,190 @@
+{
+  "_generated": "tools/gen-product-pages.py — edit the generator (or delete this key to hand-maintain the file)",
+  "name": "Premium Laundry",
+  "slug": "premium-laundry",
+  "noun": "laundry",
+  "seo": "Premium Laundry Service",
+  "care": "laundry care",
+  "category": "Laundry Services",
+  "eyebrow": "Professional Laundry Care",
+  "h1": "Premium Laundry for Clothes That Deserve More",
+  "subtitle": "For better clothes that can be washed but should not go through an ordinary cycle: washed gently in small loads by fabric, dried at low heat and steam-finished by hand.. Free doorstep pickup and delivery across Gurugram & Delhi NCR.",
+  "heroImage": "images/pricing/premium-laundry.webp",
+  "heroImageFallback": "images/pricing/premium-laundry.jpg",
+  "heroImageAlt": "Premium Laundry — laundry by Wash4You",
+  "turnaroundNote": "Ready in 24 hrs",
+  "badge": "Free Doorstep Pickup & Delivery",
+  "meta": {
+    "title": "Premium Laundry Service Service in Gurgaon | Wash4You",
+    "description": "Professional premium laundry service in Gurgaon & Delhi NCR by Wash4You. Stain treatment, expert finishing and free doorstep pickup & delivery.",
+    "og_title": "Premium Laundry Service with Free Pickup | Wash4You",
+    "og_description": "For better clothes that can be washed but should not go through an ordinary cycle: washed gently in small loads by fabric, dried at low heat and steam-finished by hand.. Free doorstep pickup and delivery across Gurugram & Delhi NCR."
+  },
+  "services": [
+    {
+      "id": "laundry",
+      "slug": "premium-laundry",
+      "name": "Premium Laundry",
+      "short": "Premium Laundry",
+      "tagline": "Sorted, Washed & Finished",
+      "shortDescription": "For better clothes that can be washed but should not go through an ordinary cycle: washed gently in small loads by fabric, dried at low heat and steam-finished by hand..",
+      "longDescription": "For better clothes that can be washed but should not go through an ordinary cycle: washed gently in small loads by fabric, dried at low heat and steam-finished by hand.",
+      "bestFor": [
+        "Premium cotton and linen shirts",
+        "Branded casual wear",
+        "Delicate but washable fabrics",
+        "Clothes you want to last longer"
+      ],
+      "includes": [
+        "Sorted by fabric & care label",
+        "Small, gentle loads",
+        "Premium eco-friendly detergent",
+        "Low-heat drying",
+        "Hand steam finishing",
+        "Hung or folded with care"
+      ],
+      "turnaround": "24 hours"
+    }
+  ],
+  "studioLabel": "Laundry Studio",
+  "tag": {
+    "title": "Laundry Care Tag",
+    "line": "Tagged at your door · Returned clean & packed"
+  },
+  "studio": {
+    "eyebrow": "Inside Wash4You",
+    "title": "How Wash4You Handles Your Laundry",
+    "subtitle": "Your laundry never shares a machine with anyone else's. It is tagged at your door, sorted, washed on commercial machines with eco-friendly detergents, and finished before it comes home.",
+    "points": [
+      {
+        "title": "Your load only",
+        "desc": "Each customer's laundry is washed separately, never mixed with another order."
+      },
+      {
+        "title": "Tagged from pickup to delivery",
+        "desc": "Counted at your door and tagged through every stage."
+      },
+      {
+        "title": "Commercial machines",
+        "desc": "Washed on commercial machines with biodegradable, skin-safe detergents."
+      },
+      {
+        "title": "Finished properly",
+        "desc": "Folded or steam-ironed, checked and packed before delivery."
+      }
+    ]
+  },
+  "whyProfessional": {
+    "eyebrow": "Laundry, Done Properly",
+    "title": "Why Professional Laundry Care?",
+    "subtitle": "Laundry is the chore that takes the most time for the least reward. Here is what professional laundry care does differently:",
+    "points": [
+      {
+        "title": "Sorted First",
+        "desc": "Whites, darks and delicates are separated before anything is washed."
+      },
+      {
+        "title": "Right Temperature",
+        "desc": "Wash temperature is set by fabric, not by habit."
+      },
+      {
+        "title": "Eco-Friendly Detergents",
+        "desc": "Biodegradable, skin-safe detergents that are gentle enough for children's clothes."
+      },
+      {
+        "title": "Fully Dried",
+        "desc": "Dried completely, so nothing comes back damp or musty."
+      },
+      {
+        "title": "Neatly Finished",
+        "desc": "Folded or steam-ironed so it goes straight into the wardrobe."
+      },
+      {
+        "title": "Your Time Back",
+        "desc": "No washing, drying or folding at home — just pickup and delivery."
+      }
+    ]
+  },
+  "careProcess": {
+    "eyebrow": "Our Process",
+    "title": "The 8-Step Wash4You Laundry Process",
+    "subtitle": "From your doorstep, through the Wash4You studio, and back:",
+    "steps": [
+      {
+        "step": "01",
+        "title": "Book Your Pickup",
+        "desc": "Book online or on WhatsApp."
+      },
+      {
+        "step": "02",
+        "title": "Doorstep Collection",
+        "desc": "Your laundry is collected, weighed or counted, and tagged."
+      },
+      {
+        "step": "03",
+        "title": "Sorting",
+        "desc": "Separated by colour, fabric and care label."
+      },
+      {
+        "step": "04",
+        "title": "Pocket & Stain Check",
+        "desc": "Pockets emptied, visible stains pre-treated."
+      },
+      {
+        "step": "05",
+        "title": "Washing",
+        "desc": "Washed on commercial machines with eco-friendly detergents."
+      },
+      {
+        "step": "06",
+        "title": "Drying",
+        "desc": "Dried completely at the right temperature for the fabric."
+      },
+      {
+        "step": "07",
+        "title": "Finishing",
+        "desc": "Folded or steam-ironed, then checked."
+      },
+      {
+        "step": "08",
+        "title": "Packed & Delivered",
+        "desc": "Packed and delivered back to your door."
+      }
+    ]
+  },
+  "relatedServices": [
+    "wash-and-fold",
+    "wash-and-steam-iron",
+    "woollen-laundry",
+    "shirt",
+    "single-bed-sheet"
+  ],
+  "relatedTitle": "More From Wash4You",
+  "faqs": [
+    {
+      "q": "How much does premium laundry service cost at Wash4You?",
+      "a": "Premium Laundry starts from {price1} per piece. Prices are exclusive of 18% GST, and pickup and delivery are free."
+    },
+    {
+      "q": "How long does premium laundry service take?",
+      "a": "Premium Laundry is usually delivered within 24 hours."
+    },
+    {
+      "q": "When should I choose premium laundry over dryclean?",
+      "a": "Premium Laundry suits good-quality washable clothes. Anything labelled dry clean only, or made of silk, wool suiting or heavy embellishment, should be drycleaned instead."
+    }
+  ],
+  "finalCta": {
+    "title": "Your Laundry, Done by Wash4You."
+  },
+  "photos": {
+    "hero": {
+      "src": "images/studio/washers.webp",
+      "alt": "Commercial washer-extractors at a laundry facility"
+    }
+  },
+  "parentService": {
+    "slug": "eco-friendly-laundry",
+    "name": "Eco-Friendly Laundry Service"
+  }
+}

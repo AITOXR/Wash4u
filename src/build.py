@@ -33,6 +33,69 @@ def load_json(path: Path) -> dict | list:
         return json.load(f)
 
 
+def _deep_merge(base, over):
+    """`over` wins; dicts merge key by key, lists and scalars replace."""
+    if isinstance(base, dict) and isinstance(over, dict):
+        out = dict(base)
+        for k, v in over.items():
+            out[k] = _deep_merge(base[k], v) if k in base else v
+        return out
+    return over
+
+
+def _fill_tokens(value, tokens: dict):
+    if isinstance(value, str):
+        for k, v in tokens.items():
+            value = value.replace(k, v)
+        return value
+    if isinstance(value, list):
+        return [_fill_tokens(v, tokens) for v in value]
+    if isinstance(value, dict):
+        return {k: _fill_tokens(v, tokens) for k, v in value.items()}
+    return value
+
+
+def resolve_product(prod: dict, shared: dict, price_index: dict) -> dict:
+    """One product page's data: shared sections underneath, the product's
+    own JSON on top, {name}/{noun}/{care}/{Care} filled in, and every price
+    read from pricing.json so a product page can never quote a stale rate."""
+    merged = _deep_merge(shared, prod)
+    care = merged.get("care", "dryclean care")
+    merged = _fill_tokens(merged, {
+        "{name}": merged["name"],
+        "{noun}": merged.get("noun", merged["name"].lower()),
+        "{care}": care,
+        "{Care}": care.title(),
+        "{seo}": merged.get("seo", merged["name"] + " Dry Cleaning"),
+    })
+    for svc in merged["services"]:
+        item = price_index.get(svc.get("slug"))
+        if item:
+            svc["price"], svc["amount"] = item["price"], item["amount"]
+            if item.get("unit"):
+                svc["unit"] = item["unit"]
+    # Second pass for copy that quotes a price ("from {price1} per piece"),
+    # which only exists once pricing.json has been read above.
+    merged = _fill_tokens(merged, {
+        f"{{price{i}}}": s["price"] for i, s in enumerate(merged["services"], 1)
+    })
+    cheapest = min(merged["services"], key=lambda s: s["amount"])
+    merged["startingPrice"] = cheapest["price"]
+    merged["startingAmount"] = cheapest["amount"]
+    merged["startingUnit"] = cheapest.get("unit", "")
+    merged["relatedServices"] = [
+        {"slug": r} if isinstance(r, str) else r
+        for r in merged.get("relatedServices", [])
+    ]
+    for rel in merged["relatedServices"]:
+        item = price_index.get(rel["slug"])
+        if item:
+            rel.setdefault("name", item["name"])
+            rel.setdefault("img", item.get("img", ""))
+            rel["price"] = "From " + item["price"] + (" " + item["unit"] if item.get("unit") else "")
+    return merged
+
+
 def markdown_to_html(text: str) -> str:
     """Render the small markdown subset the generated copy actually uses.
 
@@ -246,12 +309,20 @@ def build() -> None:
     coverage_pages = coverage_data["areas"]
     coverage_hubs = coverage_data["hubs"]
 
-    # Product pages (pilot: Jeans; reusable architecture for future product pages)
+    # Product pages: one JSON per priced item in src/data/products/, most of
+    # them written by tools/gen-product-pages.py. `_shared.json` holds the
+    # sections every product page carries (studio, process, doorstep, ...)
+    # and is merged underneath each product; it is not a page itself.
     products_dir = DATA_DIR / "products"
-    products_list = []
+    products_raw = []
+    product_shared = {}
     if products_dir.exists():
+        shared_file = products_dir / "_shared.json"
+        if shared_file.exists():
+            product_shared = load_json(shared_file)
         for p_file in sorted(products_dir.glob("*.json")):
-            products_list.append(load_json(p_file))
+            if not p_file.name.startswith("_"):
+                products_raw.append(load_json(p_file))
 
     # Generated SEO copy. Absent on a clean checkout — the site still builds
     # without it, just without the long-tail matrix pages.
@@ -308,12 +379,35 @@ def build() -> None:
         if item.get("slug")
     }
 
+    products_list = [resolve_product(p, product_shared, price_index) for p in products_raw]
+
+    # Price-list slug -> product page. Each product claims the slugs of the
+    # services it sells (jeans + iron-jeans -> products/jeans/), so the footer,
+    # search, price list and service galleries all link through this one map.
+    product_urls = {}
+    for prod in products_list:
+        url = f"products/{prod['slug']}/"
+        product_urls.setdefault(prod["slug"], url)
+        for i, svc in enumerate(prod["services"]):
+            if svc.get("slug"):
+                product_urls.setdefault(svc["slug"], url if i == 0 else f"{url}?service={svc['id']}")
+    # The steam-iron page's rate table has names, not slugs: link each row
+    # to its product with the steam-press option preselected.
+    product_urls_by_name = {}
+    for prod in products_list:
+        press = next((s for s in prod["services"] if s["id"] == "steam-press"), None)
+        if press:
+            product_urls_by_name[prod["name"].lower()] = product_urls[press["slug"]]
+    for prod in products_list:
+        for rel in prod.get("relatedServices", []):
+            rel["url"] = product_urls.get(rel["slug"], f"pricing/#{rel['slug']}")
+
     # Flat list for the header search index — every priced item (shirt,
     # saree, carpet, ...), each tagged with the #cat-N anchor of the price
     # list section it lives in, so a hit jumps straight to that category
     # instead of dropping the visitor at the top of a 58-item page.
     search_pricing_items = [
-        {"name": item["name"], "cat_index": cat_i}
+        {"name": item["name"], "cat_index": cat_i, "slug": item.get("slug")}
         for cat_i, category in enumerate(pricing["categories"])
         for item in category["items"]
         if item.get("name")
@@ -765,6 +859,8 @@ def build() -> None:
         # every page too.
         context.setdefault("pricing", pricing)
         context.setdefault("products_list", products_list)
+        context.setdefault("product_urls", product_urls)
+        context.setdefault("product_urls_by_name", product_urls_by_name)
 
         rendered = template.render(**context)
         write_html(DIST_DIR / rel_path, rendered)

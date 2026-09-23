@@ -111,8 +111,8 @@
         <span class="svc-stage__glow" aria-hidden="true"></span>
         {% for slug in cast %}
         <figure class="svc-card svc-card--{{ loop.index }}">
-          {% if slug == 'jeans' %}
-          <a href="{{ root_path }}products/jeans/" title="View Jeans Care Details" style="display:contents; color:inherit;">
+          {% if (product_urls or {}).get(slug) %}
+          <a href="{{ root_path }}{{ product_urls[slug] }}" style="display:contents; color:inherit;">
             <span class="svc-card__plate" style="cursor:pointer;">
               <img src="{{ asset_path }}images/pricing/{{ slug }}.webp"
                    alt="{{ price_index[slug].name if price_index.get(slug) else slug.replace('-', ' ') | title }} cleaned by Wash4You in Gurugram"
@@ -283,8 +283,8 @@
     <div class="svc-gallery stagger-children">
       {% for slug in service.gallery %}
       {% set gi = price_index.get(slug) %}
-      {% if slug == 'jeans' %}
-      <a href="{{ root_path }}products/jeans/" class="svc-shot-link" title="View Jeans Care Details" style="text-decoration:none; color:inherit; display:block;">
+      {% if (product_urls or {}).get(slug) %}
+      <a href="{{ root_path }}{{ product_urls[slug] }}" class="svc-shot-link" style="text-decoration:none; color:inherit; display:block;">
         <figure class="svc-shot" style="cursor:pointer;">
           <img src="{{ asset_path }}images/pricing/{{ slug }}.webp"
                alt="{{ gi.name if gi else slug.replace('-', ' ') | title }} cleaned by Wash4You {{ service.name | lower }} in Gurugram"

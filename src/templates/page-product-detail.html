@@ -2,8 +2,15 @@
 {% from "_icons.html" import ui %}
 {% from "_components.html" import faq_list %}
 
+{# One page per priced item. Data: src/data/products/<slug>.json merged over
+   _shared.json by build.py resolve_product(), which also fills every price
+   from pricing.json. #}
+{% set svcs = product.services %}
+{% set primary_svc = svcs[0] %}
+{% set all_faqs = (product.faqs or []) + (product.commonFaqs or []) %}
+
 {% block preload %}
-  <link rel="preload" href="{{ asset_path }}{{ product.heroImage }}" as="image">
+  <link rel="preload" href="{{ asset_path }}{{ product.photos.hero.src }}" as="image">
 {% endblock %}
 
 {% block schema %},
@@ -11,39 +18,37 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.urls.base }}/" },
-          { "@type": "ListItem", "position": 2, "name": "Products", "item": "{{ site.urls.base }}/pricing/" },
+          { "@type": "ListItem", "position": 2, "name": "Prices", "item": "{{ site.urls.base }}/pricing/" },
           { "@type": "ListItem", "position": 3, "name": {{ product.name | tojson }} }
         ]
       },
       {
-        "@type": "Product",
-        "@id": "{{ site.urls.base }}/products/{{ product.slug }}/#product",
-        "name": {{ product.name | tojson }},
+        "@type": "Service",
+        "@id": "{{ site.urls.base }}/products/{{ product.slug }}/#service",
+        "name": {{ (product.seo or product.name) | tojson }},
+        "serviceType": {{ product.seo | tojson }},
         "description": {{ (product.meta.description or product.subtitle) | tojson }},
         "image": "{{ site.urls.base }}/{{ product.heroImageFallback or product.heroImage }}",
         "url": "{{ site.urls.base }}/products/{{ product.slug }}/",
-        "brand": {
-          "@type": "Brand",
-          "name": {{ site.brand.name | tojson }}
-        },
+        "provider": { "@id": "{{ site.urls.base }}/#organization" },
+        "areaServed": ["Gurugram", "Delhi", "Noida", "Faridabad", "Ghaziabad"],
         "offers": [
-          {% for s in product.services %}
+          {% for s in svcs %}
           {
             "@type": "Offer",
             "name": {{ (product.name ~ ' — ' ~ s.name) | tojson }},
             "price": "{{ s.amount }}",
             "priceCurrency": "INR",
-            "availability": "https://schema.org/InStock",
             "url": "{{ site.urls.base }}/products/{{ product.slug }}/"
           }{% if not loop.last %},{% endif %}
           {% endfor %}
         ]
-      }{% if product.faqs %},
+      }{% if all_faqs %},
       {
         "@type": "FAQPage",
         "@id": "{{ site.urls.base }}/products/{{ product.slug }}/#faq",
         "mainEntity": [
-          {% for f in product.faqs %}{
+          {% for f in all_faqs %}{
             "@type": "Question",
             "name": {{ f.q | tojson }},
             "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | tojson }} }
@@ -56,10 +61,10 @@
 {% block content %}
 <div class="page-product">
   {# Serialized JSON config for product-page.js client interactions #}
-  <script type="application/json" id="product-json-data">{{ product | tojson }}</script>
+  <script type="application/json" id="product-json-data">{{ {'name': product.name, 'heroImage': product.heroImage, 'heroImageFallback': product.heroImageFallback, 'services': svcs} | tojson }}</script>
 
   {# ============================================================
-     1. HERO SECTION
+     1. HERO — the Wash4You studio, the item, and its claim tag
      ============================================================ #}
   <section class="prod-hero">
     <div class="wrap prod-hero__grid">
@@ -67,7 +72,7 @@
         <nav class="crumbs" aria-label="Breadcrumb">
           <a href="{{ root_path }}">Home</a>
           <span aria-hidden="true">/</span>
-          <a href="{{ root_path }}pricing/">Products</a>
+          <a href="{{ root_path }}pricing/">Prices</a>
           <span aria-hidden="true">/</span>
           <span aria-current="page">{{ product.name }}</span>
         </nav>
@@ -83,7 +88,7 @@
 
         <ul class="prod-hero__bar">
           <li class="prod-hero__stat">
-            <span class="prod-hero__stat-icon" aria-hidden="true">{{ ui('check', 12) }}</span>
+            <span class="prod-hero__stat-icon" aria-hidden="true">{{ ui('truck', 12) }}</span>
             <span>{{ product.badge }}</span>
           </li>
           <li class="prod-hero__stat">
@@ -92,7 +97,7 @@
           </li>
           <li class="prod-hero__stat">
             <span class="prod-hero__stat-icon" aria-hidden="true">{{ ui('sparkle', 12) }}</span>
-            <span>From <strong>{{ product.startingPrice }}</strong> + GST</span>
+            <span>{% if svcs | length > 1 %}{{ primary_svc.short or primary_svc.name }} from{% else %}From{% endif %} <strong>{{ primary_svc.price }}</strong>{% if primary_svc.unit %} {{ primary_svc.unit }}{% endif %} + GST</span>
           </li>
         </ul>
       </div>
@@ -101,7 +106,13 @@
         <img class="prod-hero__photo"
              src="{{ asset_path }}{{ product.photos.hero.src }}"
              alt="{{ product.photos.hero.alt }}"
-             width="700" height="620" fetchpriority="high" decoding="async">
+             width="700" height="875" fetchpriority="high" decoding="async">
+
+        <span class="prod-hero__studio">
+          <img src="{{ asset_path }}images/logo-white.png" alt="Wash4You" width="898" height="167">
+          <span>{{ product.studioLabel or 'Dryclean Studio' }}</span>
+        </span>
+
         <div class="prod-hero__plate">
           <picture>
             <source srcset="{{ asset_path }}{{ product.heroImage }}" type="image/webp">
@@ -111,9 +122,20 @@
                  width="200" height="200" decoding="async">
           </picture>
         </div>
-        <figcaption class="prod-hero__price-tag">
-          <span>Starting at</span>
-          <strong>{{ product.startingPrice }}</strong>
+
+        {# The Wash4You claim tag every item carries — same artwork language
+           as the brand's "Tagged. Tracked. Delivered." hero card. #}
+        <figcaption class="prod-tag">
+          <span class="prod-tag__hole" aria-hidden="true"></span>
+          <span class="prod-tag__brand">
+            <img src="{{ asset_path }}images/logo-blue.png" alt="Wash4You" width="760" height="184">
+          </span>
+          <span class="prod-tag__kind">{{ product.tag.title }}</span>
+          <span class="prod-tag__item">{{ product.name }}</span>
+          <span class="prod-tag__row"><span>Service</span><strong>{{ primary_svc.name }}</strong></span>
+          <span class="prod-tag__row"><span>From</span><strong>{{ primary_svc.price }}{% if primary_svc.unit %} <small>{{ primary_svc.unit }}</small>{% endif %}</strong></span>
+          <span class="prod-tag__line">{{ product.tag.line }}</span>
+          <span class="prod-tag__code" aria-hidden="true"></span>
         </figcaption>
       </figure>
     </div>
@@ -125,8 +147,6 @@
   <section class="prod-buybox-section" id="service-selector">
     <div class="wrap">
       <div class="prod-buybox-grid">
-        {# Column 2: Service Selector Buy Box #}
-        {% set primary_svc = product.services[0] %}
         <div class="prod-buybox"
              id="product-buybox"
              data-price-item
@@ -136,20 +156,20 @@
              data-price="{{ primary_svc.price }}"
              data-img="{{ asset_path }}{{ product.heroImageFallback or product.heroImage }}">
 
-          <p class="prod-buybox__eyebrow">{{ product.name }} Care</p>
-          <h2 class="prod-buybox__title">Choose Your {{ product.name }} Service</h2>
+          <p class="prod-buybox__eyebrow">Wash4You {{ product.care | title }}</p>
+          <h2 class="prod-buybox__title">{% if svcs | length > 1 %}Choose Your {{ product.name }} Service{% else %}{{ product.name }} — {{ primary_svc.name }}{% endif %}</h2>
 
           <div class="prod-buybox__price-row">
             <span class="prod-buybox__price" id="product-price-display">{{ primary_svc.price }}</span>
-            <span class="prod-buybox__gst">+ 18% GST</span>
+            <span class="prod-buybox__gst" id="product-price-unit">{% if primary_svc.unit %}{{ primary_svc.unit }} {% endif %}+ 18% GST</span>
             <span class="prod-buybox__service-label" id="product-selected-service-name">{{ primary_svc.name }}</span>
           </div>
 
-          {# Interactive Service Selector #}
+          {% if svcs | length > 1 %}
           <div class="prod-selector-group">
             <span class="prod-selector-legend">Select Treatment</span>
             <div class="prod-selector-pills" role="radiogroup" aria-label="{{ product.name }} service options">
-              {% for svc in product.services %}
+              {% for svc in svcs %}
               <button type="button"
                       class="prod-pill{% if loop.first %} is-active{% endif %}"
                       data-service-select="{{ svc.id }}"
@@ -160,6 +180,7 @@
               {% endfor %}
             </div>
           </div>
+          {% endif %}
 
           <p class="prod-buybox__desc" id="product-service-desc">
             {{ primary_svc.longDescription or primary_svc.shortDescription }}
@@ -187,8 +208,10 @@
           </div>
 
           <div class="prod-buybox__guarantee">
-            {{ ui('shield', 14) }}
-            <span>Safe on Fabric guarantee &middot; Free doorstep pickup &amp; delivery</span>
+            {{ ui('clock', 14) }}
+            <span id="product-turnaround">Turnaround {{ primary_svc.turnaround }}</span>
+            <span aria-hidden="true">&middot;</span>
+            <span>Free doorstep pickup &amp; delivery</span>
           </div>
         </div>
       </div>
@@ -196,28 +219,51 @@
   </section>
 
   {# ============================================================
-     2b. PHOTO GALLERY STRIP
+     2b. INSIDE WASH4YOU — machines, finishing, the brand
      ============================================================ #}
-  <section class="prod-gallery-section">
+  <section class="prod-studio">
     <div class="wrap">
-      <div class="prod-section-header">
-        <p class="prod-section-eyebrow">{{ product.photos.gallery.eyebrow }}</p>
-        <h2 class="prod-section-title">{{ product.photos.gallery.title }}</h2>
-      </div>
-      <div class="prod-gallery">
-        {% for g in product.photos.gallery['items'] %}
-        <figure class="prod-gallery__item">
-          <img src="{{ asset_path }}{{ g.src }}" alt="{{ g.alt }}" loading="lazy" decoding="async">
-          <figcaption>{{ g.caption }}</figcaption>
-        </figure>
-        {% endfor %}
+      <div class="prod-studio__grid">
+        <div class="prod-studio__copy">
+          <p class="prod-section-eyebrow">{{ product.studio.eyebrow }}</p>
+          <h2 class="prod-section-title">{{ product.studio.title }}</h2>
+          <p class="prod-studio__lede">{{ product.studio.subtitle }}</p>
+          {% if product.parentService %}
+          <p class="prod-studio__parent">Part of the Wash4You <a href="{{ root_path }}services/{{ product.parentService.slug }}/">{{ product.parentService.name }}</a></p>
+          {% endif %}
+          <ol class="prod-studio__points">
+            {% for pt in product.studio.points %}
+            <li>
+              <span class="prod-studio__num">0{{ loop.index }}</span>
+              <div>
+                <h3>{{ pt.title }}</h3>
+                <p>{{ pt.desc }}</p>
+              </div>
+            </li>
+            {% endfor %}
+          </ol>
+        </div>
+
+        <div class="prod-studio__photos">
+          {% for ph in product.photos.studio %}
+          <figure class="prod-studio__photo prod-studio__photo--{{ loop.index }}">
+            <img src="{{ asset_path }}{{ ph.src }}" alt="{{ ph.alt }}" loading="lazy" decoding="async">
+            <figcaption>{{ ph.caption }}</figcaption>
+          </figure>
+          {% endfor %}
+          <div class="prod-studio__brand">
+            <img src="{{ asset_path }}images/logo-white.png" alt="Wash4You" width="898" height="167" loading="lazy">
+            <span>Eco-friendly Laundry &amp; Dryclean</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   {# ============================================================
-     3. SERVICE SELECTION EXPLANATION (COMPARISON SECTION)
+     3. SERVICE COMPARISON — only when there is a choice to make
      ============================================================ #}
+  {% if svcs | length > 1 and product.serviceComparison %}
   <section class="prod-compare-section">
     <div class="wrap">
       <div class="prod-section-header">
@@ -226,13 +272,12 @@
         <p class="prod-section-subtitle">{{ product.serviceComparison.intro }}</p>
       </div>
 
-      {# Two Large Feature Cards #}
       <div class="prod-compare-cards">
-        {% for svc in product.services %}
+        {% for svc in svcs %}
         <div class="prod-compare-card">
           <span class="prod-compare-card__tag">{{ svc.tagline }}</span>
           <h3 class="prod-compare-card__title">{{ svc.name }}</h3>
-          <p class="prod-compare-card__price">Starts at {{ svc.price }} <small style="font-size:0.75rem; font-weight:normal; color:var(--ink-3)">+ GST</small></p>
+          <p class="prod-compare-card__price">Starts at {{ svc.price }} <small>+ GST</small></p>
           <p class="prod-compare-card__desc">{{ svc.longDescription }}</p>
 
           <p class="prod-compare-card__subhead">Best Suited For:</p>
@@ -252,75 +297,52 @@
         {% endfor %}
       </div>
 
-      {# Comparison Table (Desktop) #}
+      {% macro cell(v, size=12) %}
+        {%- if v == true -%}<span class="prod-cell-check" aria-label="Included">{{ ui('check', size) }}</span>
+        {%- elif v == false or v is none -%}<span class="prod-cell-dash" aria-label="Not included">&mdash;</span>
+        {%- else -%}<span class="prod-cell-note">{{ v }}</span>{%- endif -%}
+      {% endmacro %}
+
       <div class="prod-table-wrap">
         <table class="prod-table" aria-label="Service feature comparison">
           <thead>
             <tr>
-              <th scope="col" style="width:50%">Treatment Feature</th>
-              <th scope="col" class="text-center" style="width:25%">Dry Clean &amp; Press</th>
-              <th scope="col" class="text-center" style="width:25%">Steam Press</th>
+              <th scope="col">Treatment Feature</th>
+              {% for svc in svcs %}<th scope="col" class="text-center">{{ svc.name }}</th>{% endfor %}
             </tr>
           </thead>
           <tbody>
             {% for item in product.serviceComparison.features %}
             <tr>
-              <th scope="row" style="font-weight:600; color:var(--ink)">{{ item.name }}</th>
-              <td class="text-center">
-                {% if item.dryClean == true %}
-                  <span class="prod-cell-check" aria-label="Included">{{ ui('check', 12) }}</span>
-                {% elif item.dryClean == 'N/A' %}
-                  <span style="font-size:var(--t-xs); color:var(--ink-3)">Preserved</span>
-                {% else %}
-                  <span class="prod-cell-dash">&mdash;</span>
-                {% endif %}
-              </td>
-              <td class="text-center">
-                {% if item.steamPress == true %}
-                  <span class="prod-cell-check" aria-label="Included">{{ ui('check', 12) }}</span>
-                {% elif item.steamPress == 'N/A' %}
-                  <span style="font-size:var(--t-xs); color:var(--ink-3)">N/A</span>
-                {% else %}
-                  <span class="prod-cell-dash">&mdash;</span>
-                {% endif %}
-              </td>
+              <th scope="row">{{ item.name }}</th>
+              {% for v in item.cells %}<td class="text-center">{{ cell(v) }}</td>{% endfor %}
             </tr>
             {% endfor %}
           </tbody>
         </table>
       </div>
 
-      {# Mobile Comparison List (Mobile Only) #}
       <div class="prod-mobile-compare">
         {% for item in product.serviceComparison.features %}
         <div class="prod-mobile-compare-item">
           <div class="prod-mobile-compare-item__title">{{ item.name }}</div>
           <div class="prod-mobile-compare-item__badges">
+            {% for v in item.cells %}
             <div class="prod-mobile-badge">
-              <span>Dry Clean</span>
-              {% if item.dryClean == true %}
-                <span class="prod-cell-check">{{ ui('check', 10) }}</span>
-              {% else %}
-                <span class="prod-cell-dash">&mdash;</span>
-              {% endif %}
+              <span>{{ svcs[loop.index0].short or svcs[loop.index0].name }}</span>
+              {{ cell(v, 10) }}
             </div>
-            <div class="prod-mobile-badge">
-              <span>Steam Press</span>
-              {% if item.steamPress == true %}
-                <span class="prod-cell-check">{{ ui('check', 10) }}</span>
-              {% else %}
-                <span class="prod-cell-dash">&mdash;</span>
-              {% endif %}
-            </div>
+            {% endfor %}
           </div>
         </div>
         {% endfor %}
       </div>
     </div>
   </section>
+  {% endif %}
 
   {# ============================================================
-     4. "WHY PROFESSIONAL JEANS CARE?"
+     4. WHY PROFESSIONAL DRYCLEAN CARE
      ============================================================ #}
   <section class="prod-why-section">
     <div class="wrap">
@@ -368,7 +390,7 @@
   </section>
 
   {# ============================================================
-     6. OUR JEANS CARE PROCESS (8 STEPS)
+     6. THE 8-STEP PROCESS
      ============================================================ #}
   <section class="prod-process-section">
     <div class="wrap">
@@ -400,8 +422,9 @@
   </section>
 
   {# ============================================================
-     7. STAIN TREATMENT SECTION
+     7. STAIN TREATMENT
      ============================================================ #}
+  {% if product.stainTreatment %}
   <section class="prod-stains-section">
     <div class="wrap">
       <div class="prod-section-header">
@@ -411,7 +434,6 @@
       </div>
 
       <div class="prod-stains-layout">
-        {# Stain Categories #}
         <div class="prod-stain-grid">
           {% for st in product.stainTreatment.categories %}
           <div class="prod-stain-item">
@@ -421,11 +443,10 @@
           {% endfor %}
         </div>
 
-        {# Conditioned Note Callout #}
         <div class="prod-stain-callout">
-          <h3 class="prod-stain-callout__title">Pre-Treatment Before Main Cycle</h3>
+          <h3 class="prod-stain-callout__title">{{ product.stainTreatment.calloutTitle or 'Pre-Treatment Before the Main Clean' }}</h3>
           <p class="prod-stain-callout__body">
-            Every garment is inspected individually upon collection. Targeted spotting agents are applied to loosen oils and grime before deep cleaning begins.
+            {{ product.stainTreatment.calloutBody or 'Every item is inspected individually once it reaches the Wash4You studio. Targeted spotting agents loosen oils and grime before the main clean begins.' }}
           </p>
           <div class="prod-stain-callout__note">
             <strong>Important Care Notice:</strong> {{ product.stainTreatment.disclaimer }}
@@ -434,10 +455,12 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
   {# ============================================================
-     8. JEANS DETAIL-CARE SECTION ("Every Detail Matters")
+     8. EVERY DETAIL MATTERS
      ============================================================ #}
+  {% if product.detailCare %}
   <section class="prod-why-section prod-section--white">
     <div class="wrap">
       <div class="prod-section-header">
@@ -446,15 +469,17 @@
         <p class="prod-section-subtitle">{{ product.detailCare.subtitle }}</p>
       </div>
 
+      {% if product.photos.banner %}
       <figure class="prod-banner">
         <img src="{{ asset_path }}{{ product.photos.banner.src }}" alt="{{ product.photos.banner.alt }}" loading="lazy" decoding="async">
         <figcaption>{{ product.photos.banner.caption }}</figcaption>
       </figure>
+      {% endif %}
 
       <div class="prod-grid-3col">
         {% for d in product.detailCare.details %}
         <div class="prod-card">
-          <span class="prod-card__num">{{ d.num }}</span>
+          <span class="prod-card__num">0{{ loop.index }}</span>
           <h3 class="prod-card__title">{{ d.title }}</h3>
           <p class="prod-card__desc">{{ d.desc }}</p>
         </div>
@@ -462,10 +487,12 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
   {# ============================================================
-     9. BEFORE / AFTER SECTION ("See the Difference")
+     9. SEE THE DIFFERENCE — real before/after photos where we have them
      ============================================================ #}
+  {% if product.beforeAfter %}
   <section class="prod-proof-section">
     <div class="wrap">
       <div class="prod-section-header">
@@ -473,6 +500,20 @@
         <h2 class="prod-section-title">{{ product.beforeAfter.title }}</h2>
         <p class="prod-section-subtitle">{{ product.beforeAfter.subtitle }}</p>
       </div>
+
+      {% if product.beforeAfter.photos %}
+      <div class="prod-ba-photos">
+        {% for pair in product.beforeAfter.photos %}
+        <figure class="prod-ba">
+          <div class="prod-ba__pair">
+            <span class="prod-ba__half"><img src="{{ asset_path }}{{ pair.before }}" alt="{{ pair.alt }} — before cleaning" loading="lazy" decoding="async"><em>Before</em></span>
+            <span class="prod-ba__half"><img src="{{ asset_path }}{{ pair.after }}" alt="{{ pair.alt }} — after cleaning by Wash4You" loading="lazy" decoding="async"><em>After</em></span>
+          </div>
+          <figcaption>{{ pair.caption }}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+      {% endif %}
 
       <div class="prod-proof-grid">
         {% for ex in product.beforeAfter.examples %}
@@ -497,6 +538,7 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
   {# ============================================================
      10. THE WASH4YOU DIFFERENCE
@@ -555,7 +597,7 @@
   </section>
 
   {# ============================================================
-     12. LOCATION / LOCAL SERVICE SECTION
+     12. LOCAL SERVICE
      ============================================================ #}
   <section class="prod-location-section">
     <div class="wrap">
@@ -580,23 +622,24 @@
   </section>
 
   {# ============================================================
-     13. RELATED SERVICES
+     13. RELATED ITEMS
      ============================================================ #}
+  {% if product.relatedServices %}
   <section class="prod-related-section">
     <div class="wrap">
       <div class="prod-section-header">
         <p class="prod-section-eyebrow">Complete Wardrobe Care</p>
-        <h2 class="prod-section-title">More Garment Care Services</h2>
-        <p class="prod-section-subtitle">Add other daily wardrobe essentials or specialty items to your pickup order:</p>
+        <h2 class="prod-section-title">{{ product.relatedTitle or 'More From the Wash4You Dryclean Studio' }}</h2>
+        <p class="prod-section-subtitle">Add other wardrobe and home items to the same pickup:</p>
       </div>
 
       <div class="prod-related-grid">
         {% for rel in product.relatedServices %}
-        <a class="prod-related-card" href="{{ root_path }}pricing/#{{ rel.slug }}">
+        <a class="prod-related-card" href="{{ root_path }}{{ rel.url }}">
           <div class="prod-related-card__media">
             <img class="prod-related-card__img"
                  src="{{ asset_path }}{{ rel.img }}"
-                 alt="{{ rel.name }} dry cleaning and pressing"
+                 alt="{{ rel.name }} cleaned by Wash4You"
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">{{ rel.name }}</h3>
@@ -606,31 +649,33 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
   {# ============================================================
-     14. FAQ SECTION
+     14. FAQ
      ============================================================ #}
   <section class="prod-faq-section" id="faq">
     <div class="wrap">
       <div class="prod-section-header">
         <p class="prod-section-eyebrow">Common Questions</p>
         <h2 class="prod-section-title">Frequently Asked Questions</h2>
-        <p class="prod-section-subtitle">Everything you need to know about professional {{ product.name | lower }} care, turnaround, and doorstep pickup.</p>
+        <p class="prod-section-subtitle">Everything you need to know about professional {{ product.care }} for your {{ product.noun or product.name | lower }}, turnaround and doorstep pickup.</p>
       </div>
 
       <div class="prod-faq-wrap">
-        {{ faq_list(product.faqs, id_prefix='prod-faq') }}
+        {{ faq_list(all_faqs, id_prefix='prod-faq') }}
       </div>
     </div>
   </section>
 
   {# ============================================================
-     15. FINAL CTA BANNER
+     15. FINAL CTA — the studio behind it, the mascot in front
      ============================================================ #}
   <section class="prod-final-cta-section">
     <div class="wrap">
       <div class="prod-final-cta-banner">
         <img class="prod-final-cta__bg" src="{{ asset_path }}{{ product.photos.cta.src }}" alt="" loading="lazy" decoding="async">
+        <img class="prod-final-cta__mascot" src="{{ asset_path }}images/mascot-why.png" alt="" width="760" height="941" loading="lazy" decoding="async">
         <p class="prod-section-eyebrow">{{ product.finalCta.eyebrow }}</p>
         <h2 class="prod-final-cta__title">{{ product.finalCta.title }}</h2>
         <p class="prod-final-cta__desc">{{ product.finalCta.subtitle }}</p>
@@ -638,7 +683,7 @@
           <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">
             {{ product.finalCta.primaryCta }}
           </a>
-          <a class="btn btn--on-navy btn--lg" href="{{ root_path }}services/">
+          <a class="btn btn--on-navy btn--lg" href="{{ root_path }}pricing/">
             {{ product.finalCta.secondaryCta }}
           </a>
         </div>
@@ -647,6 +692,5 @@
   </section>
 </div>
 
-{# Product Page Interactive Script #}
 <script src="{{ asset_path }}js/product-page.js" defer></script>
 {% endblock %}

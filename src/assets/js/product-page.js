@@ -25,6 +25,12 @@
     const serviceIncludesEl = document.getElementById('product-service-includes');
     const serviceButtons = document.querySelectorAll('[data-service-select]');
     const addBtn = document.getElementById('product-add-cart-btn');
+    const unitDisplay = document.getElementById('product-price-unit');
+    const turnaroundDisplay = document.getElementById('product-turnaround');
+
+    const escapeHtml = (str) => String(str).replace(/[&<>"']/g, (c) => (
+      { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    ));
 
     function setService(serviceId) {
       if (!productData || !productData.services) return;
@@ -42,6 +48,12 @@
       if (priceDisplay) {
         priceDisplay.textContent = svc.price;
       }
+      if (unitDisplay) {
+        unitDisplay.textContent = (svc.unit ? svc.unit + ' ' : '') + '+ 18% GST';
+      }
+      if (turnaroundDisplay && svc.turnaround) {
+        turnaroundDisplay.textContent = 'Turnaround ' + svc.turnaround;
+      }
       if (serviceNameDisplay) {
         serviceNameDisplay.textContent = svc.name;
       }
@@ -52,7 +64,7 @@
       // Update includes list if present
       if (serviceIncludesEl && svc.includes) {
         serviceIncludesEl.innerHTML = svc.includes
-          .map((item) => `<li><span class="prod-check" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>${item}</span></li>`)
+          .map((item) => `<li><span class="prod-check" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>${escapeHtml(item)}</span></li>`)
           .join('');
       }
 
@@ -112,9 +124,12 @@
       });
     }
 
-    // Initialize with first service
+    // Initialize with the service named in ?service= (the price list's
+    // steam-press links use it), else the first one.
     if (productData && productData.services && productData.services.length > 0) {
-      setService(productData.services[0].id);
+      const wanted = new URLSearchParams(window.location.search).get('service');
+      const match = productData.services.find((s) => s.id === wanted);
+      setService(match ? match.id : productData.services[0].id);
     }
   }
 

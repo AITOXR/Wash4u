@@ -1,0 +1,157 @@
+{
+  "_note": "Merged underneath every product page in this folder (build.py resolve_product). A product JSON overrides any key here. Tokens: {name} = display name, {noun} = the item in a sentence, {care} = 'dryclean care' unless the product sets another, {Care} = title case of it, {seo} = the page's search phrase.",
+  "care": "dryclean care",
+  "tag": {
+    "title": "Dryclean Tag",
+    "line": "Tagged at your door · Returned pressed & covered"
+  },
+  "studio": {
+    "eyebrow": "Inside Wash4You",
+    "title": "How Wash4You Drycleans Your {name}",
+    "subtitle": "Nothing goes into a home-style washer. Every order is tagged at your door, drycleaned on commercial equipment, steam-finished by hand and returned pressed and covered.",
+    "points": [
+      {
+        "title": "Commercial dryclean machines",
+        "desc": "Closed-cycle cleaning with fabric-safe, biodegradable solvents that lift grime without stripping colour or fibre."
+      },
+      {
+        "title": "Tagged from pickup to delivery",
+        "desc": "Each piece is counted at your door and carries a Wash4You tag through every stage, so nothing is mixed up."
+      },
+      {
+        "title": "Steam finishing tables",
+        "desc": "Pressed on professional steam and vacuum finishing tables that set the shape without shine or scorch marks."
+      },
+      {
+        "title": "Checked, covered, returned",
+        "desc": "A final inspection under light, then folded or hung and packed before it comes back to your wardrobe."
+      }
+    ]
+  },
+  "whatsIncluded": {
+    "eyebrow": "Standard of Care",
+    "title": "What's Included Every Time",
+    "subtitle": "No shortcuts. Everything you hand to Wash4You goes through the same checks:",
+    "items": [
+      { "title": "Item Inspection", "desc": "Every piece is inspected, counted and logged with you at the door before it leaves." },
+      { "title": "Fabric Assessment", "desc": "Fibre, weight, trims and the care label decide the method, not a one-size cycle." },
+      { "title": "Stain & Spot Assessment", "desc": "Visible marks are identified and pre-treated where the fabric allows it." },
+      { "title": "The Right Cleaning Method", "desc": "Drycleaned, wet-cleaned or hand-treated depending on what the item actually is." },
+      { "title": "Professional Finishing", "desc": "Steam finishing that restores shape and drape without flattening or shine." },
+      { "title": "Quality Inspection", "desc": "Each finished piece is checked against our cleanliness and pressing standard." },
+      { "title": "Protective Packaging", "desc": "Folded or hung and covered so it arrives crease-free and dust-free." },
+      { "title": "Doorstep Delivery", "desc": "Returned to your address across Gurugram and Delhi NCR, ready to use." }
+    ]
+  },
+  "careProcess": {
+    "eyebrow": "Our Process",
+    "title": "The 8-Step Wash4You Dryclean Process",
+    "subtitle": "From your doorstep, through the Wash4You dryclean studio, and back to your wardrobe:",
+    "steps": [
+      { "step": "01", "title": "Book Your Pickup", "desc": "Choose your service and pickup slot online or with a quick WhatsApp message." },
+      { "step": "02", "title": "Doorstep Collection", "desc": "Our valet collects your items at your door, counted and logged in front of you." },
+      { "step": "03", "title": "Tag & Inspect", "desc": "Each piece gets its Wash4You tag. Pockets, seams, buttons and trims are checked." },
+      { "step": "04", "title": "Stain & Fabric Assessment", "desc": "Fibre, colour and marks are assessed to choose the right treatment." },
+      { "step": "05", "title": "Professional Dryclean", "desc": "Cleaned on commercial dryclean machines with fabric-safe, biodegradable solvents." },
+      { "step": "06", "title": "Steam Finishing", "desc": "Hand-finished on steam and vacuum tables to restore shape, crease and drape." },
+      { "step": "07", "title": "Quality Check", "desc": "Every piece passes a final inspection before it is approved for packing." },
+      { "step": "08", "title": "Packed & Delivered", "desc": "Covered, packed and delivered back to your door in your confirmed slot." }
+    ]
+  },
+  "whyWash4You": {
+    "eyebrow": "The Wash4You Standard",
+    "title": "Why Customers Choose Wash4You",
+    "subtitle": "Genuine capabilities and transparent service across Gurugram and Delhi NCR:",
+    "reasons": [
+      { "title": "Doorstep Pickup & Delivery", "desc": "Free doorstep collection and delivery across all service areas, on your schedule." },
+      { "title": "Professional {Care}", "desc": "Garments are treated individually rather than thrown into a generic bulk cycle." },
+      { "title": "Item Inspection at Door", "desc": "Items are verified and counted with a receipt before they leave your home." },
+      { "title": "Targeted Stain Treatment", "desc": "Problem spots are identified and pre-treated before the main cleaning process." },
+      { "title": "Rigorous Quality Checks", "desc": "Every finished piece is inspected against our cleanliness and finishing criteria." },
+      { "title": "Transparent Starting Prices", "desc": "Published starting rates on every item, exclusive of GST, with no pickup charge." },
+      { "title": "Separate Order Handling", "desc": "Each customer's order is bagged and handled separately for hygiene and safety." },
+      { "title": "Wide Local Coverage", "desc": "Daily routes across DLF, Sushant Lok, Cyber City, Golf Course Road and beyond." }
+    ]
+  },
+  "doorstepExperience": {
+    "eyebrow": "Convenience",
+    "title": "From Your Doorstep to Your Wardrobe",
+    "subtitle": "Professional {care} without the errand:",
+    "steps": [
+      { "num": "01", "title": "Book", "desc": "Choose your service and preferred pickup slot online in under a minute." },
+      { "num": "02", "title": "We Collect", "desc": "Our valet arrives at your door to inspect, count and collect your items." },
+      { "num": "03", "title": "We Clean & Care", "desc": "Your order is cleaned, stain-treated and finished at the Wash4You studio." },
+      { "num": "04", "title": "We Deliver", "desc": "Fresh, finished and ready to use, returned right to your doorstep." }
+    ],
+    "cta": "Book Free Pickup"
+  },
+  "localCoverage": {
+    "eyebrow": "Local Service",
+    "title": "{seo} Near You",
+    "subtitle": "Wash4You offers doorstep laundry and dry cleaning across its service areas in Gurugram, Delhi, Noida, Faridabad and Ghaziabad.",
+    "highlightAreas": [
+      { "name": "Sushant Lok", "url": "laundry-service-sushant-lok/" },
+      { "name": "Cyber City", "url": "laundry-service-cyber-city/" },
+      { "name": "DLF Phase 1–5", "url": "laundry-service-dlf-phase-3/" },
+      { "name": "Golf Course Road", "url": "laundry-service-golf-course-road/" },
+      { "name": "Golf Course Extn", "url": "laundry-service-golf-course-extension/" },
+      { "name": "Sohna Road", "url": "laundry-service-sohna-road/" },
+      { "name": "Sector 49", "url": "laundry-service-sector-49/" },
+      { "name": "Sector 29", "url": "laundry-service-gurugram-sector-29/" },
+      { "name": "Palam Vihar", "url": "laundry-service-palam-vihar/" },
+      { "name": "MG Road", "url": "laundry-service-mg-road/" }
+    ],
+    "cta": "Find Your Area",
+    "ctaUrl": "locate-us/"
+  },
+  "commonFaqs": [
+    {
+      "q": "Do you offer pickup and delivery?",
+      "a": "Yes. Wash4You provides free doorstep pickup and delivery across Gurugram, Delhi, Noida, Faridabad and Ghaziabad."
+    },
+    {
+      "q": "What happens during pickup?",
+      "a": "Our valet arrives in your selected slot. Your items are inspected and counted in front of you, you get an itemised pickup confirmation, and your order goes into its own separate bag."
+    },
+    {
+      "q": "Can I book this along with other clothes?",
+      "a": "Yes. Add shirts, suits, sarees, bedding, shoes or anything else from the price list to the same pickup, or simply hand them to our valet at the door."
+    },
+    {
+      "q": "What if I don't know which service to choose?",
+      "a": "Pick the closest option. Every piece is inspected when it reaches us, and if a different treatment suits it better we will tell you on WhatsApp or by phone before we start."
+    }
+  ],
+  "finalCta": {
+    "eyebrow": "Book Your Pickup",
+    "title": "Your {name}, Cared For by Wash4You.",
+    "subtitle": "Professional {care}, free doorstep pickup and delivery, and a finish you can see the difference in.",
+    "primaryCta": "Book Free Pickup",
+    "secondaryCta": "View All Prices"
+  },
+  "photos": {
+    "hero": {
+      "src": "images/studio/conveyor.webp",
+      "alt": "Drycleaned garments in protective covers on a dry-cleaning conveyor"
+    },
+    "studio": [
+      { "src": "images/studio/machine-row.webp", "alt": "Row of commercial cleaning machines", "caption": "Commercial dryclean machines" },
+      { "src": "images/studio/press-table.webp", "alt": "Garment being pressed on a professional steam finishing table", "caption": "Hand steam finishing" },
+      { "src": "images/studio/covered-aisle.webp", "alt": "Rows of cleaned garments hanging in protective covers", "caption": "Pressed, covered, ready to return" }
+    ],
+    "process": [
+      { "src": "images/studio/washers.webp", "alt": "Commercial washer-extractors with a loaded trolley", "label": "Commercial machines" },
+      { "src": "images/studio/vacuum-iron.webp", "alt": "Professional steam iron on a vacuum finishing table", "label": "Steam finishing" },
+      { "src": "images/studio/shirts-hung.webp", "alt": "Pressed shirts hanging on a rail", "label": "Quality check" },
+      { "src": "images/studio/folded-table.webp", "alt": "Neatly folded garments stacked on a packing table", "label": "Packed for delivery" }
+    ],
+    "doorstep": {
+      "src": "images/stock/folded-laundry.webp",
+      "alt": "Stacks of freshly folded laundry"
+    },
+    "cta": {
+      "src": "images/studio/covered-aisle.webp",
+      "alt": ""
+    }
+  }
+}

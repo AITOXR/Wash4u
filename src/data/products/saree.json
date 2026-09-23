@@ -1,0 +1,305 @@
+{
+  "_generated": "tools/gen-product-pages.py — edit the generator (or delete this key to hand-maintain the file)",
+  "name": "Saree",
+  "slug": "saree",
+  "noun": "saree",
+  "seo": "Saree Dry Cleaning",
+  "care": "dryclean care",
+  "category": "Ethnic & Occasion Wear",
+  "eyebrow": "Professional Dryclean Care",
+  "h1": "Professional Dryclean Care for Your Sarees",
+  "subtitle": "Your saree drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR.",
+  "heroImage": "images/pricing/saree.webp",
+  "heroImageFallback": "images/pricing/saree.png",
+  "heroImageAlt": "Saree — dry cleaning by Wash4You",
+  "turnaroundNote": "Dryclean 24–48 hrs · Steam press 24 hrs",
+  "badge": "Free Doorstep Pickup & Delivery",
+  "meta": {
+    "title": "Saree Dry Cleaning Service in Gurgaon | Wash4You",
+    "description": "Professional saree dry cleaning in Gurgaon & Delhi NCR by Wash4You. Stain treatment, expert finishing and free doorstep pickup & delivery.",
+    "og_title": "Saree Dry Cleaning with Free Pickup | Wash4You",
+    "og_description": "Your saree drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR."
+  },
+  "services": [
+    {
+      "id": "dry-clean",
+      "slug": "saree",
+      "name": "Dryclean & Press",
+      "short": "Dryclean",
+      "tagline": "Deep Dryclean & Finishing",
+      "shortDescription": "Professional dryclean for your saree, with embroidery, zari and borders protected.",
+      "longDescription": "Silk, georgette, zari and hand embroidery do not survive a home wash. Your saree is drycleaned on commercial machines with solvents that are gentle on dye and metallic thread, then steam-finished by hand around the work, not over it.",
+      "bestFor": [
+        "Silk, Banarasi and Kanjeevaram sarees",
+        "Georgette, chiffon and crepe sarees",
+        "Sarees with zari borders or embroidery",
+        "Sarees worn to weddings and functions"
+      ],
+      "includes": [
+        "Embroidery, zari & trim inspection",
+        "Stain & spot pre-treatment where safe",
+        "Closed-cycle professional dryclean",
+        "Colour-bleed check on dyed fabrics",
+        "Hand steam finishing around the work",
+        "Folded with tissue & protective packaging"
+      ],
+      "turnaround": "24–48 hours"
+    },
+    {
+      "id": "steam-press",
+      "slug": "iron-saree",
+      "name": "Steam Press",
+      "short": "Steam Press",
+      "tagline": "Wrinkle Removal & Refresh",
+      "shortDescription": "Crisp wrinkle removal and a fresh finish for pieces that are already clean.",
+      "longDescription": "Professional steam pressing for pieces that are already clean but creased: shape, seams and drape reset on a steam finishing table, without shine or stiffness.",
+      "bestFor": [
+        "Already-clean pieces that only need the creases out",
+        "A quick refresh before work, travel or an event",
+        "Home-washed pieces that dried crumpled",
+        "Keeping a sharp, neat everyday look"
+      ],
+      "includes": [
+        "Garment & fastener inspection",
+        "Professional steam pressing",
+        "Seam, collar and hem alignment",
+        "Natural drape restored",
+        "Protective fold or hanger packaging"
+      ],
+      "turnaround": "24 hours"
+    }
+  ],
+  "serviceComparison": {
+    "eyebrow": "Service Selection Guide",
+    "title": "Which Saree Service Should You Choose?",
+    "intro": "Choose Dryclean & Press when the piece has been worn and needs a proper professional clean. Choose Steam Press when it is already clean and only needs a crisp finish.",
+    "features": [
+      {
+        "name": "Professional dryclean on commercial machines",
+        "cells": [
+          true,
+          false
+        ]
+      },
+      {
+        "name": "Stain & spot pre-treatment",
+        "cells": [
+          true,
+          false
+        ]
+      },
+      {
+        "name": "Lifts body oils, sweat and odour",
+        "cells": [
+          true,
+          false
+        ]
+      },
+      {
+        "name": "Protects zari, embroidery & dyes",
+        "cells": [
+          true,
+          "N/A"
+        ]
+      },
+      {
+        "name": "Steam wrinkle removal",
+        "cells": [
+          true,
+          true
+        ]
+      },
+      {
+        "name": "Seam, collar & hem alignment",
+        "cells": [
+          true,
+          true
+        ]
+      },
+      {
+        "name": "Pocket & trim check",
+        "cells": [
+          true,
+          true
+        ]
+      },
+      {
+        "name": "Best for worn or soiled sarees",
+        "cells": [
+          true,
+          false
+        ]
+      },
+      {
+        "name": "Best for clean sarees needing a refresh",
+        "cells": [
+          false,
+          true
+        ]
+      },
+      {
+        "name": "Free doorstep pickup & delivery",
+        "cells": [
+          true,
+          true
+        ]
+      }
+    ]
+  },
+  "whyProfessional": {
+    "eyebrow": "Heritage Fabric Care",
+    "title": "Why Professional Dryclean Care for Sarees?",
+    "subtitle": "Occasion wear is often silk, has hand work, and is only worn a few times a year — which is exactly when a home wash does the most damage. Here is why professional dryclean care makes the difference:",
+    "points": [
+      {
+        "title": "Dyes Do Not Run",
+        "desc": "Rich silks and hand-dyed fabrics can bleed in water. A dryclean solvent keeps colour where it belongs."
+      },
+      {
+        "title": "Zari Stays Bright",
+        "desc": "Metallic thread tarnishes and frays with detergent and agitation; a gentle dryclean cycle avoids both."
+      },
+      {
+        "title": "Embroidery Protected",
+        "desc": "Beads, sequins and mirror work are checked first and finished from the reverse, never pressed flat."
+      },
+      {
+        "title": "Silk Keeps Its Sheen",
+        "desc": "Silk loses lustre and water-marks easily at home. Professional handling keeps its natural sheen."
+      },
+      {
+        "title": "Borders & Pleats",
+        "desc": "Borders are pressed straight and pleats set by hand so the garment drapes as it should."
+      },
+      {
+        "title": "Stored the Right Way",
+        "desc": "Returned folded with tissue, ready to store until the next occasion without new creases."
+      }
+    ]
+  },
+  "stainTreatment": {
+    "eyebrow": "Targeted Treatment",
+    "title": "Tough Stains? We Treat Them Before the Dryclean.",
+    "subtitle": "These are the marks we see most often on sarees. Each one is assessed and pre-treated before the main clean.",
+    "categories": [
+      {
+        "name": "Food & Gravy",
+        "detail": "Wedding-buffet curry, oil and sweets"
+      },
+      {
+        "name": "Haldi & Mehendi",
+        "detail": "Turmeric and henna marks from ceremonies"
+      },
+      {
+        "name": "Makeup",
+        "detail": "Foundation, kajal and lipstick on necklines and dupattas"
+      },
+      {
+        "name": "Sweat",
+        "detail": "Underarm and neckline marks from a long event"
+      },
+      {
+        "name": "Wax & Candle",
+        "detail": "Diya and candle wax drips"
+      },
+      {
+        "name": "Perfume Marks",
+        "detail": "Rings left by perfume sprayed on silk"
+      }
+    ],
+    "disclaimer": "Treatment results depend on the type of stain, fabric condition, age of the stain and any previous treatment. We use professional spot-lifting techniques, but complete removal cannot be guaranteed for every aged or heat-set mark."
+  },
+  "detailCare": {
+    "eyebrow": "Craftsmanship",
+    "title": "Every Detail Matters",
+    "subtitle": "Here is how the Wash4You studio treats the parts of your saree that matter most:",
+    "details": [
+      {
+        "title": "Pallu & Border",
+        "desc": "The pallu and border are pressed straight and the zari protected."
+      },
+      {
+        "title": "Silk Sheen",
+        "desc": "Silk is handled so it keeps its natural lustre without water marks."
+      },
+      {
+        "title": "Fold & Storage",
+        "desc": "Folded with tissue along soft lines so it stores without hard creases."
+      },
+      {
+        "title": "Zari & Metallic Thread",
+        "desc": "Handled to avoid tarnish and snagging; never scrubbed or pressed directly."
+      },
+      {
+        "title": "Embroidery & Embellishment",
+        "desc": "Beads, sequins and mirror work are checked before cleaning and finished from the reverse."
+      },
+      {
+        "title": "Borders & Pleats",
+        "desc": "Borders are pressed straight and pleats reset by hand so the drape is right."
+      }
+    ]
+  },
+  "beforeAfter": {
+    "eyebrow": "Visual Results",
+    "title": "See the Difference",
+    "subtitle": "How Wash4You's professional dryclean care resolves common problems:",
+    "examples": [
+      {
+        "title": "Haldi on Silk",
+        "problem": "A turmeric mark from a haldi ceremony on a silk garment.",
+        "treatment": "Careful spot assessment and pre-treatment suited to silk, then a gentle dryclean.",
+        "result": "Mark reduced or lifted with the silk's sheen intact."
+      },
+      {
+        "title": "Food Stain Near Embroidery",
+        "problem": "A gravy drip right beside hand embroidery.",
+        "treatment": "Targeted treatment around the work, then a professional dryclean.",
+        "result": "Stain treated without disturbing beads or thread."
+      },
+      {
+        "title": "Crushed After an Event",
+        "problem": "Creased borders and pleats after a long function.",
+        "treatment": "Hand steam finishing from the reverse, borders and pleats set by hand.",
+        "result": "Fresh drape and straight borders, ready to store."
+      }
+    ]
+  },
+  "relatedServices": [
+    "lehenga",
+    "kurta",
+    "sherwani",
+    "dupatta",
+    "blouse"
+  ],
+  "relatedTitle": "More From the Wash4You Dryclean Studio",
+  "faqs": [
+    {
+      "q": "How much does saree dry cleaning cost at Wash4You?",
+      "a": "Saree Dryclean & Press starts from {price1} per piece and Steam Press from {price2} per piece. Prices are exclusive of 18% GST, and pickup and delivery are free."
+    },
+    {
+      "q": "How long does saree dry cleaning take?",
+      "a": "Steam Press is usually delivered within 24 hours, and Dryclean & Press within 24–48 hours."
+    },
+    {
+      "q": "Should I choose dryclean or steam press?",
+      "a": "Choose Steam Press when the piece is already clean and just needs the creases out. Choose Dryclean & Press when it has been worn, has stains or smells, or needs a proper hygienic clean."
+    },
+    {
+      "q": "Is it safe to dryclean a silk saree?",
+      "a": "Yes — for silk, especially Banarasi and Kanjeevaram with zari, a professional dryclean is the safest way to clean it. Water can make silk dyes run and tarnish zari."
+    },
+    {
+      "q": "Can you remove stains from sarees?",
+      "a": "Visible stains are identified and pre-treated before the main clean. Results depend on the type and age of the stain, the fabric and any earlier home treatment, so complete removal cannot be guaranteed for every mark."
+    }
+  ],
+  "finalCta": {
+    "title": "Your Sarees, Drycleaned by Wash4You."
+  },
+  "parentService": {
+    "slug": "premium-dry-cleaning",
+    "name": "Premium Dry Cleaning Service"
+  }
+}

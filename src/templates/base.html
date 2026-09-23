@@ -396,13 +396,7 @@
             <p class="footer__product-group-title">{{ cat.title }}</p>
             <ul class="footer__product-list">
               {% for item in cat['items'] %}
-              <li>
-                {% if item.slug == 'jeans' %}
-                <a href="{{ root_path }}products/jeans/">{{ item.name }}</a>
-                {% else %}
-                <a href="{{ root_path }}pricing/#{{ item.slug }}">{{ item.name }}</a>
-                {% endif %}
-              </li>
+              <li><a href="{{ root_path }}{{ (product_urls or {}).get(item.slug, 'pricing/#' ~ item.slug) }}">{{ item.name }}</a></li>
               {% endfor %}
             </ul>
           </div>
@@ -555,9 +549,9 @@
     {% endfor %}
     {% if blog and blog.posts %}{% for post in blog.posts %}{ "title": {{ post.title | tojson }}, "group": "Blog", "url": {{ post.url | tojson }} },
     {% endfor %}{% endif %}
-    {% for item in (search_pricing_items or []) %}{ "title": {{ item.name | tojson }}, "group": "Pricing", "url": {{ ((root_path ~ 'products/jeans/') if (item.slug == 'jeans' or item.slug == 'iron-jeans') else (root_path ~ 'pricing/#cat-' ~ item.cat_index)) | tojson }} },
+    {% for item in (search_pricing_items or []) %}{ "title": {{ item.name | tojson }}, "group": "Pricing", "url": {{ (root_path ~ (product_urls or {}).get(item.slug, 'pricing/#cat-' ~ item.cat_index)) | tojson }} },
     {% endfor %}
-    {% for prod in (products_list or []) %}{ "title": {{ (prod.name ~ ' (Dry Clean & Steam Press)') | tojson }}, "group": "Products", "url": {{ (root_path ~ 'products/' ~ prod.slug ~ '/') | tojson }} },
+    {% for prod in (products_list or []) %}{ "title": {{ (prod.seo or prod.name) | tojson }}, "group": "Products", "url": {{ (root_path ~ 'products/' ~ prod.slug ~ '/') | tojson }} },
     {% endfor %}
   ]
 

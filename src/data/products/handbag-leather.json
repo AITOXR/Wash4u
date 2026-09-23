@@ -1,0 +1,235 @@
+{
+  "_generated": "tools/gen-product-pages.py — edit the generator (or delete this key to hand-maintain the file)",
+  "name": "Handbag Leather",
+  "slug": "handbag-leather",
+  "noun": "leather handbag",
+  "seo": "Leather Handbag Cleaning",
+  "care": "leather care",
+  "category": "Bag Care",
+  "eyebrow": "Professional Leather Care",
+  "h1": "Professional Leather Care for Your Handbag",
+  "subtitle": "Your leather handbag cleaned and conditioned by hand at Wash4You, in a specialist process kept separate from the dryclean load. Collected free from your doorstep across Gurugram & Delhi NCR.",
+  "heroImage": "images/pricing/handbag-leather.webp",
+  "heroImageFallback": "images/pricing/handbag-leather.png",
+  "heroImageAlt": "Handbag Leather — leather cleaning by Wash4You",
+  "turnaroundNote": "Ready in 3–5 days",
+  "badge": "Free Doorstep Pickup & Delivery",
+  "meta": {
+    "title": "Leather Handbag Cleaning Service in Gurgaon | Wash4You",
+    "description": "Professional leather handbag cleaning in Gurgaon & Delhi NCR by Wash4You. Stain treatment, expert finishing and free doorstep pickup & delivery.",
+    "og_title": "Leather Handbag Cleaning with Free Pickup | Wash4You",
+    "og_description": "Your leather handbag cleaned and conditioned by hand at Wash4You, in a specialist process kept separate from the dryclean load. Collected free from your doorstep across Gurugram & Delhi NCR."
+  },
+  "services": [
+    {
+      "id": "dry-clean",
+      "slug": "handbag-leather",
+      "name": "Leather Clean & Condition",
+      "short": "Leather Care",
+      "tagline": "Clean, Condition & Protect",
+      "shortDescription": "Specialist leather cleaning and conditioning for your leather handbag.",
+      "longDescription": "Leather is never put through a normal dryclean load — the solvents and heat that suit wool dry hide out and crack it. Your leather handbag goes through a separate specialist process: surface-cleaned with pH-balanced leather products, conditioned, and finished by hand.",
+      "bestFor": [
+        "Everyday leather handbags and totes",
+        "Bags with handle and edge grime",
+        "Light-coloured leather with dye transfer",
+        "Bags coming out of storage"
+      ],
+      "includes": [
+        "Leather type & finish assessment",
+        "Seams, zips & lining check",
+        "pH-balanced surface cleaning",
+        "Conditioning to keep leather supple",
+        "Hand finishing & buffing",
+        "Protective packaging"
+      ],
+      "turnaround": "3–5 days"
+    }
+  ],
+  "studioLabel": "Leather Care",
+  "tag": {
+    "title": "Leather Care Tag",
+    "line": "Tagged at your door · Returned clean & packed"
+  },
+  "studio": {
+    "eyebrow": "Inside Wash4You",
+    "title": "How Wash4You Cares for Your {name}",
+    "subtitle": "Leather never goes into the dryclean machine with everything else. It is tagged at your door and handled on its own, by hand, with products made for leather.",
+    "points": [
+      {
+        "title": "Kept out of the main load",
+        "desc": "Leather is processed separately so it never meets solvents or heat meant for fabric."
+      },
+      {
+        "title": "Tagged from pickup to delivery",
+        "desc": "Each piece is counted at your door and carries a Wash4You tag through every stage."
+      },
+      {
+        "title": "pH-balanced leather products",
+        "desc": "Cleaned and conditioned with products designed for hide, not general detergents."
+      },
+      {
+        "title": "Hand finishing",
+        "desc": "Buffed and finished by hand, then checked under light before it is packed."
+      }
+    ]
+  },
+  "whyProfessional": {
+    "eyebrow": "Leather Preservation",
+    "title": "Why Professional Leather Care for Your Leather Handbags?",
+    "subtitle": "Leather is skin: it needs its oils to stay supple, and it marks with water. Here is why professional leather care is worth it:",
+    "points": [
+      {
+        "title": "No Cracking",
+        "desc": "The wrong solvent or heat dries leather out until it cracks. We use leather-specific products only."
+      },
+      {
+        "title": "Stays Supple",
+        "desc": "Conditioning puts back the oils that daily wear and dry air take out."
+      },
+      {
+        "title": "Colour Protected",
+        "desc": "Surface cleaning lifts grime without stripping the finish or dye."
+      },
+      {
+        "title": "Water-Mark Safe",
+        "desc": "Leather is never soaked, so it does not dry stiff or ringed."
+      },
+      {
+        "title": "Hardware Cared For",
+        "desc": "Zips, studs and buckles are cleaned and checked alongside the leather."
+      },
+      {
+        "title": "Lining Freshened",
+        "desc": "The lining is freshened so the piece smells clean inside as well as out."
+      }
+    ]
+  },
+  "stainTreatment": {
+    "eyebrow": "Targeted Treatment",
+    "title": "Tough Stains? We Treat Them Before the Cleaning.",
+    "subtitle": "These are the marks we see most often on leather handbags. Each one is assessed and pre-treated before the main clean.",
+    "categories": [
+      {
+        "name": "Surface Grime",
+        "detail": "Dark handling marks on edges, cuffs and handles"
+      },
+      {
+        "name": "Oil & Grease",
+        "detail": "Food oil and hand-cream marks"
+      },
+      {
+        "name": "Water Spots",
+        "detail": "Rain spots and rings"
+      },
+      {
+        "name": "Ink",
+        "detail": "Pen marks — assessed carefully, as ink can set in leather"
+      },
+      {
+        "name": "Dye Transfer",
+        "detail": "Denim blue rubbing onto light leather"
+      },
+      {
+        "name": "Mildew",
+        "detail": "White bloom from storage in a humid cupboard"
+      }
+    ],
+    "disclaimer": "Treatment results depend on the type of stain, fabric condition, age of the stain and any previous treatment. We use professional spot-lifting techniques, but complete removal cannot be guaranteed for every aged or heat-set mark."
+  },
+  "detailCare": {
+    "eyebrow": "Craftsmanship",
+    "title": "Every Detail Matters",
+    "subtitle": "Here is how the Wash4You studio treats the parts of your leather handbag that matter most:",
+    "details": [
+      {
+        "title": "Handles & Edges",
+        "desc": "Handles and edges take the most handling marks and are cleaned carefully."
+      },
+      {
+        "title": "Lining",
+        "desc": "The lining is vacuumed and freshened."
+      },
+      {
+        "title": "Hardware",
+        "desc": "Clasps, zips and feet are cleaned and checked."
+      },
+      {
+        "title": "Leather Type",
+        "desc": "Nappa, suede, nubuck and coated leathers each get their own method."
+      },
+      {
+        "title": "Seams & Edges",
+        "desc": "Edge paint and stitched seams are cleaned without lifting or fraying."
+      },
+      {
+        "title": "Hardware",
+        "desc": "Zips, studs and buckles are cleaned and checked for smooth action."
+      }
+    ]
+  },
+  "beforeAfter": {
+    "eyebrow": "Visual Results",
+    "title": "See the Difference",
+    "subtitle": "How Wash4You's professional leather care resolves common problems:",
+    "examples": [
+      {
+        "title": "Dull, Dry Surface",
+        "problem": "Leather that looks tired and feels stiff.",
+        "treatment": "Surface clean and conditioning by hand.",
+        "result": "Supple leather with its natural sheen back."
+      },
+      {
+        "title": "Handling Marks",
+        "problem": "Dark marks on edges from hands and daily use.",
+        "treatment": "Targeted leather-safe cleaning on the soiled areas.",
+        "result": "Even colour along the edges."
+      },
+      {
+        "title": "Storage Bloom",
+        "problem": "White mildew bloom after storage.",
+        "treatment": "Gentle cleaning and conditioning.",
+        "result": "Clean, fresh leather ready to use."
+      }
+    ]
+  },
+  "relatedServices": [
+    "leather-jacket",
+    "leather-shoes",
+    "suede-leather-shoes",
+    "jacket",
+    "boots-mid-length"
+  ],
+  "relatedTitle": "More From the Wash4You Dryclean Studio",
+  "faqs": [
+    {
+      "q": "How much does leather handbag cleaning cost at Wash4You?",
+      "a": "Leather Clean & Condition for leather handbags starts from {price1} per piece. Prices are exclusive of 18% GST, and pickup and delivery are free."
+    },
+    {
+      "q": "How long does leather handbag cleaning take?",
+      "a": "Leather Clean & Condition for leather handbags usually takes 3–5 days."
+    },
+    {
+      "q": "How long does handbag cleaning take?",
+      "a": "Leather handbags take 3 to 5 days, because the leather is cleaned, conditioned and left to settle before it is finished."
+    },
+    {
+      "q": "Can you remove stains from leather handbags?",
+      "a": "Visible stains are identified and pre-treated before the main clean. Results depend on the type and age of the stain, the fabric and any earlier home treatment, so complete removal cannot be guaranteed for every mark."
+    }
+  ],
+  "finalCta": {
+    "title": "Your Handbag Leather, Cared For by Wash4You."
+  },
+  "photos": {
+    "hero": {
+      "src": "images/studio/covered-aisle.webp",
+      "alt": "Cleaned garments hanging in protective covers at a garment care facility"
+    }
+  },
+  "parentService": {
+    "slug": "leather-cleaning",
+    "name": "Leather Cleaning & Care"
+  }
+}

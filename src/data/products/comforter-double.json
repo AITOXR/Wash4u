@@ -1,0 +1,208 @@
+{
+  "_generated": "tools/gen-product-pages.py — edit the generator (or delete this key to hand-maintain the file)",
+  "name": "Comforter Double",
+  "slug": "comforter-double",
+  "noun": "comforter",
+  "seo": "Comforter Dry Cleaning",
+  "care": "dryclean care",
+  "category": "Home Textiles",
+  "eyebrow": "Professional Dryclean Care",
+  "h1": "Professional Dryclean Care for Your Double Comforters",
+  "subtitle": "Your comforter drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR.",
+  "heroImage": "images/pricing/double-blanket.webp",
+  "heroImageFallback": "images/pricing/double-blanket.png",
+  "heroImageAlt": "Comforter Double — dry cleaning by Wash4You",
+  "turnaroundNote": "Ready in 48 hrs",
+  "badge": "Free Doorstep Pickup & Delivery",
+  "meta": {
+    "title": "Comforter Dry Cleaning Service in Gurgaon | Wash4You",
+    "description": "Professional comforter dry cleaning in Gurgaon & Delhi NCR by Wash4You. Stain treatment, expert finishing and free doorstep pickup & delivery.",
+    "og_title": "Comforter Dry Cleaning with Free Pickup | Wash4You",
+    "og_description": "Your comforter drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR."
+  },
+  "services": [
+    {
+      "id": "dry-clean",
+      "slug": "comforter-double",
+      "name": "Dryclean & Press",
+      "short": "Dryclean",
+      "tagline": "Deep Dryclean & Finishing",
+      "shortDescription": "Professional dryclean for your comforter, which a home machine cannot handle properly.",
+      "longDescription": "Big household textiles are too bulky for a home machine and hard to dry properly on a balcony. At Wash4You they are cleaned on commercial machines with the capacity to handle them, dried completely so nothing smells damp, and folded for storage.",
+      "bestFor": [
+        "Double-bed comforters and duvets",
+        "Microfibre and down-filled comforters",
+        "Comforters used through a season",
+        "Comforters that smell musty"
+      ],
+      "includes": [
+        "Size, fabric & filling check",
+        "Stain & spot pre-treatment where applicable",
+        "Professional cleaning on commercial machines",
+        "Thorough drying — no dampness left",
+        "Finishing & folding",
+        "Protective packaging for storage"
+      ],
+      "turnaround": "48 hours"
+    }
+  ],
+  "whyProfessional": {
+    "eyebrow": "Home Fabric Care",
+    "title": "Why Professional Dryclean Care for Double Comforters?",
+    "subtitle": "Big household textiles collect dust, sweat and allergens, and they are exactly the items a home machine and a balcony cannot deal with. Here is why professional dryclean care makes sense:",
+    "points": [
+      {
+        "title": "Real Machine Capacity",
+        "desc": "Commercial machines have room to clean bulky pieces evenly, not just the outer layer."
+      },
+      {
+        "title": "Dried All the Way Through",
+        "desc": "Thick fabric and filling are dried completely, so nothing goes into storage damp."
+      },
+      {
+        "title": "Dust & Allergens Out",
+        "desc": "A deep clean removes the dust and mites that build up over a season."
+      },
+      {
+        "title": "Filling Stays Even",
+        "desc": "Fillings are handled so they do not bunch into lumps."
+      },
+      {
+        "title": "Colour & Fabric Protected",
+        "desc": "Colours and finishes are assessed before cleaning so nothing fades or shrinks."
+      },
+      {
+        "title": "Ready to Store",
+        "desc": "Returned folded and packed, ready for the cupboard or the bed."
+      }
+    ]
+  },
+  "stainTreatment": {
+    "eyebrow": "Targeted Treatment",
+    "title": "Tough Stains? We Treat Them Before the Dryclean.",
+    "subtitle": "These are the marks we see most often on double comforters. Each one is assessed and pre-treated before the main clean.",
+    "categories": [
+      {
+        "name": "Food & Drink",
+        "detail": "Tea and snack spills from use in bed"
+      },
+      {
+        "name": "Sweat & Body Oils",
+        "detail": "Yellowing where the fabric meets skin"
+      },
+      {
+        "name": "Dust & Allergens",
+        "detail": "Built-up dust and mites from months of use"
+      },
+      {
+        "name": "Storage Smell",
+        "detail": "Mustiness after a season in a trunk"
+      },
+      {
+        "name": "Pet Hair",
+        "detail": "Hair and dander caught in the fabric"
+      },
+      {
+        "name": "Water Marks",
+        "detail": "Rings from spills or a leaking cupboard"
+      }
+    ],
+    "disclaimer": "Treatment results depend on the type of stain, fabric condition, age of the stain and any previous treatment. We use professional spot-lifting techniques, but complete removal cannot be guaranteed for every aged or heat-set mark."
+  },
+  "detailCare": {
+    "eyebrow": "Craftsmanship",
+    "title": "Every Detail Matters",
+    "subtitle": "Here is how the Wash4You studio treats the parts of your comforter that matter most:",
+    "details": [
+      {
+        "title": "Filling",
+        "desc": "Filling is handled so it does not clump, then fluffed as it dries."
+      },
+      {
+        "title": "Drying",
+        "desc": "Dried completely through the centre, where home drying always fails."
+      },
+      {
+        "title": "Covers & Piping",
+        "desc": "Covers, piping and stitching are checked before cleaning."
+      },
+      {
+        "title": "Size & Weight",
+        "desc": "Measured and checked so it is cleaned on a machine with the right capacity."
+      },
+      {
+        "title": "Drying",
+        "desc": "Dried fully through the thickest part so no damp is sealed into storage."
+      },
+      {
+        "title": "Folding & Packing",
+        "desc": "Folded for storage and packed so it stays clean until you need it."
+      }
+    ]
+  },
+  "beforeAfter": {
+    "eyebrow": "Visual Results",
+    "title": "See the Difference",
+    "subtitle": "How Wash4You's professional dryclean care resolves common problems:",
+    "examples": [
+      {
+        "title": "Out of Storage",
+        "problem": "Bedding that smells musty after a season packed away.",
+        "treatment": "Professional clean and complete drying.",
+        "result": "Fresh, soft and ready for the bed."
+      },
+      {
+        "title": "Everyday Yellowing",
+        "problem": "Yellowed edges where the fabric meets skin.",
+        "treatment": "Targeted pre-treatment, then a deep clean.",
+        "result": "Brighter, fresher fabric."
+      },
+      {
+        "title": "Dust Build-Up",
+        "problem": "A season of dust and allergens in the fabric.",
+        "treatment": "Deep clean on commercial machines.",
+        "result": "Clean, dust-free and fresh."
+      }
+    ]
+  },
+  "relatedServices": [
+    "double-blanket",
+    "single-blanket",
+    "curtain",
+    "double-bed-sheet",
+    "carpet"
+  ],
+  "relatedTitle": "More From the Wash4You Dryclean Studio",
+  "faqs": [
+    {
+      "q": "How much does comforter dry cleaning cost at Wash4You?",
+      "a": "Dryclean & Press for double comforters starts from {price1} per piece. Prices are exclusive of 18% GST, and pickup and delivery are free."
+    },
+    {
+      "q": "How long does comforter dry cleaning take?",
+      "a": "Dryclean & Press for double comforters usually takes 48 hours."
+    },
+    {
+      "q": "Will the filling clump?",
+      "a": "No. Comforters are dried slowly and completely with the filling fluffed as it dries, so it stays even."
+    },
+    {
+      "q": "Can you remove stains from double comforters?",
+      "a": "Visible stains are identified and pre-treated before the main clean. Results depend on the type and age of the stain, the fabric and any earlier home treatment, so complete removal cannot be guaranteed for every mark."
+    }
+  ],
+  "finalCta": {
+    "title": "Your Double Comforters, Drycleaned by Wash4You."
+  },
+  "photos": {
+    "banner": {
+      "src": "images/studio/folded-table.webp",
+      "alt": "Neatly folded household textiles on a packing table",
+      "caption": "Dried through, folded and packed for storage"
+    }
+  },
+  "parentService": {
+    "slug": "blanket-quilt-cleaning",
+    "name": "Blanket & Quilt Cleaning"
+  }
+}

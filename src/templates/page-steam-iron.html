@@ -58,8 +58,9 @@
           {% for item in steam['items'] %}
           <tr>
             <td{{ cms('steam-iron:items.' ~ loop.index0 ~ '.name') }}>
-              {% if item.name | lower == 'jeans' %}
-              <a href="{{ root_path }}products/jeans/" style="color:inherit; font-weight:600; text-decoration:underline; text-decoration-color:var(--brand-yellow, #ffbe1a); text-underline-offset:3px;" title="View Jeans Care Details">{{ item.name }}</a>
+              {% set prod_url = (product_urls_by_name or {}).get(item.name | lower) %}
+              {% if prod_url %}
+              <a class="product-link" href="{{ root_path }}{{ prod_url }}">{{ item.name }}</a>
               {% else %}
               {{ item.name }}
               {% endif %}

@@ -1,0 +1,209 @@
+{
+  "_generated": "tools/gen-product-pages.py — edit the generator (or delete this key to hand-maintain the file)",
+  "name": "Palazzo",
+  "slug": "palazzo",
+  "noun": "palazzos",
+  "seo": "Palazzo Dry Cleaning",
+  "care": "dryclean care",
+  "category": "Everyday Wear",
+  "eyebrow": "Professional Dryclean Care",
+  "h1": "Professional Dryclean Care for Your Palazzos",
+  "subtitle": "Your palazzos drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR.",
+  "heroImage": "images/pricing/pant-trouser.webp",
+  "heroImageFallback": "images/pricing/pant-trouser.png",
+  "heroImageAlt": "Palazzo — dry cleaning by Wash4You",
+  "turnaroundNote": "Ready in 24–48 hrs",
+  "badge": "Free Doorstep Pickup & Delivery",
+  "meta": {
+    "title": "Palazzo Dry Cleaning Service in Gurgaon | Wash4You",
+    "description": "Professional palazzo dry cleaning in Gurgaon & Delhi NCR by Wash4You. Stain treatment, expert finishing and free doorstep pickup & delivery.",
+    "og_title": "Palazzo Dry Cleaning with Free Pickup | Wash4You",
+    "og_description": "Your palazzos drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR."
+  },
+  "services": [
+    {
+      "id": "dry-clean",
+      "slug": "palazzo",
+      "name": "Dryclean & Press",
+      "short": "Dryclean",
+      "tagline": "Deep Dryclean & Finishing",
+      "shortDescription": "Professional dryclean for worn palazzos, finished on a steam table.",
+      "longDescription": "A professional dryclean on commercial machines that lifts sweat, body oils and everyday grime from your palazzos while protecting colour, fit and fabric, followed by a hand steam finish.",
+      "bestFor": [
+        "Rayon, georgette and silk palazzos",
+        "Pleated and flared palazzos",
+        "Palazzos worn with kurtas",
+        "Fabrics that shrink or twist at home"
+      ],
+      "includes": [
+        "Individual item & pocket check",
+        "Stain & spot pre-treatment where applicable",
+        "Closed-cycle professional dryclean",
+        "Shape & seam alignment",
+        "Hand steam finishing",
+        "Quality inspection & protective packaging"
+      ],
+      "turnaround": "24–48 hours"
+    }
+  ],
+  "whyProfessional": {
+    "eyebrow": "Fabric Preservation",
+    "title": "Why Professional Dryclean Care for Palazzos?",
+    "subtitle": "Home machines rub fibres against each other, fade colour and pull garments out of shape a little more every wash. Here is why professional dryclean care makes the difference:",
+    "points": [
+      {
+        "title": "Colour Stays True",
+        "desc": "Solvent cleaning does not bleed dye the way hot water and detergent do, so darks stay dark and prints stay sharp."
+      },
+      {
+        "title": "Fit & Shape Hold",
+        "desc": "No spin cycle to twist seams or stretch necklines and waistbands out of shape."
+      },
+      {
+        "title": "Less Fibre Wear",
+        "desc": "A low-friction dryclean cycle means less pilling, fuzzing and thinning at elbows, collars and seats."
+      },
+      {
+        "title": "Oils Actually Lift",
+        "desc": "Body oils and deodorant build-up dissolve in dryclean solvent where a cold home wash leaves them behind."
+      },
+      {
+        "title": "A Finish You Can See",
+        "desc": "Pressed on a steam finishing table, not a domestic iron, so seams sit flat and fabric keeps its drape."
+      },
+      {
+        "title": "Checked Before & After",
+        "desc": "Buttons, seams and stains are checked when the piece arrives and again before it leaves."
+      }
+    ]
+  },
+  "stainTreatment": {
+    "eyebrow": "Targeted Treatment",
+    "title": "Tough Stains? We Treat Them Before the Dryclean.",
+    "subtitle": "These are the marks we see most often on palazzos. Each one is assessed and pre-treated before the main clean.",
+    "categories": [
+      {
+        "name": "Food & Beverage",
+        "detail": "Tea, coffee, curry, gravy, sauces and oil drips"
+      },
+      {
+        "name": "Sweat & Body Oils",
+        "detail": "Collar and underarm build-up, yellowing and odour"
+      },
+      {
+        "name": "Deodorant Marks",
+        "detail": "White streaks and stiff underarm residue"
+      },
+      {
+        "name": "Ink & Pen",
+        "detail": "Pen marks near pockets and cuffs"
+      },
+      {
+        "name": "Cosmetics",
+        "detail": "Foundation, lipstick and sunscreen transfer"
+      },
+      {
+        "name": "Dust & Commute Grime",
+        "detail": "Grey cuffs, hems and seat areas from daily wear"
+      }
+    ],
+    "disclaimer": "Treatment results depend on the type of stain, fabric condition, age of the stain and any previous treatment. We use professional spot-lifting techniques, but complete removal cannot be guaranteed for every aged or heat-set mark."
+  },
+  "detailCare": {
+    "eyebrow": "Craftsmanship",
+    "title": "Every Detail Matters",
+    "subtitle": "Here is how the Wash4You studio treats the parts of your palazzos that matter most:",
+    "details": [
+      {
+        "title": "Flare & Fall",
+        "desc": "The legs are steamed so the flare falls evenly."
+      },
+      {
+        "title": "Pleats",
+        "desc": "Pleats are set by hand along their original folds."
+      },
+      {
+        "title": "Waistband",
+        "desc": "Elastic and drawstring waistbands are pressed flat without stretching."
+      },
+      {
+        "title": "Buttons & Fasteners",
+        "desc": "Checked on arrival; loose buttons are flagged before cleaning so nothing is lost in the machine."
+      },
+      {
+        "title": "Colour Care",
+        "desc": "Darks, whites and prints are assessed separately so colour never transfers between garments."
+      },
+      {
+        "title": "Finishing",
+        "desc": "Steam-pressed to the garment's natural shape rather than flattened into hard creases."
+      }
+    ]
+  },
+  "beforeAfter": {
+    "eyebrow": "Visual Results",
+    "title": "See the Difference",
+    "subtitle": "How Wash4You's professional dryclean care resolves common problems:",
+    "examples": [
+      {
+        "title": "Collar & Cuff Grime",
+        "problem": "A grey line along the collar and cuffs from daily wear.",
+        "treatment": "Targeted pre-treatment on the soiled edges, then a professional dryclean.",
+        "result": "Clean, even collar and cuffs with the fabric's colour intact."
+      },
+      {
+        "title": "Food Spill",
+        "problem": "A fresh gravy or oil mark on the front of the garment.",
+        "treatment": "Degreasing spot treatment before the dryclean cycle.",
+        "result": "Mark lifted without a water ring or a faded patch."
+      },
+      {
+        "title": "Crumpled After Travel",
+        "problem": "Deep creases from a suitcase or a crowded cupboard.",
+        "treatment": "Steam finishing with seams and hems aligned.",
+        "result": "Smooth, crisp and ready to wear."
+      }
+    ]
+  },
+  "relatedServices": [
+    "shirt",
+    "jeans",
+    "pant-trouser",
+    "t-shirt",
+    "dress",
+    "men-suit-2pcs"
+  ],
+  "relatedTitle": "More From the Wash4You Dryclean Studio",
+  "faqs": [
+    {
+      "q": "How much does palazzo dry cleaning cost at Wash4You?",
+      "a": "Dryclean & Press for palazzos starts from {price1} per piece. Prices are exclusive of 18% GST, and pickup and delivery are free."
+    },
+    {
+      "q": "How long does palazzo dry cleaning take?",
+      "a": "Dryclean & Press for palazzos usually takes 24–48 hours."
+    },
+    {
+      "q": "Will my palazzo shrink?",
+      "a": "No. Rayon and georgette palazzos shrink easily in a hot home wash; a professional dryclean avoids water and heat, so the length and fit stay the same."
+    },
+    {
+      "q": "Can you remove stains from palazzos?",
+      "a": "Visible stains are identified and pre-treated before the main clean. Results depend on the type and age of the stain, the fabric and any earlier home treatment, so complete removal cannot be guaranteed for every mark."
+    }
+  ],
+  "finalCta": {
+    "title": "Your Palazzos, Drycleaned by Wash4You."
+  },
+  "photos": {
+    "banner": {
+      "src": "images/studio/shirts-hung.webp",
+      "alt": "Pressed shirts hanging on a rail",
+      "caption": "Finished by hand, hung to hold their shape"
+    }
+  },
+  "parentService": {
+    "slug": "premium-dry-cleaning",
+    "name": "Premium Dry Cleaning Service"
+  }
+}

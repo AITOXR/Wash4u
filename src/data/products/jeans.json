@@ -2,35 +2,30 @@
   "name": "Jeans",
   "slug": "jeans",
   "category": "Men's & Women's Everyday Wear",
-  "eyebrow": "Professional Denim Care",
-  "h1": "Professional Jeans Care, Done Right",
-  "subtitle": "Professional cleaning, expert steam pressing, and fabric-conscious treatment for your denim. Collected free from your doorstep across Gurugram & Delhi NCR.",
+  "eyebrow": "Professional Dryclean Care",
+  "h1": "Professional Dryclean Care for Your Jeans",
+  "subtitle": "Jeans drycleaned on commercial machines, steam-pressed by hand and returned folded and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR.",
   "heroImage": "images/pricing/jeans.webp",
   "heroImageFallback": "images/pricing/jeans.png",
   "heroImageAlt": "Pair of denim jeans folded after professional cleaning by Wash4You",
-  "startingPrice": "₹99",
-  "startingAmount": 99,
-  "turnaround": "24–48 hours",
-  "turnaroundNote": "Standard 24–48 hrs · Express turnaround available",
+  "turnaroundNote": "Dryclean 24–48 hrs · Steam press 24 hrs",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Jeans Dry Cleaning & Steam Pressing Service | Wash4You",
-    "description": "Professional Jeans dry cleaning and steam pressing in Gurgaon & Delhi NCR. Indigo-safe care, stain treatment & free doorstep pickup. Book today from ₹99.",
+    "description": "Professional jeans dry cleaning and steam pressing in Gurgaon & Delhi NCR. Indigo-safe dryclean care, stain treatment and free doorstep pickup. From ₹39.",
     "og_title": "Professional Jeans Dry Cleaning & Steam Press | Wash4You",
-    "og_description": "Keep your denim shaped, vibrant, and fresh. Professional dry cleaning and crisp steam pressing with free doorstep collection across Gurugram & Delhi NCR."
+    "og_description": "Keep your denim shaped, vibrant and fresh. Professional dryclean care and crisp steam pressing with free doorstep collection across Gurugram & Delhi NCR."
   },
   "services": [
     {
       "id": "dry-clean",
       "slug": "jeans",
-      "name": "Dry Clean & Press",
-      "price": "₹99",
-      "amount": 99,
-      "tagline": "Deep Cleaning & Finishing",
-      "shortDescription": "Deep cleaning for worn, stained, or soiled denim with expert steam finishing.",
-      "longDescription": "Thorough professional cleaning designed to lift grease, soil, and perspiration while preserving the indigo dye, construction, and natural texture of your denim.",
+      "name": "Dryclean & Press",
+      "tagline": "Deep Dryclean & Finishing",
+      "shortDescription": "Professional dryclean for worn, stained or soiled denim, finished on a steam table.",
+      "longDescription": "A professional dryclean on commercial machines that lifts grease, soil and perspiration while protecting the indigo dye, construction and natural texture of your denim, then a hand steam finish.",
       "bestFor": [
-        "Jeans that need proper, deep cleaning",
+        "Jeans that need a proper, deep dryclean",
         "Visible stains, grease, mud, or food marks",
         "Body oils and everyday odor build-up",
         "Raw, dark, or selvedge denim requiring gentle care",
@@ -40,19 +35,18 @@
       "includes": [
         "Individual item & pocket check",
         "Stain & spot pre-treatment where applicable",
-        "Fabric-safe closed-cycle cleaning",
+        "Closed-cycle professional dryclean",
         "Crease & shape alignment",
-        "Professional steam pressing",
+        "Hand steam finishing",
         "Quality inspection & protective packaging"
       ],
-      "turnaround": "48 hours"
+      "turnaround": "24–48 hours",
+      "short": "Dryclean"
     },
     {
       "id": "steam-press",
       "slug": "iron-jeans",
       "name": "Steam Press",
-      "price": "₹39",
-      "amount": 39,
       "tagline": "Wrinkle Removal & Refresh",
       "shortDescription": "Crisp wrinkle removal and fabric refresh for clean denim.",
       "longDescription": "High-pressure moisture steam ironing for clean denim that needs sharp presentation, seam alignment, and crisp, wrinkle-free finishing without fabric stiffness.",
@@ -72,70 +66,91 @@
         "Natural drape restoration",
         "Protective fold or hanger packaging"
       ],
-      "turnaround": "24 hours"
+      "turnaround": "24 hours",
+      "short": "Steam Press"
     }
   ],
   "serviceComparison": {
     "title": "Which Jeans Service Should You Choose?",
     "eyebrow": "Service Selection Guide",
-    "intro": "Not every pair of jeans needs the same treatment. Choose the service based on whether your denim requires thorough professional cleaning or simply a fresh, crisp finish.",
+    "intro": "Not every pair of jeans needs the same treatment. Choose Dryclean & Press when the denim needs a thorough professional clean, or Steam Press when it is already clean and just needs a crisp finish.",
     "features": [
       {
-        "name": "Deep fabric cleaning",
-        "dryClean": true,
-        "steamPress": false
+        "name": "Professional dryclean on commercial machines",
+        "cells": [
+          true,
+          false
+        ]
       },
       {
         "name": "Pre-treatment for stains & spots",
-        "dryClean": true,
-        "steamPress": false
+        "cells": [
+          true,
+          false
+        ]
       },
       {
         "name": "Lifts body oils & daily perspiration",
-        "dryClean": true,
-        "steamPress": false
+        "cells": [
+          true,
+          false
+        ]
       },
       {
         "name": "Protects indigo dye from water washout",
-        "dryClean": true,
-        "steamPress": "N/A"
+        "cells": [
+          true,
+          "N/A"
+        ]
       },
       {
         "name": "High-pressure steam wrinkle removal",
-        "dryClean": true,
-        "steamPress": true
+        "cells": [
+          true,
+          true
+        ]
       },
       {
         "name": "Waistband, seam & fly alignment",
-        "dryClean": true,
-        "steamPress": true
+        "cells": [
+          true,
+          true
+        ]
       },
       {
         "name": "Hardware & pocket foreign object check",
-        "dryClean": true,
-        "steamPress": true
+        "cells": [
+          true,
+          true
+        ]
       },
       {
         "name": "Best for heavily worn or soiled jeans",
-        "dryClean": true,
-        "steamPress": false
+        "cells": [
+          true,
+          false
+        ]
       },
       {
         "name": "Best for clean jeans needing a quick refresh",
-        "dryClean": false,
-        "steamPress": true
+        "cells": [
+          false,
+          true
+        ]
       },
       {
         "name": "Free doorstep pickup & delivery",
-        "dryClean": true,
-        "steamPress": true
+        "cells": [
+          true,
+          true
+        ]
       }
     ]
   },
   "whyProfessional": {
     "eyebrow": "Fabric Preservation",
-    "title": "Why Professional Jeans Care?",
-    "subtitle": "Denim is durable, but regular home washing machines and harsh agitators fade indigo dyes, twist outseams, and degrade elastane fibers over time. Here is why professional care makes the difference:",
+    "title": "Why Professional Dryclean Care for Jeans?",
+    "subtitle": "Denim is durable, but home washing machines and harsh agitators fade indigo dyes, twist outseams and degrade stretch fibres over time. Here is why professional dryclean care makes the difference:",
     "points": [
       {
         "title": "Colour & Indigo Retention",
@@ -151,7 +166,7 @@
       },
       {
         "title": "Hardware & Stitching Longevity",
-        "desc": "Rivets, brass zippers, and heavy chain-stitching stay intact without snagging or rusting during our gentle cleaning cycles."
+        "desc": "Rivets, brass zippers, and heavy chain-stitching stay intact without snagging or rusting during our dryclean cycle."
       },
       {
         "title": "Surface Finish & Soft Texture",
@@ -163,96 +178,10 @@
       }
     ]
   },
-  "whatsIncluded": {
-    "eyebrow": "Standard of Care",
-    "title": "What's Included in Every Jeans Service",
-    "subtitle": "No shortcuts. Every pair entrusted to Wash4You receives dedicated, multi-point garment care:",
-    "items": [
-      {
-        "title": "Item Inspection",
-        "desc": "Every piece is inspected, counted, and logged with you at the door before it leaves."
-      },
-      {
-        "title": "Fabric Assessment",
-        "desc": "We evaluate denim weight, stretch ratio, raw selvedge weave, and care instructions."
-      },
-      {
-        "title": "Stain & Spot Assessment",
-        "desc": "Visible marks, food drips, and hem grime are identified for pre-treatment where applicable."
-      },
-      {
-        "title": "Appropriate Cleaning Method",
-        "desc": "Fabric-safe cleaning formulated to dissolve grime while protecting natural fibers."
-      },
-      {
-        "title": "Professional Finishing",
-        "desc": "Industrial steam ironing releases tension in thick seams, pockets, and fly flaps."
-      },
-      {
-        "title": "Quality Inspection",
-        "desc": "Each finished garment is thoroughly reviewed against cleanliness and pressing standards."
-      },
-      {
-        "title": "Protective Packaging",
-        "desc": "Neatly folded or hung with protective wrap to keep dust and creases away."
-      },
-      {
-        "title": "Doorstep Delivery",
-        "desc": "Delivered back to your address in Gurugram or Delhi NCR ready for your wardrobe."
-      }
-    ]
-  },
-  "careProcess": {
-    "eyebrow": "Our Process",
-    "title": "Our 8-Step Jeans Care Process",
-    "subtitle": "How your denim travels from your wardrobe to crisp, fresh, ready-to-wear perfection:",
-    "steps": [
-      {
-        "step": "01",
-        "title": "Book Your Pickup",
-        "desc": "Choose your service and pickup slot online or with a quick WhatsApp message."
-      },
-      {
-        "step": "02",
-        "title": "Doorstep Collection",
-        "desc": "Our valet collects your items directly at your doorstep, logged and counted."
-      },
-      {
-        "step": "03",
-        "title": "Item Inspection",
-        "desc": "Pockets are checked for foreign objects; seams, buttons, and zippers are verified."
-      },
-      {
-        "step": "04",
-        "title": "Stain & Fabric Assessment",
-        "desc": "Denim weave, stretch level, and spot stains are analyzed for the right treatment."
-      },
-      {
-        "step": "05",
-        "title": "Professional Cleaning",
-        "desc": "Processed in dedicated batches with eco-friendly solutions that clean deeply without abrasion."
-      },
-      {
-        "step": "06",
-        "title": "Finishing & Pressing",
-        "desc": "High-pressure moisture steam presses out wrinkles while restoring natural drape."
-      },
-      {
-        "step": "07",
-        "title": "Quality Check",
-        "desc": "Every pair passes through a final quality inspection before packaging approval."
-      },
-      {
-        "step": "08",
-        "title": "Packed & Delivered",
-        "desc": "Securely packaged and delivered straight to your door at your confirmed time slot."
-      }
-    ]
-  },
   "stainTreatment": {
     "eyebrow": "Targeted Treatment",
-    "title": "Tough Stains? We Treat Them Before Cleaning.",
-    "subtitle": "Jeans face some of the most stubborn everyday marks. Stains require careful assessment and pre-treatment before entering the main cleaning cycle.",
+    "title": "Tough Stains? We Treat Them Before the Dryclean.",
+    "subtitle": "Jeans face some of the most stubborn everyday marks. Stains are assessed and pre-treated before your denim goes into the dryclean machine.",
     "categories": [
       {
         "name": "Food & Beverage",
@@ -284,35 +213,29 @@
   "detailCare": {
     "eyebrow": "Craftsmanship",
     "title": "Every Detail Matters",
-    "subtitle": "Denim construction is distinct from ordinary clothing. Here is how we treat every element:",
+    "subtitle": "Denim is built differently from ordinary clothing. Here is how the Wash4You dryclean studio treats every element:",
     "details": [
       {
-        "num": "01",
         "title": "Fabric Composition",
         "desc": "Appropriate treatment based on fabric composition, whether 100% rigid cotton, elastane stretch blend, or heavy raw selvedge."
       },
       {
-        "num": "02",
         "title": "Colour Preservation",
         "desc": "Careful handling to help maintain the garment's appearance, guarding dark indigos and saturated blacks against premature fading."
       },
       {
-        "num": "03",
         "title": "Stitching & Seams",
         "desc": "Attention to heavy outseams, inseams, and chain-stitched hems so lines are pressed flat without twisting or pulling."
       },
       {
-        "num": "04",
         "title": "Buttons & Fasteners",
         "desc": "Inspection during processing. Metal button shanks, copper rivets, and brass zip teeth are handled to prevent snagging or damage."
       },
       {
-        "num": "05",
         "title": "Pockets & Linings",
         "desc": "Inspection for foreign objects before processing. Pocket linings are smoothed flat so they never bunch uncomfortably."
       },
       {
-        "num": "06",
         "title": "Shape & Silhouette",
         "desc": "Finishing intended to maintain the garment's natural form, resetting the waist, hip contour, and leg line accurately."
       }
@@ -321,18 +244,18 @@
   "beforeAfter": {
     "eyebrow": "Visual Results",
     "title": "See the Difference",
-    "subtitle": "How Wash4You's professional garment care resolves common denim problems:",
+    "subtitle": "How Wash4You's professional dryclean care resolves common denim problems:",
     "examples": [
       {
         "title": "Street Mud & Lower Hemline Soil",
         "problem": "Heavy mud splatters along cuffs and back hems from monsoon commute.",
-        "treatment": "Sediment pre-brushing, targeted fabric spot treatment, and gentle cleaning cycle.",
+        "treatment": "Sediment pre-brushing, targeted fabric spot treatment, and professional dryclean cycle.",
         "result": "Clean, even hemline with original texture restored and no soil residue."
       },
       {
         "title": "Grease & Food Oil Spots",
         "problem": "Visible oily spots on the thigh area set during dining out.",
-        "treatment": "Targeted degreasing pre-treatment followed by fabric-safe closed-cycle cleaning.",
+        "treatment": "Targeted degreasing pre-treatment followed by a closed-cycle professional dryclean.",
         "result": "Stain lifted cleanly without leaving water rings or discoloring the indigo."
       },
       {
@@ -343,275 +266,57 @@
       }
     ]
   },
-  "whyWash4You": {
-    "eyebrow": "The Wash4You Standard",
-    "title": "Why Customers Choose Wash4You",
-    "subtitle": "Genuine capabilities and transparent service across Gurugram and Delhi NCR:",
-    "reasons": [
-      {
-        "title": "Doorstep Pickup & Delivery",
-        "desc": "Free doorstep collection and delivery across all service areas on your schedule."
-      },
-      {
-        "title": "Professional Garment Care",
-        "desc": "Garments are treated individually rather than thrown into a generic bulk cycle."
-      },
-      {
-        "title": "Item Inspection at Door",
-        "desc": "Items are verified and counted with a signed receipt before leaving your premises."
-      },
-      {
-        "title": "Targeted Stain Treatment",
-        "desc": "Problem spots are identified and pre-treated before the main cleaning process."
-      },
-      {
-        "title": "Rigorous Quality Checks",
-        "desc": "Every finished piece is inspected against strict cleanliness and press criteria."
-      },
-      {
-        "title": "Transparent Starting Prices",
-        "desc": "Clear starting rates of ₹39 for steam pressing and ₹99 for dry cleaning."
-      },
-      {
-        "title": "Separate Order Handling",
-        "desc": "Each customer order is bagged and handled separately for hygiene and safety."
-      },
-      {
-        "title": "Wide Local Coverage",
-        "desc": "Dedicated daily routes across DLF, Sushant Lok, Cyber City, and 500+ communities."
-      }
-    ]
-  },
-  "doorstepExperience": {
-    "eyebrow": "Convenience",
-    "title": "From Your Doorstep to Your Wardrobe",
-    "subtitle": "Professional denim care without the errand:",
-    "steps": [
-      {
-        "num": "01",
-        "title": "Book",
-        "desc": "Choose your service and preferred pickup slot online in under 60 seconds."
-      },
-      {
-        "num": "02",
-        "title": "We Collect",
-        "desc": "Our valet arrives at your door to inspect, count, and collect your garments."
-      },
-      {
-        "num": "03",
-        "title": "We Clean & Care",
-        "desc": "Your jeans undergo careful cleaning, targeted stain treatment, and expert steam pressing."
-      },
-      {
-        "num": "04",
-        "title": "We Deliver",
-        "desc": "Crisp, fresh, ready-to-wear jeans returned right to your doorstep."
-      }
-    ],
-    "cta": "Book Free Pickup"
-  },
-  "localCoverage": {
-    "eyebrow": "Local Service",
-    "title": "Jeans Dry Cleaning Near You",
-    "subtitle": "Wash4You offers doorstep laundry and dry cleaning services across its service areas in Gurugram, Delhi, Noida, Faridabad, and Ghaziabad.",
-    "highlightAreas": [
-      {
-        "name": "Sushant Lok",
-        "url": "laundry-service-sushant-lok/"
-      },
-      {
-        "name": "Cyber City",
-        "url": "laundry-service-cyber-city/"
-      },
-      {
-        "name": "DLF Phase 1–5",
-        "url": "laundry-service-dlf-phase-3/"
-      },
-      {
-        "name": "Golf Course Road",
-        "url": "laundry-service-golf-course-road/"
-      },
-      {
-        "name": "Golf Course Extn",
-        "url": "laundry-service-golf-course-extension/"
-      },
-      {
-        "name": "Sohna Road",
-        "url": "laundry-service-sohna-road/"
-      },
-      {
-        "name": "Sector 49",
-        "url": "laundry-service-sector-49/"
-      },
-      {
-        "name": "Sector 29",
-        "url": "laundry-service-gurugram-sector-29/"
-      },
-      {
-        "name": "Palam Vihar",
-        "url": "laundry-service-palam-vihar/"
-      },
-      {
-        "name": "MG Road",
-        "url": "laundry-service-mg-road/"
-      }
-    ],
-    "cta": "Find Your Area",
-    "ctaUrl": "locate-us/"
-  },
   "relatedServices": [
-    {
-      "name": "Shirts",
-      "slug": "shirt",
-      "price": "From ₹39 (Iron) / ₹99 (Dry Clean)",
-      "img": "images/pricing/shirt.webp",
-      "desc": "Collar, cuff, and placket steam finishing."
-    },
-    {
-      "name": "T-Shirts",
-      "slug": "t-shirt",
-      "price": "From ₹29 (Iron) / ₹89 (Dry Clean)",
-      "img": "images/pricing/t-shirt.webp",
-      "desc": "Soft cotton care and shape preservation."
-    },
-    {
-      "name": "Trousers & Chinos",
-      "slug": "pant-trouser",
-      "price": "From ₹39 (Iron) / ₹99 (Dry Clean)",
-      "img": "images/pricing/pant-trouser.webp",
-      "desc": "Sharp leg creases and waistband pressing."
-    },
-    {
-      "name": "Suits & Blazers",
-      "slug": "men-suit-3pcs",
-      "price": "From ₹349 (3 Pcs)",
-      "img": "images/pricing/men-suit-3pcs.webp",
-      "desc": "Full structural canvas and shoulder shaping."
-    },
-    {
-      "name": "Sneakers & Shoes",
-      "slug": "sneakers",
-      "price": "From ₹299",
-      "img": "images/pricing/sneakers.webp",
-      "desc": "Suede, leather, knit, and sole restoration."
-    },
-    {
-      "name": "Sarees & Ethnic Wear",
-      "slug": "saree-silk",
-      "price": "From ₹179",
-      "img": "images/pricing/saree.png",
-      "desc": "Gentle silk care and delicate border finishing."
-    }
+    "shirt",
+    "t-shirt",
+    "pant-trouser",
+    "men-suit-3pcs",
+    "sneakers",
+    "saree"
   ],
   "faqs": [
     {
-      "q": "How much does Jeans cleaning cost at Wash4You?",
-      "a": "Jeans Dry Clean & Press starts from ₹99 per piece, while Steam Pressing starts from ₹39 per piece. All prices are transparent and exclusive of 18% GST. There are no additional pickup or delivery charges."
+      "q": "How much does jeans dry cleaning cost at Wash4You?",
+      "a": "Jeans Dryclean & Press starts from ₹99 per piece, while Steam Pressing starts from ₹39 per piece. All prices are transparent and exclusive of 18% GST. There are no additional pickup or delivery charges."
     },
     {
-      "q": "How long does Jeans cleaning take?",
-      "a": "Our standard turnaround time is 24 to 48 hours. Steam Pressing is typically delivered within 24 hours, while Dry Clean & Press takes approximately 48 hours. Same-day or next-day express options are available depending on pickup timing and route availability."
+      "q": "How long does jeans dry cleaning take?",
+      "a": "Steam Press is typically delivered within 24 hours, and Dryclean & Press within 24 to 48 hours. Same-day or next-day express options are available depending on pickup timing and route availability."
     },
     {
-      "q": "Do you offer pickup and delivery for jeans?",
-      "a": "Yes. Wash4You provides free doorstep pickup and delivery across Gurugram, Delhi, Noida, Faridabad, and Ghaziabad."
+      "q": "Should I choose dryclean or steam pressing?",
+      "a": "Choose Steam Press when your jeans are already clean but have creases, wrinkles, or stiffness and need a sharp finish. Choose Dryclean & Press when the jeans have been worn, have visible stains, mud, or body oils, or require a thorough hygienic wash."
     },
     {
-      "q": "Should I choose dry cleaning or steam pressing?",
-      "a": "Choose Steam Press when your jeans are already clean but have creases, wrinkles, or stiffness and need a sharp finish. Choose Dry Clean & Press when the jeans have been worn, have visible stains, mud, or body oils, or require a thorough hygienic wash."
-    },
-    {
-      "q": "Can you remove stains from Jeans?",
+      "q": "Can you remove stains from jeans?",
       "a": "Visible stains are identified and pre-treated before the main cleaning process. However, treatment results depend on the type of stain, fabric condition, age of the stain, and previous home washing. While we use specialized spotting agents, complete removal cannot be guaranteed for every mark."
     },
     {
-      "q": "Can you clean expensive or premium Jeans?",
+      "q": "Can you clean expensive or premium jeans?",
       "a": "Yes. Garments are assessed individually according to their fabric composition, raw dye intensity, and care label instructions. We take special care with selvedge, Japanese denim, coated fabrics, and designer embellishments."
     },
     {
-      "q": "What happens during pickup?",
-      "a": "Our trained valet arrives at your door during your selected slot. Your jeans are inspected and counted in your presence, and you receive an itemized pickup confirmation. Your clothes are placed into a separate, dedicated bag."
-    },
-    {
-      "q": "What if my Jeans has buttons, zippers or embellishments?",
+      "q": "What if my jeans have buttons, zippers or embellishments?",
       "a": "All fastenings, metal rivets, zip flies, and embellishments are checked during item inspection and handled carefully throughout the cleaning and pressing process to prevent scratching or damage."
-    },
-    {
-      "q": "Can I book Jeans along with other clothes?",
-      "a": "Yes. You can add shirts, trousers, suits, sarees, or household linens to your pickup list in the same order. Simply add them to your cart or hand them to our valet at pickup."
-    },
-    {
-      "q": "What if I don't know which service to choose?",
-      "a": "You can select the service that seems closest to your requirement. Our garment care team inspects every piece at arrival and will advise you via WhatsApp or phone if an alternative treatment is recommended."
     }
   ],
   "finalCta": {
     "eyebrow": "Ready for Crisp Denim?",
     "title": "Your Jeans Deserve Better Than an Ordinary Wash.",
-    "subtitle": "Professional care, convenient pickup and delivery, and a finish you can feel the difference in.",
-    "primaryCta": "Book Free Pickup",
-    "secondaryCta": "View All Services"
+    "subtitle": "Professional dryclean care, free doorstep pickup and delivery, and a finish you can see the difference in."
   },
   "photos": {
-    "hero": {
-      "src": "images/stock/denim-stack.webp",
-      "alt": "Stacks of folded blue denim jeans on a shelf"
-    },
-    "gallery": {
-      "eyebrow": "Denim, done properly",
-      "title": "Care that shows in the finish",
-      "items": [
-        {
-          "src": "images/stock/denim-stack-white.webp",
-          "alt": "Neatly stacked dark and light denim jeans",
-          "caption": "Folded to hold their shape"
-        },
-        {
-          "src": "images/stock/denim-hangers.webp",
-          "alt": "Pressed jeans hanging on wooden hangers",
-          "caption": "Pressed and hung, ready to wear"
-        },
-        {
-          "src": "images/stock/denim-folded.webp",
-          "alt": "Soft folded denim with visible seams",
-          "caption": "Seams and stitching kept intact"
-        }
-      ]
-    },
     "banner": {
       "src": "images/stock/denim-stitching.webp",
       "alt": "Close-up of denim pocket stitching",
       "caption": "Rivets, chain-stitching and dye: every detail protected"
-    },
-    "process": [
-      {
-        "src": "images/stock/washer-drum.webp",
-        "alt": "Front-loading washer drum",
-        "label": "Gentle cleaning"
-      },
-      {
-        "src": "images/stock/dryers.webp",
-        "alt": "Row of laundry machines",
-        "label": "Controlled drying"
-      },
-      {
-        "src": "images/stock/steam-iron.webp",
-        "alt": "Steam iron standing on an ironing board",
-        "label": "Steam pressing"
-      },
-      {
-        "src": "images/stock/folded-shelves.webp",
-        "alt": "Neatly folded clothes on shelves",
-        "label": "Folded and packed"
-      }
-    ],
-    "doorstep": {
-      "src": "images/stock/folded-laundry.webp",
-      "alt": "Stacks of freshly folded laundry"
-    },
-    "cta": {
-      "src": "images/stock/denim-folded.webp",
-      "alt": ""
     }
+  },
+  "noun": "jeans",
+  "seo": "Jeans Dry Cleaning",
+  "relatedTitle": "More From the Wash4You Dryclean Studio",
+  "parentService": {
+    "slug": "premium-dry-cleaning",
+    "name": "Premium Dry Cleaning Service"
   }
 }

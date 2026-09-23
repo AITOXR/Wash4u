@@ -1,0 +1,201 @@
+{
+  "_generated": "tools/gen-product-pages.py — edit the generator (or delete this key to hand-maintain the file)",
+  "name": "Sherwani",
+  "slug": "sherwani",
+  "noun": "sherwani",
+  "seo": "Sherwani Dry Cleaning",
+  "care": "dryclean care",
+  "category": "Ethnic & Occasion Wear",
+  "eyebrow": "Professional Dryclean Care",
+  "h1": "Professional Dryclean Care for Your Sherwanis",
+  "subtitle": "Your sherwani drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR.",
+  "heroImage": "images/pricing/sherwani.webp",
+  "heroImageFallback": "images/pricing/sherwani.png",
+  "heroImageAlt": "Sherwani — dry cleaning by Wash4You",
+  "turnaroundNote": "Ready in 24–48 hrs",
+  "badge": "Free Doorstep Pickup & Delivery",
+  "meta": {
+    "title": "Sherwani Dry Cleaning Service in Gurgaon | Wash4You",
+    "description": "Professional sherwani dry cleaning in Gurgaon & Delhi NCR by Wash4You. Stain treatment, expert finishing and free doorstep pickup & delivery.",
+    "og_title": "Sherwani Dry Cleaning with Free Pickup | Wash4You",
+    "og_description": "Your sherwani drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR."
+  },
+  "services": [
+    {
+      "id": "dry-clean",
+      "slug": "sherwani",
+      "name": "Dryclean & Press",
+      "short": "Dryclean",
+      "tagline": "Deep Dryclean & Finishing",
+      "shortDescription": "Professional dryclean for your sherwani, with embroidery, zari and borders protected.",
+      "longDescription": "Silk, georgette, zari and hand embroidery do not survive a home wash. Your sherwani is drycleaned on commercial machines with solvents that are gentle on dye and metallic thread, then steam-finished by hand around the work, not over it.",
+      "bestFor": [
+        "Wedding and reception sherwanis",
+        "Silk, brocade and velvet sherwanis",
+        "Sherwanis with hand embroidery",
+        "Sherwanis going back into storage"
+      ],
+      "includes": [
+        "Embroidery, zari & trim inspection",
+        "Stain & spot pre-treatment where safe",
+        "Closed-cycle professional dryclean",
+        "Colour-bleed check on dyed fabrics",
+        "Hand steam finishing around the work",
+        "Folded with tissue & protective packaging"
+      ],
+      "turnaround": "24–48 hours"
+    }
+  ],
+  "whyProfessional": {
+    "eyebrow": "Heritage Fabric Care",
+    "title": "Why Professional Dryclean Care for Sherwanis?",
+    "subtitle": "Occasion wear is often silk, has hand work, and is only worn a few times a year — which is exactly when a home wash does the most damage. Here is why professional dryclean care makes the difference:",
+    "points": [
+      {
+        "title": "Dyes Do Not Run",
+        "desc": "Rich silks and hand-dyed fabrics can bleed in water. A dryclean solvent keeps colour where it belongs."
+      },
+      {
+        "title": "Zari Stays Bright",
+        "desc": "Metallic thread tarnishes and frays with detergent and agitation; a gentle dryclean cycle avoids both."
+      },
+      {
+        "title": "Embroidery Protected",
+        "desc": "Beads, sequins and mirror work are checked first and finished from the reverse, never pressed flat."
+      },
+      {
+        "title": "Silk Keeps Its Sheen",
+        "desc": "Silk loses lustre and water-marks easily at home. Professional handling keeps its natural sheen."
+      },
+      {
+        "title": "Borders & Pleats",
+        "desc": "Borders are pressed straight and pleats set by hand so the garment drapes as it should."
+      },
+      {
+        "title": "Stored the Right Way",
+        "desc": "Returned folded with tissue, ready to store until the next occasion without new creases."
+      }
+    ]
+  },
+  "stainTreatment": {
+    "eyebrow": "Targeted Treatment",
+    "title": "Tough Stains? We Treat Them Before the Dryclean.",
+    "subtitle": "These are the marks we see most often on sherwanis. Each one is assessed and pre-treated before the main clean.",
+    "categories": [
+      {
+        "name": "Food & Gravy",
+        "detail": "Wedding-buffet curry, oil and sweets"
+      },
+      {
+        "name": "Haldi & Mehendi",
+        "detail": "Turmeric and henna marks from ceremonies"
+      },
+      {
+        "name": "Makeup",
+        "detail": "Foundation, kajal and lipstick on necklines and dupattas"
+      },
+      {
+        "name": "Sweat",
+        "detail": "Underarm and neckline marks from a long event"
+      },
+      {
+        "name": "Wax & Candle",
+        "detail": "Diya and candle wax drips"
+      },
+      {
+        "name": "Perfume Marks",
+        "detail": "Rings left by perfume sprayed on silk"
+      }
+    ],
+    "disclaimer": "Treatment results depend on the type of stain, fabric condition, age of the stain and any previous treatment. We use professional spot-lifting techniques, but complete removal cannot be guaranteed for every aged or heat-set mark."
+  },
+  "detailCare": {
+    "eyebrow": "Craftsmanship",
+    "title": "Every Detail Matters",
+    "subtitle": "Here is how the Wash4You studio treats the parts of your sherwani that matter most:",
+    "details": [
+      {
+        "title": "Embroidery & Buttons",
+        "desc": "Hand embroidery and decorative buttons are checked before cleaning and finished from the reverse."
+      },
+      {
+        "title": "Collar",
+        "desc": "The band collar is shaped so it stands properly."
+      },
+      {
+        "title": "Length & Fall",
+        "desc": "The full length is steamed so the sherwani hangs straight."
+      },
+      {
+        "title": "Zari & Metallic Thread",
+        "desc": "Handled to avoid tarnish and snagging; never scrubbed or pressed directly."
+      },
+      {
+        "title": "Embroidery & Embellishment",
+        "desc": "Beads, sequins and mirror work are checked before cleaning and finished from the reverse."
+      },
+      {
+        "title": "Borders & Pleats",
+        "desc": "Borders are pressed straight and pleats reset by hand so the drape is right."
+      }
+    ]
+  },
+  "beforeAfter": {
+    "eyebrow": "Visual Results",
+    "title": "See the Difference",
+    "subtitle": "How Wash4You's professional dryclean care resolves common problems:",
+    "examples": [
+      {
+        "title": "Haldi on Silk",
+        "problem": "A turmeric mark from a haldi ceremony on a silk garment.",
+        "treatment": "Careful spot assessment and pre-treatment suited to silk, then a gentle dryclean.",
+        "result": "Mark reduced or lifted with the silk's sheen intact."
+      },
+      {
+        "title": "Food Stain Near Embroidery",
+        "problem": "A gravy drip right beside hand embroidery.",
+        "treatment": "Targeted treatment around the work, then a professional dryclean.",
+        "result": "Stain treated without disturbing beads or thread."
+      },
+      {
+        "title": "Crushed After an Event",
+        "problem": "Creased borders and pleats after a long function.",
+        "treatment": "Hand steam finishing from the reverse, borders and pleats set by hand.",
+        "result": "Fresh drape and straight borders, ready to store."
+      }
+    ]
+  },
+  "relatedServices": [
+    "saree",
+    "lehenga",
+    "kurta",
+    "dupatta",
+    "blouse"
+  ],
+  "relatedTitle": "More From the Wash4You Dryclean Studio",
+  "faqs": [
+    {
+      "q": "How much does sherwani dry cleaning cost at Wash4You?",
+      "a": "Dryclean & Press for sherwanis starts from {price1} per piece. Prices are exclusive of 18% GST, and pickup and delivery are free."
+    },
+    {
+      "q": "How long does sherwani dry cleaning take?",
+      "a": "Dryclean & Press for sherwanis usually takes 24–48 hours."
+    },
+    {
+      "q": "Can you clean a heavily embroidered wedding sherwani?",
+      "a": "Yes. Heavy work is inspected first, drycleaned gently and finished from the reverse. Loose buttons or threads are flagged to you before we start."
+    },
+    {
+      "q": "Can you remove stains from sherwanis?",
+      "a": "Visible stains are identified and pre-treated before the main clean. Results depend on the type and age of the stain, the fabric and any earlier home treatment, so complete removal cannot be guaranteed for every mark."
+    }
+  ],
+  "finalCta": {
+    "title": "Your Sherwanis, Drycleaned by Wash4You."
+  },
+  "parentService": {
+    "slug": "premium-dry-cleaning",
+    "name": "Premium Dry Cleaning Service"
+  }
+}

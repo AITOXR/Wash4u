@@ -1,0 +1,201 @@
+{
+  "_generated": "tools/gen-product-pages.py — edit the generator (or delete this key to hand-maintain the file)",
+  "name": "Sweater",
+  "slug": "sweater",
+  "noun": "sweater",
+  "seo": "Sweater Dry Cleaning",
+  "care": "dryclean care",
+  "category": "Knitwear & Winter Wear",
+  "eyebrow": "Professional Dryclean Care",
+  "h1": "Professional Dryclean Care for Your Sweaters",
+  "subtitle": "Your sweater drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR.",
+  "heroImage": "images/pricing/sweater.webp",
+  "heroImageFallback": "images/pricing/sweater.png",
+  "heroImageAlt": "Sweater — dry cleaning by Wash4You",
+  "turnaroundNote": "Ready in 24–48 hrs",
+  "badge": "Free Doorstep Pickup & Delivery",
+  "meta": {
+    "title": "Sweater Dry Cleaning Service in Gurgaon | Wash4You",
+    "description": "Professional sweater dry cleaning in Gurgaon & Delhi NCR by Wash4You. Stain treatment, expert finishing and free doorstep pickup & delivery.",
+    "og_title": "Sweater Dry Cleaning with Free Pickup | Wash4You",
+    "og_description": "Your sweater drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR."
+  },
+  "services": [
+    {
+      "id": "dry-clean",
+      "slug": "sweater",
+      "name": "Dryclean & Press",
+      "short": "Dryclean",
+      "tagline": "Deep Dryclean & Finishing",
+      "shortDescription": "Professional dryclean for your sweater, shaped and dried flat so it keeps its size.",
+      "longDescription": "Wool and knitted fibres felt and shrink with heat and agitation. Your sweater is drycleaned on commercial machines without the tumble, then blocked back to shape and finished with light steam so it keeps its size and softness.",
+      "bestFor": [
+        "Wool, cashmere and merino sweaters",
+        "Hand-knitted sweaters",
+        "Sweaters going into or out of storage",
+        "Sweaters with food or makeup marks"
+      ],
+      "includes": [
+        "Knit, cuff & button check",
+        "Stain & spot pre-treatment where applicable",
+        "Closed-cycle professional dryclean",
+        "Blocked back to shape",
+        "Light steam finishing",
+        "Folded flat — never hung — for delivery"
+      ],
+      "turnaround": "24–48 hours"
+    }
+  ],
+  "whyProfessional": {
+    "eyebrow": "Knit Preservation",
+    "title": "Why Professional Dryclean Care for Sweaters?",
+    "subtitle": "Knitted fabrics are loops of yarn, and heat plus agitation lock them together into felt. Here is why professional dryclean care is the safer choice for winter wear:",
+    "points": [
+      {
+        "title": "No Shrinking",
+        "desc": "No hot wash and no tumble dryer — the two things that shrink wool."
+      },
+      {
+        "title": "No Felting",
+        "desc": "A gentle solvent cycle keeps fibres from matting into a stiff, felted surface."
+      },
+      {
+        "title": "Shape Restored",
+        "desc": "Each piece is blocked back to its size, so cuffs, hems and necklines do not flare."
+      },
+      {
+        "title": "Softness Kept",
+        "desc": "Natural oils in wool are not stripped the way detergent strips them."
+      },
+      {
+        "title": "Less Pilling",
+        "desc": "Low friction means fewer bobbles on sleeves and sides."
+      },
+      {
+        "title": "Stored Folded",
+        "desc": "Returned folded flat, because a hanger stretches knitwear out of shape."
+      }
+    ]
+  },
+  "stainTreatment": {
+    "eyebrow": "Targeted Treatment",
+    "title": "Tough Stains? We Treat Them Before the Dryclean.",
+    "subtitle": "These are the marks we see most often on sweaters. Each one is assessed and pre-treated before the main clean.",
+    "categories": [
+      {
+        "name": "Food & Drink",
+        "detail": "Tea, coffee, soup and sauce drips"
+      },
+      {
+        "name": "Sweat & Body Oils",
+        "detail": "Neck, cuff and underarm build-up"
+      },
+      {
+        "name": "Makeup",
+        "detail": "Foundation on necklines and collars"
+      },
+      {
+        "name": "Dust & Smoke",
+        "detail": "Winter-evening bonfire smoke and street dust"
+      },
+      {
+        "name": "Storage Mustiness",
+        "detail": "Stale smell after a summer in storage"
+      },
+      {
+        "name": "Pet Hair & Lint",
+        "detail": "Hair and fluff caught in the knit"
+      }
+    ],
+    "disclaimer": "Treatment results depend on the type of stain, fabric condition, age of the stain and any previous treatment. We use professional spot-lifting techniques, but complete removal cannot be guaranteed for every aged or heat-set mark."
+  },
+  "detailCare": {
+    "eyebrow": "Craftsmanship",
+    "title": "Every Detail Matters",
+    "subtitle": "Here is how the Wash4You studio treats the parts of your sweater that matter most:",
+    "details": [
+      {
+        "title": "Cuffs & Ribbing",
+        "desc": "Ribbed cuffs and hems are blocked back so they grip again instead of flaring."
+      },
+      {
+        "title": "Necklines",
+        "desc": "Necklines are shaped by hand so they do not stretch open."
+      },
+      {
+        "title": "Surface Finish",
+        "desc": "Light steam lifts the pile without flattening the knit."
+      },
+      {
+        "title": "Cuffs & Ribbing",
+        "desc": "Ribbed cuffs and hems are blocked back so they grip again instead of flaring."
+      },
+      {
+        "title": "Necklines",
+        "desc": "Necklines are shaped by hand so they do not stretch open."
+      },
+      {
+        "title": "Surface Finish",
+        "desc": "Light steam lifts the pile without flattening the knit."
+      }
+    ]
+  },
+  "beforeAfter": {
+    "eyebrow": "Visual Results",
+    "title": "See the Difference",
+    "subtitle": "How Wash4You's professional dryclean care resolves common problems:",
+    "examples": [
+      {
+        "title": "Out of Storage",
+        "problem": "A winter piece that smells stale after months in a trunk.",
+        "treatment": "Professional dryclean and airing.",
+        "result": "Fresh, clean and ready for the first cold morning."
+      },
+      {
+        "title": "Stretched Cuffs",
+        "problem": "Cuffs and hem have lost their grip and flare out.",
+        "treatment": "Dryclean and blocking back to the original size.",
+        "result": "Cuffs and hem sit neatly again."
+      },
+      {
+        "title": "Food Drip on the Front",
+        "problem": "A soup or tea mark on the chest.",
+        "treatment": "Spot pre-treatment suited to wool, then a gentle dryclean.",
+        "result": "Mark treated without shrinking or felting the knit."
+      }
+    ]
+  },
+  "relatedServices": [
+    "cardigan",
+    "sweatshirt",
+    "jacket",
+    "shawl",
+    "long-coat"
+  ],
+  "relatedTitle": "More From the Wash4You Dryclean Studio",
+  "faqs": [
+    {
+      "q": "How much does sweater dry cleaning cost at Wash4You?",
+      "a": "Dryclean & Press for sweaters starts from {price1} per piece. Prices are exclusive of 18% GST, and pickup and delivery are free."
+    },
+    {
+      "q": "How long does sweater dry cleaning take?",
+      "a": "Dryclean & Press for sweaters usually takes 24–48 hours."
+    },
+    {
+      "q": "Will my sweater shrink?",
+      "a": "No. Sweaters shrink from hot water and tumble drying. A professional dryclean uses neither, and each sweater is blocked back to its size."
+    },
+    {
+      "q": "Can you remove stains from sweaters?",
+      "a": "Visible stains are identified and pre-treated before the main clean. Results depend on the type and age of the stain, the fabric and any earlier home treatment, so complete removal cannot be guaranteed for every mark."
+    }
+  ],
+  "finalCta": {
+    "title": "Your Sweaters, Drycleaned by Wash4You."
+  },
+  "parentService": {
+    "slug": "premium-dry-cleaning",
+    "name": "Premium Dry Cleaning Service"
+  }
+}

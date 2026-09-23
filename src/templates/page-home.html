@@ -226,7 +226,7 @@
       {% for slug in home.price_rail.slugs %}
       {% set item = price_index.get(slug) %}
       {% if item %}
-      <a class="price-tile" href="{% if slug == 'jeans' %}{{ root_path }}products/jeans/{% else %}{{ root_path }}pricing/{% endif %}"{% if slug == 'jeans' %} title="View Jeans Care Details"{% endif %}>
+      <a class="price-tile" href="{{ root_path }}{{ (product_urls or {}).get(slug, 'pricing/') }}">
         <span class="price-tile__media">
           {# 400px source for a tile that renders at 160-200px CSS, so it
              stays sharp on a 2x screen without shipping the 500px PNG. #}

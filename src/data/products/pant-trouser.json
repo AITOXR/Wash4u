@@ -1,0 +1,312 @@
+{
+  "_generated": "tools/gen-product-pages.py — edit the generator (or delete this key to hand-maintain the file)",
+  "name": "Pant/Trouser",
+  "slug": "pant-trouser",
+  "noun": "trousers",
+  "seo": "Trouser Dry Cleaning",
+  "care": "dryclean care",
+  "category": "Everyday Wear",
+  "eyebrow": "Professional Dryclean Care",
+  "h1": "Professional Dryclean Care for Your Trousers",
+  "subtitle": "Your trousers drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR.",
+  "heroImage": "images/pricing/pant-trouser.webp",
+  "heroImageFallback": "images/pricing/pant-trouser.png",
+  "heroImageAlt": "Pant/Trouser — dry cleaning by Wash4You",
+  "turnaroundNote": "Dryclean 24–48 hrs · Steam press 24 hrs",
+  "badge": "Free Doorstep Pickup & Delivery",
+  "meta": {
+    "title": "Trouser Dry Cleaning Service in Gurgaon | Wash4You",
+    "description": "Professional trouser dry cleaning in Gurgaon & Delhi NCR by Wash4You. Stain treatment, expert finishing and free doorstep pickup & delivery.",
+    "og_title": "Trouser Dry Cleaning with Free Pickup | Wash4You",
+    "og_description": "Your trousers drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR."
+  },
+  "services": [
+    {
+      "id": "dry-clean",
+      "slug": "pant-trouser",
+      "name": "Dryclean & Press",
+      "short": "Dryclean",
+      "tagline": "Deep Dryclean & Finishing",
+      "shortDescription": "Professional dryclean for worn trousers, finished on a steam table.",
+      "longDescription": "A professional dryclean on commercial machines that lifts sweat, body oils and everyday grime from your trousers while protecting colour, fit and fabric, followed by a hand steam finish.",
+      "bestFor": [
+        "Office trousers worn through a working week",
+        "Wool, poly-wool and linen trousers",
+        "Trousers with food or grease marks",
+        "Formal trousers that need a sharp crease"
+      ],
+      "includes": [
+        "Individual item & pocket check",
+        "Stain & spot pre-treatment where applicable",
+        "Closed-cycle professional dryclean",
+        "Shape & seam alignment",
+        "Hand steam finishing",
+        "Quality inspection & protective packaging"
+      ],
+      "turnaround": "24–48 hours"
+    },
+    {
+      "id": "steam-press",
+      "slug": "iron-pant-trouser",
+      "name": "Steam Press",
+      "short": "Steam Press",
+      "tagline": "Wrinkle Removal & Refresh",
+      "shortDescription": "Crisp wrinkle removal and a fresh finish for pieces that are already clean.",
+      "longDescription": "Professional steam pressing for pieces that are already clean but creased: shape, seams and drape reset on a steam finishing table, without shine or stiffness.",
+      "bestFor": [
+        "Already-clean pieces that only need the creases out",
+        "A quick refresh before work, travel or an event",
+        "Home-washed pieces that dried crumpled",
+        "Keeping a sharp, neat everyday look"
+      ],
+      "includes": [
+        "Garment & fastener inspection",
+        "Professional steam pressing",
+        "Seam, collar and hem alignment",
+        "Natural drape restored",
+        "Protective fold or hanger packaging"
+      ],
+      "turnaround": "24 hours"
+    }
+  ],
+  "serviceComparison": {
+    "eyebrow": "Service Selection Guide",
+    "title": "Which Pant/Trouser Service Should You Choose?",
+    "intro": "Choose Dryclean & Press when the piece has been worn and needs a proper professional clean. Choose Steam Press when it is already clean and only needs a crisp finish.",
+    "features": [
+      {
+        "name": "Professional dryclean on commercial machines",
+        "cells": [
+          true,
+          false
+        ]
+      },
+      {
+        "name": "Stain & spot pre-treatment",
+        "cells": [
+          true,
+          false
+        ]
+      },
+      {
+        "name": "Lifts body oils, sweat and odour",
+        "cells": [
+          true,
+          false
+        ]
+      },
+      {
+        "name": "Protects colour from water washout",
+        "cells": [
+          true,
+          "N/A"
+        ]
+      },
+      {
+        "name": "Steam wrinkle removal",
+        "cells": [
+          true,
+          true
+        ]
+      },
+      {
+        "name": "Seam, collar & hem alignment",
+        "cells": [
+          true,
+          true
+        ]
+      },
+      {
+        "name": "Pocket & trim check",
+        "cells": [
+          true,
+          true
+        ]
+      },
+      {
+        "name": "Best for worn or soiled trousers",
+        "cells": [
+          true,
+          false
+        ]
+      },
+      {
+        "name": "Best for clean trousers needing a refresh",
+        "cells": [
+          false,
+          true
+        ]
+      },
+      {
+        "name": "Free doorstep pickup & delivery",
+        "cells": [
+          true,
+          true
+        ]
+      }
+    ]
+  },
+  "whyProfessional": {
+    "eyebrow": "Fabric Preservation",
+    "title": "Why Professional Dryclean Care for Trousers?",
+    "subtitle": "Home machines rub fibres against each other, fade colour and pull garments out of shape a little more every wash. Here is why professional dryclean care makes the difference:",
+    "points": [
+      {
+        "title": "Colour Stays True",
+        "desc": "Solvent cleaning does not bleed dye the way hot water and detergent do, so darks stay dark and prints stay sharp."
+      },
+      {
+        "title": "Fit & Shape Hold",
+        "desc": "No spin cycle to twist seams or stretch necklines and waistbands out of shape."
+      },
+      {
+        "title": "Less Fibre Wear",
+        "desc": "A low-friction dryclean cycle means less pilling, fuzzing and thinning at elbows, collars and seats."
+      },
+      {
+        "title": "Oils Actually Lift",
+        "desc": "Body oils and deodorant build-up dissolve in dryclean solvent where a cold home wash leaves them behind."
+      },
+      {
+        "title": "A Finish You Can See",
+        "desc": "Pressed on a steam finishing table, not a domestic iron, so seams sit flat and fabric keeps its drape."
+      },
+      {
+        "title": "Checked Before & After",
+        "desc": "Buttons, seams and stains are checked when the piece arrives and again before it leaves."
+      }
+    ]
+  },
+  "stainTreatment": {
+    "eyebrow": "Targeted Treatment",
+    "title": "Tough Stains? We Treat Them Before the Dryclean.",
+    "subtitle": "These are the marks we see most often on trousers. Each one is assessed and pre-treated before the main clean.",
+    "categories": [
+      {
+        "name": "Food & Beverage",
+        "detail": "Tea, coffee, curry, gravy, sauces and oil drips"
+      },
+      {
+        "name": "Sweat & Body Oils",
+        "detail": "Collar and underarm build-up, yellowing and odour"
+      },
+      {
+        "name": "Deodorant Marks",
+        "detail": "White streaks and stiff underarm residue"
+      },
+      {
+        "name": "Ink & Pen",
+        "detail": "Pen marks near pockets and cuffs"
+      },
+      {
+        "name": "Cosmetics",
+        "detail": "Foundation, lipstick and sunscreen transfer"
+      },
+      {
+        "name": "Dust & Commute Grime",
+        "detail": "Grey cuffs, hems and seat areas from daily wear"
+      }
+    ],
+    "disclaimer": "Treatment results depend on the type of stain, fabric condition, age of the stain and any previous treatment. We use professional spot-lifting techniques, but complete removal cannot be guaranteed for every aged or heat-set mark."
+  },
+  "detailCare": {
+    "eyebrow": "Craftsmanship",
+    "title": "Every Detail Matters",
+    "subtitle": "Here is how the Wash4You studio treats the parts of your trousers that matter most:",
+    "details": [
+      {
+        "title": "Crease Line",
+        "desc": "The front crease is set along the original line, never doubled."
+      },
+      {
+        "title": "Waistband & Seat",
+        "desc": "Waistband and seat are pressed separately so they sit flat without shine."
+      },
+      {
+        "title": "Hems & Turn-ups",
+        "desc": "Hems and turn-ups are pressed straight and even."
+      },
+      {
+        "title": "Buttons & Fasteners",
+        "desc": "Checked on arrival; loose buttons are flagged before cleaning so nothing is lost in the machine."
+      },
+      {
+        "title": "Colour Care",
+        "desc": "Darks, whites and prints are assessed separately so colour never transfers between garments."
+      },
+      {
+        "title": "Finishing",
+        "desc": "Steam-pressed to the garment's natural shape rather than flattened into hard creases."
+      }
+    ]
+  },
+  "beforeAfter": {
+    "eyebrow": "Visual Results",
+    "title": "See the Difference",
+    "subtitle": "How Wash4You's professional dryclean care resolves common problems:",
+    "examples": [
+      {
+        "title": "Collar & Cuff Grime",
+        "problem": "A grey line along the collar and cuffs from daily wear.",
+        "treatment": "Targeted pre-treatment on the soiled edges, then a professional dryclean.",
+        "result": "Clean, even collar and cuffs with the fabric's colour intact."
+      },
+      {
+        "title": "Food Spill",
+        "problem": "A fresh gravy or oil mark on the front of the garment.",
+        "treatment": "Degreasing spot treatment before the dryclean cycle.",
+        "result": "Mark lifted without a water ring or a faded patch."
+      },
+      {
+        "title": "Crumpled After Travel",
+        "problem": "Deep creases from a suitcase or a crowded cupboard.",
+        "treatment": "Steam finishing with seams and hems aligned.",
+        "result": "Smooth, crisp and ready to wear."
+      }
+    ]
+  },
+  "relatedServices": [
+    "shirt",
+    "jeans",
+    "t-shirt",
+    "dress",
+    "men-suit-2pcs"
+  ],
+  "relatedTitle": "More From the Wash4You Dryclean Studio",
+  "faqs": [
+    {
+      "q": "How much does trouser dry cleaning cost at Wash4You?",
+      "a": "Pant/Trouser Dryclean & Press starts from {price1} per piece and Steam Press from {price2} per piece. Prices are exclusive of 18% GST, and pickup and delivery are free."
+    },
+    {
+      "q": "How long does trouser dry cleaning take?",
+      "a": "Steam Press is usually delivered within 24 hours, and Dryclean & Press within 24–48 hours."
+    },
+    {
+      "q": "Should I choose dryclean or steam press?",
+      "a": "Choose Steam Press when the piece is already clean and just needs the creases out. Choose Dryclean & Press when it has been worn, has stains or smells, or needs a proper hygienic clean."
+    },
+    {
+      "q": "Will my trousers come back with a crease?",
+      "a": "Yes, if they were made with one. Formal trousers are pressed with the crease set along the original line; casual trousers and chinos are pressed flat unless you ask otherwise."
+    },
+    {
+      "q": "Can you remove stains from trousers?",
+      "a": "Visible stains are identified and pre-treated before the main clean. Results depend on the type and age of the stain, the fabric and any earlier home treatment, so complete removal cannot be guaranteed for every mark."
+    }
+  ],
+  "finalCta": {
+    "title": "Your Trousers, Drycleaned by Wash4You."
+  },
+  "photos": {
+    "banner": {
+      "src": "images/studio/shirts-hung.webp",
+      "alt": "Pressed shirts hanging on a rail",
+      "caption": "Finished by hand, hung to hold their shape"
+    }
+  },
+  "parentService": {
+    "slug": "premium-dry-cleaning",
+    "name": "Premium Dry Cleaning Service"
+  }
+}

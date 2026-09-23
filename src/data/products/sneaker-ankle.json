@@ -1,0 +1,313 @@
+{
+  "_generated": "tools/gen-product-pages.py — edit the generator (or delete this key to hand-maintain the file)",
+  "name": "Sneaker Ankle",
+  "slug": "sneaker-ankle",
+  "noun": "high-top sneakers",
+  "seo": "High-Top Sneaker Cleaning",
+  "care": "shoe care",
+  "category": "Footwear Cleaning",
+  "eyebrow": "Professional Shoe Care",
+  "h1": "Professional Shoe Care for Your High-Top Sneakers",
+  "subtitle": "Your high-top sneakers cleaned by hand at Wash4You's Gurugram stores — uppers by material, soles, laces and insoles included. Free doorstep pickup and delivery.",
+  "heroImage": "images/pricing/sneakers.webp",
+  "heroImageFallback": "images/pricing/sneakers.jpg",
+  "heroImageAlt": "Sneaker Ankle — shoe cleaning by Wash4You",
+  "turnaroundNote": "Ready in 24–48 hrs",
+  "badge": "Free Doorstep Pickup & Delivery",
+  "meta": {
+    "title": "High-Top Sneaker Cleaning Service in Gurgaon | Wash4You",
+    "description": "Professional high-top sneaker cleaning in Gurgaon & Delhi NCR by Wash4You. Stain treatment, expert finishing and free doorstep pickup & delivery.",
+    "og_title": "High-Top Sneaker Cleaning with Free Pickup | Wash4You",
+    "og_description": "Your high-top sneakers cleaned by hand at Wash4You's Gurugram stores — uppers by material, soles, laces and insoles included. Free doorstep pickup and delivery."
+  },
+  "services": [
+    {
+      "id": "dry-clean",
+      "slug": "sneaker-ankle",
+      "name": "Shoe Deep Cleaning",
+      "short": "Shoe Cleaning",
+      "tagline": "Hand-Cleaned by Material",
+      "shortDescription": "Hand cleaning for high-top sneakers, by material, with soles, laces and insoles included.",
+      "longDescription": "Every pair is cleaned by hand at a Wash4You store, never thrown in a washing machine. Uppers are cleaned with products suited to their material, soles and midsoles are scrubbed, laces washed, insoles freshened, and the pair is dried at room temperature.",
+      "bestFor": [
+        "High-top and ankle sneakers",
+        "Basketball and skate shoes",
+        "Canvas and leather high-tops",
+        "Pairs with collar and lining grime"
+      ],
+      "includes": [
+        "Material & condition check",
+        "Upper cleaning by material",
+        "Sole & midsole scrub",
+        "Lace wash & insole refresh",
+        "Deodorising",
+        "Air-dried at room temperature"
+      ],
+      "turnaround": "24–48 hours"
+    }
+  ],
+  "studioLabel": "Shoe Care",
+  "tag": {
+    "title": "Shoe Care Tag",
+    "line": "Tagged at your door · Returned clean & packed"
+  },
+  "studio": {
+    "eyebrow": "Inside Wash4You",
+    "title": "How Wash4You Cleans Your {name}",
+    "subtitle": "Shoes are cleaned by hand at our Sushant Lok and Sector 49 stores — not in a washing machine. These are real before-and-after results from our own bench.",
+    "points": [
+      {
+        "title": "Cleaned by hand",
+        "desc": "Every pair is worked on by hand with brushes and products suited to its material."
+      },
+      {
+        "title": "Tagged from pickup to delivery",
+        "desc": "Each pair is counted at your door and tagged so it never gets mixed up."
+      },
+      {
+        "title": "Sole to lace",
+        "desc": "Uppers, soles, midsoles, laces and insoles are all cleaned, not just the parts you see."
+      },
+      {
+        "title": "Dried at room temperature",
+        "desc": "No heat, which warps soles and cracks glue."
+      }
+    ]
+  },
+  "whyProfessional": {
+    "eyebrow": "Footwear Care",
+    "title": "Why Professional Shoe Care for Your Ankle Sneakers?",
+    "subtitle": "A washing machine breaks down glue, warps soles and ruins leather and suede. Here is why professional shoe care is the better way to clean them:",
+    "points": [
+      {
+        "title": "No Machine Damage",
+        "desc": "Hand cleaning means no tumbling to loosen glue or crush heel counters."
+      },
+      {
+        "title": "Right Product per Material",
+        "desc": "Leather, suede, mesh, knit and canvas each get their own cleaner."
+      },
+      {
+        "title": "Soles Brightened",
+        "desc": "Midsoles and outsoles are scrubbed back towards their original colour."
+      },
+      {
+        "title": "Odour Treated",
+        "desc": "Insoles are freshened and pairs deodorised, not just cleaned outside."
+      },
+      {
+        "title": "Shape Kept",
+        "desc": "Pairs are dried at room temperature with their shape supported."
+      },
+      {
+        "title": "Done at Our Stores",
+        "desc": "Cleaned at our own Gurugram stores, not sent out."
+      }
+    ]
+  },
+  "stainTreatment": {
+    "eyebrow": "Targeted Treatment",
+    "title": "Tough Stains? We Treat Them Before the Cleaning.",
+    "subtitle": "These are the marks we see most often on ankle sneakers. Each one is assessed and pre-treated before the main clean.",
+    "categories": [
+      {
+        "name": "Mud & Dust",
+        "detail": "Dried mud, rain splashes and street dust"
+      },
+      {
+        "name": "Grass & Ground Marks",
+        "detail": "Park, pitch and lawn stains"
+      },
+      {
+        "name": "Scuffs",
+        "detail": "Black scuff marks on toes and sides"
+      },
+      {
+        "name": "Yellowed Soles",
+        "detail": "Discoloured midsoles and rubber"
+      },
+      {
+        "name": "Food & Drink",
+        "detail": "Spills on uppers and laces"
+      },
+      {
+        "name": "Odour",
+        "detail": "Sweat and odour inside the shoe"
+      }
+    ],
+    "disclaimer": "Treatment results depend on the type of stain, fabric condition, age of the stain and any previous treatment. We use professional spot-lifting techniques, but complete removal cannot be guaranteed for every aged or heat-set mark."
+  },
+  "detailCare": {
+    "eyebrow": "Craftsmanship",
+    "title": "Every Detail Matters",
+    "subtitle": "Here is how the Wash4You studio treats the parts of your high-top sneakers that matter most:",
+    "details": [
+      {
+        "title": "Collar & Lining",
+        "desc": "The padded collar and inner lining are cleaned, where high-tops collect the most grime."
+      },
+      {
+        "title": "Uppers",
+        "desc": "Leather, canvas and suede panels are each cleaned with their own product."
+      },
+      {
+        "title": "Soles",
+        "desc": "Soles and midsoles are scrubbed back towards their original colour."
+      },
+      {
+        "title": "Uppers",
+        "desc": "Leather, suede, mesh and knit uppers are each cleaned with their own product and brush."
+      },
+      {
+        "title": "Soles & Midsoles",
+        "desc": "Scrubbed to lift grime from the texture and the edges."
+      },
+      {
+        "title": "Laces & Insoles",
+        "desc": "Laces are washed separately and insoles freshened."
+      }
+    ]
+  },
+  "beforeAfter": {
+    "eyebrow": "Visual Results",
+    "title": "See the Difference",
+    "subtitle": "How Wash4You's professional shoe care resolves common problems:",
+    "examples": [
+      {
+        "title": "Muddy After the Rain",
+        "problem": "Dried mud caked on uppers and soles.",
+        "treatment": "Dry brushing, then hand cleaning by material.",
+        "result": "Clean uppers and soles."
+      },
+      {
+        "title": "Grey, Tired Soles",
+        "problem": "Midsoles gone grey and dull with wear.",
+        "treatment": "Sole and midsole scrub.",
+        "result": "Brighter, cleaner soles."
+      },
+      {
+        "title": "Odour",
+        "problem": "A pair that smells even after airing.",
+        "treatment": "Insole refresh and deodorising.",
+        "result": "Fresh inside and out."
+      }
+    ],
+    "photos": [
+      {
+        "before": "images/proof/sneaker-nike-before.webp",
+        "after": "images/proof/sneaker-nike-after.webp",
+        "alt": "Suede sneaker",
+        "caption": "Suede sneaker — cleaned by hand at Wash4You"
+      },
+      {
+        "before": "images/proof/sneaker-hoka-before.webp",
+        "after": "images/proof/sneaker-hoka-after.webp",
+        "alt": "White running shoes",
+        "caption": "White running shoes — uppers, midsoles and laces"
+      }
+    ]
+  },
+  "careProcess": {
+    "eyebrow": "Our Process",
+    "title": "The 8-Step Wash4You Shoe Process",
+    "subtitle": "From your doorstep, through the Wash4You studio, and back:",
+    "steps": [
+      {
+        "step": "01",
+        "title": "Book Your Pickup",
+        "desc": "Book online or on WhatsApp."
+      },
+      {
+        "step": "02",
+        "title": "Doorstep Collection",
+        "desc": "Your pairs are counted and tagged at your door."
+      },
+      {
+        "step": "03",
+        "title": "Material Check",
+        "desc": "Uppers, soles and any damage are noted before cleaning."
+      },
+      {
+        "step": "04",
+        "title": "Dry Brushing",
+        "desc": "Loose dirt and mud are brushed out first."
+      },
+      {
+        "step": "05",
+        "title": "Hand Cleaning",
+        "desc": "Uppers, soles and midsoles cleaned by hand, by material."
+      },
+      {
+        "step": "06",
+        "title": "Laces & Insoles",
+        "desc": "Laces washed, insoles freshened, pair deodorised."
+      },
+      {
+        "step": "07",
+        "title": "Room-Temperature Drying",
+        "desc": "Dried with shape supported, no heat."
+      },
+      {
+        "step": "08",
+        "title": "Packed & Delivered",
+        "desc": "Checked, packed and delivered back to your door."
+      }
+    ]
+  },
+  "relatedServices": [
+    "sneakers",
+    "sports-shoes",
+    "leather-shoes",
+    "suede-leather-shoes",
+    "boots-mid-length"
+  ],
+  "relatedTitle": "More From the Wash4You Shoe Studio",
+  "faqs": [
+    {
+      "q": "How much does high-top sneaker cleaning cost at Wash4You?",
+      "a": "Shoe Deep Cleaning for ankle sneakers starts from {price1} per pair. Prices are exclusive of 18% GST, and pickup and delivery are free."
+    },
+    {
+      "q": "How long does high-top sneaker cleaning take?",
+      "a": "Shoe Deep Cleaning for ankle sneakers usually takes 24–48 hours."
+    },
+    {
+      "q": "Why do high-tops cost more than regular sneakers?",
+      "a": "High-tops have more upper, a padded collar and more lining to clean, so each pair takes longer by hand."
+    },
+    {
+      "q": "Can you remove stains from ankle sneakers?",
+      "a": "Visible stains are identified and pre-treated before the main clean. Results depend on the type and age of the stain, the fabric and any earlier home treatment, so complete removal cannot be guaranteed for every mark."
+    }
+  ],
+  "finalCta": {
+    "title": "Your Ankle Sneakers, Cleaned by Hand at Wash4You."
+  },
+  "photos": {
+    "hero": {
+      "src": "images/proof/sneaker-hoka-after.webp",
+      "alt": "White running shoes after hand cleaning at a Wash4You store"
+    },
+    "studio": [
+      {
+        "src": "images/proof/sneaker-hoka-after.webp",
+        "alt": "Running shoes after cleaning at Wash4You",
+        "caption": "Cleaned by hand at Wash4You"
+      },
+      {
+        "src": "images/proof/sneaker-nike-after.webp",
+        "alt": "Suede sneaker after cleaning at Wash4You",
+        "caption": "Suede, cleaned by material"
+      },
+      {
+        "src": "images/hero-wall/leather-shoes.webp",
+        "alt": "Polished leather shoes",
+        "caption": "Leather conditioned, not soaked"
+      }
+    ]
+  },
+  "parentService": {
+    "slug": "shoe-cleaning",
+    "name": "Shoe Cleaning Service"
+  }
+}

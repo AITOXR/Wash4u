@@ -1688,3 +1688,299 @@ img { max-width: 100%; }
 }
 
 .prod-final-cta-banner > *:not(.prod-final-cta__bg) { position: relative; z-index: 1; }
+
+
+/* ============================================================
+   Dryclean studio layer — puts Wash4You and its machines on the page
+   (client feedback: "looks more of garment page than dryclean")
+   ============================================================ */
+
+/* Hero: studio photo, Wash4You studio chip, product plate, claim tag */
+.prod-hero__studio {
+  position: absolute;
+  z-index: 2;
+  top: var(--s-5);
+  left: var(--s-5);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--r-full);
+  background: rgba(13, 35, 80, 0.78);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16);
+  color: var(--brass-bright);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.prod-hero__studio img { width: 5.5rem; height: auto; display: block; }
+.prod-hero__studio span { padding-left: 0.6rem; border-left: 1px solid rgba(255, 255, 255, 0.28); }
+
+.prod-hero__price-tag { display: none; }
+
+.prod-tag {
+  position: absolute;
+  z-index: 3;
+  left: -1.5rem;
+  bottom: 2rem;
+  width: 12.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.35rem 1rem 0.9rem;
+  border-radius: 10px;
+  background: #fffdf8;
+  color: var(--ink);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.38);
+  transform: rotate(-4deg);
+  line-height: 1.25;
+}
+
+.prod-tag__hole {
+  position: absolute;
+  top: 0.55rem;
+  left: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-left: -0.35rem;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  box-shadow: inset 0 0 0 2px var(--brass);
+}
+
+.prod-tag__brand img { width: 6.5rem; height: auto; display: block; }
+
+.prod-tag__kind {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.prod-tag__item {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  padding-bottom: 0.35rem;
+  border-bottom: 1px dashed rgba(16, 27, 46, 0.2);
+}
+
+.prod-tag__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.6875rem;
+  color: var(--ink-3);
+}
+
+.prod-tag__row strong { color: var(--navy-deep); font-size: 0.75rem; text-align: right; }
+.prod-tag__row small { font-weight: 500; color: var(--ink-3); }
+
+.prod-tag__line { font-size: 0.625rem; color: var(--ink-3); margin-top: 0.15rem; }
+
+.prod-tag__code {
+  height: 1.4rem;
+  margin-top: 0.3rem;
+  background: repeating-linear-gradient(90deg,
+    var(--navy-deep) 0 2px, transparent 2px 4px,
+    var(--navy-deep) 4px 5px, transparent 5px 8px,
+    var(--navy-deep) 8px 11px, transparent 11px 12px);
+  opacity: 0.85;
+}
+
+@media (max-width: 40rem) {
+  .prod-hero__media { max-width: 100%; aspect-ratio: 4 / 4.4; }
+  .prod-tag { left: 0.75rem; bottom: 1rem; width: 10.5rem; padding: 1.2rem 0.8rem 0.75rem; }
+  .prod-tag__brand img { width: 5.25rem; }
+  .prod-tag__item { font-size: 1rem; }
+  .prod-tag__code { height: 1rem; }
+  .prod-hero__plate { right: 0.75rem; bottom: 1rem; width: 6.5rem; }
+  .prod-hero__studio { top: 0.75rem; left: 0.75rem; }
+  .prod-hero__studio img { width: 4.5rem; }
+}
+
+/* Inside Wash4You: copy + numbered points beside a photo collage */
+.prod-studio {
+  padding: var(--s-12) 0;
+  background: var(--wash);
+}
+
+.prod-studio__grid {
+  display: grid;
+  gap: var(--s-9);
+  align-items: center;
+}
+
+@media (min-width: 62rem) {
+  .prod-studio__grid { grid-template-columns: 0.9fr 1.1fr; gap: var(--s-10); }
+}
+
+.page-product .prod-studio .prod-section-eyebrow { text-align: left; }
+.prod-studio .prod-section-title { text-align: left; margin-bottom: var(--s-4); }
+.page-product .prod-studio__lede { color: var(--ink-2); font-size: var(--t-md, 1.0625rem); line-height: 1.65; margin: 0 0 var(--s-7); }
+
+.prod-studio__points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-5);
+}
+
+.prod-studio__points li { display: flex; gap: var(--s-4); align-items: flex-start; }
+
+.prod-studio__num {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--brass-deep);
+  padding-top: 0.15rem;
+  min-width: 2rem;
+}
+
+.prod-studio__points h3 { font-size: 1.05rem; margin: 0 0 0.25rem; color: var(--navy-deep); }
+.page-product .prod-studio__points p { margin: 0; font-size: var(--t-sm); line-height: 1.6; color: var(--ink-2); }
+
+.prod-studio__photos {
+  display: grid;
+  gap: var(--s-3);
+  grid-template-columns: 1.25fr 1fr;
+  grid-template-rows: repeat(2, minmax(9.5rem, 13rem)) auto;
+}
+
+.prod-studio__photo {
+  position: relative;
+  margin: 0;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: var(--navy-deep);
+}
+
+.prod-studio__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.prod-studio__photo figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--s-7) var(--s-4) var(--s-3);
+  color: #fff;
+  font-size: var(--t-sm);
+  font-weight: 600;
+  background: linear-gradient(to top, rgba(13, 35, 80, 0.85), transparent);
+}
+
+.prod-studio__photo--1 { grid-row: 1 / 3; }
+
+.prod-studio__brand {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-4) var(--s-5);
+  border-radius: var(--r-lg);
+  background: var(--navy-deep);
+  color: var(--brass-bright);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.prod-studio__brand img { width: 8rem; height: auto; display: block; }
+
+@media (max-width: 30rem) {
+  .prod-studio__photos { grid-template-columns: 1fr 1fr; grid-template-rows: 12rem 9rem auto; }
+  .prod-studio__photo--1 { grid-row: auto; grid-column: 1 / -1; }
+  .prod-studio__brand { flex-direction: column; align-items: flex-start; gap: var(--s-2); }
+}
+
+/* Comparison cells that carry a word instead of a tick */
+.prod-cell-note { font-size: var(--t-xs); color: var(--ink-3); }
+.prod-table th[scope="row"] { font-weight: 600; color: var(--ink); }
+.prod-table thead th:first-child { width: 50%; }
+.prod-compare-card__price small { font-size: 0.75rem; font-weight: normal; color: var(--ink-3); }
+
+/* Real before/after photo pairs (footwear, sofa) */
+.prod-ba-photos {
+  display: grid;
+  gap: var(--s-5);
+  margin-bottom: var(--s-8);
+}
+
+@media (min-width: 48rem) { .prod-ba-photos { grid-template-columns: repeat(2, 1fr); } }
+
+.prod-ba { margin: 0; }
+
+.prod-ba__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: #fff;
+}
+
+.prod-ba__half { position: relative; aspect-ratio: 1; background: var(--wash-2); }
+.prod-ba__half img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.prod-ba__half em {
+  position: absolute;
+  left: 0.6rem;
+  top: 0.6rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--r-full);
+  background: rgba(13, 35, 80, 0.8);
+  color: #fff;
+  font-style: normal;
+  font-size: var(--t-xs);
+  font-weight: 600;
+}
+
+.prod-ba__half + .prod-ba__half em { background: var(--green); }
+.prod-ba figcaption { margin-top: var(--s-3); font-size: var(--t-sm); color: var(--ink-2); text-align: center; }
+
+/* Final CTA: Wash4You mascot stands at the edge of the banner */
+.prod-final-cta__mascot {
+  display: none;
+}
+
+@media (min-width: 62rem) {
+  /* child selector matches the banner's `> *:not(bg)` rule, which would
+     otherwise force position: relative and drop the mascot into the flow */
+  .prod-final-cta-banner > .prod-final-cta__mascot {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    right: 3%;
+    bottom: -0.5rem;
+    width: 11.5rem;
+    height: auto;
+    filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.35));
+  }
+}
+
+/* Price list / steam-iron table / footer links into product pages */
+.product-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--brass);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.product-link:hover { color: var(--navy); text-decoration-color: currentColor; }
+.product-link--media { display: block; width: 100%; height: 100%; text-decoration: none; }
+
+.page-product .prod-studio__parent { margin: calc(var(--s-4) * -1) 0 var(--s-7); font-size: var(--t-sm); color: var(--ink-3); }
+.prod-studio__parent a { color: var(--navy); font-weight: 600; text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 3px; }

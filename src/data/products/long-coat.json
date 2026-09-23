@@ -1,0 +1,208 @@
+{
+  "_generated": "tools/gen-product-pages.py — edit the generator (or delete this key to hand-maintain the file)",
+  "name": "Long Coat",
+  "slug": "long-coat",
+  "noun": "long coat",
+  "seo": "Long Coat Dry Cleaning",
+  "care": "dryclean care",
+  "category": "Formal & Tailored Wear",
+  "eyebrow": "Professional Dryclean Care",
+  "h1": "Professional Dryclean Care for Your Long Coats",
+  "subtitle": "Your long coat drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR.",
+  "heroImage": "images/pricing/coat.webp",
+  "heroImageFallback": "images/pricing/coat.png",
+  "heroImageAlt": "Long Coat — dry cleaning by Wash4You",
+  "turnaroundNote": "Ready in 24–48 hrs",
+  "badge": "Free Doorstep Pickup & Delivery",
+  "meta": {
+    "title": "Long Coat Dry Cleaning Service in Gurgaon | Wash4You",
+    "description": "Professional long coat dry cleaning in Gurgaon & Delhi NCR by Wash4You. Stain treatment, expert finishing and free doorstep pickup & delivery.",
+    "og_title": "Long Coat Dry Cleaning with Free Pickup | Wash4You",
+    "og_description": "Your long coat drycleaned on commercial machines, steam-finished by hand and returned pressed and covered by Wash4You. Collected free from your doorstep across Gurugram & Delhi NCR."
+  },
+  "services": [
+    {
+      "id": "dry-clean",
+      "slug": "long-coat",
+      "name": "Dryclean & Press",
+      "short": "Dryclean",
+      "tagline": "Deep Dryclean & Finishing",
+      "shortDescription": "Professional dryclean for a tailored long coat, with hand-finished shoulders and lapels.",
+      "longDescription": "A tailored long coat is built with canvas, interfacing and linings that water would distort. A professional dryclean cleans it without shrinking the layers, then the shoulders, lapels and creases are finished by hand on a steam table.",
+      "bestFor": [
+        "Wool and cashmere overcoats",
+        "Trench coats",
+        "Winter coats before or after the season",
+        "Coats with collar or cuff grime"
+      ],
+      "includes": [
+        "Pocket, lining & button check",
+        "Stain & spot pre-treatment where applicable",
+        "Closed-cycle professional dryclean",
+        "Shoulder & lapel shaping",
+        "Hand steam finishing & crease setting",
+        "Covered on a hanger for delivery"
+      ],
+      "turnaround": "24–48 hours"
+    }
+  ],
+  "whyProfessional": {
+    "eyebrow": "Structure Preservation",
+    "title": "Why Professional Dryclean Care for Long Coats?",
+    "subtitle": "Tailoring depends on layers — shell fabric, canvas, interfacing and lining — that shrink at different rates in water. Here is why tailored pieces need professional dryclean care:",
+    "points": [
+      {
+        "title": "Structure Holds",
+        "desc": "No water means canvas and interfacing do not shrink, bubble or separate from the shell fabric."
+      },
+      {
+        "title": "Shoulders & Lapels",
+        "desc": "Shoulders are pressed on a form and lapels rolled by hand, never flattened on a board."
+      },
+      {
+        "title": "Wool Without Shine",
+        "desc": "Steam finishing through a cloth keeps wool from turning shiny at the seams and pockets."
+      },
+      {
+        "title": "Linings Stay Put",
+        "desc": "Linings are cleaned with the shell so nothing puckers or hangs below the hem."
+      },
+      {
+        "title": "Sharp Creases",
+        "desc": "Trouser creases are set cleanly along the original line — not a second, doubled crease."
+      },
+      {
+        "title": "Delivered Hung",
+        "desc": "Returned on a hanger in a cover, ready to wear rather than folded into new creases."
+      }
+    ]
+  },
+  "stainTreatment": {
+    "eyebrow": "Targeted Treatment",
+    "title": "Tough Stains? We Treat Them Before the Dryclean.",
+    "subtitle": "These are the marks we see most often on long coats. Each one is assessed and pre-treated before the main clean.",
+    "categories": [
+      {
+        "name": "Food & Wine",
+        "detail": "Dinner and event spills on lapels, cuffs and fronts"
+      },
+      {
+        "name": "Sweat & Collar Line",
+        "detail": "Collar and underarm build-up from a long day"
+      },
+      {
+        "name": "Makeup Transfer",
+        "detail": "Foundation and lipstick on collars and shoulders"
+      },
+      {
+        "name": "Ink",
+        "detail": "Pen marks near inside pockets"
+      },
+      {
+        "name": "Rain & Water Spots",
+        "detail": "Rings and marks from monsoon showers"
+      },
+      {
+        "name": "Dust & Shine",
+        "detail": "Surface dust, dullness and shiny wear spots"
+      }
+    ],
+    "disclaimer": "Treatment results depend on the type of stain, fabric condition, age of the stain and any previous treatment. We use professional spot-lifting techniques, but complete removal cannot be guaranteed for every aged or heat-set mark."
+  },
+  "detailCare": {
+    "eyebrow": "Craftsmanship",
+    "title": "Every Detail Matters",
+    "subtitle": "Here is how the Wash4You studio treats the parts of your long coat that matter most:",
+    "details": [
+      {
+        "title": "Collar & Cuffs",
+        "desc": "Collars and cuffs are pre-treated for grime and pressed into shape."
+      },
+      {
+        "title": "Belt & Buttons",
+        "desc": "Belts, buckles and buttons are checked and cleaned alongside the coat."
+      },
+      {
+        "title": "Length & Hem",
+        "desc": "The full length is steamed so the coat hangs straight to the hem."
+      },
+      {
+        "title": "Lapels & Collar",
+        "desc": "The lapel roll is steamed back into shape by hand instead of being pressed flat."
+      },
+      {
+        "title": "Buttons & Linings",
+        "desc": "Horn and metal buttons are checked and linings are smoothed so they never pull."
+      },
+      {
+        "title": "Trouser Creases",
+        "desc": "Creases are set along the original line, with the waistband and seat pressed separately."
+      }
+    ]
+  },
+  "beforeAfter": {
+    "eyebrow": "Visual Results",
+    "title": "See the Difference",
+    "subtitle": "How Wash4You's professional dryclean care resolves common problems:",
+    "examples": [
+      {
+        "title": "Event Spill on a Lapel",
+        "problem": "A drink or food splash on the lapel after a function.",
+        "treatment": "Targeted spot treatment, then a gentle professional dryclean.",
+        "result": "Clean lapel with the roll and texture intact."
+      },
+      {
+        "title": "Tired, Shapeless Shoulders",
+        "problem": "Shoulders have lost their line after months of wear.",
+        "treatment": "Dryclean followed by shoulder pressing on a form.",
+        "result": "Shoulders and chest sit the way the tailor cut them."
+      },
+      {
+        "title": "Double Crease on Trousers",
+        "problem": "A second crease line from a home iron.",
+        "treatment": "Steam finishing to relax the old line and set the original crease.",
+        "result": "One clean, sharp crease down each leg."
+      }
+    ]
+  },
+  "relatedServices": [
+    "men-suit-2pcs",
+    "men-suit-3pcs",
+    "coat",
+    "shirt",
+    "pant-trouser"
+  ],
+  "relatedTitle": "More From the Wash4You Dryclean Studio",
+  "faqs": [
+    {
+      "q": "How much does long coat dry cleaning cost at Wash4You?",
+      "a": "Dryclean & Press for long coats starts from {price1} per piece. Prices are exclusive of 18% GST, and pickup and delivery are free."
+    },
+    {
+      "q": "How long does long coat dry cleaning take?",
+      "a": "Dryclean & Press for long coats usually takes 24–48 hours."
+    },
+    {
+      "q": "When should I get my winter coat drycleaned?",
+      "a": "Before you store it at the end of winter. Dirt and body oils left in the wool over summer attract moths and set in, so a clean coat stores much better."
+    },
+    {
+      "q": "Can you remove stains from long coats?",
+      "a": "Visible stains are identified and pre-treated before the main clean. Results depend on the type and age of the stain, the fabric and any earlier home treatment, so complete removal cannot be guaranteed for every mark."
+    }
+  ],
+  "finalCta": {
+    "title": "Your Long Coats, Drycleaned by Wash4You."
+  },
+  "photos": {
+    "banner": {
+      "src": "images/studio/suits-hung.webp",
+      "alt": "Tailored jackets hanging after professional dry cleaning",
+      "caption": "Shoulders shaped, lapels rolled, returned on a hanger"
+    }
+  },
+  "parentService": {
+    "slug": "premium-dry-cleaning",
+    "name": "Premium Dry Cleaning Service"
+  }
+}

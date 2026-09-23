@@ -1,0 +1,190 @@
+{
+  "_generated": "tools/gen-product-pages.py — edit the generator (or delete this key to hand-maintain the file)",
+  "name": "Wash and Fold",
+  "slug": "wash-and-fold",
+  "noun": "laundry",
+  "seo": "Wash and Fold Laundry",
+  "care": "laundry care",
+  "category": "Laundry Services",
+  "eyebrow": "Professional Laundry Care",
+  "h1": "Wash & Fold Laundry, Done Properly",
+  "subtitle": "Everyday laundry sorted by colour and fabric, washed on commercial machines with eco-friendly detergents, dried completely and folded. Free doorstep pickup and delivery across Gurugram & Delhi NCR.",
+  "heroImage": "images/pricing/wash-and-fold.webp",
+  "heroImageFallback": "images/pricing/wash-and-fold.png",
+  "heroImageAlt": "Wash and Fold — laundry by Wash4You",
+  "turnaroundNote": "Ready in 24 hrs",
+  "badge": "Free Doorstep Pickup & Delivery",
+  "meta": {
+    "title": "Wash and Fold Laundry Service in Gurgaon | Wash4You",
+    "description": "Professional wash and fold laundry in Gurgaon & Delhi NCR by Wash4You. Stain treatment, expert finishing and free doorstep pickup & delivery.",
+    "og_title": "Wash and Fold Laundry with Free Pickup | Wash4You",
+    "og_description": "Everyday laundry sorted by colour and fabric, washed on commercial machines with eco-friendly detergents, dried completely and folded. Free doorstep pickup and delivery across Gurugram & Delhi NCR."
+  },
+  "services": [
+    {
+      "id": "laundry",
+      "slug": "wash-and-fold",
+      "name": "Wash & Fold",
+      "short": "Wash & Fold",
+      "tagline": "Sorted, Washed & Finished",
+      "shortDescription": "Everyday laundry sorted by colour and fabric, washed on commercial machines with eco-friendly detergents, dried completely and folded.",
+      "longDescription": "Everyday laundry sorted by colour and fabric, washed on commercial machines with eco-friendly detergents, dried completely and folded. Priced per kilogram.",
+      "bestFor": [
+        "Everyday clothes, T-shirts and loungewear",
+        "Towels and bed linen",
+        "Gym and sports clothes",
+        "Children's clothes"
+      ],
+      "includes": [
+        "Sorted by colour & fabric",
+        "Pocket check",
+        "Commercial machine wash",
+        "Eco-friendly detergent",
+        "Complete drying",
+        "Neatly folded & packed"
+      ],
+      "turnaround": "24 hours"
+    }
+  ],
+  "studioLabel": "Laundry Studio",
+  "tag": {
+    "title": "Laundry Care Tag",
+    "line": "Tagged at your door · Returned clean & packed"
+  },
+  "studio": {
+    "eyebrow": "Inside Wash4You",
+    "title": "How Wash4You Handles Your Laundry",
+    "subtitle": "Your laundry never shares a machine with anyone else's. It is tagged at your door, sorted, washed on commercial machines with eco-friendly detergents, and finished before it comes home.",
+    "points": [
+      {
+        "title": "Your load only",
+        "desc": "Each customer's laundry is washed separately, never mixed with another order."
+      },
+      {
+        "title": "Tagged from pickup to delivery",
+        "desc": "Counted at your door and tagged through every stage."
+      },
+      {
+        "title": "Commercial machines",
+        "desc": "Washed on commercial machines with biodegradable, skin-safe detergents."
+      },
+      {
+        "title": "Finished properly",
+        "desc": "Folded or steam-ironed, checked and packed before delivery."
+      }
+    ]
+  },
+  "whyProfessional": {
+    "eyebrow": "Laundry, Done Properly",
+    "title": "Why Professional Laundry Care?",
+    "subtitle": "Laundry is the chore that takes the most time for the least reward. Here is what professional laundry care does differently:",
+    "points": [
+      {
+        "title": "Sorted First",
+        "desc": "Whites, darks and delicates are separated before anything is washed."
+      },
+      {
+        "title": "Right Temperature",
+        "desc": "Wash temperature is set by fabric, not by habit."
+      },
+      {
+        "title": "Eco-Friendly Detergents",
+        "desc": "Biodegradable, skin-safe detergents that are gentle enough for children's clothes."
+      },
+      {
+        "title": "Fully Dried",
+        "desc": "Dried completely, so nothing comes back damp or musty."
+      },
+      {
+        "title": "Neatly Finished",
+        "desc": "Folded or steam-ironed so it goes straight into the wardrobe."
+      },
+      {
+        "title": "Your Time Back",
+        "desc": "No washing, drying or folding at home — just pickup and delivery."
+      }
+    ]
+  },
+  "careProcess": {
+    "eyebrow": "Our Process",
+    "title": "The 8-Step Wash4You Laundry Process",
+    "subtitle": "From your doorstep, through the Wash4You studio, and back:",
+    "steps": [
+      {
+        "step": "01",
+        "title": "Book Your Pickup",
+        "desc": "Book online or on WhatsApp."
+      },
+      {
+        "step": "02",
+        "title": "Doorstep Collection",
+        "desc": "Your laundry is collected, weighed or counted, and tagged."
+      },
+      {
+        "step": "03",
+        "title": "Sorting",
+        "desc": "Separated by colour, fabric and care label."
+      },
+      {
+        "step": "04",
+        "title": "Pocket & Stain Check",
+        "desc": "Pockets emptied, visible stains pre-treated."
+      },
+      {
+        "step": "05",
+        "title": "Washing",
+        "desc": "Washed on commercial machines with eco-friendly detergents."
+      },
+      {
+        "step": "06",
+        "title": "Drying",
+        "desc": "Dried completely at the right temperature for the fabric."
+      },
+      {
+        "step": "07",
+        "title": "Finishing",
+        "desc": "Folded or steam-ironed, then checked."
+      },
+      {
+        "step": "08",
+        "title": "Packed & Delivered",
+        "desc": "Packed and delivered back to your door."
+      }
+    ]
+  },
+  "relatedServices": [
+    "wash-and-steam-iron",
+    "premium-laundry",
+    "woollen-laundry",
+    "shirt",
+    "single-bed-sheet"
+  ],
+  "relatedTitle": "More From Wash4You",
+  "faqs": [
+    {
+      "q": "How much does wash and fold laundry cost at Wash4You?",
+      "a": "Wash & Fold starts from {price1} per kg. Prices are exclusive of 18% GST, and pickup and delivery are free."
+    },
+    {
+      "q": "How long does wash and fold laundry take?",
+      "a": "Wash & Fold is usually delivered within 24 hours."
+    },
+    {
+      "q": "Is my laundry washed with other people's?",
+      "a": "No. Every customer's laundry is washed in its own load and never mixed with another order."
+    }
+  ],
+  "finalCta": {
+    "title": "Your Laundry, Done by Wash4You."
+  },
+  "photos": {
+    "hero": {
+      "src": "images/studio/washers.webp",
+      "alt": "Commercial washer-extractors at a laundry facility"
+    }
+  },
+  "parentService": {
+    "slug": "eco-friendly-laundry",
+    "name": "Eco-Friendly Laundry Service"
+  }
+}
