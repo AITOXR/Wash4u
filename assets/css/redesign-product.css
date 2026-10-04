@@ -1984,3 +1984,148 @@ img { max-width: 100%; }
 
 .page-product .prod-studio__parent { margin: calc(var(--s-4) * -1) 0 var(--s-7); font-size: var(--t-sm); color: var(--ink-3); }
 .prod-studio__parent a { color: var(--navy); font-weight: 600; text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 3px; }
+
+
+/* ============================================================
+   Search landing pages (best-dryclean-near-me / -in-gurgaon)
+   ============================================================ */
+.prod-hero__plate--mascot { background: linear-gradient(160deg, #ffffff, #eef3fb); }
+.prod-hero__plate--mascot .prod-hero__img { width: 78%; height: 92%; object-fit: contain; object-position: bottom; }
+
+.lp-checks { display: grid; gap: var(--s-5); }
+@media (min-width: 40rem) { .lp-checks { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 62rem) { .lp-checks { grid-template-columns: repeat(3, 1fr); } }
+
+.lp-check {
+  padding: var(--s-6);
+  border-radius: var(--r-xl);
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(16, 27, 46, 0.06), 0 12px 28px rgba(16, 27, 46, 0.06);
+}
+.lp-check__num { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--brass-deep); }
+.lp-check h3 { margin: var(--s-2) 0 var(--s-2); font-size: var(--t-lg); color: var(--navy-deep); }
+.page-product .lp-check__q { margin: 0 0 var(--s-4); font-size: var(--t-sm); font-style: italic; color: var(--ink-3); }
+.page-product .lp-check__a {
+  display: flex; gap: var(--s-3); align-items: flex-start;
+  margin: 0; padding-top: var(--s-4);
+  border-top: 1px dashed rgba(16, 27, 46, 0.14);
+  font-size: var(--t-sm); line-height: 1.6; color: var(--ink-2);
+}
+.lp-check__a .prod-check { margin-top: 0.15rem; flex-shrink: 0; }
+
+.page-product .lp-center { text-align: center; margin: var(--s-7) 0 0; }
+
+.lp-stores {
+  display: grid; gap: var(--s-4);
+  max-width: 52rem; margin: 0 auto var(--s-7);
+  text-align: left;
+}
+@media (min-width: 48rem) { .lp-stores { grid-template-columns: 1fr 1fr; } }
+.lp-store {
+  display: flex; gap: var(--s-4); align-items: flex-start;
+  padding: var(--s-5);
+  border-radius: var(--r-lg);
+  background: var(--wash);
+}
+.lp-store__icon {
+  flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+  width: 2.5rem; height: 2.5rem; border-radius: 50%;
+  background: var(--navy-deep); color: var(--brass-bright);
+}
+.lp-store h3 { margin: 0 0 var(--s-1); font-size: 1.1rem; color: var(--navy-deep); }
+.page-product .lp-store p { margin: 0 0 var(--s-2); font-size: var(--t-sm); line-height: 1.55; color: var(--ink-2); }
+.lp-store a, .lp-more { font-size: var(--t-sm); font-weight: 600; color: var(--navy); text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 3px; }
+.lp-more { display: inline-block; margin-top: var(--s-3); }
+
+.lp-cities {
+  list-style: none; padding: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-3);
+  margin: 0 auto var(--s-7);
+}
+.lp-cities li {
+  display: flex; flex-direction: column; align-items: center;
+  min-width: 8.5rem; padding: var(--s-4) var(--s-5);
+  border-radius: var(--r-lg); background: var(--navy-deep); color: #fff;
+}
+.lp-cities strong { font-family: var(--font-display); font-size: 1.75rem; color: var(--brass-bright); line-height: 1.1; }
+.lp-cities span { font-size: var(--t-xs); color: rgba(255, 255, 255, 0.8); text-align: center; }
+
+.lp-reviews .review-rail { margin-top: var(--s-6); }
+
+
+/* ============================================================
+   /wash4you-overview/ — one-page summary of the whole site
+   ============================================================ */
+.ov-hero { padding-bottom: var(--s-10); }
+.ov-hero .prod-hero__lede { max-width: 46rem; }
+
+.ov-facts {
+  list-style: none; padding: 0; margin: var(--s-7) 0 var(--s-6);
+  display: grid; gap: var(--s-3);
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+}
+.ov-facts li {
+  display: flex; flex-direction: column; gap: 0.15rem;
+  padding: var(--s-4) var(--s-5);
+  border-radius: var(--r-lg);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+.ov-facts strong { font-family: var(--font-display); font-size: 2rem; line-height: 1.1; color: var(--brass-bright); }
+.ov-facts span { font-size: var(--t-xs); color: rgba(255, 255, 255, 0.8); }
+
+.ov-jump { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.ov-jump a {
+  padding: 0.4rem 0.9rem; border-radius: var(--r-full);
+  font-size: var(--t-xs); font-weight: 600; color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+}
+.ov-jump a:hover { background: rgba(255, 255, 255, 0.12); }
+
+.ov-section { padding: var(--s-11) 0; background: #fff; scroll-margin-top: 6rem; }
+.ov-section--wash { background: var(--wash); }
+.ov-head { max-width: 46rem; margin-bottom: var(--s-7); }
+.page-product .ov-head .prod-section-eyebrow { text-align: left; }
+.ov-head .prod-section-title { text-align: left; margin-bottom: var(--s-3); }
+.page-product .ov-lede { color: var(--ink-2); line-height: 1.65; margin: 0; }
+.ov-lede a, .ov-table a, .ov-links a, .ov-stores p a { color: var(--navy); font-weight: 600; text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 3px; }
+
+.ov-services { display: grid; gap: var(--s-4); grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); }
+.ov-service {
+  display: flex; flex-direction: column; gap: var(--s-2);
+  padding: var(--s-5); border-radius: var(--r-lg);
+  background: #fff; color: inherit;
+  box-shadow: 0 1px 0 rgba(16, 27, 46, 0.06);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+.ov-service:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(16, 27, 46, 0.1); }
+.ov-service h3 { margin: 0; font-size: 1.05rem; color: var(--navy-deep); }
+.page-product .ov-service p { margin: 0; font-size: var(--t-sm); line-height: 1.55; color: var(--ink-2); flex: 1; }
+.ov-service__meta { display: inline-flex; align-items: center; gap: 0.35rem; font-size: var(--t-xs); color: var(--brass-deep); font-weight: 600; }
+
+.ov-prices { display: grid; gap: var(--s-7); grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); align-items: start; }
+.ov-price-group h3 { margin: 0 0 var(--s-3); font-size: var(--t-lg); color: var(--navy-deep); padding-bottom: var(--s-2); border-bottom: 2px solid var(--brass); }
+.ov-table { width: 100%; border-collapse: collapse; font-size: var(--t-sm); }
+.ov-table th, .ov-table td { padding: 0.5rem 0; border-bottom: 1px solid rgba(16, 27, 46, 0.08); text-align: left; font-weight: 500; }
+.ov-table td { text-align: right; font-weight: 700; color: var(--navy-deep); white-space: nowrap; padding-left: var(--s-3); }
+.ov-table small { font-weight: 500; color: var(--ink-3); }
+
+.ov-table-wrap { overflow-x: auto; }
+.ov-table-wrap .prod-table { min-width: 40rem; }
+.ov-table-wrap td, .ov-table-wrap th { font-size: var(--t-sm); }
+
+.ov-business { display: grid; gap: var(--s-7); align-items: center; }
+@media (min-width: 62rem) { .ov-business { grid-template-columns: 1.2fr 1fr; } }
+.page-product .ov-business .prod-section-eyebrow, .ov-business .prod-section-title { text-align: left; }
+.ov-business .ov-lede { margin-bottom: var(--s-5); }
+.ov-chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.ov-chips li { padding: 0.55rem 1rem; border-radius: var(--r-full); background: var(--navy-deep); color: #fff; font-size: var(--t-sm); font-weight: 600; }
+
+.ov-cities { justify-content: flex-start; margin-left: 0; }
+.ov-stores { max-width: none; margin: 0; }
+
+.ov-links { display: grid; gap: var(--s-7); }
+@media (min-width: 48rem) { .ov-links { grid-template-columns: 1fr 1fr; } }
+.ov-links__title { font-size: var(--t-lg); margin: 0 0 var(--s-3); color: var(--navy-deep); }
+.ov-links ul { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s-2); }
+.prod-area-chip--more { background: var(--navy-deep); color: #fff; }
