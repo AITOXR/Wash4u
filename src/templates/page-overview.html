@@ -1,0 +1,279 @@
+{% extends "base.html" %}
+{% from "_icons.html" import ui %}
+
+{# /wash4you-overview/ — everything Wash4You does on one page. Built entirely
+   from the live data files (site, services, pricing, packages, areas, home),
+   so it can never disagree with the pages it links to. #}
+
+{% block content %}
+<div class="page-product page-overview">
+
+  <section class="prod-hero ov-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="{{ root_path }}">Home</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Overview</span>
+      </nav>
+      <span class="prod-badge">{{ ui('sparkle', 14) }} {{ site.brand.tagline }}</span>
+      <h1 class="prod-hero__title">Wash4You at a Glance</h1>
+      <p class="prod-hero__lede">{{ site.brand.description }}</p>
+
+      <ul class="ov-facts">
+        <li><strong>{{ site.locations | length }}</strong><span>stores in Gurugram</span></li>
+        <li><strong>{{ areas_total_all }}+</strong><span>areas with free pickup</span></li>
+        <li><strong>{{ areas.cities | length }}</strong><span>cities across Delhi NCR</span></li>
+        <li><strong>{{ services.services | length }}</strong><span>services</span></li>
+        <li><strong>{{ item_count }}</strong><span>items with published prices</span></li>
+      </ul>
+
+      <nav class="ov-jump" aria-label="On this page">
+        <a href="#services">Services</a>
+        <a href="#prices">Prices</a>
+        <a href="#packages">Packages</a>
+        <a href="#business">For Business</a>
+        <a href="#how">How It Works</a>
+        <a href="#areas">Areas</a>
+        <a href="#stores">Stores &amp; Contact</a>
+        <a href="#policies">Policies</a>
+      </nav>
+    </div>
+  </section>
+
+  {# ---- Promises ---- #}
+  <section class="ov-section">
+    <div class="wrap">
+      <div class="ov-head">
+        <p class="prod-section-eyebrow">What We Stand For</p>
+        <h2 class="prod-section-title">The Wash4You Promise</h2>
+      </div>
+      <div class="prod-grid-4col">
+        {% for p in site.promises %}
+        <div class="prod-card prod-card--boxed">
+          <div class="prod-card__head">
+            <span class="prod-check">{{ ui(p.icon, 12) }}</span>
+            <h3 class="prod-card__title">{{ p.title }}</h3>
+          </div>
+          <p class="prod-card__desc">{{ p.detail }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ---- Services ---- #}
+  <section class="ov-section ov-section--wash" id="services">
+    <div class="wrap">
+      <div class="ov-head">
+        <p class="prod-section-eyebrow">Services</p>
+        <h2 class="prod-section-title">Everything We Clean</h2>
+        <p class="ov-lede">{{ services.services | length }} services, each with its own process and turnaround. <a href="{{ root_path }}services/">All services &rarr;</a></p>
+      </div>
+      <div class="ov-services">
+        {% for s in services.services %}
+        <a class="ov-service" href="{{ root_path }}services/{{ s.slug }}/">
+          <h3>{{ s.name }}</h3>
+          <p>{{ s.short_description or s.description | truncate(140) }}</p>
+          <span class="ov-service__meta">{{ ui('clock', 12) }} {{ s.turnaround }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ---- Prices, every item, linked to its product page ---- #}
+  <section class="ov-section" id="prices">
+    <div class="wrap">
+      <div class="ov-head">
+        <p class="prod-section-eyebrow">Published Prices</p>
+        <h2 class="prod-section-title">Every Item, Every Price</h2>
+        <p class="ov-lede">Starting prices, exclusive of 18% GST. Pickup and delivery are free. Each item links to its own page with the full process. <a href="{{ root_path }}pricing/">Price list &amp; PDF &rarr;</a></p>
+      </div>
+      <div class="ov-prices">
+        {% for cat in overview_products %}
+        <div class="ov-price-group">
+          <h3>{{ cat.title }}</h3>
+          <table class="ov-table">
+            <caption class="visually-hidden">{{ cat.title }} prices</caption>
+            <tbody>
+              {% for it in cat['items'] %}
+              <tr>
+                <th scope="row">{% if it.url %}<a href="{{ root_path }}{{ it.url }}">{{ it.name }}</a>{% else %}{{ it.name }}{% endif %}</th>
+                <td>{{ it.price }}{% if it.unit %} <small>{{ it.unit }}</small>{% endif %}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ---- Packages ---- #}
+  <section class="ov-section ov-section--wash" id="packages">
+    <div class="wrap">
+      <div class="ov-head">
+        <p class="prod-section-eyebrow">Packages</p>
+        <h2 class="prod-section-title">Prepaid Packages</h2>
+        <p class="ov-lede">Pay once, get extra credit to spend on any service. <a href="{{ root_path }}packages/">Compare packages &rarr;</a></p>
+      </div>
+      <div class="prod-table-wrap ov-table-wrap">
+        <table class="prod-table">
+          <thead>
+            <tr><th scope="col">Package</th><th scope="col">You Pay</th><th scope="col">You Get</th><th scope="col">Validity</th><th scope="col">Best For</th></tr>
+          </thead>
+          <tbody>
+            {% for pl in packages.plans %}
+            <tr>
+              <th scope="row">{{ pl.name }}</th>
+              <td>{{ pl.cost }}</td>
+              <td><strong>{{ pl.balance }}</strong></td>
+              <td>{{ pl.validity }}</td>
+              <td>{{ pl.best_for }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  {# ---- Business ---- #}
+  {% if pricing.b2b %}
+  <section class="ov-section" id="business">
+    <div class="wrap">
+      <div class="ov-business">
+        <div>
+          <p class="prod-section-eyebrow">{{ pricing.b2b.eyebrow }}</p>
+          <h2 class="prod-section-title">{{ pricing.b2b.title }}</h2>
+          <p class="ov-lede">{{ pricing.b2b.lede }}</p>
+          <a class="btn btn--navy" href="{{ root_path }}pricing/#b2b">Business details &amp; quote &rarr;</a>
+        </div>
+        <ul class="ov-chips">
+          {% for s in pricing.b2b.segments %}<li>{{ s.title }}</li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {# ---- How it works ---- #}
+  <section class="ov-section ov-section--wash" id="how">
+    <div class="wrap">
+      <div class="ov-head">
+        <p class="prod-section-eyebrow">{{ home.how_it_works.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ home.how_it_works.title }}</h2>
+      </div>
+      <div class="prod-steps-grid">
+        {% for st in home.how_it_works.steps %}
+        <div class="prod-step-card">
+          <span class="prod-step-card__num">{{ '%02d' % loop.index }}</span>
+          <h3 class="prod-step-card__title">{{ st.title }}</h3>
+          <p class="prod-step-card__desc">{{ st.detail }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ---- Areas ---- #}
+  <section class="ov-section" id="areas">
+    <div class="wrap">
+      <div class="ov-head">
+        <p class="prod-section-eyebrow">Areas We Serve</p>
+        <h2 class="prod-section-title">Free Pickup Across Delhi NCR</h2>
+        <p class="ov-lede">{{ areas_total_all }}+ areas across {{ areas.cities | length }} cities. <a href="{{ root_path }}locate-us/">Find your area &rarr;</a></p>
+      </div>
+      <ul class="lp-cities ov-cities">
+        {% for c in areas.cities %}
+        <li><strong>{{ c.count }}</strong><span>areas in {{ c.name }}</span></li>
+        {% endfor %}
+      </ul>
+      <div class="prod-area-chips">
+        {% set all_areas = area_links or site.footer.areas %}
+        {% for a in all_areas[:24] %}
+        <a class="prod-area-chip" href="{{ root_path }}{{ a.url }}">{{ ui('pin', 12) }} {{ a.label }}</a>
+        {% endfor %}
+        {% if all_areas | length > 24 %}
+        <a class="prod-area-chip prod-area-chip--more" href="{{ root_path }}locate-us/">+ {{ all_areas | length - 24 }} more in Gurugram</a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  {# ---- Stores & contact ---- #}
+  <section class="ov-section ov-section--wash" id="stores">
+    <div class="wrap">
+      <div class="ov-head">
+        <p class="prod-section-eyebrow">Stores &amp; Contact</p>
+        <h2 class="prod-section-title">Visit or Call Us</h2>
+      </div>
+      <div class="lp-stores ov-stores">
+        {% for loc in site.locations %}
+        <article class="lp-store">
+          <span class="lp-store__icon" aria-hidden="true">{{ ui('pin', 18) }}</span>
+          <div>
+            <h3>{{ loc.name }}</h3>
+            <p>{{ loc.address }}</p>
+            <a href="{{ loc.map_url }}" target="_blank" rel="noopener">Get directions &rarr;</a>
+          </div>
+        </article>
+        {% endfor %}
+        <article class="lp-store">
+          <span class="lp-store__icon" aria-hidden="true">{{ ui('phone', 18) }}</span>
+          <div>
+            <h3>Call or WhatsApp</h3>
+            <p><a href="{{ site.urls.phone }}">{{ site.contact.phone }}</a> &middot; <a href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a></p>
+          </div>
+        </article>
+        <article class="lp-store">
+          <span class="lp-store__icon" aria-hidden="true">{{ ui('mail', 18) }}</span>
+          <div>
+            <h3>Email</h3>
+            <p><a href="{{ site.urls.email }}">{{ site.contact.email }}</a></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {# ---- Policies & guides ---- #}
+  <section class="ov-section" id="policies">
+    <div class="wrap">
+      <div class="ov-links">
+        <div>
+          <h2 class="ov-links__title">Policies</h2>
+          <ul>
+            {% for l in site.footer.support %}<li><a href="{{ root_path }}{{ l.url }}">{{ l.label }}</a></li>{% endfor %}
+          </ul>
+        </div>
+        <div>
+          <h2 class="ov-links__title">Guides</h2>
+          <ul>
+            {% for lp in landing_pages %}<li><a href="{{ root_path }}{{ lp.slug }}/">{{ lp.h1 }}</a></li>{% endfor %}
+            <li><a href="{{ root_path }}blog/">Wash4You Blog</a></li>
+            <li><a href="{{ root_path }}about-us/">About Wash4You</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prod-final-cta-section">
+    <div class="wrap">
+      <div class="prod-final-cta-banner">
+        <img class="prod-final-cta__bg" src="{{ asset_path }}images/studio/covered-aisle.webp" alt="" loading="lazy" decoding="async">
+        <img class="prod-final-cta__mascot" src="{{ asset_path }}images/mascot-why.png" alt="" width="760" height="941" loading="lazy" decoding="async">
+        <p class="prod-section-eyebrow">Get Started</p>
+        <h2 class="prod-final-cta__title">Book Your First Free Pickup</h2>
+        <p class="prod-final-cta__desc">Free doorstep pickup and delivery across Delhi NCR.</p>
+        <div class="prod-final-cta__btns">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book Free Pickup</a>
+          <a class="btn btn--on-navy btn--lg" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

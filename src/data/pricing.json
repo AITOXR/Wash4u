@@ -556,5 +556,50 @@
       "q": "What if I am not happy with the result?",
       "a": "Tell us and we will reprocess the order at no additional cost. We would rather redo a piece than have you live with it."
     }
-  ]
+  ],
+  "b2b": {
+    "_note": "B2B section on the main /pricing/ page only (client brief, Sep 2026). Quote-based by design: no commercial rates are published. Every claim mirrors one already made on the site (pricing FAQ, about FAQ, packages).",
+    "eyebrow": "Wash4You for Business",
+    "title": "B2B Laundry & Dryclean for Businesses",
+    "lede": "Commercial laundry and dryclean on a schedule that suits your business, at customised rates quoted to your volume. Collected from your premises across Gurugram and Delhi NCR, counted at handover and invoiced.",
+    "segments": [
+      {
+        "title": "Hotels & Guest Houses",
+        "detail": "Bed linen, towels, uniforms and guest dryclean."
+      },
+      {
+        "title": "Salons & Spas",
+        "detail": "Towels, robes, capes and staff uniforms."
+      },
+      {
+        "title": "Gyms & Studios",
+        "detail": "Towels and staff wear, washed hygienically on a fixed schedule."
+      },
+      {
+        "title": "Corporate Offices",
+        "detail": "Employee dryclean pickup, uniforms and office linen."
+      },
+      {
+        "title": "PGs, Hostels & Co-living",
+        "detail": "Resident laundry and bedding on a fixed schedule."
+      },
+      {
+        "title": "Housing Societies",
+        "detail": "Scheduled society pickups and bulk seasonal bedding."
+      }
+    ],
+    "includes_title": "What every business account gets",
+    "includes": [
+      "Customised commercial rates for your volume",
+      "Scheduled pickups from your premises",
+      "Bulk orders counted at handover in both directions",
+      "Written receipt for every collection",
+      "Your orders packed separately, never merged",
+      "Invoicing and service levels agreed per account"
+    ],
+    "note": "Prefer to prepay? Premier, Founder and VIP packages add priority scheduling, custom SLAs and a dedicated account manager on VIP.",
+    "cta_title": "Get a business quote",
+    "cta_text": "Tell us your business type and rough weekly volume — we will come back with rates.",
+    "whatsapp_text": "Hi Wash4You, I'd like a B2B laundry / dryclean quote for my business."
+  }
 }

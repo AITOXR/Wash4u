@@ -1,0 +1,300 @@
+{% extends "base.html" %}
+{% from "_icons.html" import ui %}
+{% from "_components.html" import faq_list, review_card %}
+
+{# Search landing pages: /best-dryclean-near-me/ and /best-dryclean-in-gurgaon/.
+   Copy: src/data/landing.json. Reuses the product page's building blocks
+   (.page-product scope) so these read as the same dryclean studio. #}
+{% set shirt = popular[0] %}
+
+{% block preload %}
+  <link rel="preload" href="{{ asset_path }}images/studio/conveyor.webp" as="image">
+{% endblock %}
+
+{% block schema %},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.urls.base }}/" },
+          { "@type": "ListItem", "position": 2, "name": {{ page.h1 | tojson }} }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "{{ meta.canonical }}#faq",
+        "mainEntity": [
+          {% for f in page.faqs %}{
+            "@type": "Question",
+            "name": {{ f.q | tojson }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | tojson }} }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      }
+{% endblock %}
+
+{% block content %}
+<div class="page-product page-landing">
+
+  {# ---- Hero ---- #}
+  <section class="prod-hero">
+    <div class="wrap prod-hero__grid">
+      <div class="prod-hero__copy">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="{{ root_path }}">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{{ page.tagItem }}</span>
+        </nav>
+
+        <span class="prod-badge">{{ ui('sparkle', 14) }} {{ page.eyebrow }}</span>
+        <h1 class="prod-hero__title">{{ page.h1 }}</h1>
+        <p class="prod-hero__lede">{{ page.subtitle }}</p>
+
+        <div class="prod-hero__actions">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book a Free Pickup</a>
+          <a class="btn btn--on-navy btn--lg" href="#prices">See Dryclean Prices</a>
+        </div>
+
+        <ul class="prod-hero__bar">
+          <li class="prod-hero__stat">
+            <span class="prod-hero__stat-icon" aria-hidden="true">{{ ui('truck', 12) }}</span>
+            <span>Free Doorstep Pickup &amp; Delivery</span>
+          </li>
+          <li class="prod-hero__stat">
+            <span class="prod-hero__stat-icon" aria-hidden="true">{{ ui('clock', 12) }}</span>
+            <span>Dryclean in 24–48 hrs</span>
+          </li>
+          <li class="prod-hero__stat">
+            <span class="prod-hero__stat-icon" aria-hidden="true">{{ ui('sparkle', 12) }}</span>
+            <span>Dryclean from <strong>{{ shirt.price }}</strong> + GST</span>
+          </li>
+        </ul>
+      </div>
+
+      <figure class="prod-hero__media">
+        <img class="prod-hero__photo"
+             src="{{ asset_path }}images/studio/conveyor.webp"
+             alt="Drycleaned garments in protective covers on a dry-cleaning conveyor"
+             width="700" height="875" fetchpriority="high" decoding="async">
+        <span class="prod-hero__studio">
+          <img src="{{ asset_path }}images/logo-white.png" alt="Wash4You" width="898" height="167">
+          <span>Dryclean Studio</span>
+        </span>
+        <div class="prod-hero__plate prod-hero__plate--mascot">
+          <img class="prod-hero__img" src="{{ asset_path }}images/mascot-why.png" alt="" width="760" height="941" decoding="async">
+        </div>
+        <figcaption class="prod-tag">
+          <span class="prod-tag__hole" aria-hidden="true"></span>
+          <span class="prod-tag__brand">
+            <img src="{{ asset_path }}images/logo-blue.png" alt="Wash4You" width="760" height="184">
+          </span>
+          <span class="prod-tag__kind">Dryclean Tag</span>
+          <span class="prod-tag__item">{{ page.tagItem }}</span>
+          <span class="prod-tag__row"><span>Stores</span><strong>Sushant Lok · Sector 49</strong></span>
+          <span class="prod-tag__row"><span>Pickup</span><strong>Free</strong></span>
+          <span class="prod-tag__line">Tagged at your door · Returned pressed &amp; covered</span>
+          <span class="prod-tag__code" aria-hidden="true"></span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  {# ---- What the best dryclean should offer ---- #}
+  <section class="prod-why-section">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">{{ landing.checklist.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ landing.checklist.title }}</h2>
+        <p class="prod-section-subtitle">{{ landing.checklist.subtitle }}</p>
+      </div>
+      <div class="lp-checks">
+        {% for c in landing.checklist['items'] %}
+        <article class="lp-check">
+          <span class="lp-check__num">0{{ loop.index }}</span>
+          <h3>{{ c.title }}</h3>
+          <p class="lp-check__q">{{ c.check }}</p>
+          <p class="lp-check__a"><span class="prod-check" aria-hidden="true">{{ ui('check', 12) }}</span><span>{{ c.answer }}</span></p>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ---- Inside the Wash4You studio (shared with product pages) ---- #}
+  <section class="prod-studio prod-section--white">
+    <div class="wrap">
+      <div class="prod-studio__grid">
+        <div class="prod-studio__copy">
+          <p class="prod-section-eyebrow">{{ studio.eyebrow }}</p>
+          <h2 class="prod-section-title">How Wash4You Drycleans Your Clothes</h2>
+          <p class="prod-studio__lede">{{ studio.subtitle }}</p>
+          <ol class="prod-studio__points">
+            {% for pt in studio.points %}
+            <li>
+              <span class="prod-studio__num">0{{ loop.index }}</span>
+              <div>
+                <h3>{{ pt.title }}</h3>
+                <p>{{ pt.desc }}</p>
+              </div>
+            </li>
+            {% endfor %}
+          </ol>
+        </div>
+        <div class="prod-studio__photos">
+          {% for ph in studio_photos %}
+          <figure class="prod-studio__photo prod-studio__photo--{{ loop.index }}">
+            <img src="{{ asset_path }}{{ ph.src }}" alt="{{ ph.alt }}" loading="lazy" decoding="async">
+            <figcaption>{{ ph.caption }}</figcaption>
+          </figure>
+          {% endfor %}
+          <div class="prod-studio__brand">
+            <img src="{{ asset_path }}images/logo-white.png" alt="Wash4You" width="898" height="167" loading="lazy">
+            <span>Eco-friendly Laundry &amp; Dryclean</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ---- Popular dryclean prices, each linking to its product page ---- #}
+  <section class="prod-related-section" id="prices">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">Published Prices</p>
+        <h2 class="prod-section-title">Dryclean Prices at Wash4You</h2>
+        <p class="prod-section-subtitle">Starting prices per piece, exclusive of 18% GST. Pickup and delivery are free. Tap any item for its full dryclean process.</p>
+      </div>
+      <div class="prod-related-grid">
+        {% for item in popular %}
+        <a class="prod-related-card" href="{{ root_path }}{{ item.url }}">
+          <div class="prod-related-card__media">
+            <img class="prod-related-card__img" src="{{ asset_path }}{{ item.img }}" alt="{{ item.name }} dryclean by Wash4You" width="90" height="90" loading="lazy" decoding="async">
+          </div>
+          <h3 class="prod-related-card__title">{{ item.name }}</h3>
+          <p class="prod-related-card__price">From {{ item.price }}{% if item.unit %} {{ item.unit }}{% endif %}</p>
+        </a>
+        {% endfor %}
+      </div>
+      <p class="lp-center"><a class="btn btn--ghost" href="{{ root_path }}pricing/">See the full price list &rarr;</a></p>
+    </div>
+  </section>
+
+  {# ---- Near you / in Gurugram: stores and coverage ---- #}
+  <section class="prod-location-section lp-near">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">{{ page.near.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ page.near.title }}</h2>
+        <p class="prod-section-subtitle">{{ page.near.subtitle }}</p>
+      </div>
+
+      <div class="lp-stores">
+        {% for loc in site.locations %}
+        <article class="lp-store">
+          <span class="lp-store__icon" aria-hidden="true">{{ ui('pin', 18) }}</span>
+          <div>
+            <h3>{{ loc.name }}</h3>
+            <p>{{ loc.address }}</p>
+            <a href="{{ loc.map_url }}" target="_blank" rel="noopener">Get directions &rarr;</a>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+
+      {% if page.local %}
+      {% set all_areas = area_links or site.footer.areas %}
+      <div class="prod-area-chips">
+        {% for a in all_areas[:18] %}
+        <a class="prod-area-chip" href="{{ root_path }}{{ a.url }}">{{ ui('pin', 12) }} {{ a.label }}</a>
+        {% endfor %}
+        {% if all_areas | length > 18 %}
+        <a class="prod-area-chip prod-area-chip--more" href="{{ root_path }}locate-us/">+ {{ all_areas | length - 18 }} more</a>
+        {% endif %}
+      </div>
+      {% else %}
+      <ul class="lp-cities">
+        {% for c in areas.cities %}
+        <li><strong>{{ c.count }}</strong><span>areas in {{ c.name }}</span></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      <a class="btn btn--ghost" href="{{ root_path }}locate-us/">{{ page.near.cta }} &rarr;</a>
+    </div>
+  </section>
+
+  {# ---- Gurugram, season by season (Gurgaon page only) ---- #}
+  {% if page.local %}
+  <section class="prod-why-section">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">{{ page.local.eyebrow }}</p>
+        <h2 class="prod-section-title">{{ page.local.title }}</h2>
+        <p class="prod-section-subtitle">{{ page.local.subtitle }}</p>
+      </div>
+      <div class="prod-grid-3col">
+        {% for it in page.local['items'] %}
+        <div class="prod-card">
+          <span class="prod-card__num">0{{ loop.index }}</span>
+          <h3 class="prod-card__title">{{ it.title }}</h3>
+          <p class="prod-card__desc">{{ it.desc }}</p>
+          {% if product_urls.get(it.link) %}<a class="lp-more" href="{{ root_path }}{{ product_urls[it.link] }}">See the process &rarr;</a>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {# ---- Reviews ---- #}
+  <section class="section section--wash lp-reviews">
+    <div class="wrap">
+      <div class="reviews-head reveal">
+        <div class="section-head" style="margin-bottom:0">
+          <p class="eyebrow">From Our Customers</p>
+          <h2>{{ testimonials.aggregate.label }}</h2>
+        </div>
+        <div class="rail-nav">
+          <button type="button" data-rail-prev aria-label="Previous reviews">{{ ui('arrow-left', 18) }}</button>
+          <button type="button" data-rail-next aria-label="Next reviews">{{ ui('arrow-right', 18) }}</button>
+        </div>
+      </div>
+      <div class="review-rail testimonial-rail">
+        {% for r in testimonials['items'] if r.photo %}
+          {{ review_card(r, asset_path) }}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ---- FAQ ---- #}
+  <section class="prod-faq-section" id="faq">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">Common Questions</p>
+        <h2 class="prod-section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="prod-faq-wrap">
+        {{ faq_list(page.faqs, id_prefix='lp-faq') }}
+      </div>
+    </div>
+  </section>
+
+  {# ---- Final CTA ---- #}
+  <section class="prod-final-cta-section">
+    <div class="wrap">
+      <div class="prod-final-cta-banner">
+        <img class="prod-final-cta__bg" src="{{ asset_path }}images/studio/covered-aisle.webp" alt="" loading="lazy" decoding="async">
+        <img class="prod-final-cta__mascot" src="{{ asset_path }}images/mascot-why.png" alt="" width="760" height="941" loading="lazy" decoding="async">
+        <p class="prod-section-eyebrow">Book Your Pickup</p>
+        <h2 class="prod-final-cta__title">{{ page.cta.title }}</h2>
+        <p class="prod-final-cta__desc">{{ page.cta.subtitle }}</p>
+        <div class="prod-final-cta__btns">
+          <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book Free Pickup</a>
+          <a class="btn btn--on-navy btn--lg" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

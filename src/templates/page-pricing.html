@@ -282,6 +282,50 @@
 </section>
 {% endif %}
 
+{# ---- B2B: main /pricing/ page only, not the per-area variants. Quote-based
+   on purpose — commercial rates are not published. ---- #}
+{% if pricing.b2b and not is_area %}
+{% set b2b = pricing.b2b %}
+<section class="section section--wash b2b" id="b2b">
+  <div class="wrap">
+    <div class="b2b__grid">
+      <div class="b2b__copy reveal">
+        <p class="eyebrow"{{ cms('pricing:b2b.eyebrow') }}>{{ b2b.eyebrow }}</p>
+        <h2{{ cms('pricing:b2b.title') }}>{{ b2b.title }}</h2>
+        <p class="b2b__lede"{{ cms('pricing:b2b.lede') }}>{{ b2b.lede }}</p>
+        <ul class="b2b__segments">
+          {% for s in b2b.segments %}
+          <li>
+            <strong{{ cms('pricing:b2b.segments.' ~ loop.index0 ~ '.title') }}>{{ s.title }}</strong>
+            <span{{ cms('pricing:b2b.segments.' ~ loop.index0 ~ '.detail') }}>{{ s.detail }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <aside class="b2b__card reveal">
+        <p class="b2b__card-title"{{ cms('pricing:b2b.includes_title') }}>{{ b2b.includes_title }}</p>
+        <ul class="b2b__includes">
+          {% for inc in b2b.includes %}
+          <li><span class="b2b__tick" aria-hidden="true">{{ ui('check', 14) }}</span><span{{ cms('pricing:b2b.includes.' ~ loop.index0) }}>{{ inc }}</span></li>
+          {% endfor %}
+        </ul>
+        <div class="b2b__quote">
+          <p class="b2b__quote-title"{{ cms('pricing:b2b.cta_title') }}>{{ b2b.cta_title }}</p>
+          <p{{ cms('pricing:b2b.cta_text') }}>{{ b2b.cta_text }}</p>
+          <div class="b2b__btns">
+            <a class="btn btn--cta" href="{{ site.urls.whatsapp }}?text={{ b2b.whatsapp_text | urlencode }}" target="_blank" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp for a quote</a>
+            <a class="btn btn--ghost" href="{{ site.urls.email }}?subject={{ 'B2B quote request' | urlencode }}">{{ ui('mail', 18) }} {{ site.contact.email }}</a>
+          </div>
+          <a class="b2b__phone" href="{{ site.urls.phone }}">{{ ui('phone', 16) }} {{ site.contact.phone }}</a>
+        </div>
+        <p class="b2b__note"><span{{ cms('pricing:b2b.note') }}>{{ b2b.note }}</span> <a href="{{ root_path }}packages/">See packages &rarr;</a></p>
+      </aside>
+    </div>
+  </div>
+</section>
+{% endif %}
+
 {# ---- Why our pricing is different ---- #}
 <section class="section section--navy price-diff">
   <div class="wrap">

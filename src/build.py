@@ -543,6 +543,7 @@ def build() -> None:
 
     # Product detail pages (pilot: Jeans; reusable across all catalog products)
     for prod in products_list:
+        prod["meta"].setdefault("canonical", f"{site['urls']['base']}/products/{prod['slug']}/")
         pages_to_build.append((
             f"products/{prod['slug']}/index.html",
             "page-product-detail.html",
@@ -553,6 +554,68 @@ def build() -> None:
                 "depth": 2,
             }
         ))
+
+    # Search landing pages ("best dryclean near me / in Gurgaon") and the
+    # one-page Wash4You overview. Copy numbers — coverage totals and prices —
+    # are filled from the live data so the pages cannot quote stale figures.
+    gurugram_count = next(
+        (c["count"] for c in areas_data["cities"] if c["name"].startswith("Gurugram")), 0
+    )
+
+    def fill_live(value):
+        if isinstance(value, str):
+            value = value.replace("{areas}", f"{areas_total_all}+").replace("{gurugram}", str(gurugram_count))
+            return re.sub(r"\{price:([a-z0-9-]+)\}", lambda m: price_index[m.group(1)]["price"], value)
+        if isinstance(value, list):
+            return [fill_live(v) for v in value]
+        if isinstance(value, dict):
+            return {k: fill_live(v) for k, v in value.items()}
+        return value
+
+    landing = fill_live(load_json(DATA_DIR / "landing.json"))
+    popular = [
+        {**price_index[slug], "url": product_urls.get(slug, "pricing/")}
+        for slug in landing["shared"]["popular"] if slug in price_index
+    ]
+    for lp in landing["pages"]:
+        lp["meta"]["canonical"] = f"{site['urls']['base']}/{lp['slug']}/"
+        pages_to_build.append((f"{lp['slug']}/index.html", "page-landing.html", {
+            "meta": lp["meta"],
+            "page": lp,
+            "landing": landing["shared"],
+            "popular": popular,
+            "studio": product_shared.get("studio", {}),
+            "studio_photos": product_shared.get("photos", {}).get("studio", []),
+            "testimonials": testimonials,
+            "areas": areas_data,
+            "gurugram_count": gurugram_count,
+            "depth": 1,
+        }))
+
+    overview_products = [
+        {
+            "title": cat["title"],
+            "items": [
+                {**item, "url": product_urls.get(item["slug"])}
+                for item in cat["items"] if item.get("slug")
+            ],
+        }
+        for cat in pricing["categories"]
+    ]
+    pages_to_build.append(("wash4you-overview/index.html", "page-overview.html", {
+        "meta": {
+            "title": "Wash4You at a Glance — Laundry & Dryclean in Gurgaon",
+            "description": f"Everything Wash4You does on one page: dryclean, laundry, shoe and home care, {sum(len(c['items']) for c in overview_products)} published prices, packages, {areas_total_all}+ areas and two Gurugram stores.",
+            "canonical": f"{site['urls']['base']}/wash4you-overview/",
+        },
+        "overview_products": overview_products,
+        "item_count": sum(len(c["items"]) for c in overview_products),
+        "packages": packages,
+        "areas": areas_data,
+        "home": home,
+        "landing_pages": landing["pages"],
+        "depth": 1,
+    }))
 
     # Print-only price list — the source for wash4you-price-list.pdf. Standalone
     # (does not extend base.html), noindex, and kept out of the sitemap below.

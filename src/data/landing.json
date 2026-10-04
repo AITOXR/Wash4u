@@ -1,0 +1,89 @@
+{
+  "_note": "Search landing pages (client brief, Sep 2026: 'Best dryclean near me', 'Best dryclean in Gurgaon'). Rendered by page-landing.html. Every claim here is one the site already makes elsewhere — no ratings, rankings or awards, which are not verified. {areas} is filled at build with the live coverage total; {gurugram} with the Gurugram locality count.",
+  "shared": {
+    "popular": ["shirt", "pant-trouser", "jeans", "men-suit-2pcs", "coat", "dress", "saree", "lehenga", "sherwani", "kurta", "curtain", "double-blanket"],
+    "checklist": {
+      "eyebrow": "Choosing a Dry Cleaner",
+      "title": "What the Best Dryclean Should Offer — and How Wash4You Does It",
+      "subtitle": "“Best” is easy to claim. These are the six things worth checking before you hand over a suit or a silk saree, and exactly what Wash4You does for each.",
+      "items": [
+        { "title": "Real dryclean machines", "check": "Is it actually drycleaned, or washed in a home-style machine?", "answer": "Wash4You drycleans on commercial machines with fabric-safe, biodegradable solvents, and steam-finishes every piece by hand." },
+        { "title": "Counted at your door", "check": "Do you get a count and a receipt when your clothes leave?", "answer": "Every piece is counted in front of you at pickup and logged on an itemised receipt." },
+        { "title": "Stains treated first", "check": "Are stains assessed before cleaning, or after it is too late?", "answer": "Marks are identified and pre-treated before the main clean, and we tell you honestly when a stain may not lift completely." },
+        { "title": "Published prices", "check": "Can you see the price before you book?", "answer": "Every item on the price list has a published starting rate — no quote-on-request for everyday clothes." },
+        { "title": "Your order kept separate", "check": "Is your order mixed with other customers' clothes?", "answer": "Each order is bagged, tagged and handled on its own from pickup to delivery." },
+        { "title": "Free pickup & delivery", "check": "Do you have to find parking and queue at a counter?", "answer": "Pickup and delivery are free across Gurugram, Delhi, Noida, Faridabad and Ghaziabad." }
+      ]
+    }
+  },
+  "pages": [
+    {
+      "slug": "best-dryclean-near-me",
+      "meta": {
+        "title": "Best Dry Cleaning Near Me — Free Pickup | Wash4You",
+        "description": "Looking for the best dry cleaners near you? Wash4You drycleans on commercial machines with free doorstep pickup across Gurugram & Delhi NCR.",
+        "og_title": "Best Dryclean Near You, With Free Pickup | Wash4You",
+        "og_description": "Professional dryclean care that comes to your door: counted at pickup, drycleaned on commercial machines, returned pressed and covered."
+      },
+      "eyebrow": "Professional Dryclean Care Near You",
+      "h1": "The Best Dryclean Near You Comes to Your Door",
+      "subtitle": "Wash4You collects from your doorstep, drycleans on commercial machines at our Gurugram studio and delivers back pressed and covered — across {areas} areas of Delhi NCR.",
+      "tagItem": "Near You",
+      "near": {
+        "eyebrow": "Wash4You Near You",
+        "title": "Two Stores in Gurugram. Pickup Wherever You Are.",
+        "subtitle": "The nearest dry cleaner is the one that comes to you. Our valets collect across Delhi NCR from our two Gurugram stores, so a professional dryclean is never more than a booking away.",
+        "cta": "Check Your Area"
+      },
+      "local": null,
+      "faqs": [
+        { "q": "Where is the nearest Wash4You dry cleaner?", "a": "Wash4You has two stores in Gurugram — Sushant Lok Phase I (Sector 43) and Unitech Arcadia (Sector 49). Most customers never visit either: we pick up from your door for free across Gurugram, Delhi, Noida, Faridabad and Ghaziabad." },
+        { "q": "Is pickup free near me?", "a": "Yes. Doorstep pickup and delivery are free in every area we serve. Use Locate Us to check your sector or society." },
+        { "q": "How long does dry cleaning take?", "a": "Most drycleaned items are back in 24 to 48 hours. Steam pressing and laundry usually take 24 hours; leather, bags and some specialist items take longer and we tell you before we start." },
+        { "q": "How much does dry cleaning cost?", "a": "Dryclean starts from {price:shirt} per piece for everyday clothes like shirts, trousers and jeans. Every item has a published price on our price list, exclusive of 18% GST, with no pickup charge." },
+        { "q": "What makes a dry cleaner the best?", "a": "Look for real dryclean machines rather than a home-style wash, a count and receipt at pickup, stain treatment before cleaning, published prices and orders kept separate. Wash4You does all five, and adds free doorstep pickup and delivery." }
+      ],
+      "cta": { "title": "Book the Best Dryclean Near You", "subtitle": "Free doorstep pickup, commercial dryclean machines and a finish you can see — from {price:shirt}." }
+    },
+    {
+      "slug": "best-dryclean-in-gurgaon",
+      "meta": {
+        "title": "Best Dry Cleaning in Gurgaon — Free Pickup | Wash4You",
+        "description": "Best dry cleaning in Gurgaon from Wash4You: two Gurugram stores, commercial dryclean machines and free doorstep pickup across {gurugram} localities.",
+        "og_title": "Best Dryclean in Gurgaon | Wash4You",
+        "og_description": "Professional dryclean care from Sushant Lok and Sector 49, with free doorstep pickup across Gurugram."
+      },
+      "eyebrow": "Professional Dryclean Care in Gurugram",
+      "h1": "The Best Dryclean in Gurgaon, Picked Up From Your Door",
+      "subtitle": "Two Wash4You stores in Sushant Lok and Sector 49, commercial dryclean machines, and free doorstep pickup across {gurugram} Gurugram localities.",
+      "tagItem": "Gurugram",
+      "near": {
+        "eyebrow": "Wash4You in Gurugram",
+        "title": "Based in Gurugram, Serving All of It",
+        "subtitle": "Wash4You is a Gurugram business with two stores in the city. Our valets run daily routes across DLF, Golf Course Road, Sohna Road, the new sectors and everywhere in between.",
+        "cta": "Find Your Sector"
+      },
+      "local": {
+        "eyebrow": "Dryclean for Gurgaon Life",
+        "title": "What Gurugram Sends Us, Season by Season",
+        "subtitle": "Dry cleaning in Gurgaon follows the city's calendar. Here is what we clean most — and how.",
+        "items": [
+          { "title": "Office Formals", "desc": "Suits, blazers and formal shirts for Cyber City, Udyog Vihar and Golf Course Road offices — drycleaned, shoulders shaped, returned on hangers.", "link": "men-suit-2pcs" },
+          { "title": "Wedding Season", "desc": "Sarees, lehengas and sherwanis from Gurugram's wedding calendar, with zari, embroidery and borders protected.", "link": "lehenga" },
+          { "title": "Winter Woollens", "desc": "Coats, sweaters, shawls and blankets from October to February — cleaned before they go into storage, so moths have nothing to find.", "link": "long-coat" },
+          { "title": "Monsoon Mud", "desc": "Hems, trousers and shoes splashed by July and August rain — stains pre-treated before the dryclean.", "link": "pant-trouser" },
+          { "title": "Curtains & Home", "desc": "Curtains taken down and rehung free, plus quilts, razais and carpets that no flat's washing machine can handle.", "link": "curtain" },
+          { "title": "Shoes & Sneakers", "desc": "Sneakers, leather and suede cleaned by hand at our own Gurugram stores — never in a washing machine.", "link": "sneakers" }
+        ]
+      },
+      "faqs": [
+        { "q": "Which areas of Gurgaon do you cover?", "a": "All of Gurugram — {gurugram} localities including DLF Phases 1–5, Golf Course Road and Extension, Sohna Road, Sushant Lok, South City, Palam Vihar, MG Road, Cyber City and the new sectors. Pickup and delivery are free everywhere." },
+        { "q": "Where are your stores in Gurgaon?", "a": "Wash4You Vyapar Kendra in Sushant Lok Phase I, Sector 43, and Wash4You Arcadia in Unitech Arcadia, Sector 49." },
+        { "q": "How much does dry cleaning cost in Gurgaon?", "a": "Dryclean starts from {price:shirt} per piece for shirts, trousers and jeans; suits start from {price:men-suit-2pcs} and sarees from {price:saree}. All prices are published on our price list, exclusive of 18% GST." },
+        { "q": "Can you dryclean wedding wear?", "a": "Yes. Lehengas, sarees, sherwanis and heavy work kurtas are inspected piece by piece, drycleaned gently and finished by hand around the embroidery." },
+        { "q": "How fast is dry cleaning in Gurgaon?", "a": "Most drycleaned items are delivered in 24 to 48 hours, and steam pressing in 24 hours." }
+      ],
+      "cta": { "title": "Book the Best Dryclean in Gurgaon", "subtitle": "Free pickup anywhere in Gurugram, commercial dryclean machines and a finish you can see — from {price:shirt}." }
+    }
+  ]
+}
