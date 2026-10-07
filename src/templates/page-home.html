@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_posters.html" import feature with context %}
 {% from "_icons.html" import ui, care_symbol, care_tag, service_icon, service_bg %}
 {% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card %}
 
@@ -122,6 +123,7 @@
   </div>
 </section>
 
+{{ feature('premium', 'left') }}
 {# ============================================================
    Services — "What we clean".
 
@@ -254,6 +256,7 @@
   </div>
 </section>
 
+{{ feature('ethnic', 'right', 'wash') }}
 {# ============================================================
    Proof gallery — the signature before/after slider now leads here.
    ============================================================ #}
@@ -382,6 +385,7 @@
   </div>
 </section>
 
+
 {# ============================================================
    Blog — latest posts from the Wash4You blog
    ============================================================ #}
@@ -487,6 +491,7 @@
   </div>
 </section>
 
+{{ feature('doorstep', 'left') }}
 {# ============================================================
    FAQ
    ============================================================ #}

@@ -246,5 +246,70 @@
       "src": "images/posters/doorstep-handover.webp",
       "alt": "Wash4You doorstep pickup and delivery"
     }
-  ]
+  ],
+  "features": {
+    "premium": {
+      "src": "images/posters/premium-laundry.webp",
+      "alt": "Premium laundry service by Wash4You",
+      "eyebrow": "Premium Laundry",
+      "title": "Cleaner. Fresher. Healthier.",
+      "body": "Deep cleaning that lifts dirt, sweat and odour, professional washing and ironing, and eco-friendly detergents that are safe for your fabrics and skin.",
+      "cta": "See laundry pricing",
+      "product": "premium-laundry"
+    },
+    "ethnic": {
+      "src": "images/posters/kurta-peacock.webp",
+      "alt": "Premium embroidered kurta dry cleaning by Wash4You",
+      "eyebrow": "Ethnic Wear Care",
+      "title": "Embroidery, Zari and Silk, Handled by Specialists",
+      "body": "A low-agitation dryclean with non-petrol organic solvents protects delicate embroidery and metallic thread, with targeted stain removal and a traditional finish.",
+      "cta": "Explore ethnic wear care",
+      "product": "kurta-heavy"
+    },
+    "doorstep": {
+      "src": "images/posters/doorstep-handover.webp",
+      "alt": "Wash4You doorstep pickup and delivery",
+      "eyebrow": "Doorstep Service",
+      "title": "Pickup and Delivery, Free at Your Door",
+      "body": "Book in a minute. We collect from your doorstep and return your clothes pressed, covered and ready to wear across Gurugram and Delhi NCR.",
+      "cta": "Book free pickup",
+      "url": "booking"
+    },
+    "saree": {
+      "src": "images/posters/saree-blue.webp",
+      "alt": "Saree dry cleaning by Wash4You",
+      "eyebrow": "Saree Care",
+      "title": "Pallu and Border Care for Your Finest Sarees",
+      "body": "Colour-safe treatment, careful preservation of delicate craftsmanship and eco-friendly solvents that keep the shine and fall of your silks.",
+      "cta": "Explore saree care",
+      "product": "saree"
+    },
+    "van": {
+      "src": "images/posters/pickup-van.webp",
+      "alt": "Wash4You pickup van for bulk collection",
+      "eyebrow": "Bulk Pickup",
+      "title": "Large-Capacity Collection for Homes and Businesses",
+      "body": "Our pickup van handles bulk loads with reliable, professional doorstep collection. Message us for a quote on regular business volumes.",
+      "cta": "Ask for a quote",
+      "url": "whatsapp"
+    },
+    "ironed": {
+      "src": "images/posters/laundry-wash-and-iron.webp",
+      "alt": "Laundry professionally cleaned and ironed by Wash4You",
+      "eyebrow": "Wash and Iron",
+      "title": "Fresh Laundry, Professionally Cleaned and Ironed",
+      "body": "Deep cleaning, hygienic care and a crisp professional press, delivered back to your doorstep.",
+      "cta": "See wash and iron pricing",
+      "product": "wash-and-steam-iron"
+    },
+    "bike": {
+      "src": "images/posters/delivery-bike.webp",
+      "alt": "Wash4You delivery partner on a bike",
+      "eyebrow": "Fast Collection",
+      "title": "Free Pickup and Delivery Across Gurugram and NCR",
+      "body": "Our delivery partners collect and return your clothes from your doorstep, so laundry day never takes up your day.",
+      "cta": "Book free pickup",
+      "url": "booking"
+    }
+  }
 }

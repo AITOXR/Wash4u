@@ -1,0 +1,21 @@
+{# Editorial poster + copy split. Data: data/posters.json -> features.
+   Usage: {% from "_posters.html" import feature with context %}{{ feature('premium', 'left') }} #}
+{% macro feature(key, side='left', tone='') %}
+{% set f = posters.features[key] %}
+{% set href = (root_path ~ product_urls[f.product]) if f.product else site.urls[f.url] %}
+<section class="section poster-feature{{ ' section--wash' if tone == 'wash' }}">
+  <div class="wrap">
+    <div class="poster-feature__grid poster-feature__grid--{{ side }}">
+      <a class="poster-feature__art reveal" href="{{ href }}"{{ ' target="_blank" rel="noopener"' if f.url }} tabindex="-1" aria-hidden="true">
+        <img src="{{ asset_path }}{{ f.src }}" alt="" width="1080" height="1440" loading="lazy" decoding="async">
+      </a>
+      <div class="poster-feature__copy reveal">
+        <p class="eyebrow">{{ f.eyebrow }}</p>
+        <h2>{{ f.title }}</h2>
+        <p class="poster-feature__lede">{{ f.body }}</p>
+        <a class="btn btn--cta btn--lg" href="{{ href }}"{{ ' target="_blank" rel="noopener"' if f.url }}>{{ f.cta }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}

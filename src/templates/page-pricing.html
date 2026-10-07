@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_posters.html" import feature with context %}
 {% from "_components.html" import faq_list, page_hero_mascot_inline %}
 {% from "_icons.html" import ui, price_cat_bg %}
 {% set is_area = area is defined and area %}
@@ -370,6 +371,7 @@
 </section>
 
 </div>{# /.pricing-page #}
+{{ feature('bike', 'left') }}
 {% endblock %}
 
 {% block scripts %}

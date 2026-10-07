@@ -384,6 +384,7 @@ def build() -> None:
     # Client poster artwork (data/posters.json): per-product posters plus the
     # pickup/delivery trio shown on every product page.
     posters = load_json(DATA_DIR / "posters.json")
+    env.globals["posters"] = posters
     for prod in products_list:
         prod["posters"] = posters["by_product"].get(prod["slug"], [])
         prod["doorstepPosters"] = posters["doorstep"]
@@ -425,6 +426,8 @@ def build() -> None:
     # the home page hero band and the footer's "also serving" line below.
     areas_total_all = sum(c["count"] for c in areas_data["cities"])
     other_cities = [c["name"] for c in areas_data["cities"] if c["name"] != "Gurugram (Gurgaon)"]
+
+    env.globals["product_urls"] = product_urls
 
     # Home
     pages_to_build.append(("index.html", "page-home.html", {

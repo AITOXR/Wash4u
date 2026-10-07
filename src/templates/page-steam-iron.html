@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_posters.html" import feature with context %}
 {% from "_icons.html" import ui, care_tag %}
 {% from "_components.html" import page_hero_mascot_inline %}
 
@@ -89,4 +90,5 @@
   </div>
 </section>
 
+{{ feature('ironed', 'right') }}
 {% endblock %}

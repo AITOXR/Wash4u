@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_posters.html" import feature with context %}
 {% from "_components.html" import faq_list, page_hero_mascot_inline %}
 {% from "_icons.html" import ui, care_tag, service_icon, service_bg %}
 
@@ -258,4 +259,5 @@
   </div>
 </section>
 
+{{ feature('saree', 'right', 'wash') }}
 {% endblock %}
