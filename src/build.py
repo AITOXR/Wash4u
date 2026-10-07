@@ -381,6 +381,13 @@ def build() -> None:
 
     products_list = [resolve_product(p, product_shared, price_index) for p in products_raw]
 
+    # Client poster artwork (data/posters.json): per-product posters plus the
+    # pickup/delivery trio shown on every product page.
+    posters = load_json(DATA_DIR / "posters.json")
+    for prod in products_list:
+        prod["posters"] = posters["by_product"].get(prod["slug"], [])
+        prod["doorstepPosters"] = posters["doorstep"]
+
     # Price-list slug -> product page. Each product claims the slugs of the
     # services it sells (jeans + iron-jeans -> products/jeans/), so the footer,
     # search, price list and service galleries all link through this one map.

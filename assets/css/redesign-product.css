@@ -2129,3 +2129,13 @@ img { max-width: 100%; }
 .ov-links__title { font-size: var(--t-lg); margin: 0 0 var(--s-3); color: var(--navy-deep); }
 .ov-links ul { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s-2); }
 .prod-area-chip--more { background: var(--navy-deep); color: #fff; }
+
+/* Client poster artwork */
+.prod-posters { padding: var(--s-12) 0; background: var(--paper, #fff); }
+.prod-posters__grid { display: grid; gap: var(--s-5); grid-template-columns: repeat(auto-fit, minmax(240px, 320px)); justify-content: center; margin-top: var(--s-7); }
+.prod-posters__item { display: block; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(11, 30, 60, 0.14); transition: transform .2s ease; }
+.prod-posters__item:hover { transform: translateY(-3px); }
+.prod-posters__item img { display: block; width: 100%; height: auto; }
+.prod-doorstep-posters { display: grid; gap: var(--s-4); grid-template-columns: repeat(3, 1fr); max-width: 780px; margin: var(--s-8) auto 0; }
+.prod-doorstep-posters img { width: 100%; height: auto; border-radius: 12px; display: block; }
+@media (max-width: 600px) { .prod-doorstep-posters { grid-template-columns: 1fr; max-width: 320px; } }

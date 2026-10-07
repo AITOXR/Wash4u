@@ -1,0 +1,250 @@
+{
+  "by_product": {
+    "kurta": [
+      {
+        "src": "images/posters/kurta-blue.webp",
+        "alt": "Kurta ethnic wear dry cleaning by Wash4You"
+      },
+      {
+        "src": "images/posters/ethnic-wear-kurta.webp",
+        "alt": "Professional ethnic wear dry cleaning by Wash4You"
+      }
+    ],
+    "kurta-fancy": [
+      {
+        "src": "images/posters/kurta-embroidered.webp",
+        "alt": "Embroidered kurta dry cleaning by Wash4You"
+      }
+    ],
+    "kurta-heavy": [
+      {
+        "src": "images/posters/kurta-peacock.webp",
+        "alt": "Premium embroidered kurta dry cleaning by Wash4You"
+      }
+    ],
+    "carpet": [
+      {
+        "src": "images/posters/carpet-restored.webp",
+        "alt": "Carpet dry cleaning by Wash4You"
+      },
+      {
+        "src": "images/posters/carpet-shaggy.webp",
+        "alt": "Premium carpet dry cleaning by Wash4You"
+      },
+      {
+        "src": "images/posters/carpet-extraction.webp",
+        "alt": "Carpet deep dust extraction by Wash4You"
+      }
+    ],
+    "leather-shoes": [
+      {
+        "src": "images/posters/leather-shoes.webp",
+        "alt": "Leather shoe care by Wash4You"
+      }
+    ],
+    "boots-mid-length": [
+      {
+        "src": "images/posters/leather-boot.webp",
+        "alt": "Leather boot cleaning and care by Wash4You"
+      }
+    ],
+    "suede-leather-shoes": [
+      {
+        "src": "images/posters/suede-loafer.webp",
+        "alt": "Suede shoe care by Wash4You"
+      },
+      {
+        "src": "images/posters/suede-chelsea-boot.webp",
+        "alt": "Suede boot dry cleaning by Wash4You"
+      },
+      {
+        "src": "images/posters/suede-experts.webp",
+        "alt": "Suede experts premium specialty care by Wash4You"
+      }
+    ],
+    "sneaker-ankle": [
+      {
+        "src": "images/posters/sneaker-high-top.webp",
+        "alt": "Premium sneaker care by Wash4You"
+      }
+    ],
+    "sneakers": [
+      {
+        "src": "images/posters/sports-shoes-white.webp",
+        "alt": "Sneaker foam cleaning by Wash4You"
+      }
+    ],
+    "sports-shoes": [
+      {
+        "src": "images/posters/sports-shoes.webp",
+        "alt": "Sports shoe foam cleaning by Wash4You"
+      },
+      {
+        "src": "images/posters/sports-shoes-white.webp",
+        "alt": "Sports shoe deep cleaning by Wash4You"
+      }
+    ],
+    "shawl": [
+      {
+        "src": "images/posters/shawl.webp",
+        "alt": "Shawl wool dry cleaning by Wash4You"
+      },
+      {
+        "src": "images/posters/scarf.webp",
+        "alt": "Wool scarf dry cleaning by Wash4You"
+      }
+    ],
+    "shirt": [
+      {
+        "src": "images/posters/shirt.webp",
+        "alt": "Exquisite shirt care by Wash4You"
+      }
+    ],
+    "premium-laundry": [
+      {
+        "src": "images/posters/premium-laundry.webp",
+        "alt": "Premium laundry service by Wash4You"
+      }
+    ],
+    "wash-and-steam-iron": [
+      {
+        "src": "images/posters/laundry-wash-and-iron.webp",
+        "alt": "Laundry professionally cleaned and ironed by Wash4You"
+      }
+    ],
+    "wash-and-fold": [
+      {
+        "src": "images/posters/premium-laundry.webp",
+        "alt": "Premium laundry service by Wash4You"
+      }
+    ],
+    "single-blanket": [
+      {
+        "src": "images/posters/blanket-bed.webp",
+        "alt": "Blanket cleaning by Wash4You"
+      },
+      {
+        "src": "images/posters/blanket-sofa.webp",
+        "alt": "Blanket dry cleaning by Wash4You"
+      }
+    ],
+    "double-blanket": [
+      {
+        "src": "images/posters/blanket-bed.webp",
+        "alt": "Blanket cleaning by Wash4You"
+      },
+      {
+        "src": "images/posters/blanket-sofa.webp",
+        "alt": "Blanket dry cleaning by Wash4You"
+      }
+    ],
+    "comforter-double": [
+      {
+        "src": "images/posters/blanket-bed.webp",
+        "alt": "Comforter and blanket cleaning by Wash4You"
+      }
+    ],
+    "coat": [
+      {
+        "src": "images/posters/blazer.webp",
+        "alt": "Coat and blazer dry cleaning by Wash4You"
+      }
+    ],
+    "men-suit-2pcs": [
+      {
+        "src": "images/posters/blazer.webp",
+        "alt": "Suit and blazer dry cleaning by Wash4You"
+      }
+    ],
+    "men-suit-3pcs": [
+      {
+        "src": "images/posters/blazer.webp",
+        "alt": "Suit and blazer dry cleaning by Wash4You"
+      }
+    ],
+    "sweater": [
+      {
+        "src": "images/posters/sweater.webp",
+        "alt": "Expert sweater care by Wash4You"
+      }
+    ],
+    "jeans": [
+      {
+        "src": "images/posters/jeans-stacked.webp",
+        "alt": "Premium denim dry cleaning by Wash4You"
+      },
+      {
+        "src": "images/posters/jeans-hanger.webp",
+        "alt": "Denim dry cleaning by Wash4You"
+      }
+    ],
+    "curtain": [
+      {
+        "src": "images/posters/curtain-blue.webp",
+        "alt": "Curtain dry cleaning by Wash4You"
+      },
+      {
+        "src": "images/posters/curtain-brown.webp",
+        "alt": "Curtain cleaning by Wash4You"
+      }
+    ],
+    "dress": [
+      {
+        "src": "images/posters/dress.webp",
+        "alt": "Dress dry cleaning by Wash4You"
+      }
+    ],
+    "t-shirt": [
+      {
+        "src": "images/posters/t-shirt.webp",
+        "alt": "T-shirt dry cleaning by Wash4You"
+      }
+    ],
+    "leather-jacket": [
+      {
+        "src": "images/posters/leather-jacket.webp",
+        "alt": "Leather jacket care by Wash4You"
+      }
+    ],
+    "saree": [
+      {
+        "src": "images/posters/saree-teal.webp",
+        "alt": "Exclusive saree care by Wash4You"
+      },
+      {
+        "src": "images/posters/saree-blue.webp",
+        "alt": "Saree dry cleaning by Wash4You"
+      }
+    ],
+    "lehenga": [
+      {
+        "src": "images/posters/lehenga-red.webp",
+        "alt": "Royal lehenga care by Wash4You"
+      },
+      {
+        "src": "images/posters/lehenga-mannequin.webp",
+        "alt": "Lehenga dry cleaning by Wash4You"
+      }
+    ],
+    "pant-trouser": [
+      {
+        "src": "images/posters/pant-hanger.webp",
+        "alt": "Pant dry cleaning by Wash4You"
+      }
+    ]
+  },
+  "doorstep": [
+    {
+      "src": "images/posters/pickup-van.webp",
+      "alt": "Wash4You pickup van for bulk collection"
+    },
+    {
+      "src": "images/posters/delivery-bike.webp",
+      "alt": "Wash4You delivery partner on a bike"
+    },
+    {
+      "src": "images/posters/doorstep-handover.webp",
+      "alt": "Wash4You doorstep pickup and delivery"
+    }
+  ]
+}

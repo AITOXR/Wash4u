@@ -260,6 +260,24 @@
     </div>
   </section>
 
+  {% if product.posters %}
+  <section class="prod-posters">
+    <div class="wrap">
+      <div class="prod-section-header">
+        <p class="prod-section-eyebrow">Wash4You Care</p>
+        <h2 class="prod-section-title">How We Care for Your {{ product.name }}</h2>
+      </div>
+      <div class="prod-posters__grid">
+        {% for ph in product.posters %}
+        <a class="prod-posters__item" href="{{ asset_path }}{{ ph.src }}" target="_blank" rel="noopener">
+          <img src="{{ asset_path }}{{ ph.src }}" alt="{{ ph.alt }}" width="1080" height="1440" loading="lazy" decoding="async">
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
   {# ============================================================
      3. SERVICE COMPARISON — only when there is a choice to make
      ============================================================ #}
@@ -585,6 +603,12 @@
           <h3 class="prod-doorstep-card__title">{{ step.title }}</h3>
           <p class="prod-doorstep-card__desc">{{ step.desc }}</p>
         </div>
+        {% endfor %}
+      </div>
+
+      <div class="prod-doorstep-posters">
+        {% for ph in product.doorstepPosters %}
+        <img src="{{ asset_path }}{{ ph.src }}" alt="{{ ph.alt }}" width="1080" height="1440" loading="lazy" decoding="async">
         {% endfor %}
       </div>
 
