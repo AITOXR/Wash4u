@@ -311,5 +311,314 @@
       "cta": "Book free pickup",
       "url": "booking"
     }
+  },
+  "gallery": {
+    "handbag-leather": [
+      {
+        "src": "images/posters/handbag-before.webp",
+        "alt": "Handbag before cleaning",
+        "caption": "Before",
+        "w": 1278,
+        "h": 1230
+      },
+      {
+        "src": "images/posters/handbag-after.webp",
+        "alt": "Handbag after cleaning by Wash4You",
+        "caption": "After",
+        "w": 1278,
+        "h": 1230
+      },
+      {
+        "src": "images/posters/handbag-tagged.webp",
+        "alt": "Handbag tagged by Wash4You",
+        "caption": "Tagged and ready",
+        "w": 1278,
+        "h": 1230
+      }
+    ],
+    "sneakers": [
+      {
+        "src": "images/posters/slipons-before.webp",
+        "alt": "Slip-on shoes before cleaning",
+        "caption": "Before",
+        "w": 1400,
+        "h": 787
+      },
+      {
+        "src": "images/posters/slipons-after.webp",
+        "alt": "Slip-on shoes after cleaning by Wash4You",
+        "caption": "After",
+        "w": 1400,
+        "h": 787
+      },
+      {
+        "src": "images/posters/sneaker-before-after.webp",
+        "alt": "Sneaker before and after cleaning",
+        "caption": "Sneaker restoration",
+        "w": 788,
+        "h": 1400
+      }
+    ],
+    "sneaker-ankle": [
+      {
+        "src": "images/posters/sneaker-before-after.webp",
+        "alt": "Sneaker before and after cleaning",
+        "caption": "Sneaker restoration",
+        "w": 788,
+        "h": 1400
+      }
+    ],
+    "sports-shoes": [
+      {
+        "src": "images/posters/slipons-before.webp",
+        "alt": "Slip-on shoes before cleaning",
+        "caption": "Before",
+        "w": 1400,
+        "h": 787
+      },
+      {
+        "src": "images/posters/slipons-after.webp",
+        "alt": "Slip-on shoes after cleaning by Wash4You",
+        "caption": "After",
+        "w": 1400,
+        "h": 787
+      },
+      {
+        "src": "images/posters/worker-shoe-care.webp",
+        "alt": "Wash4You team member cleaning a sneaker",
+        "caption": "Hand-cleaned by our team",
+        "w": 1400,
+        "h": 933
+      }
+    ],
+    "leather-shoes": [
+      {
+        "src": "images/posters/leather-shoes-photo.webp",
+        "alt": "Leather shoes after care by Wash4You",
+        "caption": "Polished and restored",
+        "w": 1400,
+        "h": 933
+      }
+    ],
+    "coat": [
+      {
+        "src": "images/posters/blazer-packed.webp",
+        "alt": "Blazer returned in protective Wash4You cover",
+        "caption": "Returned pressed and covered",
+        "w": 844,
+        "h": 1400
+      }
+    ],
+    "men-suit-2pcs": [
+      {
+        "src": "images/posters/blazer-packed.webp",
+        "alt": "Blazer returned in protective Wash4You cover",
+        "caption": "Returned pressed and covered",
+        "w": 844,
+        "h": 1400
+      },
+      {
+        "src": "images/posters/blazer-packed-2.webp",
+        "alt": "Blazer in protective Wash4You cover",
+        "caption": "Protective packaging",
+        "w": 844,
+        "h": 1400
+      }
+    ],
+    "men-suit-3pcs": [
+      {
+        "src": "images/posters/blazer-packed.webp",
+        "alt": "Blazer returned in protective Wash4You cover",
+        "caption": "Returned pressed and covered",
+        "w": 844,
+        "h": 1400
+      },
+      {
+        "src": "images/posters/blazer-packed-2.webp",
+        "alt": "Blazer in protective Wash4You cover",
+        "caption": "Protective packaging",
+        "w": 844,
+        "h": 1400
+      }
+    ],
+    "leather-jacket": [
+      {
+        "src": "images/posters/leather-jacket-photo.webp",
+        "alt": "Leather jacket after care by Wash4You",
+        "caption": "Cleaned and conditioned",
+        "w": 933,
+        "h": 1400
+      }
+    ],
+    "single-blanket": [
+      {
+        "src": "images/posters/worker-packing-blankets.webp",
+        "alt": "Wash4You team member packing cleaned blankets",
+        "caption": "Packed with care",
+        "w": 1400,
+        "h": 933
+      },
+      {
+        "src": "images/posters/blankets-packed.webp",
+        "alt": "Cleaned blankets sealed in Wash4You packaging",
+        "caption": "Sealed and ready to return",
+        "w": 1400,
+        "h": 933
+      },
+      {
+        "src": "images/posters/blanket-packed.webp",
+        "alt": "Blanket sealed in Wash4You packaging",
+        "caption": "Returned fresh",
+        "w": 960,
+        "h": 1280
+      }
+    ],
+    "double-blanket": [
+      {
+        "src": "images/posters/worker-packing-blankets.webp",
+        "alt": "Wash4You team member packing cleaned blankets",
+        "caption": "Packed with care",
+        "w": 1400,
+        "h": 933
+      },
+      {
+        "src": "images/posters/blankets-packed.webp",
+        "alt": "Cleaned blankets sealed in Wash4You packaging",
+        "caption": "Sealed and ready to return",
+        "w": 1400,
+        "h": 933
+      },
+      {
+        "src": "images/posters/blanket-packed.webp",
+        "alt": "Blanket sealed in Wash4You packaging",
+        "caption": "Returned fresh",
+        "w": 960,
+        "h": 1280
+      }
+    ],
+    "comforter-double": [
+      {
+        "src": "images/posters/worker-packing-blankets.webp",
+        "alt": "Wash4You team member packing cleaned blankets",
+        "caption": "Packed with care",
+        "w": 1400,
+        "h": 933
+      },
+      {
+        "src": "images/posters/blankets-packed.webp",
+        "alt": "Cleaned blankets sealed in Wash4You packaging",
+        "caption": "Sealed and ready to return",
+        "w": 1400,
+        "h": 933
+      },
+      {
+        "src": "images/posters/blanket-packed.webp",
+        "alt": "Blanket sealed in Wash4You packaging",
+        "caption": "Returned fresh",
+        "w": 960,
+        "h": 1280
+      }
+    ]
+  },
+  "service_gallery": {
+    "mattress-cleaning": [
+      {
+        "src": "images/posters/mattress-cleaning.webp",
+        "alt": "Wash4You team member deep cleaning a mattress",
+        "caption": "Deep extraction cleaning",
+        "w": 1400,
+        "h": 933
+      }
+    ],
+    "shoe-cleaning": [
+      {
+        "src": "images/posters/slipons-before.webp",
+        "alt": "Slip-on shoes before cleaning",
+        "caption": "Before",
+        "w": 1400,
+        "h": 787
+      },
+      {
+        "src": "images/posters/slipons-after.webp",
+        "alt": "Slip-on shoes after cleaning by Wash4You",
+        "caption": "After",
+        "w": 1400,
+        "h": 787
+      },
+      {
+        "src": "images/posters/worker-shoe-care.webp",
+        "alt": "Wash4You team member cleaning a sneaker",
+        "caption": "Hand-cleaned by our team",
+        "w": 1400,
+        "h": 933
+      },
+      {
+        "src": "images/posters/sneaker-before-after.webp",
+        "alt": "Sneaker before and after cleaning",
+        "caption": "Sneaker restoration",
+        "w": 788,
+        "h": 1400
+      }
+    ],
+    "blanket-quilt-cleaning": [
+      {
+        "src": "images/posters/worker-packing-blankets.webp",
+        "alt": "Wash4You team member packing cleaned blankets",
+        "caption": "Packed with care",
+        "w": 1400,
+        "h": 933
+      },
+      {
+        "src": "images/posters/blankets-packed.webp",
+        "alt": "Cleaned blankets sealed in Wash4You packaging",
+        "caption": "Sealed and ready to return",
+        "w": 1400,
+        "h": 933
+      },
+      {
+        "src": "images/posters/blanket-packed.webp",
+        "alt": "Blanket sealed in Wash4You packaging",
+        "caption": "Returned fresh",
+        "w": 960,
+        "h": 1280
+      }
+    ],
+    "bag-cleaning": [
+      {
+        "src": "images/posters/handbag-before.webp",
+        "alt": "Handbag before cleaning",
+        "caption": "Before",
+        "w": 1278,
+        "h": 1230
+      },
+      {
+        "src": "images/posters/handbag-after.webp",
+        "alt": "Handbag after cleaning by Wash4You",
+        "caption": "After",
+        "w": 1278,
+        "h": 1230
+      },
+      {
+        "src": "images/posters/handbag-tagged.webp",
+        "alt": "Handbag tagged by Wash4You",
+        "caption": "Tagged and ready",
+        "w": 1278,
+        "h": 1230
+      }
+    ]
+  },
+  "banner": {
+    "src": "images/posters/family-banner.webp",
+    "alt": "Wash4You: care for everything that matters",
+    "caption": "",
+    "w": 1400,
+    "h": 933
+  },
+  "b2b": {
+    "src": "images/posters/b2b-handshake.webp",
+    "alt": "Wash4You team welcoming a hotel, institution and PG partner",
+    "caption": "",
+    "w": 1400,
+    "h": 933
   }
 }

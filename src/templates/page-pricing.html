@@ -294,6 +294,7 @@
         <p class="eyebrow"{{ cms('pricing:b2b.eyebrow') }}>{{ b2b.eyebrow }}</p>
         <h2{{ cms('pricing:b2b.title') }}>{{ b2b.title }}</h2>
         <p class="b2b__lede"{{ cms('pricing:b2b.lede') }}>{{ b2b.lede }}</p>
+        <img class="b2b__photo" src="{{ asset_path }}{{ posters.b2b.src }}" alt="{{ posters.b2b.alt }}" width="{{ posters.b2b.w }}" height="{{ posters.b2b.h }}" loading="lazy" decoding="async">
         <ul class="b2b__segments">
           {% for s in b2b.segments %}
           <li>

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_posters.html" import gallery with context %}
 {% from "_icons.html" import ui %}
 {% from "_components.html" import faq_list %}
 
@@ -277,6 +278,8 @@
     </div>
   </section>
   {% endif %}
+
+  {{ gallery(posters.gallery[product.slug], 'Real Results, Real Care') }}
 
   {# ============================================================
      3. SERVICE COMPARISON — only when there is a choice to make

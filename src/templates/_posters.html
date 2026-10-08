@@ -19,3 +19,34 @@
   </div>
 </section>
 {% endmacro %}
+
+{# Masonry photo gallery at natural aspect ratios. items: list of {src, alt, caption, w, h} #}
+{% macro gallery(items, title, eyebrow='From Our Studio') %}
+{% if items %}
+<section class="section photo-gallery">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow eyebrow--center">{{ eyebrow }}</p>
+      <h2>{{ title }}</h2>
+    </div>
+    <div class="photo-gallery__cols photo-gallery__cols--{{ items | length if items | length < 3 else 3 }}">
+      {% for ph in items %}
+      <figure class="photo-gallery__item">
+        <img src="{{ asset_path }}{{ ph.src }}" alt="{{ ph.alt }}" width="{{ ph.w }}" height="{{ ph.h }}" loading="lazy" decoding="async">
+        <figcaption>{{ ph.caption }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endmacro %}
+
+{# Full-width brand banner #}
+{% macro banner(ph) %}
+<section class="section poster-banner">
+  <div class="wrap">
+    <img class="poster-banner__img reveal" src="{{ asset_path }}{{ ph.src }}" alt="{{ ph.alt }}" width="{{ ph.w }}" height="{{ ph.h }}" loading="lazy" decoding="async">
+  </div>
+</section>
+{% endmacro %}
