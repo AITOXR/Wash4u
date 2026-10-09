@@ -4,11 +4,11 @@
     "description": "Transparent laundry & dry cleaning prices in Gurgaon & Delhi NCR. Wash & fold from ₹79/kg, dry cleaning from ₹99. Free pickup and delivery, GST extra.",
     "canonical": "https://wash4you.in/pricing/",
     "og_title": "Wash4You Price List — Laundry & Dry Cleaning Rates in Gurgaon",
-    "og_description": "Item-wise laundry, dry cleaning and steam ironing rates with free doorstep pickup and delivery across Gurugram."
+    "og_description": "Item-wise laundry, dry cleaning and steam ironing rates with free doorstep pickup and delivery across Gurgaon & NCR."
   },
   "hero": {
     "headline": "Gurgaon & Delhi NCR’s Most Transparent Laundry Prices",
-    "subheadline": "Wash4You publishes every rate up front, so you know what a wash, a dry clean or a shoe clean costs before we collect a single piece. Premium fabric care at honest rates, with free doorstep pickup and delivery across Gurugram and Delhi NCR. GST extra on all prices shown."
+    "subheadline": "Wash4You publishes every rate up front, so you know what a wash, a dry clean or a shoe clean costs before we collect a single piece. Premium fabric care at honest rates, with free doorstep pickup and delivery across Gurgaon and NCR. GST extra on all prices shown."
   },
   "note": "* GST Extra — all prices shown are exclusive of GST and are starting prices. The final price depends on the actual garment and the work it needs; send a photo on WhatsApp for an exact quote.",
   "categories": [
@@ -323,35 +323,40 @@
           "price": "₹79",
           "amount": 79,
           "slug": "wash-and-fold",
-          "img": "images/pricing/wash-and-fold.png"
+          "img": "images/pricing/wash-and-fold.png",
+          "unit": "per kg"
         },
         {
           "name": "Wash and Steam Iron",
           "price": "₹109",
           "amount": 109,
           "slug": "wash-and-steam-iron",
-          "img": "images/pricing/wash-and-steam-iron.png"
+          "img": "images/pricing/wash-and-steam-iron.png",
+          "unit": "per kg"
         },
         {
           "name": "Premium Laundry",
           "price": "₹149",
           "amount": 149,
           "slug": "premium-laundry",
-          "img": "images/pricing/premium-laundry.jpg"
+          "img": "images/pricing/premium-laundry.jpg",
+          "unit": "per kg"
         },
         {
           "name": "Woollen Laundry (Dailywear)",
           "price": "₹149",
           "amount": 149,
           "slug": "woollen-laundry",
-          "img": "images/pricing/sweater.png"
+          "img": "images/pricing/sweater.png",
+          "unit": "per kg"
         },
         {
           "name": "Woollen Laundry & Iron (Dailywear)",
           "price": "₹199",
           "amount": 199,
           "slug": "woollen-laundry-iron",
-          "img": "images/pricing/wash-and-steam-iron.png"
+          "img": "images/pricing/wash-and-steam-iron.png",
+          "unit": "per kg"
         }
       ]
     },
@@ -452,7 +457,7 @@
   "intro": {
     "_note": "SEO lead-in. Carries the target keywords (laundry price Gurgaon, dry cleaning rates, cost) in prose a customer would actually read.",
     "title": "Laundry & dry cleaning price list in Gurgaon & Delhi NCR",
-    "body": "Looking for affordable laundry and dry cleaning prices in Gurgaon? Premium garment care shouldn't cost a fortune. Whether you need wash & fold for everyday clothes, premium dry cleaning for a wedding lehenga, or steam ironing for office wear, the rates below are the rates you pay — with free pickup and delivery across Gurugram."
+    "body": "Looking for affordable laundry and dry cleaning prices in Gurgaon? Premium garment care shouldn't cost a fortune. Whether you need wash & fold for everyday clothes, premium dry cleaning for a wedding lehenga, or steam ironing for office wear, the rates below are the rates you pay — with free pickup and delivery across Gurgaon & NCR."
   },
   "difference": {
     "_note": "Adapted from the SEO guide's comparison table. The named-competitor version (DhobiLite, Tumbledry, local dhobi rates) is deliberately NOT published — those are third-party prices we cannot verify and naming them invites a complaint. The same points are made about our own pricing instead.",
@@ -561,7 +566,7 @@
     "_note": "B2B section on the main /pricing/ page only (client brief, Sep 2026). Quote-based by design: no commercial rates are published. Every claim mirrors one already made on the site (pricing FAQ, about FAQ, packages).",
     "eyebrow": "Wash4You for Business",
     "title": "B2B Laundry & Dryclean for Businesses",
-    "lede": "Commercial laundry and dryclean on a schedule that suits your business, at customised rates quoted to your volume. Collected from your premises across Gurugram and Delhi NCR, counted at handover and invoiced.",
+    "lede": "Commercial laundry and dryclean on a schedule that suits your business, at customised rates quoted to your volume. Collected from your premises across Gurgaon and NCR, counted at handover and invoiced.",
     "segments": [
       {
         "title": "Hotels & Guest Houses",

@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/men-suit-2pcs.webp",
   "heroImageFallback": "images/pricing/men-suit-2pcs.png",
   "heroImageAlt": "Men Suit 2 Pcs — dry cleaning by Wash4You",
-  "turnaroundNote": "Ready in 24–48 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Suit Dry Cleaning Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Hand steam finishing & crease setting",
         "Covered on a hanger for delivery"
       ],
-      "turnaround": "24–48 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "whyProfessional": {
@@ -180,7 +180,7 @@
     },
     {
       "q": "How long does suit dry cleaning take?",
-      "a": "Dryclean & Press for two-piece suits usually takes 24–48 hours."
+      "a": "Dryclean & Press for two-piece suits turnaround is confirmed when we collect your order."
     },
     {
       "q": "Are the jacket and trousers cleaned together?",

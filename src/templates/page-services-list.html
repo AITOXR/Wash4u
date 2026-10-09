@@ -88,7 +88,7 @@
       <div>
         <p class="eyebrow">What we clean</p>
         <h1{{ cms('services:hero.headline') }}>{{ (services.hero.headline or 'Everything we clean') | replace('Most Complete', '<span class="kw--onlight">Most Complete</span>', 1) | replace('Laundry & Dry-Cleaning', '<span class="neon-kw">Laundry &amp; Dry-Cleaning</span>', 1) | safe }}</h1>
-        <p class="lede"{{ cms('services:hero.subheadline') }}>{{ services.hero.subheadline or 'Clothes, shoes, bags and the things at home that will not fit in a washing machine. Free doorstep pickup and delivery across Gurugram.' }}</p>
+        <p class="lede"{{ cms('services:hero.subheadline') }}>{{ services.hero.subheadline or 'Clothes, shoes, bags and the things at home that will not fit in a washing machine. Free doorstep pickup and delivery across Gurgaon & NCR.' }}</p>
         <div class="btn-row">
           <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
           <a class="btn btn--ghost btn--lg" href="{{ root_path }}pricing/">See pricing</a>
@@ -236,7 +236,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Where we collect</p>
-      <h2>Free pickup across Gurugram</h2>
+      <h2>Free pickup across Gurgaon & NCR</h2>
     </div>
     <div class="areas stagger-children">
       {% for a in site.footer.areas %}

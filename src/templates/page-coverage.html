@@ -122,6 +122,7 @@
 
 {# The stores, labelled for what they are: Gurugram addresses, not a counter
    in this city. #}
+{% if site.show_stores %}
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
@@ -145,6 +146,7 @@
     </div>
   </div>
 </section>
+{% endif %}
 
 {% if area.faqs %}
 <section class="section section--wash">

@@ -70,14 +70,14 @@
 
   <div class="wrap home-hero__grid">
     <div class="home-hero__inner">
-      <p class="home-hero__eyebrow reveal reveal-delay-1">{{ ui('pin', 14) }} Gurugram · Delhi NCR</p>
+      <p class="home-hero__eyebrow reveal reveal-delay-1">{{ ui('pin', 14) }} Gurgaon & NCR</p>
       <h1 class="home-hero__title"><span class="hkw hkw--blue">Premium</span> <span class="hkw hkw--green">Laundry &amp; Dry Cleaning Services</span> <span class="hkw hkw--blue">in Gurgaon</span> <span class="hkw hkw--green">| Free Pickup &amp; Delivery</span></h1>
       <p class="home-hero__sub reveal reveal-delay-2">Get reliable laundry and dry cleaning services in Gurgaon with easy doorstep pickup and delivery. We carefully clean and care for your everyday clothes, delicate garments, shoes, curtains, blankets and more.</p>
       <div class="home-hero__actions reveal reveal-delay-3">
         <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book Free Pickup</a>
         <a class="btn home-hero__ghost btn--lg" href="{{ root_path }}pricing/">See Pricing</a>
       </div>
-      <p class="home-hero__trust reveal reveal-delay-4"><span class="home-hero__stars" aria-hidden="true">★★★★★</span> Trusted by 1000+ customers in Gurugram</p>
+      <p class="home-hero__trust reveal reveal-delay-4"><span class="home-hero__stars" aria-hidden="true">★★★★★</span> Trusted by 1000+ customers in Gurgaon & NCR</p>
 
       {# The first-order offer as a quiet tag, not a starburst. Same three
          editable spans, so the admin bindings are unchanged. #}
@@ -89,6 +89,20 @@
       </p>
       {% endif %}
     </div>
+  </div>
+</section>
+
+{# Proof-of-scale strip (client-supplied figures) #}
+<section class="stat-strip">
+  <div class="wrap">
+    <p class="stat-strip__lead">Gurgaon&rsquo;s #1 Laundry &amp; Dry Cleaning Brand</p>
+    <ul class="stat-strip__list">
+      <li><strong>200,000+</strong><span>Garments processed</span></li>
+      <li><strong>2,000+</strong><span>Shoes processed</span></li>
+      <li><strong>5,000+</strong><span>Happy customers</span></li>
+      <li><strong>4.7+</strong><span>Rated on Google</span></li>
+      <li><strong>90%+</strong><span>Repeat rate</span></li>
+    </ul>
   </div>
 </section>
 
@@ -155,7 +169,11 @@
       {# 12, not 9: the client's own "OUR SERVICES" poster runs to twelve
          cards, and services.json is now ordered to match it. At 9 the cut
          fell between Accessories and Sofa, dropping two poster services. #}
-      {% for s in services.services[:12] %}
+      {% set _first = ['premium-dry-cleaning','shoe-cleaning','bag-cleaning','toy-cleaning'] %}
+      {% set _ordered = [] %}
+      {% for slug in _first %}{% for s in services.services if s.slug == slug %}{% set _ = _ordered.append(s) %}{% endfor %}{% endfor %}
+      {% for s in services.services if s.slug not in _first %}{% set _ = _ordered.append(s) %}{% endfor %}
+      {% for s in _ordered[:12] %}
       {# Photo cards — one pattern for every service: a large graded photo
          header on the shared studio tone, text below on a clean surface.
          The three services still waiting on photography (bag, toy,
@@ -450,9 +468,9 @@
           <p{{ cms('home:areas_section.text') }}>{{ home.areas_section.text }}</p>
         </div>
         <ul class="coverage__stores">
-          {% for loc in site.locations %}
+          {% if site.show_stores %}{% for loc in site.locations %}
           <li class="coverage__store"><b>{{ loc.name }}</b>{{ loc.address }}</li>
-          {% endfor %}
+          {% endfor %}{% endif %}
         </ul>
       </div>
 

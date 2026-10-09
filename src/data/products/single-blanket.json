@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/single-blanket.webp",
   "heroImageFallback": "images/pricing/single-blanket.png",
   "heroImageAlt": "Single Blanket 1 Ply / Quilt — dry cleaning by Wash4You",
-  "turnaroundNote": "Ready in 48 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Blanket Dry Cleaning Service in Gurgaon | Wash4You",
@@ -180,7 +180,7 @@
     },
     {
       "q": "How long does blanket dry cleaning take?",
-      "a": "Dryclean & Press for single blankets & quilts usually takes 48 hours."
+      "a": "Dryclean & Press for single blankets & quilts turnaround is confirmed when we collect your order."
     },
     {
       "q": "When should blankets be cleaned?",

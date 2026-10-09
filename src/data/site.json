@@ -2,7 +2,7 @@
   "brand": {
     "name": "Wash4You",
     "tagline": "Eco-Friendly Laundry & Dryclean",
-    "description": "Eco-friendly laundry, dry cleaning and specialist fabric care in Gurugram. Free pickup and delivery at your door, every order counted with you and packed separately.",
+    "description": "Eco-friendly laundry, dry cleaning and specialist fabric care in Gurgaon & NCR. Free pickup and delivery at your door, every order counted with you and packed separately.",
     "legal_name": "M/S VAARUNI VENTURES LLP",
     "copyright": "Copyright © 2026 Wash4You. All Rights Reserved.",
     "_note": "The previous description claimed 'advanced Italian hydrocarbon technology'. That is unverified and has been removed — every claim on this site must be one the client can substantiate."
@@ -58,12 +58,12 @@
     {
       "icon": "clock",
       "title": "On time",
-      "detail": "Collected and returned when we said we would. 24-hour turnaround for laundry, 48–72 hours for dry cleaning."
+      "detail": "Collected and returned when we said we would. Turnaround confirmed at pickup for laundry, 48–72 hours for dry cleaning."
     },
     {
       "icon": "truck",
       "title": "Free pickup",
-      "detail": "Doorstep collection and delivery, at no charge, across Gurugram, Delhi, Noida, Faridabad and Ghaziabad."
+      "detail": "Doorstep collection and delivery, at no charge, across Gurgaon & NCR, Delhi, Noida, Faridabad and Ghaziabad."
     }
   ],
   "offer": {
@@ -258,5 +258,6 @@
     "sector-29": "laundry-service-gurugram-sector-29",
     "palam-vihar": "laundry-service-palam-vihar",
     "mg-road": "laundry-service-mg-road"
-  }
+  },
+  "show_stores": false
 }

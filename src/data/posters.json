@@ -620,5 +620,49 @@
     "caption": "",
     "w": 1400,
     "h": 933
-  }
+  },
+  "areas_gallery": [
+    {
+      "src": "images/posters/pickup-van.webp",
+      "alt": "Wash4You pickup van for bulk collection",
+      "caption": "Pickup van",
+      "w": 1080,
+      "h": 1440
+    },
+    {
+      "src": "images/posters/delivery-bike.webp",
+      "alt": "Wash4You delivery partner on a bike",
+      "caption": "Our riders",
+      "w": 1080,
+      "h": 1440
+    },
+    {
+      "src": "images/posters/doorstep-handover.webp",
+      "alt": "Wash4You doorstep pickup and delivery",
+      "caption": "Doorstep handover",
+      "w": 1080,
+      "h": 1440
+    },
+    {
+      "src": "images/posters/blankets-packed.webp",
+      "alt": "Cleaned blankets sealed in Wash4You packaging",
+      "caption": "Sealed packaging",
+      "w": 1400,
+      "h": 933
+    },
+    {
+      "src": "images/studio/machine-row.webp",
+      "alt": "Row of commercial cleaning machines",
+      "caption": "Commercial machines",
+      "w": 1200,
+      "h": 800
+    },
+    {
+      "src": "images/studio/covered-aisle.webp",
+      "alt": "Rows of cleaned garments hanging in protective covers",
+      "caption": "Pressed and covered",
+      "w": 1200,
+      "h": 800
+    }
+  ]
 }

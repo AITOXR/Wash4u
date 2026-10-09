@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/sports-shoes.webp",
   "heroImageFallback": "images/pricing/sports-shoes.png",
   "heroImageAlt": "Sports Shoes — shoe cleaning by Wash4You",
-  "turnaroundNote": "Ready in 24–48 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Sports Shoe Cleaning Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Deodorising",
         "Air-dried at room temperature"
       ],
-      "turnaround": "24–48 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "studioLabel": "Shoe Care",
@@ -269,7 +269,7 @@
     },
     {
       "q": "How long does sports shoe cleaning take?",
-      "a": "Shoe Deep Cleaning for sports shoes usually takes 24–48 hours."
+      "a": "Shoe Deep Cleaning for sports shoes turnaround is confirmed when we collect your order."
     },
     {
       "q": "Can you clean running shoes with mesh uppers?",
@@ -309,5 +309,6 @@
   "parentService": {
     "slug": "shoe-cleaning",
     "name": "Shoe Cleaning Service"
-  }
+  },
+  "foamNote": "Foam-based cleaning: we work a gentle, fabric-safe foam into the upper, midsole and laces with soft brushes, lifting dirt and stains from the surface without soaking the shoe. It protects glue, stitching and colour, keeps the shape intact and dries quickly, so your shoes come back fresh, clean and odour-free."
 }

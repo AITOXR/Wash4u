@@ -8,7 +8,7 @@
   "heroImage": "images/pricing/jeans.webp",
   "heroImageFallback": "images/pricing/jeans.png",
   "heroImageAlt": "Pair of denim jeans folded after professional cleaning by Wash4You",
-  "turnaroundNote": "Dryclean 24–48 hrs · Steam press 24 hrs",
+  "turnaroundNote": "Pickup to doorstep delivery by Wash4You",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Jeans Dry Cleaning & Steam Pressing Service | Wash4You",
@@ -40,7 +40,7 @@
         "Hand steam finishing",
         "Quality inspection & protective packaging"
       ],
-      "turnaround": "24–48 hours",
+      "turnaround": "Confirmed at pickup",
       "short": "Dryclean"
     },
     {
@@ -66,7 +66,7 @@
         "Natural drape restoration",
         "Protective fold or hanger packaging"
       ],
-      "turnaround": "24 hours",
+      "turnaround": "Confirmed at pickup",
       "short": "Steam Press"
     }
   ],
@@ -281,7 +281,7 @@
     },
     {
       "q": "How long does jeans dry cleaning take?",
-      "a": "Steam Press is typically delivered within 24 hours, and Dryclean & Press within 24 to 48 hours. Same-day or next-day express options are available depending on pickup timing and route availability."
+      "a": "Steam Press and Dryclean & Press turnaround is confirmed when we collect your order. Same-day or next-day express options are available depending on pickup timing and route availability."
     },
     {
       "q": "Should I choose dryclean or steam pressing?",

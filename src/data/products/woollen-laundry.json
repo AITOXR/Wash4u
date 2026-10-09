@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/sweater.webp",
   "heroImageFallback": "images/pricing/sweater.png",
   "heroImageAlt": "Woollen Laundry (Dailywear) — laundry by Wash4You",
-  "turnaroundNote": "Ready in 24 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Woollen Laundry Service Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Reshaped by hand",
         "Folded & packed"
       ],
-      "turnaround": "24 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "studioLabel": "Laundry Studio",
@@ -167,7 +167,7 @@
     },
     {
       "q": "How long does woollen laundry service take?",
-      "a": "Woollen Laundry is usually delivered within 24 hours."
+      "a": "Woollen Laundry turnaround is confirmed when we collect your order."
     },
     {
       "q": "Will my woollens shrink?",

@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/leather-jacket.webp",
   "heroImageFallback": "images/pricing/leather-jacket.png",
   "heroImageAlt": "Leather Jacket — leather cleaning by Wash4You",
-  "turnaroundNote": "Ready in 48–72 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Leather Jacket Cleaning Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Hand finishing & buffing",
         "Protective packaging"
       ],
-      "turnaround": "48–72 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "studioLabel": "Leather Care",
@@ -208,7 +208,7 @@
     },
     {
       "q": "How long does leather jacket cleaning take?",
-      "a": "Leather Clean & Condition for leather jackets usually takes 48–72 hours."
+      "a": "Leather Clean & Condition for leather jackets turnaround is confirmed when we collect your order."
     },
     {
       "q": "Can a leather jacket be drycleaned?",

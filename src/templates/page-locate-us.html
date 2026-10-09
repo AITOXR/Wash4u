@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_posters.html" import gallery with context %}
 {% from "_icons.html" import ui %}
 {% from "_components.html" import faq_list, page_hero_mascot_inline %}
 
@@ -86,6 +87,7 @@
   </div>
 </section>
 
+{% if site.show_stores %}
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
@@ -107,6 +109,7 @@
     </div>
   </div>
 </section>
+{% endif %}
 
 <section class="section section--wash">
   <div class="wrap">
@@ -127,18 +130,38 @@
       </div>
     </div>
 
-    <h3 class="areas-list-title">Areas we serve in <span class="kw-text">Gurugram</span></h3>
+    <div class="city-switch">
+      <label for="city-switch-select">Choose your city</label>
+      <select id="city-switch-select" class="pricing-location__select" aria-label="Choose your city">
+        <option value="gurgaon">Gurgaon</option>
+        <option value="delhi">Delhi (South Delhi)</option>
+      </select>
+    </div>
+    <p class="areas-note" data-city-delhi hidden>South Delhi stores and pickup launch next month. Message us on <a class="link-arrow" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a> and we will keep you posted.</p>
+    <div data-city-gurgaon>
+    <h3 class="areas-list-title">Areas we serve in <span class="kw-text">Gurgaon</span></h3>
     {# Every area with its own page, from src/data/area-pages.json. The rest
        of the coverage list further down is listed as covered but not linked —
        a chip that goes nowhere is worse than plain text. #}
     <div class="areas stagger-children">
-      {% for a in (area_links or site.footer.areas) %}
+      {% for a in (area_links or site.footer.areas) | sort(attribute='label') %}
       <a class="area-link" href="{{ root_path }}{{ a.url }}">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
       {% endfor %}
     </div>
     <p class="areas-note">
       Not listed? Send your address on <a class="link-arrow" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a> and we will confirm whether we collect there.
     </p>
+    </div>
+    <script>
+      (function () {
+        var s = document.getElementById('city-switch-select'); if (!s) return;
+        s.addEventListener('change', function () {
+          var d = s.value === 'delhi';
+          document.querySelector('[data-city-gurgaon]').hidden = d;
+          document.querySelector('[data-city-delhi]').hidden = !d;
+        });
+      })();
+    </script>
   </div>
 </section>
 
@@ -168,7 +191,7 @@
     </div>
 
     <div class="coverage-cities">
-      {% for city in areas.cities %}
+      {% for city in areas.cities[:1] %}
       <section class="coverage-city" data-coverage-city>
         <h3 class="coverage-city__name">{{ city.name }}</h3>
         <p class="coverage-city__note">{{ city.note }}</p>
@@ -205,6 +228,8 @@
     </p>
   </div>
 </section>
+
+{{ gallery(posters.areas_gallery, 'How Pickup and Care Work', 'Behind the Scenes') }}
 
 {# ---- Service menu ---- #}
 <section class="section">

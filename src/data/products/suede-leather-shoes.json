@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/suede-leather-shoes.webp",
   "heroImageFallback": "images/pricing/suede-leather-shoes.png",
   "heroImageAlt": "Suede Leather Shoes — shoe cleaning by Wash4You",
-  "turnaroundNote": "Ready in 24–48 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Suede Shoe Cleaning Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Deodorising",
         "Air-dried at room temperature"
       ],
-      "turnaround": "24–48 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "studioLabel": "Shoe Care",
@@ -269,7 +269,7 @@
     },
     {
       "q": "How long does suede shoe cleaning take?",
-      "a": "Shoe Deep Cleaning for suede shoes usually takes 24–48 hours."
+      "a": "Shoe Deep Cleaning for suede shoes turnaround is confirmed when we collect your order."
     },
     {
       "q": "Can suede be cleaned without damaging it?",
@@ -309,5 +309,6 @@
   "parentService": {
     "slug": "shoe-cleaning",
     "name": "Shoe Cleaning Service"
-  }
+  },
+  "foamNote": "Foam-based cleaning: we work a gentle, fabric-safe foam into the upper, midsole and laces with soft brushes, lifting dirt and stains from the surface without soaking the shoe. It protects glue, stitching and colour, keeps the shape intact and dries quickly, so your shoes come back fresh, clean and odour-free."
 }

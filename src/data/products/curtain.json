@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/curtain.webp",
   "heroImageFallback": "images/pricing/curtain.png",
   "heroImageAlt": "Curtain — dry cleaning by Wash4You",
-  "turnaroundNote": "Ready in 48 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Curtain Dry Cleaning Service in Gurgaon | Wash4You",
@@ -180,7 +180,7 @@
     },
     {
       "q": "How long does curtain dry cleaning take?",
-      "a": "Dryclean & Press for curtains usually takes 48 hours."
+      "a": "Dryclean & Press for curtains turnaround is confirmed when we collect your order."
     },
     {
       "q": "Do you take the curtains down and put them back up?",

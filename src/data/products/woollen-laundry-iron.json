@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/wash-and-steam-iron.webp",
   "heroImageFallback": "images/pricing/wash-and-steam-iron.png",
   "heroImageAlt": "Woollen Laundry & Iron (Dailywear) — laundry by Wash4You",
-  "turnaroundNote": "Ready in 24 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Woollen Wash and Iron Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Light steam finishing",
         "Folded & packed"
       ],
-      "turnaround": "24 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "studioLabel": "Laundry Studio",
@@ -168,7 +168,7 @@
     },
     {
       "q": "How long does woollen wash and iron take?",
-      "a": "Woollen Laundry & Iron is usually delivered within 24 hours."
+      "a": "Woollen Laundry & Iron turnaround is confirmed when we collect your order."
     },
     {
       "q": "What does the iron add?",

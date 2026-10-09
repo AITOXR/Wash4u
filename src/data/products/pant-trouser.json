@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/pant-trouser.webp",
   "heroImageFallback": "images/pricing/pant-trouser.png",
   "heroImageAlt": "Pant/Trouser — dry cleaning by Wash4You",
-  "turnaroundNote": "Dryclean 24–48 hrs · Steam press 24 hrs",
+  "turnaroundNote": "Pickup to doorstep delivery by Wash4You",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Trouser Dry Cleaning Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Hand steam finishing",
         "Quality inspection & protective packaging"
       ],
-      "turnaround": "24–48 hours"
+      "turnaround": "Confirmed at pickup"
     },
     {
       "id": "steam-press",
@@ -66,7 +66,7 @@
         "Natural drape restored",
         "Protective fold or hanger packaging"
       ],
-      "turnaround": "24 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "serviceComparison": {
@@ -280,7 +280,7 @@
     },
     {
       "q": "How long does trouser dry cleaning take?",
-      "a": "Steam Press is usually delivered within 24 hours, and Dryclean & Press within 24–48 hours."
+      "a": "Steam Press and Dryclean & Press turnaround is confirmed when we collect your order."
     },
     {
       "q": "Should I choose dryclean or steam press?",

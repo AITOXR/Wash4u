@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/wash-and-fold.webp",
   "heroImageFallback": "images/pricing/wash-and-fold.png",
   "heroImageAlt": "Wash and Fold — laundry by Wash4You",
-  "turnaroundNote": "Ready in 24 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Wash and Fold Laundry Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Complete drying",
         "Neatly folded & packed"
       ],
-      "turnaround": "24 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "studioLabel": "Laundry Studio",
@@ -167,7 +167,7 @@
     },
     {
       "q": "How long does wash and fold laundry take?",
-      "a": "Wash & Fold is usually delivered within 24 hours."
+      "a": "Wash & Fold turnaround is confirmed when we collect your order."
     },
     {
       "q": "Is my laundry washed with other people's?",

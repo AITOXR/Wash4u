@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/coat.webp",
   "heroImageFallback": "images/pricing/coat.png",
   "heroImageAlt": "Long Coat — dry cleaning by Wash4You",
-  "turnaroundNote": "Ready in 24–48 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Long Coat Dry Cleaning Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Hand steam finishing & crease setting",
         "Covered on a hanger for delivery"
       ],
-      "turnaround": "24–48 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "whyProfessional": {
@@ -180,7 +180,7 @@
     },
     {
       "q": "How long does long coat dry cleaning take?",
-      "a": "Dryclean & Press for long coats usually takes 24–48 hours."
+      "a": "Dryclean & Press for long coats turnaround is confirmed when we collect your order."
     },
     {
       "q": "When should I get my winter coat drycleaned?",

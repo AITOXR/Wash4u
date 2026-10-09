@@ -84,13 +84,13 @@
           <a href="{{ site.urls.email }}" style="color:var(--ink)">{{ ui('mail', 18) }} {{ site.contact.email }}</a>
         </div>
         <hr class="seam">
-        {% for loc in site.locations %}
+        {% if site.show_stores %}{% for loc in site.locations %}
         <div class="footer__store">
           <strong style="color:var(--ink)">{{ loc.name }}</strong>
           <address style="font-size:var(--t-sm);color:var(--ink-3)">{{ loc.address }}</address>
           <a class="link-arrow" href="{{ loc.map_url }}" target="_blank" rel="noopener">Directions {{ ui('arrow-right', 16) }}</a>
         </div>
-        {% endfor %}
+        {% endfor %}{% endif %}
       </aside>
     </div>
   </div>

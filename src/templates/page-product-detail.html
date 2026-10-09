@@ -229,6 +229,7 @@
           <p class="prod-section-eyebrow">{{ product.studio.eyebrow }}</p>
           <h2 class="prod-section-title">{{ product.studio.title }}</h2>
           <p class="prod-studio__lede">{{ product.studio.subtitle }}</p>
+          {% if product.foamNote %}<p class="prod-studio__lede">{{ product.foamNote }}</p>{% endif %}
           {% if product.parentService %}
           <p class="prod-studio__parent">Part of the Wash4You <a href="{{ root_path }}services/{{ product.parentService.slug }}/">{{ product.parentService.name }}</a></p>
           {% endif %}

@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/pant-trouser.webp",
   "heroImageFallback": "images/pricing/pant-trouser.png",
   "heroImageAlt": "Palazzo — dry cleaning by Wash4You",
-  "turnaroundNote": "Ready in 24–48 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Palazzo Dry Cleaning Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Hand steam finishing",
         "Quality inspection & protective packaging"
       ],
-      "turnaround": "24–48 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "whyProfessional": {
@@ -181,7 +181,7 @@
     },
     {
       "q": "How long does palazzo dry cleaning take?",
-      "a": "Dryclean & Press for palazzos usually takes 24–48 hours."
+      "a": "Dryclean & Press for palazzos turnaround is confirmed when we collect your order."
     },
     {
       "q": "Will my palazzo shrink?",

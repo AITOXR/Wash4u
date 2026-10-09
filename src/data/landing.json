@@ -39,7 +39,7 @@
       "faqs": [
         { "q": "Where is the nearest Wash4You dry cleaner?", "a": "Wash4You has two stores in Gurugram — Sushant Lok Phase I (Sector 43) and Unitech Arcadia (Sector 49). Most customers never visit either: we pick up from your door for free across Gurugram, Delhi, Noida, Faridabad and Ghaziabad." },
         { "q": "Is pickup free near me?", "a": "Yes. Doorstep pickup and delivery are free in every area we serve. Use Locate Us to check your sector or society." },
-        { "q": "How long does dry cleaning take?", "a": "Most drycleaned items are back in 24 to 48 hours. Steam pressing and laundry usually take 24 hours; leather, bags and some specialist items take longer and we tell you before we start." },
+        { "q": "How long does dry cleaning take?", "a": "Turnaround is confirmed when we collect your order, depending on the item and the finish it needs." },
         { "q": "How much does dry cleaning cost?", "a": "Dryclean starts from {price:shirt} per piece for everyday clothes like shirts, trousers and jeans. Every item has a published price on our price list, exclusive of 18% GST, with no pickup charge." },
         { "q": "What makes a dry cleaner the best?", "a": "Look for real dryclean machines rather than a home-style wash, a count and receipt at pickup, stain treatment before cleaning, published prices and orders kept separate. Wash4You does all five, and adds free doorstep pickup and delivery." }
       ],
@@ -81,7 +81,7 @@
         { "q": "Where are your stores in Gurgaon?", "a": "Wash4You Vyapar Kendra in Sushant Lok Phase I, Sector 43, and Wash4You Arcadia in Unitech Arcadia, Sector 49." },
         { "q": "How much does dry cleaning cost in Gurgaon?", "a": "Dryclean starts from {price:shirt} per piece for shirts, trousers and jeans; suits start from {price:men-suit-2pcs} and sarees from {price:saree}. All prices are published on our price list, exclusive of 18% GST." },
         { "q": "Can you dryclean wedding wear?", "a": "Yes. Lehengas, sarees, sherwanis and heavy work kurtas are inspected piece by piece, drycleaned gently and finished by hand around the embroidery." },
-        { "q": "How fast is dry cleaning in Gurgaon?", "a": "Most drycleaned items are delivered in 24 to 48 hours, and steam pressing in 24 hours." }
+        { "q": "How fast is dry cleaning in Gurgaon?", "a": "Turnaround is confirmed when we collect your order, depending on the item and the finish it needs." }
       ],
       "cta": { "title": "Book the Best Dryclean in Gurgaon", "subtitle": "Free pickup anywhere in Gurugram, commercial dryclean machines and a finish you can see — from {price:shirt}." }
     }

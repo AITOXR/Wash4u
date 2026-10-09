@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/double-blanket.webp",
   "heroImageFallback": "images/pricing/double-blanket.png",
   "heroImageAlt": "Comforter Double — dry cleaning by Wash4You",
-  "turnaroundNote": "Ready in 48 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Comforter Dry Cleaning Service in Gurgaon | Wash4You",
@@ -180,7 +180,7 @@
     },
     {
       "q": "How long does comforter dry cleaning take?",
-      "a": "Dryclean & Press for double comforters usually takes 48 hours."
+      "a": "Dryclean & Press for double comforters turnaround is confirmed when we collect your order."
     },
     {
       "q": "Will the filling clump?",

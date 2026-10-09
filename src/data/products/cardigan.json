@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/sweater.webp",
   "heroImageFallback": "images/pricing/sweater.png",
   "heroImageAlt": "Cardigan — dry cleaning by Wash4You",
-  "turnaroundNote": "Ready in 24–48 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Cardigan Dry Cleaning Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Light steam finishing",
         "Folded flat — never hung — for delivery"
       ],
-      "turnaround": "24–48 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "whyProfessional": {
@@ -180,7 +180,7 @@
     },
     {
       "q": "How long does cardigan dry cleaning take?",
-      "a": "Dryclean & Press for cardigans usually takes 24–48 hours."
+      "a": "Dryclean & Press for cardigans turnaround is confirmed when we collect your order."
     },
     {
       "q": "Can you clean a cashmere cardigan?",

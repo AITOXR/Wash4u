@@ -20,8 +20,7 @@
       <p class="prod-hero__lede">{{ site.brand.description }}</p>
 
       <ul class="ov-facts">
-        <li><strong>{{ site.locations | length }}</strong><span>stores in Gurugram</span></li>
-        <li><strong>{{ areas_total_all }}+</strong><span>areas with free pickup</span></li>
+                <li><strong>{{ areas_total_all }}+</strong><span>areas with free pickup</span></li>
         <li><strong>{{ areas.cities | length }}</strong><span>cities across Delhi NCR</span></li>
         <li><strong>{{ services.services | length }}</strong><span>services</span></li>
         <li><strong>{{ item_count }}</strong><span>items with published prices</span></li>
@@ -210,7 +209,7 @@
         <h2 class="prod-section-title">Visit or Call Us</h2>
       </div>
       <div class="lp-stores ov-stores">
-        {% for loc in site.locations %}
+        {% if site.show_stores %}{% for loc in site.locations %}
         <article class="lp-store">
           <span class="lp-store__icon" aria-hidden="true">{{ ui('pin', 18) }}</span>
           <div>
@@ -219,7 +218,7 @@
             <a href="{{ loc.map_url }}" target="_blank" rel="noopener">Get directions &rarr;</a>
           </div>
         </article>
-        {% endfor %}
+        {% endfor %}{% endif %}
         <article class="lp-store">
           <span class="lp-store__icon" aria-hidden="true">{{ ui('phone', 18) }}</span>
           <div>

@@ -2,20 +2,20 @@
   "_source": "Rewritten 2026-08-01 from the client's 'About Us Page Content' PDF. The PDF's 'Local SEO Tip' paragraph is intentionally NOT included — it is an instruction to the site owner, not page copy.",
   "meta": {
     "title": "About Wash4You — Gurgaon's Trusted Laundry & Dry-Cleaning Service",
-    "description": "Wash4You is a premium laundry and dry-cleaning service in Gurugram and Delhi NCR — eco-friendly processing, free doorstep pickup and delivery, and 25+ years of European garment-care experience behind the team.",
+    "description": "Wash4You is a premium laundry and dry-cleaning service in Gurgaon and NCR — eco-friendly processing, free doorstep pickup and delivery, and 25+ years of European garment-care experience behind the team.",
     "canonical": "https://wash4you.in/about-us/",
     "og_title": "About Wash4You — Gurgaon's Trusted Laundry & Dry-Cleaning Service",
-    "og_description": "A premium laundry service in Gurugram and Delhi NCR, built on one promise: your laundry is our responsibility."
+    "og_description": "A premium laundry service in Gurgaon and NCR, built on one promise: your laundry is our responsibility."
   },
   "hero": {
     "eyebrow": "About us",
     "headline": "Gurgaon's Most Trusted Laundry & Dry-Cleaning Service",
-    "lede": "Wash4You is a premium laundry service in Gurugram and Delhi NCR, built on a simple promise: your laundry is our responsibility.",
+    "lede": "Wash4You is a premium laundry service in Gurgaon and NCR, built on a simple promise: your laundry is our responsibility.",
     "body": "As a unit of Vaaruni Ventures LLP, we combine 25+ years of European garment-care expertise with advanced, skin-safe dry-cleaning technology — gentle enough for kids' clothes — to deliver eco-friendly, doorstep laundry and dry-cleaning that saves you time and protects your clothes. Whether you need wash & fold, premium dry cleaning for designer wear, or steam ironing for office formals, our team treats every garment as if it were our own."
   },
   "story": {
     "eyebrow": "Our story",
-    "title": "From a handful of clients to Gurugram's favourite laundry and dry-cleaning partner",
+    "title": "From a handful of clients to Gurgaon's favourite laundry and dry-cleaning partner",
     "paragraphs": [
       "What started as a small service for a few local families has grown into one of the most reliable online laundry services in Delhi NCR — entirely through word-of-mouth, consistent quality, and an obsession with customer satisfaction.",
       "We didn't just bring another “dhobi” to the market. We built a technology-enabled laundry ecosystem where you can schedule a pickup online, track your order, and get your clothes back — freshly cleaned, perfectly pressed and neatly packed — without stepping out of your home or office.",
@@ -138,8 +138,8 @@
   "areas": {
     "_note": "Localities mirror site.json footer.areas, which is what the home page FAQ and the areas page both use. The supplied PDF claimed Delhi, Noida, Faridabad and Ghaziabad as well; that is wider than anything else on the site claims, so it is not published here.",
     "eyebrow": "Areas we serve",
-    "title": "Free pickup and delivery across Gurugram",
-    "lede": "Doorstep collection and delivery are included at no extra charge anywhere we serve in Gurugram, plus the sectors around them.",
+    "title": "Free pickup and delivery across Gurgaon & NCR",
+    "lede": "Doorstep collection and delivery are included at no extra charge anywhere we serve in Gurgaon & NCR, plus the sectors around them.",
     "groups": [
       {
         "city": "Sushant Lok",
@@ -252,7 +252,7 @@
   "faqs": [
     {
       "q": "What areas does Wash4You cover for free pickup and delivery?",
-      "a": "We offer free pickup and delivery across Gurugram — Sushant Lok, Sector 49, Cyber City, DLF Phase 3, Golf Course Road, Golf Course Extension, Sohna Road, Sector 29, Palam Vihar, MG Road, plus the sectors around them. If you are not sure, send us a WhatsApp with your address and we will confirm."
+      "a": "We offer free pickup and delivery across Gurgaon & NCR — Sushant Lok, Sector 49, Cyber City, DLF Phase 3, Golf Course Road, Golf Course Extension, Sohna Road, Sector 29, Palam Vihar, MG Road, plus the sectors around them. If you are not sure, send us a WhatsApp with your address and we will confirm."
     },
     {
       "q": "How is Wash4You different from a local dhobi or other online laundry services?",

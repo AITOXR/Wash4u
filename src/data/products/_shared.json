@@ -33,29 +33,85 @@
     "title": "What's Included Every Time",
     "subtitle": "No shortcuts. Everything you hand to Wash4You goes through the same checks:",
     "items": [
-      { "title": "Item Inspection", "desc": "Every piece is inspected, counted and logged with you at the door before it leaves." },
-      { "title": "Fabric Assessment", "desc": "Fibre, weight, trims and the care label decide the method, not a one-size cycle." },
-      { "title": "Stain & Spot Assessment", "desc": "Visible marks are identified and pre-treated where the fabric allows it." },
-      { "title": "The Right Cleaning Method", "desc": "Drycleaned, wet-cleaned or hand-treated depending on what the item actually is." },
-      { "title": "Professional Finishing", "desc": "Steam finishing that restores shape and drape without flattening or shine." },
-      { "title": "Quality Inspection", "desc": "Each finished piece is checked against our cleanliness and pressing standard." },
-      { "title": "Protective Packaging", "desc": "Folded or hung and covered so it arrives crease-free and dust-free." },
-      { "title": "Doorstep Delivery", "desc": "Returned to your address across Gurugram and Delhi NCR, ready to use." }
+      {
+        "title": "Item Inspection",
+        "desc": "Every piece is inspected, counted and logged with you at the door before it leaves."
+      },
+      {
+        "title": "Fabric Assessment",
+        "desc": "Fibre, weight, trims and the care label decide the method, not a one-size cycle."
+      },
+      {
+        "title": "Stain & Spot Assessment",
+        "desc": "Visible marks are identified and pre-treated where the fabric allows it."
+      },
+      {
+        "title": "The Right Cleaning Method",
+        "desc": "Drycleaned, wet-cleaned or hand-treated depending on what the item actually is."
+      },
+      {
+        "title": "Professional Finishing",
+        "desc": "Steam finishing that restores shape and drape without flattening or shine."
+      },
+      {
+        "title": "Quality Inspection",
+        "desc": "Each finished piece is checked against our cleanliness and pressing standard."
+      },
+      {
+        "title": "Protective Packaging",
+        "desc": "Folded or hung and covered so it arrives crease-free and dust-free."
+      },
+      {
+        "title": "Doorstep Delivery",
+        "desc": "Returned to your address across Gurugram and Delhi NCR, ready to use."
+      }
     ]
   },
   "careProcess": {
     "eyebrow": "Our Process",
     "title": "The 8-Step Wash4You Dryclean Process",
-    "subtitle": "From your doorstep, through the Wash4You dryclean studio, and back to your wardrobe:",
+    "subtitle": "Every dryclean item follows the same path through the Wash4You studio:",
     "steps": [
-      { "step": "01", "title": "Book Your Pickup", "desc": "Choose your service and pickup slot online or with a quick WhatsApp message." },
-      { "step": "02", "title": "Doorstep Collection", "desc": "Our valet collects your items at your door, counted and logged in front of you." },
-      { "step": "03", "title": "Tag & Inspect", "desc": "Each piece gets its Wash4You tag. Pockets, seams, buttons and trims are checked." },
-      { "step": "04", "title": "Stain & Fabric Assessment", "desc": "Fibre, colour and marks are assessed to choose the right treatment." },
-      { "step": "05", "title": "Professional Dryclean", "desc": "Cleaned on commercial dryclean machines with fabric-safe, biodegradable solvents." },
-      { "step": "06", "title": "Steam Finishing", "desc": "Hand-finished on steam and vacuum tables to restore shape, crease and drape." },
-      { "step": "07", "title": "Quality Check", "desc": "Every piece passes a final inspection before it is approved for packing." },
-      { "step": "08", "title": "Packed & Delivered", "desc": "Covered, packed and delivered back to your door in your confirmed slot." }
+      {
+        "step": "01",
+        "title": "Tagged",
+        "desc": "Each piece gets its own Wash4You tag so it is tracked from your door to your return."
+      },
+      {
+        "step": "02",
+        "title": "Detailed Examination",
+        "desc": "Fibre, colour, pockets, seams, buttons and trims are examined and any marks or damage are noted."
+      },
+      {
+        "step": "03",
+        "title": "Stain Treatment",
+        "desc": "Marks are pre-treated by hand with the right fabric-safe solution before the machine process."
+      },
+      {
+        "step": "04",
+        "title": "Machine Process",
+        "desc": "Cleaned on commercial dryclean machines with fabric-safe, biodegradable solvents."
+      },
+      {
+        "step": "05",
+        "title": "Iron & Steam Finish",
+        "desc": "Hand-finished on steam and vacuum tables to restore shape, crease and drape."
+      },
+      {
+        "step": "06",
+        "title": "Final Check",
+        "desc": "Every piece passes a final inspection before it is approved for packing."
+      },
+      {
+        "step": "07",
+        "title": "Packaging",
+        "desc": "Covered and packed to stay fresh until it reaches you."
+      },
+      {
+        "step": "08",
+        "title": "Delivery",
+        "desc": "Returned to your door in your confirmed slot."
+      }
     ]
   },
   "whyWash4You": {
@@ -63,14 +119,38 @@
     "title": "Why Customers Choose Wash4You",
     "subtitle": "Genuine capabilities and transparent service across Gurugram and Delhi NCR:",
     "reasons": [
-      { "title": "Doorstep Pickup & Delivery", "desc": "Free doorstep collection and delivery across all service areas, on your schedule." },
-      { "title": "Professional {Care}", "desc": "Garments are treated individually rather than thrown into a generic bulk cycle." },
-      { "title": "Item Inspection at Door", "desc": "Items are verified and counted with a receipt before they leave your home." },
-      { "title": "Targeted Stain Treatment", "desc": "Problem spots are identified and pre-treated before the main cleaning process." },
-      { "title": "Rigorous Quality Checks", "desc": "Every finished piece is inspected against our cleanliness and finishing criteria." },
-      { "title": "Transparent Starting Prices", "desc": "Published starting rates on every item, exclusive of GST, with no pickup charge." },
-      { "title": "Separate Order Handling", "desc": "Each customer's order is bagged and handled separately for hygiene and safety." },
-      { "title": "Wide Local Coverage", "desc": "Daily routes across DLF, Sushant Lok, Cyber City, Golf Course Road and beyond." }
+      {
+        "title": "Doorstep Pickup & Delivery",
+        "desc": "Free doorstep collection and delivery across all service areas, on your schedule."
+      },
+      {
+        "title": "Professional {Care}",
+        "desc": "Garments are treated individually rather than thrown into a generic bulk cycle."
+      },
+      {
+        "title": "Item Inspection at Door",
+        "desc": "Items are verified and counted with a receipt before they leave your home."
+      },
+      {
+        "title": "Targeted Stain Treatment",
+        "desc": "Problem spots are identified and pre-treated before the main cleaning process."
+      },
+      {
+        "title": "Rigorous Quality Checks",
+        "desc": "Every finished piece is inspected against our cleanliness and finishing criteria."
+      },
+      {
+        "title": "Transparent Starting Prices",
+        "desc": "Published starting rates on every item, exclusive of GST, with no pickup charge."
+      },
+      {
+        "title": "Separate Order Handling",
+        "desc": "Each customer's order is bagged and handled separately for hygiene and safety."
+      },
+      {
+        "title": "Wide Local Coverage",
+        "desc": "Daily routes across DLF, Sushant Lok, Cyber City, Golf Course Road and beyond."
+      }
     ]
   },
   "doorstepExperience": {
@@ -78,10 +158,26 @@
     "title": "From Your Doorstep to Your Wardrobe",
     "subtitle": "Professional {care} without the errand:",
     "steps": [
-      { "num": "01", "title": "Book", "desc": "Choose your service and preferred pickup slot online in under a minute." },
-      { "num": "02", "title": "We Collect", "desc": "Our valet arrives at your door to inspect, count and collect your items." },
-      { "num": "03", "title": "We Clean & Care", "desc": "Your order is cleaned, stain-treated and finished at the Wash4You studio." },
-      { "num": "04", "title": "We Deliver", "desc": "Fresh, finished and ready to use, returned right to your doorstep." }
+      {
+        "num": "01",
+        "title": "Book",
+        "desc": "Choose your service and preferred pickup slot online in under a minute."
+      },
+      {
+        "num": "02",
+        "title": "We Collect",
+        "desc": "Our valet arrives at your door to inspect, count and collect your items."
+      },
+      {
+        "num": "03",
+        "title": "We Clean & Care",
+        "desc": "Your order is cleaned, stain-treated and finished at the Wash4You studio."
+      },
+      {
+        "num": "04",
+        "title": "We Deliver",
+        "desc": "Fresh, finished and ready to use, returned right to your doorstep."
+      }
     ],
     "cta": "Book Free Pickup"
   },
@@ -90,16 +186,46 @@
     "title": "{seo} Near You",
     "subtitle": "Wash4You offers doorstep laundry and dry cleaning across its service areas in Gurugram, Delhi, Noida, Faridabad and Ghaziabad.",
     "highlightAreas": [
-      { "name": "Sushant Lok", "url": "laundry-service-sushant-lok/" },
-      { "name": "Cyber City", "url": "laundry-service-cyber-city/" },
-      { "name": "DLF Phase 1–5", "url": "laundry-service-dlf-phase-3/" },
-      { "name": "Golf Course Road", "url": "laundry-service-golf-course-road/" },
-      { "name": "Golf Course Extn", "url": "laundry-service-golf-course-extension/" },
-      { "name": "Sohna Road", "url": "laundry-service-sohna-road/" },
-      { "name": "Sector 49", "url": "laundry-service-sector-49/" },
-      { "name": "Sector 29", "url": "laundry-service-gurugram-sector-29/" },
-      { "name": "Palam Vihar", "url": "laundry-service-palam-vihar/" },
-      { "name": "MG Road", "url": "laundry-service-mg-road/" }
+      {
+        "name": "Sushant Lok",
+        "url": "laundry-service-sushant-lok/"
+      },
+      {
+        "name": "Cyber City",
+        "url": "laundry-service-cyber-city/"
+      },
+      {
+        "name": "DLF Phase 1–5",
+        "url": "laundry-service-dlf-phase-3/"
+      },
+      {
+        "name": "Golf Course Road",
+        "url": "laundry-service-golf-course-road/"
+      },
+      {
+        "name": "Golf Course Extn",
+        "url": "laundry-service-golf-course-extension/"
+      },
+      {
+        "name": "Sohna Road",
+        "url": "laundry-service-sohna-road/"
+      },
+      {
+        "name": "Sector 49",
+        "url": "laundry-service-sector-49/"
+      },
+      {
+        "name": "Sector 29",
+        "url": "laundry-service-gurugram-sector-29/"
+      },
+      {
+        "name": "Palam Vihar",
+        "url": "laundry-service-palam-vihar/"
+      },
+      {
+        "name": "MG Road",
+        "url": "laundry-service-mg-road/"
+      }
     ],
     "cta": "Find Your Area",
     "ctaUrl": "locate-us/"
@@ -135,15 +261,43 @@
       "alt": "Drycleaned garments in protective covers on a dry-cleaning conveyor"
     },
     "studio": [
-      { "src": "images/studio/machine-row.webp", "alt": "Row of commercial cleaning machines", "caption": "Commercial dryclean machines" },
-      { "src": "images/studio/press-table.webp", "alt": "Garment being pressed on a professional steam finishing table", "caption": "Hand steam finishing" },
-      { "src": "images/studio/covered-aisle.webp", "alt": "Rows of cleaned garments hanging in protective covers", "caption": "Pressed, covered, ready to return" }
+      {
+        "src": "images/studio/machine-row.webp",
+        "alt": "Row of commercial cleaning machines",
+        "caption": "Commercial dryclean machines"
+      },
+      {
+        "src": "images/studio/press-table.webp",
+        "alt": "Garment being pressed on a professional steam finishing table",
+        "caption": "Hand steam finishing"
+      },
+      {
+        "src": "images/studio/covered-aisle.webp",
+        "alt": "Rows of cleaned garments hanging in protective covers",
+        "caption": "Pressed, covered, ready to return"
+      }
     ],
     "process": [
-      { "src": "images/studio/washers.webp", "alt": "Commercial washer-extractors with a loaded trolley", "label": "Commercial machines" },
-      { "src": "images/studio/vacuum-iron.webp", "alt": "Professional steam iron on a vacuum finishing table", "label": "Steam finishing" },
-      { "src": "images/studio/shirts-hung.webp", "alt": "Pressed shirts hanging on a rail", "label": "Quality check" },
-      { "src": "images/studio/folded-table.webp", "alt": "Neatly folded garments stacked on a packing table", "label": "Packed for delivery" }
+      {
+        "src": "images/studio/washers.webp",
+        "alt": "Commercial washer-extractors with a loaded trolley",
+        "label": "Commercial machines"
+      },
+      {
+        "src": "images/studio/vacuum-iron.webp",
+        "alt": "Professional steam iron on a vacuum finishing table",
+        "label": "Steam finishing"
+      },
+      {
+        "src": "images/studio/shirts-hung.webp",
+        "alt": "Pressed shirts hanging on a rail",
+        "label": "Quality check"
+      },
+      {
+        "src": "images/studio/folded-table.webp",
+        "alt": "Neatly folded garments stacked on a packing table",
+        "label": "Packed for delivery"
+      }
     ],
     "doorstep": {
       "src": "images/stock/folded-laundry.webp",

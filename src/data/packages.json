@@ -2,10 +2,10 @@
   "_source": "Package tiers, prices, balances, validity and benefit % are from the client's official 'Premium Laundry & Dryclean Packages' graphic (WhatsApp 2026-07-22). Prepaid-wallet model: pay the package cost, receive a free-service bonus, spend the combined balance on any service before it expires. All figures are the client's own — do not invent tiers or change numbers.",
   "meta": {
     "title": "Laundry Packages Gurgaon | Prepaid Plans & Subscriptions",
-    "description": "Prepaid Wash4You laundry packages in Gurugram: six plans from ₹2,500, up to 60% more value in bonus credit, spendable on any service. Free pickup.",
+    "description": "Prepaid Wash4You laundry packages in Gurgaon & NCR: six plans from ₹2,500, up to 60% more value in bonus credit, spendable on any service. Free pickup.",
     "canonical": "https://wash4you.in/packages/",
     "og_title": "Wash4You Packages — Save More with Smart Cleaning Plans",
-    "og_description": "Prepaid cleaning wallets with bonus balance and up to 60% more value. Free doorstep pickup and delivery across Gurugram & Delhi NCR."
+    "og_description": "Prepaid cleaning wallets with bonus balance and up to 60% more value. Free doorstep pickup and delivery across Gurgaon & NCR."
   },
   "hero": {
     "eyebrow": "Packages",
@@ -50,7 +50,6 @@
       "best_for": "Solo professionals, students, first-time users",
       "includes": [
         "₹3,000 spendable on any service",
-        "Free pickup and delivery on every order",
         "Standard turnaround"
       ]
     },
@@ -64,7 +63,6 @@
       "best_for": "Couples, small families, regular users",
       "includes": [
         "₹6,500 spendable on any service",
-        "Free pickup and delivery on every order",
         "Suits a household of two to three"
       ]
     },
@@ -179,11 +177,6 @@
         "label": "Minimum order",
         "without": "Applies per order",
         "with": "No minimum"
-      },
-      {
-        "label": "Pickup & delivery",
-        "without": "Free",
-        "with": "Free, always"
       },
       {
         "label": "Scheduling",

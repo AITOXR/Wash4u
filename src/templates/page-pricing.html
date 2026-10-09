@@ -92,7 +92,7 @@
 
     {% if is_area %}
     <h1 class="pricing-hero__title"><span class="neon-kw">Laundry &amp; dry-clean</span> <span class="kw">prices</span> in {{ area.label }}, <span class="kw-text">Gurugram</span></h1>
-    <p class="lede pricing-hero__lede">The same transparent, item-wise rates for {{ area.label }}, Gurugram — with free doorstep pickup and delivery. Add what you need to your list and book a pickup.</p>
+    <p class="lede pricing-hero__lede">The same transparent, item-wise rates for {{ area.label }}, Gurgaon — with free doorstep pickup and delivery. Add what you need to your list and book a pickup.</p>
     {% else %}
     <h1 class="pricing-hero__title">Gurgaon &amp; <span class="kw">Delhi NCR’s</span> Most <span class="kw">Transparent</span> <span class="neon-kw">Laundry &amp; Dryclean</span> Prices</h1>
     <p class="lede pricing-hero__lede"{{ cms('pricing:hero.subheadline') }}>{{ pricing.hero.subheadline }}</p>
@@ -130,10 +130,20 @@
     {{ gst_note }}
     {% else %}
     <div class="pricing-intro__bar">
-      <div class="pricing-location">
-        <label class="pricing-location__label" for="pricing-location-select">Show prices for</label>
+      <div class="pricing-location pricing-location--city">
+        <label class="pricing-location__label" for="pricing-city-select">City</label>
         <div class="pricing-location__field">
-          <select id="pricing-location-select" class="pricing-location__select" aria-label="Choose a Gurugram area">
+          <select id="pricing-city-select" class="pricing-location__select" aria-label="Choose a city">
+            <option value="gurgaon">Gurgaon</option>
+            <option value="delhi">Delhi</option>
+          </select>
+          <span class="pricing-location__chevron">{{ ui('chevron-down', 16) }}</span>
+        </div>
+      </div>
+      <div class="pricing-location">
+        <label class="pricing-location__label" for="pricing-location-select">Area</label>
+        <div class="pricing-location__field">
+          <select id="pricing-location-select" class="pricing-location__select" aria-label="Choose a Gurgaon area">
             {% for a in site.pricing_areas %}
             <option value="{{ a.slug }}">{{ a.label }}</option>
             {% endfor %}
@@ -144,7 +154,23 @@
       <p class="gst-badge">All prices exclusive of <strong>GST (18%)</strong></p>
     </div>
     {{ gst_note }}
-    <h2 class="pricing-location__heading">Prices for <span class="kw-text" data-location-name>{{ site.pricing_areas[0].label }}</span>, Gurugram</h2>
+    <p class="gst-note" data-city-delhi-note hidden><strong>Delhi:</strong> our South Delhi stores launch in October. The rates below are Gurgaon rates; area-wise Delhi rates will be published at launch.</p>
+    <h2 class="pricing-location__heading">Prices for <span class="kw-text" data-location-name>{{ site.pricing_areas[0].label }}</span>, <span data-city-name>Gurgaon</span></h2>
+    <script>
+      (function () {
+        var c = document.getElementById('pricing-city-select'), a = document.getElementById('pricing-location-select');
+        if (!c || !a) return;
+        var gOpts = a.innerHTML, note = document.querySelector('[data-city-delhi-note]'), nm = document.querySelector('[data-city-name]');
+        c.addEventListener('change', function () {
+          var d = c.value === 'delhi';
+          a.innerHTML = d ? '<option value="south-delhi">South Delhi</option>' : gOpts;
+          if (note) note.hidden = !d;
+          if (nm) nm.textContent = d ? 'Delhi' : 'Gurgaon';
+          var l = document.querySelector('[data-location-name]');
+          if (l) l.textContent = a.options[a.selectedIndex].textContent;
+        });
+      })();
+    </script>
     {% endif %}
   </div>
 </section>
@@ -272,7 +298,7 @@
   <div class="wrap">
     <div class="section-head reveal" style="margin-bottom:var(--s-5)">
       <p class="eyebrow">More areas</p>
-      <h2 style="font-size:var(--t-xl)">Pricing across Gurugram</h2>
+      <h2 style="font-size:var(--t-xl)">Pricing across Gurgaon & NCR</h2>
     </div>
     <div class="areas stagger-children">
       {% for a in site.pricing_areas if a.slug != area.slug %}

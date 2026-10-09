@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/wash-and-steam-iron.webp",
   "heroImageFallback": "images/pricing/wash-and-steam-iron.png",
   "heroImageAlt": "Wash and Steam Iron — laundry by Wash4You",
-  "turnaroundNote": "Ready in 24 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Wash and Iron Laundry Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Professional steam ironing",
         "Folded or hung for delivery"
       ],
-      "turnaround": "24 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "studioLabel": "Laundry Studio",
@@ -167,7 +167,7 @@
     },
     {
       "q": "How long does wash and iron laundry take?",
-      "a": "Wash & Steam Iron is usually delivered within 24 hours."
+      "a": "Wash & Steam Iron turnaround is confirmed when we collect your order."
     },
     {
       "q": "What is the difference from wash and fold?",

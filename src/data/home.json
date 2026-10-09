@@ -5,7 +5,7 @@
     "description": "Premium eco-friendly laundry & dry cleaning in Gurgaon & Delhi NCR. Free doorstep pickup & delivery, every piece counted with you. Book in 60 seconds.",
     "canonical": "https://wash4you.in/",
     "og_title": "Best Dry Cleaning & Laundry Service in Gurgaon & NCR — Wash4You",
-    "og_description": "Free doorstep pickup and delivery across Gurugram. See the before-and-after for yourself."
+    "og_description": "Free doorstep pickup and delivery across Gurgaon & NCR. See the before-and-after for yourself."
   },
   "hero_wall": {
     "_note": "Home hero garment wall — three diagonal columns, each one category, walking cyclically within its own pool so the seamless loop never runs dry. Art lives in images/pricing/<slug>.webp. `saree` is excluded: its source carries a stock watermark. `shoes_bags` is genuinely shoes only — no bag/handbag product photo exists yet in the catalogue (bag-cleaning has no photography), so that column repeats its 4 shoe images rather than mixing in a bag. Each column gets its own duration so the wall reads as three independent diagonal bands, not one sliding sheet.",
@@ -48,13 +48,13 @@
     }
   },
   "banner": {
-    "eyebrow": "Gurugram · Delhi NCR",
+    "eyebrow": "Gurgaon & NCR",
     "headline_line1": "Best dry cleaning &",
     "headline_line2": "laundry in NCR.",
     "subheadline": "Eco-friendly laundry, dry cleaning and specialist fabric care. We collect from your door, count every piece with you, and deliver it back fresh.",
     "cta_label": "Book free pickup",
     "cta_secondary": "See pricing",
-    "trust": "Trusted by 1000+ customers in Gurugram",
+    "trust": "Trusted by 1000+ customers in Gurgaon & NCR",
     "points": [
       "Free doorstep pickup & delivery",
       "Every piece counted with you",
@@ -65,10 +65,10 @@
     "care_note": "Gentle cycle · No bleach · Cool iron",
     "headline_line1": "Shrink the hassle,",
     "headline_line2": "not the fabric.",
-    "subheadline": "Eco-friendly laundry, dry cleaning and specialist care across Gurugram. We collect from your door and count every piece with you before it leaves.",
+    "subheadline": "Eco-friendly laundry, dry cleaning and specialist care across Gurgaon & NCR. We collect from your door and count every piece with you before it leaves.",
     "cta_label": "Book free pickup",
     "cta_secondary": "See pricing",
-    "trust": "Trusted by 1000+ customers in Gurugram"
+    "trust": "Trusted by 1000+ customers in Gurgaon & NCR"
   },
   "why": {
     "eyebrow": "Why Wash4You",
@@ -79,11 +79,11 @@
   "how_it_works": {
     "eyebrow": "How it works",
     "title": "From your door and back, in seven steps.",
-    "text": "The same care as a specialist store, with the pickup and delivery done for you. Book online or on WhatsApp and we handle the rest, across Gurugram and Delhi NCR.",
+    "text": "The same care as a specialist store, with the pickup and delivery done for you. Book online or on WhatsApp and we handle the rest, across Gurgaon and NCR.",
     "steps": [
       {
         "title": "Book a free pickup",
-        "detail": "Choose a time online or on WhatsApp. Pickup and delivery are always free across Gurugram and Delhi NCR."
+        "detail": "Choose a time online or on WhatsApp. Pickup and delivery are always free across Gurgaon and NCR."
       },
       {
         "title": "Doorstep collection",
@@ -121,7 +121,7 @@
     "_note": "Homepage price strip. `slugs` holds pricing.json slugs only — the price and image are read from pricing.json at build time so the homepage can never quote a stale rate. Every slug listed here must resolve to a unique image; the template skips a slug it cannot find. NOTE: `saree` is deliberately absent — pricing/saree.png carries a visible 'pngtree' stock watermark (still live on /pricing/). Restore it here only once the art is re-licensed or re-shot.",
     "eyebrow": "What it costs",
     "title": "Real prices, on the actual items.",
-    "text": "No quote-on-request, no surprise at delivery. These are the rates for the pieces we handle most, dry cleaned or laundered with free pickup and delivery across Gurugram.",
+    "text": "No quote-on-request, no surprise at delivery. These are the rates for the pieces we handle most, dry cleaned or laundered with free pickup and delivery across Gurgaon & NCR.",
     "cta": "See the full price list",
     "slugs": [
       "wash-and-fold",
@@ -145,13 +145,13 @@
   "proof": {
     "eyebrow": "Real results",
     "title": "Drag the handle. That's the same shoe.",
-    "text": "Every before-and-after on this site is our own work, photographed in our Gurugram store. Nothing is stock and nothing is retouched.",
+    "text": "Every before-and-after on this site is our own work, photographed in our Gurgaon store. Nothing is stock and nothing is retouched.",
     "cta": "See what we clean"
   },
   "services_section": {
     "eyebrow": "What we clean",
     "title": "Premium laundry to premium dryclean for clothes, shoes and handbags that need professional care — with free pickup and delivery.",
-    "text": "Fifteen services under one roof, each with its own handling. From everyday laundry to advanced dry cleaning, specialist leather, shoe and upholstery care — all with free pickup and delivery in Gurugram.",
+    "text": "Fifteen services under one roof, each with its own handling. From everyday laundry to advanced dry cleaning, specialist leather, shoe and upholstery care — all with free pickup and delivery in Gurgaon & NCR.",
     "cta": "All services"
   },
   "process": {
@@ -166,14 +166,14 @@
   },
   "areas_section": {
     "eyebrow": "Where we collect",
-    "title": "Free pickup across Gurugram.",
+    "title": "Free pickup across Gurgaon & NCR.",
     "text": "Two stores — one in Sushant Lok, one in Sector 49 — serving the sectors and colonies around them. We also collect across Delhi, Noida, Faridabad and Ghaziabad.",
-    "seo_text": "Wash4You provides free laundry pickup and delivery across all major sectors and colonies in Gurugram, including Sushant Lok, Sector 49, Cyber City, DLF Phase 3, Golf Course Road, Golf Course Extension Road, Sohna Road, Sector 29, Palam Vihar and MG Road — plus dry cleaning, shoe cleaning and sofa cleaning at your door in Delhi, Noida, Faridabad and Ghaziabad."
+    "seo_text": "Wash4You provides free laundry pickup and delivery across all major sectors and colonies in Gurgaon & NCR, including Sushant Lok, Sector 49, Cyber City, DLF Phase 3, Golf Course Road, Golf Course Extension Road, Sohna Road, Sector 29, Palam Vihar and MG Road — plus dry cleaning, shoe cleaning and sofa cleaning at your door in Delhi, Noida, Faridabad and Ghaziabad."
   },
   "faqs": [
     {
       "q": "Is pickup and delivery really free?",
-      "a": "Yes. Doorstep collection and delivery are included at no extra charge anywhere we serve in Gurugram."
+      "a": "Yes. Doorstep collection and delivery are included at no extra charge anywhere we serve in Gurgaon & NCR."
     },
     {
       "q": "How do I know nothing goes missing?",
@@ -188,7 +188,7 @@
       "a": "Yes. Shoes and sneakers, handbags, leather, curtains, carpets, sofas, mattresses, blankets and soft toys. Sofas and mattresses are cleaned at your home; everything else is collected."
     },
     {
-      "q": "Which parts of Gurugram do you cover?",
+      "q": "Which parts of Gurgaon & NCR do you cover?",
       "a": "Sushant Lok, Sector 49, Cyber City, DLF Phase 3, Golf Course Road, Golf Course Extension Road, Sohna Road, Sector 29, Palam Vihar and MG Road, plus the sectors around them. If you are not sure, send us a WhatsApp with your address and we will confirm."
     },
     {

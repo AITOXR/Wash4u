@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/t-shirt.webp",
   "heroImageFallback": "images/pricing/t-shirt.png",
   "heroImageAlt": "Top — dry cleaning by Wash4You",
-  "turnaroundNote": "Ready in 24–48 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Top Dry Cleaning Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Hand steam finishing",
         "Quality inspection & protective packaging"
       ],
-      "turnaround": "24–48 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "whyProfessional": {
@@ -181,7 +181,7 @@
     },
     {
       "q": "How long does top dry cleaning take?",
-      "a": "Dryclean & Press for tops usually takes 24–48 hours."
+      "a": "Dryclean & Press for tops turnaround is confirmed when we collect your order."
     },
     {
       "q": "Can you clean delicate or embellished tops?",

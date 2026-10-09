@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/shawl.webp",
   "heroImageFallback": "images/pricing/shawl.png",
   "heroImageAlt": "Shawl — dry cleaning by Wash4You",
-  "turnaroundNote": "Ready in 24–48 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Shawl Dry Cleaning Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Light steam finishing",
         "Folded flat — never hung — for delivery"
       ],
-      "turnaround": "24–48 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "whyProfessional": {
@@ -180,7 +180,7 @@
     },
     {
       "q": "How long does shawl dry cleaning take?",
-      "a": "Dryclean & Press for shawls usually takes 24–48 hours."
+      "a": "Dryclean & Press for shawls turnaround is confirmed when we collect your order."
     },
     {
       "q": "Can you clean a pashmina shawl?",

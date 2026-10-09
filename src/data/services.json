@@ -8,7 +8,7 @@
   },
   "hero": {
     "headline": "Gurgaon & Delhi NCR’s Most Complete Laundry & Dry-Cleaning Services",
-    "subheadline": "Wash4You cleans everything from everyday wash & fold to premium dry cleaning, shoe care, leather, bags, curtains, sofas and mattresses. Every service includes free doorstep pickup and delivery across Gurugram and Delhi NCR, and every piece is counted with you before it leaves your door."
+    "subheadline": "Wash4You cleans everything from everyday wash & fold to premium dry cleaning, shoe care, leather, bags, curtains, sofas and mattresses. Every service includes free doorstep pickup and delivery across Gurgaon and NCR, and every piece is counted with you before it leaves your door."
   },
   "services": [
     {
@@ -25,7 +25,7 @@
         "Eco-friendly washing processes"
       ],
       "best_for": "Daily wear, baby clothes, sensitive skin",
-      "turnaround": "24 hours",
+      "turnaround": "Confirmed at pickup",
       "gallery": [
         "wash-and-fold",
         "jeans",
@@ -49,7 +49,7 @@
         "Pressed and finished to perfection"
       ],
       "best_for": "Suits, dresses, silks, wedding wear",
-      "turnaround": "24–48 hours",
+      "turnaround": "Confirmed at pickup",
       "gallery": [
         "lehenga",
         "coat",
@@ -61,7 +61,7 @@
       "comparison": {
         "eyebrow": "The solvent",
         "title": "Our solvent vs perc, honestly",
-        "intro": "Perc has been the dry-cleaning standard for fifty years and is still what most shops in Gurugram run. Here is the actual difference, including where perc still wins.",
+        "intro": "Perc has been the dry-cleaning standard for fifty years and is still what most shops in Gurgaon & NCR run. Here is the actual difference, including where perc still wins.",
         "columns": [
           "",
           "Our solvent — what we use",
@@ -111,7 +111,7 @@
       "slug": "shoe-cleaning",
       "name": "Shoe Cleaning Service",
       "short_description": "Deep cleaning for sneakers, sports shoes, suede, leather, Birkenstocks and Crocs to remove dirt, stains and odors while protecting the material.",
-      "description": "Sneakers, suede, running shoes and leather — cleaned by hand at our Sushant Lok and Sector 49 stores, with free pickup and delivery across Gurugram. We tell you what will come back and what won't before we start.",
+      "description": "Sneakers, suede, running shoes and leather — cleaned by hand at our Sushant Lok and Sector 49 stores, with free pickup and delivery across Gurgaon & NCR. We tell you what will come back and what won't before we start. Foam-based cleaning: we work a gentle, fabric-safe foam into the upper, midsole and laces with soft brushes, lifting dirt and stains from the surface without soaking the shoe. It protects glue, stitching and colour, keeps the shape intact and dries quickly, so your shoes come back fresh, clean and odour-free.",
       "icon": "footprints",
       "image": "images/pricing/sneakers.webp",
       "features": [
@@ -123,7 +123,7 @@
         "Air-dried, never sun-dried — direct sun weakens glue and fades colour"
       ],
       "best_for": "Sneakers, suede, leather, running shoes, Birkenstocks and Crocs",
-      "turnaround": "24–48 hours",
+      "turnaround": "Confirmed at pickup",
       "gallery": [
         "sneakers",
         "sports-shoes",
@@ -162,7 +162,7 @@
         "Ideal for jackets and accessories"
       ],
       "best_for": "Leather jackets, handbags, belts, wallets, sofas",
-      "turnaround": "48–72 hours",
+      "turnaround": "Confirmed at pickup",
       "gallery": [
         "leather-jacket",
         "leather-shoes",
@@ -221,7 +221,7 @@
         "Hygienic results"
       ],
       "best_for": "Children's toys, stuffed animals",
-      "turnaround": "24 hours"
+      "turnaround": "Confirmed at pickup"
     },
     {
       "slug": "accessories-cleaning",
@@ -237,7 +237,7 @@
         "Reshaping and finishing"
       ],
       "best_for": "Neckties, scarves, hats, caps, stoles",
-      "turnaround": "24 hours",
+      "turnaround": "Confirmed at pickup",
       "gallery": [
         "shawl"
       ]
@@ -270,7 +270,7 @@
         "Quick turnaround"
       ],
       "best_for": "Office shirts, trousers, sarees, uniforms",
-      "turnaround": "24 hours",
+      "turnaround": "Confirmed at pickup",
       "gallery": [
         "wash-and-steam-iron",
         "jeans",
@@ -305,7 +305,7 @@
         "Better on water-soluble stains"
       ],
       "best_for": "Delicates that water can safely handle",
-      "turnaround": "24–48 hours",
+      "turnaround": "Confirmed at pickup",
       "gallery": [
         "kurta",
         "dress",
@@ -335,7 +335,6 @@
       "gallery": [
         "double-blanket",
         "comforter-double",
-        "shawl",
         "single-blanket"
       ]
     },
@@ -353,10 +352,11 @@
         "Crisp pressing available"
       ],
       "best_for": "Hotels, restaurants, homes, guest houses",
-      "turnaround": "24–48 hours",
+      "turnaround": "Confirmed at pickup",
       "gallery": [
         "single-bed-sheet",
-        "double-bed-sheet"
+        "double-bed-sheet",
+        "comforter-double"
       ]
     }
   ],
@@ -377,8 +377,8 @@
         "detail": "We come to you, anywhere we serve."
       },
       {
-        "label": "24-hour turnaround",
-        "detail": "Most services are back with you the next day."
+        "label": "Turnaround confirmed at pickup",
+        "detail": "We confirm your delivery date when we collect."
       },
       {
         "label": "Expert care",
@@ -417,7 +417,7 @@
     },
     {
       "q": "How long does dry cleaning take?",
-      "a": "Most dry cleaning is done in 24–48 hours. Express same-day is available in select localities near our Gurgaon hub for an additional charge."
+      "a": "Turnaround is confirmed when we collect your order. Express same-day is available in select localities near our Gurgaon hub for an additional charge."
     },
     {
       "q": "Do you clean wedding lehengas and designer wear?",

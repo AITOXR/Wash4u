@@ -2139,3 +2139,7 @@ img { max-width: 100%; }
 .prod-doorstep-posters { display: grid; gap: var(--s-4); grid-template-columns: repeat(3, 1fr); max-width: 780px; margin: var(--s-8) auto 0; }
 .prod-doorstep-posters img { width: 100%; height: auto; border-radius: 12px; display: block; }
 @media (max-width: 600px) { .prod-doorstep-posters { grid-template-columns: 1fr; max-width: 320px; } }
+
+/* Larger, easier-to-read body copy on product pages */
+.page-product .prod-section-subtitle, .page-product [class*="__desc"], .page-product [class*="__lede"], .page-product .prod-faq p, .page-product li { font-size: 1.0625rem; line-height: 1.65; }
+.page-product .prod-step-card__title, .page-product [class*="__title"] { font-size: 1.15em; }

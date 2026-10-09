@@ -286,3 +286,5 @@
 .spend-card:nth-child(even) { border-left-color: var(--brass); }
 .spend-card h3 { font-size: var(--t-md); color: var(--navy); margin-bottom: var(--s-1); }
 .spend-card p { color: var(--ink-2); font-size: var(--t-sm); }
+
+.packages-hero h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.1; }

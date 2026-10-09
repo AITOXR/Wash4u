@@ -62,7 +62,7 @@
           </li>
           <li class="prod-hero__stat">
             <span class="prod-hero__stat-icon" aria-hidden="true">{{ ui('clock', 12) }}</span>
-            <span>Dryclean in 24–48 hrs</span>
+            <span>Dryclean with quality check</span>
           </li>
           <li class="prod-hero__stat">
             <span class="prod-hero__stat-icon" aria-hidden="true">{{ ui('sparkle', 12) }}</span>
@@ -189,7 +189,7 @@
       </div>
 
       <div class="lp-stores">
-        {% for loc in site.locations %}
+        {% if site.show_stores %}{% for loc in site.locations %}
         <article class="lp-store">
           <span class="lp-store__icon" aria-hidden="true">{{ ui('pin', 18) }}</span>
           <div>
@@ -198,7 +198,7 @@
             <a href="{{ loc.map_url }}" target="_blank" rel="noopener">Get directions &rarr;</a>
           </div>
         </article>
-        {% endfor %}
+        {% endfor %}{% endif %}
       </div>
 
       {% if page.local %}

@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/premium-laundry.webp",
   "heroImageFallback": "images/pricing/premium-laundry.jpg",
   "heroImageAlt": "Premium Laundry — laundry by Wash4You",
-  "turnaroundNote": "Ready in 24 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Premium Laundry Service Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Hand steam finishing",
         "Hung or folded with care"
       ],
-      "turnaround": "24 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "studioLabel": "Laundry Studio",
@@ -167,7 +167,7 @@
     },
     {
       "q": "How long does premium laundry service take?",
-      "a": "Premium Laundry is usually delivered within 24 hours."
+      "a": "Premium Laundry turnaround is confirmed when we collect your order."
     },
     {
       "q": "When should I choose premium laundry over dryclean?",

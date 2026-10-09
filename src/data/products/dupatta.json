@@ -12,7 +12,7 @@
   "heroImage": "images/pricing/shawl.webp",
   "heroImageFallback": "images/pricing/shawl.png",
   "heroImageAlt": "Dupatta — dry cleaning by Wash4You",
-  "turnaroundNote": "Ready in 24–48 hrs",
+  "turnaroundNote": "Confirmed at pickup",
   "badge": "Free Doorstep Pickup & Delivery",
   "meta": {
     "title": "Dupatta Dry Cleaning Service in Gurgaon | Wash4You",
@@ -43,7 +43,7 @@
         "Hand steam finishing around the work",
         "Folded with tissue & protective packaging"
       ],
-      "turnaround": "24–48 hours"
+      "turnaround": "Confirmed at pickup"
     }
   ],
   "whyProfessional": {
@@ -180,7 +180,7 @@
     },
     {
       "q": "How long does dupatta dry cleaning take?",
-      "a": "Dryclean & Press for dupattas usually takes 24–48 hours."
+      "a": "Dryclean & Press for dupattas turnaround is confirmed when we collect your order."
     },
     {
       "q": "Can makeup marks on a dupatta be removed?",

@@ -220,7 +220,7 @@
           <div class="nav-locdrop__panel" role="menu" aria-label="Pricing by area" data-locdrop-panel>
             <a class="mega__lead" role="menuitem" href="{{ root_path }}pricing/">
               <strong>Full price list</strong>
-              <span>Item-wise rates for all of Gurugram</span>
+              <span>Item-wise rates for all of Gurgaon & NCR</span>
             </a>
             <p class="mega__label">Pricing by area</p>
             <div class="mega__areas">
@@ -247,7 +247,7 @@
           {{ ui('cart', 20) }}
           <span class="cart-toggle__count" data-cart-count aria-hidden="true">0</span>
         </button>
-        <a class="btn btn--cta header__cta" href="{{ site.nav.cta.url }}" rel="noopener">{{ site.nav.cta.label }}</a>
+        <a class="btn btn--cta header__cta" href="{{ site.nav.cta.url }}" target="_blank" rel="noopener">{{ site.nav.cta.label }}</a>
         <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
           {{ ui('menu', 22) }}
         </button>
@@ -311,7 +311,7 @@
         {% endfor %}
       </nav>
       <div class="mobile-nav__foot">
-        <a class="btn btn--cta btn--lg btn--block" href="{{ site.nav.cta.url }}" rel="noopener">{{ site.nav.cta.label }}</a>
+        <a class="btn btn--cta btn--lg btn--block" href="{{ site.nav.cta.url }}" target="_blank" rel="noopener">{{ site.nav.cta.label }}</a>
         <a class="btn btn--ghost btn--block" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
       </div>
     </div>
@@ -372,13 +372,13 @@
         </div>
 
         <div>
-          <h3>Our stores</h3>
+          {% if site.show_stores %}<h3>Our stores</h3>
           {% for loc in site.locations %}
           <div class="footer__store">
             <strong{{ cms('site:locations.' ~ loop.index0 ~ '.name') }}>{{ loc.name }}</strong>
             <address{{ cms('site:locations.' ~ loop.index0 ~ '.address') }}>{{ loc.address }}</address>
           </div>
-          {% endfor %}
+          {% endfor %}{% endif %}
           <h3 style="margin-top:var(--s-6)">Policies</h3>
           <ul class="footer__links">
             {% for item in site.footer.support %}
@@ -423,6 +423,37 @@
           </div>
           {% endfor %}
         </div>
+      </div>
+
+      <div class="footer__drycleaned">
+        <h3>All These Items Are Drycleaned</h3>
+        <ul class="footer__drycleaned-list">
+          <li>Achkan / Jodhpuri / Sherwani</li>
+          <li>Ankle Length Boots</li>
+          <li>Baby Stroller / Pram</li>
+          <li>Baby Carrier</li>
+          <li>Backpack</li>
+          <li>Baby Items</li>
+          <li>Bed Spread</li>
+          <li>Bridal Lehenga / Bridal Dress</li>
+          <li>Cap</li>
+          <li>Cushion</li>
+          <li>Dress</li>
+          <li>Duvet</li>
+          <li>Floor Mats</li>
+          <li>Knee Length Boot</li>
+          <li>Mattress</li>
+          <li>Mid Length Boot</li>
+          <li>Purse</li>
+          <li>Quilt Cover</li>
+          <li>Sandals</li>
+          <li>Sofa</li>
+          <li>Soft Toy</li>
+          <li>Top</li>
+          <li>Waist Coat</li>
+          <li>Wallet</li>
+          <li>Washing Clothes</li>
+        </ul>
       </div>
 
       <div class="footer__bottom">
@@ -489,7 +520,7 @@
   {# Sticky booking bar — mobile only, appears past the hero #}
   <div class="cta-bar" id="mobile-cta-bar">
     <a class="btn btn--ghost" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">{{ ui('whatsapp', 18) }} WhatsApp</a>
-    <a class="btn btn--cta" href="{{ site.nav.cta.url }}" rel="noopener">Book pickup</a>
+    <a class="btn btn--cta" href="{{ site.nav.cta.url }}" target="_blank" rel="noopener">Book pickup</a>
   </div>
 
   {# Desktop's equivalent of the mobile sticky bar above: mobile always has a
@@ -501,6 +532,9 @@
     <a class="side-rail__btn" href="{{ site.social.instagram }}" target="_blank" rel="noopener" aria-label="Wash4You on Instagram">{{ ui('instagram', 20) }}</a>
     <a class="side-rail__btn" href="{{ site.social.facebook }}" target="_blank" rel="noopener" aria-label="Wash4You on Facebook">{{ ui('facebook', 20) }}</a>
   </div>
+
+  {# Floating "Book Pickup" button — every page, every viewport #}
+  <a class="book-fab" href="{{ site.nav.cta.url }}" target="_blank" rel="noopener" aria-label="Book free pickup">Book Pickup</a>
 
   <script src="{{ asset_path }}js/main.js" defer></script>
   {% block scripts %}{% endblock %}
@@ -675,6 +709,13 @@
       if (e.key === 'Escape' && panel.classList.contains('is-open')) close()
     })
   })()
+  </script>
+  <script>
+    /* Every link that leaves the site (booking app, WhatsApp, maps, socials) opens in a new tab. */
+    document.querySelectorAll('a[href]').forEach(function (a) {
+      var h = a.getAttribute('href');
+      if (/^https?:\/\//i.test(h) && a.hostname !== location.hostname) { a.target = '_blank'; a.rel = 'noopener'; }
+    });
   </script>
 </body>
 </html>
