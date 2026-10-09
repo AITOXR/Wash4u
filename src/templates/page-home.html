@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_posters.html" import feature, banner with context %}
+{% from "_posters.html" import feature, banner, showcase with context %}
 {% from "_icons.html" import ui, care_symbol, care_tag, service_icon, service_bg %}
 {% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card %}
 
@@ -507,6 +507,7 @@
   </div>
 </section>
 
+{{ showcase(posters.showcase) }}
 {{ feature('doorstep', 'left') }}
 {{ banner(posters.banner) }}
 {# ============================================================

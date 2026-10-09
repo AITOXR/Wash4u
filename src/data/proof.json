@@ -94,6 +94,19 @@
       "width": 1200,
       "height": 1155,
       "featured": true
+    },
+    {
+      "id": "denim-shoe",
+      "service": "shoe-cleaning",
+      "title": "Sneaker deep clean — mud and grime",
+      "summary": "Caked-on mud and ground-in grime removed from the upper, laces and sole, so the sneaker comes back clean and fresh.",
+      "before": "images/proof/shoe-before.webp",
+      "after": "images/proof/shoe-after.webp",
+      "alt_before": "Muddy, dirty sneaker before cleaning",
+      "alt_after": "The same style of sneaker after Wash4You cleaning, clean and fresh",
+      "width": 900,
+      "height": 900,
+      "featured": false
     }
   ],
   "process": {
@@ -121,6 +134,7 @@
     {
       "title": "Shoes",
       "pairs": [
+        "denim-shoe",
         "sneaker-nike",
         "sneaker-hoka",
         "sneaker-adidas",

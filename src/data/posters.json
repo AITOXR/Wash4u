@@ -532,6 +532,13 @@
     ],
     "shoe-cleaning": [
       {
+        "src": "images/cutouts/sneaker-half.webp",
+        "alt": "Sneaker shown half cleaned, half dirty",
+        "caption": "Left side cleaned, right side as received",
+        "w": 1179,
+        "h": 1200
+      },
+      {
         "src": "images/posters/slipons-before.webp",
         "alt": "Slip-on shoes before cleaning",
         "caption": "Before",
@@ -558,6 +565,27 @@
         "caption": "Sneaker restoration",
         "w": 788,
         "h": 1400
+      },
+      {
+        "src": "images/cutouts/sneaker-colour.webp",
+        "alt": "Colourful sneakers cleaned by Wash4You",
+        "caption": "Sneakers",
+        "w": 1200,
+        "h": 713
+      },
+      {
+        "src": "images/cutouts/shoe-brogue.webp",
+        "alt": "Leather brogues polished and conditioned by Wash4You",
+        "caption": "Leather shoes",
+        "w": 1200,
+        "h": 675
+      },
+      {
+        "src": "images/cutouts/shoe-denim.webp",
+        "alt": "Suede and denim shoes cleaned by Wash4You",
+        "caption": "Suede and fabric shoes",
+        "w": 1200,
+        "h": 683
       }
     ],
     "blanket-quilt-cleaning": [
@@ -581,6 +609,13 @@
         "caption": "Returned fresh",
         "w": 960,
         "h": 1280
+      },
+      {
+        "src": "images/cutouts/blanket.webp",
+        "alt": "Soft blanket cleaned by Wash4You",
+        "caption": "Blankets and quilts",
+        "w": 1200,
+        "h": 785
       }
     ],
     "bag-cleaning": [
@@ -604,6 +639,86 @@
         "caption": "Tagged and ready",
         "w": 1278,
         "h": 1230
+      },
+      {
+        "src": "images/cutouts/handbags.webp",
+        "alt": "Handbags cleaned by Wash4You",
+        "caption": "Handbags of every style",
+        "w": 1200,
+        "h": 374
+      },
+      {
+        "src": "images/cutouts/handbag-tan.webp",
+        "alt": "Leather handbag care by Wash4You",
+        "caption": "Leather care",
+        "w": 1200,
+        "h": 654
+      }
+    ],
+    "leather-cleaning": [
+      {
+        "src": "images/cutouts/handbag-tan.webp",
+        "alt": "Leather handbag care by Wash4You",
+        "caption": "Leather bags",
+        "w": 1200,
+        "h": 654
+      },
+      {
+        "src": "images/cutouts/shoe-brogue.webp",
+        "alt": "Leather shoes polished by Wash4You",
+        "caption": "Leather shoes",
+        "w": 1200,
+        "h": 675
+      }
+    ],
+    "curtains-cleaning": [
+      {
+        "src": "images/cutouts/curtain.webp",
+        "alt": "Curtains cleaned by Wash4You",
+        "caption": "Curtains, cleaned and returned hung-ready",
+        "w": 1179,
+        "h": 1200
+      }
+    ],
+    "carpet-cleaning": [
+      {
+        "src": "images/cutouts/carpet.webp",
+        "alt": "Carpet deep cleaned by Wash4You",
+        "caption": "Carpets and rugs",
+        "w": 1200,
+        "h": 802
+      }
+    ],
+    "eco-friendly-laundry": [
+      {
+        "src": "images/cutouts/clothes-rack.webp",
+        "alt": "Everyday clothes laundered by Wash4You",
+        "caption": "Everyday wear",
+        "w": 832,
+        "h": 1200
+      },
+      {
+        "src": "images/cutouts/washing-machine.webp",
+        "alt": "Commercial washing by Wash4You",
+        "caption": "Machine washed",
+        "w": 890,
+        "h": 1200
+      }
+    ],
+    "premium-dry-cleaning": [
+      {
+        "src": "images/cutouts/clothes-wardrobe.webp",
+        "alt": "Wardrobe of garments drycleaned by Wash4You",
+        "caption": "Your whole wardrobe",
+        "w": 1200,
+        "h": 985
+      },
+      {
+        "src": "images/cutouts/saree.webp",
+        "alt": "Saree dry cleaned by Wash4You",
+        "caption": "Sarees and ethnic wear",
+        "w": 516,
+        "h": 1200
       }
     ]
   },
@@ -664,5 +779,55 @@
       "w": 1200,
       "h": 800
     }
-  ]
+  ],
+  "showcase": [
+    {
+      "src": "images/cutouts/clothes-rack.webp",
+      "label": "Garments",
+      "slug": "premium-dry-cleaning",
+      "alt": "Garments on a rack"
+    },
+    {
+      "src": "images/cutouts/sneaker-colour.webp",
+      "label": "Shoes",
+      "slug": "shoe-cleaning",
+      "alt": "Sneakers"
+    },
+    {
+      "src": "images/cutouts/handbags.webp",
+      "label": "Handbags",
+      "slug": "bag-cleaning",
+      "alt": "Handbags"
+    },
+    {
+      "src": "images/cutouts/saree.webp",
+      "label": "Sarees & Ethnic",
+      "slug": "premium-dry-cleaning",
+      "alt": "Saree"
+    },
+    {
+      "src": "images/cutouts/curtain.webp",
+      "label": "Curtains",
+      "slug": "curtains-cleaning",
+      "alt": "Curtains"
+    },
+    {
+      "src": "images/cutouts/carpet.webp",
+      "label": "Carpets",
+      "slug": "carpet-cleaning",
+      "alt": "Rolled carpet"
+    },
+    {
+      "src": "images/cutouts/blanket.webp",
+      "label": "Blankets",
+      "slug": "blanket-quilt-cleaning",
+      "alt": "Folded blanket"
+    }
+  ],
+  "family": {
+    "src": "images/cutouts/family.webp",
+    "alt": "A happy family with a basket of fresh laundry",
+    "w": 1200,
+    "h": 944
+  }
 }

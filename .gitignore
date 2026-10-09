@@ -27,3 +27,6 @@ admin/.env
 admin/__pycache__/
 admin/**/__pycache__/
 admin/.pytest_cache/
+
+# Client-supplied source folders (62 MB, already duplicates of images on the site). Kept locally only.
+client-assets/

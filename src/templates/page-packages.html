@@ -68,6 +68,7 @@
       <span aria-hidden="true">/</span>
       <span>Packages</span>
     </nav>
+    <img class="packages-hero__family" src="{{ asset_path }}{{ posters.family.src }}" alt="{{ posters.family.alt }}" width="{{ posters.family.w }}" height="{{ posters.family.h }}" decoding="async">
     <div class="page-hero__grid">
       <div>
         <p class="eyebrow"{{ cms('packages:hero.eyebrow') }}>{{ packages.hero.eyebrow }}</p>
@@ -86,8 +87,6 @@
     </div>
   </div>
 </section>
-
-{{ banner(posters.banner) }}
 
 {# "How the plans work" used to be an aside inside the banner. The artwork's
    three tags occupy the right of the frame — exactly where that card sat — so
