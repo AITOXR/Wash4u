@@ -42,6 +42,58 @@
       "height": 1110,
       "featured": false,
       "_note": "The two source panels were shot at slightly different angles, so this pair renders as a static side-by-side card, not a drag slider."
+    },
+    {
+      "id": "sneaker-adidas",
+      "service": "shoe-cleaning",
+      "title": "Adidas Superstar — leather sneaker clean",
+      "summary": "Scuffed shells and grimy soles brought back to clean white, with the red stripes restored.",
+      "before": "images/proof/adidas-before.webp",
+      "after": "images/proof/adidas-after.webp",
+      "alt_before": "Adidas Superstar sneakers before cleaning",
+      "alt_after": "The same adidas superstar sneakers after Wash4You cleaning",
+      "width": 900,
+      "height": 900,
+      "featured": false
+    },
+    {
+      "id": "sneaker-on",
+      "service": "shoe-cleaning",
+      "title": "On Cloud — running shoe deep clean",
+      "summary": "Ground-in dirt lifted from the knit upper and the open midsole.",
+      "before": "images/proof/on-before.webp",
+      "after": "images/proof/on-after.webp",
+      "alt_before": "On Cloud running shoes before cleaning",
+      "alt_after": "The same on cloud running shoes after Wash4You cleaning",
+      "width": 900,
+      "height": 900,
+      "featured": false
+    },
+    {
+      "id": "slip-ons",
+      "service": "shoe-cleaning",
+      "title": "Knit slip-on shoes",
+      "summary": "Heavy dirt and stains lifted from the knit upper; the sole whitened and the shoe deodorised.",
+      "before": "images/proof/slipons-before.webp",
+      "after": "images/proof/slipons-after.webp",
+      "alt_before": "Knit slip-on shoes before cleaning",
+      "alt_after": "The same knit slip-on shoes after Wash4You cleaning",
+      "width": 1200,
+      "height": 675,
+      "featured": false
+    },
+    {
+      "id": "handbag",
+      "service": "bag-cleaning",
+      "title": "Leather handbag — stain and spot clean",
+      "summary": "Spotting and marks removed from the leather, with its original colour and finish preserved.",
+      "before": "images/proof/handbag-before.webp",
+      "after": "images/proof/handbag-after.webp",
+      "alt_before": "Tan leather handbag before cleaning",
+      "alt_after": "The same tan leather handbag after Wash4You cleaning",
+      "width": 1200,
+      "height": 1155,
+      "featured": true
     }
   ],
   "process": {
@@ -60,5 +112,31 @@
         "detail": "You get a written receipt of exactly what was collected, signed at pickup."
       }
     ]
-  }
+  },
+  "home_groups": [
+    {
+      "title": "Garments",
+      "pairs": []
+    },
+    {
+      "title": "Shoes",
+      "pairs": [
+        "sneaker-nike",
+        "sneaker-hoka",
+        "sneaker-adidas",
+        "sneaker-on",
+        "slip-ons"
+      ]
+    },
+    {
+      "title": "Handbag",
+      "pairs": [
+        "handbag"
+      ]
+    },
+    {
+      "title": "Toys",
+      "pairs": []
+    }
+  ]
 }

@@ -316,26 +316,24 @@
        the Nike item, which left a ~550x470 hole beside the third. .proof-grid
        is shared with page-service-detail.html, so every override is behind
        --lead AND .page-home, neither of which that template renders. #}
-    <div class="proof-grid proof-grid--lead">
-      {% set lead = proof.pairs[0] %}
-      <div class="proof-grid__item proof-grid__item--lead reveal">
-        {{ before_after(lead, asset_path, ui) }}
-        <p class="proof-grid__summary"{{ cms('proof:pairs.0.summary') }}>{{ lead.summary }}</p>
-      </div>
-
-      <div class="proof-grid__rest">
-        {% for pair in proof.pairs[1:] %}
-        <div class="proof-grid__item reveal{% if not pair.featured %} proof-grid__item--pair{% endif %}">
-          {% if pair.featured %}
-            {{ before_after(pair, asset_path, ui) }}
-          {% else %}
-            {{ before_after_static(pair, asset_path) }}
-          {% endif %}
-          <p class="proof-grid__summary"{{ cms('proof:pairs.' ~ (loop.index0 + 1) ~ '.summary') }}>{{ pair.summary }}</p>
+    {# "Real results": garments, shoes, handbag, toys — in that order. A group
+       with no photographs yet (proof.json -> home_groups[].pairs empty) is
+       skipped, so it appears the moment its before/after pairs are added. #}
+    {% set by_id = {} %}
+    {% for pr in proof.pairs %}{% set _ = by_id.update({pr.id: pr}) %}{% endfor %}
+    {% for g in proof.home_groups if g.pairs %}
+    <div class="real-group">
+      <h3 class="real-group__title reveal">{{ g.title }}<span> Before &amp; After</span></h3>
+      <div class="real-group__grid real-group__grid--{{ g.pairs | length if g.pairs | length < 3 else 3 }}">
+        {% for pid in g.pairs %}{% set pair = by_id[pid] %}
+        <div class="real-group__item reveal">
+          {% if pair.featured %}{{ before_after(pair, asset_path, ui) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
+          <p class="proof-grid__summary">{{ pair.summary }}</p>
         </div>
         {% endfor %}
       </div>
     </div>
+    {% endfor %}
   </div>
 </section>
 
