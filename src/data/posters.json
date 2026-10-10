@@ -917,20 +917,6 @@
     ],
     "toy-cleaning": [
       {
-        "src": "images/proof/toy-cow.webp",
-        "alt": "Soft toy cow before and after cleaning",
-        "caption": "Cow: after (left), before (right)",
-        "w": 1400,
-        "h": 972
-      },
-      {
-        "src": "images/proof/toy-elephant.webp",
-        "alt": "Soft toy elephant before and after cleaning",
-        "caption": "Elephant: after (left), before (right)",
-        "w": 1400,
-        "h": 972
-      },
-      {
         "src": "images/proof/toy-teddy.webp",
         "alt": "Teddy bear before and after cleaning",
         "caption": "Teddy bear, restored",

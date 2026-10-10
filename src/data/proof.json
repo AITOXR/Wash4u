@@ -40,7 +40,7 @@
       "alt_after": "The same Hoka Bondi running shoe after Wash4You cleaning, with a clean upper and bright white midsole — Wash4You, Gurgaon",
       "width": 544,
       "height": 1110,
-      "featured": false,
+      "featured": true,
       "_note": "The two source panels were shot at slightly different angles, so this pair renders as a static side-by-side card, not a drag slider."
     },
     {
@@ -54,7 +54,7 @@
       "alt_after": "The same adidas superstar sneakers after Wash4You cleaning",
       "width": 900,
       "height": 900,
-      "featured": false
+      "featured": true
     },
     {
       "id": "sneaker-on",
@@ -67,7 +67,7 @@
       "alt_after": "The same on cloud running shoes after Wash4You cleaning",
       "width": 900,
       "height": 900,
-      "featured": false
+      "featured": true
     },
     {
       "id": "slip-ons",
@@ -80,7 +80,7 @@
       "alt_after": "The same knit slip-on shoes after Wash4You cleaning",
       "width": 1200,
       "height": 675,
-      "featured": false
+      "featured": true
     },
     {
       "id": "handbag",
@@ -106,7 +106,7 @@
       "alt_after": "The same style of sneaker after Wash4You cleaning, clean and fresh",
       "width": 900,
       "height": 900,
-      "featured": false
+      "featured": true
     },
     {
       "id": "tee-stain",
@@ -119,7 +119,7 @@
       "alt_after": "The same yellow sports vest after Wash4You cleaning",
       "width": 903,
       "height": 1200,
-      "featured": false
+      "featured": true
     },
     {
       "id": "red-fabric",
@@ -132,7 +132,7 @@
       "alt_after": "The same embroidered red fabric after Wash4You cleaning",
       "width": 1200,
       "height": 680,
-      "featured": false
+      "featured": true
     },
     {
       "id": "cap",
@@ -145,7 +145,7 @@
       "alt_after": "The same pink cap after Wash4You cleaning",
       "width": 900,
       "height": 1200,
-      "featured": false
+      "featured": true
     },
     {
       "id": "lehenga",
@@ -158,7 +158,7 @@
       "alt_after": "The same designer lehenga set after Wash4You cleaning",
       "width": 1200,
       "height": 1200,
-      "featured": false
+      "featured": true
     },
     {
       "id": "nike-aj1",
@@ -171,7 +171,7 @@
       "alt_after": "The same nike air jordan 1 low sneaker after Wash4You cleaning",
       "width": 1200,
       "height": 833,
-      "featured": false
+      "featured": true
     },
     {
       "id": "sofa-living",
@@ -184,27 +184,33 @@
       "alt_after": "The same fabric three-seater sofa after Wash4You cleaning",
       "width": 1200,
       "height": 676,
-      "featured": false
+      "featured": true
     },
     {
       "id": "toy-cow",
-      "service": "toy-single",
+      "service": "toy-cleaning",
       "title": "Soft toy — cow",
-      "summary": "Left: after Wash4You cleaning. Right: before. Dirt and discolouration gone, fur soft and fluffy again.",
-      "single": "images/proof/toy-cow.webp",
-      "alt": "Soft toy cow before and after Wash4You cleaning",
-      "width": 1400,
-      "height": 972
+      "summary": "Dirt and discolouration gone, fur soft and fluffy again.",
+      "width": 700,
+      "height": 972,
+      "before": "images/proof/toy-cow-before.webp",
+      "after": "images/proof/toy-cow-after.webp",
+      "alt_before": "Soft toy cow before cleaning",
+      "alt_after": "The same soft toy cow after Wash4You cleaning",
+      "featured": true
     },
     {
       "id": "toy-elephant",
-      "service": "toy-single",
+      "service": "toy-cleaning",
       "title": "Soft toy — elephant",
-      "summary": "Left: after Wash4You cleaning. Right: before. Washed, sanitised and dried to a soft finish.",
-      "single": "images/proof/toy-elephant.webp",
-      "alt": "Soft toy elephant before and after Wash4You cleaning",
-      "width": 1400,
-      "height": 972
+      "summary": "Washed, sanitised and dried to a soft finish.",
+      "width": 700,
+      "height": 972,
+      "before": "images/proof/toy-elephant-before.webp",
+      "after": "images/proof/toy-elephant-after.webp",
+      "alt_before": "Soft toy elephant before cleaning",
+      "alt_after": "The same soft toy elephant after Wash4You cleaning",
+      "featured": true
     },
     {
       "id": "toy-teddy",
