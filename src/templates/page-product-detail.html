@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_posters.html" import gallery with context %}
+{% from "_posters.html" import gallery, feature with context %}
 {% from "_icons.html" import ui %}
 {% from "_components.html" import faq_list %}
 
@@ -688,6 +688,8 @@
   {# ============================================================
      14. FAQ
      ============================================================ #}
+  {{ feature('delivery', 'left') }}
+
   <section class="prod-faq-section" id="faq">
     <div class="wrap">
       <div class="prod-section-header">

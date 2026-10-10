@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_posters.html" import gallery with context %}
 {% from "_icons.html" import ui %}
 
 {#
@@ -154,4 +155,5 @@
   </div>
 </section>
 
+{{ gallery(posters.area_page_gallery, 'How We Collect and Care', 'Across Your Area') }}
 {% endblock %}

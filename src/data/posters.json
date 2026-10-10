@@ -319,6 +319,15 @@
       "body": "Walk in, or let us come to you. Every order is tagged, examined and finished by our trained team, whichever you choose.",
       "cta": "Book free pickup",
       "url": "booking"
+    },
+    "delivery": {
+      "src": "images/gallery/delivery-item.webp",
+      "alt": "A blazer delivered in a sealed Wash4You protective cover with QR codes and contact details",
+      "eyebrow": "Delivered the Wash4You Way",
+      "title": "Pressed, Covered and Sealed for the Journey Home",
+      "body": "Every item comes back on its own hanger inside a Wash4You protective cover, with scan-to-book and contact codes on the pack, so it stays fresh until you open it.",
+      "cta": "Book free pickup",
+      "url": "booking"
     }
   },
   "gallery": {
@@ -1018,6 +1027,41 @@
       "caption": "Premium packaging",
       "w": 974,
       "h": 1400
+    },
+    {
+      "src": "images/gallery/curtain-clean.webp",
+      "alt": "Wash4You team cleaning curtains at the window",
+      "caption": "Curtain cleaning at home",
+      "w": 933,
+      "h": 1400
+    },
+    {
+      "src": "images/gallery/curtain-steam.webp",
+      "alt": "Wash4You team member steam cleaning a curtain",
+      "caption": "Steam curtain cleaning",
+      "w": 1374,
+      "h": 1145
+    },
+    {
+      "src": "images/gallery/curtains-hung.webp",
+      "alt": "Curtains packed on hangers by Wash4You",
+      "caption": "Curtains returned hung-ready",
+      "w": 1050,
+      "h": 1400
+    },
+    {
+      "src": "images/gallery/carpet-2.webp",
+      "alt": "Carpet being cleaned at a customer's home",
+      "caption": "Carpet cleaning at home",
+      "w": 972,
+      "h": 1400
+    },
+    {
+      "src": "images/gallery/steam-blazer.webp",
+      "alt": "Wash4You team member steaming a blazer",
+      "caption": "Steam finishing",
+      "w": 1145,
+      "h": 1374
     }
   ],
   "showcase": [
@@ -1203,5 +1247,53 @@
     "alt": "Hydrocarbon dryclean machine used by Wash4You",
     "w": 1400,
     "h": 914
+  },
+  "area_page_gallery": [
+    {
+      "src": "images/gallery/rider.webp",
+      "alt": "Wash4You delivery partner on a bike",
+      "caption": "Our riders",
+      "w": 1119,
+      "h": 1400
+    },
+    {
+      "src": "images/gallery/van.webp",
+      "alt": "Wash4You pickup van",
+      "caption": "Pickup van",
+      "w": 1280,
+      "h": 653
+    },
+    {
+      "src": "images/gallery/doorstep-delivery.webp",
+      "alt": "Wash4You doorstep delivery",
+      "caption": "At your door",
+      "w": 788,
+      "h": 1400
+    },
+    {
+      "src": "images/gallery/curtain-clean.webp",
+      "alt": "Wash4You team cleaning curtains at the window",
+      "caption": "Cleaned at your home",
+      "w": 933,
+      "h": 1400
+    },
+    {
+      "src": "images/gallery/pack-colour.webp",
+      "alt": "Garments sealed in Wash4You packaging",
+      "caption": "Premium packaging",
+      "w": 974,
+      "h": 1400
+    },
+    {
+      "src": "images/gallery/steam-blazer.webp",
+      "alt": "Wash4You team member steaming a blazer",
+      "caption": "Steam finishing",
+      "w": 1145,
+      "h": 1374
+    }
+  ],
+  "app": {
+    "qr": "images/app/menu-qr.png",
+    "qr_target": "https://wash4you.in/menu/"
   }
 }

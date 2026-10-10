@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_posters.html" import gallery with context %}
 {% from "_icons.html" import ui, care_tag, service_icon, service_bg %}
 {% from "_components.html" import faq_list, page_hero_mascot %}
 
@@ -167,7 +168,7 @@
       <h2>Other {{ area.city }} areas on the same coverage list</h2>
     </div>
     <div class="areas stagger-children">
-      {% for a in area.nearby_links %}
+      {% for a in area.nearby_links | sort(attribute='label') %}
       <a class="area-link" href="{{ root_path }}{{ a.url }}">{{ a.label }} {{ ui('arrow-right', 16) }}</a>
       {% endfor %}
     </div>
@@ -190,4 +191,5 @@
   </div>
 </section>
 
+{{ gallery(posters.area_page_gallery, 'How We Collect and Care', 'Across Your Area') }}
 {% endblock %}

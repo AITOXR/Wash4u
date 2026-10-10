@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_posters.html" import gallery, review_shots with context %}
+{% from "_posters.html" import gallery, review_shots, feature with context %}
 {% from "_icons.html" import ui, care_tag, service_icon, service_bg %}
 {% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card, page_hero_mascot_inline %}
 
@@ -405,6 +405,8 @@
 </section>
 
 {{ gallery(posters.service_gallery[service.slug], 'See the Care in Action') }}
+
+{{ feature('delivery', 'right') }}
 
 <section class="section section--tight">
   <div class="wrap">

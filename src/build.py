@@ -713,6 +713,10 @@ def build() -> None:
     # and the LocalBusiness areaServed block all use this, so no generated
     # page is left without an inbound link.
     area_links = [{"label": a["name"], "url": a["slug"] + "/"} for a in area_pages]
+    # "Areas we serve" is alphabetical everywhere it is listed (client request).
+    area_links.sort(key=lambda a: a["label"].lower())
+    site["footer"]["areas"] = sorted(site["footer"]["areas"], key=lambda a: a["label"].lower())
+    site["pricing_areas"] = sorted(site.get("pricing_areas", []), key=lambda a: a["label"].lower())
 
     # Link the coverage list on /locate-us/ to the pages that now exist.
     # Done here rather than by hand-editing areas.json so the coverage list
@@ -996,6 +1000,19 @@ def build() -> None:
         f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n", encoding="utf-8"
     )
     (DIST_DIR / ".nojekyll").write_text("", encoding="utf-8")
+
+    # QR codes on packaging and the footer point at /menu/. It forwards to the
+    # booking app, so a printed code keeps working whatever else changes.
+    menu_dir = DIST_DIR / "menu"
+    menu_dir.mkdir(exist_ok=True)
+    target = html.escape(site["urls"]["schedule"], quote=True)
+    (menu_dir / "index.html").write_text(
+        '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+        '<title>Book your pickup | Wash4You</title><meta name="robots" content="noindex">'
+        f'<meta http-equiv="refresh" content="0; url={target}">'
+        f'<link rel="canonical" href="{target}"></head><body>'
+        f'<p>Opening the Wash4You booking app\u2026 <a href="{target}">Tap here if nothing happens</a>.</p>'
+        f'<script>location.replace("{target}")</script></body></html>', encoding="utf-8")
 
     # Sync dist/products to repo root products/ for GitHub Pages static serving
     repo_products = ROOT.parent / "products"

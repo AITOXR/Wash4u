@@ -409,6 +409,23 @@
         </ul>
       </nav>
 
+      <div class="footer__app">
+        <img class="footer__app-mascot" src="{{ asset_path }}images/mascot-why.png" alt="" width="96" height="96" loading="lazy" decoding="async">
+        <div class="footer__app-copy">
+          <h3>Book on the Wash4You app</h3>
+          <p>Scan the QR code to schedule your free pickup in a minute.</p>
+          <div class="footer__app-btns">
+            <a class="btn btn--cta" href="{{ site.urls.schedule }}" target="_blank" rel="noopener">Book on the app</a>
+            {% if site.app and site.app.ios %}<a class="btn btn--ghost footer__app-store" href="{{ site.app.ios }}" target="_blank" rel="noopener">Download on the App Store</a>{% endif %}
+            {% if site.app and site.app.android %}<a class="btn btn--ghost footer__app-store" href="{{ site.app.android }}" target="_blank" rel="noopener">Get it on Google Play</a>{% endif %}
+          </div>
+        </div>
+        <figure class="footer__app-qr">
+          <img src="{{ asset_path }}images/app/menu-qr.png" alt="QR code to book a Wash4You pickup" width="168" height="168" loading="lazy" decoding="async">
+          <figcaption>Scan the QR code</figcaption>
+        </figure>
+      </div>
+
       <div class="footer__products">
         <h3>All Products</h3>
         <div class="footer__product-groups">

@@ -259,5 +259,10 @@
     "palam-vihar": "laundry-service-palam-vihar",
     "mg-road": "laundry-service-mg-road"
   },
-  "show_stores": false
+  "show_stores": false,
+  "app": {
+    "_note": "Paste the store URLs here to show the App Store / Google Play buttons in the footer.",
+    "ios": "",
+    "android": ""
+  }
 }

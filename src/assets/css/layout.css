@@ -476,3 +476,14 @@
 .footer__drycleaned { margin: var(--s-8, 2rem) 0 var(--s-6, 1.5rem); padding-top: var(--s-6, 1.5rem); border-top: 1px solid rgba(255, 255, 255, .14); }
 .footer__drycleaned-list { list-style: none; margin: var(--s-4, 1rem) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
 .footer__drycleaned-list li { padding: .3rem .75rem; border: 1px solid rgba(255, 255, 255, .22); border-radius: 999px; font-size: .85rem; }
+
+/* Footer: app + QR */
+.footer__app { display: grid; grid-template-columns: auto 1fr auto; gap: var(--s-6, 1.5rem); align-items: center; margin: var(--s-8, 2rem) 0; padding: var(--s-6, 1.5rem); border: 1px solid rgba(255, 255, 255, .16); border-radius: 18px; background: rgba(255, 255, 255, .05); }
+.footer__app-mascot { width: 96px; height: 96px; object-fit: contain; }
+.footer__app-copy h3 { margin: 0 0 .35rem; }
+.footer__app-copy p { margin: 0 0 var(--s-4, 1rem); opacity: .85; }
+.footer__app-btns { display: flex; flex-wrap: wrap; gap: .6rem; }
+.footer__app-qr { margin: 0; text-align: center; }
+.footer__app-qr img { display: block; width: 168px; height: 168px; background: #fff; padding: 8px; border-radius: 12px; }
+.footer__app-qr figcaption { margin-top: .4rem; font-size: .85rem; opacity: .85; }
+@media (max-width: 640px) { .footer__app { grid-template-columns: 1fr; text-align: center; justify-items: center; } .footer__app-btns { justify-content: center; } }

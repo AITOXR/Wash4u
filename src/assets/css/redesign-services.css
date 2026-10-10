@@ -776,3 +776,11 @@
 @media (forced-colors: active) {
   .svc__media { border-bottom: 1px solid CanvasText; }
 }
+
+/* Tables: larger, easier-to-read text everywhere (client request) */
+.svc-menu th, .svc-menu td, .svc-table th, .svc-table td, .price-table th, .price-table td,
+.area-table th, .area-table td, .pkg-table th, .pkg-table td, .ov-table th, .ov-table td,
+.prod-table th, .prod-table td { font-size: 1.0625rem; line-height: 1.55; }
+.svc-menu thead th, .svc-table thead th, .price-table thead th, .area-table thead th,
+.pkg-table thead th, .ov-table thead th, .prod-table thead th { font-size: .95rem; }
+.svc-menu th[scope="row"], .prod-table th[scope="row"] { font-size: 1.1rem; font-weight: 700; }
