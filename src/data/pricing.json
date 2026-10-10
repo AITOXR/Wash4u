@@ -159,7 +159,8 @@
           "name": "Blouse",
           "price": "₹79",
           "amount": 79,
-          "slug": "blouse"
+          "slug": "blouse",
+          "img": "images/pricing/blouse.png"
         },
         {
           "name": "Top",
@@ -180,7 +181,7 @@
           "price": "₹369",
           "amount": 369,
           "slug": "long-coat",
-          "img": "images/pricing/coat.png"
+          "img": "images/pricing/long-coat.png"
         },
         {
           "name": "Cardigan",
@@ -194,7 +195,7 @@
           "price": "₹189",
           "amount": 189,
           "slug": "sweatshirt",
-          "img": "images/pricing/sweater.png"
+          "img": "images/pricing/sweatshirt.png"
         }
       ]
     },
@@ -250,7 +251,7 @@
           "price": "₹359",
           "amount": 359,
           "slug": "bed-spread-double",
-          "img": "images/pricing/double-bed-sheet.png"
+          "img": "images/pricing/bed-spread-double.png"
         },
         {
           "name": "Comforter Double",
@@ -304,14 +305,14 @@
           "price": "₹399",
           "amount": 399,
           "slug": "sneaker-ankle",
-          "img": "images/pricing/sneakers.jpg"
+          "img": "images/pricing/sneaker-ankle.png"
         },
         {
           "name": "Boots Mid Length",
           "price": "₹699",
           "amount": 699,
           "slug": "boots-mid-length",
-          "img": "images/pricing/leather-shoes.png"
+          "img": "images/pricing/boots-mid-length.png"
         }
       ]
     },
@@ -416,7 +417,8 @@
           "name": "Blouse",
           "price": "₹39",
           "amount": 39,
-          "slug": "iron-blouse"
+          "slug": "iron-blouse",
+          "img": "images/pricing/blouse.png"
         },
         {
           "name": "Saree",

@@ -270,6 +270,7 @@
       {% for st in home.how_it_works.steps %}
       <li class="area-step">
         <span class="area-step__num" aria-hidden="true">{{ loop.index }}</span>
+        {% if st.image %}<img class="step-photo" src="{{ asset_path }}{{ st.image }}" alt="" width="96" height="96" loading="lazy" decoding="async">{% endif %}
         <h3{{ cms('home:how_it_works.steps.' ~ loop.index0 ~ '.title') }}>{{ st.title }}</h3>
         <p{{ cms('home:how_it_works.steps.' ~ loop.index0 ~ '.detail') }}>{{ st.detail }}</p>
       </li>

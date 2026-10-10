@@ -354,6 +354,7 @@
       {% for step in home.how_it_works.steps %}
       <li class="flow__step">
         <span class="flow__num" aria-hidden="true">{{ '%02d' | format(loop.index) }}</span>
+        {% if step.image %}<img class="step-photo" src="{{ asset_path }}{{ step.image }}" alt="" width="96" height="96" loading="lazy" decoding="async">{% endif %}
         <h3{{ cms('home:how_it_works.steps.' ~ loop.index0 ~ '.title') }}>{{ step.title }}</h3>
         <p{{ cms('home:how_it_works.steps.' ~ loop.index0 ~ '.detail') }}>{{ step.detail }}</p>
       </li>

@@ -1294,3 +1294,6 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
 .svc-hydro { margin: 0 auto var(--s-7, 2rem); max-width: 520px; text-align: center; }
 .svc-hydro img { width: 100%; height: auto; border-radius: 16px; box-shadow: 0 12px 34px rgba(11, 30, 60, .14); }
 .svc-hydro figcaption { margin-top: .6rem; font-weight: 600; font-size: .9rem; opacity: .75; }
+
+/* Process step photos (original seven-step images) */
+.step-photo { display: block; width: 5.5rem; height: 5.5rem; border-radius: 50%; object-fit: cover; margin: 0 0 var(--s-3, .75rem); box-shadow: 0 6px 18px rgba(0, 0, 0, .18); }
