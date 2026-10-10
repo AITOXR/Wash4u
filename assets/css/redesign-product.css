@@ -2150,3 +2150,9 @@ img { max-width: 100%; }
 .city-toggle__btn { border: 0; background: transparent; padding: .5rem 1.1rem; border-radius: 999px; font: inherit; font-weight: 700; cursor: pointer; color: var(--navy-deep, #0b1e3c); }
 .city-toggle__btn.is-active { background: var(--navy-deep, #0b1e3c); color: #fff; }
 .offer-pill { display: inline-block; padding: .25rem .7rem; border-radius: 999px; background: var(--brass-soft, #f7e7bd); color: #6b4a00; font-size: .8rem; font-weight: 700; }
+
+/* Hero variant: sits on the dark band */
+.city-toggle--hero { background: rgba(255, 255, 255, .14); margin: var(--s-5, 1.25rem) 0 var(--s-4, 1rem); }
+.city-toggle--hero .city-toggle__label { color: #fff; opacity: .85; }
+.city-toggle--hero .city-toggle__btn { color: #fff; }
+.city-toggle--hero .city-toggle__btn.is-active { background: #fff; color: var(--navy-deep, #0b1e3c); }
