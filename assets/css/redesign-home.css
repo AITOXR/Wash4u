@@ -1297,3 +1297,11 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
 
 /* Process step photos (original seven-step images) */
 .step-photo { display: block; width: 5.5rem; height: 5.5rem; border-radius: 50%; object-fit: cover; margin: 0 0 var(--s-3, .75rem); box-shadow: 0 6px 18px rgba(0, 0, 0, .18); }
+
+/* Real results: one slider per category */
+.real-grid { display: grid; gap: clamp(1rem, 2vw, 1.75rem); grid-template-columns: 1fr; margin-top: var(--s-7, 2rem); align-items: start; }
+@media (min-width: 640px) { .real-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .real-grid { grid-template-columns: repeat(4, 1fr); } }
+.real-card__title { margin: 0 0 .75rem; padding-bottom: .5rem; border-bottom: 2px solid var(--brass, #e2a93b); font-size: 1.25rem; }
+.real-card .ba__caption { margin-top: .5rem; }
+.real-card .proof-grid__summary { margin-top: .5rem; font-size: .92rem; }

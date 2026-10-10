@@ -192,7 +192,7 @@
       "title": "Soft toy — cow",
       "summary": "Dirt and discolouration gone, fur soft and fluffy again.",
       "width": 700,
-      "height": 972,
+      "height": 807,
       "before": "images/proof/toy-cow-before.webp",
       "after": "images/proof/toy-cow-after.webp",
       "alt_before": "Soft toy cow before cleaning",
@@ -205,7 +205,7 @@
       "title": "Soft toy — elephant",
       "summary": "Washed, sanitised and dried to a soft finish.",
       "width": 700,
-      "height": 972,
+      "height": 807,
       "before": "images/proof/toy-elephant-before.webp",
       "after": "images/proof/toy-elephant-after.webp",
       "alt_before": "Soft toy elephant before cleaning",
@@ -244,22 +244,13 @@
     {
       "title": "Garments",
       "pairs": [
-        "tee-stain",
-        "red-fabric",
-        "cap",
-        "lehenga"
+        "tee-stain"
       ]
     },
     {
       "title": "Shoes",
       "pairs": [
-        "denim-shoe",
-        "nike-aj1",
-        "sneaker-nike",
-        "sneaker-hoka",
-        "sneaker-adidas",
-        "sneaker-on",
-        "slip-ons"
+        "sneaker-nike"
       ]
     },
     {
@@ -271,9 +262,7 @@
     {
       "title": "Toys",
       "pairs": [
-        "toy-cow",
-        "toy-elephant",
-        "toy-teddy"
+        "toy-cow"
       ]
     }
   ]

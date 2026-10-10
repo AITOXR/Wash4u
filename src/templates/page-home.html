@@ -318,21 +318,16 @@
        skipped, so it appears the moment its before/after pairs are added. #}
     {% set by_id = {} %}
     {% for pr in proof.pairs %}{% set _ = by_id.update({pr.id: pr}) %}{% endfor %}
-    {% for g in proof.home_groups if g.pairs %}
-    <div class="real-group">
-      <h3 class="real-group__title reveal">{{ g.title }}<span> Before &amp; After</span></h3>
-      <div class="real-group__grid real-group__grid--{{ g.pairs | length if g.pairs | length < 3 else 3 }}">
-        {% for pid in g.pairs %}{% set pair = by_id[pid] %}
-        <div class="real-group__item reveal">
-          {% if pair.single %}
-          <figure class="ba ba--single"><img src="{{ asset_path }}{{ pair.single }}" alt="{{ pair.alt }}" width="{{ pair.width }}" height="{{ pair.height }}" loading="lazy" decoding="async"><figcaption class="ba__caption"><strong>{{ pair.title }}</strong><span>toy cleaning</span></figcaption></figure>
-          {% elif pair.featured %}{{ before_after(pair, asset_path, ui) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
-          <p class="proof-grid__summary">{{ pair.summary }}</p>
-        </div>
-        {% endfor %}
+    {# One slider per category: the best result for each. #}
+    <div class="real-grid">
+      {% for g in proof.home_groups if g.pairs %}{% set pair = by_id[g.pairs[0]] %}
+      <div class="real-card reveal">
+        <h3 class="real-card__title">{{ g.title }}</h3>
+        {{ before_after(pair, asset_path, ui) }}
+        <p class="proof-grid__summary">{{ pair.summary }}</p>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
 </section>
 
