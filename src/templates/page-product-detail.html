@@ -435,31 +435,23 @@
   </section>
 
   {# ============================================================
-     6. THE 8-STEP PROCESS
+     6. THE 7-STEP PROCESS
      ============================================================ #}
   <section class="prod-process-section">
     <div class="wrap">
       <div class="prod-section-header">
-        <p class="prod-section-eyebrow">{{ product.careProcess.eyebrow }}</p>
-        <h2 class="prod-section-title">{{ product.careProcess.title }}</h2>
-        <p class="prod-section-subtitle">{{ product.careProcess.subtitle }}</p>
+        <p class="prod-section-eyebrow">{{ home.how_it_works.eyebrow }}</p>
+        <h2 class="prod-section-title">The 7-Step Wash4You Process</h2>
+        <p class="prod-section-subtitle">Every order, every item: the same seven steps from your door and back.</p>
       </div>
 
-      <div class="prod-photo-strip">
-        {% for ph in product.photos.process %}
-        <figure class="prod-photo-strip__item">
-          <img src="{{ asset_path }}{{ ph.src }}" alt="{{ ph.alt }}" loading="lazy" decoding="async">
-          <figcaption>{{ ph.label }}</figcaption>
-        </figure>
-        {% endfor %}
-      </div>
-
-      <div class="prod-steps-grid">
-        {% for s in product.careProcess.steps %}
+      <div class="prod-steps-grid prod-steps-grid--seven">
+        {% for st in home.how_it_works.steps %}
         <div class="prod-step-card">
-          <span class="prod-step-card__num">{{ s.step }}</span>
-          <h3 class="prod-step-card__title">{{ s.title }}</h3>
-          <p class="prod-step-card__desc">{{ s.desc }}</p>
+          <span class="prod-step-card__num">{{ '%02d' % loop.index }}</span>
+          {% if st.image %}<img class="step-photo" src="{{ asset_path }}{{ st.image }}" alt="" width="96" height="96" loading="lazy" decoding="async">{% endif %}
+          <h3 class="prod-step-card__title">{{ st.title }}</h3>
+          <p class="prod-step-card__desc">{{ st.detail }}</p>
         </div>
         {% endfor %}
       </div>
@@ -623,15 +615,6 @@
 
       <img class="prod-doorstep-photo" src="{{ asset_path }}{{ product.photos.doorstep.src }}" alt="{{ product.photos.doorstep.alt }}" loading="lazy" decoding="async">
 
-      <div class="prod-doorstep-grid">
-        {% for step in product.doorstepExperience.steps %}
-        <div class="prod-doorstep-card">
-          <div class="prod-doorstep-card__num">{{ step.num }}</div>
-          <h3 class="prod-doorstep-card__title">{{ step.title }}</h3>
-          <p class="prod-doorstep-card__desc">{{ step.desc }}</p>
-        </div>
-        {% endfor %}
-      </div>
 
       <div class="prod-doorstep-posters">
         {% for ph in product.doorstepPosters %}

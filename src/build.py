@@ -588,6 +588,7 @@ def build() -> None:
             {
                 "meta": prod["meta"],
                 "product": prod,
+                "home": home,
                 "price_index": price_index,
                 "depth": 2,
             }

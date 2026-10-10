@@ -168,6 +168,7 @@
         {% for st in home.how_it_works.steps %}
         <div class="prod-step-card">
           <span class="prod-step-card__num">{{ '%02d' % loop.index }}</span>
+        {% if st.image %}<img class="step-photo" src="{{ asset_path }}{{ st.image }}" alt="" width="96" height="96" loading="lazy" decoding="async">{% endif %}
           <h3 class="prod-step-card__title">{{ st.title }}</h3>
           <p class="prod-step-card__desc">{{ st.detail }}</p>
         </div>

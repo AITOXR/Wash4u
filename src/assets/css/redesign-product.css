@@ -2156,3 +2156,7 @@ img { max-width: 100%; }
 .city-toggle--hero .city-toggle__label { color: #fff; opacity: .85; }
 .city-toggle--hero .city-toggle__btn { color: #fff; }
 .city-toggle--hero .city-toggle__btn.is-active { background: #fff; color: var(--navy-deep, #0b1e3c); }
+
+/* Seven photo steps: 4 + 3 grid on desktop */
+.prod-steps-grid--seven { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.prod-step-card .step-photo { margin: 0 0 var(--s-3, .75rem); }
