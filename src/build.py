@@ -378,6 +378,9 @@ def build() -> None:
         trim_blocks=True, lstrip_blocks=True, autoescape=True,
     )
     env.filters["markdown"] = lambda s: Markup(markdown_to_html(s))
+    # Cache-buster for CSS/JS links: changes on every build so browsers never
+    # keep serving a stale stylesheet after a deploy.
+    env.globals["asset_v"] = __import__("time").strftime("%Y%m%d%H%M%S")
     env.globals["edit_mode"] = EDIT_MODE
     env.globals["cms"] = _make_cms(EDIT_MODE)
 

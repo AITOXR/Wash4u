@@ -5,7 +5,7 @@
 
 {% block preload %}
   {# req 10: packages-only overrides for the per-plan feature/inclusion list. #}
-  <link rel="stylesheet" href="{{ asset_path }}css/redesign-packages.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-packages.css?v={{ asset_v }}">
 {% endblock %}
 
 {% block schema %},

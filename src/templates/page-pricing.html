@@ -8,7 +8,7 @@
   {# The pricing hero photo is this page's LCP candidate — preload it, and
      load this page's redesign stylesheet. #}
   <link rel="preload" as="image" href="{{ asset_path }}images/hero-pricing.webp" fetchpriority="high">
-  <link rel="stylesheet" href="{{ asset_path }}css/redesign-pricing.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-pricing.css?v={{ asset_v }}">
 {% endblock %}
 
 {% block schema %},
@@ -416,5 +416,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ asset_path }}js/pricing-location.js" defer></script>
+<script src="{{ asset_path }}js/pricing-location.js?v={{ asset_v }}" defer></script>
 {% endblock %}

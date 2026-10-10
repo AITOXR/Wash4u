@@ -12,7 +12,7 @@
 {% block preload %}
   {# The hero is live text over low-priority wall tiles — the headline is
      the LCP, so there is no image to preload; just this page's stylesheet. #}
-  <link rel="stylesheet" href="{{ asset_path }}css/redesign-home.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-home.css?v={{ asset_v }}">
 {% endblock %}
 
 {% block schema %},

@@ -45,24 +45,24 @@
      the very requests this is meant to accelerate. #}
   <link rel="preload" href="{{ asset_path }}fonts/fraunces-normal-300-700-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ asset_path }}fonts/hanken-grotesk-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="{{ asset_path }}css/fonts.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/fonts.css?v={{ asset_v }}">
   {% block preload %}{% endblock %}
 
-  <link rel="stylesheet" href="{{ asset_path }}css/base.css">
-  <link rel="stylesheet" href="{{ asset_path }}css/layout.css">
-  <link rel="stylesheet" href="{{ asset_path }}css/ui.css">
-  <link rel="stylesheet" href="{{ asset_path }}css/page.css">
-  <link rel="stylesheet" href="{{ asset_path }}css/features.css">
-  <link rel="stylesheet" href="{{ asset_path }}css/animations.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/base.css?v={{ asset_v }}">
+  <link rel="stylesheet" href="{{ asset_path }}css/layout.css?v={{ asset_v }}">
+  <link rel="stylesheet" href="{{ asset_path }}css/ui.css?v={{ asset_v }}">
+  <link rel="stylesheet" href="{{ asset_path }}css/page.css?v={{ asset_v }}">
+  <link rel="stylesheet" href="{{ asset_path }}css/features.css?v={{ asset_v }}">
+  <link rel="stylesheet" href="{{ asset_path }}css/animations.css?v={{ asset_v }}">
 
   {# 2026 redesign layers — loaded last so they win at equal specificity. #}
-  <link rel="stylesheet" href="{{ asset_path }}css/redesign-shell.css">
-  <link rel="stylesheet" href="{{ asset_path }}css/redesign-home.css">
-  <link rel="stylesheet" href="{{ asset_path }}css/redesign-pricing.css">
-  <link rel="stylesheet" href="{{ asset_path }}css/redesign-packages.css">
-  <link rel="stylesheet" href="{{ asset_path }}css/redesign-areas.css">
-  <link rel="stylesheet" href="{{ asset_path }}css/redesign-services.css">
-  <link rel="stylesheet" href="{{ asset_path }}css/redesign-product.css">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-shell.css?v={{ asset_v }}">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-home.css?v={{ asset_v }}">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-pricing.css?v={{ asset_v }}">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-packages.css?v={{ asset_v }}">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-areas.css?v={{ asset_v }}">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-services.css?v={{ asset_v }}">
+  <link rel="stylesheet" href="{{ asset_path }}css/redesign-product.css?v={{ asset_v }}">
 
   <script type="application/ld+json">
   {
@@ -536,7 +536,7 @@
   {# Floating "Book Pickup" button — every page, every viewport #}
   <a class="book-fab" href="{{ site.nav.cta.url }}" target="_blank" rel="noopener" aria-label="Book free pickup">Book Pickup</a>
 
-  <script src="{{ asset_path }}js/main.js" defer></script>
+  <script src="{{ asset_path }}js/main.js?v={{ asset_v }}" defer></script>
   {% block scripts %}{% endblock %}
 
   {# Pricing "by area" nav — click-to-open location dropdown (req 2b).
