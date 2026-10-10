@@ -107,6 +107,114 @@
       "width": 900,
       "height": 900,
       "featured": false
+    },
+    {
+      "id": "tee-stain",
+      "service": "premium-dry-cleaning",
+      "title": "Sports vest — heavy sweat and oil stain",
+      "summary": "A large dark stain across the back, treated and removed without leaving a mark or fading the colour.",
+      "before": "images/proof/tee-stain-before.webp",
+      "after": "images/proof/tee-stain-after.webp",
+      "alt_before": "Yellow sports vest before cleaning",
+      "alt_after": "The same yellow sports vest after Wash4You cleaning",
+      "width": 903,
+      "height": 1200,
+      "featured": false
+    },
+    {
+      "id": "red-fabric",
+      "service": "premium-dry-cleaning",
+      "title": "Embroidered red fabric — stain treatment",
+      "summary": "Dull, marked embroidered net treated by hand, the colour and sequin work restored.",
+      "before": "images/proof/red-fabric-before.webp",
+      "after": "images/proof/red-fabric-after.webp",
+      "alt_before": "Embroidered red fabric before cleaning",
+      "alt_after": "The same embroidered red fabric after Wash4You cleaning",
+      "width": 1200,
+      "height": 680,
+      "featured": false
+    },
+    {
+      "id": "cap",
+      "service": "premium-dry-cleaning",
+      "title": "Pink cap — dirt and sweat marks",
+      "summary": "Grime and discolouration lifted, with the shape of the cap kept intact.",
+      "before": "images/proof/cap-before.webp",
+      "after": "images/proof/cap-after.webp",
+      "alt_before": "Pink cap before cleaning",
+      "alt_after": "The same pink cap after Wash4You cleaning",
+      "width": 900,
+      "height": 1200,
+      "featured": false
+    },
+    {
+      "id": "lehenga",
+      "service": "premium-dry-cleaning",
+      "title": "Designer lehenga set",
+      "summary": "Delicate embroidery and zari handled by specialists and returned fresh, with its drape intact.",
+      "before": "images/proof/lehenga-before.webp",
+      "after": "images/proof/lehenga-after.webp",
+      "alt_before": "Designer lehenga set before cleaning",
+      "alt_after": "The same designer lehenga set after Wash4You cleaning",
+      "width": 1200,
+      "height": 1200,
+      "featured": false
+    },
+    {
+      "id": "nike-aj1",
+      "service": "shoe-cleaning",
+      "title": "Nike Air Jordan 1 Low — scuffed leather",
+      "summary": "Scuffs and dull marks on the leather and midsole cleaned back to bright white.",
+      "before": "images/proof/nike-aj1-before.webp",
+      "after": "images/proof/nike-aj1-after.webp",
+      "alt_before": "Nike Air Jordan 1 Low sneaker before cleaning",
+      "alt_after": "The same nike air jordan 1 low sneaker after Wash4You cleaning",
+      "width": 1200,
+      "height": 833,
+      "featured": false
+    },
+    {
+      "id": "sofa-living",
+      "service": "sofa-cleaning",
+      "title": "Fabric three-seater sofa",
+      "summary": "Marks and body-oil dullness lifted from the seat cushions and arms.",
+      "before": "images/proof/sofa-living-before.webp",
+      "after": "images/proof/sofa-living-after.webp",
+      "alt_before": "Fabric three-seater sofa before cleaning",
+      "alt_after": "The same fabric three-seater sofa after Wash4You cleaning",
+      "width": 1200,
+      "height": 676,
+      "featured": false
+    },
+    {
+      "id": "toy-cow",
+      "service": "toy-single",
+      "title": "Soft toy — cow",
+      "summary": "Left: after Wash4You cleaning. Right: before. Dirt and discolouration gone, fur soft and fluffy again.",
+      "single": "images/proof/toy-cow.webp",
+      "alt": "Soft toy cow before and after Wash4You cleaning",
+      "width": 1400,
+      "height": 972
+    },
+    {
+      "id": "toy-elephant",
+      "service": "toy-single",
+      "title": "Soft toy — elephant",
+      "summary": "Left: after Wash4You cleaning. Right: before. Washed, sanitised and dried to a soft finish.",
+      "single": "images/proof/toy-elephant.webp",
+      "alt": "Soft toy elephant before and after Wash4You cleaning",
+      "width": 1400,
+      "height": 972
+    },
+    {
+      "id": "toy-teddy",
+      "service": "toy-single",
+      "title": "Large teddy bear",
+      "summary": "Matted, stained fur cleaned and brushed back to a plush, hug-ready finish.",
+      "single": "images/proof/toy-teddy.webp",
+      "alt": "Teddy bear before and after Wash4You cleaning",
+      "width": 1400,
+      "height": 1050
     }
   ],
   "process": {
@@ -129,12 +237,18 @@
   "home_groups": [
     {
       "title": "Garments",
-      "pairs": []
+      "pairs": [
+        "tee-stain",
+        "red-fabric",
+        "cap",
+        "lehenga"
+      ]
     },
     {
       "title": "Shoes",
       "pairs": [
         "denim-shoe",
+        "nike-aj1",
         "sneaker-nike",
         "sneaker-hoka",
         "sneaker-adidas",
@@ -150,7 +264,11 @@
     },
     {
       "title": "Toys",
-      "pairs": []
+      "pairs": [
+        "toy-cow",
+        "toy-elephant",
+        "toy-teddy"
+      ]
     }
   ]
 }

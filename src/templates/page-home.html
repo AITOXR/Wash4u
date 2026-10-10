@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_posters.html" import feature, banner, showcase with context %}
+{% from "_posters.html" import feature, banner, showcase, review_shots with context %}
 {% from "_icons.html" import ui, care_symbol, care_tag, service_icon, service_bg %}
 {% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card %}
 
@@ -327,7 +327,9 @@
       <div class="real-group__grid real-group__grid--{{ g.pairs | length if g.pairs | length < 3 else 3 }}">
         {% for pid in g.pairs %}{% set pair = by_id[pid] %}
         <div class="real-group__item reveal">
-          {% if pair.featured %}{{ before_after(pair, asset_path, ui) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
+          {% if pair.single %}
+          <figure class="ba ba--single"><img src="{{ asset_path }}{{ pair.single }}" alt="{{ pair.alt }}" width="{{ pair.width }}" height="{{ pair.height }}" loading="lazy" decoding="async"><figcaption class="ba__caption"><strong>{{ pair.title }}</strong><span>toy cleaning</span></figcaption></figure>
+          {% elif pair.featured %}{{ before_after(pair, asset_path, ui) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
           <p class="proof-grid__summary">{{ pair.summary }}</p>
         </div>
         {% endfor %}
@@ -393,9 +395,7 @@
       </div>
       {% endif %}
       <div class="review-rail testimonial-rail">
-        {% for r in testimonials['items'] if r.photo %}
-          {{ review_card(r, asset_path) }}
-        {% endfor %}
+        {{ review_shots() }}
       </div>
     </div>
   </div>
@@ -508,6 +508,7 @@
 </section>
 
 {{ showcase(posters.showcase) }}
+{{ feature('store', 'right', 'wash') }}
 {{ feature('doorstep', 'left') }}
 {{ banner(posters.banner) }}
 {# ============================================================

@@ -963,3 +963,9 @@ html:not(.js) .faq-item__icon { display: none; }
 }
 .prose a { color: var(--navy); font-weight: 600; border-bottom: 1px solid var(--line); }
 .prose a:hover { border-bottom-color: var(--navy); }
+
+/* Review graphics rail (fixed set on every page) */
+.review-rail--shots, .review-rail:has(.review-shot) { grid-auto-columns: minmax(13.5rem, 16rem); align-items: start; }
+.review-shot { margin: 0; border-radius: var(--r-lg, 16px); overflow: hidden; box-shadow: var(--shadow-card); background: #fff; }
+.review-shot img { display: block; width: 100%; height: auto; }
+.reviews-split .review-rail:has(.review-shot) { grid-auto-columns: minmax(13.5rem, 16rem); }

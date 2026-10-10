@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_posters.html" import feature with context %}
+{% from "_posters.html" import feature, review_shots, gallery with context %}
 {% from "_icons.html" import ui %}
 {% from "_components.html" import review_card, video_review_card, faq_list, page_hero_mascot_inline %}
 
@@ -276,7 +276,7 @@
       </div>
       {% endif %}
       <div class="review-rail testimonial-rail">
-        {% for r in testimonials['items'] if r.photo %}{{ review_card(r, asset_path) }}{% endfor %}
+        {{ review_shots() }}
       </div>
     </div>
   </div>
@@ -311,5 +311,6 @@
   </div>
 </section>
 
+{{ gallery(posters.about_gallery, 'Our Store, Our Team, Our Care', 'Inside Wash4You') }}
 {{ feature('van', 'left') }}
 {% endblock %}

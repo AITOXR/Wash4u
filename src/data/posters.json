@@ -310,6 +310,15 @@
       "body": "Our delivery partners collect and return your clothes from your doorstep, so laundry day never takes up your day.",
       "cta": "Book free pickup",
       "url": "booking"
+    },
+    "store": {
+      "src": "images/gallery/store-front.webp",
+      "alt": "Wash4You store front",
+      "eyebrow": "Visit Us",
+      "title": "A Real Store, a Real Team",
+      "body": "Walk in, or let us come to you. Every order is tagged, examined and finished by our trained team, whichever you choose.",
+      "cta": "Book free pickup",
+      "url": "booking"
     }
   },
   "gallery": {
@@ -332,6 +341,13 @@
         "src": "images/posters/handbag-tagged.webp",
         "alt": "Handbag tagged by Wash4You",
         "caption": "Tagged and ready",
+        "w": 1278,
+        "h": 1230
+      },
+      {
+        "src": "images/gallery/bag-beige.webp",
+        "alt": "Beige handbag after Wash4You care",
+        "caption": "Cleaned, conditioned and restored",
         "w": 1278,
         "h": 1230
       }
@@ -407,6 +423,13 @@
         "caption": "Returned pressed and covered",
         "w": 844,
         "h": 1400
+      },
+      {
+        "src": "images/gallery/pack-blazer.webp",
+        "alt": "Coat returned in protective Wash4You cover",
+        "caption": "Returned pressed and covered",
+        "w": 844,
+        "h": 1400
       }
     ],
     "men-suit-2pcs": [
@@ -446,6 +469,13 @@
         "src": "images/posters/leather-jacket-photo.webp",
         "alt": "Leather jacket after care by Wash4You",
         "caption": "Cleaned and conditioned",
+        "w": 933,
+        "h": 1400
+      },
+      {
+        "src": "images/gallery/leather-jacket-bd.webp",
+        "alt": "Leather jacket after Wash4You care",
+        "caption": "Leather jacket care",
         "w": 933,
         "h": 1400
       }
@@ -518,6 +548,49 @@
         "w": 960,
         "h": 1280
       }
+    ],
+    "shirt": [
+      {
+        "src": "images/gallery/pack-shirt.webp",
+        "alt": "Shirt folded in Wash4You packaging",
+        "caption": "Packed with care",
+        "w": 720,
+        "h": 910
+      }
+    ],
+    "curtain": [
+      {
+        "src": "images/gallery/curtains-hung.webp",
+        "alt": "Curtains packed on hangers by Wash4You",
+        "caption": "Returned hung-ready",
+        "w": 1050,
+        "h": 1400
+      },
+      {
+        "src": "images/gallery/curtain-clean.webp",
+        "alt": "Wash4You team cleaning curtains at the window",
+        "caption": "Cleaned on site",
+        "w": 933,
+        "h": 1400
+      }
+    ],
+    "carpet": [
+      {
+        "src": "images/gallery/carpet-1.webp",
+        "alt": "Wash4You team member deep cleaning a carpet",
+        "caption": "Deep vacuum extraction",
+        "w": 933,
+        "h": 1400
+      }
+    ],
+    "lehenga": [
+      {
+        "src": "images/gallery/lehenga-bd.webp",
+        "alt": "Designer lehenga set after Wash4You care",
+        "caption": "Delicate embroidery, cared for",
+        "w": 1254,
+        "h": 1254
+      }
     ]
   },
   "service_gallery": {
@@ -526,6 +599,13 @@
         "src": "images/posters/mattress-cleaning.webp",
         "alt": "Wash4You team member deep cleaning a mattress",
         "caption": "Deep extraction cleaning",
+        "w": 1400,
+        "h": 933
+      },
+      {
+        "src": "images/gallery/mattress.webp",
+        "alt": "Wash4You team member cleaning a mattress and carpet at a customer's home",
+        "caption": "Deep cleaning at home",
         "w": 1400,
         "h": 933
       }
@@ -586,6 +666,13 @@
         "caption": "Suede and fabric shoes",
         "w": 1200,
         "h": 683
+      },
+      {
+        "src": "images/gallery/pack-shoe.webp",
+        "alt": "Cleaned shoes in a Wash4You bag",
+        "caption": "Returned in a protective bag",
+        "w": 685,
+        "h": 887
       }
     ],
     "blanket-quilt-cleaning": [
@@ -653,6 +740,13 @@
         "caption": "Leather care",
         "w": 1200,
         "h": 654
+      },
+      {
+        "src": "images/gallery/bag-beige.webp",
+        "alt": "Beige handbag after Wash4You care",
+        "caption": "Cleaned, conditioned and restored",
+        "w": 1278,
+        "h": 1230
       }
     ],
     "leather-cleaning": [
@@ -669,6 +763,13 @@
         "caption": "Leather shoes",
         "w": 1200,
         "h": 675
+      },
+      {
+        "src": "images/gallery/leather-jacket-bd.webp",
+        "alt": "Leather jacket after Wash4You care",
+        "caption": "Leather jacket care",
+        "w": 933,
+        "h": 1400
       }
     ],
     "curtains-cleaning": [
@@ -678,6 +779,27 @@
         "caption": "Curtains, cleaned and returned hung-ready",
         "w": 1179,
         "h": 1200
+      },
+      {
+        "src": "images/gallery/curtain-clean.webp",
+        "alt": "Wash4You team cleaning curtains at the window",
+        "caption": "Cleaned on site",
+        "w": 933,
+        "h": 1400
+      },
+      {
+        "src": "images/gallery/curtain-steam.webp",
+        "alt": "Wash4You team member steam cleaning a curtain",
+        "caption": "Steam cleaning",
+        "w": 1374,
+        "h": 1145
+      },
+      {
+        "src": "images/gallery/curtains-hung.webp",
+        "alt": "Curtains packed on hangers by Wash4You",
+        "caption": "Returned hung-ready",
+        "w": 1050,
+        "h": 1400
       }
     ],
     "carpet-cleaning": [
@@ -687,6 +809,27 @@
         "caption": "Carpets and rugs",
         "w": 1200,
         "h": 802
+      },
+      {
+        "src": "images/gallery/carpet-1.webp",
+        "alt": "Wash4You team member deep cleaning a carpet",
+        "caption": "Deep vacuum extraction",
+        "w": 933,
+        "h": 1400
+      },
+      {
+        "src": "images/gallery/carpet-2.webp",
+        "alt": "Carpet being cleaned at a customer's home",
+        "caption": "At your home",
+        "w": 972,
+        "h": 1400
+      },
+      {
+        "src": "images/gallery/carpet-3.webp",
+        "alt": "Carpet pile after Wash4You cleaning",
+        "caption": "Fibres lifted and fresh",
+        "w": 972,
+        "h": 1400
       }
     ],
     "eco-friendly-laundry": [
@@ -703,6 +846,20 @@
         "caption": "Machine washed",
         "w": 890,
         "h": 1200
+      },
+      {
+        "src": "images/gallery/towels.webp",
+        "alt": "Fresh laundered towels stacked neatly",
+        "caption": "Fresh, folded laundry",
+        "w": 960,
+        "h": 1280
+      },
+      {
+        "src": "images/gallery/pack-colour.webp",
+        "alt": "Garments sealed in Wash4You packaging",
+        "caption": "Sealed and ready to return",
+        "w": 974,
+        "h": 1400
       }
     ],
     "premium-dry-cleaning": [
@@ -719,6 +876,89 @@
         "caption": "Sarees and ethnic wear",
         "w": 516,
         "h": 1200
+      },
+      {
+        "src": "images/gallery/pack-blazer.webp",
+        "alt": "Blazer returned in protective Wash4You cover",
+        "caption": "Pressed, covered, ready to wear",
+        "w": 844,
+        "h": 1400
+      },
+      {
+        "src": "images/gallery/pack-shirt.webp",
+        "alt": "Shirt folded in Wash4You packaging",
+        "caption": "Packed with care",
+        "w": 720,
+        "h": 910
+      },
+      {
+        "src": "images/gallery/steam-blazer.webp",
+        "alt": "Wash4You team member steaming a blazer",
+        "caption": "Hand steam finishing",
+        "w": 1145,
+        "h": 1374
+      }
+    ],
+    "steam-ironing": [
+      {
+        "src": "images/gallery/steam-blazer.webp",
+        "alt": "Wash4You team member steaming a blazer",
+        "caption": "Hand steam finishing",
+        "w": 1145,
+        "h": 1374
+      },
+      {
+        "src": "images/gallery/pack-colour.webp",
+        "alt": "Garments sealed in Wash4You packaging",
+        "caption": "Sealed and ready to return",
+        "w": 974,
+        "h": 1400
+      }
+    ],
+    "toy-cleaning": [
+      {
+        "src": "images/proof/toy-cow.webp",
+        "alt": "Soft toy cow before and after cleaning",
+        "caption": "Cow: after (left), before (right)",
+        "w": 1400,
+        "h": 972
+      },
+      {
+        "src": "images/proof/toy-elephant.webp",
+        "alt": "Soft toy elephant before and after cleaning",
+        "caption": "Elephant: after (left), before (right)",
+        "w": 1400,
+        "h": 972
+      },
+      {
+        "src": "images/proof/toy-teddy.webp",
+        "alt": "Teddy bear before and after cleaning",
+        "caption": "Teddy bear, restored",
+        "w": 1400,
+        "h": 1050
+      },
+      {
+        "src": "images/gallery/pack-toy.webp",
+        "alt": "Soft toy sealed in Wash4You packaging",
+        "caption": "Sealed and returned fresh",
+        "w": 885,
+        "h": 720
+      }
+    ],
+    "linen-cleaning": [
+      {
+        "src": "images/gallery/linen.webp",
+        "alt": "Folded floral bed linen on a Wash4You backdrop",
+        "caption": "Crisp, fresh bed linen",
+        "w": 1400,
+        "h": 1400
+      },
+      {
+        "src": "images/gallery/towels.webp",
+        "alt": "Fresh laundered towels stacked neatly",
+        "caption": "Towels and linen",
+        "w": 960,
+        "h": 1280
       }
     ]
   },
@@ -738,46 +978,60 @@
   },
   "areas_gallery": [
     {
-      "src": "images/posters/pickup-van.webp",
-      "alt": "Wash4You pickup van for bulk collection",
-      "caption": "Pickup van",
-      "w": 1080,
-      "h": 1440
+      "src": "images/gallery/store-front.webp",
+      "alt": "Wash4You store front",
+      "caption": "Our store",
+      "w": 1120,
+      "h": 1400
     },
     {
-      "src": "images/posters/delivery-bike.webp",
-      "alt": "Wash4You delivery partner on a bike",
-      "caption": "Our riders",
-      "w": 1080,
-      "h": 1440
-    },
-    {
-      "src": "images/posters/doorstep-handover.webp",
-      "alt": "Wash4You doorstep pickup and delivery",
-      "caption": "Doorstep handover",
-      "w": 1080,
-      "h": 1440
-    },
-    {
-      "src": "images/posters/blankets-packed.webp",
-      "alt": "Cleaned blankets sealed in Wash4You packaging",
-      "caption": "Sealed packaging",
+      "src": "images/gallery/store-interior.webp",
+      "alt": "Wash4You store interior",
+      "caption": "Inside the store",
       "w": 1400,
       "h": 933
     },
     {
-      "src": "images/studio/machine-row.webp",
-      "alt": "Row of commercial cleaning machines",
-      "caption": "Commercial machines",
-      "w": 1200,
-      "h": 800
+      "src": "images/gallery/rider.webp",
+      "alt": "Wash4You delivery partner on a bike",
+      "caption": "Our riders",
+      "w": 1119,
+      "h": 1400
     },
     {
-      "src": "images/studio/covered-aisle.webp",
-      "alt": "Rows of cleaned garments hanging in protective covers",
-      "caption": "Pressed and covered",
-      "w": 1200,
-      "h": 800
+      "src": "images/gallery/van.webp",
+      "alt": "Wash4You pickup van",
+      "caption": "Pickup van",
+      "w": 1280,
+      "h": 653
+    },
+    {
+      "src": "images/gallery/doorstep-delivery.webp",
+      "alt": "Wash4You doorstep delivery",
+      "caption": "At your door",
+      "w": 788,
+      "h": 1400
+    },
+    {
+      "src": "images/gallery/free-pickup.webp",
+      "alt": "Free pickup and delivery at your doorstep",
+      "caption": "Free pickup and delivery",
+      "w": 788,
+      "h": 1400
+    },
+    {
+      "src": "images/gallery/hydrocarbon.webp",
+      "alt": "Hydrocarbon dryclean machine",
+      "caption": "Commercial dryclean machine",
+      "w": 1400,
+      "h": 914
+    },
+    {
+      "src": "images/gallery/pack-colour.webp",
+      "alt": "Garments sealed in Wash4You packaging",
+      "caption": "Premium packaging",
+      "w": 974,
+      "h": 1400
     }
   ],
   "showcase": [
@@ -829,5 +1083,139 @@
     "alt": "A happy family with a basket of fresh laundry",
     "w": 1200,
     "h": 944
+  },
+  "reviews": [
+    {
+      "src": "images/reviews/shot-01.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-02.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-03.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-04.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-05.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-06.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-07.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-08.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-09.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-10.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-11.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-12.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-13.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-14.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-15.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    },
+    {
+      "src": "images/reviews/shot-16.webp",
+      "alt": "Verified Wash4You customer review",
+      "w": 507,
+      "h": 900
+    }
+  ],
+  "about_gallery": [
+    {
+      "src": "images/gallery/store-front.webp",
+      "alt": "Wash4You store front",
+      "caption": "Our store",
+      "w": 1120,
+      "h": 1400
+    },
+    {
+      "src": "images/gallery/store-interior.webp",
+      "alt": "Wash4You store interior",
+      "caption": "Inside the store",
+      "w": 1400,
+      "h": 933
+    },
+    {
+      "src": "images/gallery/rider.webp",
+      "alt": "Wash4You delivery partner on a bike",
+      "caption": "Our riders",
+      "w": 1119,
+      "h": 1400
+    },
+    {
+      "src": "images/gallery/pack-blazer.webp",
+      "alt": "Garment returned in protective Wash4You cover",
+      "caption": "Premium packaging",
+      "w": 844,
+      "h": 1400
+    }
+  ],
+  "hydrocarbon": {
+    "src": "images/gallery/hydrocarbon.webp",
+    "alt": "Hydrocarbon dryclean machine used by Wash4You",
+    "w": 1400,
+    "h": 914
   }
 }

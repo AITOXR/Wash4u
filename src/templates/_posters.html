@@ -70,3 +70,6 @@
   </div>
 </section>
 {% endmacro %}
+
+{# Fixed customer-review graphics: the same set on every page (client request). #}
+{% macro review_shots() %}{% for r in posters.reviews %}<figure class="review-shot"><img src="{{ asset_path }}{{ r.src }}" alt="{{ r.alt }}" width="{{ r.w }}" height="{{ r.h }}" loading="lazy" decoding="async"></figure>{% endfor %}{% endmacro %}

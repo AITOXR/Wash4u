@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_posters.html" import gallery with context %}
+{% from "_posters.html" import gallery, review_shots with context %}
 {% from "_icons.html" import ui, care_tag, service_icon, service_bg %}
 {% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card, page_hero_mascot_inline %}
 
@@ -241,6 +241,9 @@
       <h2{{ cms(cms_base ~ '.comparison.title') }}>{{ service.comparison.title }}</h2>
       <p{{ cms(cms_base ~ '.comparison.intro') }}>{{ service.comparison.intro }}</p>
     </div>
+    {% if service.slug == 'premium-dry-cleaning' and posters.hydrocarbon %}
+    <figure class="svc-hydro reveal"><img src="{{ asset_path }}{{ posters.hydrocarbon.src }}" alt="{{ posters.hydrocarbon.alt }}" width="{{ posters.hydrocarbon.w }}" height="{{ posters.hydrocarbon.h }}" loading="lazy" decoding="async"><figcaption>Hydrocarbon dryclean machine</figcaption></figure>
+    {% endif %}
     <div class="svc-table-wrap reveal">
       <table class="svc-menu svc-compare">
         <caption class="visually-hidden">How our dry-cleaning solvent compares with perchloroethylene</caption>
@@ -354,13 +357,12 @@
 </section>
 {% endif %}
 
-{% set svc_reviews = testimonials['items'] | selectattr('service', 'equalto', service.slug) | selectattr('photo') | list %}
-{% if svc_reviews %}
+{% if posters.reviews %}
 <section class="section section--wash">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">From our customers</p>
-      <h2>What people said about this</h2>
+      <h2>What Our Customers Say</h2>
     </div>
     <div class="testimonial-rail-wrap{% if testimonials.videos %} reviews-split{% endif %}">
       {% if testimonials.videos %}
@@ -369,7 +371,7 @@
       </div>
       {% endif %}
       <div class="review-rail testimonial-rail">
-        {% for r in svc_reviews %}{{ review_card(r, asset_path) }}{% endfor %}
+        {{ review_shots() }}
       </div>
     </div>
   </div>

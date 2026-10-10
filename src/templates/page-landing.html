@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_posters.html" import review_shots with context %}
 {% from "_icons.html" import ui %}
 {% from "_components.html" import faq_list, review_card %}
 
@@ -260,9 +261,7 @@
         </div>
       </div>
       <div class="review-rail testimonial-rail">
-        {% for r in testimonials['items'] if r.photo %}
-          {{ review_card(r, asset_path) }}
-        {% endfor %}
+        {{ review_shots() }}
       </div>
     </div>
   </section>
