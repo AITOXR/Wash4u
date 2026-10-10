@@ -161,14 +161,28 @@
         var c = document.getElementById('pricing-city-select'), a = document.getElementById('pricing-location-select');
         if (!c || !a) return;
         var gOpts = a.innerHTML, note = document.querySelector('[data-city-delhi-note]'), nm = document.querySelector('[data-city-name]');
-        c.addEventListener('change', function () {
-          var d = c.value === 'delhi';
+        function applyCity(city) {
+          var d = city === 'delhi';
+          c.value = city;
           a.innerHTML = d ? '<option value="south-delhi">South Delhi</option>' : gOpts;
-          if (note) note.hidden = !d;
+          if (note) note.hidden = true;
           if (nm) nm.textContent = d ? 'Delhi' : 'Gurgaon';
           var l = document.querySelector('[data-location-name]');
           if (l) l.textContent = a.options[a.selectedIndex].textContent;
+          document.querySelectorAll('[data-pg]').forEach(function (el) { el.textContent = d ? el.dataset.pd : el.dataset.pg; });
+          document.querySelectorAll('.price-card[data-amount-delhi]').forEach(function (card) {
+            if (!card.dataset.amountGurgaon) { card.dataset.amountGurgaon = card.dataset.amount; card.dataset.priceGurgaon = card.dataset.price; }
+            var pe = card.querySelector('[data-pg]');
+            card.dataset.amount = d ? card.dataset.amountDelhi : card.dataset.amountGurgaon;
+            card.dataset.price = d ? pe.dataset.pd : card.dataset.priceGurgaon;
+          });
+        }
+        c.addEventListener('change', function () {
+          try { localStorage.setItem('w4y-city', c.value); } catch (e) { /* ignore */ }
+          applyCity(c.value);
         });
+        function restore() { try { if (localStorage.getItem('w4y-city') === 'delhi') applyCity('delhi'); } catch (e) { /* ignore */ } }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', restore); else restore();
       })();
     </script>
     {% endif %}
@@ -237,7 +251,7 @@
       <article class="price-card" id="{{ item.slug }}" data-price-item
                data-slug="{{ item.slug }}"
                data-name="{{ item.name }}"
-               data-amount="{{ item.amount }}"
+               data-amount="{{ item.amount }}" data-amount-delhi="{{ item.amount_delhi }}"
                data-price="{{ item.price }}"
                data-img="{% if item.img %}{{ asset_path }}{{ item.img }}{% endif %}">
         <div class="price-card__media{% if not item.img %} price-card__media--none{% endif %}">
@@ -270,7 +284,7 @@
                "STARTS FROM" over each column — so the label is unconditional
                rather than driven by a per-item `from` flag. #}
             <span class="price-card__from">Starts from</span>
-            <span class="price-card__price">{{ item.price }}</span>
+            <span class="price-card__price" data-pg="{{ item.price }}" data-pd="{{ item.price_delhi }}">{{ item.price }}</span>
             {% if item.unit %}<span class="price-card__unit">{{ item.unit }}</span>{% endif %}
             <span class="price-card__gst">+&nbsp;GST</span>
           </div>

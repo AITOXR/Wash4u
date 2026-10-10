@@ -134,7 +134,7 @@
 {
             "@type": "Question",
             "name": "How much does leather handbag cleaning cost at Wash4You?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Leather Clean \u0026 Condition for leather handbags starts from \u20b9599 per piece. Prices are exclusive of 18% GST, and pickup and delivery are free." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Leather Clean \u0026 Condition for leather handbags is priced per piece at your city\u0027s rate. Choose Gurgaon or Delhi in the rate box above. Prices are exclusive of 18% GST, and pickup and delivery are free." }
           },{
             "@type": "Question",
             "name": "How long does leather handbag cleaning take?",
@@ -395,7 +395,7 @@
 
   <main id="main">
 <div class="page-product">
-  <script type="application/json" id="product-json-data">{"heroImage": "images/pricing/handbag-leather.webp", "heroImageFallback": "images/pricing/handbag-leather.png", "name": "Handbag Leather", "services": [{"amount": 599, "bestFor": ["Everyday leather handbags and totes", "Bags with handle and edge grime", "Light-coloured leather with dye transfer", "Bags coming out of storage"], "id": "dry-clean", "includes": ["Leather type \u0026 finish assessment", "Seams, zips \u0026 lining check", "pH-balanced surface cleaning", "Conditioning to keep leather supple", "Hand finishing \u0026 buffing", "Protective packaging"], "longDescription": "Leather is never put through a normal dryclean load \u2014 the solvents and heat that suit wool dry hide out and crack it. Your leather handbag goes through a separate specialist process: surface-cleaned with pH-balanced leather products, conditioned, and finished by hand.", "name": "Leather Clean \u0026 Condition", "price": "\u20b9599", "short": "Leather Care", "shortDescription": "Specialist leather cleaning and conditioning for your leather handbag.", "slug": "handbag-leather", "tagline": "Clean, Condition \u0026 Protect", "turnaround": "3\u20135 days"}]}</script>
+  <script type="application/json" id="product-json-data">{"heroImage": "images/pricing/handbag-leather.webp", "heroImageFallback": "images/pricing/handbag-leather.png", "name": "Handbag Leather", "services": [{"amount": 599, "amount_delhi": 599, "bestFor": ["Everyday leather handbags and totes", "Bags with handle and edge grime", "Light-coloured leather with dye transfer", "Bags coming out of storage"], "id": "dry-clean", "includes": ["Leather type \u0026 finish assessment", "Seams, zips \u0026 lining check", "pH-balanced surface cleaning", "Conditioning to keep leather supple", "Hand finishing \u0026 buffing", "Protective packaging"], "longDescription": "Leather is never put through a normal dryclean load \u2014 the solvents and heat that suit wool dry hide out and crack it. Your leather handbag goes through a separate specialist process: surface-cleaned with pH-balanced leather products, conditioned, and finished by hand.", "name": "Leather Clean \u0026 Condition", "price": "\u20b9599", "price_delhi": "\u20b9599", "short": "Leather Care", "shortDescription": "Specialist leather cleaning and conditioning for your leather handbag.", "slug": "handbag-leather", "tagline": "Clean, Condition \u0026 Protect", "turnaround": "3\u20135 days"}]}</script>
 
   <section class="prod-hero">
     <div class="wrap prod-hero__grid">
@@ -428,7 +428,7 @@
           </li>
           <li class="prod-hero__stat">
             <span class="prod-hero__stat-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s1.2 5 3 6.8S21 12 21 12s-4.2 1.4-6 3.2S12 21 12 21s-1.2-4-3-5.8S3 12 3 12s4.2-1.4 6-3.2S12 3 12 3Z"/></svg></span>
-            <span>From <strong>₹599</strong> + GST</span>
+            <span>From <strong data-pg="₹599" data-pd="₹599">₹599</strong> + GST</span>
           </li>
         </ul>
       </div>
@@ -462,7 +462,7 @@
           <span class="prod-tag__kind">Leather Care Tag</span>
           <span class="prod-tag__item">Handbag Leather</span>
           <span class="prod-tag__row"><span>Service</span><strong>Leather Clean &amp; Condition</strong></span>
-          <span class="prod-tag__row"><span>From</span><strong>₹599</strong></span>
+          <span class="prod-tag__row"><span>From</span><strong><span data-pg="₹599" data-pd="₹599">₹599</span></strong></span>
           <span class="prod-tag__line">Tagged at your door · Returned clean &amp; packed</span>
           <span class="prod-tag__code" aria-hidden="true"></span>
         </figcaption>
@@ -485,8 +485,14 @@
           <p class="prod-buybox__eyebrow">Wash4You Leather Care</p>
           <h2 class="prod-buybox__title">Handbag Leather — Leather Clean &amp; Condition</h2>
 
+          <div class="city-toggle" role="group" aria-label="Choose your city for rates">
+            <span class="city-toggle__label">Rates for</span>
+            <button type="button" class="city-toggle__btn is-active" data-city="gurgaon" aria-pressed="true">Gurgaon</button>
+            <button type="button" class="city-toggle__btn" data-city="delhi" aria-pressed="false">Delhi</button>
+          </div>
+
           <div class="prod-buybox__price-row">
-            <span class="prod-buybox__price" id="product-price-display">₹599</span>
+            <span class="prod-buybox__price" id="product-price-display" data-pg="₹599" data-pd="₹599">₹599</span>
             <span class="prod-buybox__gst" id="product-price-unit">+ 18% GST</span>
             <span class="prod-buybox__service-label" id="product-selected-service-name">Leather Clean &amp; Condition</span>
           </div>
@@ -1160,7 +1166,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Leather Jacket</h3>
-          <p class="prod-related-card__price">From ₹599</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/leather-shoes/">
           <div class="prod-related-card__media">
@@ -1170,7 +1176,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Leather Shoes</h3>
-          <p class="prod-related-card__price">From ₹499</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/suede-leather-shoes/">
           <div class="prod-related-card__media">
@@ -1180,7 +1186,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Suede Leather Shoes</h3>
-          <p class="prod-related-card__price">From ₹549</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/jacket/">
           <div class="prod-related-card__media">
@@ -1190,7 +1196,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Jacket</h3>
-          <p class="prod-related-card__price">From ₹249</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/boots-mid-length/">
           <div class="prod-related-card__media">
@@ -1200,7 +1206,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Boots Mid Length</h3>
-          <p class="prod-related-card__price">From ₹699</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
       </div>
     </div>
@@ -1222,7 +1228,7 @@
       <span class="faq-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
     </button>
     <div class="faq-item__answer" id="prod-faq-1" role="region">
-      <div>Leather Clean &amp; Condition for leather handbags starts from ₹599 per piece. Prices are exclusive of 18% GST, and pickup and delivery are free.</div>
+      <div>Leather Clean &amp; Condition for leather handbags is priced per piece at your city&#39;s rate. Choose Gurgaon or Delhi in the rate box above. Prices are exclusive of 18% GST, and pickup and delivery are free.</div>
     </div>
   </div>
   <div class="faq-item">

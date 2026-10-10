@@ -134,7 +134,7 @@
 {
             "@type": "Question",
             "name": "How much does comforter dry cleaning cost at Wash4You?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Dryclean \u0026 Press for double comforters starts from \u20b9249 per piece. Prices are exclusive of 18% GST, and pickup and delivery are free." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Dryclean \u0026 Press for double comforters is priced per piece at your city\u0027s rate. Choose Gurgaon or Delhi in the rate box above. Prices are exclusive of 18% GST, and pickup and delivery are free." }
           },{
             "@type": "Question",
             "name": "How long does comforter dry cleaning take?",
@@ -395,7 +395,7 @@
 
   <main id="main">
 <div class="page-product">
-  <script type="application/json" id="product-json-data">{"heroImage": "images/pricing/double-blanket.webp", "heroImageFallback": "images/pricing/double-blanket.png", "name": "Comforter Double", "services": [{"amount": 249, "bestFor": ["Double-bed comforters and duvets", "Microfibre and down-filled comforters", "Comforters used through a season", "Comforters that smell musty"], "id": "dry-clean", "includes": ["Size, fabric \u0026 filling check", "Stain \u0026 spot pre-treatment where applicable", "Professional cleaning on commercial machines", "Thorough drying \u2014 no dampness left", "Finishing \u0026 folding", "Protective packaging for storage"], "longDescription": "Big household textiles are too bulky for a home machine and hard to dry properly on a balcony. At Wash4You they are cleaned on commercial machines with the capacity to handle them, dried completely so nothing smells damp, and folded for storage.", "name": "Dryclean \u0026 Press", "price": "\u20b9249", "short": "Dryclean", "shortDescription": "Professional dryclean for your comforter, which a home machine cannot handle properly.", "slug": "comforter-double", "tagline": "Deep Dryclean \u0026 Finishing", "turnaround": "48 hours"}]}</script>
+  <script type="application/json" id="product-json-data">{"heroImage": "images/pricing/double-blanket.webp", "heroImageFallback": "images/pricing/double-blanket.png", "name": "Comforter Double", "services": [{"amount": 249, "amount_delhi": 249, "bestFor": ["Double-bed comforters and duvets", "Microfibre and down-filled comforters", "Comforters used through a season", "Comforters that smell musty"], "id": "dry-clean", "includes": ["Size, fabric \u0026 filling check", "Stain \u0026 spot pre-treatment where applicable", "Professional cleaning on commercial machines", "Thorough drying \u2014 no dampness left", "Finishing \u0026 folding", "Protective packaging for storage"], "longDescription": "Big household textiles are too bulky for a home machine and hard to dry properly on a balcony. At Wash4You they are cleaned on commercial machines with the capacity to handle them, dried completely so nothing smells damp, and folded for storage.", "name": "Dryclean \u0026 Press", "price": "\u20b9249", "price_delhi": "\u20b9249", "short": "Dryclean", "shortDescription": "Professional dryclean for your comforter, which a home machine cannot handle properly.", "slug": "comforter-double", "tagline": "Deep Dryclean \u0026 Finishing", "turnaround": "48 hours"}]}</script>
 
   <section class="prod-hero">
     <div class="wrap prod-hero__grid">
@@ -428,7 +428,7 @@
           </li>
           <li class="prod-hero__stat">
             <span class="prod-hero__stat-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s1.2 5 3 6.8S21 12 21 12s-4.2 1.4-6 3.2S12 21 12 21s-1.2-4-3-5.8S3 12 3 12s4.2-1.4 6-3.2S12 3 12 3Z"/></svg></span>
-            <span>From <strong>₹249</strong> + GST</span>
+            <span>From <strong data-pg="₹249" data-pd="₹249">₹249</strong> + GST</span>
           </li>
         </ul>
       </div>
@@ -462,7 +462,7 @@
           <span class="prod-tag__kind">Dryclean Tag</span>
           <span class="prod-tag__item">Comforter Double</span>
           <span class="prod-tag__row"><span>Service</span><strong>Dryclean &amp; Press</strong></span>
-          <span class="prod-tag__row"><span>From</span><strong>₹249</strong></span>
+          <span class="prod-tag__row"><span>From</span><strong><span data-pg="₹249" data-pd="₹249">₹249</span></strong></span>
           <span class="prod-tag__line">Tagged at your door · Returned pressed &amp; covered</span>
           <span class="prod-tag__code" aria-hidden="true"></span>
         </figcaption>
@@ -485,8 +485,14 @@
           <p class="prod-buybox__eyebrow">Wash4You Dryclean Care</p>
           <h2 class="prod-buybox__title">Comforter Double — Dryclean &amp; Press</h2>
 
+          <div class="city-toggle" role="group" aria-label="Choose your city for rates">
+            <span class="city-toggle__label">Rates for</span>
+            <button type="button" class="city-toggle__btn is-active" data-city="gurgaon" aria-pressed="true">Gurgaon</button>
+            <button type="button" class="city-toggle__btn" data-city="delhi" aria-pressed="false">Delhi</button>
+          </div>
+
           <div class="prod-buybox__price-row">
-            <span class="prod-buybox__price" id="product-price-display">₹249</span>
+            <span class="prod-buybox__price" id="product-price-display" data-pg="₹249" data-pd="₹249">₹249</span>
             <span class="prod-buybox__gst" id="product-price-unit">+ 18% GST</span>
             <span class="prod-buybox__service-label" id="product-selected-service-name">Dryclean &amp; Press</span>
           </div>
@@ -1173,7 +1179,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Double Blanket 1 Ply / Quilt</h3>
-          <p class="prod-related-card__price">From ₹399</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/single-blanket/">
           <div class="prod-related-card__media">
@@ -1183,7 +1189,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Single Blanket 1 Ply / Quilt</h3>
-          <p class="prod-related-card__price">From ₹299</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/curtain/">
           <div class="prod-related-card__media">
@@ -1193,7 +1199,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Curtain</h3>
-          <p class="prod-related-card__price">From ₹149 per panel (3.5 ft)</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/double-bed-sheet/">
           <div class="prod-related-card__media">
@@ -1203,7 +1209,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Double Bed Sheet</h3>
-          <p class="prod-related-card__price">From ₹199</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/carpet/">
           <div class="prod-related-card__media">
@@ -1213,7 +1219,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Carpet</h3>
-          <p class="prod-related-card__price">From ₹20 per sq ft</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
       </div>
     </div>
@@ -1235,7 +1241,7 @@
       <span class="faq-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
     </button>
     <div class="faq-item__answer" id="prod-faq-1" role="region">
-      <div>Dryclean &amp; Press for double comforters starts from ₹249 per piece. Prices are exclusive of 18% GST, and pickup and delivery are free.</div>
+      <div>Dryclean &amp; Press for double comforters is priced per piece at your city&#39;s rate. Choose Gurgaon or Delhi in the rate box above. Prices are exclusive of 18% GST, and pickup and delivery are free.</div>
     </div>
   </div>
   <div class="faq-item">

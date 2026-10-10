@@ -231,9 +231,8 @@
          rail, which is how motion/ui.js binds them. #}
       <div class="price-ledger">
         <ul class="price-ledger__rows">
-          <li><b>{{ price_count }}</b><span>rates published &mdash; none on request</span></li>
-          <li><b>&#8377;{{ price_min }}</b><span>lowest per-piece rate</span></li>
-          <li><b>{{ price_index['carpet'].price }}</b><span>{{ price_index['carpet'].unit }}, carpets</span></li>
+          <li><b>25%</b><span>off on your first order</span></li>
+          <li><b>{{ price_count }}</b><span>items with published rates &mdash; see the price list</span></li>
         </ul>
         <div class="rail-nav">
           <button type="button" data-rail-prev aria-label="Previous items">{{ ui('arrow-left', 18) }}</button>
@@ -255,9 +254,7 @@
                width="400" height="400" loading="lazy" decoding="async">
         </span>
         <span class="price-tile__name">{{ item.name }}</span>
-        <span class="price-tile__price">
-          <small class="price-tile__from">from</small>{{ item.price }}{% if item.unit %} <small class="price-tile__unit">{{ item.unit }}</small>{% endif %}
-        </span>
+        <span class="price-tile__price"><span class="offer-pill">25% off on first order</span></span>
       </a>
       {% endif %}
       {% endfor %}

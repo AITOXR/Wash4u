@@ -98,7 +98,7 @@
           </li>
           <li class="prod-hero__stat">
             <span class="prod-hero__stat-icon" aria-hidden="true">{{ ui('sparkle', 12) }}</span>
-            <span>{% if svcs | length > 1 %}{{ primary_svc.short or primary_svc.name }} from{% else %}From{% endif %} <strong>{{ primary_svc.price }}</strong>{% if primary_svc.unit %} {{ primary_svc.unit }}{% endif %} + GST</span>
+            <span>{% if svcs | length > 1 %}{{ primary_svc.short or primary_svc.name }} from{% else %}From{% endif %} <strong data-pg="{{ primary_svc.price }}" data-pd="{{ primary_svc.price_delhi }}">{{ primary_svc.price }}</strong>{% if primary_svc.unit %} {{ primary_svc.unit }}{% endif %} + GST</span>
           </li>
         </ul>
       </div>
@@ -134,7 +134,7 @@
           <span class="prod-tag__kind">{{ product.tag.title }}</span>
           <span class="prod-tag__item">{{ product.name }}</span>
           <span class="prod-tag__row"><span>Service</span><strong>{{ primary_svc.name }}</strong></span>
-          <span class="prod-tag__row"><span>From</span><strong>{{ primary_svc.price }}{% if primary_svc.unit %} <small>{{ primary_svc.unit }}</small>{% endif %}</strong></span>
+          <span class="prod-tag__row"><span>From</span><strong><span data-pg="{{ primary_svc.price }}" data-pd="{{ primary_svc.price_delhi }}">{{ primary_svc.price }}</span>{% if primary_svc.unit %} <small>{{ primary_svc.unit }}</small>{% endif %}</strong></span>
           <span class="prod-tag__line">{{ product.tag.line }}</span>
           <span class="prod-tag__code" aria-hidden="true"></span>
         </figcaption>
@@ -160,8 +160,14 @@
           <p class="prod-buybox__eyebrow">Wash4You {{ product.care | title }}</p>
           <h2 class="prod-buybox__title">{% if svcs | length > 1 %}Choose Your {{ product.name }} Service{% else %}{{ product.name }} — {{ primary_svc.name }}{% endif %}</h2>
 
+          <div class="city-toggle" role="group" aria-label="Choose your city for rates">
+            <span class="city-toggle__label">Rates for</span>
+            <button type="button" class="city-toggle__btn is-active" data-city="gurgaon" aria-pressed="true">Gurgaon</button>
+            <button type="button" class="city-toggle__btn" data-city="delhi" aria-pressed="false">Delhi</button>
+          </div>
+
           <div class="prod-buybox__price-row">
-            <span class="prod-buybox__price" id="product-price-display">{{ primary_svc.price }}</span>
+            <span class="prod-buybox__price" id="product-price-display" data-pg="{{ primary_svc.price }}" data-pd="{{ primary_svc.price_delhi }}">{{ primary_svc.price }}</span>
             <span class="prod-buybox__gst" id="product-price-unit">{% if primary_svc.unit %}{{ primary_svc.unit }} {% endif %}+ 18% GST</span>
             <span class="prod-buybox__service-label" id="product-selected-service-name">{{ primary_svc.name }}</span>
           </div>
@@ -176,7 +182,7 @@
                       data-service-select="{{ svc.id }}"
                       aria-pressed="{{ 'true' if loop.first else 'false' }}">
                 <span class="prod-pill__name">{{ svc.name }}</span>
-                <span class="prod-pill__sub">{{ svc.tagline }} &middot; {{ svc.price }}</span>
+                <span class="prod-pill__sub">{{ svc.tagline }} &middot; <span data-pg="{{ svc.price }}" data-pd="{{ svc.price_delhi }}">{{ svc.price }}</span></span>
               </button>
               {% endfor %}
             </div>
@@ -299,7 +305,7 @@
         <div class="prod-compare-card">
           <span class="prod-compare-card__tag">{{ svc.tagline }}</span>
           <h3 class="prod-compare-card__title">{{ svc.name }}</h3>
-          <p class="prod-compare-card__price">Starts at {{ svc.price }} <small>+ GST</small></p>
+          <p class="prod-compare-card__price">Starts at <span data-pg="{{ svc.price }}" data-pd="{{ svc.price_delhi }}">{{ svc.price }}</span> <small>+ GST</small></p>
           <p class="prod-compare-card__desc">{{ svc.longDescription }}</p>
 
           <p class="prod-compare-card__subhead">Best Suited For:</p>
@@ -671,7 +677,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">{{ rel.name }}</h3>
-          <p class="prod-related-card__price">{{ rel.price }}</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         {% endfor %}
       </div>

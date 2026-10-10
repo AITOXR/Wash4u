@@ -134,7 +134,7 @@
 {
             "@type": "Question",
             "name": "How much does top dry cleaning cost at Wash4You?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Dryclean \u0026 Press for tops starts from \u20b9119 per piece. Prices are exclusive of 18% GST, and pickup and delivery are free." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Dryclean \u0026 Press for tops is priced per piece at your city\u0027s rate. Choose Gurgaon or Delhi in the rate box above. Prices are exclusive of 18% GST, and pickup and delivery are free." }
           },{
             "@type": "Question",
             "name": "How long does top dry cleaning take?",
@@ -395,7 +395,7 @@
 
   <main id="main">
 <div class="page-product">
-  <script type="application/json" id="product-json-data">{"heroImage": "images/pricing/t-shirt.webp", "heroImageFallback": "images/pricing/t-shirt.png", "name": "Top", "services": [{"amount": 119, "bestFor": ["Silk, satin and georgette tops", "Tops with lace, frills or embellishment", "Party and office tops", "Delicate fabrics that should not be machine-washed"], "id": "dry-clean", "includes": ["Individual item \u0026 pocket check", "Stain \u0026 spot pre-treatment where applicable", "Closed-cycle professional dryclean", "Shape \u0026 seam alignment", "Hand steam finishing", "Quality inspection \u0026 protective packaging"], "longDescription": "A professional dryclean on commercial machines that lifts sweat, body oils and everyday grime from your tops while protecting colour, fit and fabric, followed by a hand steam finish.", "name": "Dryclean \u0026 Press", "price": "\u20b9119", "short": "Dryclean", "shortDescription": "Professional dryclean for worn tops, finished on a steam table.", "slug": "top", "tagline": "Deep Dryclean \u0026 Finishing", "turnaround": "Confirmed at pickup"}]}</script>
+  <script type="application/json" id="product-json-data">{"heroImage": "images/pricing/t-shirt.webp", "heroImageFallback": "images/pricing/t-shirt.png", "name": "Top", "services": [{"amount": 119, "amount_delhi": 119, "bestFor": ["Silk, satin and georgette tops", "Tops with lace, frills or embellishment", "Party and office tops", "Delicate fabrics that should not be machine-washed"], "id": "dry-clean", "includes": ["Individual item \u0026 pocket check", "Stain \u0026 spot pre-treatment where applicable", "Closed-cycle professional dryclean", "Shape \u0026 seam alignment", "Hand steam finishing", "Quality inspection \u0026 protective packaging"], "longDescription": "A professional dryclean on commercial machines that lifts sweat, body oils and everyday grime from your tops while protecting colour, fit and fabric, followed by a hand steam finish.", "name": "Dryclean \u0026 Press", "price": "\u20b9119", "price_delhi": "\u20b9119", "short": "Dryclean", "shortDescription": "Professional dryclean for worn tops, finished on a steam table.", "slug": "top", "tagline": "Deep Dryclean \u0026 Finishing", "turnaround": "Confirmed at pickup"}]}</script>
 
   <section class="prod-hero">
     <div class="wrap prod-hero__grid">
@@ -428,7 +428,7 @@
           </li>
           <li class="prod-hero__stat">
             <span class="prod-hero__stat-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s1.2 5 3 6.8S21 12 21 12s-4.2 1.4-6 3.2S12 21 12 21s-1.2-4-3-5.8S3 12 3 12s4.2-1.4 6-3.2S12 3 12 3Z"/></svg></span>
-            <span>From <strong>₹119</strong> + GST</span>
+            <span>From <strong data-pg="₹119" data-pd="₹119">₹119</strong> + GST</span>
           </li>
         </ul>
       </div>
@@ -462,7 +462,7 @@
           <span class="prod-tag__kind">Dryclean Tag</span>
           <span class="prod-tag__item">Top</span>
           <span class="prod-tag__row"><span>Service</span><strong>Dryclean &amp; Press</strong></span>
-          <span class="prod-tag__row"><span>From</span><strong>₹119</strong></span>
+          <span class="prod-tag__row"><span>From</span><strong><span data-pg="₹119" data-pd="₹119">₹119</span></strong></span>
           <span class="prod-tag__line">Tagged at your door · Returned pressed &amp; covered</span>
           <span class="prod-tag__code" aria-hidden="true"></span>
         </figcaption>
@@ -485,8 +485,14 @@
           <p class="prod-buybox__eyebrow">Wash4You Dryclean Care</p>
           <h2 class="prod-buybox__title">Top — Dryclean &amp; Press</h2>
 
+          <div class="city-toggle" role="group" aria-label="Choose your city for rates">
+            <span class="city-toggle__label">Rates for</span>
+            <button type="button" class="city-toggle__btn is-active" data-city="gurgaon" aria-pressed="true">Gurgaon</button>
+            <button type="button" class="city-toggle__btn" data-city="delhi" aria-pressed="false">Delhi</button>
+          </div>
+
           <div class="prod-buybox__price-row">
-            <span class="prod-buybox__price" id="product-price-display">₹119</span>
+            <span class="prod-buybox__price" id="product-price-display" data-pg="₹119" data-pd="₹119">₹119</span>
             <span class="prod-buybox__gst" id="product-price-unit">+ 18% GST</span>
             <span class="prod-buybox__service-label" id="product-selected-service-name">Dryclean &amp; Press</span>
           </div>
@@ -1138,7 +1144,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Shirt</h3>
-          <p class="prod-related-card__price">From ₹99</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/jeans/">
           <div class="prod-related-card__media">
@@ -1148,7 +1154,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Jeans</h3>
-          <p class="prod-related-card__price">From ₹99</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/pant-trouser/">
           <div class="prod-related-card__media">
@@ -1158,7 +1164,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Pant/Trouser</h3>
-          <p class="prod-related-card__price">From ₹99</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/t-shirt/">
           <div class="prod-related-card__media">
@@ -1168,7 +1174,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">T-Shirt</h3>
-          <p class="prod-related-card__price">From ₹99</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/dress/">
           <div class="prod-related-card__media">
@@ -1178,7 +1184,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Dress</h3>
-          <p class="prod-related-card__price">From ₹199</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/men-suit-2pcs/">
           <div class="prod-related-card__media">
@@ -1188,7 +1194,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Men Suit 2 Pcs</h3>
-          <p class="prod-related-card__price">From ₹349</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
       </div>
     </div>
@@ -1210,7 +1216,7 @@
       <span class="faq-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
     </button>
     <div class="faq-item__answer" id="prod-faq-1" role="region">
-      <div>Dryclean &amp; Press for tops starts from ₹119 per piece. Prices are exclusive of 18% GST, and pickup and delivery are free.</div>
+      <div>Dryclean &amp; Press for tops is priced per piece at your city&#39;s rate. Choose Gurgaon or Delhi in the rate box above. Prices are exclusive of 18% GST, and pickup and delivery are free.</div>
     </div>
   </div>
   <div class="faq-item">

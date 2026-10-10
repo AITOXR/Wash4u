@@ -67,7 +67,7 @@
           </li>
           <li class="prod-hero__stat">
             <span class="prod-hero__stat-icon" aria-hidden="true">{{ ui('sparkle', 12) }}</span>
-            <span>Dryclean from <strong>{{ shirt.price }}</strong> + GST</span>
+            <span><strong>25% off</strong> on your first order</span>
           </li>
         </ul>
       </div>
@@ -172,7 +172,7 @@
             <img class="prod-related-card__img" src="{{ asset_path }}{{ item.img }}" alt="{{ item.name }} dryclean by Wash4You" width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">{{ item.name }}</h3>
-          <p class="prod-related-card__price">From {{ item.price }}{% if item.unit %} {{ item.unit }}{% endif %}</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         {% endfor %}
       </div>

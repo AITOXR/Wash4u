@@ -72,10 +72,26 @@ def resolve_product(prod: dict, shared: dict, price_index: dict) -> dict:
         item = price_index.get(svc.get("slug"))
         if item:
             svc["price"], svc["amount"] = item["price"], item["amount"]
+            svc["price_delhi"], svc["amount_delhi"] = item.get("price_delhi", item["price"]), item.get("amount_delhi", item["amount"])
             if item.get("unit"):
                 svc["unit"] = item["unit"]
     # Second pass for copy that quotes a price ("from {price1} per piece"),
     # which only exists once pricing.json has been read above.
+    # Rates differ by city (Gurgaon / Delhi), so copy must not quote a single
+    # number: rephrase the "starts from {priceN}" sentences, then fill any
+    # remaining tokens (none today) with the Gurgaon rate.
+    def _cityless(o):
+        if isinstance(o, dict):
+            return {k: _cityless(v) for k, v in o.items()}
+        if isinstance(o, list):
+            return [_cityless(v) for v in o]
+        if isinstance(o, str) and "{price" in o:
+            o = re.sub(r"starts from \{price\d\} per ([a-z ]+?) and ([A-Za-z&\- ]+?) from \{price\d\} per ([a-z ]+)\.",
+                       r"and \2 are priced per \1 at your city's rate. Choose Gurgaon or Delhi in the rate box above.", o)
+            o = re.sub(r"starts from \{price\d\} per ([a-z ]+)\.",
+                       r"is priced per \1 at your city's rate. Choose Gurgaon or Delhi in the rate box above.", o)
+        return o
+    merged = _cityless(merged)
     merged = _fill_tokens(merged, {
         f"{{price{i}}}": s["price"] for i, s in enumerate(merged["services"], 1)
     })
@@ -378,6 +394,15 @@ def build() -> None:
         for item in category["items"]
         if item.get("slug")
     }
+
+    # Delhi rates (data/city-prices.json). Each price-list item gets
+    # price_delhi/amount_delhi so templates can render both cities and the
+    # city selector can swap between them client-side.
+    city_prices = load_json(DATA_DIR / "city-prices.json").get("delhi", {})
+    for slug, item in price_index.items():
+        amt = city_prices.get(slug, item["amount"])
+        item["amount_delhi"] = amt
+        item["price_delhi"] = f"\u20b9{amt:,}"
 
     products_list = [resolve_product(p, product_shared, price_index) for p in products_raw]
 

@@ -134,7 +134,7 @@
 {
             "@type": "Question",
             "name": "How much does carpet cleaning cost at Wash4You?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Carpet cleaning starts from \u20b920 per square foot. Prices are exclusive of 18% GST, and pickup and delivery are free." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Carpet cleaning is priced per square foot at your city\u0027s rate. Choose Gurgaon or Delhi in the rate box above. Prices are exclusive of 18% GST, and pickup and delivery are free." }
           },{
             "@type": "Question",
             "name": "How long does carpet cleaning take?",
@@ -395,7 +395,7 @@
 
   <main id="main">
 <div class="page-product">
-  <script type="application/json" id="product-json-data">{"heroImage": "images/pricing/carpet.webp", "heroImageFallback": "images/pricing/carpet.png", "name": "Carpet", "services": [{"amount": 20, "bestFor": ["Wool, silk and synthetic rugs", "Living-room and bedroom carpets", "Carpets with spills or pet stains", "Rugs that smell dusty or damp"], "id": "dry-clean", "includes": ["Size, fibre \u0026 backing check", "Dry dusting of the pile", "Spot pre-treatment where applicable", "Deep extraction cleaning", "Complete drying", "Rolled \u0026 packed for delivery"], "longDescription": "Your carpet is collected, dusted, deep-cleaned with extraction methods that pull dirt out of the pile rather than pushing it in, dried completely and returned rolled.", "name": "Carpet Deep Cleaning", "price": "\u20b920", "short": "Carpet Cleaning", "shortDescription": "Deep extraction cleaning for rugs and carpets, priced per square foot.", "slug": "carpet", "tagline": "Dust Extraction \u0026 Deep Clean", "turnaround": "48 hours", "unit": "per sq ft"}]}</script>
+  <script type="application/json" id="product-json-data">{"heroImage": "images/pricing/carpet.webp", "heroImageFallback": "images/pricing/carpet.png", "name": "Carpet", "services": [{"amount": 20, "amount_delhi": 20, "bestFor": ["Wool, silk and synthetic rugs", "Living-room and bedroom carpets", "Carpets with spills or pet stains", "Rugs that smell dusty or damp"], "id": "dry-clean", "includes": ["Size, fibre \u0026 backing check", "Dry dusting of the pile", "Spot pre-treatment where applicable", "Deep extraction cleaning", "Complete drying", "Rolled \u0026 packed for delivery"], "longDescription": "Your carpet is collected, dusted, deep-cleaned with extraction methods that pull dirt out of the pile rather than pushing it in, dried completely and returned rolled.", "name": "Carpet Deep Cleaning", "price": "\u20b920", "price_delhi": "\u20b920", "short": "Carpet Cleaning", "shortDescription": "Deep extraction cleaning for rugs and carpets, priced per square foot.", "slug": "carpet", "tagline": "Dust Extraction \u0026 Deep Clean", "turnaround": "48 hours", "unit": "per sq ft"}]}</script>
 
   <section class="prod-hero">
     <div class="wrap prod-hero__grid">
@@ -428,7 +428,7 @@
           </li>
           <li class="prod-hero__stat">
             <span class="prod-hero__stat-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s1.2 5 3 6.8S21 12 21 12s-4.2 1.4-6 3.2S12 21 12 21s-1.2-4-3-5.8S3 12 3 12s4.2-1.4 6-3.2S12 3 12 3Z"/></svg></span>
-            <span>From <strong>₹20</strong> per sq ft + GST</span>
+            <span>From <strong data-pg="₹20" data-pd="₹20">₹20</strong> per sq ft + GST</span>
           </li>
         </ul>
       </div>
@@ -462,7 +462,7 @@
           <span class="prod-tag__kind">Carpet Care Tag</span>
           <span class="prod-tag__item">Carpet</span>
           <span class="prod-tag__row"><span>Service</span><strong>Carpet Deep Cleaning</strong></span>
-          <span class="prod-tag__row"><span>From</span><strong>₹20 <small>per sq ft</small></strong></span>
+          <span class="prod-tag__row"><span>From</span><strong><span data-pg="₹20" data-pd="₹20">₹20</span> <small>per sq ft</small></strong></span>
           <span class="prod-tag__line">Tagged at your door · Returned clean &amp; packed</span>
           <span class="prod-tag__code" aria-hidden="true"></span>
         </figcaption>
@@ -485,8 +485,14 @@
           <p class="prod-buybox__eyebrow">Wash4You Carpet Care</p>
           <h2 class="prod-buybox__title">Carpet — Carpet Deep Cleaning</h2>
 
+          <div class="city-toggle" role="group" aria-label="Choose your city for rates">
+            <span class="city-toggle__label">Rates for</span>
+            <button type="button" class="city-toggle__btn is-active" data-city="gurgaon" aria-pressed="true">Gurgaon</button>
+            <button type="button" class="city-toggle__btn" data-city="delhi" aria-pressed="false">Delhi</button>
+          </div>
+
           <div class="prod-buybox__price-row">
-            <span class="prod-buybox__price" id="product-price-display">₹20</span>
+            <span class="prod-buybox__price" id="product-price-display" data-pg="₹20" data-pd="₹20">₹20</span>
             <span class="prod-buybox__gst" id="product-price-unit">per sq ft + 18% GST</span>
             <span class="prod-buybox__service-label" id="product-selected-service-name">Carpet Deep Cleaning</span>
           </div>
@@ -1167,7 +1173,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Curtain</h3>
-          <p class="prod-related-card__price">From ₹149 per panel (3.5 ft)</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/double-blanket/">
           <div class="prod-related-card__media">
@@ -1177,7 +1183,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Double Blanket 1 Ply / Quilt</h3>
-          <p class="prod-related-card__price">From ₹399</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/comforter-double/">
           <div class="prod-related-card__media">
@@ -1187,7 +1193,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Comforter Double</h3>
-          <p class="prod-related-card__price">From ₹249</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/bed-spread-double/">
           <div class="prod-related-card__media">
@@ -1197,7 +1203,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Bed Spread Double</h3>
-          <p class="prod-related-card__price">From ₹359</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/single-blanket/">
           <div class="prod-related-card__media">
@@ -1207,7 +1213,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Single Blanket 1 Ply / Quilt</h3>
-          <p class="prod-related-card__price">From ₹299</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/double-bed-sheet/">
           <div class="prod-related-card__media">
@@ -1217,7 +1223,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Double Bed Sheet</h3>
-          <p class="prod-related-card__price">From ₹199</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
       </div>
     </div>
@@ -1239,7 +1245,7 @@
       <span class="faq-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
     </button>
     <div class="faq-item__answer" id="prod-faq-1" role="region">
-      <div>Carpet cleaning starts from ₹20 per square foot. Prices are exclusive of 18% GST, and pickup and delivery are free.</div>
+      <div>Carpet cleaning is priced per square foot at your city&#39;s rate. Choose Gurgaon or Delhi in the rate box above. Prices are exclusive of 18% GST, and pickup and delivery are free.</div>
     </div>
   </div>
   <div class="faq-item">

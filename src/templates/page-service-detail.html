@@ -155,7 +155,7 @@
         {% endif %}
 
         <p class="svc-stage__chip">
-          {% if lead %}<span aria-hidden="true">from</span> {{ lead.price }}{% if lead.unit %} <small>{{ lead.unit }}</small>{% endif %}
+          {% if lead %}<span class="offer-pill">25% off on first order</span>
           {% else %}<span aria-hidden="true">ready in</span> {{ service.turnaround }}{% endif %}
         </p>
       </div>
@@ -295,7 +295,7 @@
                width="400" height="400" loading="lazy" decoding="async">
           <figcaption>
             <span style="text-decoration:underline; text-decoration-color:var(--brand-yellow, #ffbe1a); text-underline-offset:3px;">{{ gi.name if gi else slug.replace('-', ' ') | title }}</span>
-            {% if gi %}<b>from {{ gi.price }}{% if gi.unit %} <small>{{ gi.unit }}</small>{% endif %}</b>{% endif %}
+            {% if gi %}<b class="offer-pill">25% off on first order</b>{% endif %}
           </figcaption>
         </figure>
       </a>
@@ -306,7 +306,7 @@
              width="400" height="400" loading="lazy" decoding="async">
         <figcaption>
           <span>{{ gi.name if gi else slug.replace('-', ' ') | title }}</span>
-          {% if gi %}<b>from {{ gi.price }}{% if gi.unit %} <small>{{ gi.unit }}</small>{% endif %}</b>{% endif %}
+          {% if gi %}<b class="offer-pill">25% off on first order</b>{% endif %}
         </figcaption>
       </figure>
       {% endif %}

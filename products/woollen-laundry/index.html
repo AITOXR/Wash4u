@@ -134,7 +134,7 @@
 {
             "@type": "Question",
             "name": "How much does woollen laundry service cost at Wash4You?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Woollen Laundry starts from \u20b9149 per piece. Prices are exclusive of 18% GST, and pickup and delivery are free." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Woollen Laundry is priced per piece at your city\u0027s rate. Choose Gurgaon or Delhi in the rate box above. Prices are exclusive of 18% GST, and pickup and delivery are free." }
           },{
             "@type": "Question",
             "name": "How long does woollen laundry service take?",
@@ -391,7 +391,7 @@
 
   <main id="main">
 <div class="page-product">
-  <script type="application/json" id="product-json-data">{"heroImage": "images/pricing/sweater.webp", "heroImageFallback": "images/pricing/sweater.png", "name": "Woollen Laundry (Dailywear)", "services": [{"amount": 149, "bestFor": ["Daily-wear sweaters and pullovers", "School and office woollens", "Woollen caps, scarves and gloves", "Winter wear washed often"], "id": "laundry", "includes": ["Care-label check", "Wool-safe wash cycle", "Wool-friendly detergent", "Dried flat, not tumbled", "Reshaped by hand", "Folded \u0026 packed"], "longDescription": "Everyday woollens washed on a wool-safe cycle with wool-friendly detergent, dried flat so they keep their size, and folded. For daily-wear sweaters, caps and scarves.", "name": "Woollen Laundry", "price": "\u20b9149", "short": "Woollen Laundry", "shortDescription": "Everyday woollens washed on a wool-safe cycle with wool-friendly detergent, dried flat so they keep their size, and folded.", "slug": "woollen-laundry", "tagline": "Sorted, Washed \u0026 Finished", "turnaround": "Confirmed at pickup", "unit": "per kg"}]}</script>
+  <script type="application/json" id="product-json-data">{"heroImage": "images/pricing/sweater.webp", "heroImageFallback": "images/pricing/sweater.png", "name": "Woollen Laundry (Dailywear)", "services": [{"amount": 149, "amount_delhi": 149, "bestFor": ["Daily-wear sweaters and pullovers", "School and office woollens", "Woollen caps, scarves and gloves", "Winter wear washed often"], "id": "laundry", "includes": ["Care-label check", "Wool-safe wash cycle", "Wool-friendly detergent", "Dried flat, not tumbled", "Reshaped by hand", "Folded \u0026 packed"], "longDescription": "Everyday woollens washed on a wool-safe cycle with wool-friendly detergent, dried flat so they keep their size, and folded. For daily-wear sweaters, caps and scarves.", "name": "Woollen Laundry", "price": "\u20b9149", "price_delhi": "\u20b9149", "short": "Woollen Laundry", "shortDescription": "Everyday woollens washed on a wool-safe cycle with wool-friendly detergent, dried flat so they keep their size, and folded.", "slug": "woollen-laundry", "tagline": "Sorted, Washed \u0026 Finished", "turnaround": "Confirmed at pickup", "unit": "per kg"}]}</script>
 
   <section class="prod-hero">
     <div class="wrap prod-hero__grid">
@@ -424,7 +424,7 @@
           </li>
           <li class="prod-hero__stat">
             <span class="prod-hero__stat-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s1.2 5 3 6.8S21 12 21 12s-4.2 1.4-6 3.2S12 21 12 21s-1.2-4-3-5.8S3 12 3 12s4.2-1.4 6-3.2S12 3 12 3Z"/></svg></span>
-            <span>From <strong>₹149</strong> per kg + GST</span>
+            <span>From <strong data-pg="₹149" data-pd="₹149">₹149</strong> per kg + GST</span>
           </li>
         </ul>
       </div>
@@ -458,7 +458,7 @@
           <span class="prod-tag__kind">Laundry Care Tag</span>
           <span class="prod-tag__item">Woollen Laundry (Dailywear)</span>
           <span class="prod-tag__row"><span>Service</span><strong>Woollen Laundry</strong></span>
-          <span class="prod-tag__row"><span>From</span><strong>₹149 <small>per kg</small></strong></span>
+          <span class="prod-tag__row"><span>From</span><strong><span data-pg="₹149" data-pd="₹149">₹149</span> <small>per kg</small></strong></span>
           <span class="prod-tag__line">Tagged at your door · Returned clean &amp; packed</span>
           <span class="prod-tag__code" aria-hidden="true"></span>
         </figcaption>
@@ -481,8 +481,14 @@
           <p class="prod-buybox__eyebrow">Wash4You Laundry Care</p>
           <h2 class="prod-buybox__title">Woollen Laundry (Dailywear) — Woollen Laundry</h2>
 
+          <div class="city-toggle" role="group" aria-label="Choose your city for rates">
+            <span class="city-toggle__label">Rates for</span>
+            <button type="button" class="city-toggle__btn is-active" data-city="gurgaon" aria-pressed="true">Gurgaon</button>
+            <button type="button" class="city-toggle__btn" data-city="delhi" aria-pressed="false">Delhi</button>
+          </div>
+
           <div class="prod-buybox__price-row">
-            <span class="prod-buybox__price" id="product-price-display">₹149</span>
+            <span class="prod-buybox__price" id="product-price-display" data-pg="₹149" data-pd="₹149">₹149</span>
             <span class="prod-buybox__gst" id="product-price-unit">per kg + 18% GST</span>
             <span class="prod-buybox__service-label" id="product-selected-service-name">Woollen Laundry</span>
           </div>
@@ -975,7 +981,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Wash and Fold</h3>
-          <p class="prod-related-card__price">From ₹79 per kg</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/wash-and-steam-iron/">
           <div class="prod-related-card__media">
@@ -985,7 +991,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Wash and Steam Iron</h3>
-          <p class="prod-related-card__price">From ₹109 per kg</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/premium-laundry/">
           <div class="prod-related-card__media">
@@ -995,7 +1001,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Premium Laundry</h3>
-          <p class="prod-related-card__price">From ₹149 per kg</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/shirt/">
           <div class="prod-related-card__media">
@@ -1005,7 +1011,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Shirt</h3>
-          <p class="prod-related-card__price">From ₹99</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/single-bed-sheet/">
           <div class="prod-related-card__media">
@@ -1015,7 +1021,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Single Bed Sheet</h3>
-          <p class="prod-related-card__price">From ₹119</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
       </div>
     </div>
@@ -1037,7 +1043,7 @@
       <span class="faq-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
     </button>
     <div class="faq-item__answer" id="prod-faq-1" role="region">
-      <div>Woollen Laundry starts from ₹149 per piece. Prices are exclusive of 18% GST, and pickup and delivery are free.</div>
+      <div>Woollen Laundry is priced per piece at your city&#39;s rate. Choose Gurgaon or Delhi in the rate box above. Prices are exclusive of 18% GST, and pickup and delivery are free.</div>
     </div>
   </div>
   <div class="faq-item">

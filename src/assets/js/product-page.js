@@ -28,6 +28,40 @@
     const unitDisplay = document.getElementById('product-price-unit');
     const turnaroundDisplay = document.getElementById('product-turnaround');
 
+    // ---- City (Gurgaon / Delhi) -------------------------------------------
+    // One choice per visitor, remembered across pages. Every [data-pg]
+    // element carries both rates; switching rewrites its text.
+    const CITY_KEY = 'w4y-city';
+    let city = 'gurgaon';
+    try { city = localStorage.getItem(CITY_KEY) === 'delhi' ? 'delhi' : 'gurgaon'; } catch (e) { /* storage blocked */ }
+    const cityButtons = document.querySelectorAll('[data-city]');
+
+    function pricesFor(svc) {
+      return city === 'delhi'
+        ? { price: svc.price_delhi || svc.price, amount: svc.amount_delhi != null ? svc.amount_delhi : svc.amount }
+        : { price: svc.price, amount: svc.amount };
+    }
+
+    function applyCity() {
+      document.querySelectorAll('[data-pg]').forEach((el) => {
+        el.textContent = city === 'delhi' ? el.dataset.pd : el.dataset.pg;
+      });
+      cityButtons.forEach((btn) => {
+        const on = btn.dataset.city === city;
+        btn.classList.toggle('is-active', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      const active = document.querySelector('[data-service-select].is-active');
+      const id = active ? active.dataset.serviceSelect : (productData && productData.services[0] && productData.services[0].id);
+      if (id) setService(id);
+    }
+
+    cityButtons.forEach((btn) => btn.addEventListener('click', function () {
+      city = this.dataset.city;
+      try { localStorage.setItem(CITY_KEY, city); } catch (e) { /* ignore */ }
+      applyCity();
+    }));
+
     const escapeHtml = (str) => String(str).replace(/[&<>"']/g, (c) => (
       { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
     ));
@@ -45,8 +79,9 @@
       });
 
       // Update price and text
+      const rate = pricesFor(svc);
       if (priceDisplay) {
-        priceDisplay.textContent = svc.price;
+        priceDisplay.textContent = rate.price;
       }
       if (unitDisplay) {
         unitDisplay.textContent = (svc.unit ? svc.unit + ' ' : '') + '+ 18% GST';
@@ -71,8 +106,8 @@
       // Update buybox data-attributes for cart.js
       buybox.dataset.slug = svc.slug;
       buybox.dataset.name = `${productData.name} (${svc.name})`;
-      buybox.dataset.amount = String(svc.amount);
-      buybox.dataset.price = svc.price;
+      buybox.dataset.amount = String(rate.amount);
+      buybox.dataset.price = rate.price;
       buybox.dataset.img = productData.heroImageFallback || productData.heroImage || '';
     }
 
@@ -130,6 +165,7 @@
       const wanted = new URLSearchParams(window.location.search).get('service');
       const match = productData.services.find((s) => s.id === wanted);
       setService(match ? match.id : productData.services[0].id);
+      applyCity();
     }
   }
 

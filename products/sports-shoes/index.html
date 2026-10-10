@@ -134,7 +134,7 @@
 {
             "@type": "Question",
             "name": "How much does sports shoe cleaning cost at Wash4You?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Shoe Deep Cleaning for sports shoes starts from \u20b9299 per pair. Prices are exclusive of 18% GST, and pickup and delivery are free." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Shoe Deep Cleaning for sports shoes is priced per pair at your city\u0027s rate. Choose Gurgaon or Delhi in the rate box above. Prices are exclusive of 18% GST, and pickup and delivery are free." }
           },{
             "@type": "Question",
             "name": "How long does sports shoe cleaning take?",
@@ -395,7 +395,7 @@
 
   <main id="main">
 <div class="page-product">
-  <script type="application/json" id="product-json-data">{"heroImage": "images/pricing/sports-shoes.webp", "heroImageFallback": "images/pricing/sports-shoes.png", "name": "Sports Shoes", "services": [{"amount": 299, "bestFor": ["Running and training shoes", "Mesh and knit uppers", "Muddy or dusty outdoor shoes", "Shoes with odour"], "id": "dry-clean", "includes": ["Material \u0026 condition check", "Upper cleaning by material", "Sole \u0026 midsole scrub", "Lace wash \u0026 insole refresh", "Deodorising", "Air-dried at room temperature"], "longDescription": "Every pair is cleaned by hand at a Wash4You store, never thrown in a washing machine. Uppers are cleaned with products suited to their material, soles and midsoles are scrubbed, laces washed, insoles freshened, and the pair is dried at room temperature.", "name": "Shoe Deep Cleaning", "price": "\u20b9299", "short": "Shoe Cleaning", "shortDescription": "Hand cleaning for sports shoes, by material, with soles, laces and insoles included.", "slug": "sports-shoes", "tagline": "Hand-Cleaned by Material", "turnaround": "Confirmed at pickup"}]}</script>
+  <script type="application/json" id="product-json-data">{"heroImage": "images/pricing/sports-shoes.webp", "heroImageFallback": "images/pricing/sports-shoes.png", "name": "Sports Shoes", "services": [{"amount": 299, "amount_delhi": 299, "bestFor": ["Running and training shoes", "Mesh and knit uppers", "Muddy or dusty outdoor shoes", "Shoes with odour"], "id": "dry-clean", "includes": ["Material \u0026 condition check", "Upper cleaning by material", "Sole \u0026 midsole scrub", "Lace wash \u0026 insole refresh", "Deodorising", "Air-dried at room temperature"], "longDescription": "Every pair is cleaned by hand at a Wash4You store, never thrown in a washing machine. Uppers are cleaned with products suited to their material, soles and midsoles are scrubbed, laces washed, insoles freshened, and the pair is dried at room temperature.", "name": "Shoe Deep Cleaning", "price": "\u20b9299", "price_delhi": "\u20b9299", "short": "Shoe Cleaning", "shortDescription": "Hand cleaning for sports shoes, by material, with soles, laces and insoles included.", "slug": "sports-shoes", "tagline": "Hand-Cleaned by Material", "turnaround": "Confirmed at pickup"}]}</script>
 
   <section class="prod-hero">
     <div class="wrap prod-hero__grid">
@@ -428,7 +428,7 @@
           </li>
           <li class="prod-hero__stat">
             <span class="prod-hero__stat-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s1.2 5 3 6.8S21 12 21 12s-4.2 1.4-6 3.2S12 21 12 21s-1.2-4-3-5.8S3 12 3 12s4.2-1.4 6-3.2S12 3 12 3Z"/></svg></span>
-            <span>From <strong>₹299</strong> + GST</span>
+            <span>From <strong data-pg="₹299" data-pd="₹299">₹299</strong> + GST</span>
           </li>
         </ul>
       </div>
@@ -462,7 +462,7 @@
           <span class="prod-tag__kind">Shoe Care Tag</span>
           <span class="prod-tag__item">Sports Shoes</span>
           <span class="prod-tag__row"><span>Service</span><strong>Shoe Deep Cleaning</strong></span>
-          <span class="prod-tag__row"><span>From</span><strong>₹299</strong></span>
+          <span class="prod-tag__row"><span>From</span><strong><span data-pg="₹299" data-pd="₹299">₹299</span></strong></span>
           <span class="prod-tag__line">Tagged at your door · Returned clean &amp; packed</span>
           <span class="prod-tag__code" aria-hidden="true"></span>
         </figcaption>
@@ -485,8 +485,14 @@
           <p class="prod-buybox__eyebrow">Wash4You Shoe Care</p>
           <h2 class="prod-buybox__title">Sports Shoes — Shoe Deep Cleaning</h2>
 
+          <div class="city-toggle" role="group" aria-label="Choose your city for rates">
+            <span class="city-toggle__label">Rates for</span>
+            <button type="button" class="city-toggle__btn is-active" data-city="gurgaon" aria-pressed="true">Gurgaon</button>
+            <button type="button" class="city-toggle__btn" data-city="delhi" aria-pressed="false">Delhi</button>
+          </div>
+
           <div class="prod-buybox__price-row">
-            <span class="prod-buybox__price" id="product-price-display">₹299</span>
+            <span class="prod-buybox__price" id="product-price-display" data-pg="₹299" data-pd="₹299">₹299</span>
             <span class="prod-buybox__gst" id="product-price-unit">+ 18% GST</span>
             <span class="prod-buybox__service-label" id="product-selected-service-name">Shoe Deep Cleaning</span>
           </div>
@@ -1188,7 +1194,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Sneakers</h3>
-          <p class="prod-related-card__price">From ₹349</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/leather-shoes/">
           <div class="prod-related-card__media">
@@ -1198,7 +1204,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Leather Shoes</h3>
-          <p class="prod-related-card__price">From ₹499</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/suede-leather-shoes/">
           <div class="prod-related-card__media">
@@ -1208,7 +1214,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Suede Leather Shoes</h3>
-          <p class="prod-related-card__price">From ₹549</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/boots-mid-length/">
           <div class="prod-related-card__media">
@@ -1218,7 +1224,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Boots Mid Length</h3>
-          <p class="prod-related-card__price">From ₹699</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
         <a class="prod-related-card" href="../../products/sneaker-ankle/">
           <div class="prod-related-card__media">
@@ -1228,7 +1234,7 @@
                  width="90" height="90" loading="lazy" decoding="async">
           </div>
           <h3 class="prod-related-card__title">Sneaker Ankle</h3>
-          <p class="prod-related-card__price">From ₹399</p>
+          <p class="prod-related-card__price"><span class="offer-pill">25% off on first order</span></p>
         </a>
       </div>
     </div>
@@ -1250,7 +1256,7 @@
       <span class="faq-item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
     </button>
     <div class="faq-item__answer" id="prod-faq-1" role="region">
-      <div>Shoe Deep Cleaning for sports shoes starts from ₹299 per pair. Prices are exclusive of 18% GST, and pickup and delivery are free.</div>
+      <div>Shoe Deep Cleaning for sports shoes is priced per pair at your city&#39;s rate. Choose Gurgaon or Delhi in the rate box above. Prices are exclusive of 18% GST, and pickup and delivery are free.</div>
     </div>
   </div>
   <div class="faq-item">
