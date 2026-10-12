@@ -67,3 +67,9 @@
 .pricing-hero .neon-kw { color: var(--green-cta, #198639); text-shadow: none; }
 .pricing-hero .kw, .pricing-hero .kw-text { color: var(--brass-deep, #8a6a2e); }
 .pricing-hero .hero-photo img { aspect-ratio: 1999 / 846; }
+
+/* ---- Justified paragraphs, site-wide ----
+   :where() keeps specificity at zero, so any component that deliberately sets
+   its own alignment (centred leads, captions, cards) still wins. */
+:where(p, .lede, .prose li) { text-align: justify; text-justify: inter-word; hyphens: auto; -webkit-hyphens: auto; }
+@media (max-width: 40rem) { :where(p, .lede, .prose li) { hyphens: auto; word-spacing: -0.02em; } }
