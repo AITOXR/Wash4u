@@ -56,6 +56,61 @@ def _fill_tokens(value, tokens: dict):
     return value
 
 
+# --- SEO keyword highlighter -------------------------------------------------
+# Wraps the money keywords in <mark class="seo-hl"> inside every h1/h2 and in the
+# lede of each hero, so they read as if marked with a green highlighter. Each
+# keyword is marked once per heading. Skipped in edit mode (the admin overlay
+# edits those nodes' text in place).
+_SEO_KEYWORDS = [
+    "dry[- ]?cleaning", "dry[- ]?clean(?:ers|er)?", "dryclean", "laundry", "wash (?:&amp;|&) fold",
+    "shoe (?:&amp;|&) sneaker cleaning", "sneaker cleaning", "shoe cleaning", "shoe care",
+    "sofa cleaning", "carpet (?:&amp;|&) rug cleaning", "carpet cleaning", "rug cleaning",
+    "curtains? cleaning", "mattress cleaning", "steam iron(?:ing)?", "leather cleaning",
+    "bag cleaning", "toy cleaning", "free (?:doorstep )?pickup(?: (?:&amp;|&|and) delivery)?",
+    "doorstep pickup", "Gurgaon", "Gurugram", "Delhi NCR",
+]
+_SEO_RE = re.compile(r"(?<![\w-])(" + "|".join(_SEO_KEYWORDS) + r")(?![\w-])", re.I)
+_HEADING_RE = re.compile(r"(<(h1|h2)\b[^>]*>)(.*?)(</\2>)", re.S | re.I)
+_LEDE_RE = re.compile(r"(<p\b[^>]*class=\"[^\"]*(?:lede|hero__lede|hero__sub)[^\"]*\"[^>]*>)(.*?)(</p>)", re.S | re.I)
+_TAG_SPLIT = re.compile(r"(<[^>]+>)")
+
+
+def _mark_keywords(inner: str) -> str:
+    seen: set = set()
+    depth_mark = 0
+    out = []
+    for part in _TAG_SPLIT.split(inner):
+        if part.startswith("<"):
+            low = part.lower()
+            if low.startswith("<mark"):
+                depth_mark += 1
+            elif low.startswith("</mark"):
+                depth_mark = max(0, depth_mark - 1)
+            out.append(part)
+            continue
+        if depth_mark or not part.strip():
+            out.append(part)
+            continue
+
+        def _wrap(m):
+            key = re.sub(r"\s+", " ", m.group(1).lower())
+            if key in seen:
+                return m.group(0)
+            seen.add(key)
+            return f'<mark class="seo-hl">{m.group(1)}</mark>'
+        out.append(_SEO_RE.sub(_wrap, part))
+    return "".join(out)
+
+
+def highlight_seo_keywords(page: str) -> str:
+    page = _HEADING_RE.sub(lambda m: m.group(1) + _mark_keywords(m.group(3)) + m.group(4), page)
+    # ledes only inside the first 40% of the page markup (the hero), not body copy
+    cut = int(len(page) * 0.4)
+    head, tail = page[:cut], page[cut:]
+    head = _LEDE_RE.sub(lambda m: m.group(1) + _mark_keywords(m.group(2)) + m.group(3), head)
+    return head + tail
+
+
 SERVICE_SLUG_SUFFIX = "-best-premium-drycleaning-service"
 SERVICE_URL_RE = None
 
@@ -1068,6 +1123,8 @@ def build() -> None:
 
         rendered = template.render(**context)
         rendered = SERVICE_URL_RE.sub(lambda m: f"services/{m.group(1)}{SERVICE_SLUG_SUFFIX}/", rendered)
+        if not EDIT_MODE and template_name != "page-pricing-print.html":
+            rendered = highlight_seo_keywords(rendered)
         if template_name not in ("page-pricing-print.html",):
             rendered = studio.apply(rendered, rel_path, template_name, env, root_path, asset_path,
                                     edit=EDIT_MODE, layout=studio_layout, blocks=studio_blocks, styles=studio_styles)

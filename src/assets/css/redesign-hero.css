@@ -145,3 +145,18 @@
 /* Real results grid: same frame for every pair, whole picture inside it */
 .proof-grid .ba__img { object-fit: contain; }
 .svc-stage--proof .svc-stage__chip { position: static; display: block; margin-top: .75rem; text-align: right; }
+
+/* ---- SEO keyword highlighter: green marker on h1 / h2 / hero lede ---- */
+mark.seo-hl {
+  color: var(--navy-deep, #0d2350) !important;
+  -webkit-text-fill-color: var(--navy-deep, #0d2350);
+  text-shadow: none !important;
+  font-style: inherit;
+  padding: 0 .12em;
+  margin: 0 -.04em;
+  border-radius: .18em;
+  background: linear-gradient(104deg, rgba(60, 220, 110, 0) 0.9%, rgba(60, 220, 110, .62) 2.4%, rgba(60, 220, 110, .5) 96%, rgba(60, 220, 110, 0) 98.5%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+mark.seo-hl * { color: inherit !important; text-shadow: none !important; }
