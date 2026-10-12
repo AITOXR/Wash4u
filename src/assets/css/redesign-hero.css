@@ -146,38 +146,19 @@
 .proof-grid .ba__img { object-fit: contain; }
 .svc-stage--proof .svc-stage__chip { position: static; display: block; margin-top: .75rem; text-align: right; }
 
-/* ---- SEO keyword highlighter: green marker on h1 / h2 / hero lede ---- */
+/* ---- SEO keywords in the main heading: green text ---- */
 mark.seo-hl {
-  color: var(--navy-deep, #0d2350) !important;
-  -webkit-text-fill-color: var(--navy-deep, #0d2350);
-  text-shadow: none !important;
+  background: none;
+  padding: 0;
+  margin: 0;
+  color: var(--green-cta, #198639) !important;
+  -webkit-text-fill-color: var(--green-cta, #198639);
   font-style: inherit;
-  padding: 0 .12em;
-  margin: 0 -.04em;
-  border-radius: .18em;
-  background: linear-gradient(104deg, rgba(60, 220, 110, 0) 0.9%, rgba(60, 220, 110, .62) 2.4%, rgba(60, 220, 110, .5) 96%, rgba(60, 220, 110, 0) 98.5%);
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  font-weight: inherit;
 }
-mark.seo-hl * { color: inherit !important; text-shadow: none !important; }
-
-/* ============================================================
-   Bigger hero pictures, centred on the copy beside them.
-   Whole image always shown (contain); portrait posters are capped by height
-   so they never tower over the text.
-   ============================================================ */
-@media (min-width: 62rem) {
-  .svc-hero .page-hero__grid,
-  .prod-hero__grid,
-  .page-hero__grid { align-items: center; }
-  .svc-hero .page-hero__grid { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
-  .prod-hero__grid { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
-  .page-hero__grid:not(.about-hero__grid) { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
-  .svc-stage--proof, .svc-proof, .hero-ba, .prod-hero__ba, .hero-ba-col { align-self: center; width: 100%; }
-  .hero-ba--photo .hero-photo { display: flex; justify-content: center; }
-  .hero-ba--photo .hero-photo img { width: auto; max-width: 100%; max-height: 38rem; margin-inline: auto; }
-}
-@media (min-width: 62rem) {
-  /* wide before/afters fill the column; tall ones are capped */
-  .hero-ba .ba__frame, .prod-hero__ba .ba__frame, .svc-proof .ba__frame { max-height: 38rem; }
+/* on the navy home hero the logo green reads better */
+.home-hero mark.seo-hl, .section--navy mark.seo-hl {
+  color: var(--brand-green, #21b14b) !important;
+  -webkit-text-fill-color: var(--brand-green, #21b14b);
+  text-shadow: 0 0 .35em rgba(33, 177, 75, .55);
 }
