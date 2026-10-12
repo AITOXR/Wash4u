@@ -75,6 +75,9 @@
 
     <input class="ba__range" type="range" min="0" max="100" value="50" step="1"
            aria-label="Reveal the before or after photograph of {{ pair.title }}">
+
+    <button type="button" class="ba__nav ba__nav--prev" data-ba-step="-1" aria-label="Show more of the after photo">{{ ui('arrow-left', 16) }}</button>
+    <button type="button" class="ba__nav ba__nav--next" data-ba-step="1" aria-label="Show more of the before photo">{{ ui('arrow-right', 16) }}</button>
   </div>
 
   <figcaption class="ba__caption">

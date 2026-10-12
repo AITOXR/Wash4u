@@ -167,3 +167,18 @@ mark.seo-hl {
 .reviews-head .rail-nav { display: flex; }
 .reviews-head { align-items: flex-end; }
 @media (max-width: 47.99rem) { .reviews-head { flex-direction: column; align-items: flex-start; gap: var(--s-4, 1rem); } }
+
+/* ---- Before/after arrow buttons ---- */
+.ba__nav {
+  position: absolute; bottom: .75rem; z-index: 4;
+  width: 2.5rem; height: 2.5rem; border-radius: 50%;
+  display: grid; place-items: center; padding: 0; border: 0; cursor: pointer;
+  background: rgba(255, 255, 255, .92); color: var(--navy-deep, #0d2350);
+  box-shadow: 0 4px 14px rgba(13, 35, 80, .3);
+  transition: transform .15s ease, background .15s ease;
+}
+.ba__nav:hover { background: #fff; transform: scale(1.08); }
+.ba__nav:focus-visible { outline: 3px solid var(--green-cta, #198639); outline-offset: 2px; }
+.ba__nav--prev { left: .75rem; }
+.ba__nav--next { right: .75rem; }
+.svc-stage--proof .svc-stage__chip { display: flex; justify-content: flex-end; border: 0; background: none; box-shadow: none; padding: 0; }

@@ -69,6 +69,40 @@ export function initBeforeAfter(root = document) {
       frame.releasePointerCapture?.(e.pointerId)
     }
 
+    // Arrow buttons: move the divider a quarter of the frame, eased.
+    let raf = 0
+    const glide = (to) => {
+      cancelAnimationFrame(raf)
+      const from = Number(range.value)
+      const t0 = performance.now()
+      const dur = 260
+      const tick = (now) => {
+        const k = Math.min(1, (now - t0) / dur)
+        const eased = 1 - Math.pow(1 - k, 3)
+        const v = from + (to - from) * eased
+        range.value = String(Math.round(v))
+        setPos(v)
+        if (k < 1) raf = requestAnimationFrame(tick)
+      }
+      raf = requestAnimationFrame(tick)
+    }
+    const navButtons = Array.from(fig.querySelectorAll('[data-ba-step]'))
+    const stop = (e) => e.stopPropagation()
+    const onStep = (e) => {
+      const step = Number(e.currentTarget.getAttribute('data-ba-step')) * 25
+      const cur = Number(range.value)
+      let to = cur + step
+      // wrap neatly at the ends: past the last stop, go back to the opposite edge
+      if (to > 100) to = cur >= 100 ? 0 : 100
+      if (to < 0) to = cur <= 0 ? 100 : 0
+      glide(to)
+    }
+    navButtons.forEach((b) => {
+      b.addEventListener('pointerdown', stop)
+      b.addEventListener('pointermove', stop)
+      b.addEventListener('click', onStep)
+    })
+
     frame.addEventListener('pointerdown', onDown)
     frame.addEventListener('pointermove', onMove)
     frame.addEventListener('pointerup', onUp)
@@ -86,6 +120,12 @@ export function initBeforeAfter(root = document) {
 
     cleanups.push(() => {
       range.removeEventListener('input', onInput)
+      cancelAnimationFrame(raf)
+      navButtons.forEach((b) => {
+        b.removeEventListener('pointerdown', stop)
+        b.removeEventListener('pointermove', stop)
+        b.removeEventListener('click', onStep)
+      })
       frame.removeEventListener('pointerdown', onDown)
       frame.removeEventListener('pointermove', onMove)
       frame.removeEventListener('pointerup', onUp)
