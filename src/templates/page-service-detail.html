@@ -302,9 +302,15 @@
 {% if posters.reviews %}
 <section class="section section--wash">
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">From our customers</p>
-      <h2>What Our Customers Say</h2>
+    <div class="reviews-head reveal">
+      <div class="section-head" style="margin-bottom:0">
+        <p class="eyebrow">From our customers</p>
+        <h2>What Our Customers Say</h2>
+      </div>
+      <div class="rail-nav">
+        <button type="button" data-rail-prev aria-label="Previous reviews">{{ ui('arrow-left', 18) }}</button>
+        <button type="button" data-rail-next aria-label="Next reviews">{{ ui('arrow-right', 18) }}</button>
+      </div>
     </div>
     <div class="testimonial-rail-wrap{% if testimonials.videos %} reviews-split{% endif %}">
       {% if testimonials.videos %}
