@@ -541,6 +541,14 @@ def build() -> None:
 
     env.globals["hero_visual"] = hero_visual
 
+    def hero_more(service_slug: str, product: str) -> list:
+        """Other before/after pairs of the same kind of work, shown after the hero when the hero itself is a pair."""
+        v = hero_visual(service_slug, product, product=product)
+        if "pair" not in v:
+            return []
+        svc = v["pair"]["service"]
+        return [pr for pr in _by_svc.get(svc, []) if pr["id"] != v["pair"]["id"]]
+
     # Home
     pages_to_build.append(("index.html", "page-home.html", {
         "areas": areas_data,
@@ -673,6 +681,7 @@ def build() -> None:
             {
                 "meta": prod["meta"],
                 "product": prod,
+                "hero_more": hero_more(prod.get("parentService", {}).get("slug", "premium-dry-cleaning") if isinstance(prod.get("parentService"), dict) else "premium-dry-cleaning", prod["slug"]),
                 "hero_visual": hero_visual(prod.get("parentService", {}).get("slug", "premium-dry-cleaning") if isinstance(prod.get("parentService"), dict) else "premium-dry-cleaning", prod["slug"], product=prod["slug"]),
                 "home": home,
                 "price_index": price_index,

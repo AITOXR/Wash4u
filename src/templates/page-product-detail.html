@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% from "_posters.html" import gallery, feature with context %}
 {% from "_icons.html" import ui %}
-{% from "_components.html" import faq_list, before_after, hero_visual_block %}
+{% from "_components.html" import faq_list, before_after, before_after_static, hero_visual_block %}
 
 {# One page per priced item. Data: src/data/products/<slug>.json merged over
    _shared.json by build.py resolve_product(), which also fills every price
@@ -123,6 +123,25 @@
       {{ hero_visual_block(hero_visual, asset_path, ui, 'prod-hero__ba') }}
     </div>
   </section>
+
+  {% if hero_more %}
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Real results</p>
+        <h2>Our own work, photographed in store</h2>
+      </div>
+      <div class="proof-grid">
+        {% for pair in hero_more %}
+        <div class="proof-grid__item reveal">
+          {% if pair.featured %}{{ before_after(pair, asset_path, ui) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
+          <p class="proof-grid__summary">{{ pair.summary }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
 
   {# ============================================================
      2. PRICE / SERVICE SELECTOR BUY BOX

@@ -121,6 +121,26 @@
   </div>
 </section>
 
+{# Real results sit straight after the hero on every service that has before/after photographs. #}
+{% if service_proof | length > 1 %}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Real results</p>
+      <h2>Our own work, photographed in store</h2>
+    </div>
+    <div class="proof-grid">
+      {% for pair in service_proof[1:] %}
+      <div class="proof-grid__item reveal">
+        {% if pair.featured %}{{ before_after(pair, asset_path, ui) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
+        <p class="proof-grid__summary">{{ pair.summary }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
 <section class="section">
   <div class="wrap">
     <div class="svc-detail">
@@ -167,24 +187,6 @@
    after the intro, instead of after the gallery — the client wants the
    proof of work higher on this specific page. Every other service keeps
    the default position further down (guarded to skip it below). #}
-{% if service.slug == 'shoe-cleaning' and service_proof | length > 1 %}
-<section class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Real results</p>
-      <h2>Our own work, photographed in store</h2>
-    </div>
-    <div class="proof-grid">
-      {% for pair in service_proof[1:] %}
-      <div class="proof-grid__item reveal">
-        {% if pair.featured %}{{ before_after(pair, asset_path, ui) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
-        <p class="proof-grid__summary">{{ pair.summary }}</p>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-{% endif %}
 
 {# A method comparison, rendered from data rather than markdown: the
    SSG's markdown subset is headings/paragraphs/lists/bold only, so a
@@ -296,24 +298,6 @@
 </section>
 {% endif %}
 
-{% if service_proof | length > 1 and service.slug != 'shoe-cleaning' %}
-<section class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Real results</p>
-      <h2>Our own work, photographed in store</h2>
-    </div>
-    <div class="proof-grid">
-      {% for pair in service_proof[1:] %}
-      <div class="proof-grid__item reveal">
-        {% if pair.featured %}{{ before_after(pair, asset_path, ui) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
-        <p class="proof-grid__summary">{{ pair.summary }}</p>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-{% endif %}
 
 {% if posters.reviews %}
 <section class="section section--wash">
