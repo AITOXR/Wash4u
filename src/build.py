@@ -57,8 +57,7 @@ def _fill_tokens(value, tokens: dict):
 
 
 # --- SEO keyword highlighter -------------------------------------------------
-# Wraps the money keywords in <mark class="seo-hl"> inside every h1/h2 and in the
-# lede of each hero, so they read as if marked with a green highlighter. Each
+# Wraps the money keywords in <mark class="seo-hl"> inside each page's h1, so they read as if marked with a green highlighter. Each
 # keyword is marked once per heading. Skipped in edit mode (the admin overlay
 # edits those nodes' text in place).
 _SEO_KEYWORDS = [
@@ -70,8 +69,7 @@ _SEO_KEYWORDS = [
     "doorstep pickup", "Gurgaon", "Gurugram", "Delhi NCR",
 ]
 _SEO_RE = re.compile(r"(?<![\w-])(" + "|".join(_SEO_KEYWORDS) + r")(?![\w-])", re.I)
-_HEADING_RE = re.compile(r"(<(h1|h2)\b[^>]*>)(.*?)(</\2>)", re.S | re.I)
-_LEDE_RE = re.compile(r"(<p\b[^>]*class=\"[^\"]*(?:lede|hero__lede|hero__sub)[^\"]*\"[^>]*>)(.*?)(</p>)", re.S | re.I)
+_H1_RE = re.compile(r"(<h1\b[^>]*>)(.*?)(</h1>)", re.S | re.I)
 _TAG_SPLIT = re.compile(r"(<[^>]+>)")
 
 
@@ -103,12 +101,8 @@ def _mark_keywords(inner: str) -> str:
 
 
 def highlight_seo_keywords(page: str) -> str:
-    page = _HEADING_RE.sub(lambda m: m.group(1) + _mark_keywords(m.group(3)) + m.group(4), page)
-    # ledes only inside the first 40% of the page markup (the hero), not body copy
-    cut = int(len(page) * 0.4)
-    head, tail = page[:cut], page[cut:]
-    head = _LEDE_RE.sub(lambda m: m.group(1) + _mark_keywords(m.group(2)) + m.group(3), head)
-    return head + tail
+    # Main heading (h1) only; h2s and body copy are left as authored.
+    return _H1_RE.sub(lambda m: m.group(1) + _mark_keywords(m.group(2)) + m.group(3), page)
 
 
 SERVICE_SLUG_SUFFIX = "-best-premium-drycleaning-service"
