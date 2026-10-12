@@ -81,7 +81,7 @@
         </ul>
       </aside>
       {% else %}
-      {{ page_hero_mascot(asset_path, 'images/posters/pickup-van.webp', 'Wash4You pickup van for free doorstep collection') }}
+      {{ page_hero_mascot(asset_path, 'sofa-cleaning', area.slug if area.slug is defined else 'area') }}
       {% endif %}
     </div>
   </div>

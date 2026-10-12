@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% from "_posters.html" import gallery, feature with context %}
 {% from "_icons.html" import ui %}
-{% from "_components.html" import faq_list %}
+{% from "_components.html" import faq_list, before_after %}
 
 {# One page per priced item. Data: src/data/products/<slug>.json merged over
    _shared.json by build.py resolve_product(), which also fills every price
@@ -120,42 +120,9 @@
         </ul>
       </div>
 
-      <figure class="prod-hero__media">
-        <img class="prod-hero__photo"
-             src="{{ asset_path }}{{ product.photos.hero.src }}"
-             alt="{{ product.photos.hero.alt }}"
-             width="700" height="875" fetchpriority="high" decoding="async">
-
-        <span class="prod-hero__studio">
-          <img src="{{ asset_path }}images/logo-white.png" alt="Wash4You" width="898" height="167">
-          <span>{{ product.studioLabel or 'Dryclean Studio' }}</span>
-        </span>
-
-        <div class="prod-hero__plate">
-          <picture>
-            <source srcset="{{ asset_path }}{{ product.heroImage }}" type="image/webp">
-            <img class="prod-hero__img"
-                 src="{{ asset_path }}{{ product.heroImageFallback or product.heroImage }}"
-                 alt="{{ product.heroImageAlt }}"
-                 width="200" height="200" decoding="async">
-          </picture>
-        </div>
-
-        {# The Wash4You claim tag every item carries — same artwork language
-           as the brand's "Tagged. Tracked. Delivered." hero card. #}
-        <figcaption class="prod-tag">
-          <span class="prod-tag__hole" aria-hidden="true"></span>
-          <span class="prod-tag__brand">
-            <img src="{{ asset_path }}images/logo-blue.png" alt="Wash4You" width="760" height="184">
-          </span>
-          <span class="prod-tag__kind">{{ product.tag.title }}</span>
-          <span class="prod-tag__item">{{ product.name }}</span>
-          <span class="prod-tag__row"><span>Service</span><strong>{{ primary_svc.name }}</strong></span>
-          <span class="prod-tag__row"><span>From</span><strong><span data-pg="{{ primary_svc.price }}" data-pd="{{ primary_svc.price_delhi }}">{{ primary_svc.price }}</span>{% if primary_svc.unit %} <small>{{ primary_svc.unit }}</small>{% endif %}</strong></span>
-          <span class="prod-tag__line">{{ product.tag.line }}</span>
-          <span class="prod-tag__code" aria-hidden="true"></span>
-        </figcaption>
-      </figure>
+      <div class="prod-hero__ba">
+        {{ before_after(hero_pair, asset_path, ui, eager=true) }}
+      </div>
     </div>
   </section>
 

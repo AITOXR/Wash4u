@@ -14,8 +14,8 @@
 
 {# The second column of a plain .page-hero__grid: a relevant photograph
    (replaces the old mascot). Pass src/alt to pick a different picture. #}
-{% macro page_hero_mascot(asset_path, src='images/posters/family-banner.webp', alt='Wash4You: care for everything that matters', w=1400, h=933) %}
-{{ hero_photo(asset_path, src, alt, w, h, true) }}
+{% macro page_hero_mascot(asset_path, svc='premium-dry-cleaning', key='') %}
+<div class="hero-ba">{{ before_after(pick_pair(svc, key or svc), asset_path, ui, true) }}</div>
 {% endmacro %}
 
 {# A single small, always-visible mascot for page-hero layouts whose second

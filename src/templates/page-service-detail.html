@@ -75,7 +75,7 @@
    service's turnaround where it does not. #}
 {% set cast  = (service.gallery or [])[:3] %}
 {% set lead  = price_index.get(cast[0]) if cast else none %}
-{% set state = 'proof' if service_proof else (cast | length if cast else 'mark') %}
+{% set state = 'proof' %}
 
 <section class="page-hero svc-hero">
   <div class="wrap">
@@ -109,15 +109,8 @@
         </div>
 
         {% else %}
-        {% set _g = (posters.service_gallery or {}).get(service.slug) or [] %}
-        {% set _pick = namespace(img=none) %}
-        {% for g in _g if _pick.img is none and not g.src.startswith('images/cutouts/') %}{% set _pick.img = g %}{% endfor %}
-        {% if _pick.img is none and _g %}{% set _pick.img = _g[0] %}{% endif %}
-        {% if _pick.img %}
-        {{ hero_photo(asset_path, _pick.img.src, _pick.img.alt, _pick.img.w, _pick.img.h, true) }}
-        {% else %}
-        {{ hero_photo(asset_path, 'images/posters/family-banner.webp', 'Wash4You: care for everything that matters', 1400, 933, true) }}
-        {% endif %}
+        {% set pair = pick_pair(service.slug, service.slug) %}
+        <div class="svc-proof">{{ before_after(pair, asset_path, ui, eager=true) }}</div>
         {% endif %}
 
         <p class="svc-stage__chip">

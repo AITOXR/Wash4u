@@ -471,6 +471,29 @@ def build() -> None:
 
     env.globals["product_urls"] = product_urls
 
+    # Before/after for every hero. A page gets a pair from its own service
+    # when proof.json has one; otherwise the closest kind of work we have
+    # real photographs of (garments, shoes, bags, upholstery, toys).
+    _pairs = {pr["id"]: pr for pr in proof["pairs"] if pr.get("before") and pr.get("after")}
+    _by_svc: dict = {}
+    for pr in _pairs.values():
+        _by_svc.setdefault(pr["service"], []).append(pr)
+    _fallback = {
+        "leather-cleaning": "bag-cleaning", "accessories-cleaning": "bag-cleaning",
+        "eco-friendly-laundry": "premium-dry-cleaning", "steam-ironing": "premium-dry-cleaning",
+        "linen-cleaning": "premium-dry-cleaning", "blanket-quilt-cleaning": "premium-dry-cleaning",
+        "wet-cleaning": "premium-dry-cleaning", "curtains-cleaning": "sofa-cleaning",
+        "carpet-cleaning": "sofa-cleaning", "mattress-cleaning": "sofa-cleaning",
+    }
+
+    def pick_pair(service_slug: str = "premium-dry-cleaning", key: str = "") -> dict:
+        pool = _by_svc.get(service_slug) or _by_svc.get(_fallback.get(service_slug, ""), []) or list(_pairs.values())
+        if key and "lehenga" in key and "lehenga" in _pairs:
+            return _pairs["lehenga"]
+        return pool[sum(map(ord, key)) % len(pool)] if key else pool[0]
+
+    env.globals["pick_pair"] = pick_pair
+
     # Home
     pages_to_build.append(("index.html", "page-home.html", {
         "areas": areas_data,
@@ -603,6 +626,7 @@ def build() -> None:
             {
                 "meta": prod["meta"],
                 "product": prod,
+                "hero_pair": pick_pair(prod.get("parentService", {}).get("slug", "premium-dry-cleaning") if isinstance(prod.get("parentService"), dict) else "premium-dry-cleaning", prod["slug"]),
                 "home": home,
                 "price_index": price_index,
                 "depth": 2,
