@@ -5,11 +5,17 @@
    the second column of a plain .page-hero__grid (contact, blog,
    locations, steam-iron, pricing matrix, policies).
    ============================================================ #}
-{% macro page_hero_mascot(asset_path) %}
-<img class="page-hero__mascot" src="{{ asset_path }}images/mascot-why.png" alt=""
-     width="760" height="941" loading="lazy" decoding="async" aria-hidden="true">
-<img class="page-hero__mascot--sm" src="{{ asset_path }}images/mascot-why.png" alt=""
-     width="760" height="941" loading="lazy" decoding="async" aria-hidden="true">
+{% macro hero_photo(asset_path, src, alt, w=1400, h=933, eager=false) %}
+<figure class="hero-photo">
+  <img src="{{ asset_path }}{{ src }}" alt="{{ alt }}" width="{{ w }}" height="{{ h }}"
+       {% if eager %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
+</figure>
+{% endmacro %}
+
+{# The second column of a plain .page-hero__grid: a relevant photograph
+   (replaces the old mascot). Pass src/alt to pick a different picture. #}
+{% macro page_hero_mascot(asset_path, src='images/posters/family-banner.webp', alt='Wash4You: care for everything that matters', w=1400, h=933) %}
+{{ hero_photo(asset_path, src, alt, w, h, true) }}
 {% endmacro %}
 
 {# A single small, always-visible mascot for page-hero layouts whose second

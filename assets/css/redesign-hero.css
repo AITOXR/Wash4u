@@ -1,0 +1,69 @@
+/* ============================================================
+   Hero = photograph. Text on a light ground, a relevant photo beside it.
+   Loaded last so it overrides the navy / full-bleed-photo heroes on the
+   service, product and pricing pages. Plain .page-hero pages are already
+   light and just gain the photo in their second column.
+   ============================================================ */
+
+.hero-photo {
+  margin: 0;
+  border-radius: var(--r-lg, 1rem);
+  overflow: hidden;
+  box-shadow: 0 20px 44px rgba(13, 35, 80, .22);
+  background: var(--navy-tint, #e9edf6);
+}
+.hero-photo img { display: block; width: 100%; max-width: none; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+
+/* ---- Service detail ---- */
+.svc-hero {
+  --svc-ground: #f3f7fb;
+  background: var(--wash, #f3f7fb);
+  color: var(--navy-deep, #0d2350);
+  border-bottom: 0;
+}
+.svc-hero .crumbs, .svc-hero .crumbs a { color: var(--navy, #14336b); }
+.svc-hero .crumbs span[aria-hidden] { color: rgba(20, 51, 107, .4); }
+.svc-hero h1 { color: var(--navy-deep, #0d2350); }
+.svc-hero .lede { color: #334a6b; }
+.svc-hero .btn--ghost { color: var(--navy, #14336b); border-color: rgba(20, 51, 107, .35); background: #fff; }
+.svc-hero .btn--ghost:hover { border-color: var(--navy, #14336b); background: var(--navy-tint, #e9edf6); }
+.svc-hero .neon-kw { color: var(--green-cta, #198639); text-shadow: none; }
+.svc-hero .svc-stage__chip { color: var(--navy, #14336b); }
+
+/* ---- Product ---- */
+.prod-hero { background: var(--wash, #f3f7fb); color: var(--navy-deep, #0d2350); }
+.prod-hero::before { display: none; }
+.prod-hero .crumbs a { color: var(--navy, #14336b); }
+.prod-hero .crumbs a:hover { color: var(--brass-deep, #8a6a2e); }
+.prod-hero .crumbs span { color: rgba(20, 51, 107, .4); }
+.prod-hero .crumbs span:last-child { color: var(--navy-deep, #0d2350); }
+.prod-badge { background: #fff; border-color: rgba(20, 51, 107, .25); color: var(--navy, #14336b); }
+.prod-hero__title { color: var(--navy-deep, #0d2350); }
+.prod-hero__lede { color: #334a6b; }
+.prod-hero__stat { background: #fff; border-color: rgba(20, 51, 107, .15); color: var(--navy-deep, #0d2350); }
+.prod-hero__stat strong { color: var(--navy-deep, #0d2350); }
+.prod-hero .btn--ghost, .prod-hero .btn--outline, .prod-hero .btn--on-navy { color: var(--navy, #14336b); border-color: rgba(20, 51, 107, .35); background: #fff; }
+.prod-hero .city-toggle--hero { background: #fff; box-shadow: inset 0 0 0 1px rgba(20, 51, 107, .15); }
+.prod-hero .city-toggle--hero .city-toggle__label { color: var(--navy-deep, #0d2350); }
+.prod-hero .city-toggle--hero .city-toggle__btn { color: var(--navy-deep, #0d2350); }
+.prod-hero .city-toggle--hero .city-toggle__btn.is-active { background: var(--navy-deep, #0d2350); color: #fff; }
+
+/* ---- Pricing (and pricing-by-area): copy left, photo right ---- */
+.pricing-hero {
+  display: block;
+  min-height: 0;
+  background: var(--wash, #f3f7fb);
+  color: var(--navy-deep, #0d2350);
+  border-bottom: 0;
+}
+.pricing-hero__inner { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); align-items: center; }
+@media (min-width: 62rem) { .pricing-hero__inner { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); } }
+.pricing-hero .crumbs, .pricing-hero .crumbs a { color: var(--navy, #14336b); text-shadow: none; }
+.pricing-hero .crumbs span[aria-hidden] { color: rgba(20, 51, 107, .4); }
+.pricing-hero .eyebrow { color: var(--navy, #14336b); text-shadow: none; }
+.pricing-hero__title { color: var(--navy-deep, #0d2350); text-shadow: none; }
+.pricing-hero__lede { color: #334a6b; text-shadow: none; }
+.pricing-hero .btn--ghost { color: var(--navy, #14336b); border-color: rgba(20, 51, 107, .35); background: #fff; text-shadow: none; }
+.pricing-hero .neon-kw { color: var(--green-cta, #198639); text-shadow: none; }
+.pricing-hero .kw, .pricing-hero .kw-text { color: var(--brass-deep, #8a6a2e); }
+.pricing-hero .hero-photo img { aspect-ratio: 1999 / 846; }

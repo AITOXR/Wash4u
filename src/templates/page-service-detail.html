@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% from "_posters.html" import gallery, review_shots, feature with context %}
 {% from "_icons.html" import ui, care_tag, service_icon, service_bg %}
-{% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card, page_hero_mascot_inline %}
+{% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card, page_hero_mascot_inline, hero_photo %}
 
 {% block schema %},
       {
@@ -89,7 +89,7 @@
 
     <div class="page-hero__grid">
       <div>
-        {{ care_tag(service.slug, on_navy=true) }}
+        {{ care_tag(service.slug) }}
         <h1 style="margin-top:var(--s-4)"{{ cms((gen_base ~ '.h1') if gen_base else (cms_base ~ '.name')) }}>{{ service.h1 or service.name }}</h1>
         <p class="lede"{{ cms((gen_base ~ '.lede') if gen_base else (cms_base ~ '.short_description')) }}>{{ (service.lede or service.short_description) | replace('free deinstallation and reinstallation', '<strong>free deinstallation and reinstallation</strong>', 1) | safe }}</p>
         <div class="btn-row">
@@ -108,50 +108,16 @@
           {% if pair.featured %}{{ before_after(pair, asset_path, ui, eager=true) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
         </div>
 
-        {% elif cast %}
-        <span class="svc-stage__glow" aria-hidden="true"></span>
-        {% for slug in cast %}
-        <figure class="svc-card svc-card--{{ loop.index }}">
-          {% if (product_urls or {}).get(slug) %}
-          <a href="{{ root_path }}{{ product_urls[slug] }}" style="display:contents; color:inherit;">
-            <span class="svc-card__plate" style="cursor:pointer;">
-              <img src="{{ asset_path }}images/pricing/{{ slug }}.webp"
-                   alt="{{ price_index[slug].name if price_index.get(slug) else slug.replace('-', ' ') | title }} cleaned by Wash4You in Gurugram"
-                   width="400" height="400"
-                   {% if loop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
-            </span>
-          </a>
-          {% else %}
-          <span class="svc-card__plate">
-            <img src="{{ asset_path }}images/pricing/{{ slug }}.webp"
-                 alt="{{ price_index[slug].name if price_index.get(slug) else slug.replace('-', ' ') | title }} cleaned by Wash4You in Gurugram"
-                 width="400" height="400"
-                 {% if loop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
-          </span>
-          {% endif %}
-        </figure>
-        {% endfor %}
-        {% if cast | length == 1 %}
-        {# One plate alone in a slot built for three is the exact
-           looks-broken failure. The second object is openly a drawing, so
-           it cannot be read as a missing photograph. #}
-        <figure class="svc-card svc-card--mark" aria-hidden="true">
-          <span class="svc-card__art">{{ service_bg(service.slug) }}</span>
-        </figure>
-        {% endif %}
-
         {% else %}
-        {# mattress, bag, toy. Nothing among the 31 cut-outs depicts any of
-           them. Rather than borrow an unrelated garment, the card carries
-           this service's own line drawing and its three features. #}
-        <figure class="svc-card svc-card--mark svc-card--solo">
-          <span class="svc-card__art" aria-hidden="true">{{ service_bg(service.slug) }}</span>
-          {% if service.features %}
-          <ul class="svc-card__specs">
-            {% for f in service.features[:3] %}<li{{ cms(cms_base ~ '.features.' ~ loop.index0) }}>{{ f }}</li>{% endfor %}
-          </ul>
-          {% endif %}
-        </figure>
+        {% set _g = (posters.service_gallery or {}).get(service.slug) or [] %}
+        {% set _pick = namespace(img=none) %}
+        {% for g in _g if _pick.img is none and not g.src.startswith('images/cutouts/') %}{% set _pick.img = g %}{% endfor %}
+        {% if _pick.img is none and _g %}{% set _pick.img = _g[0] %}{% endif %}
+        {% if _pick.img %}
+        {{ hero_photo(asset_path, _pick.img.src, _pick.img.alt, _pick.img.w, _pick.img.h, true) }}
+        {% else %}
+        {{ hero_photo(asset_path, 'images/posters/family-banner.webp', 'Wash4You: care for everything that matters', 1400, 933, true) }}
+        {% endif %}
         {% endif %}
 
         <p class="svc-stage__chip">

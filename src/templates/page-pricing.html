@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_posters.html" import feature with context %}
-{% from "_components.html" import faq_list, page_hero_mascot_inline %}
+{% from "_components.html" import faq_list, page_hero_mascot_inline, hero_photo %}
 {% from "_icons.html" import ui, price_cat_bg %}
 {% set is_area = area is defined and area %}
 
@@ -73,7 +73,7 @@
    url() inside a custom property resolves against the stylesheet that USES
    the variable, so `{{ asset_path }}` here produced /assets/assets/… and
    404'd. The stylesheet always sits at <assets>/css/. #}
-<section class="pricing-hero" style="--pricing-hero-img: url('../images/hero-pricing.webp')">
+<section class="pricing-hero">
   <div class="wrap pricing-hero__inner">
   <div class="pricing-hero__panel">
     <nav class="crumbs" aria-label="Breadcrumb">
@@ -102,8 +102,8 @@
       <a class="btn btn--cta btn--lg" href="{{ site.urls.booking }}" target="_blank" rel="noopener">Book free pickup</a>
       <a class="btn btn--ghost btn--lg" href="{{ site.urls.whatsapp }}" target="_blank" rel="noopener">{{ ui('whatsapp', 18) }} Ask about an item</a>
     </div>
-    {{ page_hero_mascot_inline(asset_path) }}
   </div>
+  {{ hero_photo(asset_path, 'images/hero-pricing.webp', 'A crisp shirt and a red dress on hangers, ready for pickup', 1999, 846, true) }}
   </div>
 </section>
 
