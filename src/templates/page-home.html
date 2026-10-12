@@ -321,7 +321,7 @@
     {# One slider per category: the best result for each. #}
     <div class="real-grid">
       {% for g in proof.home_groups if g.pairs %}{% set pair = by_id[g.pairs[0]] %}
-      <div class="real-card reveal">
+      <div class="real-card reveal{% if pair.service == 'shoe-cleaning' %} real-card--shoe{% endif %}">
         <h3 class="real-card__title">{{ g.title }}</h3>
         {{ before_after(pair, asset_path, ui) }}
         <p class="proof-grid__summary">{{ pair.summary }}</p>

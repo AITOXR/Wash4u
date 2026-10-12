@@ -56,6 +56,10 @@ def _fill_tokens(value, tokens: dict):
     return value
 
 
+SERVICE_SLUG_SUFFIX = "-best-premium-drycleaning-service"
+SERVICE_URL_RE = None
+
+
 def resolve_product(prod: dict, shared: dict, price_index: dict) -> dict:
     """One product page's data: shared sections underneath, the product's
     own JSON on top, {name}/{noun}/{care}/{Care} filled in, and every price
@@ -308,6 +312,10 @@ def build() -> None:
     home = load_json(DATA_DIR / "home.json")
     about = load_json(DATA_DIR / "about.json")
     services = load_json(DATA_DIR / "services.json")
+    global SERVICE_URL_RE
+    SERVICE_URL_RE = re.compile(
+        r"services/(" + "|".join(re.escape(x["slug"]) for x in sorted(services["services"], key=lambda x: -len(x["slug"]))) + r")/"
+    )
     pricing = load_json(DATA_DIR / "pricing.json")
     packages = load_json(DATA_DIR / "packages.json")
     steam = load_json(DATA_DIR / "steam-iron.json")
@@ -524,7 +532,7 @@ def build() -> None:
         # Proof photography that belongs to this specific service.
         service_proof = [p for p in proof["pairs"] if p["service"] == service["slug"]]
         pages_to_build.append((
-            f"services/{service['slug']}/index.html",
+            f"services/{service['slug']}{SERVICE_SLUG_SUFFIX}/index.html",
             "page-service-detail.html",
             {
                 "meta": {
@@ -978,6 +986,7 @@ def build() -> None:
         context.setdefault("product_urls_by_name", product_urls_by_name)
 
         rendered = template.render(**context)
+        rendered = SERVICE_URL_RE.sub(lambda m: f"services/{m.group(1)}{SERVICE_SLUG_SUFFIX}/", rendered)
         if template_name not in ("page-pricing-print.html",):
             rendered = studio.apply(rendered, rel_path, template_name, env, root_path, asset_path,
                                     edit=EDIT_MODE, layout=studio_layout, blocks=studio_blocks, styles=studio_styles)
@@ -985,6 +994,18 @@ def build() -> None:
         print(f"Built: {rel_path}")
 
     (DIST_DIR / "assets" / "css" / "studio-custom.css").write_text(studio.css(studio_styles), encoding="utf-8")
+
+    # Old service URLs -> new ones. Static hosting has no 301s, so leave a
+    # canonical + meta-refresh stub at each old path (kept out of the sitemap).
+    for svc in services["services"]:
+        new_url = f"{site['urls']['base']}/services/{svc['slug']}{SERVICE_SLUG_SUFFIX}/"
+        write_html(DIST_DIR / "services" / svc["slug"] / "index.html",
+                   '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+                   f'<title>{html.escape(svc["name"])} – Wash4You</title>'
+                   f'<link rel="canonical" href="{new_url}">'
+                   f'<meta http-equiv="refresh" content="0; url={new_url}">'
+                   '<meta name="robots" content="noindex,follow"></head>'
+                   f'<body><a href="{new_url}">{html.escape(svc["name"])}</a></body></html>')
 
     # Sitemap, derived from the page registry so it can never drift out of
     # sync with what was actually built.

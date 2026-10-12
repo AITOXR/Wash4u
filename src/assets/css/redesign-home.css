@@ -1309,6 +1309,8 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
 /* Real results: every slider is the same portrait frame (3:4); the photo is cropped to fit, never stretched */
 .real-card .ba__frame { --ba-ratio: 3 / 4; }
 .real-card .ba__img { object-fit: cover; object-position: center 45%; }
+/* Shoes: zoomed out so the whole shoe shows, not a tight crop */
+.real-card--shoe .ba__img { object-fit: contain; object-position: center; background: #f3f5f9; }
 
 /* Studio widget blocks */
 .studio-hero { padding: clamp(3rem, 8vw, 6rem) 0; background-color: var(--navy-deep, #0d2350); color: #fff; text-align: center; }
