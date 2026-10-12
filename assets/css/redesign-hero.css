@@ -160,3 +160,24 @@ mark.seo-hl {
   box-decoration-break: clone;
 }
 mark.seo-hl * { color: inherit !important; text-shadow: none !important; }
+
+/* ============================================================
+   Bigger hero pictures, centred on the copy beside them.
+   Whole image always shown (contain); portrait posters are capped by height
+   so they never tower over the text.
+   ============================================================ */
+@media (min-width: 62rem) {
+  .svc-hero .page-hero__grid,
+  .prod-hero__grid,
+  .page-hero__grid { align-items: center; }
+  .svc-hero .page-hero__grid { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
+  .prod-hero__grid { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
+  .page-hero__grid:not(.about-hero__grid) { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
+  .svc-stage--proof, .svc-proof, .hero-ba, .prod-hero__ba, .hero-ba-col { align-self: center; width: 100%; }
+  .hero-ba--photo .hero-photo { display: flex; justify-content: center; }
+  .hero-ba--photo .hero-photo img { width: auto; max-width: 100%; max-height: 38rem; margin-inline: auto; }
+}
+@media (min-width: 62rem) {
+  /* wide before/afters fill the column; tall ones are capped */
+  .hero-ba .ba__frame, .prod-hero__ba .ba__frame, .svc-proof .ba__frame { max-height: 38rem; }
+}
