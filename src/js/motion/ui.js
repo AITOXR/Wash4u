@@ -269,7 +269,7 @@ function initReviewAutoplay(on, cleanups) {
       const max = rail.scrollWidth - rail.clientWidth
       if (rail.scrollLeft >= max - 1) rail.scrollTo({ left: 0, behavior: 'smooth' })
       else rail.scrollBy({ left: step, behavior: 'smooth' })
-    }, 4000)
+    }, 2000)
     cleanups.push(() => clearInterval(timer))
   })
 }
