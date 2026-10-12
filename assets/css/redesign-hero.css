@@ -98,3 +98,19 @@
 .hero-ba-col { display: grid; gap: var(--s-4, 1rem); align-content: start; }
 .prod-hero__ba .ba__caption, .hero-ba .ba__caption { color: #334a6b; }
 .prod-hero__ba .ba__caption strong, .hero-ba .ba__caption strong { color: var(--navy-deep, #0d2350); }
+
+/* ---- Real results on service pages: every pair in the same frame ---- */
+.proof-grid .ba__frame { --ba-ratio: 4 / 3; }
+.proof-grid .ba__img { object-fit: cover; object-position: center; }
+.proof-grid .ba-pair img { aspect-ratio: 2 / 3; object-fit: cover; object-position: center; }
+.proof-grid { align-items: start; }
+
+/* Hero image top and bottom line up with the copy: no mascot hanging below the buttons */
+.svc-hero .page-hero__mascot-inline,
+.page-hero .page-hero__mascot-inline { display: none; }
+@media (min-width: 62rem) {
+  .svc-hero .svc-stage--proof, .prod-hero__ba, .hero-ba { align-self: stretch; margin-top: 0; }
+  .svc-hero .page-hero__grid > div:first-child > :first-child { margin-top: 0; }
+  .svc-hero h1 { margin-top: var(--s-4); }
+}
+@media (min-width: 62rem) { .prod-hero__ba { margin-top: .75rem; } }
