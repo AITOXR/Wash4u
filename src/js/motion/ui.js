@@ -41,6 +41,7 @@ export function initUI() {
   initNavDropdowns(on)
   initFaq(on)
   initRails(on, cleanups)
+  initReviewAutoplay(on, cleanups)
 
   // iOS Safari does not apply :active unless a touch handler is attached to
   // the element or one of its ancestors. One no-op listener on the document
@@ -242,6 +243,37 @@ function initFaq(on) {
    and hardware momentum on touch; driving scrollLeft from rAF would fight
    the snap and downgrade the gesture that actually gets used.
    ------------------------------------------------------------------------- */
+/* Review rails advance on their own on every page that has one (home, about,
+   service, landing), whether or not the section has arrow buttons. */
+function initReviewAutoplay(on, cleanups) {
+  // paused on hover/focus/touch, off-screen, hidden tab or reduced motion;
+  // loops back to the first card at the end
+  document.querySelectorAll('.testimonial-rail').forEach((rail) => {
+    let paused = false
+    let visible = true
+    let resumeAt = 0
+    const hold = () => { paused = true }
+    const release = () => { paused = false; resumeAt = Date.now() + 2000 }
+    ;['mouseenter', 'focusin', 'touchstart', 'pointerdown'].forEach((e) => on(rail, e, hold, { passive: true }))
+    ;['mouseleave', 'focusout', 'touchend', 'pointerup'].forEach((e) => on(rail, e, release, { passive: true }))
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => { visible = es[0].isIntersecting }, { threshold: 0.25 })
+      io.observe(rail)
+      cleanups.push(() => io.disconnect())
+    }
+    const timer = setInterval(() => {
+      if (paused || !visible || document.hidden || motionOff() || Date.now() < resumeAt) return
+      const kids = rail.children
+      if (kids.length < 2) return
+      const step = kids[1].offsetLeft - kids[0].offsetLeft
+      const max = rail.scrollWidth - rail.clientWidth
+      if (rail.scrollLeft >= max - 1) rail.scrollTo({ left: 0, behavior: 'smooth' })
+      else rail.scrollBy({ left: step, behavior: 'smooth' })
+    }, 4000)
+    cleanups.push(() => clearInterval(timer))
+  })
+}
+
 function initRails(on, cleanups) {
   const buttons = Array.from(document.querySelectorAll('[data-rail-prev], [data-rail-next]'))
   if (!buttons.length) return
@@ -313,33 +345,6 @@ function initRails(on, cleanups) {
     on(rail, 'scroll', request, { passive: true })
     on(window, 'resize', request, { passive: true })
     sync()
-
-    // reviews auto-advance; paused on hover/focus/touch, off-screen, hidden
-    // tab, or reduced motion. Loops back to the first card at the end.
-    if (rail.classList.contains('testimonial-rail')) {
-      let paused = false
-      let visible = true
-      let resumeAt = 0
-      const hold = () => { paused = true }
-      const release = () => { paused = false; resumeAt = Date.now() + 2000 }
-      ;['mouseenter', 'focusin', 'touchstart', 'pointerdown'].forEach((e) => on(rail, e, hold, { passive: true }))
-      ;['mouseleave', 'focusout', 'touchend', 'pointerup'].forEach((e) => on(rail, e, release, { passive: true }))
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver((es) => { visible = es[0].isIntersecting }, { threshold: 0.25 })
-        io.observe(rail)
-        cleanups.push(() => io.disconnect())
-      }
-      const timer = setInterval(() => {
-        if (paused || !visible || document.hidden || motionOff() || Date.now() < resumeAt) return
-        const kids = rail.children
-        if (kids.length < 2) return
-        const step = kids[1].offsetLeft - kids[0].offsetLeft
-        const max = rail.scrollWidth - rail.clientWidth
-        if (rail.scrollLeft >= max - 1) rail.scrollTo({ left: 0, behavior: 'smooth' })
-        else rail.scrollBy({ left: step, behavior: 'smooth' })
-      }, 4000)
-      cleanups.push(() => clearInterval(timer))
-    }
 
     // leave nothing disabled behind us
     cleanups.push(() => {

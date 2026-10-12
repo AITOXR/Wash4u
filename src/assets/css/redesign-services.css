@@ -784,3 +784,22 @@
 .svc-menu thead th, .svc-table thead th, .price-table thead th, .area-table thead th,
 .pkg-table thead th, .ov-table thead th, .prod-table thead th { font-size: .95rem; }
 .svc-menu th[scope="row"], .prod-table th[scope="row"] { font-size: 1.1rem; font-weight: 700; }
+
+
+/* Services hero: the family photograph replaces the blue artwork band. Copy sits
+   on a light ground above it; the photo is the banner. */
+.services-hero { background: var(--wash, #f3f7fb); color: var(--navy-deep, #0d2350); border-bottom: 0; }
+.services-hero .crumbs, .services-hero .crumbs a { color: var(--navy, #14336b); }
+.services-hero .crumbs span[aria-hidden] { color: rgba(20, 51, 107, .4); }
+.services-hero .eyebrow { color: var(--navy, #14336b); }
+.services-hero h1 { color: var(--navy-deep, #0d2350); }
+.services-hero .lede { color: #334a6b; }
+.services-hero .crumbs, .services-hero .eyebrow, .services-hero h1, .services-hero .lede { max-width: none; }
+.services-hero .lede { max-width: 48rem; }
+.services-hero__photo { margin: clamp(1.5rem, 3vw, 2.5rem) 0 0; border-radius: var(--r-lg, 1rem); overflow: hidden; box-shadow: 0 20px 44px rgba(13, 35, 80, .22); }
+.services-hero__photo img { display: block; width: 100%; height: auto; }
+.services-hero .btn--ghost { color: var(--navy, #14336b); border-color: rgba(20, 51, 107, .35); background: #fff; }
+.services-hero .btn--ghost:hover { border-color: var(--navy, #14336b); background: var(--navy-tint, #e9edf6); }
+.services-hero .page-hero__grid { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); align-items: center; }
+@media (min-width: 62rem) { .services-hero .page-hero__grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); } }
+.services-hero__photo { margin: 0; }
