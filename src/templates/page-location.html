@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% from "_posters.html" import gallery with context %}
 {% from "_icons.html" import ui, care_tag, service_icon, service_bg %}
-{% from "_components.html" import faq_list, review_card, page_hero_mascot, page_hero_mascot_inline %}
+{% from "_components.html" import faq_list, review_card, page_hero_mascot, page_hero_mascot_inline, hero_visual_block %}
 
 {% block schema %},
       {
@@ -81,7 +81,7 @@
         </ul>
       </aside>
       {% else %}
-      {{ page_hero_mascot(asset_path, 'sofa-cleaning', area.slug if area.slug is defined else 'area') }}
+      {{ hero_visual_block({'photo': {'src': 'images/posters/pickup-van.webp', 'alt': 'Wash4You pickup van for free doorstep collection', 'w': 1080, 'h': 1440}}, asset_path, ui) }}
       {% endif %}
     </div>
   </div>

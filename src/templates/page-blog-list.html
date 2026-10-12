@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui, service_icon %}
-{% from "_components.html" import page_hero_mascot %}
+{% from "_components.html" import page_hero_mascot, hero_visual_block %}
 
 {% block content %}
 
@@ -17,7 +17,7 @@
         <h1{{ cms('blog:hero.headline') }}>{{ blog.hero.headline | replace('Most Trusted', '<span class="kw--onlight">Most Trusted</span>', 1) | replace('Laundry & Dry Cleaners', '<span class="neon-kw">Laundry &amp; Dry Cleaners</span>', 1) | safe }}</h1>
         <p class="lede"{{ cms('blog:hero.subheadline') }}>{{ blog.hero.subheadline }}</p>
       </div>
-      {{ page_hero_mascot(asset_path) }}
+      {{ hero_visual_block({'photo': {'src': 'images/posters/family-banner.webp', 'alt': 'Wash4You: care for everything that matters', 'w': 1400, 'h': 933}}, asset_path, ui) }}
     </div>
   </div>
 </section>

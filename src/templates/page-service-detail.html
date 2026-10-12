@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% from "_posters.html" import gallery, review_shots, feature with context %}
 {% from "_icons.html" import ui, care_tag, service_icon, service_bg %}
-{% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card, page_hero_mascot_inline, hero_photo %}
+{% from "_components.html" import before_after, before_after_static, faq_list, review_card, video_review_card, page_hero_mascot_inline, hero_photo, hero_visual_block %}
 
 {% block schema %},
       {
@@ -109,8 +109,7 @@
         </div>
 
         {% else %}
-        {% set pair = pick_pair(service.slug, service.slug) %}
-        <div class="svc-proof">{{ before_after(pair, asset_path, ui, eager=true) }}</div>
+        {{ hero_visual_block(hero_visual(service.slug, service.slug), asset_path, ui, 'svc-proof') }}
         {% endif %}
 
         <p class="svc-stage__chip">

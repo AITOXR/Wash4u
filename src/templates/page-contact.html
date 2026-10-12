@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui %}
-{% from "_components.html" import page_hero_mascot %}
+{% from "_components.html" import page_hero_mascot, hero_visual_block %}
 
 {% block schema %},
       {
@@ -29,7 +29,7 @@
           <a class="btn btn--ghost btn--lg" href="{{ site.urls.phone }}">{{ ui('phone', 18) }} {{ site.contact.phone }}</a>
         </div>
       </div>
-      {{ page_hero_mascot(asset_path, 'shoe-cleaning', 'contact') }}
+      {{ hero_visual_block({'photo': {'src': 'images/posters/doorstep-handover.webp', 'alt': 'Wash4You doorstep pickup and delivery', 'w': 1080, 'h': 1440}}, asset_path, ui) }}
     </div>
   </div>
 </section>

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import ui, care_tag, service_icon %}
-{% from "_components.html" import faq_list, page_hero_mascot_inline, before_after %}
+{% from "_components.html" import faq_list, page_hero_mascot_inline, before_after, hero_visual_block %}
 
 {# The service x locality long-tail page. Deliberately lean: its whole job is
    to answer one specific query well and then hand the visitor to the two
@@ -64,7 +64,7 @@
       </div>
 
       <div class="hero-ba-col">
-      <div class="hero-ba">{{ before_after(pick_pair(service.slug, service.slug ~ locality_name), asset_path, ui, true) }}</div>
+      {{ hero_visual_block(hero_visual(service.slug, service.slug ~ locality_name), asset_path, ui) }}
       <aside class="store-card reveal">
         <span class="svc__icon">{{ service_icon(service.slug, 36) }}</span>
         <strong>{{ service.name }} in {{ locality_name }}</strong>

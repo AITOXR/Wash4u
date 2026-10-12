@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% from "_posters.html" import gallery, feature with context %}
 {% from "_icons.html" import ui %}
-{% from "_components.html" import faq_list, before_after %}
+{% from "_components.html" import faq_list, before_after, hero_visual_block %}
 
 {# One page per priced item. Data: src/data/products/<slug>.json merged over
    _shared.json by build.py resolve_product(), which also fills every price
@@ -120,9 +120,7 @@
         </ul>
       </div>
 
-      <div class="prod-hero__ba">
-        {{ before_after(hero_pair, asset_path, ui, eager=true) }}
-      </div>
+      {{ hero_visual_block(hero_visual, asset_path, ui, 'prod-hero__ba') }}
     </div>
   </section>
 

@@ -486,13 +486,60 @@ def build() -> None:
         "carpet-cleaning": "sofa-cleaning", "mattress-cleaning": "sofa-cleaning",
     }
 
-    def pick_pair(service_slug: str = "premium-dry-cleaning", key: str = "") -> dict:
-        pool = _by_svc.get(service_slug) or _by_svc.get(_fallback.get(service_slug, ""), []) or list(_pairs.values())
-        if key and "lehenga" in key and "lehenga" in _pairs:
-            return _pairs["lehenga"]
-        return pool[sum(map(ord, key)) % len(pool)] if key else pool[0]
+    def _photo(src: str, alt: str, w: int = 1080, h: int = 1440) -> dict:
+        return {"photo": {"src": f"images/{src}", "alt": alt, "w": w, "h": h}}
 
-    env.globals["pick_pair"] = pick_pair
+    # Services whose own before/after is the right picture for the page.
+    _pair_services = {"shoe-cleaning", "sofa-cleaning", "bag-cleaning", "toy-cleaning", "premium-dry-cleaning"}
+    # Everything else gets a photograph of that kind of work.
+    _service_photo = {
+        "eco-friendly-laundry": ("posters/premium-laundry.webp", "Freshly washed and folded laundry by Wash4You", 1080, 1440),
+        "steam-ironing": ("posters/laundry-wash-and-iron.webp", "Washed and steam-ironed clothes by Wash4You", 1080, 1440),
+        "curtains-cleaning": ("posters/curtain-blue.webp", "Curtains cleaned by Wash4You", 1080, 1440),
+        "carpet-cleaning": ("posters/carpet-restored.webp", "Carpet restored by Wash4You", 1080, 1440),
+        "mattress-cleaning": ("posters/mattress-cleaning.webp", "Wash4You team deep cleaning a mattress", 1400, 933),
+        "blanket-quilt-cleaning": ("posters/blanket-bed.webp", "Blanket and quilt cleaned by Wash4You", 1080, 1440),
+        "linen-cleaning": ("gallery/linen.webp", "Linen cleaned and pressed by Wash4You", 1400, 1400),
+        "wet-cleaning": ("posters/shawl.webp", "Delicate fabrics wet cleaned by Wash4You", 1080, 1440),
+        "accessories-cleaning": ("posters/scarf.webp", "Scarves and accessories cleaned by Wash4You", 1080, 1440),
+    }
+    # Product pages: a pair where we have one that matches, else the item's own photo.
+    _product_pair = {"handbag-leather": "handbag", "lehenga": "lehenga", "t-shirt": "tee-stain"}
+    _product_photo_fallback = {
+        # no studio photo of their own: nearest same-family photograph
+        "cardigan": "sweater", "sweatshirt": "sweater", "woollen-laundry": "sweater", "woollen-laundry-iron": "sweater",
+        "coat": "blazer", "jacket": "blazer", "long-coat": "blazer",
+        "blouse": "kurta-embroidered", "dupatta": "saree-blue", "salwar": "kurta-blue", "sherwani": "kurta-peacock",
+        "palazzo": "pant-hanger", "top": "dress",
+        "bed-spread-double": "blanket-bed", "double-bed-sheet": "blanket-bed",
+    }
+    _by_product = posters["by_product"]
+
+    def hero_visual(service_slug: str = "premium-dry-cleaning", key: str = "", product: str = "") -> dict:
+        """The hero picture for a page: a matching before/after where one exists, otherwise a relevant photograph."""
+        if product:
+            if product in _product_pair and _product_pair[product] in _pairs:
+                return {"pair": _pairs[_product_pair[product]]}
+            if service_slug == "shoe-cleaning" and _by_svc.get("shoe-cleaning"):
+                pool = _by_svc["shoe-cleaning"]
+                return {"pair": pool[sum(map(ord, product)) % len(pool)]}
+            own = _by_product.get(product)
+            if own:
+                return _photo(own[0]["src"].replace("images/", "", 1), own[0]["alt"])
+            fb = _product_photo_fallback.get(product)
+            if fb:
+                return _photo(f"posters/{fb}.webp", f"{product.replace('-', ' ').title()} cleaned by Wash4You")
+        if service_slug in _pair_services and _by_svc.get(service_slug):
+            pool = _by_svc[service_slug]
+            return {"pair": pool[sum(map(ord, key)) % len(pool)] if key else pool[0]}
+        if service_slug == "leather-cleaning" and "handbag" in _pairs:
+            return {"pair": _pairs["handbag"]}
+        if service_slug in _service_photo:
+            src, alt, w, h = _service_photo[service_slug]
+            return _photo(src, alt, w, h)
+        return _photo("posters/family-banner.webp", "Wash4You: care for everything that matters", 1400, 933)
+
+    env.globals["hero_visual"] = hero_visual
 
     # Home
     pages_to_build.append(("index.html", "page-home.html", {
@@ -626,7 +673,7 @@ def build() -> None:
             {
                 "meta": prod["meta"],
                 "product": prod,
-                "hero_pair": pick_pair(prod.get("parentService", {}).get("slug", "premium-dry-cleaning") if isinstance(prod.get("parentService"), dict) else "premium-dry-cleaning", prod["slug"]),
+                "hero_visual": hero_visual(prod.get("parentService", {}).get("slug", "premium-dry-cleaning") if isinstance(prod.get("parentService"), dict) else "premium-dry-cleaning", prod["slug"], product=prod["slug"]),
                 "home": home,
                 "price_index": price_index,
                 "depth": 2,

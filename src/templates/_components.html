@@ -14,8 +14,18 @@
 
 {# The second column of a plain .page-hero__grid: a relevant photograph
    (replaces the old mascot). Pass src/alt to pick a different picture. #}
+{# The hero picture: v is build.py hero_visual() — either a matching before/after
+   ({pair}) or a relevant photograph ({photo}). Fills the height of the copy beside it. #}
+{% macro hero_visual_block(v, asset_path, ui, cls='hero-ba') %}
+{% if v.pair %}
+<div class="{{ cls }}">{{ before_after(v.pair, asset_path, ui, true) }}</div>
+{% else %}
+<div class="{{ cls }} hero-ba--photo"><figure class="hero-photo"><img src="{{ asset_path }}{{ v.photo.src }}" alt="{{ v.photo.alt }}" width="{{ v.photo.w }}" height="{{ v.photo.h }}" fetchpriority="high" decoding="async"></figure></div>
+{% endif %}
+{% endmacro %}
+
 {% macro page_hero_mascot(asset_path, svc='premium-dry-cleaning', key='') %}
-<div class="hero-ba">{{ before_after(pick_pair(svc, key or svc), asset_path, ui, true) }}</div>
+{{ hero_visual_block(hero_visual(svc, key or svc), asset_path, ui) }}
 {% endmacro %}
 
 {# A single small, always-visible mascot for page-hero layouts whose second
