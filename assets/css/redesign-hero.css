@@ -120,3 +120,28 @@
 .hero-ba--photo .hero-photo { flex: 1; position: relative; min-height: 22rem; }
 .hero-ba--photo .hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: center 30%; }
 @media (max-width: 61.99rem) { .hero-ba--photo .hero-photo { min-height: 0; } .hero-ba--photo .hero-photo img { position: static; aspect-ratio: 4 / 3; } }
+
+/* ============================================================
+   No cropping: heroes show the whole picture at its own proportions.
+   (Overrides the stretch-to-copy rules above.)
+   ============================================================ */
+.hero-photo img,
+.hero-ba--photo .hero-photo img { position: static; width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; }
+.hero-ba--photo .hero-photo { flex: none; min-height: 0; position: static; background: transparent; box-shadow: none; }
+.hero-photo { background: transparent; }
+
+/* before/after: frame takes the pair's own ratio, images contained */
+.svc-stage--proof .ba__frame, .svc-proof .ba__frame, .hero-ba .ba__frame, .prod-hero__ba .ba__frame {
+  flex: none; min-height: 0; aspect-ratio: var(--ba-ratio, 4 / 3);
+}
+.ba__frame .ba__img { object-fit: contain; background: #f3f5f9; }
+.svc-proof .ba, .hero-ba .ba, .prod-hero__ba .ba { flex: none; }
+
+@media (min-width: 62rem) {
+  .svc-stage--proof, .svc-proof, .hero-ba, .prod-hero__ba { flex: none; align-self: start; min-height: 0; }
+  .svc-hero .page-hero__grid, .prod-hero__grid, .page-hero__grid { align-items: start; }
+}
+
+/* Real results grid: same frame for every pair, whole picture inside it */
+.proof-grid .ba__img { object-fit: contain; }
+.svc-stage--proof .svc-stage__chip { position: static; display: block; margin-top: .75rem; text-align: right; }
