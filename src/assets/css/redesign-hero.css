@@ -73,3 +73,10 @@
    its own alignment (centred leads, captions, cards) still wins. */
 :where(p, .lede, .prose li) { text-align: justify; text-justify: inter-word; hyphens: auto; -webkit-hyphens: auto; }
 @media (max-width: 40rem) { :where(p, .lede, .prose li) { hyphens: auto; word-spacing: -0.02em; } }
+
+/* ---- Service-page before/after: bigger, and readable on the light hero ---- */
+.svc-stage--proof { max-width: 600px; }
+.svc-stage--proof .ba__frame { --ba-ratio: 4 / 3; box-shadow: 0 0 0 5px #fff, 0 22px 38px -18px rgba(13, 35, 80, .45); }
+.svc-stage--proof .ba__caption { color: #334a6b; }
+.svc-stage--proof .ba__caption strong { color: var(--navy-deep, #0d2350); }
+@media (min-width: 60rem) { .svc-hero .page-hero__grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); } }
