@@ -499,6 +499,7 @@ def build() -> None:
         # never be typed by hand and drift from the per-city counts printed
         # directly beneath it.
         "areas_total": areas_total_all,
+        "gurugram_areas": next(c["count"] for c in areas_data["cities"] if c["name"] == "Gurugram (Gurgaon)"),
         "proof": proof,
         "hero_pair": hero_pair,
         "testimonials": testimonials,

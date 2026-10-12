@@ -455,7 +455,7 @@
       <div class="coverage__copy reveal">
         <div class="section-head" style="margin-bottom:0">
           <p class="eyebrow"{{ cms('home:areas_section.eyebrow') }}>{{ home.areas_section.eyebrow }}</p>
-          <h2><span class="coverage__fig">{{ areas_total }}</span> areas. Free pickup in every one.</h2>
+          <h2><span class="coverage__fig">{{ gurugram_areas }}</span> Gurgaon areas. Free pickup in every one.</h2>
           <p{{ cms('home:areas_section.text') }}>{{ home.areas_section.text }}</p>
         </div>
         <ul class="coverage__stores">
@@ -470,23 +470,11 @@
          dimensions so the box is reserved before decode, and it is a normal
          grid child, not absolutely positioned. #}
       <div class="coverage__map reveal">
-        <img src="{{ asset_path }}images/hero-areas.webp"
-             width="1998" height="666" loading="lazy" decoding="async"
-             alt="Wash4You collection network: a Gurugram hub with routes out to Delhi, Noida, Faridabad and Ghaziabad">
+        <img src="{{ asset_path }}images/hero-areas-gurugram.svg"
+             width="1200" height="800" loading="lazy" decoding="async"
+             alt="Map of Gurugram showing the areas Wash4You collects from">
       </div>
     </div>
-
-    <ul class="coverage__cities stagger-children">
-      {% for city in areas.cities %}
-      <li>
-        <a class="coverage__city" href="{{ root_path }}locate-us/#coverage">
-          <b>{{ city.count }}</b>
-          <span>{{ city.name }}</span>
-          <small>{{ city.sample }}</small>
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
 
     <div class="areas stagger-children">
       {% for a in site.footer.areas %}

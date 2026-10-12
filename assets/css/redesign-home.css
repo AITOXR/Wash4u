@@ -930,9 +930,8 @@ html.wall-gated .home-hero:not(.is-onscreen) .home-hero__wall {
   height: auto;
   aspect-ratio: 3 / 2;
   object-fit: cover;
-  object-position: right center;
+  object-position: center;
 }
-@media (max-width: 61.99rem) { .page-home .coverage__map img { aspect-ratio: 16 / 9; } }
 
 /* Counts strip — a 1px-gap grid over a light rule, so the dividers are the
    background showing through and cost no borders. */
