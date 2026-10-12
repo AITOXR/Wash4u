@@ -1,3 +1,44 @@
+# Wash4You Studio (visual page builder)
+
+`python3 src/admin/server.py`, then open **http://127.0.0.1:8765** and sign in
+(`src/admin/config.json`). You land in the **Studio**: an Elementor-style editor
+with the live page in the middle and a panel on the left.
+
+| Panel | What it does |
+|---|---|
+| **Widgets** | Drag a widget onto the page (or click it): Hero banner, Heading + text, Image + text, Gallery, Call to action, Stats strip, FAQ, Video, Spacer, Custom HTML. Edit its content in **Settings**. |
+| **Navigator** | Every section of the page. Drag to reorder, eye to hide/show (hidden sections are removed from the live site). |
+| **Settings** | Click a section, text or image on the page. Section: background / text colour, padding, hide on desktop / tablet / mobile, move, duplicate, delete. Text: edit content and style it (colour, size, weight, alignment, italic). Image: replace it. |
+| **Site** | Global brand colours and business details (phone, email, offer, booking / WhatsApp links). |
+
+Top bar: page picker (every page on the site), desktop / tablet / mobile
+preview, undo / redo (Ctrl/Cmd+Z), **Save**, **Publish**, and **Classic** (the
+older click-to-edit overlay).
+
+**Save** writes your changes to `src/data/` and rebuilds the editable preview.
+**Publish** builds the production site, syncs it to the deploy folder and
+(optionally) commits and pushes it. Nothing reaches the live site before that.
+
+Pages built from one template (products, services, area pages) show an
+**Apply to all pages using this template** checkbox in the Navigator: layout,
+widgets and section styles are then shared by every page of that type.
+
+## How it is stored
+
+| File | Holds |
+|---|---|
+| `src/data/layout.json` | Section order and hidden sections, per page (`page:<path>`) or per template (`tpl:<template>`). |
+| `src/data/blocks.json` | The widgets you added (type + content), same scoping. |
+| `src/data/styles.json` | Section styles, text-field styles and global colours. Emitted as `assets/css/studio-custom.css`. |
+| `src/studio.py` | The build step that applies all of the above to every page. |
+
+Sections get stable ids from their CSS classes (not their text), so editing a
+headline never loses its layout. Text you can edit inline is anything the
+templates bind with `cms('store:path')`; to make more text editable, add that
+call to its element in `src/templates/`.
+
+---
+
 # Wash4You content admin
 
 A small, **local** click-to-edit CMS for this static site. You edit the real

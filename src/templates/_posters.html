@@ -10,10 +10,10 @@
         <img src="{{ asset_path }}{{ f.src }}" alt="" width="1080" height="1440" loading="lazy" decoding="async">
       </a>
       <div class="poster-feature__copy reveal">
-        <p class="eyebrow">{{ f.eyebrow }}</p>
-        <h2>{{ f.title }}</h2>
-        <p class="poster-feature__lede">{{ f.body }}</p>
-        <a class="btn btn--cta btn--lg" href="{{ href }}"{{ ' target="_blank" rel="noopener"' if f.url }}>{{ f.cta }}</a>
+        <p class="eyebrow"{{ cms('posters:features.' ~ key ~ '.eyebrow') }}>{{ f.eyebrow }}</p>
+        <h2{{ cms('posters:features.' ~ key ~ '.title') }}>{{ f.title }}</h2>
+        <p class="poster-feature__lede"{{ cms('posters:features.' ~ key ~ '.body') }}>{{ f.body }}</p>
+        <a class="btn btn--cta btn--lg" href="{{ href }}"{{ ' target="_blank" rel="noopener"' if f.url }}><span{{ cms('posters:features.' ~ key ~ '.cta') }}>{{ f.cta }}</span></a>
       </div>
     </div>
   </div>

@@ -1,0 +1,127 @@
+{# Studio widget blocks. Each macro returns ONE root <section>; studio.render_block()
+   tags it with data-block / data-block-type. Props come from data/blocks.json.
+   `href()` keeps absolute URLs, tel:/mailto:/# links as they are and roots
+   relative paths at the site root. #}
+{% macro href(u, root_path) -%}
+{%- set u = (u or '') | trim -%}
+{%- if u.startswith('http') or u.startswith('tel:') or u.startswith('mailto:') or u.startswith('#') -%}{{ u }}{%- else -%}{{ root_path }}{{ u.lstrip('/') }}{%- endif -%}
+{%- endmacro %}
+
+{% macro btn(label, url, root_path, kind='cta') -%}
+{%- if label -%}<a class="btn btn--{{ kind }} btn--lg" href="{{ href(url, root_path) }}"{% if (url or '').startswith('http') %} target="_blank" rel="noopener"{% endif %}>{{ label }}</a>{%- endif -%}
+{%- endmacro %}
+
+{% macro block_hero(p, root_path, asset_path) %}
+<section class="section studio-block studio-hero" style="{% if p.image %}background-image:linear-gradient(rgba(11,30,60,.62),rgba(11,30,60,.62)),url('{{ asset_path }}{{ p.image }}');background-size:cover;background-position:center;{% endif %}">
+  <div class="wrap studio-hero__inner">
+    {% if p.eyebrow %}<p class="eyebrow">{{ p.eyebrow }}</p>{% endif %}
+    <h2 class="studio-hero__title">{{ p.title or 'Your headline here' }}</h2>
+    {% if p.text %}<div class="studio-hero__text studio-body">{{ p.text }}</div>{% endif %}
+    {% if p.button_label %}<div class="studio-actions">{{ btn(p.button_label, p.button_url, root_path) }}</div>{% endif %}
+  </div>
+</section>
+{% endmacro %}
+
+{% macro block_heading(p, root_path, asset_path) %}
+<section class="section studio-block studio-text studio-text--{{ p.align or 'center' }}">
+  <div class="wrap wrap--narrow">
+    {% if p.eyebrow %}<p class="eyebrow{% if (p.align or 'center') == 'center' %} eyebrow--center{% endif %}">{{ p.eyebrow }}</p>{% endif %}
+    <h2>{{ p.title or 'Add a heading' }}</h2>
+    {% if p.text %}<div class="studio-body">{{ p.text }}</div>{% endif %}
+    {% if p.button_label %}<div class="studio-actions">{{ btn(p.button_label, p.button_url, root_path) }}</div>{% endif %}
+  </div>
+</section>
+{% endmacro %}
+
+{% macro block_image_text(p, root_path, asset_path) %}
+<section class="section studio-block poster-feature">
+  <div class="wrap">
+    <div class="poster-feature__grid poster-feature__grid--{{ p.side or 'left' }}">
+      <div class="poster-feature__art">
+        {% if p.image %}<img src="{{ asset_path }}{{ p.image }}" alt="{{ p.alt or p.title or '' }}" loading="lazy" decoding="async">
+        {% else %}<div class="studio-placeholder">Choose an image</div>{% endif %}
+      </div>
+      <div class="poster-feature__copy">
+        {% if p.eyebrow %}<p class="eyebrow">{{ p.eyebrow }}</p>{% endif %}
+        <h2>{{ p.title or 'Add a heading' }}</h2>
+        {% if p.text %}<div class="poster-feature__lede studio-body">{{ p.text }}</div>{% endif %}
+        {{ btn(p.button_label, p.button_url, root_path) }}
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro block_gallery(p, root_path, asset_path) %}
+<section class="section studio-block photo-gallery">
+  <div class="wrap">
+    {% if p.title or p.eyebrow %}
+    <div class="section-head section-head--center">
+      {% if p.eyebrow %}<p class="eyebrow eyebrow--center">{{ p.eyebrow }}</p>{% endif %}
+      {% if p.title %}<h2>{{ p.title }}</h2>{% endif %}
+    </div>
+    {% endif %}
+    {% set imgs = (p.images or []) | selectattr('src') | list %}
+    <div class="photo-gallery__cols photo-gallery__cols--{{ [p.columns | int or 3, 3] | min }}">
+      {% for im in imgs %}
+      <figure class="photo-gallery__item"><img src="{{ asset_path }}{{ im.src }}" alt="{{ im.alt or im.caption or '' }}" loading="lazy" decoding="async">{% if im.caption %}<figcaption>{{ im.caption }}</figcaption>{% endif %}</figure>
+      {% else %}<div class="studio-placeholder">Add images to this gallery</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro block_cta(p, root_path, asset_path) %}
+<section class="section studio-block section--tight">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>{{ p.title or 'Ready to book?' }}</h2>
+      {% if p.text %}<div class="studio-body">{{ p.text }}</div>{% endif %}
+      <div class="btn-row">
+        {{ btn(p.button_label, p.button_url, root_path) }}
+        {{ btn(p.button2_label, p.button2_url, root_path, 'on-navy') }}
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro block_stats(p, root_path, asset_path) %}
+<section class="section studio-block stat-strip">
+  <div class="wrap">
+    {% if p.lead %}<p class="stat-strip__lead">{{ p.lead }}</p>{% endif %}
+    <ul class="stat-strip__list">
+      {% for it in (p['items'] or []) %}<li><strong>{{ it.value }}</strong><span>{{ it.label }}</span></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro block_faq(p, root_path, asset_path) %}
+{% from "_components.html" import faq_list %}
+<section class="section studio-block section--wash">
+  <div class="wrap wrap--narrow">
+    <div class="section-head section-head--center"><h2>{{ p.title or 'Frequently asked questions' }}</h2></div>
+    {{ faq_list(p['items'] or [], 'studio-faq') }}
+  </div>
+</section>
+{% endmacro %}
+
+{% macro block_video(p, root_path, asset_path) %}
+<section class="section studio-block">
+  <div class="wrap wrap--narrow">
+    {% if p.title %}<div class="section-head section-head--center"><h2>{{ p.title }}</h2></div>{% endif %}
+    {% if p.embed %}<div class="studio-video"><iframe src="{{ p.embed }}" title="{{ p.title or 'Video' }}" loading="lazy" allowfullscreen allow="accelerometer; encrypted-media; picture-in-picture"></iframe></div>
+    {% else %}<div class="studio-placeholder">Paste a YouTube or Vimeo link</div>{% endif %}
+  </div>
+</section>
+{% endmacro %}
+
+{% macro block_spacer(p, root_path, asset_path) %}
+<section class="studio-block studio-spacer" style="height:{{ [[p.height | int or 48, 8] | max, 400] | min }}px" aria-hidden="true"></section>
+{% endmacro %}
+
+{% macro block_html(p, root_path, asset_path) %}
+<section class="section studio-block studio-html"><div class="wrap">{{ (p.html or '') | safe }}</div></section>
+{% endmacro %}

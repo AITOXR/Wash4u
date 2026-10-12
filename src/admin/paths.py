@@ -20,7 +20,7 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 ALLOWED_STORES = {
     "site", "home", "about", "services", "pricing", "packages",
     "steam-iron", "blog", "locations", "policies", "pages",
-    "proof", "testimonials",
+    "proof", "testimonials", "posters", "city-prices",
     # Drives the home page coverage band (city names, per-city area counts,
     # the 456 total summed from them) and the /locate-us/ page. Was missing,
     # so none of that was editable.

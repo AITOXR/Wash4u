@@ -314,6 +314,33 @@ function initRails(on, cleanups) {
     on(window, 'resize', request, { passive: true })
     sync()
 
+    // reviews auto-advance; paused on hover/focus/touch, off-screen, hidden
+    // tab, or reduced motion. Loops back to the first card at the end.
+    if (rail.classList.contains('testimonial-rail')) {
+      let paused = false
+      let visible = true
+      let resumeAt = 0
+      const hold = () => { paused = true }
+      const release = () => { paused = false; resumeAt = Date.now() + 2000 }
+      ;['mouseenter', 'focusin', 'touchstart', 'pointerdown'].forEach((e) => on(rail, e, hold, { passive: true }))
+      ;['mouseleave', 'focusout', 'touchend', 'pointerup'].forEach((e) => on(rail, e, release, { passive: true }))
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((es) => { visible = es[0].isIntersecting }, { threshold: 0.25 })
+        io.observe(rail)
+        cleanups.push(() => io.disconnect())
+      }
+      const timer = setInterval(() => {
+        if (paused || !visible || document.hidden || motionOff() || Date.now() < resumeAt) return
+        const kids = rail.children
+        if (kids.length < 2) return
+        const step = kids[1].offsetLeft - kids[0].offsetLeft
+        const max = rail.scrollWidth - rail.clientWidth
+        if (rail.scrollLeft >= max - 1) rail.scrollTo({ left: 0, behavior: 'smooth' })
+        else rail.scrollBy({ left: step, behavior: 'smooth' })
+      }, 4000)
+      cleanups.push(() => clearInterval(timer))
+    }
+
     // leave nothing disabled behind us
     cleanups.push(() => {
       group.prev.concat(group.next).forEach((b) => { b.disabled = false })

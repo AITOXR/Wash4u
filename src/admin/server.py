@@ -27,7 +27,7 @@ import sys
 from http.cookies import SimpleCookie
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import unquote, urlparse
+from urllib.parse import parse_qs, unquote, urlparse
 
 ADMIN_DIR = Path(__file__).resolve().parent
 SRC_DIR = ADMIN_DIR.parent
@@ -41,6 +41,8 @@ UPLOADS_SUBDIR = "images/uploads"  # relative to assets/, where swapped images l
 
 sys.path.insert(0, str(ADMIN_DIR))
 import paths as content  # noqa: E402  (local module)
+sys.path.insert(0, str(SRC_DIR))
+import studio  # noqa: E402  (build-side Studio engine)
 
 CONFIG = json.loads((ADMIN_DIR / "config.json").read_text(encoding="utf-8"))
 PORT = int(CONFIG.get("port", 8765))
@@ -84,14 +86,20 @@ def run_build(edit: bool) -> tuple[bool, str]:
     return proc.returncode == 0, out.strip()
 
 
-def inject_overlay(html_text: str, username: str) -> str:
-    """Insert the admin overlay CSS/JS into a served page."""
-    head = '<link rel="stylesheet" href="/admin/overlay/admin.css">'
-    boot = (
-        '<script>window.__W4U_ADMIN__='
-        + json.dumps({"user": username})
-        + ';</script><script src="/admin/overlay/admin.js" defer></script>'
-    )
+def inject_overlay(html_text: str, username: str, studio_frame: bool = False) -> str:
+    """Insert the admin overlay CSS/JS into a served page. The Studio canvas
+    (an iframe) gets the quiet frame script instead of the classic toolbar."""
+    if studio_frame:
+        head = '<link rel="stylesheet" href="/admin/overlay/studio-frame.css">'
+        boot = ('<script>window.__W4U_STUDIO__=true;</script>'
+                '<script src="/admin/overlay/studio-frame.js" defer></script>')
+    else:
+        head = '<link rel="stylesheet" href="/admin/overlay/admin.css">'
+        boot = (
+            '<script>window.__W4U_ADMIN__='
+            + json.dumps({"user": username})
+            + ';</script><script src="/admin/overlay/admin.js" defer></script>'
+        )
     if "</head>" in html_text:
         html_text = html_text.replace("</head>", head + "</head>", 1)
     if "</body>" in html_text:
@@ -163,12 +171,25 @@ class Handler(BaseHTTPRequestHandler):
             return
         if path.startswith("/admin/overlay/"):
             return self._serve_overlay(path)
+        query = parse_qs(urlparse(self.path).query)
+        if path == "/studio":
+            if not self._session_ok():
+                return self._redirect("/admin/login")
+            return self._serve_overlay("/admin/overlay/studio.html")
+        if path == "/" and "classic" not in query and "studio" not in query:
+            return self._redirect("/studio" if self._session_ok() else "/admin/login")
 
         if path.startswith("/admin/api/"):
             if not self._session_ok():
                 return self._json(401, {"error": "not authenticated"})
             if path == "/admin/api/blog":
                 return self._json(200, {"posts": content.load_store("blog").get("posts", [])})
+            if path == "/admin/api/studio/pages":
+                return self._json(200, {"pages": studio_pages()})
+            if path == "/admin/api/studio/state":
+                return self._json(200, {
+                    "layout": studio.load_layout(), "blocks": studio.load_blocks(),
+                    "styles": studio.load_styles(), "types": list(studio.BLOCK_TYPES)})
             if path == "/admin/api/bindings":
                 # Not strictly needed by the overlay, but handy for debugging.
                 return self._json(200, {"stores": sorted(content.ALLOWED_STORES)})
@@ -206,7 +227,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(404, b"not found", "text/plain")
 
         if target.suffix == ".html":
-            body = inject_overlay(target.read_text(encoding="utf-8"), self._user())
+            frame = "studio" in parse_qs(urlparse(self.path).query)
+            body = inject_overlay(target.read_text(encoding="utf-8"), self._user(), frame)
             return self._send(200, body.encode("utf-8"), CONTENT_TYPES[".html"])
         ctype = CONTENT_TYPES.get(target.suffix, "application/octet-stream")
         return self._send(200, target.read_bytes(), ctype)
@@ -236,6 +258,14 @@ class Handler(BaseHTTPRequestHandler):
                 return self._blog()
             if path == "/admin/api/publish":
                 return self._publish()
+            if path == "/admin/api/studio/save":
+                return self._studio_save()
+            if path == "/admin/api/studio/render-block":
+                return self._studio_render_block()
+            if path == "/admin/api/studio/upload":
+                return self._studio_upload()
+            if path == "/admin/api/studio/bindings":
+                return self._studio_bindings()
         except Exception as e:  # surface the real reason to the UI
             return self._json(500, {"error": f"{type(e).__name__}: {e}"})
 
@@ -338,6 +368,58 @@ class Handler(BaseHTTPRequestHandler):
             return self._json(500, {"error": "build failed", "detail": out})
         return self._json(200, {"ok": True, "posts": posts})
 
+    # -- studio ----------------------------------------------------------
+    def _studio_save(self):
+        data = self._read_json()
+        changed = {}
+        if data.get("edits"):
+            changed = content.apply_edits(data["edits"])
+        for key, path in (("layout", studio.LAYOUT_FILE), ("blocks", studio.BLOCKS_FILE), ("styles", studio.STYLES_FILE)):
+            doc = data.get(key)
+            if isinstance(doc, dict):
+                path.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        ok, out = run_build(edit=True)
+        if not ok:
+            return self._json(500, {"error": "build failed", "detail": out})
+        return self._json(200, {"ok": True, "changed": changed})
+
+    def _studio_render_block(self):
+        data = self._read_json()
+        block = {"id": data.get("id") or "blk-preview", "type": data.get("type"), "props": data.get("props") or {}}
+        if block["type"] not in studio.BLOCK_TYPES:
+            return self._json(400, {"error": "unknown block type"})
+        html_text = studio.render_block(studio.make_env(), block, "/", "/")
+        return self._json(200, {"html": html_text})
+
+    def _studio_upload(self):
+        data = self._read_json()
+        m = re.match(r"^data:([^;]+);base64,(.*)$", data.get("dataUrl", ""), re.S)
+        if not m:
+            return self._json(400, {"error": "expected a base64 data URL"})
+        raw = base64.b64decode(m.group(2))
+        orig = data.get("name") or "upload"
+        stem = SAFE_NAME.sub("-", Path(orig).stem).strip("-") or "image"
+        suffix = Path(orig).suffix.lower() or ".png"
+        if suffix not in (".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"):
+            return self._json(400, {"error": "only image files can be uploaded"})
+        digest = base64.urlsafe_b64encode(raw).decode()[:8].replace("-", "").replace("_", "")
+        fname = f"{stem}-{digest}{suffix}"
+        rel = f"{UPLOADS_SUBDIR}/{fname}"
+        for base in (IMAGES_DIR / "uploads", DIST_EDIT / "images" / "uploads", DIST_EDIT / "assets" / "images" / "uploads"):
+            base.mkdir(parents=True, exist_ok=True)
+            (base / fname).write_bytes(raw)
+        return self._json(200, {"ok": True, "path": rel})
+
+    def _studio_bindings(self):
+        data = self._read_json()
+        out = {}
+        for b in data.get("bindings") or []:
+            try:
+                out[b] = content.get_binding(b)
+            except Exception:
+                out[b] = None
+        return self._json(200, {"values": out})
+
     # -- publish ---------------------------------------------------------
     def _publish(self):
         data = self._read_json()
@@ -362,6 +444,36 @@ class Handler(BaseHTTPRequestHandler):
                 steps.append(pushed["message"])
                 return self._json(200, {"ok": pushed["ok"], "steps": steps, "detail": pushed.get("detail", "")})
         return self._json(200, {"ok": True, "steps": steps})
+
+
+def studio_pages() -> list[dict]:
+    """Every built page (from the edit build's sitemap), grouped for the picker."""
+    sm = DIST_EDIT / "sitemap.xml"
+    paths = []
+    if sm.is_file():
+        for loc in re.findall(r"<loc>([^<]+)</loc>", sm.read_text(encoding="utf-8")):
+            p = urlparse(loc).path or "/"
+            paths.append(p)
+    main = ["/", "/services/", "/pricing/", "/packages/", "/about-us/", "/locate-us/", "/contact-us/",
+            "/blog/", "/steam-iron/", "/wash4you-overview/", "/best-dryclean-near-me/", "/best-dryclean-in-gurgaon/"]
+    out = []
+    for p in paths:
+        if p in main:
+            group = "Main pages"
+        elif p.startswith("/products/"):
+            group = "Products"
+        elif p.startswith("/services/"):
+            group = "Services"
+        elif p.startswith("/blog/"):
+            group = "Blog"
+        elif p.startswith("/laundry-service-"):
+            group = "Area pages"
+        else:
+            group = "Other"
+        out.append({"path": p, "group": group})
+    order = {"Main pages": 0, "Services": 1, "Products": 2, "Blog": 3, "Area pages": 4, "Other": 5}
+    out.sort(key=lambda x: (order.get(x["group"], 9), main.index(x["path"]) if x["path"] in main else 999, x["path"]))
+    return out
 
 
 # -- publish helpers -----------------------------------------------------

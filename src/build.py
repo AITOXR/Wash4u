@@ -11,6 +11,7 @@ import shutil
 import sys
 from pathlib import Path
 
+import studio
 from jinja2 import Environment, FileSystemLoader
 from markupsafe import Markup
 
@@ -174,7 +175,7 @@ def markdown_to_html(text: str) -> str:
     return "\n".join(out)
 
 
-def _make_cms(enabled: bool):
+def _make_cms(enabled: bool, styled: set | None = None):
     """Build the `cms()` template global.
 
     In edit mode it returns an HTML attribute string that binds a rendered
@@ -189,9 +190,14 @@ def _make_cms(enabled: bool):
     """
     from markupsafe import Markup
 
+    styled = styled or set()
+
     def cms(path: str, kind: str = "text") -> "Markup | str":
+        # A field with a Studio style override carries data-sid so the generated
+        # studio-custom.css can target it (also in production).
+        sid = f' data-sid="{html.escape(path, quote=True)}"' if path in styled else ""
         if not enabled:
-            return ""
+            return Markup(sid) if sid else ""
         safe = html.escape(path, quote=True)
         # kind="file" binds an <img> to a fixed asset on disk (template
         # literals like the mascot/logo that have no JSON field); swapping it
@@ -199,7 +205,7 @@ def _make_cms(enabled: bool):
         # JSON location "<store>:<path>" and edits that value.
         if kind == "file":
             return Markup(f' data-cms-file="{safe}"')
-        return Markup(f' data-cms="{safe}" data-cms-kind="{html.escape(kind, quote=True)}"')
+        return Markup(f' data-cms="{safe}" data-cms-kind="{html.escape(kind, quote=True)}"{sid}')
 
     return cms
 
@@ -375,14 +381,14 @@ def build() -> None:
     # emitted through `| tojson`, which is both valid-JSON and escape-safe.
     env = Environment(
         loader=FileSystemLoader(TEMPLATES_DIR),
-        trim_blocks=True, lstrip_blocks=True, autoescape=True,
+        trim_blocks=True, lstrip_blocks=True, autoescape=True, finalize=studio.finalize,
     )
     env.filters["markdown"] = lambda s: Markup(markdown_to_html(s))
     # Cache-buster for CSS/JS links: changes on every build so browsers never
     # keep serving a stale stylesheet after a deploy.
     env.globals["asset_v"] = __import__("time").strftime("%Y%m%d%H%M%S")
     env.globals["edit_mode"] = EDIT_MODE
-    env.globals["cms"] = _make_cms(EDIT_MODE)
+    env.globals["cms"] = _make_cms(EDIT_MODE, studio.styled_bindings())
 
     # Page registry
     pages_to_build = []
@@ -914,6 +920,9 @@ def build() -> None:
         "depth": 0,
     }))
 
+    # Studio state (layout order / hidden sections / widget blocks / styles).
+    studio_layout, studio_blocks, studio_styles = studio.load_layout(), studio.load_blocks(), studio.load_styles()
+
     # Render all pages
     template_cache = {}
     for rel_path, template_name, context in pages_to_build:
@@ -969,8 +978,13 @@ def build() -> None:
         context.setdefault("product_urls_by_name", product_urls_by_name)
 
         rendered = template.render(**context)
+        if template_name not in ("page-pricing-print.html",):
+            rendered = studio.apply(rendered, rel_path, template_name, env, root_path, asset_path,
+                                    edit=EDIT_MODE, layout=studio_layout, blocks=studio_blocks, styles=studio_styles)
         write_html(DIST_DIR / rel_path, rendered)
         print(f"Built: {rel_path}")
+
+    (DIST_DIR / "assets" / "css" / "studio-custom.css").write_text(studio.css(studio_styles), encoding="utf-8")
 
     # Sitemap, derived from the page registry so it can never drift out of
     # sync with what was actually built.
