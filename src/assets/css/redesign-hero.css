@@ -218,3 +218,18 @@ mark.seo-hl {
   }
 }
 
+
+/* ---- Packages: copy on a light ground, the "One package covers all services"
+   banner underneath at full width, shown whole. ---- */
+.packages-hero { background: var(--wash, #f3f7fb); color: var(--navy-deep, #0d2350); border-bottom: 0; }
+.packages-hero .crumbs, .packages-hero .crumbs a { color: var(--navy, #14336b); }
+.packages-hero .crumbs span[aria-hidden] { color: rgba(20, 51, 107, .4); }
+.packages-hero .eyebrow { color: var(--navy, #14336b); }
+.packages-hero h1 { color: var(--navy-deep, #0d2350); }
+.packages-hero .lede { color: #223a5e; }
+.packages-hero .btn--ghost { color: var(--navy, #14336b); border-color: rgba(20, 51, 107, .35); background: #fff; }
+.packages-hero__family, .packages-hero .page-hero__mascot-inline { display: none; }
+.packages-hero .crumbs, .packages-hero .eyebrow, .packages-hero h1, .packages-hero .lede, .packages-hero .btn-row { max-width: none; }
+.packages-hero .lede { max-width: 52rem; }
+.hero-banner { margin: clamp(1.5rem, 3vw, 2.5rem) 0 0; border-radius: var(--r-lg, 1rem); overflow: hidden; box-shadow: 0 20px 44px rgba(13, 35, 80, .22); }
+.hero-banner img { display: block; width: 100%; height: auto; }
