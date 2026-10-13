@@ -217,3 +217,28 @@ mark.seo-hl {
     object-fit: contain; object-position: center; margin: 0;
   }
 }
+
+/* ============================================================
+   Blend hero pictures into the hero ground instead of placing a card on it:
+   no frame, shadow or outline; the edges feather out to the page colour and
+   white photo backgrounds multiply away into it.
+   ============================================================ */
+:root {
+  --hero-feather:
+    linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 9%, #000 91%, transparent 100%);
+}
+.svc-hero .hero-photo, .prod-hero .hero-photo, .page-hero .hero-photo,
+.svc-hero .ba__frame, .prod-hero .ba__frame, .page-hero .ba__frame {
+  background: transparent !important; box-shadow: none !important; outline: 0 !important; border-radius: 0 !important;
+}
+.svc-hero .hero-photo img, .prod-hero .hero-photo img, .page-hero .hero-photo img,
+.svc-hero .ba__img, .prod-hero .ba__img, .page-hero .ba__img,
+.svc-hero .ba__clip, .prod-hero .ba__clip, .page-hero .ba__clip {
+  -webkit-mask-image: var(--hero-feather); mask-image: var(--hero-feather);
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+}
+.svc-hero .hero-photo img, .prod-hero .hero-photo img, .page-hero .hero-photo img { mix-blend-mode: multiply; filter: none; }
+.hero-photo--cutout img { mix-blend-mode: normal; filter: drop-shadow(0 24px 30px rgba(13, 35, 80, .22)); -webkit-mask-image: none; mask-image: none; }
+/* the divider line fades with the picture too */
+.svc-hero .ba__divider, .prod-hero .ba__divider, .page-hero .ba__divider { opacity: .75; }
