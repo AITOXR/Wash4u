@@ -182,3 +182,8 @@ mark.seo-hl {
 .ba__nav--prev { left: .75rem; }
 .ba__nav--next { right: .75rem; }
 .svc-stage--proof .svc-stage__chip { display: flex; justify-content: flex-end; border: 0; background: none; box-shadow: none; padding: 0; }
+
+/* Hero before/after: frame uses the photograph's OWN proportions, so it is
+   filled edge to edge with nothing cropped and no empty bars. */
+.svc-stage--proof .ba__frame, .svc-proof .ba__frame, .hero-ba .ba__frame, .prod-hero__ba .ba__frame { --ba-ratio: unset; }
+.svc-stage--proof .ba__img, .svc-proof .ba__img, .hero-ba .ba__img, .prod-hero__ba .ba__img { object-fit: cover; background: none; }
