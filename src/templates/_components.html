@@ -20,7 +20,7 @@
 {% if v.pair %}
 <div class="{{ cls }}">{{ before_after(v.pair, asset_path, ui, true) }}</div>
 {% else %}
-<div class="{{ cls }} hero-ba--photo"><figure class="hero-photo"><img src="{{ asset_path }}{{ v.photo.src }}" alt="{{ v.photo.alt }}" width="{{ v.photo.w }}" height="{{ v.photo.h }}" fetchpriority="high" decoding="async"></figure></div>
+<div class="{{ cls }} hero-ba--photo"><figure class="hero-photo{% if v.photo.cutout %} hero-photo--cutout{% endif %}"><img src="{{ asset_path }}{{ v.photo.src }}" alt="{{ v.photo.alt }}" width="{{ v.photo.w }}" height="{{ v.photo.h }}" fetchpriority="high" decoding="async"></figure></div>
 {% endif %}
 {% endmacro %}
 

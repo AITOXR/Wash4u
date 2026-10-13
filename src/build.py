@@ -566,6 +566,10 @@ def build() -> None:
 
     def hero_visual(service_slug: str = "premium-dry-cleaning", key: str = "", product: str = "") -> dict:
         """The hero picture for a page: a matching before/after where one exists, otherwise a relevant photograph."""
+        if service_slug == "shoe-cleaning" and not product:
+            v = _photo("hero-shoe-cleaning.webp", "A sneaker half dirty, half cleaned by Wash4You", 1179, 1200)
+            v["photo"]["cutout"] = True
+            return v
         if product:
             if product in _product_pair and _product_pair[product] in _pairs:
                 return {"pair": _pairs[_product_pair[product]]}

@@ -207,3 +207,7 @@ mark.seo-hl {
     flex: 1; aspect-ratio: auto; max-height: none; min-height: 30rem;
   }
 }
+
+/* Cut-out hero (transparent PNG): no card, just the object, large */
+.hero-photo--cutout { background: none !important; box-shadow: none !important; border-radius: 0 !important; }
+.hero-photo--cutout img { max-height: 40rem !important; filter: drop-shadow(0 24px 30px rgba(13, 35, 80, .28)); }

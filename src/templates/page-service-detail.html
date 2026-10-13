@@ -100,11 +100,12 @@
       </div>
 
       <div class="svc-stage svc-stage--{{ state }}">
-        {% if service_proof %}
+        {% set pick = namespace(p=none, d=99) %}
+        {% if service_proof and service.slug != 'shoe-cleaning' %}
         {# A photograph of the actual work beats an arrangement of plates,
            so these two keep their evidence in the hero. #}
         {# the pair closest to square makes the biggest, best-filled hero #}
-        {% set pick = namespace(p=service_proof[0], d=99) %}
+        {% set pick.p = service_proof[0] %}
         {% for c in service_proof if c.featured %}{% set dd = ((c.width / c.height) - 1.1) | abs %}{% if dd < pick.d %}{% set pick.p = c %}{% set pick.d = dd %}{% endif %}{% endfor %}
         {% set pair = pick.p %}
         <div class="svc-proof"{% if pair.inset %} style="--ba-inset:{{ pair.inset }}"{% endif %}>
@@ -133,7 +134,7 @@
       <h2>Our own work, photographed in store</h2>
     </div>
     <div class="proof-grid">
-      {% for pair in service_proof if pair.id != pick.p.id %}
+      {% for pair in service_proof if not pick.p or pair.id != pick.p.id %}
       <div class="proof-grid__item reveal">
         {% if pair.featured %}{{ before_after(pair, asset_path, ui) }}{% else %}{{ before_after_static(pair, asset_path) }}{% endif %}
         <p class="proof-grid__summary">{{ pair.summary }}</p>
