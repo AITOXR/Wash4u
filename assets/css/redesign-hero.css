@@ -187,3 +187,23 @@ mark.seo-hl {
    filled edge to edge with nothing cropped and no empty bars. */
 .svc-stage--proof .ba__frame, .svc-proof .ba__frame, .hero-ba .ba__frame, .prod-hero__ba .ba__frame { --ba-ratio: unset; }
 .svc-stage--proof .ba__img, .svc-proof .ba__img, .hero-ba .ba__img, .prod-hero__ba .ba__img { object-fit: cover; background: none; }
+
+/* ============================================================
+   Larger hero before/after, running the full height of the copy:
+   top edge level with the first line, bottom edge level with the buttons.
+   The frame stretches to the text and the photo covers it (a few percent
+   trimmed at most, since the pair is chosen to be close to square).
+   ============================================================ */
+@media (min-width: 62rem) {
+  .svc-hero .page-hero__grid,
+  .prod-hero__grid,
+  .page-hero__grid:not(.about-hero__grid) { align-items: stretch; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+
+  .svc-stage--proof, .svc-proof, .prod-hero__ba, .hero-ba:not(.hero-ba--photo) {
+    align-self: stretch; width: 100%; display: flex; flex-direction: column; flex: 1; min-height: 0;
+  }
+  .svc-proof .ba, .prod-hero__ba .ba, .hero-ba:not(.hero-ba--photo) .ba { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+  .svc-stage--proof .ba__frame, .svc-proof .ba__frame, .prod-hero__ba .ba__frame, .hero-ba:not(.hero-ba--photo) .ba__frame {
+    flex: 1; aspect-ratio: auto; max-height: none; min-height: 30rem;
+  }
+}
