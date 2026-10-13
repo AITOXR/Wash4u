@@ -543,14 +543,15 @@ def build() -> None:
     # Everything else gets a photograph of that kind of work.
     _service_photo = {
         "eco-friendly-laundry": ("posters/premium-laundry.webp", "Freshly washed and folded laundry by Wash4You", 1080, 1440),
-        "steam-ironing": ("posters/laundry-wash-and-iron.webp", "Washed and steam-ironed clothes by Wash4You", 1080, 1440),
-        "curtains-cleaning": ("posters/curtain-blue.webp", "Curtains cleaned by Wash4You", 1080, 1440),
-        "carpet-cleaning": ("posters/carpet-restored.webp", "Carpet restored by Wash4You", 1080, 1440),
+        "steam-ironing": ("heroes/steam-ironing.webp", "Wash4You team member steam pressing a blazer", 1145, 1374),
+        "curtains-cleaning": ("heroes/curtains.webp", "Wash4You team member steam cleaning curtains", 1374, 1145),
+        "carpet-cleaning": ("heroes/carpet.webp", "Wash4You team member deep cleaning a carpet at home", 933, 1400),
         "mattress-cleaning": ("posters/mattress-cleaning.webp", "Wash4You team deep cleaning a mattress", 1400, 933),
-        "blanket-quilt-cleaning": ("posters/blanket-bed.webp", "Blanket and quilt cleaned by Wash4You", 1080, 1440),
+        "blanket-quilt-cleaning": ("heroes/blanket-quilt.webp", "Quilts and blankets cleaned and packed by Wash4You", 1400, 933),
         "linen-cleaning": ("gallery/linen.webp", "Linen cleaned and pressed by Wash4You", 1400, 1400),
-        "wet-cleaning": ("posters/shawl.webp", "Delicate fabrics wet cleaned by Wash4You", 1080, 1440),
-        "accessories-cleaning": ("posters/scarf.webp", "Scarves and accessories cleaned by Wash4You", 1080, 1440),
+        "wet-cleaning": ("posters/sweater.webp", "Woollens and delicates wet cleaned by Wash4You", 1080, 1440),
+        "leather-cleaning": ("posters/leather-jacket-photo.webp", "Black leather jacket cleaned and conditioned by Wash4You", 933, 1400),
+        "accessories-cleaning": ("proof/cap-after.webp", "Cap cleaned by Wash4You", 900, 1200),
     }
     # Product pages: a pair where we have one that matches, else the item's own photo.
     _product_pair = {"handbag-leather": "handbag", "lehenga": "lehenga", "t-shirt": "tee-stain"}
@@ -582,11 +583,9 @@ def build() -> None:
             fb = _product_photo_fallback.get(product)
             if fb:
                 return _photo(f"posters/{fb}.webp", f"{product.replace('-', ' ').title()} cleaned by Wash4You")
-        if service_slug in _pair_services and _by_svc.get(service_slug):
+        if service_slug in _pair_services and _by_svc.get(service_slug) and service_slug not in _service_photo:
             pool = _by_svc[service_slug]
             return {"pair": pool[sum(map(ord, key)) % len(pool)] if key else pool[0]}
-        if service_slug == "leather-cleaning" and "handbag" in _pairs:
-            return {"pair": _pairs["handbag"]}
         if service_slug in _service_photo:
             src, alt, w, h = _service_photo[service_slug]
             return _photo(src, alt, w, h)
