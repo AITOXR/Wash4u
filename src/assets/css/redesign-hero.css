@@ -48,25 +48,6 @@
 .prod-hero .city-toggle--hero .city-toggle__btn { color: var(--navy-deep, #0d2350); }
 .prod-hero .city-toggle--hero .city-toggle__btn.is-active { background: var(--navy-deep, #0d2350); color: #fff; }
 
-/* ---- Pricing (and pricing-by-area): copy left, photo right ---- */
-.pricing-hero {
-  display: block;
-  min-height: 0;
-  background: var(--wash, #f3f7fb);
-  color: var(--navy-deep, #0d2350);
-  border-bottom: 0;
-}
-.pricing-hero__inner { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); align-items: center; }
-@media (min-width: 62rem) { .pricing-hero__inner { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); } }
-.pricing-hero .crumbs, .pricing-hero .crumbs a { color: var(--navy, #14336b); text-shadow: none; }
-.pricing-hero .crumbs span[aria-hidden] { color: rgba(20, 51, 107, .4); }
-.pricing-hero .eyebrow { color: var(--navy, #14336b); text-shadow: none; }
-.pricing-hero__title { color: var(--navy-deep, #0d2350); text-shadow: none; }
-.pricing-hero__lede { color: #334a6b; text-shadow: none; }
-.pricing-hero .btn--ghost { color: var(--navy, #14336b); border-color: rgba(20, 51, 107, .35); background: #fff; text-shadow: none; }
-.pricing-hero .neon-kw { color: var(--green-cta, #198639); text-shadow: none; }
-.pricing-hero .kw, .pricing-hero .kw-text { color: var(--brass-deep, #8a6a2e); }
-.pricing-hero .hero-photo img { aspect-ratio: 1999 / 846; }
 
 /* ---- Justified paragraphs, site-wide ----
    :where() keeps specificity at zero, so any component that deliberately sets
@@ -157,7 +138,7 @@ mark.seo-hl {
   font-weight: inherit;
 }
 /* on the navy home hero the logo green reads better */
-.home-hero mark.seo-hl, .section--navy mark.seo-hl {
+.home-hero mark.seo-hl, .section--navy mark.seo-hl, .pricing-hero mark.seo-hl {
   color: var(--brand-green, #21b14b) !important;
   -webkit-text-fill-color: var(--brand-green, #21b14b);
   text-shadow: 0 0 .35em rgba(33, 177, 75, .55);
@@ -211,3 +192,4 @@ mark.seo-hl {
 /* Cut-out hero (transparent PNG): no card, just the object, large */
 .hero-photo--cutout { background: none !important; box-shadow: none !important; border-radius: 0 !important; }
 .hero-photo--cutout img { max-height: 40rem !important; filter: drop-shadow(0 24px 30px rgba(13, 35, 80, .28)); }
+.pricing-hero mark.seo-hl { text-shadow: 0 2px 10px rgba(0, 0, 0, .6), 0 0 .3em rgba(33, 177, 75, .45); }
