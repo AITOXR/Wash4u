@@ -219,17 +219,30 @@ mark.seo-hl {
 }
 
 
-/* ---- Packages: copy on a light ground, the "One package covers all services"
-   banner underneath at full width, shown whole. ---- */
-.packages-hero { background: var(--wash, #f3f7fb); color: var(--navy-deep, #0d2350); border-bottom: 0; }
+/* ---- Packages: full-width banner, copy over its bright left half ---- */
+.packages-hero {
+  background: url('../images/hero-packages-family.webp') right center / cover no-repeat, #f3f7fb;
+  color: var(--navy-deep, #0d2350);
+  border-bottom: 0;
+  min-height: 42vw;
+  display: flex; align-items: center;
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
+}
+.packages-hero > .wrap { width: 100%; }
 .packages-hero .crumbs, .packages-hero .crumbs a { color: var(--navy, #14336b); }
 .packages-hero .crumbs span[aria-hidden] { color: rgba(20, 51, 107, .4); }
 .packages-hero .eyebrow { color: var(--navy, #14336b); }
-.packages-hero h1 { color: var(--navy-deep, #0d2350); }
-.packages-hero .lede { color: #223a5e; }
+.packages-hero h1 { color: var(--navy-deep, #0d2350); font-size: clamp(1.6rem, 2.6vw, 2.4rem); line-height: 1.1; margin-bottom: .75rem; }
+.packages-hero .lede { color: #223a5e; font-size: clamp(.85rem, 1vw, .98rem); line-height: 1.5; }
 .packages-hero .btn--ghost { color: var(--navy, #14336b); border-color: rgba(20, 51, 107, .35); background: #fff; }
 .packages-hero__family, .packages-hero .page-hero__mascot-inline { display: none; }
-.packages-hero .crumbs, .packages-hero .eyebrow, .packages-hero h1, .packages-hero .lede, .packages-hero .btn-row { max-width: none; }
-.packages-hero .lede { max-width: 52rem; }
-.hero-banner { margin: clamp(1.5rem, 3vw, 2.5rem) 0 0; border-radius: var(--r-lg, 1rem); overflow: hidden; box-shadow: 0 20px 44px rgba(13, 35, 80, .22); }
-.hero-banner img { display: block; width: 100%; height: auto; }
+.packages-hero .btn-row { margin-top: 1rem; flex-wrap: wrap; }
+.packages-hero .btn--lg { padding: .7rem 1.2rem; font-size: .95rem; }
+@media (min-width: 62rem) {
+  .packages-hero .page-hero__grid { display: block; }
+  .packages-hero .crumbs, .packages-hero .eyebrow, .packages-hero h1, .packages-hero .lede, .packages-hero .btn-row { max-width: 34%; }
+  .packages-hero .lede { text-align: left; hyphens: none; }
+}
+@media (max-width: 61.99rem) {
+  .packages-hero { min-height: 0; background: linear-gradient(rgba(255, 255, 255, .88), rgba(255, 255, 255, .88)), url('../images/hero-packages-family.webp') 78% center / cover no-repeat, #f3f7fb; }
+}
